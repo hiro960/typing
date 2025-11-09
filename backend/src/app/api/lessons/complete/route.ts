@@ -13,7 +13,7 @@ const COOL_DOWN_MS = 10 * 60 * 1000;
 
 export async function POST(request: NextRequest) {
   try {
-    const user = requireAuthUser(request);
+    const user = await requireAuthUser(request);
     const body = await request.json();
 
     const { lessonId, wpm, accuracy, timeSpent, device, mode } = body;
@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    const lastCompletion = getLatestLessonCompletion(user.id, lessonId);
+    const lastCompletion = await getLatestLessonCompletion(user.id, lessonId);
     if (lastCompletion) {
       const diff =
         Date.now() - new Date(lastCompletion.completedAt).getTime();
@@ -67,7 +67,7 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    const completion = recordLessonCompletion({
+    const completion = await recordLessonCompletion({
       lessonId,
       userId: user.id,
       wpm,
@@ -77,7 +77,13 @@ export async function POST(request: NextRequest) {
       mode: mode ?? "standard",
     });
 
-    return NextResponse.json(completion, { status: 201 });
+    return NextResponse.json(
+      {
+        ...completion,
+        completedAt: completion.completedAt.toISOString(),
+      },
+      { status: 201 }
+    );
   } catch (error) {
     return handleRouteError(error);
   }

@@ -4,10 +4,11 @@ import { handleRouteError, ERROR } from "@/lib/errors";
 
 export async function GET(
   _request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const lesson = getLessonById(params.id);
+    const { id } = await params;
+    const lesson = await getLessonById(id);
     if (!lesson) {
       throw ERROR.NOT_FOUND("Lesson not found");
     }

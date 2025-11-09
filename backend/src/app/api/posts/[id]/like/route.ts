@@ -5,15 +5,16 @@ import { handleRouteError, ERROR } from "@/lib/errors";
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const user = requireAuthUser(request);
-    const post = getPostById(params.id);
+    const { id } = await params;
+    const user = await requireAuthUser(request);
+    const post = await getPostById(id);
     if (!post) {
       throw ERROR.NOT_FOUND("Post not found");
     }
-    const updated = addLike(post.id, user.id);
+    const updated = await addLike(post.id, user.id);
     return NextResponse.json({
       likesCount: updated.likesCount,
       liked: true,
@@ -25,15 +26,16 @@ export async function POST(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const user = requireAuthUser(request);
-    const post = getPostById(params.id);
+    const { id } = await params;
+    const user = await requireAuthUser(request);
+    const post = await getPostById(id);
     if (!post) {
       throw ERROR.NOT_FOUND("Post not found");
     }
-    const updated = removeLike(post.id, user.id);
+    const updated = await removeLike(post.id, user.id);
     return NextResponse.json({
       likesCount: updated.likesCount,
       liked: false,

@@ -7,10 +7,11 @@ const RANGES: UserStatsRange[] = ["weekly", "monthly", "all"];
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const user = findUserById(params.id);
+    const { id } = await params;
+    const user = await findUserById(id);
     if (!user) {
       throw ERROR.NOT_FOUND("User not found");
     }
@@ -24,7 +25,7 @@ export async function GET(
       });
     }
 
-    const stats = getUserStats(user.id, range);
+    const stats = await getUserStats(user.id, range);
     return NextResponse.json(stats);
   } catch (error) {
     return handleRouteError(error);

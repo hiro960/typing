@@ -1,0 +1,140 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                      String    @id @default(cuid())
+  auth0UserId             String    @unique
+  username                String    @unique
+  displayName             String
+  email                   String    @unique
+  profileImageUrl         String?
+  bio                     String?
+  learningLevel           String    @default("beginner")
+  totalLessonsCompleted   Int       @default(0)
+  totalPracticeTime       Int       @default(0)
+  maxWPM                  Int       @default(0)
+  maxAccuracy             Float     @default(0)
+  followersCount          Int       @default(0)
+  followingCount          Int       @default(0)
+  postsCount              Int       @default(0)
+  settings                Json?     // ユーザー設定（通知、表示、タイピング、プライバシー）
+  createdAt               DateTime  @default(now())
+  updatedAt               DateTime  @updatedAt
+  lastLoginAt             DateTime?
+  isActive                Boolean   @default(true)
+  isBanned                Boolean   @default(false)
+
+  posts                   Post[]
+  comments                Comment[]
+  likes                   Like[]
+  following               Follow[]  @relation("Following")
+  followers               Follow[]  @relation("Followers")
+  lessonCompletions       LessonCompletion[]
+
+  @@index([username])
+  @@index([email])
+  @@index([auth0UserId])
+}
+
+model Post {
+  id          String    @id @default(cuid())
+  content     String
+  imageUrls   String[]
+  tags        String[]  @default([])
+  shareToDiary Boolean  @default(true)
+  visibility  String    @default("public")
+  userId      String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  likesCount  Int       @default(0)
+  commentsCount Int     @default(0)
+
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  comments    Comment[]
+  likes       Like[]
+
+  @@index([userId])
+  @@index([createdAt])
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  content   String
+  postId    String
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([postId])
+  @@index([userId])
+}
+
+model Like {
+  id        String   @id @default(cuid())
+  postId    String
+  userId    String
+  createdAt DateTime @default(now())
+
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, userId])
+  @@index([userId])
+}
+
+model Follow {
+  id          String   @id @default(cuid())
+  followerId  String
+  followingId String
+  createdAt   DateTime @default(now())
+
+  follower    User     @relation("Following", fields: [followerId], references: [id], onDelete: Cascade)
+  following   User     @relation("Followers", fields: [followingId], references: [id], onDelete: Cascade)
+
+  @@unique([followerId, followingId])
+  @@index([followerId])
+  @@index([followingId])
+}
+
+model Lesson {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  level       String
+  order       Int
+  content     Json
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  completions LessonCompletion[]
+
+  @@index([level])
+  @@index([order])
+}
+
+model LessonCompletion {
+  id          String   @id @default(cuid())
+  lessonId    String
+  userId      String
+  wpm         Int
+  accuracy    Float
+  timeSpent   Int
+  completedAt DateTime @default(now())
+
+  lesson      Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([lessonId])
+  @@index([userId])
+  @@index([completedAt])
+}

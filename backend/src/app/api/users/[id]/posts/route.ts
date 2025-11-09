@@ -1,25 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
 import { handleRouteError, ERROR } from "@/lib/errors";
-import {
-  canViewPost,
-  db,
-  toPostResponse,
-  findUserById,
-} from "@/lib/store";
+import { toPostResponse, findUserById, isFollowingUser } from "@/lib/store";
 import { paginateArray, parseLimit } from "@/lib/pagination";
 import { getAuthUser } from "@/lib/auth";
+import prisma from "@/lib/prisma";
+import { Prisma } from "@prisma/client";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const targetUser = findUserById(params.id);
+    const { id } = await params;
+    const targetUser = await findUserById(id);
     if (!targetUser) {
       throw ERROR.NOT_FOUND("User not found");
     }
 
-    const viewer = getAuthUser(request);
+    const viewer = await getAuthUser(request);
     const viewerId = viewer?.id;
 
     const { searchParams } = request.nextUrl;
@@ -41,27 +39,38 @@ export async function GET(
       throw ERROR.FORBIDDEN("Cannot filter visibility for other users");
     }
 
-    let posts = db.posts
-      .filter((post) => post.userId === targetUser.id)
-      .filter((post) => canViewPost(post, viewerId));
+    const postWhere: Prisma.PostWhereInput = {
+      userId: targetUser.id,
+      ...(visibility ? { visibility } : {}),
+    };
 
-    if (visibility) {
-      posts = posts.filter((post) => post.visibility === visibility);
-    }
+    const posts = await prisma.post.findMany({
+      where: postWhere,
+      orderBy: { createdAt: "desc" },
+      include: { user: true },
+    });
 
-    posts.sort(
-      (a, b) =>
-        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-    );
+    const isOwner = viewerId === targetUser.id;
+    const isFollower =
+      !isOwner && viewerId ? await isFollowingUser(viewerId, targetUser.id) : false;
 
-    const paginated = paginateArray(posts, {
+    const visiblePosts = posts.filter((post) => {
+      if (post.visibility === "public") return true;
+      if (post.visibility === "private") return isOwner;
+      if (post.visibility === "followers") return isOwner || isFollower;
+      return false;
+    });
+
+    const paginated = paginateArray(visiblePosts, {
       cursor,
       limit,
       getCursor: (post) => post.id,
     });
 
     return NextResponse.json({
-      data: paginated.data.map((post) => toPostResponse(post, viewerId)),
+      data: await Promise.all(
+        paginated.data.map((post) => toPostResponse(post, viewerId))
+      ),
       pageInfo: paginated.pageInfo,
     });
   } catch (error) {

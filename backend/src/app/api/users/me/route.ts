@@ -4,7 +4,7 @@ import { handleRouteError } from "@/lib/errors";
 
 export async function GET(request: NextRequest) {
   try {
-    const user = requireAuthUser(request);
+    const user = await requireAuthUser(request);
     return NextResponse.json(user);
   } catch (error) {
     return handleRouteError(error);

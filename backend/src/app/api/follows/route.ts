@@ -5,14 +5,14 @@ import { handleRouteError, ERROR } from "@/lib/errors";
 
 export async function POST(request: NextRequest) {
   try {
-    const user = requireAuthUser(request);
+    const user = await requireAuthUser(request);
     const body = await request.json();
 
     if (!body.userId || typeof body.userId !== "string") {
       throw ERROR.INVALID_INPUT("userId is required", { field: "userId" });
     }
 
-    const follow = addFollow(user.id, body.userId);
+    const follow = await addFollow(user.id, body.userId);
     return NextResponse.json(
       {
         followerId: follow.followerId,

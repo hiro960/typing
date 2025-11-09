@@ -1,28 +1,34 @@
 import { NextRequest, NextResponse } from "next/server";
 import { handleRouteError, ERROR } from "@/lib/errors";
-import {
-  db,
-  toPostResponse,
-  canViewPost,
-  createPost,
-  findUserById,
-} from "@/lib/store";
+import { toPostResponse, createPost, isFollowingUser } from "@/lib/store";
 import { getAuthUser, requireAuthUser } from "@/lib/auth";
-import { paginateArray, parseLimit } from "@/lib/pagination";
 import { Visibility } from "@/lib/types";
+import prisma from "@/lib/prisma";
+import { Prisma } from "@prisma/client";
 
 const VISIBILITIES: Visibility[] = ["public", "followers", "private"];
 
 export async function GET(request: NextRequest) {
   try {
-    const viewer = getAuthUser(request);
+    const viewer = await getAuthUser(request);
     const viewerId = viewer?.id;
 
     const { searchParams } = request.nextUrl;
     const feed = (searchParams.get("feed") ?? "forYou").toLowerCase();
     const cursor = searchParams.get("cursor");
-    const limit = parseLimit(searchParams.get("limit"), 20, 1, 50);
-    const hashtag = searchParams.get("hashtag")?.toLowerCase();
+
+    const limitParam = searchParams.get("limit");
+    let limit = 20;
+    if (limitParam !== null) {
+      const parsed = Number.parseInt(limitParam, 10);
+      if (Number.isNaN(parsed) || parsed < 1 || parsed > 100) {
+        throw ERROR.INVALID_INPUT("limit must be between 1 and 100", {
+          field: "limit",
+        });
+      }
+      limit = parsed;
+    }
+    const hashtag = searchParams.get("hashtag");
     const userId = searchParams.get("userId");
 
     if (!["foryou", "following", "popular"].includes(feed)) {
@@ -31,66 +37,105 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    let posts = db.posts.filter((post) => canViewPost(post, viewerId));
+    const where: Prisma.PostWhereInput = {};
+    let orderBy: Prisma.PostOrderByWithRelationInput[] = [{ createdAt: "desc" }];
 
     if (userId) {
-      const user = findUserById(userId);
+      const user = await prisma.user.findUnique({ where: { id: userId } });
       if (!user) {
         throw ERROR.NOT_FOUND("User not found");
       }
-      posts = posts.filter((post) => post.userId === user.id);
+      where.userId = userId;
     }
 
     if (hashtag) {
-      posts = posts.filter((post) =>
-        post.tags.some((tag) => tag.toLowerCase().includes(hashtag))
-      );
+      const normalized = hashtag.startsWith("#") ? hashtag : `#${hashtag}`;
+      where.tags = { has: normalized };
     }
 
     if (feed === "following") {
       if (!viewerId) {
         throw ERROR.UNAUTHORIZED("Following feed requires authentication");
       }
-      const followingIds = db.follows
-        .filter((follow) => follow.followerId === viewerId)
-        .map((follow) => follow.followingId);
-      posts = posts.filter(
-        (post) => post.userId === viewerId || followingIds.includes(post.userId)
-      );
-    } else if (feed === "popular") {
-      posts.sort((a, b) => {
-        if (b.likesCount === a.likesCount) {
-          return (
-            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-          );
-        }
-        return b.likesCount - a.likesCount;
+      const following = await prisma.follow.findMany({
+        where: { followerId: viewerId },
+        select: { followingId: true },
       });
-    } else {
-      posts.sort(
-        (a, b) =>
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-      );
+      const ids = following.map((item) => item.followingId);
+      ids.push(viewerId);
+      if (ids.length === 0) {
+        return NextResponse.json({
+          data: [],
+          pageInfo: { nextCursor: null, hasNextPage: false, count: 0 },
+        });
+      }
+      where.userId = { in: ids };
+    } else if (feed === "popular") {
+      orderBy = [
+        { likesCount: "desc" },
+        { createdAt: "desc" },
+      ];
     }
 
-    const paginated = paginateArray(posts, {
-      cursor,
-      limit,
-      getCursor: (post) => post.id,
-    });
+    const posts =
+      (await prisma.post.findMany({
+        where,
+        include: { user: true },
+        orderBy,
+        take: limit + 1,
+        ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
+      })) ?? [];
+
+    const followCache = new Map<string, boolean>();
+    const visible: typeof posts = [];
+    for (const post of posts) {
+      if (await canAccessPost(post, viewerId, followCache)) {
+        visible.push(post);
+      }
+    }
+
+    const hasNextPage = visible.length > limit;
+    const nodes = hasNextPage ? visible.slice(0, limit) : visible;
+    const nextCursor = hasNextPage ? nodes[nodes.length - 1]?.id ?? null : null;
+
+    const data = await Promise.all(nodes.map((post) => toPostResponse(post, viewerId)));
 
     return NextResponse.json({
-      data: paginated.data.map((post) => toPostResponse(post, viewerId)),
-      pageInfo: paginated.pageInfo,
+      data,
+      pageInfo: {
+        nextCursor,
+        hasNextPage,
+        count: nodes.length,
+      },
     });
   } catch (error) {
     return handleRouteError(error);
   }
 }
 
+async function canAccessPost(
+  post: Prisma.PostGetPayload<{ include: { user: true } }>,
+  viewerId?: string,
+  cache?: Map<string, boolean>
+) {
+  if (post.visibility === "public") return true;
+  if (!viewerId) return false;
+  if (post.userId === viewerId) return true;
+  if (post.visibility === "followers") {
+    if (!cache) {
+      return isFollowingUser(viewerId, post.userId);
+    }
+    if (!cache.has(post.userId)) {
+      cache.set(post.userId, await isFollowingUser(viewerId, post.userId));
+    }
+    return cache.get(post.userId) ?? false;
+  }
+  return false;
+}
+
 export async function POST(request: NextRequest) {
   try {
-    const user = requireAuthUser(request);
+    const user = await requireAuthUser(request);
     const body = await request.json();
     const {
       content,
@@ -152,7 +197,7 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    const post = createPost({
+    const post = await createPost({
       userId: user.id,
       content: content.trim(),
       imageUrls,
@@ -161,7 +206,8 @@ export async function POST(request: NextRequest) {
       shareToDiary,
     });
 
-    return NextResponse.json(toPostResponse(post, user.id), { status: 201 });
+    const response = await toPostResponse(post, user.id);
+    return NextResponse.json(response, { status: 201 });
   } catch (error) {
     return handleRouteError(error);
   }

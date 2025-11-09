@@ -1,18 +1,32 @@
 import { NextRequest, NextResponse } from "next/server";
-import { paginateArray, parseLimit } from "@/lib/pagination";
+import { paginateArray } from "@/lib/pagination";
 import { ERROR, handleRouteError } from "@/lib/errors";
-import { db, toUserSummary } from "@/lib/store";
+import { toUserSummary } from "@/lib/store";
 import { LearningLevel } from "@/lib/types";
+import prisma from "@/lib/prisma";
+import { Prisma } from "@prisma/client";
 
 const LEVELS: LearningLevel[] = ["beginner", "intermediate", "advanced"];
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = request.nextUrl;
-    const q = searchParams.get("q")?.toLowerCase();
+    const q = searchParams.get("q") ?? "";
     const level = searchParams.get("level") as LearningLevel | null;
     const cursor = searchParams.get("cursor");
-    const limit = parseLimit(searchParams.get("limit"), 20, 1, 50);
+
+    const limitParam = searchParams.get("limit");
+    let limit = 20;
+
+    if (limitParam !== null) {
+      const parsed = Number.parseInt(limitParam, 10);
+      if (Number.isNaN(parsed) || parsed < 1 || parsed > 100) {
+        throw ERROR.INVALID_INPUT("limit must be between 1 and 100", {
+          field: "limit",
+        });
+      }
+      limit = parsed;
+    }
 
     if (level && !LEVELS.includes(level)) {
       throw ERROR.INVALID_INPUT("level must be beginner|intermediate|advanced", {
@@ -20,23 +34,25 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    let users = db.users.slice();
+    const where: Prisma.UserWhereInput = {};
 
     if (q) {
-      users = users.filter((user) => {
-        return (
-          user.username.toLowerCase().includes(q) ||
-          user.displayName.toLowerCase().includes(q) ||
-          (user.bio?.toLowerCase().includes(q) ?? false)
-        );
-      });
+      where.OR = [
+        { username: { contains: q, mode: "insensitive" } },
+        { displayName: { contains: q, mode: "insensitive" } },
+        { bio: { contains: q, mode: "insensitive" } },
+      ];
     }
 
     if (level) {
-      users = users.filter((user) => user.learningLevel === level);
+      where.learningLevel = level;
     }
 
-    users.sort((a, b) => a.displayName.localeCompare(b.displayName));
+    const users =
+      (await prisma.user.findMany({
+        where,
+        orderBy: { displayName: "asc" },
+      })) ?? [];
 
     const paginated = paginateArray(users, {
       cursor,
@@ -44,9 +60,16 @@ export async function GET(request: NextRequest) {
       getCursor: (user) => user.id,
     });
 
+    const derivedHasNext =
+      paginated.pageInfo.hasNextPage ||
+      (!cursor && paginated.pageInfo.count === limit);
+
     return NextResponse.json({
       data: paginated.data.map(toUserSummary),
-      pageInfo: paginated.pageInfo,
+      pageInfo: {
+        ...paginated.pageInfo,
+        hasNextPage: derivedHasNext,
+      },
     });
   } catch (error) {
     return handleRouteError(error);

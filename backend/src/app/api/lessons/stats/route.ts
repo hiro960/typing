@@ -9,7 +9,7 @@ const LEVELS: LearningLevel[] = ["beginner", "intermediate", "advanced"];
 
 export async function GET(request: NextRequest) {
   try {
-    const user = requireAuthUser(request);
+    const user = await requireAuthUser(request);
     const { searchParams } = request.nextUrl;
     const range = (searchParams.get("range") ?? "weekly") as LessonStatsRange;
     const level = searchParams.get("level") as LearningLevel | null;
@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    const stats = getLessonStats(user.id, range, level ?? undefined);
+    const stats = await getLessonStats(user.id, range, level ?? undefined);
     return NextResponse.json(stats);
   } catch (error) {
     return handleRouteError(error);

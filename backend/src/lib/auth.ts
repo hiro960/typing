@@ -19,16 +19,17 @@ function extractToken(request: NextRequest) {
   return token ?? null;
 }
 
-export function getAuthUser(request: NextRequest): UserDetail | null {
+export async function getAuthUser(request: NextRequest): Promise<UserDetail | null> {
   const token = extractToken(request);
   if (!token) return null;
   const userId = TOKEN_TO_USER[token];
   if (!userId) return null;
-  return findUserById(userId) ?? null;
+  const user = await findUserById(userId);
+  return user ?? null;
 }
 
-export function requireAuthUser(request: NextRequest) {
-  const user = getAuthUser(request);
+export async function requireAuthUser(request: NextRequest) {
+  const user = await getAuthUser(request);
   if (!user) {
     throw ERROR.UNAUTHORIZED("Missing or invalid access token");
   }

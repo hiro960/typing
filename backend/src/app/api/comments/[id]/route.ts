@@ -9,16 +9,17 @@ import { ERROR, handleRouteError } from "@/lib/errors";
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const user = requireAuthUser(request);
-    const comment = findCommentById(params.id);
+    const { id } = await params;
+    const user = await requireAuthUser(request);
+    const comment = await findCommentById(id);
     if (!comment) {
       throw ERROR.NOT_FOUND("Comment not found");
     }
 
-    const post = getPostById(comment.postId);
+    const post = await getPostById(comment.postId);
     if (!post) {
       throw ERROR.NOT_FOUND("Post not found");
     }
@@ -27,7 +28,7 @@ export async function DELETE(
       throw ERROR.FORBIDDEN("You cannot delete this comment");
     }
 
-    removeComment(comment.id);
+    await removeComment(comment.id);
     return new Response(null, { status: 204 });
   } catch (error) {
     return handleRouteError(error);

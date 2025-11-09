@@ -5,6 +5,7 @@ export type DeviceType = "ios" | "android" | "web";
 export type FeedType = "forYou" | "following" | "popular";
 export type UserStatsRange = "weekly" | "monthly" | "all";
 export type LessonStatsRange = "daily" | "weekly" | "monthly";
+export type ISODateTime = string | Date;
 
 export interface UserSettings {
   notifications: {
@@ -44,9 +45,9 @@ export interface UserDetail extends Omit<UserSummary, "settings"> {
   totalPracticeTime: number;
   maxWPM: number;
   maxAccuracy: number;
-  lastLoginAt?: string | null;
-  createdAt: string;
-  updatedAt: string;
+  lastLoginAt?: ISODateTime | null;
+  createdAt: ISODateTime;
+  updatedAt: ISODateTime;
   isActive: boolean;
   isBanned: boolean;
   settings: UserSettings;
@@ -56,14 +57,14 @@ export interface PostRecord {
   id: string;
   content: string;
   imageUrls: string[];
-  visibility: Visibility;
-  userId: string;
-  createdAt: string;
-  updatedAt: string;
-  likesCount: number;
-  commentsCount: number;
   tags: string[];
   shareToDiary: boolean;
+  visibility: Visibility;
+  userId: string;
+  createdAt: ISODateTime;
+  updatedAt: ISODateTime;
+  likesCount: number;
+  commentsCount: number;
 }
 
 export interface PostResponse extends Omit<PostRecord, "userId"> {
@@ -77,8 +78,8 @@ export interface CommentRecord {
   content: string;
   postId: string;
   userId: string;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: ISODateTime;
+  updatedAt: ISODateTime;
 }
 
 export interface CommentResponse extends Omit<CommentRecord, "userId"> {
@@ -93,8 +94,8 @@ export interface Lesson {
   level: LearningLevel;
   order: number;
   content: Record<string, unknown>;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: ISODateTime;
+  updatedAt: ISODateTime;
 }
 
 export interface LessonCompletion {
@@ -106,21 +107,21 @@ export interface LessonCompletion {
   timeSpent: number;
   device: DeviceType;
   mode: LessonMode;
-  completedAt: string;
+  completedAt: ISODateTime;
 }
 
 export interface Follow {
   id: string;
   followerId: string;
   followingId: string;
-  createdAt: string;
+  createdAt: ISODateTime;
 }
 
 export interface Like {
   id: string;
   postId: string;
   userId: string;
-  createdAt: string;
+  createdAt: ISODateTime;
 }
 
 export interface PageInfo {

@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAuthUser } from "@/lib/auth";
-import { db, findUserById, toUserSummary } from "@/lib/store";
+import { findUserById, toUserSummary } from "@/lib/store";
 import { ERROR, handleRouteError } from "@/lib/errors";
 import { paginateArray, parseLimit } from "@/lib/pagination";
-import { UserSummary } from "@/lib/types";
+import prisma from "@/lib/prisma";
 
 export async function GET(request: NextRequest) {
   try {
@@ -11,35 +11,25 @@ export async function GET(request: NextRequest) {
     const cursor = searchParams.get("cursor");
     const limit = parseLimit(searchParams.get("limit"), 20, 1, 50);
 
-    const targetUserId =
-      searchParams.get("userId") ?? requireAuthUser(request).id;
+    const authUser = await requireAuthUser(request);
+    const targetUserId = searchParams.get("userId") ?? authUser.id;
 
-    const targetUser = findUserById(targetUserId);
+    const targetUser = await findUserById(targetUserId);
     if (!targetUser) {
       throw ERROR.NOT_FOUND("User not found");
     }
 
-    const entries = db.follows
-      .filter((follow) => follow.followerId === targetUser.id)
-      .sort(
-        (a, b) =>
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-      )
-      .map((follow) => {
-        const user = findUserById(follow.followingId);
-        if (!user) return null;
-        return {
-          user: toUserSummary(user),
-          followedAt: follow.createdAt,
-          cursor: `${follow.createdAt}:${user.id}`,
-        };
-      })
-      .filter(
-        (
-          item
-        ): item is { user: UserSummary; followedAt: string; cursor: string } =>
-          !!item
-      );
+    const follows = await prisma.follow.findMany({
+      where: { followerId: targetUser.id },
+      include: { following: true },
+      orderBy: { createdAt: "desc" },
+    });
+
+    const entries = follows.map((follow) => ({
+      user: toUserSummary(follow.following),
+      followedAt: follow.createdAt,
+      cursor: `${follow.createdAt.toISOString()}:${follow.followingId}`,
+    }));
 
     const paginated = paginateArray(entries, {
       cursor,

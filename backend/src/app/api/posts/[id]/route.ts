@@ -8,26 +8,27 @@ import {
   updatePost,
 } from "@/lib/store";
 import { handleRouteError, ERROR } from "@/lib/errors";
-import { Visibility } from "@/lib/types";
+import { PostRecord, Visibility } from "@/lib/types";
 
 const VISIBILITIES: Visibility[] = ["public", "followers", "private"];
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const post = getPostById(params.id);
+    const { id } = await params;
+    const post = await getPostById(id);
     if (!post) {
       throw ERROR.NOT_FOUND("Post not found");
     }
 
-    const viewer = getAuthUser(request);
-    if (!canViewPost(post, viewer?.id)) {
+    const viewer = await getAuthUser(request);
+    if (!(await canViewPost(post, viewer?.id))) {
       throw ERROR.FORBIDDEN("You are not allowed to view this post");
     }
 
-    return NextResponse.json(toPostResponse(post, viewer?.id));
+    return NextResponse.json(await toPostResponse(post, viewer?.id));
   } catch (error) {
     return handleRouteError(error);
   }
@@ -35,11 +36,12 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const user = requireAuthUser(request);
-    const post = getPostById(params.id);
+    const { id } = await params;
+    const user = await requireAuthUser(request);
+    const post = await getPostById(id);
     if (!post) {
       throw ERROR.NOT_FOUND("Post not found");
     }
@@ -49,7 +51,7 @@ export async function PUT(
     }
 
     const body = await request.json();
-    const updates: Partial<typeof post> = {};
+    const updates: Partial<PostRecord> = {};
 
     if (typeof body.content !== "undefined") {
       if (typeof body.content !== "string" || body.content.trim().length === 0) {
@@ -87,7 +89,7 @@ export async function PUT(
           field: "visibility",
         });
       }
-      updates.visibility = body.visibility;
+      updates.visibility = body.visibility as Visibility;
     }
 
     if (typeof body.tags !== "undefined") {
@@ -113,8 +115,8 @@ export async function PUT(
       updates.shareToDiary = body.shareToDiary;
     }
 
-    const updated = updatePost(post.id, updates);
-    return NextResponse.json(toPostResponse(updated, user.id));
+    const updated = await updatePost(id, updates);
+    return NextResponse.json(await toPostResponse(updated, user.id));
   } catch (error) {
     return handleRouteError(error);
   }
@@ -122,18 +124,19 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const user = requireAuthUser(request);
-    const post = getPostById(params.id);
+    const { id } = await params;
+    const user = await requireAuthUser(request);
+    const post = await getPostById(id);
     if (!post) {
       throw ERROR.NOT_FOUND("Post not found");
     }
     if (post.userId !== user.id) {
       throw ERROR.FORBIDDEN("You can only delete your own posts");
     }
-    deletePost(post.id);
+    await deletePost(id);
     return new NextResponse(null, { status: 204 });
   } catch (error) {
     return handleRouteError(error);

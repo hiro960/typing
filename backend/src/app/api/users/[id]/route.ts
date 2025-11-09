@@ -83,10 +83,11 @@ function validateSettings(settings: Partial<UserSettings>) {
 
 export async function GET(
   _request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const user = findUserById(params.id);
+    const { id } = await params;
+    const user = await findUserById(id);
     if (!user) {
       throw ERROR.NOT_FOUND("User not found");
     }
@@ -99,11 +100,12 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const authUser = requireAuthUser(request);
-    assertSameUser(authUser.id, params.id);
+    const { id } = await params;
+    const authUser = await requireAuthUser(request);
+    assertSameUser(authUser.id, id);
 
     const payload = await request.json();
     const { displayName, bio, learningLevel, settings } = payload;
@@ -140,7 +142,7 @@ export async function PUT(
       validateSettings(settings);
     }
 
-    const updated = updateUserProfile(params.id, {
+    const updated = await updateUserProfile(id, {
       displayName,
       bio,
       learningLevel,

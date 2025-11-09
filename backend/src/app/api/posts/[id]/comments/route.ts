@@ -12,16 +12,17 @@ import { paginateArray, parseLimit } from "@/lib/pagination";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const post = getPostById(params.id);
+    const { id } = await params;
+    const post = await getPostById(id);
     if (!post) {
       throw ERROR.NOT_FOUND("Post not found");
     }
 
-    const viewer = getAuthUser(request);
-    if (!canViewPost(post, viewer?.id)) {
+    const viewer = await getAuthUser(request);
+    if (!(await canViewPost(post, viewer?.id))) {
       throw ERROR.FORBIDDEN("You are not allowed to view this post");
     }
 
@@ -29,10 +30,7 @@ export async function GET(
     const cursor = searchParams.get("cursor");
     const limit = parseLimit(searchParams.get("limit"), 20, 1, 50);
 
-    const comments = listComments(post.id).sort(
-      (a, b) =>
-        new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
-    );
+    const comments = await listComments(post.id);
 
     const paginated = paginateArray(comments, {
       cursor,
@@ -51,16 +49,17 @@ export async function GET(
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const user = requireAuthUser(request);
-    const post = getPostById(params.id);
+    const { id } = await params;
+    const user = await requireAuthUser(request);
+    const post = await getPostById(id);
     if (!post) {
       throw ERROR.NOT_FOUND("Post not found");
     }
 
-    if (!canViewPost(post, user.id)) {
+    if (!(await canViewPost(post, user.id))) {
       throw ERROR.FORBIDDEN("You cannot comment on this post");
     }
 
@@ -74,7 +73,7 @@ export async function POST(
       });
     }
 
-    const comment = addComment(post.id, user.id, body.content.trim());
+    const comment = await addComment(post.id, user.id, body.content.trim());
     return NextResponse.json(toCommentResponse(comment), { status: 201 });
   } catch (error) {
     return handleRouteError(error);

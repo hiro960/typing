@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: korean-typing-db
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-korean_typing_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-korean_typing_password}
+      POSTGRES_DB: ${POSTGRES_DB:-korean_typing_db}
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --locale=C"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/postgres/init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-korean_typing_user} -d ${POSTGRES_DB:-korean_typing_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - korean-typing-network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  korean-typing-network:
+    driver: bridge

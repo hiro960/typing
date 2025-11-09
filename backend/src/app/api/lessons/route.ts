@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
       throw ERROR.INVALID_INPUT("order must be asc|desc", { field: "order" });
     }
 
-    let lessons = listLessons();
+    let lessons = await listLessons();
     if (level) {
       lessons = lessons.filter((lesson) => lesson.level === level);
     }
