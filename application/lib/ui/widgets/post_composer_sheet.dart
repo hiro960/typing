@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../mock/mock_data.dart';
 
 class PostComposerSheet extends StatelessWidget {
   const PostComposerSheet({super.key});

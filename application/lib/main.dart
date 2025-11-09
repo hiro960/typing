@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:forui/forui.dart';
 
 import 'ui/app_theme.dart';
-import 'ui/shell/app_shell.dart';
+import 'ui/screens/onboarding_screen.dart';
 
 void main() {
   runApp(const TypingApp());
@@ -23,7 +23,7 @@ class TypingApp extends StatelessWidget {
       supportedLocales: FLocalizations.supportedLocales,
       builder: (context, child) =>
           FTheme(data: AppTheme.foruiDark(), child: child!),
-      home: const AppShell(),
+      home: const OnboardingScreen(),
     );
   }
 }

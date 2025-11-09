@@ -4,7 +4,9 @@ import 'package:forui/forui.dart';
 import '../../mock/mock_data.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+  const ProfileScreen({super.key, required this.onOpenSettings});
+
+  final VoidCallback onOpenSettings;
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +21,8 @@ class ProfileScreen extends StatelessWidget {
               title: Text('👤 プロフィール', style: theme.textTheme.headlineSmall),
               suffixes: [
                 FHeaderAction(
-                  icon: const Icon(Icons.more_horiz),
-                  onPress: () {},
+                  icon: const Icon(Icons.settings_outlined),
+                  onPress: onOpenSettings,
                 ),
               ],
             ),

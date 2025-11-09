@@ -6,6 +6,7 @@ import '../screens/diary_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/notifications_screen.dart';
 import '../screens/profile_screen.dart';
+import '../screens/settings_screen.dart';
 import '../screens/typing_lesson_screen.dart';
 import '../widgets/post_composer_sheet.dart';
 
@@ -38,6 +39,12 @@ class _AppShellState extends State<AppShell> {
     );
   }
 
+  void _openSettings() {
+    Navigator.of(
+      context,
+    ).push(MaterialPageRoute<void>(builder: (_) => const SettingsScreen()));
+  }
+
   void _onDestinationSelected(int index) {
     if (index == 2) {
       _openPostComposer();
@@ -49,11 +56,14 @@ class _AppShellState extends State<AppShell> {
   @override
   Widget build(BuildContext context) {
     final screens = <Widget>[
-      HomeScreen(onStartLesson: _openTypingLesson),
+      HomeScreen(
+        onStartLesson: _openTypingLesson,
+        onOpenSettings: _openSettings,
+      ),
       DiaryScreen(onCompose: _openPostComposer),
       const SizedBox.shrink(),
       const NotificationsScreen(),
-      const ProfileScreen(),
+      ProfileScreen(onOpenSettings: _openSettings),
     ];
 
     return FScaffold(

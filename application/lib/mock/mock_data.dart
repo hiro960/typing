@@ -162,7 +162,7 @@ const statTiles = <StatTileData>[
   StatTileData(
     label: '継続日数',
     value: '24日',
-    caption: 'ストリーク継続中',
+    caption: '自己ベスト',
     icon: Icons.local_fire_department_outlined,
   ),
 ];

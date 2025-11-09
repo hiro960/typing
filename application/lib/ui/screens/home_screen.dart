@@ -5,9 +5,14 @@ import '../../mock/mock_data.dart';
 import '../app_theme.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, required this.onStartLesson});
+  const HomeScreen({
+    super.key,
+    required this.onStartLesson,
+    required this.onOpenSettings,
+  });
 
   final void Function(LessonInfo lesson) onStartLesson;
+  final VoidCallback onOpenSettings;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -78,26 +83,17 @@ class _HomeScreenState extends State<HomeScreen> {
                             '안녕하세요, Hana',
                             style: theme.textTheme.headlineSmall,
                           ),
-                          const SizedBox(height: 4),
-                          Text(
-                            '今日も 8 分でウォームアップしましょう',
-                            style: theme.textTheme.bodyMedium?.copyWith(
-                              color: theme.colorScheme.onSurface.withValues(
-                                alpha: 0.6,
-                              ),
-                            ),
-                          ),
                         ],
                       ),
                       suffixes: [
                         FHeaderAction(
                           icon: const Icon(Icons.settings_outlined),
-                          onPress: () {},
+                          onPress: widget.onOpenSettings,
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20),
-                    const _ProgressCard(),
+                    const SizedBox(height: 24),
+                    const _StreakRow(),
                     const SizedBox(height: 20),
                     const _StatHighlights(),
                     const SizedBox(height: 24),
@@ -109,91 +105,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       onStartLesson: _startOutline,
                     ),
                     const SizedBox(height: 24),
-                    const _StreakRow(),
-                    const SizedBox(height: 24),
                     const _QuickActions(),
-                    const SizedBox(height: 24),
-                    _FocusedPracticeCard(onStartLesson: widget.onStartLesson),
                   ],
                 ),
               ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _ProgressCard extends StatelessWidget {
-  const _ProgressCard();
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return FCard.raw(
-      style: (style) => style.copyWith(
-        decoration: style.decoration.copyWith(
-          gradient: const LinearGradient(
-            colors: [AppColors.accentStart, AppColors.accentEnd],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          boxShadow: const [
-            BoxShadow(
-              color: Color(0x663A8DFF),
-              blurRadius: 24,
-              offset: Offset(0, 12),
-            ),
-          ],
-          border: null,
-          color: null,
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              '今日の目標',
-              style: theme.textTheme.titleMedium?.copyWith(color: Colors.white),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              '15分のフロー練習',
-              style: theme.textTheme.headlineSmall?.copyWith(
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(height: 16),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(100),
-              child: const LinearProgressIndicator(
-                value: 0.58,
-                minHeight: 10,
-                backgroundColor: Color.fromARGB(51, 255, 255, 255),
-                valueColor: AlwaysStoppedAnimation(Colors.white),
-              ),
-            ),
-            const SizedBox(height: 12),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  '8分経過',
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: Colors.white70,
-                  ),
-                ),
-                Text(
-                  '残り 7分',
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
             ),
           ],
         ),
@@ -737,75 +652,6 @@ class _QuickActionCard extends StatelessWidget {
               style: FButtonStyle.secondary(),
               suffix: const Icon(Icons.chevron_right),
               child: Text(data.ctaLabel),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _FocusedPracticeCard extends StatelessWidget {
-  const _FocusedPracticeCard({required this.onStartLesson});
-
-  final void Function(LessonInfo lesson) onStartLesson;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final focusLesson = mockLessons.first;
-    return FCard.raw(
-      style: (style) => style.copyWith(
-        decoration: style.decoration.copyWith(
-          gradient: const LinearGradient(
-            colors: [Color(0xFF0F172A), Color(0xFF112344)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          border: null,
-          color: null,
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Icon(Icons.psychology_alt_outlined, color: AppColors.secondary),
-                const SizedBox(width: 8),
-                Text('フォーカス練習', style: theme.textTheme.titleMedium),
-              ],
-            ),
-            const SizedBox(height: 8),
-            Text(
-              '${focusLesson.title} を復習して手癖を整えましょう。',
-              style: theme.textTheme.bodyMedium?.copyWith(
-                color: theme.colorScheme.onSurface.withValues(alpha: 0.8),
-              ),
-            ),
-            const SizedBox(height: 16),
-            Wrap(
-              spacing: 12,
-              runSpacing: 8,
-              children: [
-                _MetaPill(
-                  icon: Icons.schedule,
-                  label: '${focusLesson.durationMinutes}分',
-                  color: AppColors.secondary,
-                ),
-                _MetaPill(
-                  icon: Icons.star,
-                  label: '${focusLesson.xp} XP',
-                  color: AppColors.secondary,
-                ),
-              ],
-            ),
-            const SizedBox(height: 18),
-            FButton(
-              onPress: () => onStartLesson(focusLesson),
-              child: const Text('すぐに開始'),
             ),
           ],
         ),
