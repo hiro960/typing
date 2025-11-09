@@ -13,48 +13,88 @@ Flutterクライアントと Next.js バックエンド間の REST API 仕様。
 - **日付形式**: ISO 8601（UTC、例: `2024-03-01T12:34:56.789Z`）
 
 ## 2. 認証・認可
-NextAuth.js の JWT セッションをモバイル向けに拡張し、Bearer トークン方式で受け渡す。
+Auth0 Universal Login を認証基盤とする。**モバイルアプリ（iOS/Android）はAuth0と直接通信**し、Authorization Code + PKCE フローでトークンを取得する。取得したアクセストークンをREST APIのBearerトークンとして利用する。
 
-### 2.1 モバイルサインインフロー
-1. Flutter で各 IdP (Google / Apple / Twitter) の認可コード or ID Token を取得（PKCE 推奨）。
-2. `POST /api/auth/signin` に下記ボディを送信。
+### 2.1 モバイルアプリ認証フロー
+**モバイルアプリはバックエンドを経由せず、Auth0と直接通信します。**
 
+#### サインインフロー
+1. `auth0_flutter` の `webAuthorize()` を呼び出し、Auth0 Hosted Login Page（Google/Apple/Xボタン付き）へ遷移
+2. ユーザーが認証プロバイダーを選択し認証完了
+3. **Auth0と直接通信**してトークンを取得：
+   - SDK が Authorization Code + PKCE を使って Auth0 `/oauth/token` エンドポイントに直接交換
+   - 資格情報を `CredentialsManager` に自動保存
+
+取得されるトークン例:
 ```json
 {
-  "provider": "google",
-  "code": "authorization_code",
-  "codeVerifier": "pkce_verifier",
-  "redirectUri": "com.example.app:/oauth"
-}
-```
-- Apple/Twitter でコードが無い場合は `idToken` を指定可能。
-
-3. 成功時レスポンス例:
-```json
-{
-  "accessToken": "jwt",
-  "refreshToken": "rjwt",
+  "accessToken": "eyJhbGciOi...",
+  "idToken": "eyJraWQiOi...",
+  "refreshToken": "rt_Lf...",
   "expiresIn": 3600,
-  "user": { "id": "usr_123", "displayName": "りな", "learningLevel": "intermediate" }
+  "tokenType": "Bearer",
+  "scope": "openid profile email offline_access"
 }
 ```
 
-### 2.2 リフレッシュ
-- `POST /api/auth/refresh`
-```json
-{ "refreshToken": "rjwt" }
+4. Next.js API呼び出し時に `Authorization: Bearer <accessToken>` をヘッダーに付与
+
+#### トークンリフレッシュ
+**Auth0に直接リクエスト**します。バックエンドのエンドポイントは不要です。
+
+```dart
+// Flutter側の実装例
+final credentials = await credentialsManager.credentials();
+// 内部的に以下をAuth0に直接リクエスト:
+// POST https://{tenant}.auth0.com/oauth/token
+// {
+//   "grant_type": "refresh_token",
+//   "client_id": "AUTH0_CLIENT_ID",
+//   "refresh_token": "rt_Lf..."
+// }
 ```
-- 200 応答 = 新しい `accessToken` と `expiresIn`。
-- 401 応答 = トークン失効、再ログイン要求。
 
-### 2.3 セッション取得
-- `GET /api/auth/session`
-- ヘッダー `Authorization: Bearer <accessToken>` 必須。
-- ログインユーザー情報 + 設定値を返却。
+- 401/400 が返却された場合、SDKが自動的に資格情報を破棄し、再ログインフローへ誘導
 
-### 2.4 サインアウト
-- `POST /api/auth/signout`
-- リフレッシュトークンを無効化し、サーバー側セッションを破棄。
+#### ログアウト
+**Auth0のエンドセッションエンドポイントに直接アクセス**します。
+
+```dart
+await auth0.webAuthentication().logout();
+// 内部的にAuth0のエンドセッションエンドポイントへリダイレクト
+```
+
+### 2.2 API 認可ヘッダー（バックエンドAPI保護）
+Next.js APIは、モバイルアプリから送信されたアクセストークンを検証します。
+
+#### 必須ヘッダー
+```http
+Authorization: Bearer <accessToken>
+```
+
+#### 検証内容
+Next.js APIは以下を検証します：
+- `iss`: Auth0テナント (`https://{tenant}.auth0.com/`)
+- `aud`: API識別子 (`https://api.korean-typing.app`)
+- `sub`: Auth0ユーザーID → Users テーブルの `auth0UserId` と突合
+- `exp`: トークン有効期限
+- 署名: Auth0 JWKSをキャッシュして検証
+
+#### スコープ設計
+- `openid profile email offline_access`: 基本スコープ
+- 将来的な拡張: `read:posts`, `write:posts`, `read:lessons`, `write:stats`
+
+#### エラーレスポンス
+無効・期限切れトークンの場合：
+```json
+HTTP 401 UNAUTHORIZED
+{
+  "error": {
+    "code": "TOKEN_EXPIRED",
+    "message": "Access token has expired"
+  }
+}
+```
 
 ## 3. 共通仕様
 
@@ -204,33 +244,7 @@ NextAuth.js の JWT セッションをモバイル向けに拡張し、Bearer �
 
 ## 5. エンドポイント詳細
 
-### 5.1 /api/auth
-| メソッド | パス | 概要 |
-| --- | --- | --- |
-| POST | `/api/auth/signin` | OAuth コードを JWT に交換 |
-| POST | `/api/auth/refresh` | リフレッシュトークン交換 |
-| GET | `/api/auth/session` | 現在のユーザー取得 |
-| POST | `/api/auth/signout` | サインアウト |
-
-#### POST /api/auth/signin
-- Body: 前述 2.1 と同様。
-- 成功: 200 + `accessToken`, `refreshToken`, `expiresIn`, `user`。
-- エラー: 400 (`INVALID_INPUT`), 401 (`PROVIDER_AUTH_FAILED`), 422 (`BUSINESS_RULE_VIOLATION` - BAN user)。
-
-#### POST /api/auth/refresh
-- Body: `{ "refreshToken": string }`
-- 成功: 200 + 新 JWT。
-- エラー: 401 (`UNAUTHORIZED`), 409 (`TOKEN_REUSED`).
-
-#### GET /api/auth/session
-- 成功: 200 + `user: UserDetail`。
-- エラー: 401。
-
-#### POST /api/auth/signout
-- Body optional (`refreshToken`).
-- 成功: 204。
-
-### 5.2 /api/users
+### 5.1 /api/users
 
 #### GET /api/users
 - クエリ: `q`, `level` (`beginner|intermediate|advanced`), `cursor`, `limit`。
@@ -265,7 +279,7 @@ NextAuth.js の JWT セッションをモバイル向けに拡張し、Bearer �
 - クエリ: `cursor`, `limit`, `visibility` (self only)。
 - レスポンス: Post のページング。
 
-### 5.3 /api/posts
+### 5.2 /api/posts
 | メソッド | パス | 概要 |
 | --- | --- | --- |
 | GET | `/api/posts` | タイムライン取得 |
@@ -312,10 +326,10 @@ NextAuth.js の JWT セッションをモバイル向けに拡張し、Bearer �
 - Body: `{ "content": "좋아요" }`
 - 成功: 201 + Comment。
 
-### 5.4 /api/comments/{id}
+### 5.3 /api/comments/{id}
 - DELETE: 自身 or 投稿主のみ削除可能 (204)。
 
-### 5.5 /api/follows
+### 5.4 /api/follows
 | メソッド | パス | 概要 |
 | --- | --- | --- |
 | POST | `/api/follows` | 指定ユーザーをフォロー |
@@ -327,7 +341,7 @@ NextAuth.js の JWT セッションをモバイル向けに拡張し、Bearer �
 - レスポンス: `{ "followerId": "usr_me", "followingId": "usr_456" }`
 - GET クエリ: `userId`, `cursor`, `limit`。
 
-### 5.6 /api/lessons
+### 5.5 /api/lessons
 | メソッド | パス |
 | --- | --- |
 | GET | `/api/lessons` |
