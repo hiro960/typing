@@ -5,11 +5,13 @@ class TypingKeyboardMock extends StatelessWidget {
     super.key,
     required this.highlightedKeys,
     required this.highlightShift,
+    required this.timerLabel,
     this.nextKeyLabel,
   });
 
   final Set<String> highlightedKeys;
   final bool highlightShift;
+  final String timerLabel;
   final String? nextKeyLabel;
 
   @override
@@ -18,6 +20,7 @@ class TypingKeyboardMock extends StatelessWidget {
     final rows = _keyboardRows;
 
     return Container(
+      width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: theme.colorScheme.surface,
@@ -30,7 +33,10 @@ class TypingKeyboardMock extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text('カスタム韓国語キーボード', style: theme.textTheme.titleMedium),
+              _TimerChip(
+                label: timerLabel,
+                color: theme.colorScheme.secondary,
+              ),
               const Spacer(),
               if (nextKeyLabel != null)
                 Container(
@@ -72,6 +78,35 @@ class TypingKeyboardMock extends StatelessWidget {
             const SizedBox(height: 10),
           ],
         ],
+      ),
+    );
+  }
+}
+
+class _TimerChip extends StatelessWidget {
+  const _TimerChip({required this.label, required this.color});
+
+  final String label;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: color.withValues(alpha: 0.4),
+        ),
+      ),
+      child: Text(
+        label,
+        style: theme.textTheme.bodyMedium?.copyWith(
+          color: color,
+          fontWeight: FontWeight.w600,
+        ),
       ),
     );
   }

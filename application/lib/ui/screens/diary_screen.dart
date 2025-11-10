@@ -4,9 +4,7 @@ import 'package:forui/forui.dart';
 import '../../mock/mock_data.dart';
 
 class DiaryScreen extends StatefulWidget {
-  const DiaryScreen({super.key, required this.onCompose});
-
-  final VoidCallback onCompose;
+  const DiaryScreen({super.key});
 
   @override
   State<DiaryScreen> createState() => _DiaryScreenState();
@@ -29,10 +27,6 @@ class _DiaryScreenState extends State<DiaryScreen> {
                 title: Text('📝 日記', style: theme.textTheme.headlineSmall),
                 suffixes: [
                   FHeaderAction(icon: const Icon(Icons.search), onPress: () {}),
-                  FHeaderAction(
-                    icon: const Icon(Icons.add_circle_outline),
-                    onPress: widget.onCompose,
-                  ),
                 ],
               ),
             ),
