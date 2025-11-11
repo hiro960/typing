@@ -1,5 +1,6 @@
 // lib/test-utils/auth-mock.ts
 import { NextRequest } from 'next/server';
+import { JWTPayload } from 'jose';
 import { ERROR } from '../errors';
 import { UserDetail } from '../types';
 
@@ -154,6 +155,45 @@ export function clearAuthMock() {
 
   requireAuthUserMock.mockReset();
   requireAuthUserMock.mockImplementation(actualAuthModule.requireAuthUser);
+}
+
+/**
+ * Auth0 JWTペイロードをモック化（初回登録用エンドポイント向け）
+ */
+export function mockAuth0Payload(payload: JWTPayload) {
+  const getAuth0PayloadMock = authModule.getAuth0Payload as jest.MockedFunction<
+    typeof authModule.getAuth0Payload
+  >;
+
+  getAuth0PayloadMock.mockResolvedValue(payload);
+}
+
+/**
+ * Auth0ペイロードのモックをクリア
+ */
+export function clearAuth0PayloadMock() {
+  const getAuth0PayloadMock = authModule.getAuth0Payload as jest.MockedFunction<
+    typeof authModule.getAuth0Payload
+  >;
+
+  getAuth0PayloadMock.mockReset();
+  getAuth0PayloadMock.mockImplementation(actualAuthModule.getAuth0Payload);
+}
+
+/**
+ * テスト用のAuth0ペイロードを作成
+ */
+export function createMockAuth0Payload(overrides?: Partial<JWTPayload>): JWTPayload {
+  return {
+    sub: 'auth0|test-user-123',
+    email: 'test@example.com',
+    name: 'Test User',
+    iss: 'https://test.auth0.com/',
+    aud: 'https://api.korean-typing.app',
+    iat: Math.floor(Date.now() / 1000),
+    exp: Math.floor(Date.now() / 1000) + 3600, // 1時間後
+    ...overrides,
+  };
 }
 
 /**

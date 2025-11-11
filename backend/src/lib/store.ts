@@ -155,6 +155,75 @@ export async function findUserById(userId: string): Promise<UserDetail | null> {
   return user ? toUserDetail(user) : null;
 }
 
+/**
+ * Auth0ユーザーIDでユーザーを検索
+ */
+export async function findUserByAuth0Id(auth0UserId: string): Promise<UserDetail | null> {
+  const user = await prisma.user.findUnique({ where: { auth0UserId } });
+  return user ? toUserDetail(user) : null;
+}
+
+/**
+ * usernameが利用可能かチェック
+ * @returns true: 利用可能, false: 既に使用中
+ */
+export async function checkUsernameAvailability(username: string): Promise<boolean> {
+  const existing = await prisma.user.findUnique({ where: { username } });
+  return !existing;
+}
+
+/**
+ * Auth0認証後の初回ユーザー登録
+ */
+export async function createUserFromAuth0(params: {
+  auth0UserId: string;
+  username: string;
+  displayName: string;
+  email: string;
+  bio?: string;
+  profileImageUrl?: string;
+}): Promise<UserDetail> {
+  // auth0UserIdの重複チェック
+  const existingAuth0 = await prisma.user.findUnique({
+    where: { auth0UserId: params.auth0UserId },
+  });
+  if (existingAuth0) {
+    throw ERROR.CONFLICT("User already registered");
+  }
+
+  // usernameの重複チェック
+  const existingUsername = await prisma.user.findUnique({
+    where: { username: params.username },
+  });
+  if (existingUsername) {
+    throw ERROR.CONFLICT("Username already taken");
+  }
+
+  // emailの重複チェック
+  const existingEmail = await prisma.user.findUnique({
+    where: { email: params.email },
+  });
+  if (existingEmail) {
+    throw ERROR.CONFLICT("Email already registered");
+  }
+
+  // ユーザー作成
+  const user = await prisma.user.create({
+    data: {
+      auth0UserId: params.auth0UserId,
+      username: params.username,
+      displayName: params.displayName,
+      email: params.email,
+      bio: params.bio ?? null,
+      profileImageUrl: params.profileImageUrl ?? null,
+      learningLevel: "beginner",
+      settings: serializeSettings(cloneDefaultSettings()),
+    },
+  });
+
+  return toUserDetail(user);
+}
+
 export async function updateUserProfile(
   userId: string,
   updates: {
