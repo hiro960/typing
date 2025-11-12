@@ -1,0 +1,213 @@
+import 'package:auth0_flutter/auth0_flutter.dart';
+import '../models/auth_tokens.dart';
+import '../../../../core/config/env_config.dart';
+import '../../../../core/utils/logger.dart';
+import '../../../../core/exceptions/app_exception.dart';
+
+/// Auth0認証を管理するサービス
+class Auth0Service {
+  late final Auth0 _auth0;
+  late final CredentialsManager _credentialsManager;
+
+  Auth0Service() {
+    _initialize();
+  }
+
+  void _initialize() {
+    try {
+      _auth0 = Auth0(
+        EnvConfig.auth0Domain,
+        EnvConfig.auth0ClientId,
+      );
+      _credentialsManager = _auth0.credentialsManager;
+
+      AppLogger.auth('Auth0 initialized', detail: EnvConfig.auth0Domain);
+    } catch (e, stackTrace) {
+      AppLogger.error(
+        'Failed to initialize Auth0',
+        tag: 'Auth0Service',
+        error: e,
+        stackTrace: stackTrace,
+      );
+      rethrow;
+    }
+  }
+
+  /// ログイン (Universal Login)
+  /// Authorization Code + PKCE フローを使用
+  Future<AuthTokens> login() async {
+    try {
+      AppLogger.auth('Starting Auth0 login');
+
+      // Use HTTPS callback URL on iOS 17.4+ / macOS 14.4+
+      // For Android, use custom scheme
+      final webAuth = _auth0.webAuthentication();
+
+      final credentials = await webAuth.login(
+        useHTTPS: true, // iOS/macOS用のUniversal Link
+        audience: EnvConfig.auth0Audience.isNotEmpty ? EnvConfig.auth0Audience : null,
+        scopes: {
+          'openid',
+          'profile',
+          'email',
+          'offline_access', // リフレッシュトークン取得用
+        },
+      );
+
+      AppLogger.auth('Auth0 login successful');
+      AppLogger.debug('Access Token: ${credentials.accessToken}', tag: 'Auth0Service');
+      AppLogger.debug('ID Token: ${credentials.idToken}', tag: 'Auth0Service');
+      AppLogger.debug('Access Token parts: ${credentials.accessToken.split('.').length}', tag: 'Auth0Service');
+      AppLogger.debug('ID Token parts: ${credentials.idToken.split('.').length}', tag: 'Auth0Service');
+
+      return AuthTokens(
+        accessToken: credentials.accessToken,
+        refreshToken: credentials.refreshToken,
+        idToken: credentials.idToken,
+        expiresIn: credentials.expiresAt.difference(DateTime.now()).inSeconds,
+        tokenType: credentials.tokenType,
+      );
+    } on WebAuthenticationException catch (e) {
+      AppLogger.error(
+        'Auth0 login failed',
+        tag: 'Auth0Service',
+        error: e,
+      );
+
+      // ユーザーがキャンセルした場合
+      if (e.code == 'a0.authentication_canceled' ||
+          e.message.contains('User cancelled')) {
+        throw AuthException.loginCancelled();
+      }
+
+      throw AuthException.loginFailed(e.message);
+    } catch (e, stackTrace) {
+      AppLogger.error(
+        'Unexpected error during login',
+        tag: 'Auth0Service',
+        error: e,
+        stackTrace: stackTrace,
+      );
+      throw AuthException.loginFailed('予期しないエラーが発生しました');
+    }
+  }
+
+  /// ログアウト
+  Future<void> logout() async {
+    try {
+      AppLogger.auth('Starting Auth0 logout');
+
+      await _auth0
+          .webAuthentication()
+          .logout(useHTTPS: true);
+
+      AppLogger.auth('Auth0 logout successful');
+    } on WebAuthenticationException catch (e) {
+      AppLogger.error(
+        'Auth0 logout failed',
+        tag: 'Auth0Service',
+        error: e,
+      );
+      // ログアウトは失敗しても続行
+    } catch (e, stackTrace) {
+      AppLogger.error(
+        'Unexpected error during logout',
+        tag: 'Auth0Service',
+        error: e,
+        stackTrace: stackTrace,
+      );
+      // ログアウトは失敗しても続行
+    }
+  }
+
+  /// トークンのリフレッシュ
+  /// リフレッシュトークンを使用して新しいアクセストークンを取得
+  Future<AuthTokens> refreshTokens() async {
+    try {
+      AppLogger.auth('Refreshing Auth0 tokens');
+
+      final credentials = await _credentialsManager.credentials();
+
+      AppLogger.auth('Tokens refreshed successfully');
+
+      return AuthTokens(
+        accessToken: credentials.accessToken,
+        refreshToken: credentials.refreshToken,
+        idToken: credentials.idToken,
+        expiresIn: credentials.expiresAt.difference(DateTime.now()).inSeconds,
+        tokenType: credentials.tokenType,
+      );
+    } on CredentialsManagerException catch (e) {
+      AppLogger.error(
+        'Failed to refresh tokens',
+        tag: 'Auth0Service',
+        error: e,
+      );
+
+      // リフレッシュトークンも期限切れの場合
+      if (e.code == 'INVALID_REFRESH_TOKEN' ||
+          e.message.contains('expired')) {
+        throw AuthException.tokenExpired();
+      }
+
+      throw AuthException.invalidToken(e.message);
+    } catch (e, stackTrace) {
+      AppLogger.error(
+        'Unexpected error during token refresh',
+        tag: 'Auth0Service',
+        error: e,
+        stackTrace: stackTrace,
+      );
+      throw AuthException.invalidToken('トークンの更新に失敗しました');
+    }
+  }
+
+  /// 保存されているクレデンシャルを取得
+  Future<AuthTokens?> getStoredCredentials() async {
+    try {
+      AppLogger.auth('Getting stored credentials from Auth0');
+
+      final hasValid = await _credentialsManager.hasValidCredentials();
+
+      if (!hasValid) {
+        AppLogger.auth('No valid credentials found');
+        return null;
+      }
+
+      final credentials = await _credentialsManager.credentials();
+
+      AppLogger.auth('Retrieved stored credentials');
+
+      return AuthTokens(
+        accessToken: credentials.accessToken,
+        refreshToken: credentials.refreshToken,
+        idToken: credentials.idToken,
+        expiresIn: credentials.expiresAt.difference(DateTime.now()).inSeconds,
+        tokenType: credentials.tokenType,
+      );
+    } catch (e) {
+      AppLogger.error(
+        'Failed to get stored credentials',
+        tag: 'Auth0Service',
+        error: e,
+      );
+      return null;
+    }
+  }
+
+  /// 保存されているクレデンシャルをクリア
+  Future<void> clearCredentials() async {
+    try {
+      AppLogger.auth('Clearing Auth0 credentials');
+      await _credentialsManager.clearCredentials();
+      AppLogger.auth('Credentials cleared');
+    } catch (e) {
+      AppLogger.error(
+        'Failed to clear credentials',
+        tag: 'Auth0Service',
+        error: e,
+      );
+      // クリアは失敗しても続行
+    }
+  }
+}

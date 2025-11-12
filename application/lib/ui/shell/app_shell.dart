@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
 import '../../mock/mock_data.dart';
+import '../../features/auth/domain/providers/auth_providers.dart';
 import '../screens/diary_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/notifications_screen.dart';
@@ -9,16 +11,127 @@ import '../screens/profile_screen.dart';
 import '../screens/settings_screen.dart';
 import '../screens/typing_lesson_screen.dart';
 import '../screens/wordbook_screen.dart';
+import '../screens/profile_setup_screen.dart';
+import '../screens/onboarding_screen.dart';
 import '../widgets/post_composer_sheet.dart';
 
-class AppShell extends StatefulWidget {
+/// 認証状態に基づいて画面を切り替えるルートウィジェット
+class AppShell extends ConsumerWidget {
   const AppShell({super.key});
 
   @override
-  State<AppShell> createState() => _AppShellState();
+  Widget build(BuildContext context, WidgetRef ref) {
+    final authState = ref.watch(authStateProvider);
+
+    // 認証状態に応じて画面を切り替え
+    switch (authState.status) {
+      case AuthStatus.initial:
+        // 初期化中はローディング画面を表示
+        return const _LoadingScreen();
+
+      case AuthStatus.unauthenticated:
+        // 未認証の場合はオンボーディング画面（説明画面）を表示
+        return const OnboardingScreen();
+
+      case AuthStatus.authenticatedButNotRegistered:
+        // 認証済みだが未登録の場合はプロフィール入力画面を表示
+        return const ProfileSetupScreen();
+
+      case AuthStatus.authenticated:
+        // 認証済みかつ登録済みの場合はメインアプリを表示
+        return const _MainAppShell();
+
+      case AuthStatus.error:
+        // エラーの場合はエラー画面を表示
+        return _ErrorScreen(message: authState.errorMessage ?? '不明なエラー');
+    }
+  }
 }
 
-class _AppShellState extends State<AppShell> {
+/// ローディング画面
+class _LoadingScreen extends StatelessWidget {
+  const _LoadingScreen();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
+  }
+}
+
+/// エラー画面
+class _ErrorScreen extends ConsumerWidget {
+  final String message;
+
+  const _ErrorScreen({required this.message});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Scaffold(
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(32.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(
+                Icons.error_outline,
+                color: Colors.red,
+                size: 64,
+              ),
+              const SizedBox(height: 24),
+              const Text(
+                'エラーが発生しました',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                message,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 14,
+                  color: Colors.grey,
+                ),
+              ),
+              const SizedBox(height: 32),
+              ElevatedButton.icon(
+                onPressed: () async {
+                  // エラーをクリアしてログアウト
+                  ref.read(authStateProvider.notifier).clearError();
+                  await ref.read(authStateProvider.notifier).logout();
+                },
+                icon: const Icon(Icons.refresh),
+                label: const Text('ログイン画面に戻る'),
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 12,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// メインアプリのシェル (認証済みユーザー向け)
+class _MainAppShell extends StatefulWidget {
+  const _MainAppShell();
+
+  @override
+  State<_MainAppShell> createState() => _MainAppShellState();
+}
+
+class _MainAppShellState extends State<_MainAppShell> {
   int _selectedIndex = 0;
 
   void _openPostComposer() {

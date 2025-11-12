@@ -1,0 +1,133 @@
+/// APIエンドポイントの定数を管理するクラス
+class ApiConstants {
+  ApiConstants._();
+
+  // ==================== Auth関連 ====================
+
+  /// ユーザー登録状況確認
+  /// GET /api/users/status
+  /// 認証必須
+  static const String userStatus = '/api/users/status';
+
+  /// ユーザー初回登録
+  /// POST /api/users/setup
+  /// 認証必須
+  static const String userSetup = '/api/users/setup';
+
+  /// ユーザー名重複チェック
+  /// GET /api/users/check-username?username=xxx
+  /// 認証不要
+  static String checkUsername(String username) =>
+      '/api/users/check-username?username=$username';
+
+  // ==================== User関連 ====================
+
+  /// 現在のユーザー情報取得
+  /// GET /api/users/me
+  /// 認証必須
+  static const String currentUser = '/api/users/me';
+
+  /// 特定ユーザー情報取得
+  /// GET /api/users/:id
+  static String userById(String userId) => '/api/users/$userId';
+
+  /// ユーザーの投稿一覧取得
+  /// GET /api/users/:id/posts
+  static String userPosts(String userId) => '/api/users/$userId/posts';
+
+  /// ユーザーの統計情報取得
+  /// GET /api/users/:id/stats
+  static String userStats(String userId) => '/api/users/$userId/stats';
+
+  // ==================== Post関連 ====================
+
+  /// 投稿一覧取得
+  /// GET /api/posts
+  static const String posts = '/api/posts';
+
+  /// 投稿作成
+  /// POST /api/posts
+  static const String createPost = '/api/posts';
+
+  /// 特定投稿取得
+  /// GET /api/posts/:id
+  static String postById(String postId) => '/api/posts/$postId';
+
+  /// 投稿更新
+  /// PUT /api/posts/:id
+  static String updatePost(String postId) => '/api/posts/$postId';
+
+  /// 投稿削除
+  /// DELETE /api/posts/:id
+  static String deletePost(String postId) => '/api/posts/$postId';
+
+  /// 投稿にいいね
+  /// POST /api/posts/:id/like
+  static String likePost(String postId) => '/api/posts/$postId/like';
+
+  /// 投稿のいいねを解除
+  /// DELETE /api/posts/:id/like
+  static String unlikePost(String postId) => '/api/posts/$postId/like';
+
+  // ==================== Comment関連 ====================
+
+  /// コメント一覧取得
+  /// GET /api/posts/:id/comments
+  static String postComments(String postId) => '/api/posts/$postId/comments';
+
+  /// コメント作成
+  /// POST /api/posts/:id/comments
+  static String createComment(String postId) => '/api/posts/$postId/comments';
+
+  /// コメント削除
+  /// DELETE /api/comments/:id
+  static String deleteComment(String commentId) => '/api/comments/$commentId';
+
+  // ==================== Follow関連 ====================
+
+  /// フォロー
+  /// POST /api/follows/:userId
+  static String followUser(String userId) => '/api/follows/$userId';
+
+  /// フォロー解除
+  /// DELETE /api/follows/:userId
+  static String unfollowUser(String userId) => '/api/follows/$userId';
+
+  /// フォロワー一覧
+  /// GET /api/users/:id/followers
+  static String userFollowers(String userId) => '/api/users/$userId/followers';
+
+  /// フォロー中一覧
+  /// GET /api/users/:id/following
+  static String userFollowing(String userId) => '/api/users/$userId/following';
+
+  // ==================== Lesson関連 ====================
+
+  /// レッスン一覧取得
+  /// GET /api/lessons
+  static const String lessons = '/api/lessons';
+
+  /// レッスン完了マーク
+  /// POST /api/lessons/:id/complete
+  static String completeLesson(String lessonId) =>
+      '/api/lessons/$lessonId/complete';
+
+  /// レッスン統計取得
+  /// GET /api/lessons/stats
+  static const String lessonStats = '/api/lessons/stats';
+
+  // ==================== Notification関連 ====================
+
+  /// 通知一覧取得
+  /// GET /api/notifications
+  static const String notifications = '/api/notifications';
+
+  /// 通知既読マーク
+  /// PUT /api/notifications/:id/read
+  static String markNotificationRead(String notificationId) =>
+      '/api/notifications/$notificationId/read';
+
+  /// 全通知既読マーク
+  /// PUT /api/notifications/read-all
+  static const String markAllNotificationsRead = '/api/notifications/read-all';
+}

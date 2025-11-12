@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
-import 'onboarding_screen.dart';
+import '../../features/auth/domain/providers/auth_providers.dart';
 
-class SettingsScreen extends StatefulWidget {
+class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
 
   @override
-  State<SettingsScreen> createState() => _SettingsScreenState();
+  ConsumerState<SettingsScreen> createState() => _SettingsScreenState();
 }
 
-class _SettingsScreenState extends State<SettingsScreen> {
+class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   bool _pushNotifications = true;
   bool _dailyReminder = true;
   bool _streakAlerts = true;
@@ -19,12 +20,54 @@ class _SettingsScreenState extends State<SettingsScreen> {
   bool _showHints = true;
   bool _highContrast = false;
   double _dailyGoal = 15;
+  bool _isLoggingOut = false;
 
-  void _handleLogout() {
-    Navigator.of(context).pushAndRemoveUntil(
-      MaterialPageRoute<void>(builder: (_) => const OnboardingScreen()),
-      (_) => false,
+  Future<void> _handleLogout() async {
+    // 確認ダイアログを表示
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('ログアウト'),
+        content: const Text('本当にログアウトしますか？'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('キャンセル'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: const Text('ログアウト'),
+          ),
+        ],
+      ),
     );
+
+    if (confirmed != true || !mounted) return;
+
+    setState(() => _isLoggingOut = true);
+
+    try {
+      // ログアウト処理を実行
+      await ref.read(authStateProvider.notifier).logout();
+
+      if (!mounted) return;
+
+      // ログアウト成功 - 設定画面を閉じる
+      // これによりAppShellのOnboardingScreenが表示される
+      Navigator.of(context).pop();
+    } catch (e) {
+      if (!mounted) return;
+
+      setState(() => _isLoggingOut = false);
+
+      // エラー表示
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('ログアウトに失敗しました: $e'),
+          backgroundColor: Theme.of(context).colorScheme.error,
+        ),
+      );
+    }
   }
 
   @override
@@ -172,9 +215,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               const SizedBox(height: 12),
               FButton(
-                onPress: _handleLogout,
+                onPress: _isLoggingOut ? null : _handleLogout,
                 style: FButtonStyle.secondary(),
-                child: const Text('ログアウト'),
+                child: _isLoggingOut
+                    ? const SizedBox(
+                        width: 20,
+                        height: 20,
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      )
+                    : const Text('ログアウト'),
               ),
               const SizedBox(height: 8),
               FButton(

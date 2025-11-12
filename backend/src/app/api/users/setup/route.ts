@@ -13,27 +13,36 @@ export async function POST(request: NextRequest) {
   try {
     // JWT検証（Auth0ペイロード取得）
     const payload = await getAuth0Payload(request);
+    console.log("[USER_SETUP] Auth0 payload received:", { sub: payload.sub, email: payload.email });
+
     const auth0UserId = payload.sub as string;
     const email = payload.email as string;
 
     if (!auth0UserId) {
+      console.error("[USER_SETUP] Missing sub claim in token");
       throw ERROR.UNAUTHORIZED("Invalid token: missing sub claim");
     }
 
     if (!email) {
+      console.error("[USER_SETUP] Missing email claim in token");
       throw ERROR.UNAUTHORIZED("Invalid token: missing email claim");
     }
 
+    console.log("[USER_SETUP] Token validated, auth0UserId:", auth0UserId);
+
     // リクエストボディのパース
     const body = await request.json();
+    console.log("[USER_SETUP] Request body:", body);
     const { username, displayName, bio, profileImageUrl } = body;
 
     // バリデーション
     if (!username || typeof username !== "string") {
+      console.error("[USER_SETUP] Invalid username:", username);
       throw ERROR.INVALID_INPUT("Username is required");
     }
 
     if (!displayName || typeof displayName !== "string") {
+      console.error("[USER_SETUP] Invalid displayName:", displayName);
       throw ERROR.INVALID_INPUT("Display name is required");
     }
 
@@ -56,6 +65,14 @@ export async function POST(request: NextRequest) {
     }
 
     // ユーザー作成
+    console.log("[USER_SETUP] Creating user with params:", {
+      auth0UserId,
+      username,
+      displayName,
+      email,
+      bio: bio || undefined,
+    });
+
     const user = await createUserFromAuth0({
       auth0UserId,
       username,
@@ -65,8 +82,10 @@ export async function POST(request: NextRequest) {
       profileImageUrl: profileImageUrl || undefined,
     });
 
+    console.log("[USER_SETUP] User created successfully:", user.id);
     return NextResponse.json(user, { status: 201 });
   } catch (error) {
+    console.error("[USER_SETUP] Error occurred:", error);
     return handleRouteError(error);
   }
 }

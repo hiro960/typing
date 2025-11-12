@@ -5,15 +5,26 @@ import { findUserByAuth0Id } from "./store";
 import { UserDetail } from "./types";
 
 // Auth0のJWKSエンドポイント（公開鍵取得用）
-// 環境変数が未設定の場合はダミーURLを使用（開発環境でのエラー回避）
-const JWKS_URL = process.env.AUTH0_ISSUER_BASE_URL
-  ? `${process.env.AUTH0_ISSUER_BASE_URL}/.well-known/jwks.json`
-  : "https://dummy.auth0.com/.well-known/jwks.json";
+if (!process.env.AUTH0_ISSUER_BASE_URL) {
+  throw new Error("AUTH0_ISSUER_BASE_URL environment variable is required");
+}
 
+// issuerの末尾スラッシュを正規化（Auth0は常に末尾スラッシュ付きでissを返す）
+const normalizeIssuer = (url: string): string => {
+  return url.endsWith('/') ? url : `${url}/`;
+};
+
+const AUTH0_ISSUER = normalizeIssuer(process.env.AUTH0_ISSUER_BASE_URL);
+const JWKS_URL = `${AUTH0_ISSUER}.well-known/jwks.json`;
 const JWKS = createRemoteJWKSet(new URL(JWKS_URL));
 
 /**
  * Auth0のJWTトークンを検証してペイロードを取得
+ *
+ * 注意: このバックエンドは標準的なJWT (JWS形式) のみを受け付けます。
+ * Auth0でJWEトークン（暗号化されたOpaque Token）が発行される場合は、
+ * Auth0の設定でAPI Audienceを指定してください。
+ *
  * @throws {ApiError} トークンが無効または期限切れの場合
  */
 async function verifyAuth0Token(request: NextRequest): Promise<JWTPayload> {
@@ -25,22 +36,60 @@ async function verifyAuth0Token(request: NextRequest): Promise<JWTPayload> {
 
   const token = authHeader.substring(7);
 
-  try {
-    const { payload } = await jwtVerify(token, JWKS, {
-      issuer: process.env.AUTH0_ISSUER_BASE_URL,
-      audience: process.env.AUTH0_AUDIENCE,
-    });
+  // JWTは3パート (header.payload.signature) であるべき
+  const tokenParts = token.split('.').length;
+  if (tokenParts !== 3) {
+    console.error(
+      `[AUTH ERROR] Invalid token format: expected 3 parts (JWT), got ${tokenParts} parts.`
+    );
+    console.error(
+      `[AUTH ERROR] Token preview: ${token.substring(0, 50)}...`
+    );
+    console.error(
+      `[AUTH ERROR] If you are receiving a 5-part JWE token (encrypted), you need to:
+      1. Create an API in Auth0 Dashboard (Applications -> APIs -> Create API)
+      2. Set the API Identifier (e.g., https://your-api.example.com)
+      3. Configure AUTH0_AUDIENCE in backend .env file
+      4. Configure AUTH0_AUDIENCE in Flutter .env file
+      5. Restart both backend and Flutter app`
+    );
+    throw ERROR.UNAUTHORIZED("Invalid token format. This API requires JWT tokens with an audience.");
+  }
 
+  try {
+    // issuerは必須（末尾スラッシュ付きで検証）
+    const verifyOptions: any = {
+      issuer: AUTH0_ISSUER,
+    };
+
+    // audienceが設定されている場合は検証に含める
+    // 注意: Auth0の管理API (/api/v2/) をaudienceにしている場合は検証をスキップ
+    if (process.env.AUTH0_AUDIENCE && !process.env.AUTH0_AUDIENCE.includes('/api/v2/')) {
+      verifyOptions.audience = process.env.AUTH0_AUDIENCE;
+      console.log(`[AUTH] Verifying token with audience: ${process.env.AUTH0_AUDIENCE}`);
+    } else {
+      console.log(`[AUTH] Verifying token without audience (AUTH0_AUDIENCE not set or is management API)`);
+    }
+
+    const { payload } = await jwtVerify(token, JWKS, verifyOptions);
+
+    console.log(`[AUTH] Token verified successfully. Sub: ${payload.sub}`);
     return payload;
   } catch (error) {
-    console.error("JWT verification failed:", error);
+    console.error("[AUTH ERROR] JWT verification failed:", error);
 
     if (error instanceof Error) {
+      console.error(`[AUTH ERROR] Error name: ${error.name}`);
+      console.error(`[AUTH ERROR] Error message: ${error.message}`);
+
       // JWTのエラータイプに応じて詳細なメッセージを返す
       if (error.name === "JWTExpired") {
         throw ERROR.UNAUTHORIZED("Token has expired");
       }
       if (error.name === "JWTClaimValidationFailed") {
+        console.error(`[AUTH ERROR] Token claims validation failed. Check if:
+        - AUTH0_ISSUER_BASE_URL matches the token issuer (current: ${AUTH0_ISSUER})
+        - AUTH0_AUDIENCE matches the token audience (current: ${process.env.AUTH0_AUDIENCE || 'not set'})`);
         throw ERROR.UNAUTHORIZED("Invalid token claims");
       }
     }
