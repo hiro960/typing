@@ -49,7 +49,7 @@ type UserSummarySource = Pick<
   | "username"
   | "displayName"
   | "profileImageUrl"
-  | "learningLevel"
+  | "type"
   | "followersCount"
   | "followingCount"
   | "postsCount"
@@ -123,7 +123,7 @@ export function toUserSummary(user: UserSummarySource): UserSummary {
     username: user.username,
     displayName: user.displayName,
     profileImageUrl: user.profileImageUrl,
-    learningLevel: user.learningLevel as LearningLevel,
+    type: user.type,
     followersCount: user.followersCount,
     followingCount: user.followingCount,
     postsCount: user.postsCount,
@@ -138,7 +138,6 @@ function toUserDetail(user: User): UserDetail {
     email: user.email,
     bio: user.bio,
     totalLessonsCompleted: user.totalLessonsCompleted,
-    totalPracticeTime: user.totalPracticeTime,
     maxWPM: user.maxWPM,
     maxAccuracy: user.maxAccuracy,
     lastLoginAt: user.lastLoginAt ?? null,
@@ -216,7 +215,6 @@ export async function createUserFromAuth0(params: {
       email: params.email,
       bio: params.bio ?? null,
       profileImageUrl: params.profileImageUrl ?? null,
-      learningLevel: "beginner",
       settings: serializeSettings(cloneDefaultSettings()),
     },
   });
@@ -229,7 +227,6 @@ export async function updateUserProfile(
   updates: {
     displayName?: string;
     bio?: string | null;
-    learningLevel?: LearningLevel;
     settings?: Partial<UserSettings>;
   }
 ): Promise<UserDetail> {
@@ -247,7 +244,6 @@ export async function updateUserProfile(
     data: {
       displayName: typeof updates.displayName === "undefined" ? undefined : updates.displayName,
       bio: typeof updates.bio === "undefined" ? undefined : updates.bio,
-      learningLevel: updates.learningLevel,
       settings: mergedSettings ? serializeSettings(mergedSettings) : undefined,
     },
   });
@@ -293,7 +289,7 @@ export async function toPostResponse(
         username: "unknown",
         displayName: "Unknown",
         profileImageUrl: null,
-        learningLevel: "beginner" as LearningLevel,
+        type: "NORMAL" as const,
         followersCount: 0,
         followingCount: 0,
         postsCount: 0,
@@ -593,7 +589,6 @@ export async function recordLessonCompletion(params: {
       where: { id: params.userId },
       data: {
         totalLessonsCompleted: { increment: 1 },
-        totalPracticeTime: { increment: params.timeSpent },
         maxWPM: params.wpm > user.maxWPM ? params.wpm : user.maxWPM,
         maxAccuracy: params.accuracy > user.maxAccuracy ? params.accuracy : user.maxAccuracy,
       },

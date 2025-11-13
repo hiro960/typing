@@ -1,10 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { findUserById, updateUserProfile } from "@/lib/store";
 import { handleRouteError, ERROR } from "@/lib/errors";
-import { LearningLevel, UserSettings } from "@/lib/types";
+import { UserSettings } from "@/lib/types";
 import { assertSameUser, requireAuthUser } from "@/lib/auth";
-
-const LEVELS: LearningLevel[] = ["beginner", "intermediate", "advanced"];
 
 function validateSettings(settings: Partial<UserSettings>) {
   const booleanKeys: Array<keyof UserSettings> = [
@@ -108,7 +106,7 @@ export async function PUT(
     assertSameUser(authUser.id, id);
 
     const payload = await request.json();
-    const { displayName, bio, learningLevel, settings } = payload;
+    const { displayName, bio, settings } = payload;
 
     if (typeof displayName !== "undefined") {
       if (typeof displayName !== "string" || displayName.trim().length === 0) {
@@ -131,13 +129,6 @@ export async function PUT(
       }
     }
 
-    if (learningLevel && !LEVELS.includes(learningLevel)) {
-      throw ERROR.INVALID_INPUT(
-        "learningLevel must be beginner|intermediate|advanced",
-        { field: "learningLevel" }
-      );
-    }
-
     if (settings) {
       validateSettings(settings);
     }
@@ -145,7 +136,6 @@ export async function PUT(
     const updated = await updateUserProfile(id, {
       displayName,
       bio,
-      learningLevel,
       settings,
     });
 

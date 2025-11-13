@@ -8,6 +8,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum UserType {
+  NORMAL
+  PREMIUM
+  OFFICIAL
+}
+
 model User {
   id                      String    @id @default(cuid())
   auth0UserId             String    @unique
@@ -16,9 +22,8 @@ model User {
   email                   String    @unique
   profileImageUrl         String?
   bio                     String?
-  learningLevel           String    @default("beginner")
+  type                    UserType  @default(NORMAL)
   totalLessonsCompleted   Int       @default(0)
-  totalPracticeTime       Int       @default(0)
   maxWPM                  Int       @default(0)
   maxAccuracy             Float     @default(0)
   followersCount          Int       @default(0)

@@ -1,4 +1,5 @@
 export type LearningLevel = "beginner" | "intermediate" | "advanced";
+export type UserType = "NORMAL" | "PREMIUM" | "OFFICIAL";
 export type Visibility = "public" | "followers" | "private";
 export type LessonMode = "standard" | "challenge";
 export type DeviceType = "ios" | "android" | "web";
@@ -30,7 +31,7 @@ export interface UserSummary {
   username: string;
   displayName: string;
   profileImageUrl?: string | null;
-  learningLevel: LearningLevel;
+  type: UserType;
   followersCount: number;
   followingCount: number;
   postsCount: number;
@@ -42,7 +43,6 @@ export interface UserDetail extends Omit<UserSummary, "settings"> {
   email: string;
   bio?: string | null;
   totalLessonsCompleted: number;
-  totalPracticeTime: number;
   maxWPM: number;
   maxAccuracy: number;
   lastLoginAt?: ISODateTime | null;

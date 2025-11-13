@@ -2,17 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { paginateArray } from "@/lib/pagination";
 import { ERROR, handleRouteError } from "@/lib/errors";
 import { toUserSummary } from "@/lib/store";
-import { LearningLevel } from "@/lib/types";
 import prisma from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
-
-const LEVELS: LearningLevel[] = ["beginner", "intermediate", "advanced"];
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = request.nextUrl;
     const q = searchParams.get("q") ?? "";
-    const level = searchParams.get("level") as LearningLevel | null;
     const cursor = searchParams.get("cursor");
 
     const limitParam = searchParams.get("limit");
@@ -28,12 +24,6 @@ export async function GET(request: NextRequest) {
       limit = parsed;
     }
 
-    if (level && !LEVELS.includes(level)) {
-      throw ERROR.INVALID_INPUT("level must be beginner|intermediate|advanced", {
-        field: "level",
-      });
-    }
-
     const where: Prisma.UserWhereInput = {};
 
     if (q) {
@@ -42,10 +32,6 @@ export async function GET(request: NextRequest) {
         { displayName: { contains: q, mode: "insensitive" } },
         { bio: { contains: q, mode: "insensitive" } },
       ];
-    }
-
-    if (level) {
-      where.learningLevel = level;
     }
 
     const users =

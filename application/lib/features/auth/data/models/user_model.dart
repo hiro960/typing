@@ -22,8 +22,8 @@ class UserModel {
   /// 自己紹介
   final String? bio;
 
-  /// 学習レベル (beginner, intermediate, advanced)
-  final String learningLevel;
+  /// ユーザータイプ (NORMAL, PREMIUM, OFFICIAL)
+  final String type;
 
   /// フォロワー数
   final int followersCount;
@@ -36,9 +36,6 @@ class UserModel {
 
   /// 完了したレッスン数
   final int totalLessonsCompleted;
-
-  /// 総練習時間（秒）
-  final int totalPracticeTime;
 
   /// 最高WPM
   final double maxWPM;
@@ -69,12 +66,11 @@ class UserModel {
     required this.email,
     this.profileImageUrl,
     this.bio,
-    required this.learningLevel,
+    required this.type,
     required this.followersCount,
     required this.followingCount,
     required this.postsCount,
     required this.totalLessonsCompleted,
-    required this.totalPracticeTime,
     required this.maxWPM,
     required this.maxAccuracy,
     this.lastLoginAt,
@@ -94,12 +90,11 @@ class UserModel {
       email: json['email'] as String,
       profileImageUrl: json['profileImageUrl'] as String?,
       bio: json['bio'] as String?,
-      learningLevel: json['learningLevel'] as String,
+      type: json['type'] as String,
       followersCount: json['followersCount'] as int,
       followingCount: json['followingCount'] as int,
       postsCount: json['postsCount'] as int,
       totalLessonsCompleted: json['totalLessonsCompleted'] as int,
-      totalPracticeTime: json['totalPracticeTime'] as int,
       maxWPM: (json['maxWPM'] as num).toDouble(),
       maxAccuracy: (json['maxAccuracy'] as num).toDouble(),
       lastLoginAt: json['lastLoginAt'] != null
@@ -124,12 +119,11 @@ class UserModel {
       'email': email,
       'profileImageUrl': profileImageUrl,
       'bio': bio,
-      'learningLevel': learningLevel,
+      'type': type,
       'followersCount': followersCount,
       'followingCount': followingCount,
       'postsCount': postsCount,
       'totalLessonsCompleted': totalLessonsCompleted,
-      'totalPracticeTime': totalPracticeTime,
       'maxWPM': maxWPM,
       'maxAccuracy': maxAccuracy,
       'lastLoginAt': lastLoginAt?.toIso8601String(),
@@ -149,12 +143,11 @@ class UserModel {
     String? email,
     String? profileImageUrl,
     String? bio,
-    String? learningLevel,
+    String? type,
     int? followersCount,
     int? followingCount,
     int? postsCount,
     int? totalLessonsCompleted,
-    int? totalPracticeTime,
     double? maxWPM,
     double? maxAccuracy,
     DateTime? lastLoginAt,
@@ -171,12 +164,11 @@ class UserModel {
       email: email ?? this.email,
       profileImageUrl: profileImageUrl ?? this.profileImageUrl,
       bio: bio ?? this.bio,
-      learningLevel: learningLevel ?? this.learningLevel,
+      type: type ?? this.type,
       followersCount: followersCount ?? this.followersCount,
       followingCount: followingCount ?? this.followingCount,
       postsCount: postsCount ?? this.postsCount,
       totalLessonsCompleted: totalLessonsCompleted ?? this.totalLessonsCompleted,
-      totalPracticeTime: totalPracticeTime ?? this.totalPracticeTime,
       maxWPM: maxWPM ?? this.maxWPM,
       maxAccuracy: maxAccuracy ?? this.maxAccuracy,
       lastLoginAt: lastLoginAt ?? this.lastLoginAt,
@@ -190,7 +182,7 @@ class UserModel {
   @override
   String toString() {
     return 'UserModel(id: $id, username: $username, displayName: $displayName, '
-        'email: $email, learningLevel: $learningLevel)';
+        'email: $email, type: $type)';
   }
 
   @override
