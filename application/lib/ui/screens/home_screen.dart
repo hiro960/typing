@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
+import '../../features/auth/domain/providers/auth_providers.dart';
 import '../../mock/mock_data.dart';
 import '../app_theme.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({
     super.key,
     required this.onStartLesson,
@@ -15,10 +17,10 @@ class HomeScreen extends StatefulWidget {
   final VoidCallback onOpenSettings;
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends ConsumerState<HomeScreen> {
   final _accordionController = FAccordionController(max: 1);
 
   final Map<String, List<LessonOutline>> _catalog = {
@@ -62,6 +64,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final currentUser = ref.watch(currentUserProvider);
+    final displayName = currentUser?.displayName ?? 'Guest';
 
     return SafeArea(
       child: Material(
@@ -80,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '안녕하세요, Hana',
+                            '안녕하세요, $displayName',
                             style: theme.textTheme.headlineSmall,
                           ),
                         ],
@@ -93,10 +97,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                     const SizedBox(height: 24),
-                    const _StreakRow(),
-                    const SizedBox(height: 20),
-                    const _StatHighlights(),
-                    const SizedBox(height: 24),
                     _LevelAccordions(
                       controller: _accordionController,
                       catalog: _catalog,
@@ -104,6 +104,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       onLessonChanged: _handleLessonSelection,
                       onStartLesson: _startOutline,
                     ),
+                    const SizedBox(height: 24),
+                    const _StreakRow(),
+                    const SizedBox(height: 20),
+                    const _StatHighlights(),
                     const SizedBox(height: 24),
                     const _QuickActions(),
                   ],
@@ -221,7 +225,7 @@ class _LevelAccordions extends StatelessWidget {
         final selected = selectedLessons[meta.level] ?? lessons.first;
 
         return FAccordionItem(
-          initiallyExpanded: index == 0,
+          initiallyExpanded: false,
           title: Row(
             children: [
               CircleAvatar(
