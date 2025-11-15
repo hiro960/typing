@@ -1,13 +1,15 @@
+import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
+import '../../features/lessons/data/models/lesson_index.dart';
 import '../../features/lessons/data/models/lesson_models.dart';
 import '../../features/lessons/domain/providers/lesson_providers.dart';
 import '../../features/typing/data/models/typing_models.dart';
 import 'typing_lesson_screen.dart';
 
-class TypingCompletionScreen extends ConsumerWidget {
+class TypingCompletionScreen extends ConsumerStatefulWidget {
   const TypingCompletionScreen({
     super.key,
     required this.lesson,
@@ -22,47 +24,88 @@ class TypingCompletionScreen extends ConsumerWidget {
   final String lessonId;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<TypingCompletionScreen> createState() =>
+      _TypingCompletionScreenState();
+}
+
+class _TypingCompletionScreenState
+    extends ConsumerState<TypingCompletionScreen> {
+  late final ConfettiController _confettiController;
+
+  @override
+  void initState() {
+    super.initState();
+    _confettiController = ConfettiController(
+      duration: const Duration(seconds: 2),
+    )..play();
+  }
+
+  @override
+  void dispose() {
+    _confettiController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final weakCharacters = _weakCharacters(records);
+    final weakCharacters = _weakCharacters(widget.records);
     final catalogAsync = ref.watch(lessonCatalogProvider);
     final nextLessonId = catalogAsync.maybeWhen(
-      data: (catalog) => _findNextLessonId(lesson, catalog),
+      data: (catalog) => _findNextLessonId(widget.lesson, catalog),
       orElse: () => null,
     );
 
     return FScaffold(
-      child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: Column(
-                  children: [
-                    Text('🎉 完了！ 🎉', style: theme.textTheme.headlineMedium),
-                    const SizedBox(height: 8),
-                    Text(
-                      lesson.title,
-                      style: theme.textTheme.titleLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
+      child: Stack(
+        children: [
+          Positioned.fill(
+            child: IgnorePointer(
+              child: ConfettiWidget(
+                confettiController: _confettiController,
+                blastDirectionality: BlastDirectionality.explosive,
+                emissionFrequency: 0.04,
+                numberOfParticles: 18,
+                maxBlastForce: 12,
+                minBlastForce: 7,
+                gravity: 0.2,
               ),
-              const SizedBox(height: 24),
-              _ResultCard(stats: stats),
-              const SizedBox(height: 16),
-              _WeakCharactersCard(weakCharacters: weakCharacters),
-              const Spacer(),
-              _ActionButtons(
-                lessonId: lessonId,
-                nextLessonId: nextLessonId,
-              ),
-            ],
+            ),
           ),
-        ),
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: Column(
+                      children: [
+                        Text('🎉 完了！ 🎉',
+                            style: theme.textTheme.headlineMedium),
+                        const SizedBox(height: 8),
+                        Text(
+                          widget.lesson.title,
+                          style: theme.textTheme.titleLarge,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  _ResultCard(stats: widget.stats),
+                  const SizedBox(height: 16),
+                  _WeakCharactersCard(weakCharacters: weakCharacters),
+                  const Spacer(),
+                  _ActionButtons(
+                    lessonId: widget.lessonId,
+                    nextLessonId: nextLessonId,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -88,6 +131,7 @@ class _ResultCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final score = stats.wpm * 10 + (stats.accuracy * 100).round();
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(20),
@@ -96,10 +140,7 @@ class _ResultCard extends StatelessWidget {
           children: [
             Text('あなたの結果', style: theme.textTheme.titleLarge),
             const SizedBox(height: 12),
-            _StatRow(
-              label: 'スコア',
-              value: '${stats.wpm * 10 + (stats.accuracy * 100).round()}点',
-            ),
+            _AnimatedStatRow(label: 'スコア', value: score, suffix: '点'),
             _StatRow(
               label: '正解率',
               value: '${(stats.accuracy * 100).toStringAsFixed(1)}%',
@@ -136,6 +177,43 @@ class _StatRow extends StatelessWidget {
         children: [
           Text(label, style: theme.textTheme.bodyLarge),
           Text(value, style: theme.textTheme.titleMedium),
+        ],
+      ),
+    );
+  }
+}
+
+class _AnimatedStatRow extends StatelessWidget {
+  const _AnimatedStatRow({
+    required this.label,
+    required this.value,
+    this.suffix = '',
+  });
+
+  final String label;
+  final int value;
+  final String suffix;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(label, style: theme.textTheme.bodyLarge),
+          TweenAnimationBuilder<double>(
+            tween: Tween<double>(begin: 0, end: value.toDouble()),
+            duration: const Duration(milliseconds: 900),
+            curve: Curves.easeOut,
+            builder: (context, animated, child) {
+              return Text(
+                '${animated.round()}$suffix',
+                style: theme.textTheme.titleMedium,
+              );
+            },
+          ),
         ],
       ),
     );

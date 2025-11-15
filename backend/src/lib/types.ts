@@ -109,6 +109,7 @@ export interface LessonCompletion {
   timeSpent: number;
   device: DeviceType;
   mode: LessonMode;
+  mistakeCharacters?: Record<string, number> | null;
   completedAt: ISODateTime;
 }
 

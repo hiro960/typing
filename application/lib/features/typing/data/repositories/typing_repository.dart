@@ -35,6 +35,7 @@ class TypingRepository {
     required int timeSpentMs,
     String device = 'ios',
     String mode = 'standard',
+    Map<String, int> mistakeCharacters = const <String, int>{},
   }) async {
     try {
       await _apiClient.dio.post(
@@ -46,6 +47,7 @@ class TypingRepository {
           'timeSpent': timeSpentMs,
           'device': device,
           'mode': mode,
+          if (mistakeCharacters.isNotEmpty) 'mistakeCharacters': mistakeCharacters,
         },
       );
     } on DioException catch (error) {
@@ -105,6 +107,7 @@ class TypingRepository {
           timeSpentMs: completion.timeSpentMs,
           device: completion.device,
           mode: completion.mode,
+          mistakeCharacters: completion.mistakeCharacters,
         );
       } catch (error, stackTrace) {
         AppLogger.error(
@@ -126,6 +129,7 @@ class TypingRepository {
     required int timeSpentMs,
     String device = 'ios',
     String mode = 'standard',
+    Map<String, int> mistakeCharacters = const <String, int>{},
   }) {
     final id = '${DateTime.now().microsecondsSinceEpoch}_$lessonId';
     return PendingCompletion(
@@ -137,6 +141,7 @@ class TypingRepository {
       device: device,
       mode: mode,
       createdAt: DateTime.now(),
+      mistakeCharacters: mistakeCharacters,
     );
   }
 }

@@ -149,6 +149,7 @@ model LessonCompletion {
   timeSpent   Int
   device      DeviceType @default(ios)
   mode        LessonMode @default(standard)
+  mistakeCharacters Json?
   completedAt DateTime @default(now())
 
   lesson      Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)

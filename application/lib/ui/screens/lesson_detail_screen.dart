@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
+import '../../features/lessons/data/models/lesson_index.dart';
 import '../../features/lessons/data/models/lesson_models.dart';
 import '../../features/lessons/data/models/lesson_progress.dart';
 import '../../features/lessons/domain/providers/lesson_progress_providers.dart';
@@ -48,10 +49,10 @@ class LessonDetailScreen extends ConsumerWidget {
                   _OverviewCard(lesson: lesson, completionRate: completionRate),
                   if (isLocked) ...[
                     const SizedBox(height: 12),
-                    FAlert.banner(
-                      status: FAlertStatus.warning,
+                    FAlert(
+                      icon: const Icon(Icons.lock),
                       title: const Text('ロック中'),
-                      description: const Text('前のレッスンを完了すると解放されます'),
+                      subtitle: const Text('前のレッスンを完了すると解放されます'),
                     ),
                   ],
                   const SizedBox(height: 16),
@@ -155,7 +156,18 @@ class _SectionList extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(section.title),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(section.title),
+                        Text(
+                          section.type.label,
+                          style: theme.textTheme.labelSmall?.copyWith(
+                            color: theme.colorScheme.secondary,
+                          ),
+                        ),
+                      ],
+                    ),
                     Text('${section.items.length} 項目'),
                   ],
                 ),

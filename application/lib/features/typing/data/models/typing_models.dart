@@ -110,6 +110,7 @@ class PendingCompletion {
     this.device = 'ios',
     this.mode = 'standard',
     required this.createdAt,
+    this.mistakeCharacters = const <String, int>{},
   });
 
   final String id;
@@ -120,6 +121,7 @@ class PendingCompletion {
   final String device;
   final String mode;
   final DateTime createdAt;
+  final Map<String, int> mistakeCharacters;
 
   factory PendingCompletion.fromJson(Map<String, dynamic> json) {
     return PendingCompletion(
@@ -133,6 +135,14 @@ class PendingCompletion {
       createdAt:
           DateTime.tryParse(json['createdAt'] as String? ?? '') ??
           DateTime.now(),
+      mistakeCharacters: (json['mistakeCharacters'] as Map<String, dynamic>? ??
+              const {})
+          .map(
+        (key, value) => MapEntry(
+          key,
+          value is int ? value : (value as num?)?.toInt() ?? 0,
+        ),
+      ),
     );
   }
 
@@ -146,6 +156,7 @@ class PendingCompletion {
       'device': device,
       'mode': mode,
       'createdAt': createdAt.toIso8601String(),
+      'mistakeCharacters': mistakeCharacters,
     };
   }
 }

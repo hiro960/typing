@@ -79,19 +79,19 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         const SizedBox(height: 16),
                         _StatHighlights(stats: stats),
                         const SizedBox(height: 24),
+                        _LevelAccordions(
+                          controller: _accordionController,
+                          catalog: catalog,
+                          progress: progress,
+                          onLessonTap: _onLessonTap,
+                        ),
+                        const SizedBox(height: 24),
                         _QuickActions(
                           focusLesson: focusLesson,
                           onFocusTap: focusLesson == null
                               ? null
                               : () => _onLessonTap(focusLesson, false),
                           onCustomPracticeTap: _showCustomPracticeHint,
-                        ),
-                        const SizedBox(height: 24),
-                        _LevelAccordions(
-                          controller: _accordionController,
-                          catalog: catalog,
-                          progress: progress,
-                          onLessonTap: _onLessonTap,
                         ),
                       ],
                     ),
@@ -265,7 +265,7 @@ class _LevelAccordions extends StatelessWidget {
         final lessons = catalog[meta.level] ?? const [];
 
         return FAccordionItem(
-          initiallyExpanded: meta.level == LessonLevel.beginner,
+          initiallyExpanded: false,
           title: Row(
             children: [
               CircleAvatar(
@@ -297,16 +297,20 @@ class _LevelAccordions extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               for (int i = 0; i < lessons.length; i++) ...[
-                _LessonTile(
-                  lesson: lessons[i],
-                  accent: meta.color,
-                  completionRate:
-                      progress[lessons[i].id]?.normalizedCompletionRate ?? 0,
-                  isLocked: _isLocked(lessons, i),
-                  onTap: () => onLessonTap(
-                    lessons[i],
-                    _isLocked(lessons, i),
-                  ),
+                Builder(
+                  builder: (_) {
+                    final lesson = lessons[i];
+                    final completionRate =
+                        progress[lesson.id]?.normalizedCompletionRate ?? 0;
+                    final locked = _isLocked(lessons, i);
+                    return _LessonTile(
+                      lesson: lesson,
+                      accent: meta.color,
+                      completionRate: completionRate,
+                      isLocked: locked,
+                      onTap: () => onLessonTap(lesson, locked),
+                    );
+                  },
                 ),
               ],
             ],

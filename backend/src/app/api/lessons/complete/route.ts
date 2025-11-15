@@ -12,7 +12,15 @@ export async function POST(request: NextRequest) {
     const user = await requireAuthUser(request);
     const body = await request.json();
 
-    const { lessonId, wpm, accuracy, timeSpent, device, mode } = body;
+    const {
+      lessonId,
+      wpm,
+      accuracy,
+      timeSpent,
+      device,
+      mode,
+      mistakeCharacters,
+    } = body;
 
     if (!lessonId || typeof lessonId !== "string") {
       throw ERROR.INVALID_INPUT("lessonId is required", { field: "lessonId" });
@@ -52,6 +60,34 @@ export async function POST(request: NextRequest) {
       });
     }
 
+    let normalizedMistakes: Record<string, number> | undefined;
+    if (typeof mistakeCharacters !== "undefined") {
+      if (
+        typeof mistakeCharacters !== "object" ||
+        mistakeCharacters === null ||
+        Array.isArray(mistakeCharacters)
+      ) {
+        throw ERROR.INVALID_INPUT("mistakeCharacters must be an object", {
+          field: "mistakeCharacters",
+        });
+      }
+      normalizedMistakes = {};
+      for (const [char, value] of Object.entries(mistakeCharacters)) {
+        if (typeof char !== "string") {
+          throw ERROR.INVALID_INPUT("mistakeCharacters keys must be strings", {
+            field: "mistakeCharacters",
+          });
+        }
+        if (typeof value !== "number" || value < 0) {
+          throw ERROR.INVALID_INPUT(
+            "mistakeCharacters values must be positive numbers",
+            { field: "mistakeCharacters" }
+          );
+        }
+        normalizedMistakes[char] = Math.round(value);
+      }
+    }
+
     const completion = await recordLessonCompletion({
       lessonId,
       userId: user.id,
@@ -60,6 +96,7 @@ export async function POST(request: NextRequest) {
       timeSpent,
       device: device ?? "ios",
       mode: mode ?? "standard",
+      mistakeCharacters: normalizedMistakes,
     });
 
     return NextResponse.json(

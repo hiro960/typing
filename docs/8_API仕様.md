@@ -382,7 +382,8 @@ HTTP 401 UNAUTHORIZED
   "accuracy": 0.95,
   "timeSpent": 332000,
   "device": "ios",
-  "mode": "standard"
+  "mode": "standard",
+  "mistakeCharacters": { "ㅂ": 2, "ㅈ": 1 }
 }
 ```
 - **フィールド説明**:
@@ -392,6 +393,7 @@ HTTP 401 UNAUTHORIZED
   - `timeSpent`: 所要時間（必須、ミリ秒単位の正の整数）
   - `device`: デバイスタイプ（任意、`ios` | `android` | `web`。省略時は`ios`）
   - `mode`: プレイモード（任意、`standard` | `challenge`。省略時は`standard`）
+  - `mistakeCharacters`: 誤入力した文字の出現回数マップ（任意、例: `{ "ㅂ": 2 }`）
 - **バリデーション**:
   - `wpm > 0`
   - `0.0 <= accuracy <= 1.0`
@@ -416,6 +418,7 @@ HTTP 401 UNAUTHORIZED
   "recommendedLessons": [ { ...Lesson } ]
 }
 ```
+- `weakCharacters`: `mistakeCharacters` で送信された履歴から、出現頻度の高い文字上位3件を返す。
 
 ## 6. ステータスコード/イベント対応
 - 作成: 201 (Location ヘッダーでリソース URL)

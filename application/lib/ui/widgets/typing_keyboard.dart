@@ -36,7 +36,7 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
     ['ㅂ', 'ㅈ', 'ㄷ', 'ㄱ', 'ㅅ', 'ㅛ', 'ㅕ', 'ㅑ', 'ㅐ', 'ㅔ'],
     ['ㅁ', 'ㄴ', 'ㅇ', 'ㄹ', 'ㅎ', 'ㅗ', 'ㅓ', 'ㅏ', 'ㅣ'],
     ['⇧', 'ㅋ', 'ㅌ', 'ㅊ', 'ㅍ', 'ㅠ', 'ㅜ', 'ㅡ', '⌫'],
-    ['123', '🌐', 'space', '✓', '⏎'],
+    ['123', 'space', '✓', '⏎'],
   ];
 
   static const _doubleConsonants = {
@@ -54,21 +54,16 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
       decoration: BoxDecoration(
         color: colors.surface,
-        borderRadius: BorderRadius.circular(32),
+        borderRadius: const BorderRadius.all(Radius.circular(18),),
         border: Border.all(color: colors.primary.withValues(alpha: 0.08)),
       ),
       child: Column(
         children: [
           Row(
             children: [
-              _TimerChip(
-                label: widget.nextKeyLabel ?? 'ヒントON',
-                color: colors.secondary,
-              ),
-              const Spacer(),
               if (widget.nextKeyLabel != null)
                 Row(
                   mainAxisSize: MainAxisSize.min,
@@ -122,7 +117,6 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
         _notifyFeedback();
         return;
       case '123':
-      case '🌐':
         // まだモック。実装時に切り替えを追加
         return;
       default:
@@ -186,9 +180,8 @@ class _KeyboardRow extends StatelessWidget {
   int _flex(String key) {
     switch (key) {
       case 'space':
-        return 4;
+        return 6;
       case '123':
-      case '🌐':
       case '⌫':
       case '⇧':
         return 2;

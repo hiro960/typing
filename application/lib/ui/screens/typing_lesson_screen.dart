@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
@@ -32,6 +34,13 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       ref.read(typingSessionProvider(widget.lessonId).notifier).start();
     });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final sessionAsync = ref.watch(typingSessionProvider(widget.lessonId));
+    final settingsAsync = ref.watch(typingSettingsProvider);
+    final settings = settingsAsync.value ?? const TypingSettings();
     ref.listen<AsyncValue<TypingSessionState>>(
       typingSessionProvider(widget.lessonId),
       (previous, next) {
@@ -44,13 +53,6 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen> {
         }
       },
     );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final sessionAsync = ref.watch(typingSessionProvider(widget.lessonId));
-    final settingsAsync = ref.watch(typingSettingsProvider);
-    final settings = settingsAsync.value ?? const TypingSettings();
     return sessionAsync.when(
       data: (session) => _LessonView(
         session: session,
@@ -119,11 +121,13 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen> {
     TypingStatsData stats,
   ) async {
     final repository = ref.read(typingRepositoryProvider);
+    final mistakes = _buildMistakeCounts(session.records);
     final completion = repository.buildPendingCompletion(
       lessonId: session.lessonId,
       wpm: stats.wpm,
       accuracy: stats.accuracy,
       timeSpentMs: session.elapsedMs,
+      mistakeCharacters: mistakes,
     );
     try {
       await repository.submitCompletion(
@@ -131,6 +135,7 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen> {
         wpm: stats.wpm,
         accuracy: stats.accuracy,
         timeSpentMs: session.elapsedMs,
+        mistakeCharacters: mistakes,
       );
     } on AppException catch (error, stackTrace) {
       AppLogger.error(
@@ -171,6 +176,17 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen> {
       context,
     ).showSnackBar(SnackBar(content: Text(message)));
   }
+
+  Map<String, int> _buildMistakeCounts(List<InputRecord> records) {
+    final counts = <String, int>{};
+    for (final record in records) {
+      final char = record.expectedChar;
+      if (!record.isCorrect && (char ?? '').isNotEmpty) {
+        counts[char!] = (counts[char] ?? 0) + 1;
+      }
+    }
+    return counts;
+  }
 }
 
 class _LessonView extends StatelessWidget {
@@ -197,7 +213,11 @@ class _LessonView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final currentItem = _currentItem(session);
+    final currentSection = session
+        .lesson
+        .content
+        .sections[session.currentSectionIndex];
+    final currentItem = currentSection.items[session.currentItemIndex];
     final totalItems = _totalItems(session.lesson);
     final completedItems = _completedItems(session);
     final progress = totalItems == 0 ? 0.0 : completedItems / totalItems;
@@ -208,8 +228,9 @@ class _LessonView extends StatelessWidget {
     final highlightShift =
         shouldHighlight && _doubleConsonants.contains(nextKey);
     final highlightedKeys = shouldHighlight
-        ? {_normalizeKey(nextKey!)}
+        ? {_normalizeKey(nextKey)}
         : const <String>{};
+    final lastRecord = session.records.isEmpty ? null : session.records.last;
 
     return FScaffold(
       header: FHeader.nested(
@@ -228,81 +249,89 @@ class _LessonView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 12, 20, 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  LinearProgressIndicator(
-                    value: progress.clamp(0, 1),
-                    minHeight: 6,
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '進捗 ${(progress * 100).round()}% (${completedItems + 1}/$totalItems)',
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          color: theme.colorScheme.onSurface.withValues(
-                            alpha: 0.7,
-                          ),
-                        ),
-                      ),
-                      Text(timerLabel, style: theme.textTheme.titleMedium),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: _PromptCard(item: currentItem, session: session),
-            ),
-            const SizedBox(height: 16),
-            if (showHints) ...[
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: _JamoHint(session: session),
-              ),
-              const SizedBox(height: 16),
-            ],
             Expanded(
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: Padding(
-                  padding: EdgeInsets.only(
-                    left: 16,
-                    right: 16,
-                    bottom: 16 + MediaQuery.of(context).padding.bottom,
-                  ),
-                  child: TypingKeyboard(
-                    onTextInput: onTextInput,
-                    onBackspace: onBackspace,
-                    onSpace: onSpace,
-                    onEnter: onEnter,
-                    highlightedKeys: highlightedKeys,
-                    highlightShift: highlightShift,
-                    nextKeyLabel:
-                        showHints ? _nextKeyLabel(nextKey) : null,
-                    enableSound: settings.keySoundEnabled,
-                    enableHaptics: settings.hapticsEnabled,
-                  ),
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 12, 20, 16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          LinearProgressIndicator(
+                            value: progress.clamp(0, 1),
+                            minHeight: 6,
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  '進捗 ${(progress * 100).round()}% (${completedItems + 1}/$totalItems)',
+                                  style: theme.textTheme.bodyMedium?.copyWith(
+                                    color:
+                                        theme.colorScheme.onSurface.withValues(
+                                      alpha: 0.7,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              Text(timerLabel,
+                                  style: theme.textTheme.titleMedium),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: _PromptCard(
+                        item: currentItem,
+                        sectionType: currentSection.type,
+                        session: session,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: _InputFeedback(record: lastRecord),
+                    ),
+                    const SizedBox(height: 12),
+                    if (showHints) ...[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: _JamoHint(session: session),
+                      ),
+                      const SizedBox(height: 16),
+                    ],
+                  ],
                 ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                bottom: 16 + MediaQuery.of(context).padding.bottom,
+              ),
+              child: TypingKeyboard(
+                onTextInput: onTextInput,
+                onBackspace: onBackspace,
+                onSpace: onSpace,
+                onEnter: onEnter,
+                highlightedKeys: highlightedKeys,
+                highlightShift: highlightShift,
+                nextKeyLabel: showHints ? _nextKeyLabel(nextKey) : null,
+                enableSound: settings.keySoundEnabled,
+                enableHaptics: settings.hapticsEnabled,
               ),
             ),
           ],
         ),
       ),
     );
-  }
-
-  static LessonItem _currentItem(TypingSessionState session) {
-    return session
-        .lesson
-        .content
-        .sections[session.currentSectionIndex]
-        .items[session.currentItemIndex];
   }
 
   static int _totalItems(Lesson lesson) {
@@ -364,9 +393,14 @@ class _LessonView extends StatelessWidget {
 }
 
 class _PromptCard extends StatelessWidget {
-  const _PromptCard({required this.item, required this.session});
+  const _PromptCard({
+    required this.item,
+    required this.sectionType,
+    required this.session,
+  });
 
   final LessonItem item;
+  final LessonSectionType sectionType;
   final TypingSessionState session;
 
   @override
@@ -375,6 +409,18 @@ class _PromptCard extends StatelessWidget {
     final colors = theme.colorScheme;
     final targetChars = item.text.characters.toList();
     final typedChars = session.inputBuffer.characters.toList();
+    final bool isCharacterDrill =
+        sectionType == LessonSectionType.characterDrill;
+    final bool isSentence =
+        sectionType == LessonSectionType.sentencePractice;
+    final textStyle = (isCharacterDrill
+            ? theme.textTheme.displayLarge
+            : theme.textTheme.displaySmall)
+        ?.copyWith(
+      fontSize: isCharacterDrill ? 56 : (isSentence ? 36 : null),
+    );
+    final pronunciation = item.pronunciation;
+    final hint = item.hint;
 
     return Container(
       width: double.infinity,
@@ -401,6 +447,21 @@ class _PromptCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Material(
+              color: Colors.transparent,
+              child: Chip(
+                label: Text(sectionType.label),
+                backgroundColor: colors.secondary.withValues(alpha: 0.1),
+                labelStyle: theme.textTheme.labelSmall?.copyWith(
+                  color: colors.secondary,
+                  letterSpacing: 0.5,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
           Text(
             '問題',
             style: theme.textTheme.labelLarge?.copyWith(
@@ -414,7 +475,7 @@ class _PromptCard extends StatelessWidget {
                 for (int i = 0; i < targetChars.length; i++)
                   TextSpan(
                     text: targetChars[i],
-                    style: theme.textTheme.displaySmall?.copyWith(
+                    style: textStyle?.copyWith(
                       color: i < typedChars.length
                           ? (typedChars[i] == targetChars[i]
                                 ? colors.primary
@@ -435,6 +496,107 @@ class _PromptCard extends StatelessWidget {
               ),
             ),
           ],
+          if ((pronunciation ?? '').isNotEmpty) ...[
+            const SizedBox(height: 6),
+            Text(
+              '発音: $pronunciation',
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: colors.onSurfaceVariant,
+              ),
+            ),
+          ],
+          if ((hint ?? '').isNotEmpty) ...[
+            const SizedBox(height: 6),
+            Text(
+              'ヒント: $hint',
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: colors.onSurfaceVariant,
+                fontStyle: FontStyle.italic,
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _InputFeedback extends StatelessWidget {
+  const _InputFeedback({required this.record});
+
+  final InputRecord? record;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 28,
+      child: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 200),
+        child: record == null
+            ? const SizedBox.shrink()
+            : record!.isCorrect
+                ? _PulseFeedback(
+                    key: ValueKey('correct_${record!.timestamp.microsecondsSinceEpoch}'),
+                    label: '正解！',
+                  )
+                : _ShakeFeedback(
+                    key: ValueKey('wrong_${record!.timestamp.microsecondsSinceEpoch}'),
+                    label: 'ミス',
+                  ),
+      ),
+    );
+  }
+}
+
+class _PulseFeedback extends StatelessWidget {
+  const _PulseFeedback({super.key, required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return TweenAnimationBuilder<double>(
+      duration: const Duration(milliseconds: 400),
+      tween: Tween<double>(begin: 0.8, end: 1),
+      curve: Curves.elasticOut,
+      builder: (context, value, child) {
+        return Transform.scale(scale: value, child: child);
+      },
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Icon(Icons.check_circle, color: Colors.green, size: 20),
+          const SizedBox(width: 6),
+          Text(label),
+        ],
+      ),
+    );
+  }
+}
+
+class _ShakeFeedback extends StatelessWidget {
+  const _ShakeFeedback({super.key, required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return TweenAnimationBuilder<double>(
+      duration: const Duration(milliseconds: 420),
+      tween: Tween<double>(begin: 0, end: 1),
+      builder: (context, value, child) {
+        final offset = math.sin(value * math.pi * 5) * 6;
+        return Transform.translate(
+          offset: Offset(offset, 0),
+          child: child,
+        );
+      },
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Icon(Icons.close_rounded, color: Colors.red, size: 20),
+          const SizedBox(width: 6),
+          Text(label),
         ],
       ),
     );

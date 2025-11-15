@@ -566,6 +566,7 @@ export async function recordLessonCompletion(params: {
   timeSpent: number;
   device: DeviceType;
   mode: LessonMode;
+  mistakeCharacters?: Record<string, number>;
 }) {
   const lesson = await prisma.lesson.findUnique({ where: { id: params.lessonId } });
   if (!lesson) {
@@ -583,6 +584,7 @@ export async function recordLessonCompletion(params: {
       timeSpent: params.timeSpent,
       device: params.device,
       mode: params.mode,
+      mistakeCharacters: params.mistakeCharacters ?? null,
     },
   });
 
@@ -738,10 +740,27 @@ export async function getLessonStats(
         values.accuracy.reduce((sum, value) => sum + value, 0) / values.accuracy.length,
     }));
 
-  const weakCharacters = ["ㅂ", "ㅍ", "ㅎ"].slice(
-    0,
-    Math.max(1, Math.min(3, completions.length))
+  const mistakeCounts = completions.reduce<Record<string, number>>(
+    (acc, completion) => {
+      if (completion.mistakeCharacters) {
+        Object.entries(
+          completion.mistakeCharacters as Record<string, number>
+        ).forEach(([char, value]) => {
+          if (!char || typeof value !== "number") {
+            return;
+          }
+          acc[char] = (acc[char] ?? 0) + value;
+        });
+      }
+      return acc;
+    },
+    {}
   );
+
+  const weakCharacters = Object.entries(mistakeCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 3)
+    .map(([char]) => char);
 
   const lessons = await prisma.lesson.findMany({
     where: level ? { level } : {},

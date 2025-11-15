@@ -148,6 +148,66 @@ describe('POST /api/lessons/complete', () => {
       // device: ios, mode: standard がデフォルト
     });
 
+    it('should accept mistake character data for analytics', async () => {
+      const authUser = createMockAuthUser({ id: 'usr_123' });
+      mockAuthUser(authUser);
+
+      const mockLesson = createMockLesson({ id: 'lesson_1' });
+      const mockCompletion = createMockLessonCompletion({
+        lessonId: 'lesson_1',
+        userId: 'usr_123',
+      });
+
+      prismaMock.lesson.findUnique.mockResolvedValue(mockLesson);
+      prismaMock.lessonCompletion.create.mockResolvedValue(mockCompletion);
+
+      const request = createAuthRequest('http://localhost:3000/api/lessons/complete', {
+        method: 'POST',
+        body: JSON.stringify({
+          lessonId: 'lesson_1',
+          wpm: 220,
+          accuracy: 0.9,
+          timeSpent: 200,
+          mistakeCharacters: { 'ㅂ': 2, 'ㅈ': 1 },
+        }),
+      });
+
+      const response = await POST(request);
+
+      expect(response.status).toBe(201);
+      expect(prismaMock.lessonCompletion.create).toHaveBeenCalledWith({
+        data: expect.objectContaining({
+          lessonId: 'lesson_1',
+          mistakeCharacters: { 'ㅂ': 2, 'ㅈ': 1 },
+        }),
+      });
+    });
+
+    it('should reject malformed mistakeCharacters payload', async () => {
+      const authUser = createMockAuthUser({ id: 'usr_123' });
+      mockAuthUser(authUser);
+
+      const mockLesson = createMockLesson({ id: 'lesson_1' });
+      prismaMock.lesson.findUnique.mockResolvedValue(mockLesson);
+
+      const request = createAuthRequest('http://localhost:3000/api/lessons/complete', {
+        method: 'POST',
+        body: JSON.stringify({
+          lessonId: 'lesson_1',
+          wpm: 200,
+          accuracy: 0.95,
+          timeSpent: 180,
+          mistakeCharacters: ['ㄱ'],
+        }),
+      });
+
+      const response = await POST(request);
+      const data = await response.json();
+
+      expect(response.status).toBe(400);
+      expect(data.error.code).toBe('INVALID_INPUT');
+    });
+
     it('should record high WPM achievement', async () => {
       const authUser = createMockAuthUser({ id: 'usr_123' });
       mockAuthUser(authUser);
