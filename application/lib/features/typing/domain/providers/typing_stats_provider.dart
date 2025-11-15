@@ -16,17 +16,23 @@ TypingStatsData typingStats(Ref ref, String lessonId) {
 }
 
 TypingStatsData _calculateStats(TypingSessionState session) {
-  final correct = session.records.where((r) => r.isCorrect).length;
-  final incorrect = session.records.length - correct;
-  final accuracy = session.records.isEmpty
-      ? 0.0
-      : correct / session.records.length;
-  final wpm = _calculateWpm(correct, session.elapsedMs);
+  // recordsには正解文字のみが記録されている
+  final correctCount = session.records.length;
+
+  // mistakeHistoryから誤答の総数を計算
+  final incorrectCount = session.mistakeHistory.values.fold<int>(
+    0,
+    (sum, count) => sum + count,
+  );
+
+  final totalCount = correctCount + incorrectCount;
+  final accuracy = totalCount == 0 ? 0.0 : correctCount / totalCount;
+  final wpm = _calculateWpm(correctCount, session.elapsedMs);
 
   return TypingStatsData(
-    correctCount: correct,
-    incorrectCount: incorrect,
-    totalCount: session.records.length,
+    correctCount: correctCount,
+    incorrectCount: incorrectCount,
+    totalCount: totalCount,
     accuracy: accuracy,
     wpm: wpm,
     elapsedMs: session.elapsedMs,

@@ -27,13 +27,31 @@ class TypingLessonScreen extends ConsumerStatefulWidget {
   ConsumerState<TypingLessonScreen> createState() => _TypingLessonScreenState();
 }
 
-class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen> {
+class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen>
+    with WidgetsBindingObserver {
+  bool _hasStarted = false;
+
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(typingSessionProvider(widget.lessonId).notifier).start();
-    });
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    final notifier = ref.read(typingSessionProvider(widget.lessonId).notifier);
+    if (state == AppLifecycleState.paused ||
+        state == AppLifecycleState.inactive) {
+      notifier.pause();
+    } else if (state == AppLifecycleState.resumed) {
+      notifier.resume();
+    }
   }
 
   @override
@@ -46,6 +64,15 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen> {
       (previous, next) {
         final prevState = previous?.asData?.value;
         final current = next.asData?.value;
+
+        // セッションがdataになった時点でタイマーを開始
+        if (current != null && !_hasStarted && !current.isCompleted) {
+          _hasStarted = true;
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            ref.read(typingSessionProvider(widget.lessonId).notifier).start();
+          });
+        }
+
         if (current != null &&
             current.isCompleted &&
             (prevState == null || !prevState.isCompleted)) {
@@ -100,11 +127,21 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen> {
 
   Future<void> _handleCompletion(TypingSessionState session) async {
     final stats = ref.read(typingStatsProvider(widget.lessonId));
-    await _submitCompletion(session, stats);
+
+    // 画面遷移の前にcompletionを送信（エラーは無視）
+    try {
+      await _submitCompletion(session, stats);
+    } catch (e) {
+      // エラーはログに記録され、オフラインキューに追加済み
+      // 画面遷移は続行
+    }
+
     if (!mounted) {
       return;
     }
-    Navigator.of(context).pushReplacement(
+
+    // 画面遷移を実行
+    await Navigator.of(context).pushReplacement(
       MaterialPageRoute<void>(
         builder: (_) => TypingCompletionScreen(
           lesson: session.lesson,
@@ -121,13 +158,12 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen> {
     TypingStatsData stats,
   ) async {
     final repository = ref.read(typingRepositoryProvider);
-    final mistakes = _buildMistakeCounts(session.records);
     final completion = repository.buildPendingCompletion(
       lessonId: session.lessonId,
       wpm: stats.wpm,
       accuracy: stats.accuracy,
       timeSpentMs: session.elapsedMs,
-      mistakeCharacters: mistakes,
+      mistakeCharacters: session.mistakeHistory,
     );
     try {
       await repository.submitCompletion(
@@ -135,7 +171,7 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen> {
         wpm: stats.wpm,
         accuracy: stats.accuracy,
         timeSpentMs: session.elapsedMs,
-        mistakeCharacters: mistakes,
+        mistakeCharacters: session.mistakeHistory,
       );
     } on AppException catch (error, stackTrace) {
       AppLogger.error(
@@ -145,9 +181,8 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen> {
         stackTrace: stackTrace,
       );
       await repository.enqueueCompletion(completion);
-      if (mounted) {
-        _showSnack('オフラインのため後で自動送信します');
-      }
+      // エラーをthrowして呼び出し元で処理
+      rethrow;
     } catch (error, stackTrace) {
       AppLogger.error(
         'Unknown error submitting completion',
@@ -156,11 +191,11 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen> {
         stackTrace: stackTrace,
       );
       await repository.enqueueCompletion(completion);
-      if (mounted) {
-        _showSnack('送信に失敗しました。後で再試行します。');
-      }
+      // エラーをthrowして呼び出し元で処理
+      rethrow;
     }
 
+    // 成功した場合のみ進捗を更新
     await ref
         .read(lessonProgressControllerProvider.notifier)
         .markCompleted(
@@ -177,16 +212,6 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen> {
     ).showSnackBar(SnackBar(content: Text(message)));
   }
 
-  Map<String, int> _buildMistakeCounts(List<InputRecord> records) {
-    final counts = <String, int>{};
-    for (final record in records) {
-      final char = record.expectedChar;
-      if (!record.isCorrect && (char ?? '').isNotEmpty) {
-        counts[char!] = (counts[char] ?? 0) + 1;
-      }
-    }
-    return counts;
-  }
 }
 
 class _LessonView extends StatelessWidget {
@@ -301,13 +326,6 @@ class _LessonView extends StatelessWidget {
                       child: _InputFeedback(record: lastRecord),
                     ),
                     const SizedBox(height: 12),
-                    if (showHints) ...[
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: _JamoHint(session: session),
-                      ),
-                      const SizedBox(height: 16),
-                    ],
                   ],
                 ),
               ),
@@ -360,11 +378,11 @@ class _LessonView extends StatelessWidget {
 
   static String? _nextKey(TypingSessionState session, LessonItem item) {
     final targetJamo = HangulComposer.decomposeText(item.text);
-    final typedJamo = HangulComposer.decomposeText(session.inputBuffer);
-    if (typedJamo.length >= targetJamo.length) {
+    // currentPositionを使用して次の字母を取得
+    if (session.currentPosition >= targetJamo.length) {
       return null;
     }
-    return targetJamo[typedJamo.length];
+    return targetJamo[session.currentPosition];
   }
 
   static String _normalizeKey(String key) {
@@ -476,10 +494,10 @@ class _PromptCard extends StatelessWidget {
                   TextSpan(
                     text: targetChars[i],
                     style: textStyle?.copyWith(
+                      // inputBufferには正しく組み立てられた文字のみが含まれるため、
+                      // inputBufferの長さに基づいて色付け
                       color: i < typedChars.length
-                          ? (typedChars[i] == targetChars[i]
-                                ? colors.primary
-                                : colors.error)
+                          ? colors.primary
                           : colors.onSurface,
                       fontWeight: FontWeight.w700,
                     ),
@@ -493,25 +511,6 @@ class _PromptCard extends StatelessWidget {
               item.meaning!,
               style: theme.textTheme.titleMedium?.copyWith(
                 color: colors.onSurfaceVariant,
-              ),
-            ),
-          ],
-          if ((pronunciation ?? '').isNotEmpty) ...[
-            const SizedBox(height: 6),
-            Text(
-              '発音: $pronunciation',
-              style: theme.textTheme.bodyMedium?.copyWith(
-                color: colors.onSurfaceVariant,
-              ),
-            ),
-          ],
-          if ((hint ?? '').isNotEmpty) ...[
-            const SizedBox(height: 6),
-            Text(
-              'ヒント: $hint',
-              style: theme.textTheme.bodyMedium?.copyWith(
-                color: colors.onSurfaceVariant,
-                fontStyle: FontStyle.italic,
               ),
             ),
           ],
@@ -603,36 +602,6 @@ class _ShakeFeedback extends StatelessWidget {
   }
 }
 
-class _JamoHint extends StatelessWidget {
-  const _JamoHint({required this.session});
-
-  final TypingSessionState session;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final parts = [
-      if (session.jamoState.initial != null) session.jamoState.initial!,
-      if (session.jamoState.medial != null) session.jamoState.medial!,
-      if (session.jamoState.finalConsonant != null)
-        session.jamoState.finalConsonant!,
-    ];
-    final composed = parts.isEmpty
-        ? '-'
-        : '${parts.join(' + ')} → ${session.jamoState.initial ?? ''}${session.jamoState.medial ?? ''}${session.jamoState.finalConsonant ?? ''}';
-
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
-      ),
-      child: Text('組み立て中: $composed', style: theme.textTheme.bodyMedium),
-    );
-  }
-}
-
 class _TypingSettingsSheet extends ConsumerWidget {
   const _TypingSettingsSheet();
 
@@ -657,7 +626,7 @@ class _TypingSettingsSheet extends ConsumerWidget {
             const SizedBox(height: 12),
             SwitchListTile.adaptive(
               title: const Text('ヒントを表示'),
-              subtitle: const Text('次に押すキーとJamoヒントを表示します'),
+              subtitle: const Text('次に押すキーをハイライト表示します'),
               value: settings.hintsEnabled,
               onChanged: isLoading ? null : controller.toggleHints,
             ),

@@ -21,17 +21,35 @@ class OfflineQueue extends _$OfflineQueue {
   }
 
   Future<void> enqueue(PendingCompletion completion) async {
+    if (!ref.mounted) return;
     state = const AsyncLoading();
+
     final repository = ref.watch(typingRepositoryProvider);
     await repository.enqueueCompletion(completion);
+
+    // 非同期処理後にproviderがまだマウントされているか確認
+    if (!ref.mounted) return;
+
     final refreshed = await repository.loadPendingCompletions();
+
+    // 再度確認
+    if (!ref.mounted) return;
+
     state = AsyncData(refreshed);
   }
 
   Future<void> processQueue() async {
     final repository = ref.watch(typingRepositoryProvider);
     await repository.processQueue();
+
+    // 非同期処理後にproviderがまだマウントされているか確認
+    if (!ref.mounted) return;
+
     final refreshed = await repository.loadPendingCompletions();
+
+    // 再度確認
+    if (!ref.mounted) return;
+
     state = AsyncData(refreshed);
   }
 }

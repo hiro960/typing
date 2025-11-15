@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:developer' as developer;
+// import 'dart:math' as developer;
 
 import 'package:characters/characters.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -50,129 +52,220 @@ class TypingSession extends _$TypingSession {
     }
   }
 
-  void handleCharacter(String char) {
+  void resume() {
     final current = _currentState;
-    if (current == null || current.isCompleted) {
+    if (current == null || current.isRunning || current.isCompleted) {
       return;
     }
-    final previous = current.inputBuffer;
-    if (char == '\n') {
-      _composer?.addNewLine();
-    } else {
-      _composer?.input(char);
+    _setState(current.copyWith(isRunning: true));
+    _timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
+      final latest = _currentState;
+      if (latest == null || latest.isCompleted) {
+        return;
+      }
+      _setState(latest.copyWith(elapsedMs: latest.elapsedMs + 100));
+    });
+  }
+
+  void reset() {
+    _timer?.cancel();
+    _composer?.reset();
+    final current = _currentState;
+    if (current == null) return;
+
+    _setState(
+      current.copyWith(
+        currentSectionIndex: 0,
+        currentItemIndex: 0,
+        currentPosition: 0,
+        inputBuffer: '',
+        records: const [],
+        mistakeHistory: const {},
+        jamoState: JamoState.empty,
+        elapsedMs: 0,
+        isRunning: false,
+        isCompleted: false,
+      ),
+    );
+  }
+
+  void handleCharacter(String char) {
+    final current = _currentState;
+    final composer = _composer;
+    if (current == null || current.isCompleted || composer == null) {
+      return;
     }
-    _syncState(previous);
+
+    // すべての文字を字母レベルで処理
+    // 期待される文字列全体を字母に分解
+    final targetText = _currentItemFromState(current).text;
+    final targetJamos = HangulComposer.decomposeText(targetText);
+
+    // 現在の位置に対応する期待される字母
+    final expectedJamoNullable = current.currentPosition < targetJamos.length
+        ? targetJamos[current.currentPosition]
+        : null;
+
+    if (expectedJamoNullable == null) return;
+
+    // null checkの後、String型の変数に代入
+    final expectedJamo = expectedJamoNullable;
+
+    developer.log('Input: $char, Expected jamo: $expectedJamo, Position: ${current.currentPosition}');
+
+    // 字母が入力された場合、即座に検証
+    if (_jamos.contains(char)) {
+      if (char == expectedJamo) {
+        // 正解：composerに入力を渡して表示を更新
+        composer.input(char);
+        _recordCorrect(current, char, expectedJamo, composer);
+      } else {
+        // 不正解：ミスを記録してcomposerをリセット
+        _recordMistake(current, char, expectedJamo, composer);
+      }
+    } else if (char == ' ' && expectedJamo == ' ') {
+      // スペースの処理
+      composer.addSpace();
+      _recordCorrect(current, char, expectedJamo, composer);
+    } else if (char == '\n' && expectedJamo == '\n') {
+      // 改行の処理
+      composer.addNewLine();
+      _recordCorrect(current, char, expectedJamo, composer);
+    } else {
+      // その他の文字は一旦composerに渡す
+      composer.input(char);
+      _setState(
+        current.copyWith(
+          inputBuffer: composer.text,
+          jamoState: composer.jamoState,
+        ),
+      );
+    }
   }
 
   void handleSpace() {
     final current = _currentState;
-    if (current == null || current.isCompleted) return;
-    final previous = current.inputBuffer;
-    _composer?.addSpace();
-    _syncState(previous);
+    final composer = _composer;
+    if (current == null || current.isCompleted || composer == null) return;
+
+    // 字母レベルで処理
+    final targetText = _currentItemFromState(current).text;
+    final targetJamos = HangulComposer.decomposeText(targetText);
+    final expectedJamo = current.currentPosition < targetJamos.length
+        ? targetJamos[current.currentPosition]
+        : null;
+
+    if (expectedJamo != null && expectedJamo == ' ') {
+      composer.addSpace();
+      _recordCorrect(current, ' ', expectedJamo, composer);
+    }
+  }
+
+  /// 正解を記録して次に進む
+  void _recordCorrect(
+    TypingSessionState current,
+    String inputChar,
+    String expectedJamo,
+    HangulComposer composer,
+  ) {
+    developer.log('Correct! Moving to next jamo');
+
+    final updatedRecords = [...current.records];
+    updatedRecords.add(
+      InputRecord(
+        key: inputChar,
+        expectedChar: expectedJamo,
+        isCorrect: true,
+        timestamp: DateTime.now(),
+        sectionIndex: current.currentSectionIndex,
+        itemIndex: current.currentItemIndex,
+      ),
+    );
+
+    _setState(
+      current.copyWith(
+        currentPosition: current.currentPosition + 1,
+        records: updatedRecords,
+        inputBuffer: composer.text,
+        jamoState: composer.jamoState,
+      ),
+    );
+
+    _checkItemCompletion();
+  }
+
+  /// ミスを記録してcomposerをリセット
+  void _recordMistake(
+    TypingSessionState current,
+    String inputChar,
+    String expectedJamo,
+    HangulComposer composer,
+  ) {
+    developer.log('Mistake! Expected: $expectedJamo, Got: $inputChar');
+
+    final updatedMistakes = Map<String, int>.from(current.mistakeHistory);
+    updatedMistakes[inputChar] = (updatedMistakes[inputChar] ?? 0) + 1;
+
+    final updatedRecords = [...current.records];
+    updatedRecords.add(
+      InputRecord(
+        key: inputChar,
+        expectedChar: expectedJamo,
+        isCorrect: false,
+        timestamp: DateTime.now(),
+        sectionIndex: current.currentSectionIndex,
+        itemIndex: current.currentItemIndex,
+      ),
+    );
+
+    // composerをリセット
+    composer.reset();
+
+    _setState(
+      current.copyWith(
+        mistakeHistory: updatedMistakes,
+        records: updatedRecords,
+        inputBuffer: '',
+        jamoState: JamoState.empty,
+      ),
+    );
   }
 
   void handleBackspace() {
     final current = _currentState;
-    if (current == null || current.isCompleted) {
-      return;
-    }
-    final previous = current.inputBuffer;
-    _composer?.backspace();
-    _syncState(previous);
-  }
-
-  void _syncState(String previousBuffer) {
     final composer = _composer;
-    final current = _currentState;
-    if (composer == null || current == null) {
+    if (current == null || current.isCompleted || composer == null) {
       return;
     }
-    final updatedRecords = _updateRecords(
-      current,
-      previousBuffer,
-      composer.text,
-    );
+
+    composer.backspace();
+
+    // Backspaceは確定文字を削除する可能性がある
     _setState(
       current.copyWith(
         inputBuffer: composer.text,
         jamoState: composer.jamoState,
-        records: updatedRecords,
       ),
     );
-    _checkItemCompletion();
   }
 
-  List<InputRecord> _updateRecords(
-    TypingSessionState currentState,
-    String previous,
-    String current,
-  ) {
-    final target = _currentItemFromState(currentState).text.characters.toList();
-    final prevChars = previous.characters.toList();
-    final currentChars = current.characters.toList();
-    final updated = [...currentState.records];
-    final now = DateTime.now();
+  /// 字母（初声・中声・終声）のセット
+  static const _jamos = {
+    'ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ',
+    'ㅏ', 'ㅐ', 'ㅑ', 'ㅒ', 'ㅓ', 'ㅔ', 'ㅕ', 'ㅖ', 'ㅗ', 'ㅘ', 'ㅙ', 'ㅚ', 'ㅛ', 'ㅜ', 'ㅝ', 'ㅞ', 'ㅟ', 'ㅠ', 'ㅡ', 'ㅢ', 'ㅣ',
+  };
 
-    if (currentChars.length > prevChars.length) {
-      final index = currentChars.length - 1;
-      final inserted = currentChars[index];
-      final expected = index < target.length ? target[index] : null;
-      updated.add(
-        InputRecord(
-          key: inserted,
-          expectedChar: expected,
-          isCorrect: expected != null && inserted == expected,
-          timestamp: now,
-          sectionIndex: currentState.currentSectionIndex,
-          itemIndex: currentState.currentItemIndex,
-        ),
-      );
-      return updated;
-    }
-
-    if (currentChars.length < prevChars.length) {
-      for (int i = updated.length - 1; i >= 0; i--) {
-        final record = updated[i];
-        if (record.sectionIndex == currentState.currentSectionIndex &&
-            record.itemIndex == currentState.currentItemIndex) {
-          updated.removeAt(i);
-          break;
-        }
-      }
-      return updated;
-    }
-
-    if (currentChars.isNotEmpty &&
-        prevChars.isNotEmpty &&
-        currentChars.last != prevChars.last) {
-      for (int i = updated.length - 1; i >= 0; i--) {
-        final record = updated[i];
-        if (record.sectionIndex == currentState.currentSectionIndex &&
-            record.itemIndex == currentState.currentItemIndex) {
-          final index = currentChars.length - 1;
-          final expected = index < target.length ? target[index] : null;
-          updated[i] = InputRecord(
-            key: currentChars.last,
-            expectedChar: expected,
-            isCorrect: expected != null && currentChars.last == expected,
-            timestamp: now,
-            sectionIndex: record.sectionIndex,
-            itemIndex: record.itemIndex,
-          );
-          break;
-        }
-      }
-    }
-
-    return updated;
-  }
 
   void _checkItemCompletion() {
     final current = _currentState;
     if (current == null) return;
-    final target = _currentItemFromState(current).text;
-    if (current.inputBuffer == target) {
+
+    // 字母レベルでの完了判定
+    final targetText = _currentItemFromState(current).text;
+    final targetJamos = HangulComposer.decomposeText(targetText);
+
+    // currentPositionが字母の長さに到達したら完了
+    if (current.currentPosition >= targetJamos.length) {
       _composer?.reset();
       _advanceToNextItem();
     }
@@ -195,6 +288,7 @@ class TypingSession extends _$TypingSession {
       _setState(
         current.copyWith(
           currentItemIndex: item + 1,
+          currentPosition: 0,
           inputBuffer: '',
           jamoState: JamoState.empty,
         ),
@@ -207,6 +301,7 @@ class TypingSession extends _$TypingSession {
         current.copyWith(
           currentSectionIndex: section + 1,
           currentItemIndex: 0,
+          currentPosition: 0,
           inputBuffer: '',
           jamoState: JamoState.empty,
         ),

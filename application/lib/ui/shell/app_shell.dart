@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
 import '../../features/auth/domain/providers/auth_providers.dart';
+import '../../features/typing/domain/providers/typing_providers.dart';
 import '../screens/diary_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/notifications_screen.dart';
@@ -122,15 +123,26 @@ class _ErrorScreen extends ConsumerWidget {
 }
 
 /// メインアプリのシェル (認証済みユーザー向け)
-class _MainAppShell extends StatefulWidget {
+class _MainAppShell extends ConsumerStatefulWidget {
   const _MainAppShell();
 
   @override
-  State<_MainAppShell> createState() => _MainAppShellState();
+  ConsumerState<_MainAppShell> createState() => _MainAppShellState();
 }
 
-class _MainAppShellState extends State<_MainAppShell> {
+class _MainAppShellState extends ConsumerState<_MainAppShell> {
   int _selectedIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    // アプリ起動時にオフラインキューを処理
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        ref.read(offlineQueueProvider.notifier).processQueue();
+      }
+    });
+  }
 
   void _openPostComposer() {
     showModalBottomSheet<void>(

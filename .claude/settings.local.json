@@ -3,7 +3,9 @@
     "allow": [
       "Bash(npm test:*)",
       "WebSearch",
-      "WebFetch(domain:forui.dev)"
+      "WebFetch(domain:forui.dev)",
+      "Bash(cat:*)",
+      "Bash(npm run prisma:seed:*)"
     ],
     "deny": [],
     "ask": []

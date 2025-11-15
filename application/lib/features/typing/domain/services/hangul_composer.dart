@@ -291,8 +291,7 @@ class HangulComposer {
   }
 
   void _handleVowel(String char) {
-    _initial ??= 'ㅇ';
-
+    // 母音のみの場合は自動でㅇを追加しない（標準キーボード動作）
     if (_medial == null) {
       _medial = char;
       return;
@@ -324,7 +323,6 @@ class HangulComposer {
     }
 
     _commitCurrent();
-    _initial = 'ㅇ';
     _medial = char;
   }
 
@@ -343,13 +341,17 @@ class HangulComposer {
       return _initial ?? '';
     }
 
-    final initial = _initial ?? 'ㅇ';
-    final initialIndex = _initials.indexOf(initial);
+    // 初声がない場合は母音のみを返す（標準キーボード動作）
+    if (_initial == null) {
+      return _medial! + (_final ?? '');
+    }
+
+    final initialIndex = _initials.indexOf(_initial!);
     final medialIndex = _medials.indexOf(_medial!);
     final finalIndex = _final != null ? _finals.indexOf(_final!) : 0;
 
     if (initialIndex == -1 || medialIndex == -1 || finalIndex == -1) {
-      return initial + _medial! + (_final ?? '');
+      return _initial! + _medial! + (_final ?? '');
     }
 
     final codePoint =

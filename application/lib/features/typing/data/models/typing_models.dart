@@ -6,8 +6,10 @@ class TypingSessionState {
     required this.lesson,
     this.currentSectionIndex = 0,
     this.currentItemIndex = 0,
+    this.currentPosition = 0,
     this.inputBuffer = '',
     this.records = const [],
+    this.mistakeHistory = const {},
     this.jamoState = JamoState.empty,
     this.elapsedMs = 0,
     this.isRunning = false,
@@ -18,8 +20,10 @@ class TypingSessionState {
   final Lesson lesson;
   final int currentSectionIndex;
   final int currentItemIndex;
+  final int currentPosition;
   final String inputBuffer;
   final List<InputRecord> records;
+  final Map<String, int> mistakeHistory;
   final JamoState jamoState;
   final int elapsedMs;
   final bool isRunning;
@@ -28,8 +32,10 @@ class TypingSessionState {
   TypingSessionState copyWith({
     int? currentSectionIndex,
     int? currentItemIndex,
+    int? currentPosition,
     String? inputBuffer,
     List<InputRecord>? records,
+    Map<String, int>? mistakeHistory,
     JamoState? jamoState,
     int? elapsedMs,
     bool? isRunning,
@@ -41,8 +47,10 @@ class TypingSessionState {
       lesson: lesson ?? this.lesson,
       currentSectionIndex: currentSectionIndex ?? this.currentSectionIndex,
       currentItemIndex: currentItemIndex ?? this.currentItemIndex,
+      currentPosition: currentPosition ?? this.currentPosition,
       inputBuffer: inputBuffer ?? this.inputBuffer,
       records: records ?? this.records,
+      mistakeHistory: mistakeHistory ?? this.mistakeHistory,
       jamoState: jamoState ?? this.jamoState,
       elapsedMs: elapsedMs ?? this.elapsedMs,
       isRunning: isRunning ?? this.isRunning,

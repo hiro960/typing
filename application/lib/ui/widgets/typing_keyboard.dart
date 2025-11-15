@@ -1,3 +1,5 @@
+import 'dart:developer' as developer;
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -54,7 +56,7 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+      padding: const EdgeInsets.fromLTRB(5, 10, 0, 5),
       decoration: BoxDecoration(
         color: colors.surface,
         borderRadius: const BorderRadius.all(Radius.circular(18),),
@@ -95,6 +97,7 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
   }
 
   void _handleKeyTap(String label) {
+    developer.log('Key tapped: $label');
     switch (label) {
       case '⇧':
         setState(() => _shiftActive = !_shiftActive);
