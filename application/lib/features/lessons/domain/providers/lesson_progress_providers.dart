@@ -29,6 +29,8 @@ class LessonProgressController extends _$LessonProgressController {
 
   Future<void> markCompleted({
     required String lessonId,
+    required int completedItems,
+    required int totalItems,
     required int wpm,
     required double accuracy,
   }) async {
@@ -36,6 +38,8 @@ class LessonProgressController extends _$LessonProgressController {
     final repository = ref.watch(lessonProgressRepositoryProvider);
     final updated = await repository.markCompleted(
       lessonId,
+      completedItems: completedItems,
+      totalItems: totalItems,
       wpm: wpm,
       accuracy: accuracy,
     );

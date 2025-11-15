@@ -6,9 +6,11 @@ import 'package:characters/characters.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../lessons/data/models/lesson_models.dart';
+import '../../../lessons/domain/providers/lesson_progress_providers.dart';
 import '../../../lessons/domain/providers/lesson_providers.dart';
 import '../../data/models/typing_models.dart';
 import '../services/hangul_composer.dart';
+import '../../data/repositories/typing_repository.dart';
 
 part 'typing_session_provider.g.dart';
 
@@ -277,9 +279,71 @@ class TypingSession extends _$TypingSession {
   LessonItem _currentItemFromState(TypingSessionState current) =>
       _currentSection(current).items[current.currentItemIndex];
 
+  /// レッスン内の総問題数を計算
+  int _calculateTotalItems(TypingSessionState state) {
+    return state.lesson.content.sections.fold(
+      0,
+      (sum, section) => sum + section.items.length,
+    );
+  }
+
+  /// 現在までに完了した問題数を計算
+  int _calculateCompletedItems(TypingSessionState state) {
+    int completed = 0;
+
+    // 完了済みセクションの全アイテムを加算
+    for (int i = 0; i < state.currentSectionIndex; i++) {
+      completed += state.lesson.content.sections[i].items.length;
+    }
+
+    // 現在のセクションで完了したアイテムを加算（+1は現在完了したアイテムを含む）
+    completed += state.currentItemIndex + 1;
+
+    return completed;
+  }
+
+  /// WPMを計算
+  int _calculateWpm(int correctCount, int elapsedMs) {
+    if (elapsedMs <= 0) {
+      return 0;
+    }
+    final minutes = elapsedMs / 60000;
+    if (minutes == 0) {
+      return 0;
+    }
+    return (correctCount / minutes).round();
+  }
+
+  /// 正解率を計算
+  double _calculateAccuracy(TypingSessionState state) {
+    final correctCount = state.records.length;
+    final incorrectCount = state.mistakeHistory.values.fold<int>(
+      0,
+      (sum, count) => sum + count,
+    );
+    final totalCount = correctCount + incorrectCount;
+    return totalCount == 0 ? 0.0 : correctCount / totalCount;
+  }
+
   void _advanceToNextItem() {
     final current = _currentState;
     if (current == null) return;
+
+    // 問題完了後に進捗を保存
+    final completedItems = _calculateCompletedItems(current);
+    final totalItems = _calculateTotalItems(current);
+    final wpm = _calculateWpm(current.records.length, current.elapsedMs);
+    final accuracy = _calculateAccuracy(current);
+
+    // 進捗を保存（非同期だが待たない）
+    ref.read(lessonProgressControllerProvider.notifier).markCompleted(
+          lessonId: current.lessonId,
+          completedItems: completedItems,
+          totalItems: totalItems,
+          wpm: wpm,
+          accuracy: accuracy,
+        );
+
     final section = current.currentSectionIndex;
     final item = current.currentItemIndex;
     final sectionLength = _currentSection(current).items.length;

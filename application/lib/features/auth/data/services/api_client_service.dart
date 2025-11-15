@@ -68,22 +68,7 @@ class ApiClientService {
       // トークンを取得してAuthorizationヘッダーに設定
       final accessToken = await _tokenStorage.getAccessToken();
 
-      if (accessToken != null) {
-        options.headers['Authorization'] = 'Bearer $accessToken';
-        AppLogger.debug('Full access token: $accessToken', tag: 'ApiClient');
-        AppLogger.apiRequest(
-          method: options.method,
-          path: options.path,
-          headers: {'Authorization': 'Bearer ${accessToken.length > 20 ? accessToken.substring(0, 20) : accessToken}...'},
-          body: options.data,
-        );
-      } else {
-        AppLogger.apiRequest(
-          method: options.method,
-          path: options.path,
-          body: options.data,
-        );
-      }
+      options.headers['Authorization'] = 'Bearer $accessToken';
 
       handler.next(options);
     } catch (e) {

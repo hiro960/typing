@@ -371,6 +371,9 @@ class HangulComposer {
     if (char == ' ') {
       return [' '];
     }
+    if (char == '\n') {
+      return ['\n'];
+    }
     final code = char.codeUnitAt(0);
     if (code < 0xAC00 || code > 0xD7A3) {
       return [char];
@@ -379,10 +382,29 @@ class HangulComposer {
     final initialIndex = index ~/ 588;
     final medialIndex = (index % 588) ~/ 28;
     final finalIndex = index % 28;
-    final result = <String>[_initials[initialIndex], _medials[medialIndex]];
-    if (finalIndex > 0 && finalIndex < _finals.length) {
-      result.add(_finals[finalIndex]);
+
+    final result = <String>[_initials[initialIndex]];
+
+    // 中声を分解（複合母音を基本字母に分解）
+    final medial = _medials[medialIndex];
+    final medialDecomp = _medialDecompositions[medial];
+    if (medialDecomp != null) {
+      result.addAll(medialDecomp);
+    } else {
+      result.add(medial);
     }
+
+    // 終声を分解（二重パッチムを基本字母に分解）
+    if (finalIndex > 0 && finalIndex < _finals.length) {
+      final final_ = _finals[finalIndex];
+      final finalDecomp = _finalDecompositions[final_];
+      if (finalDecomp != null) {
+        result.addAll(finalDecomp);
+      } else {
+        result.add(final_);
+      }
+    }
+
     return result;
   }
 }

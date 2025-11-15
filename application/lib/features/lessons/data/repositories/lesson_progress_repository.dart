@@ -57,12 +57,14 @@ class LessonProgressRepository {
 
   Future<Map<String, LessonProgress>> markCompleted(
     String lessonId, {
+    required int completedItems,
+    required int totalItems,
     required int wpm,
     required double accuracy,
   }) async {
     final progress = await loadLocalProgress();
     final existing = progress[lessonId];
-    final updatedRate = _nextCompletionRate(existing?.completionRate ?? 0);
+    final updatedRate = _calculateCompletionRate(completedItems, totalItems);
     final updated = LessonProgress(
       lessonId: lessonId,
       completionRate: updatedRate,
@@ -81,16 +83,12 @@ class LessonProgressRepository {
     await prefs.setString(_progressKey, jsonEncode(jsonMap));
   }
 
-  int _nextCompletionRate(int current) {
-    if (current >= 100) {
-      return 100;
+  int _calculateCompletionRate(int completedItems, int totalItems) {
+    if (totalItems <= 0) {
+      return 0;
     }
-    if (current <= 0) {
-      return 25;
-    }
-    final steps = (current / 25).floor();
-    final next = (steps + 1) * 25;
-    return next > 100 ? 100 : next;
+    final rate = (completedItems / totalItems * 100).round();
+    return rate.clamp(0, 100);
   }
 
   int? _betterWpm(int? existing, int value) {

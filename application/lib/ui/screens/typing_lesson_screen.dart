@@ -195,11 +195,17 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen>
       rethrow;
     }
 
-    // 成功した場合のみ進捗を更新
+    // 成功した場合のみ進捗を更新（100%完了）
+    final totalItems = session.lesson.content.sections.fold<int>(
+      0,
+      (sum, section) => sum + section.items.length,
+    );
     await ref
         .read(lessonProgressControllerProvider.notifier)
         .markCompleted(
           lessonId: session.lessonId,
+          completedItems: totalItems,
+          totalItems: totalItems,
           wpm: stats.wpm,
           accuracy: stats.accuracy,
         );
@@ -312,6 +318,11 @@ class _LessonView extends StatelessWidget {
                         ],
                       ),
                     ),
+                    const SizedBox(height: 16),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: _InputFeedback(record: lastRecord),
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: _PromptCard(
@@ -320,12 +331,6 @@ class _LessonView extends StatelessWidget {
                         session: session,
                       ),
                     ),
-                    const SizedBox(height: 16),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: _InputFeedback(record: lastRecord),
-                    ),
-                    const SizedBox(height: 12),
                   ],
                 ),
               ),
@@ -463,29 +468,8 @@ class _PromptCard extends StatelessWidget {
         ],
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Material(
-              color: Colors.transparent,
-              child: Chip(
-                label: Text(sectionType.label),
-                backgroundColor: colors.secondary.withValues(alpha: 0.1),
-                labelStyle: theme.textTheme.labelSmall?.copyWith(
-                  color: colors.secondary,
-                  letterSpacing: 0.5,
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            '問題',
-            style: theme.textTheme.labelLarge?.copyWith(
-              color: colors.secondary,
-            ),
-          ),
           const SizedBox(height: 8),
           RichText(
             text: TextSpan(
