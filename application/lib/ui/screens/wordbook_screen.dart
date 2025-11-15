@@ -231,7 +231,7 @@ class _WordCard extends StatelessWidget {
                 ),
                 Chip(
                   label: Text(entry.reading),
-                  backgroundColor: theme.colorScheme.surfaceVariant,
+                  backgroundColor: theme.colorScheme.surfaceContainerHighest,
                 ),
               ],
             ),

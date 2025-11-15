@@ -1,0 +1,119 @@
+{
+  "id": "les_intermediate_002",
+  "title": "数字②（固有数詞・時間）",
+  "level": "intermediate",
+  "order": 2,
+  "description": "韓国語の固有数詞と時間表現を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "数字と時間を入力しよう",
+        "items": [
+          {
+            "text": "하나",
+            "meaning": "1つ",
+            "pronunciation": "ハナ",
+            "hint": "ㅎ + ㅏ + ㄴ + ㅏ"
+          },
+          {
+            "text": "둘",
+            "meaning": "2つ",
+            "pronunciation": "トゥル",
+            "hint": "ㄷ + ㅜ + ㄹ"
+          },
+          {
+            "text": "셋",
+            "meaning": "3つ",
+            "pronunciation": "セッ",
+            "hint": "ㅅ + ㅔ + ㅅ"
+          },
+          {
+            "text": "넷",
+            "meaning": "4つ",
+            "pronunciation": "ネッ",
+            "hint": "ㄴ + ㅔ + ㅅ"
+          },
+          {
+            "text": "다섯",
+            "meaning": "5つ",
+            "pronunciation": "タソッ",
+            "hint": "ㄷ + ㅏ + ㅅ + ㅓ + ㅅ"
+          },
+          {
+            "text": "여섯",
+            "meaning": "6つ",
+            "pronunciation": "ヨソッ",
+            "hint": "ㅇ + ㅕ + ㅅ + ㅓ + ㅅ"
+          },
+          {
+            "text": "일곱",
+            "meaning": "7つ",
+            "pronunciation": "イルゴプ",
+            "hint": "ㅇ + ㅣ + ㄹ + ㄱ + ㅗ + ㅂ"
+          },
+          {
+            "text": "여덟",
+            "meaning": "8つ",
+            "pronunciation": "ヨドル",
+            "hint": "ㅇ + ㅕ + ㄷ + ㅓ + ㄹ"
+          },
+          {
+            "text": "아홉",
+            "meaning": "9つ",
+            "pronunciation": "アホプ",
+            "hint": "ㅇ + ㅏ + ㅎ + ㅗ + ㅂ"
+          },
+          {
+            "text": "열",
+            "meaning": "10",
+            "pronunciation": "ヨル",
+            "hint": "ㅇ + ㅕ + ㄹ"
+          },
+          {
+            "text": "시",
+            "meaning": "時",
+            "pronunciation": "シ",
+            "hint": "ㅅ + ㅣ"
+          },
+          {
+            "text": "분",
+            "meaning": "分",
+            "pronunciation": "ブン",
+            "hint": "ㅂ + ㅜ + ㄴ"
+          },
+          {
+            "text": "초",
+            "meaning": "秒",
+            "pronunciation": "チョ",
+            "hint": "ㅊ + ㅗ"
+          },
+          {
+            "text": "시간",
+            "meaning": "時間",
+            "pronunciation": "シガン",
+            "hint": "ㅅ + ㅣ + ㄱ + ㅏ + ㄴ"
+          },
+          {
+            "text": "년",
+            "meaning": "年",
+            "pronunciation": "ニョン",
+            "hint": "ㄴ + ㅕ + ㄴ"
+          },
+          {
+            "text": "월",
+            "meaning": "月",
+            "pronunciation": "ウォル",
+            "hint": "ㅇ + ㅝ + ㄹ"
+          },
+          {
+            "text": "일",
+            "meaning": "日",
+            "pronunciation": "イル",
+            "hint": "ㅇ + ㅣ + ㄹ"
+          }
+        ]
+      }
+    ]
+  }
+}

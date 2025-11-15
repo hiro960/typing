@@ -1,0 +1,107 @@
+{
+  "id": "les_beginner_014",
+  "title": "複合母音 ㅑ, ㅕ, ㅛ, ㅠ",
+  "level": "beginner",
+  "order": 14,
+  "description": "韓国語の複合母音ㅑ, ㅕ, ㅛ, ㅠを学びます。「ㅣ」の音が含まれる二重母音です。",
+  "content": {
+    "sections": [
+      {
+        "type": "character_drill",
+        "title": "文字を覚えよう",
+        "items": [
+          {
+            "text": "ㅑ",
+            "meaning": "ya の音",
+            "pronunciation": "ヤ",
+            "hint": "「ヤ」の音です"
+          },
+          {
+            "text": "ㅕ",
+            "meaning": "yeo の音",
+            "pronunciation": "ヨ",
+            "hint": "「ヨ」の音です（口を横に）"
+          },
+          {
+            "text": "ㅛ",
+            "meaning": "yo の音",
+            "pronunciation": "ヨ",
+            "hint": "「ヨ」の音です"
+          },
+          {
+            "text": "ㅠ",
+            "meaning": "yu の音",
+            "pronunciation": "ユ",
+            "hint": "「ユ」の音です"
+          }
+        ]
+      },
+      {
+        "type": "word_practice",
+        "title": "単語を入力しよう",
+        "items": [
+          {
+            "text": "야",
+            "meaning": "や",
+            "pronunciation": "ヤ",
+            "hint": "ㅇ + ㅑ"
+          },
+          {
+            "text": "여",
+            "meaning": "～",
+            "pronunciation": "ヨ",
+            "hint": "ㅇ + ㅕ"
+          },
+          {
+            "text": "요",
+            "meaning": "～です",
+            "pronunciation": "ヨ",
+            "hint": "ㅇ + ㅛ"
+          },
+          {
+            "text": "유",
+            "meaning": "有",
+            "pronunciation": "ユ",
+            "hint": "ㅇ + ㅠ"
+          },
+          {
+            "text": "야구",
+            "meaning": "野球",
+            "pronunciation": "ヤグ",
+            "hint": "ㅇ + ㅑ + ㄱ + ㅜ"
+          },
+          {
+            "text": "여기",
+            "meaning": "ここ",
+            "pronunciation": "ヨギ",
+            "hint": "ㅇ + ㅕ + ㄱ + ㅣ"
+          },
+          {
+            "text": "요리",
+            "meaning": "料理",
+            "pronunciation": "ヨリ",
+            "hint": "ㅇ + ㅛ + ㄹ + ㅣ"
+          },
+          {
+            "text": "유리",
+            "meaning": "ガラス",
+            "pronunciation": "ユリ",
+            "hint": "ㅇ + ㅠ + ㄹ + ㅣ"
+          },
+          {
+            "text": "약",
+            "meaning": "薬",
+            "pronunciation": "ヤク",
+            "hint": "ㅇ + ㅑ + ㄱ"
+          },
+          {
+            "text": "연필",
+            "meaning": "鉛筆",
+            "pronunciation": "ヨンピル",
+            "hint": "ㅇ + ㅕ + ㄴ + ㅍ + ㅣ + ㄹ"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -581,6 +581,8 @@ export async function recordLessonCompletion(params: {
       wpm: params.wpm,
       accuracy: params.accuracy,
       timeSpent: params.timeSpent,
+      device: params.device,
+      mode: params.mode,
     },
   });
 
@@ -762,7 +764,9 @@ function toLesson(lesson: PrismaLesson): Lesson {
     description: lesson.description,
     level: lesson.level as LearningLevel,
     order: lesson.order,
-    content: (lesson.content ?? {}) as Record<string, unknown>,
+    assetPath: lesson.assetPath,
+    assetVersion: lesson.assetVersion,
+    estimatedMinutes: lesson.estimatedMinutes,
     createdAt: lesson.createdAt,
     updatedAt: lesson.updatedAt,
   };

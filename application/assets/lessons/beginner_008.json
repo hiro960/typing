@@ -1,0 +1,101 @@
+{
+  "id": "les_beginner_008",
+  "title": "激音 ㅋ, ㅌ, ㅍ",
+  "level": "beginner",
+  "order": 8,
+  "description": "韓国語の激音ㅋ, ㅌ, ㅍを学びます。息を強く出して発音します。",
+  "content": {
+    "sections": [
+      {
+        "type": "character_drill",
+        "title": "文字を覚えよう",
+        "items": [
+          {
+            "text": "ㅋ",
+            "meaning": "k の音（激音）",
+            "pronunciation": "キウク",
+            "hint": "強い「カ行」です"
+          },
+          {
+            "text": "ㅌ",
+            "meaning": "t の音（激音）",
+            "pronunciation": "ティウッ",
+            "hint": "強い「タ行」です"
+          },
+          {
+            "text": "ㅍ",
+            "meaning": "p の音（激音）",
+            "pronunciation": "ピウプ",
+            "hint": "強い「パ行」です"
+          }
+        ]
+      },
+      {
+        "type": "word_practice",
+        "title": "単語を入力しよう",
+        "items": [
+          {
+            "text": "카",
+            "meaning": "カード",
+            "pronunciation": "カ",
+            "hint": "ㅋ + ㅏ"
+          },
+          {
+            "text": "타",
+            "meaning": "他",
+            "pronunciation": "タ",
+            "hint": "ㅌ + ㅏ"
+          },
+          {
+            "text": "파",
+            "meaning": "ネギ",
+            "pronunciation": "パ",
+            "hint": "ㅍ + ㅏ"
+          },
+          {
+            "text": "코",
+            "meaning": "鼻",
+            "pronunciation": "コ",
+            "hint": "ㅋ + ㅗ"
+          },
+          {
+            "text": "토",
+            "meaning": "土",
+            "pronunciation": "ト",
+            "hint": "ㅌ + ㅗ"
+          },
+          {
+            "text": "포도",
+            "meaning": "ぶどう",
+            "pronunciation": "ポド",
+            "hint": "ㅍ + ㅗ + ㄷ + ㅗ"
+          },
+          {
+            "text": "커피",
+            "meaning": "コーヒー",
+            "pronunciation": "コピ",
+            "hint": "ㅋ + ㅓ + ㅍ + ㅣ"
+          },
+          {
+            "text": "타다",
+            "meaning": "乗る",
+            "pronunciation": "タダ",
+            "hint": "ㅌ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "파다",
+            "meaning": "掘る",
+            "pronunciation": "パダ",
+            "hint": "ㅍ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "토끼",
+            "meaning": "うさぎ",
+            "pronunciation": "トッキ",
+            "hint": "ㅌ + ㅗ + ㄲ + ㅣ"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "id": "les_intermediate_011",
+  "title": "日常動詞③（コミュニケーション）",
+  "level": "intermediate",
+  "order": 11,
+  "description": "コミュニケーション関連の動詞を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "コミュニケーション動詞を入力しよう",
+        "items": [
+          {
+            "text": "배우다",
+            "meaning": "学ぶ",
+            "pronunciation": "ペウダ",
+            "hint": "ㅂ + ㅐ + ㅇ + ㅜ + ㄷ + ㅏ"
+          },
+          {
+            "text": "가르치다",
+            "meaning": "教える",
+            "pronunciation": "カルチダ",
+            "hint": "ㄱ + ㅏ + ㄹ + ㅊ + ㅣ + ㄷ + ㅏ"
+          },
+          {
+            "text": "알다",
+            "meaning": "知る",
+            "pronunciation": "アルダ",
+            "hint": "ㅇ + ㅏ + ㄹ + ㄷ + ㅏ"
+          },
+          {
+            "text": "모르다",
+            "meaning": "知らない",
+            "pronunciation": "モルダ",
+            "hint": "ㅁ + ㅗ + ㄹ + ㅡ + ㄷ + ㅏ"
+          },
+          {
+            "text": "묻다",
+            "meaning": "尋ねる",
+            "pronunciation": "ムッタ",
+            "hint": "ㅁ + ㅜ + ㄷ + ㄷ + ㅏ"
+          },
+          {
+            "text": "대답하다",
+            "meaning": "答える",
+            "pronunciation": "テダパダ",
+            "hint": "ㄷ + ㅐ + ㄷ + ㅏ + ㅂ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "생각하다",
+            "meaning": "考える",
+            "pronunciation": "センガカダ",
+            "hint": "ㅅ + ㅐ + ㅇ + ㄱ + ㅏ + ㄱ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "기억하다",
+            "meaning": "覚える",
+            "pronunciation": "キオカダ",
+            "hint": "ㄱ + ㅣ + ㅇ + ㅓ + ㄱ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "잊다",
+            "meaning": "忘れる",
+            "pronunciation": "イッタ",
+            "hint": "ㅇ + ㅣ + ㅈ + ㄷ + ㅏ"
+          },
+          {
+            "text": "이해하다",
+            "meaning": "理解する",
+            "pronunciation": "イヘハダ",
+            "hint": "ㅇ + ㅣ + ㅎ + ㅐ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "설명하다",
+            "meaning": "説明する",
+            "pronunciation": "ソルミョンハダ",
+            "hint": "ㅅ + ㅓ + ㄹ + ㅁ + ㅕ + ㅇ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "전화하다",
+            "meaning": "電話する",
+            "pronunciation": "チョヌァハダ",
+            "hint": "ㅈ + ㅓ + ㄴ + ㅎ + ㅘ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "만나다",
+            "meaning": "会う",
+            "pronunciation": "マンナダ",
+            "hint": "ㅁ + ㅏ + ㄴ + ㄴ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "헤어지다",
+            "meaning": "別れる",
+            "pronunciation": "ヘオジダ",
+            "hint": "ㅎ + ㅔ + ㅇ + ㅓ + ㅈ + ㅣ + ㄷ + ㅏ"
+          },
+          {
+            "text": "약속하다",
+            "meaning": "約束する",
+            "pronunciation": "ヤクソカダ",
+            "hint": "ㅇ + ㅑ + ㄱ + ㅅ + ㅗ + ㄱ + ㅎ + ㅏ + ㄷ + ㅏ"
+          }
+        ]
+      }
+    ]
+  }
+}

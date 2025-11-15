@@ -1,0 +1,107 @@
+{
+  "id": "les_intermediate_010",
+  "title": "日常動詞②（生活動作）",
+  "level": "intermediate",
+  "order": 10,
+  "description": "日常生活の動詞を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "生活動作を表す動詞を入力しよう",
+        "items": [
+          {
+            "text": "받다",
+            "meaning": "もらう",
+            "pronunciation": "パッタ",
+            "hint": "ㅂ + ㅏ + ㄷ + ㄷ + ㅏ"
+          },
+          {
+            "text": "입다",
+            "meaning": "着る",
+            "pronunciation": "イプタ",
+            "hint": "ㅇ + ㅣ + ㅂ + ㄷ + ㅏ"
+          },
+          {
+            "text": "벗다",
+            "meaning": "脱ぐ",
+            "pronunciation": "ポッタ",
+            "hint": "ㅂ + ㅓ + ㅅ + ㄷ + ㅏ"
+          },
+          {
+            "text": "신다",
+            "meaning": "履く",
+            "pronunciation": "シンタ",
+            "hint": "ㅅ + ㅣ + ㄴ + ㄷ + ㅏ"
+          },
+          {
+            "text": "씻다",
+            "meaning": "洗う",
+            "pronunciation": "ッシッタ",
+            "hint": "ㅆ + ㅣ + ㅅ + ㄷ + ㅏ"
+          },
+          {
+            "text": "닦다",
+            "meaning": "拭く",
+            "pronunciation": "タクタ",
+            "hint": "ㄷ + ㅏ + ㄱ + ㄷ + ㅏ"
+          },
+          {
+            "text": "타다",
+            "meaning": "乗る",
+            "pronunciation": "タダ",
+            "hint": "ㅌ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "내리다",
+            "meaning": "降りる",
+            "pronunciation": "ネリダ",
+            "hint": "ㄴ + ㅐ + ㄹ + ㅣ + ㄷ + ㅏ"
+          },
+          {
+            "text": "열다",
+            "meaning": "開ける",
+            "pronunciation": "ヨルダ",
+            "hint": "ㅇ + ㅕ + ㄹ + ㄷ + ㅏ"
+          },
+          {
+            "text": "닫다",
+            "meaning": "閉める",
+            "pronunciation": "タッタ",
+            "hint": "ㄷ + ㅏ + ㄷ + ㄷ + ㅏ"
+          },
+          {
+            "text": "켜다",
+            "meaning": "つける",
+            "pronunciation": "キョダ",
+            "hint": "ㅋ + ㅕ + ㄷ + ㅏ"
+          },
+          {
+            "text": "끄다",
+            "meaning": "消す",
+            "pronunciation": "ックダ",
+            "hint": "ㄲ + ㅡ + ㄷ + ㅏ"
+          },
+          {
+            "text": "앉다",
+            "meaning": "座る",
+            "pronunciation": "アンタ",
+            "hint": "ㅇ + ㅏ + ㄵ + ㄷ + ㅏ"
+          },
+          {
+            "text": "서다",
+            "meaning": "立つ",
+            "pronunciation": "ソダ",
+            "hint": "ㅅ + ㅓ + ㄷ + ㅏ"
+          },
+          {
+            "text": "걷다",
+            "meaning": "歩く",
+            "pronunciation": "コッタ",
+            "hint": "ㄱ + ㅓ + ㄷ + ㄷ + ㅏ"
+          }
+        ]
+      }
+    ]
+  }
+}

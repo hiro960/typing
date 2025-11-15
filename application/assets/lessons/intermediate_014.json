@@ -1,0 +1,107 @@
+{
+  "id": "les_intermediate_014",
+  "title": "形容詞②（状態・様子）",
+  "level": "intermediate",
+  "order": 14,
+  "description": "状態を表す形容詞を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "状態・様子を表す形容詞を入力しよう",
+        "items": [
+          {
+            "text": "더럽다",
+            "meaning": "汚い",
+            "pronunciation": "トロプタ",
+            "hint": "ㄷ + ㅓ + ㄹ + ㅓ + ㅂ + ㄷ + ㅏ"
+          },
+          {
+            "text": "새롭다",
+            "meaning": "新しい",
+            "pronunciation": "セロプタ",
+            "hint": "ㅅ + ㅐ + ㄹ + ㅗ + ㅂ + ㄷ + ㅏ"
+          },
+          {
+            "text": "오래되다",
+            "meaning": "古い",
+            "pronunciation": "オレトェダ",
+            "hint": "ㅇ + ㅗ + ㄹ + ㅐ + ㄷ + ㅚ + ㄷ + ㅏ"
+          },
+          {
+            "text": "빠르다",
+            "meaning": "速い",
+            "pronunciation": "ッパルダ",
+            "hint": "ㅃ + ㅏ + ㄹ + ㅡ + ㄷ + ㅏ"
+          },
+          {
+            "text": "느리다",
+            "meaning": "遅い",
+            "pronunciation": "ヌリダ",
+            "hint": "ㄴ + ㅡ + ㄹ + ㅣ + ㄷ + ㅏ"
+          },
+          {
+            "text": "쉽다",
+            "meaning": "易しい",
+            "pronunciation": "シュィプタ",
+            "hint": "ㅅ + ㅟ + ㅂ + ㄷ + ㅏ"
+          },
+          {
+            "text": "어렵다",
+            "meaning": "難しい",
+            "pronunciation": "オリョプタ",
+            "hint": "ㅇ + ㅓ + ㄹ + ㅕ + ㅂ + ㄷ + ㅏ"
+          },
+          {
+            "text": "바쁘다",
+            "meaning": "忙しい",
+            "pronunciation": "パップダ",
+            "hint": "ㅂ + ㅏ + ㅃ + ㅡ + ㄷ + ㅏ"
+          },
+          {
+            "text": "한가하다",
+            "meaning": "暇だ",
+            "pronunciation": "ハンガハダ",
+            "hint": "ㅎ + ㅏ + ㄴ + ㄱ + ㅏ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "재미있다",
+            "meaning": "面白い",
+            "pronunciation": "チェミイッタ",
+            "hint": "ㅈ + ㅐ + ㅁ + ㅣ + ㅇ + ㅣ + ㅆ + ㄷ + ㅏ"
+          },
+          {
+            "text": "재미없다",
+            "meaning": "つまらない",
+            "pronunciation": "チェミオプタ",
+            "hint": "ㅈ + ㅐ + ㅁ + ㅣ + ㅇ + ㅓ + ㅄ + ㄷ + ㅏ"
+          },
+          {
+            "text": "맛있다",
+            "meaning": "おいしい",
+            "pronunciation": "マシッタ",
+            "hint": "ㅁ + ㅏ + ㅅ + ㅇ + ㅣ + ㅆ + ㄷ + ㅏ"
+          },
+          {
+            "text": "맛없다",
+            "meaning": "まずい",
+            "pronunciation": "マドプタ",
+            "hint": "ㅁ + ㅏ + ㅅ + ㅇ + ㅓ + ㅄ + ㄷ + ㅏ"
+          },
+          {
+            "text": "예쁘다",
+            "meaning": "きれいだ",
+            "pronunciation": "イェップダ",
+            "hint": "ㅇ + ㅖ + ㅃ + ㅡ + ㄷ + ㅏ"
+          },
+          {
+            "text": "멋있다",
+            "meaning": "かっこいい",
+            "pronunciation": "モシッタ",
+            "hint": "ㅁ + ㅓ + ㅅ + ㅇ + ㅣ + ㅆ + ㄷ + ㅏ"
+          }
+        ]
+      }
+    ]
+  }
+}

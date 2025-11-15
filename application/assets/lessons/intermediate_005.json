@@ -1,0 +1,107 @@
+{
+  "id": "les_intermediate_005",
+  "title": "食べ物①（主食・料理）",
+  "level": "intermediate",
+  "order": 5,
+  "description": "基本的な食べ物の単語を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "食べ物を表す単語を入力しよう",
+        "items": [
+          {
+            "text": "음식",
+            "meaning": "食べ物",
+            "pronunciation": "ウムシク",
+            "hint": "ㅇ + ㅡ + ㅁ + ㅅ + ㅣ + ㄱ"
+          },
+          {
+            "text": "밥",
+            "meaning": "ご飯",
+            "pronunciation": "バプ",
+            "hint": "ㅂ + ㅏ + ㅂ"
+          },
+          {
+            "text": "빵",
+            "meaning": "パン",
+            "pronunciation": "ッパン",
+            "hint": "ㅃ + ㅏ + ㅇ"
+          },
+          {
+            "text": "국",
+            "meaning": "汁物",
+            "pronunciation": "クク",
+            "hint": "ㄱ + ㅜ + ㄱ"
+          },
+          {
+            "text": "김치",
+            "meaning": "キムチ",
+            "pronunciation": "キムチ",
+            "hint": "ㄱ + ㅣ + ㅁ + ㅊ + ㅣ"
+          },
+          {
+            "text": "김밥",
+            "meaning": "キンパ",
+            "pronunciation": "キムバプ",
+            "hint": "ㄱ + ㅣ + ㅁ + ㅂ + ㅏ + ㅂ"
+          },
+          {
+            "text": "비빔밥",
+            "meaning": "ビビンバ",
+            "pronunciation": "ビビンバプ",
+            "hint": "ㅂ + ㅣ + ㅂ + ㅣ + ㅁ + ㅂ + ㅏ + ㅂ"
+          },
+          {
+            "text": "냉면",
+            "meaning": "冷麺",
+            "pronunciation": "ネンミョン",
+            "hint": "ㄴ + ㅐ + ㅇ + ㅁ + ㅕ + ㄴ"
+          },
+          {
+            "text": "라면",
+            "meaning": "ラーメン",
+            "pronunciation": "ラミョン",
+            "hint": "ㄹ + ㅏ + ㅁ + ㅕ + ㄴ"
+          },
+          {
+            "text": "만두",
+            "meaning": "餃子",
+            "pronunciation": "マンドゥ",
+            "hint": "ㅁ + ㅏ + ㄴ + ㄷ + ㅜ"
+          },
+          {
+            "text": "떡",
+            "meaning": "餅",
+            "pronunciation": "ットク",
+            "hint": "ㄸ + ㅓ + ㄱ"
+          },
+          {
+            "text": "고기",
+            "meaning": "肉",
+            "pronunciation": "コギ",
+            "hint": "ㄱ + ㅗ + ㄱ + ㅣ"
+          },
+          {
+            "text": "생선",
+            "meaning": "魚",
+            "pronunciation": "センソン",
+            "hint": "ㅅ + ㅐ + ㅇ + ㅅ + ㅓ + ㄴ"
+          },
+          {
+            "text": "야채",
+            "meaning": "野菜",
+            "pronunciation": "ヤチェ",
+            "hint": "ㅇ + ㅑ + ㅊ + ㅐ"
+          },
+          {
+            "text": "과일",
+            "meaning": "果物",
+            "pronunciation": "クァイル",
+            "hint": "ㄱ + ㅘ + ㅇ + ㅣ + ㄹ"
+          }
+        ]
+      }
+    ]
+  }
+}

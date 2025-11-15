@@ -1,0 +1,113 @@
+{
+  "id": "les_intermediate_017",
+  "title": "時間・頻度表現",
+  "level": "intermediate",
+  "order": 17,
+  "description": "時間と頻度に関する言葉を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "時間・頻度を表す単語を入力しよう",
+        "items": [
+          {
+            "text": "오늘",
+            "meaning": "今日",
+            "pronunciation": "オヌル",
+            "hint": "ㅇ + ㅗ + ㄴ + ㅡ + ㄹ"
+          },
+          {
+            "text": "어제",
+            "meaning": "昨日",
+            "pronunciation": "オジェ",
+            "hint": "ㅇ + ㅓ + ㅈ + ㅔ"
+          },
+          {
+            "text": "내일",
+            "meaning": "明日",
+            "pronunciation": "ネイル",
+            "hint": "ㄴ + ㅐ + ㅇ + ㅣ + ㄹ"
+          },
+          {
+            "text": "지금",
+            "meaning": "今",
+            "pronunciation": "チグム",
+            "hint": "ㅈ + ㅣ + ㄱ + ㅡ + ㅁ"
+          },
+          {
+            "text": "나중",
+            "meaning": "後で",
+            "pronunciation": "ナジュン",
+            "hint": "ㄴ + ㅏ + ㅈ + ㅜ + ㅇ"
+          },
+          {
+            "text": "항상",
+            "meaning": "いつも",
+            "pronunciation": "ハンサン",
+            "hint": "ㅎ + ㅏ + ㅇ + ㅅ + ㅏ + ㅇ"
+          },
+          {
+            "text": "자주",
+            "meaning": "よく",
+            "pronunciation": "チャジュ",
+            "hint": "ㅈ + ㅏ + ㅈ + ㅜ"
+          },
+          {
+            "text": "가끔",
+            "meaning": "たまに",
+            "pronunciation": "カックム",
+            "hint": "ㄱ + ㅏ + ㄲ + ㅡ + ㅁ"
+          },
+          {
+            "text": "매일",
+            "meaning": "毎日",
+            "pronunciation": "メイル",
+            "hint": "ㅁ + ㅐ + ㅇ + ㅣ + ㄹ"
+          },
+          {
+            "text": "보통",
+            "meaning": "普通",
+            "pronunciation": "ポトン",
+            "hint": "ㅂ + ㅗ + ㅌ + ㅗ + ㅇ"
+          },
+          {
+            "text": "언제",
+            "meaning": "いつ",
+            "pronunciation": "オンジェ",
+            "hint": "ㅇ + ㅓ + ㄴ + ㅈ + ㅔ"
+          },
+          {
+            "text": "빨리",
+            "meaning": "早く",
+            "pronunciation": "ッパルリ",
+            "hint": "ㅃ + ㅏ + ㄹ + ㄹ + ㅣ"
+          },
+          {
+            "text": "천천히",
+            "meaning": "ゆっくり",
+            "pronunciation": "チョンチョニ",
+            "hint": "ㅊ + ㅓ + ㄴ + ㅊ + ㅓ + ㄴ + ㅎ + ㅣ"
+          },
+          {
+            "text": "곧",
+            "meaning": "すぐ",
+            "pronunciation": "コッ",
+            "hint": "ㄱ + ㅗ + ㅅ"
+          },
+          {
+            "text": "이미",
+            "meaning": "すでに",
+            "pronunciation": "イミ",
+            "hint": "ㅇ + ㅣ + ㅁ + ㅣ"
+          },
+          {
+            "text": "아직",
+            "meaning": "まだ",
+            "pronunciation": "アジク",
+            "hint": "ㅇ + ㅏ + ㅈ + ㅣ + ㄱ"
+          }
+        ]
+      }
+    ]
+  }
+}

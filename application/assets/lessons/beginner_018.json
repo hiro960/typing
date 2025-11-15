@@ -1,0 +1,89 @@
+{
+  "id": "les_beginner_018",
+  "title": "二重パッチム ㄳ, ㄺ, ㄻ",
+  "level": "beginner",
+  "order": 18,
+  "description": "韓国語の二重パッチムㄳ, ㄺ, ㄻを学びます。2つの子音が組み合わさった終声です。",
+  "content": {
+    "sections": [
+      {
+        "type": "character_drill",
+        "title": "二重パッチムを覚えよう",
+        "items": [
+          {
+            "text": "ㄳ",
+            "meaning": "ㄱ + ㅅ",
+            "pronunciation": "ク",
+            "hint": "発音は「ㄱ」になることが多い"
+          },
+          {
+            "text": "ㄺ",
+            "meaning": "ㄹ + ㄱ",
+            "pronunciation": "ク",
+            "hint": "発音は「ㄱ」になることが多い"
+          },
+          {
+            "text": "ㄻ",
+            "meaning": "ㄹ + ㅁ",
+            "pronunciation": "ム",
+            "hint": "発音は「ㅁ」になることが多い"
+          }
+        ]
+      },
+      {
+        "type": "word_practice",
+        "title": "単語を入力しよう",
+        "items": [
+          {
+            "text": "값",
+            "meaning": "値段",
+            "pronunciation": "カプ",
+            "hint": "ㄱ + ㅏ + ㄳ（パッチム）"
+          },
+          {
+            "text": "넓다",
+            "meaning": "広い",
+            "pronunciation": "ノルタ",
+            "hint": "ㄴ + ㅓ + ㄼ + ㄷ + ㅏ"
+          },
+          {
+            "text": "삶",
+            "meaning": "人生",
+            "pronunciation": "サム",
+            "hint": "ㅅ + ㅏ + ㄻ（パッチム）"
+          },
+          {
+            "text": "읽다",
+            "meaning": "読む",
+            "pronunciation": "イクタ",
+            "hint": "ㅇ + ㅣ + ㄺ + ㄷ + ㅏ"
+          },
+          {
+            "text": "닭",
+            "meaning": "鶏",
+            "pronunciation": "タク",
+            "hint": "ㄷ + ㅏ + ㄺ（パッチム）"
+          },
+          {
+            "text": "흙",
+            "meaning": "土",
+            "pronunciation": "フク",
+            "hint": "ㅎ + ㅡ + ㄺ（パッチム）"
+          },
+          {
+            "text": "앉다",
+            "meaning": "座る",
+            "pronunciation": "アンタ",
+            "hint": "ㅇ + ㅏ + ㄵ + ㄷ + ㅏ"
+          },
+          {
+            "text": "옳다",
+            "meaning": "正しい",
+            "pronunciation": "オルタ",
+            "hint": "ㅇ + ㅗ + ㄾ + ㄷ + ㅏ"
+          }
+        ]
+      }
+    ]
+  }
+}

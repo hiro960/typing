@@ -1,0 +1,95 @@
+{
+  "id": "les_beginner_007",
+  "title": "基本の文字 ㅎ, ㅗ",
+  "level": "beginner",
+  "order": 7,
+  "description": "韓国語の子音ㅎと母音ㅗを学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "character_drill",
+        "title": "文字を覚えよう",
+        "items": [
+          {
+            "text": "ㅎ",
+            "meaning": "h の音",
+            "pronunciation": "ヒウッ",
+            "hint": "「ハ行」です"
+          },
+          {
+            "text": "ㅗ",
+            "meaning": "o の音",
+            "pronunciation": "オ",
+            "hint": "「オ」の音です"
+          }
+        ]
+      },
+      {
+        "type": "word_practice",
+        "title": "単語を入力しよう",
+        "items": [
+          {
+            "text": "하",
+            "meaning": "一",
+            "pronunciation": "ハ",
+            "hint": "ㅎ + ㅏ"
+          },
+          {
+            "text": "호",
+            "meaning": "号",
+            "pronunciation": "ホ",
+            "hint": "ㅎ + ㅗ"
+          },
+          {
+            "text": "히",
+            "meaning": "～く",
+            "pronunciation": "ヒ",
+            "hint": "ㅎ + ㅣ"
+          },
+          {
+            "text": "오",
+            "meaning": "五",
+            "pronunciation": "オ",
+            "hint": "ㅇ + ㅗ"
+          },
+          {
+            "text": "하나",
+            "meaning": "一つ",
+            "pronunciation": "ハナ",
+            "hint": "ㅎ + ㅏ + ㄴ + ㅏ"
+          },
+          {
+            "text": "호수",
+            "meaning": "湖",
+            "pronunciation": "ホス",
+            "hint": "ㅎ + ㅗ + ㅅ + ㅜ"
+          },
+          {
+            "text": "오다",
+            "meaning": "来る",
+            "pronunciation": "オダ",
+            "hint": "ㅇ + ㅗ + ㄷ + ㅏ"
+          },
+          {
+            "text": "하루",
+            "meaning": "一日",
+            "pronunciation": "ハル",
+            "hint": "ㅎ + ㅏ + ㄹ + ㅜ"
+          },
+          {
+            "text": "호랑이",
+            "meaning": "虎",
+            "pronunciation": "ホランイ",
+            "hint": "ㅎ + ㅗ + ㄹ + ㅏ + ㅇ + ㅣ"
+          },
+          {
+            "text": "오이",
+            "meaning": "きゅうり",
+            "pronunciation": "オイ",
+            "hint": "ㅇ + ㅗ + ㅇ + ㅣ"
+          }
+        ]
+      }
+    ]
+  }
+}

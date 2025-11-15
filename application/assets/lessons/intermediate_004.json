@@ -1,0 +1,107 @@
+{
+  "id": "les_intermediate_004",
+  "title": "家族・人間関係②",
+  "level": "intermediate",
+  "order": 4,
+  "description": "その他の人間関係を表す単語を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "人間関係を表す単語を入力しよう",
+        "items": [
+          {
+            "text": "친구",
+            "meaning": "友達",
+            "pronunciation": "チング",
+            "hint": "ㅊ + ㅣ + ㄴ + ㄱ + ㅜ"
+          },
+          {
+            "text": "선생님",
+            "meaning": "先生",
+            "pronunciation": "ソンセンニム",
+            "hint": "ㅅ + ㅓ + ㄴ + ㅅ + ㅐ + ㅇ + ㄴ + ㅣ + ㅁ"
+          },
+          {
+            "text": "학생",
+            "meaning": "学生",
+            "pronunciation": "ハクセン",
+            "hint": "ㅎ + ㅏ + ㄱ + ㅅ + ㅐ + ㅇ"
+          },
+          {
+            "text": "사람",
+            "meaning": "人",
+            "pronunciation": "サラム",
+            "hint": "ㅅ + ㅏ + ㄹ + ㅏ + ㅁ"
+          },
+          {
+            "text": "남자",
+            "meaning": "男",
+            "pronunciation": "ナムジャ",
+            "hint": "ㄴ + ㅏ + ㅁ + ㅈ + ㅏ"
+          },
+          {
+            "text": "여자",
+            "meaning": "女",
+            "pronunciation": "ヨジャ",
+            "hint": "ㅇ + ㅕ + ㅈ + ㅏ"
+          },
+          {
+            "text": "아이",
+            "meaning": "子供",
+            "pronunciation": "アイ",
+            "hint": "ㅇ + ㅏ + ㅇ + ㅣ"
+          },
+          {
+            "text": "어른",
+            "meaning": "大人",
+            "pronunciation": "オルン",
+            "hint": "ㅇ + ㅓ + ㄹ + ㅡ + ㄴ"
+          },
+          {
+            "text": "이름",
+            "meaning": "名前",
+            "pronunciation": "イルム",
+            "hint": "ㅇ + ㅣ + ㄹ + ㅡ + ㅁ"
+          },
+          {
+            "text": "나이",
+            "meaning": "年齢",
+            "pronunciation": "ナイ",
+            "hint": "ㄴ + ㅏ + ㅇ + ㅣ"
+          },
+          {
+            "text": "남편",
+            "meaning": "夫",
+            "pronunciation": "ナムピョン",
+            "hint": "ㄴ + ㅏ + ㅁ + ㅍ + ㅕ + ㄴ"
+          },
+          {
+            "text": "아내",
+            "meaning": "妻",
+            "pronunciation": "アネ",
+            "hint": "ㅇ + ㅏ + ㄴ + ㅐ"
+          },
+          {
+            "text": "부부",
+            "meaning": "夫婦",
+            "pronunciation": "プブ",
+            "hint": "ㅂ + ㅜ + ㅂ + ㅜ"
+          },
+          {
+            "text": "이웃",
+            "meaning": "隣人",
+            "pronunciation": "イウッ",
+            "hint": "ㅇ + ㅣ + ㅇ + ㅜ + ㅅ"
+          },
+          {
+            "text": "손님",
+            "meaning": "お客様",
+            "pronunciation": "ソンニム",
+            "hint": "ㅅ + ㅗ + ㄴ + ㄴ + ㅣ + ㅁ"
+          }
+        ]
+      }
+    ]
+  }
+}

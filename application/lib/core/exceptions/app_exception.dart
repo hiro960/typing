@@ -38,10 +38,7 @@ class AuthException extends AppException {
 
   /// 認証トークンが無効
   factory AuthException.invalidToken([String? detail]) {
-    return AuthException(
-      code: 'INVALID_TOKEN',
-      message: detail ?? 'トークンが無効です',
-    );
+    return AuthException(code: 'INVALID_TOKEN', message: detail ?? 'トークンが無効です');
   }
 
   /// 認証トークンの有効期限切れ
@@ -98,11 +95,7 @@ class ApiException extends AppException {
 
   /// 400 Bad Request - バリデーションエラー
   factory ApiException.badRequest(String message) {
-    return ApiException(
-      code: 'BAD_REQUEST',
-      message: message,
-      statusCode: 400,
-    );
+    return ApiException(code: 'BAD_REQUEST', message: message, statusCode: 400);
   }
 
   /// 401 Unauthorized - 認証エラー
@@ -134,11 +127,7 @@ class ApiException extends AppException {
 
   /// 409 Conflict - リソース競合
   factory ApiException.conflict(String message) {
-    return ApiException(
-      code: 'CONFLICT',
-      message: message,
-      statusCode: 409,
-    );
+    return ApiException(code: 'CONFLICT', message: message, statusCode: 409);
   }
 
   /// 422 Unprocessable Entity - 処理不可能なエンティティ
@@ -235,15 +224,45 @@ class ValidationException extends AppException {
   }
 }
 
+/// レッスンデータの読み込みに失敗した場合の例外
+class LessonLoadException extends AppException {
+  const LessonLoadException._({
+    required super.code,
+    required super.message,
+    super.originalError,
+    super.stackTrace,
+  });
+
+  factory LessonLoadException.indexNotFound({
+    Object? error,
+    StackTrace? stackTrace,
+  }) {
+    return LessonLoadException._(
+      code: 'LESSON_INDEX_NOT_FOUND',
+      message: 'レッスン一覧の読み込みに失敗しました。アプリを再起動してください。',
+      originalError: error,
+      stackTrace: stackTrace,
+    );
+  }
+
+  factory LessonLoadException.lessonNotFound(
+    String lessonId, {
+    Object? error,
+    StackTrace? stackTrace,
+  }) {
+    return LessonLoadException._(
+      code: 'LESSON_NOT_FOUND',
+      message: 'レッスンが見つかりません: $lessonId',
+      originalError: error,
+      stackTrace: stackTrace,
+    );
+  }
+}
+
 // ==================== その他の例外 ====================
 
 /// 予期しないエラー
 class UnknownException extends AppException {
-  const UnknownException({
-    super.originalError,
-    super.stackTrace,
-  }) : super(
-          code: 'UNKNOWN_ERROR',
-          message: '予期しないエラーが発生しました',
-        );
+  const UnknownException({super.originalError, super.stackTrace})
+    : super(code: 'UNKNOWN_ERROR', message: '予期しないエラーが発生しました');
 }

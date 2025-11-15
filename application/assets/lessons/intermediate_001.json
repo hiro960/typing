@@ -1,0 +1,107 @@
+{
+  "id": "les_intermediate_001",
+  "title": "数字①（基本数字）",
+  "level": "intermediate",
+  "order": 1,
+  "description": "韓国語の基本的な数字（漢数詞）を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "数字を入力しよう",
+        "items": [
+          {
+            "text": "일",
+            "meaning": "1",
+            "pronunciation": "イル",
+            "hint": "ㅇ + ㅣ + ㄹ"
+          },
+          {
+            "text": "이",
+            "meaning": "2",
+            "pronunciation": "イ",
+            "hint": "ㅇ + ㅣ"
+          },
+          {
+            "text": "삼",
+            "meaning": "3",
+            "pronunciation": "サム",
+            "hint": "ㅅ + ㅏ + ㅁ"
+          },
+          {
+            "text": "사",
+            "meaning": "4",
+            "pronunciation": "サ",
+            "hint": "ㅅ + ㅏ"
+          },
+          {
+            "text": "오",
+            "meaning": "5",
+            "pronunciation": "オ",
+            "hint": "ㅇ + ㅗ"
+          },
+          {
+            "text": "육",
+            "meaning": "6",
+            "pronunciation": "ユク",
+            "hint": "ㅇ + ㅠ + ㄱ"
+          },
+          {
+            "text": "칠",
+            "meaning": "7",
+            "pronunciation": "チル",
+            "hint": "ㅊ + ㅣ + ㄹ"
+          },
+          {
+            "text": "팔",
+            "meaning": "8",
+            "pronunciation": "パル",
+            "hint": "ㅍ + ㅏ + ㄹ"
+          },
+          {
+            "text": "구",
+            "meaning": "9",
+            "pronunciation": "ク",
+            "hint": "ㄱ + ㅜ"
+          },
+          {
+            "text": "십",
+            "meaning": "10",
+            "pronunciation": "シプ",
+            "hint": "ㅅ + ㅣ + ㅂ"
+          },
+          {
+            "text": "백",
+            "meaning": "100",
+            "pronunciation": "ペク",
+            "hint": "ㅂ + ㅐ + ㄱ"
+          },
+          {
+            "text": "천",
+            "meaning": "1000",
+            "pronunciation": "チョン",
+            "hint": "ㅊ + ㅓ + ㄴ"
+          },
+          {
+            "text": "만",
+            "meaning": "10000",
+            "pronunciation": "マン",
+            "hint": "ㅁ + ㅏ + ㄴ"
+          },
+          {
+            "text": "영",
+            "meaning": "0",
+            "pronunciation": "ヨン",
+            "hint": "ㅇ + ㅕ + ㅇ"
+          },
+          {
+            "text": "번",
+            "meaning": "番・回",
+            "pronunciation": "ボン",
+            "hint": "ㅂ + ㅓ + ㄴ"
+          }
+        ]
+      }
+    ]
+  }
+}

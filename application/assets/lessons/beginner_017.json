@@ -1,0 +1,77 @@
+{
+  "id": "les_beginner_017",
+  "title": "パッチム応用",
+  "level": "beginner",
+  "order": 17,
+  "description": "韓国語のパッチムを使った単語をさらに学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "単語を入力しよう",
+        "items": [
+          {
+            "text": "말",
+            "meaning": "言葉/馬",
+            "pronunciation": "マル",
+            "hint": "ㅁ + ㅏ + ㄹ（パッチム）"
+          },
+          {
+            "text": "얼굴",
+            "meaning": "顔",
+            "pronunciation": "オルグル",
+            "hint": "ㅇ + ㅓ + ㄹ + ㄱ + ㅜ + ㄹ"
+          },
+          {
+            "text": "일",
+            "meaning": "仕事/一",
+            "pronunciation": "イル",
+            "hint": "ㅇ + ㅣ + ㄹ（パッチム）"
+          },
+          {
+            "text": "발",
+            "meaning": "足",
+            "pronunciation": "パル",
+            "hint": "ㅂ + ㅏ + ㄹ（パッチム）"
+          },
+          {
+            "text": "날씨",
+            "meaning": "天気",
+            "pronunciation": "ナルッシ",
+            "hint": "ㄴ + ㅏ + ㄹ + ㅆ + ㅣ"
+          },
+          {
+            "text": "잘",
+            "meaning": "よく",
+            "pronunciation": "チャル",
+            "hint": "ㅈ + ㅏ + ㄹ（パッチム）"
+          },
+          {
+            "text": "밤",
+            "meaning": "夜/栗",
+            "pronunciation": "パム",
+            "hint": "ㅂ + ㅏ + ㅁ（パッチム）"
+          },
+          {
+            "text": "공",
+            "meaning": "ボール",
+            "pronunciation": "コン",
+            "hint": "ㄱ + ㅗ + ㅇ（パッチム）"
+          },
+          {
+            "text": "강",
+            "meaning": "川",
+            "pronunciation": "カン",
+            "hint": "ㄱ + ㅏ + ㅇ（パッチム）"
+          },
+          {
+            "text": "맛",
+            "meaning": "味",
+            "pronunciation": "マッ",
+            "hint": "ㅁ + ㅏ + ㅅ（パッチム）"
+          }
+        ]
+      }
+    ]
+  }
+}

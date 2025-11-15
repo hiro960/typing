@@ -1,0 +1,95 @@
+{
+  "id": "les_beginner_006",
+  "title": "基本の文字 ㅈ, ㅓ",
+  "level": "beginner",
+  "order": 6,
+  "description": "韓国語の子音ㅈと母音ㅓを学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "character_drill",
+        "title": "文字を覚えよう",
+        "items": [
+          {
+            "text": "ㅈ",
+            "meaning": "j/ch の音",
+            "pronunciation": "チウッ",
+            "hint": "「ジャ行」「チャ行」です"
+          },
+          {
+            "text": "ㅓ",
+            "meaning": "eo の音",
+            "pronunciation": "オ",
+            "hint": "口を横に広げて「オ」の音"
+          }
+        ]
+      },
+      {
+        "type": "word_practice",
+        "title": "単語を入力しよう",
+        "items": [
+          {
+            "text": "저",
+            "meaning": "あそこ/私",
+            "pronunciation": "チョ",
+            "hint": "ㅈ + ㅓ"
+          },
+          {
+            "text": "조",
+            "meaning": "条/兆",
+            "pronunciation": "チョ",
+            "hint": "ㅈ + ㅗ"
+          },
+          {
+            "text": "주",
+            "meaning": "主/週",
+            "pronunciation": "チュ",
+            "hint": "ㅈ + ㅜ"
+          },
+          {
+            "text": "자",
+            "meaning": "者/尺",
+            "pronunciation": "チャ",
+            "hint": "ㅈ + ㅏ"
+          },
+          {
+            "text": "지도",
+            "meaning": "地図",
+            "pronunciation": "チド",
+            "hint": "ㅈ + ㅣ + ㄷ + ㅗ"
+          },
+          {
+            "text": "저기",
+            "meaning": "あそこ",
+            "pronunciation": "チョギ",
+            "hint": "ㅈ + ㅓ + ㄱ + ㅣ"
+          },
+          {
+            "text": "주소",
+            "meaning": "住所",
+            "pronunciation": "チュソ",
+            "hint": "ㅈ + ㅜ + ㅅ + ㅗ"
+          },
+          {
+            "text": "자리",
+            "meaning": "席/場所",
+            "pronunciation": "チャリ",
+            "hint": "ㅈ + ㅏ + ㄹ + ㅣ"
+          },
+          {
+            "text": "저녁",
+            "meaning": "夕方",
+            "pronunciation": "チョニョク",
+            "hint": "ㅈ + ㅓ + ㄴ + ㅕ + ㄱ"
+          },
+          {
+            "text": "조금",
+            "meaning": "少し",
+            "pronunciation": "チョグム",
+            "hint": "ㅈ + ㅗ + ㄱ + ㅡ + ㅁ"
+          }
+        ]
+      }
+    ]
+  }
+}

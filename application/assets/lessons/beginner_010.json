@@ -1,0 +1,95 @@
+{
+  "id": "les_beginner_010",
+  "title": "母音 ㅐ, ㅔ",
+  "level": "beginner",
+  "order": 10,
+  "description": "韓国語の母音ㅐとㅔを学びます。どちらも「エ」の音ですが、微妙に違います。",
+  "content": {
+    "sections": [
+      {
+        "type": "character_drill",
+        "title": "文字を覚えよう",
+        "items": [
+          {
+            "text": "ㅐ",
+            "meaning": "ae の音",
+            "pronunciation": "エ",
+            "hint": "口を横に広げて「エ」の音"
+          },
+          {
+            "text": "ㅔ",
+            "meaning": "e の音",
+            "pronunciation": "エ",
+            "hint": "「エ」の音です"
+          }
+        ]
+      },
+      {
+        "type": "word_practice",
+        "title": "単語を入力しよう",
+        "items": [
+          {
+            "text": "개",
+            "meaning": "犬",
+            "pronunciation": "ケ",
+            "hint": "ㄱ + ㅐ"
+          },
+          {
+            "text": "게",
+            "meaning": "カニ",
+            "pronunciation": "ケ",
+            "hint": "ㄱ + ㅔ"
+          },
+          {
+            "text": "배",
+            "meaning": "船/梨",
+            "pronunciation": "ペ",
+            "hint": "ㅂ + ㅐ"
+          },
+          {
+            "text": "베",
+            "meaning": "切る",
+            "pronunciation": "ペ",
+            "hint": "ㅂ + ㅔ"
+          },
+          {
+            "text": "새",
+            "meaning": "鳥",
+            "pronunciation": "セ",
+            "hint": "ㅅ + ㅐ"
+          },
+          {
+            "text": "세",
+            "meaning": "三",
+            "pronunciation": "セ",
+            "hint": "ㅅ + ㅔ"
+          },
+          {
+            "text": "애기",
+            "meaning": "赤ちゃん",
+            "pronunciation": "エギ",
+            "hint": "ㅇ + ㅐ + ㄱ + ㅣ"
+          },
+          {
+            "text": "개미",
+            "meaning": "蟻",
+            "pronunciation": "ケミ",
+            "hint": "ㄱ + ㅐ + ㅁ + ㅣ"
+          },
+          {
+            "text": "배추",
+            "meaning": "白菜",
+            "pronunciation": "ペチュ",
+            "hint": "ㅂ + ㅐ + ㅊ + ㅜ"
+          },
+          {
+            "text": "세수",
+            "meaning": "洗顔",
+            "pronunciation": "セス",
+            "hint": "ㅅ + ㅔ + ㅅ + ㅜ"
+          }
+        ]
+      }
+    ]
+  }
+}

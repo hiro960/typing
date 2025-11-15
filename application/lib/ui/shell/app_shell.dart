@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
-import '../../mock/mock_data.dart';
 import '../../features/auth/domain/providers/auth_providers.dart';
 import '../screens/diary_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/notifications_screen.dart';
 import '../screens/profile_screen.dart';
 import '../screens/settings_screen.dart';
-import '../screens/typing_lesson_screen.dart';
 import '../screens/wordbook_screen.dart';
 import '../screens/profile_setup_screen.dart';
 import '../screens/onboarding_screen.dart';
@@ -145,14 +143,6 @@ class _MainAppShellState extends State<_MainAppShell> {
     );
   }
 
-  void _openTypingLesson(LessonInfo lesson) {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (_) => TypingLessonScreen(lesson: lesson),
-      ),
-    );
-  }
-
   void _openSettings() {
     Navigator.of(
       context,
@@ -166,10 +156,7 @@ class _MainAppShellState extends State<_MainAppShell> {
   @override
   Widget build(BuildContext context) {
     final screens = <Widget>[
-      HomeScreen(
-        onStartLesson: _openTypingLesson,
-        onOpenSettings: _openSettings,
-      ),
+      HomeScreen(onOpenSettings: _openSettings),
       const DiaryScreen(),
       const WordbookScreen(),
       const NotificationsScreen(),

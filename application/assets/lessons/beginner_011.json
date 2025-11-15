@@ -1,0 +1,89 @@
+{
+  "id": "les_beginner_011",
+  "title": "母音 ㅡ",
+  "level": "beginner",
+  "order": 11,
+  "description": "韓国語の母音ㅡを学びます。口を横に引いて「ウ」の音です。",
+  "content": {
+    "sections": [
+      {
+        "type": "character_drill",
+        "title": "文字を覚えよう",
+        "items": [
+          {
+            "text": "ㅡ",
+            "meaning": "eu の音",
+            "pronunciation": "ウ",
+            "hint": "口を横に引いて「ウ」の音"
+          }
+        ]
+      },
+      {
+        "type": "word_practice",
+        "title": "単語を入力しよう",
+        "items": [
+          {
+            "text": "느",
+            "meaning": "感じる",
+            "pronunciation": "ヌ",
+            "hint": "ㄴ + ㅡ"
+          },
+          {
+            "text": "드",
+            "meaning": "～",
+            "pronunciation": "トゥ",
+            "hint": "ㄷ + ㅡ"
+          },
+          {
+            "text": "르",
+            "meaning": "～",
+            "pronunciation": "ル",
+            "hint": "ㄹ + ㅡ"
+          },
+          {
+            "text": "스",
+            "meaning": "～",
+            "pronunciation": "ス",
+            "hint": "ㅅ + ㅡ"
+          },
+          {
+            "text": "그",
+            "meaning": "その",
+            "pronunciation": "ク",
+            "hint": "ㄱ + ㅡ"
+          },
+          {
+            "text": "크다",
+            "meaning": "大きい",
+            "pronunciation": "クダ",
+            "hint": "ㅋ + ㅡ + ㄷ + ㅏ"
+          },
+          {
+            "text": "슬프다",
+            "meaning": "悲しい",
+            "pronunciation": "スルプダ",
+            "hint": "ㅅ + ㅡ + ㄹ + ㅍ + ㅡ + ㄷ + ㅏ"
+          },
+          {
+            "text": "그림",
+            "meaning": "絵",
+            "pronunciation": "クリム",
+            "hint": "ㄱ + ㅡ + ㄹ + ㅣ + ㅁ"
+          },
+          {
+            "text": "스키",
+            "meaning": "スキー",
+            "pronunciation": "スキ",
+            "hint": "ㅅ + ㅡ + ㅋ + ㅣ"
+          },
+          {
+            "text": "쓰다",
+            "meaning": "書く",
+            "pronunciation": "ッスダ",
+            "hint": "ㅆ + ㅡ + ㄷ + ㅏ"
+          }
+        ]
+      }
+    ]
+  }
+}

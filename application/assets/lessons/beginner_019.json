@@ -1,0 +1,107 @@
+{
+  "id": "les_beginner_019",
+  "title": "二重パッチム ㄼ, ㄽ, ㄾ, ㄿ, ㅀ, ㅄ",
+  "level": "beginner",
+  "order": 19,
+  "description": "韓国語の二重パッチムㄼ, ㄽ, ㄾ, ㄿ, ㅀ, ㅄを学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "character_drill",
+        "title": "二重パッチムを覚えよう",
+        "items": [
+          {
+            "text": "ㄼ",
+            "meaning": "ㄹ + ㅂ",
+            "pronunciation": "プ",
+            "hint": "発音は「ㅂ」になることが多い"
+          },
+          {
+            "text": "ㄽ",
+            "meaning": "ㄹ + ㅅ",
+            "pronunciation": "ル",
+            "hint": "発音は「ㄹ」になることが多い"
+          },
+          {
+            "text": "ㄾ",
+            "meaning": "ㄹ + ㅌ",
+            "pronunciation": "ル",
+            "hint": "発音は「ㄹ」になることが多い"
+          },
+          {
+            "text": "ㄿ",
+            "meaning": "ㄹ + ㅍ",
+            "pronunciation": "プ",
+            "hint": "発音は「ㅍ」になることが多い"
+          },
+          {
+            "text": "ㅀ",
+            "meaning": "ㄹ + ㅎ",
+            "pronunciation": "ル",
+            "hint": "発音は「ㄹ」になることが多い"
+          },
+          {
+            "text": "ㅄ",
+            "meaning": "ㅂ + ㅅ",
+            "pronunciation": "プ",
+            "hint": "発音は「ㅂ」になることが多い"
+          }
+        ]
+      },
+      {
+        "type": "word_practice",
+        "title": "単語を入力しよう",
+        "items": [
+          {
+            "text": "넓다",
+            "meaning": "広い",
+            "pronunciation": "ノルタ",
+            "hint": "ㄴ + ㅓ + ㄼ + ㄷ + ㅏ"
+          },
+          {
+            "text": "밟다",
+            "meaning": "踏む",
+            "pronunciation": "パルタ",
+            "hint": "ㅂ + ㅏ + ㄼ + ㄷ + ㅏ"
+          },
+          {
+            "text": "핥다",
+            "meaning": "舐める",
+            "pronunciation": "ハルタ",
+            "hint": "ㅎ + ㅏ + ㄾ + ㄷ + ㅏ"
+          },
+          {
+            "text": "읊다",
+            "meaning": "詠む",
+            "pronunciation": "ウプタ",
+            "hint": "ㅇ + ㅡ + ㄿ + ㄷ + ㅏ"
+          },
+          {
+            "text": "없다",
+            "meaning": "ない",
+            "pronunciation": "オプタ",
+            "hint": "ㅇ + ㅓ + ㅄ + ㄷ + ㅏ"
+          },
+          {
+            "text": "짧다",
+            "meaning": "短い",
+            "pronunciation": "ッチャルタ",
+            "hint": "ㅉ + ㅏ + ㄼ + ㄷ + ㅏ"
+          },
+          {
+            "text": "많다",
+            "meaning": "多い",
+            "pronunciation": "マンタ",
+            "hint": "ㅁ + ㅏ + ㄶ + ㄷ + ㅏ"
+          },
+          {
+            "text": "싫다",
+            "meaning": "嫌だ",
+            "pronunciation": "シルタ",
+            "hint": "ㅅ + ㅣ + ㅀ + ㄷ + ㅏ"
+          }
+        ]
+      }
+    ]
+  }
+}

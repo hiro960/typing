@@ -1,0 +1,107 @@
+{
+  "id": "les_intermediate_019",
+  "title": "接続詞・副詞・疑問詞",
+  "level": "intermediate",
+  "order": 19,
+  "description": "文を繋ぐ言葉や疑問詞を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "接続詞・副詞・疑問詞を入力しよう",
+        "items": [
+          {
+            "text": "그리고",
+            "meaning": "そして",
+            "pronunciation": "クリゴ",
+            "hint": "ㄱ + ㅡ + ㄹ + ㅣ + ㄱ + ㅗ"
+          },
+          {
+            "text": "그러나",
+            "meaning": "しかし",
+            "pronunciation": "クロナ",
+            "hint": "ㄱ + ㅡ + ㄹ + ㅓ + ㄴ + ㅏ"
+          },
+          {
+            "text": "하지만",
+            "meaning": "でも",
+            "pronunciation": "ハジマン",
+            "hint": "ㅎ + ㅏ + ㅈ + ㅣ + ㅁ + ㅏ + ㄴ"
+          },
+          {
+            "text": "그래서",
+            "meaning": "だから",
+            "pronunciation": "クレソ",
+            "hint": "ㄱ + ㅡ + ㄹ + ㅐ + ㅅ + ㅓ"
+          },
+          {
+            "text": "왜냐하면",
+            "meaning": "なぜなら",
+            "pronunciation": "ウェニャハミョン",
+            "hint": "ㅇ + ㅙ + ㄴ + ㅑ + ㅎ + ㅏ + ㅁ + ㅕ + ㄴ"
+          },
+          {
+            "text": "또",
+            "meaning": "また",
+            "pronunciation": "ット",
+            "hint": "ㄸ + ㅗ"
+          },
+          {
+            "text": "그럼",
+            "meaning": "それでは",
+            "pronunciation": "クロム",
+            "hint": "ㄱ + ㅡ + ㄹ + ㅓ + ㅁ"
+          },
+          {
+            "text": "누구",
+            "meaning": "誰",
+            "pronunciation": "ヌグ",
+            "hint": "ㄴ + ㅜ + ㄱ + ㅜ"
+          },
+          {
+            "text": "무엇",
+            "meaning": "何",
+            "pronunciation": "ムオッ",
+            "hint": "ㅁ + ㅜ + ㅇ + ㅓ + ㅅ"
+          },
+          {
+            "text": "어디",
+            "meaning": "どこ",
+            "pronunciation": "オディ",
+            "hint": "ㅇ + ㅓ + ㄷ + ㅣ"
+          },
+          {
+            "text": "언제",
+            "meaning": "いつ",
+            "pronunciation": "オンジェ",
+            "hint": "ㅇ + ㅓ + ㄴ + ㅈ + ㅔ"
+          },
+          {
+            "text": "왜",
+            "meaning": "なぜ",
+            "pronunciation": "ウェ",
+            "hint": "ㅇ + ㅙ"
+          },
+          {
+            "text": "어떻게",
+            "meaning": "どのように",
+            "pronunciation": "オットケ",
+            "hint": "ㅇ + ㅓ + ㄸ + ㅓ + ㅎ + ㄱ + ㅔ"
+          },
+          {
+            "text": "얼마",
+            "meaning": "いくら",
+            "pronunciation": "オルマ",
+            "hint": "ㅇ + ㅓ + ㄹ + ㅁ + ㅏ"
+          },
+          {
+            "text": "몇",
+            "meaning": "いくつ",
+            "pronunciation": "ミョッ",
+            "hint": "ㅁ + ㅕ + ㅅ"
+          }
+        ]
+      }
+    ]
+  }
+}

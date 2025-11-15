@@ -1,0 +1,65 @@
+{
+  "id": "les_advanced_019",
+  "title": "慣用句②（日常表現）",
+  "level": "advanced",
+  "order": 19,
+  "description": "日常でよく使う慣用句を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "慣用句を入力しよう",
+        "items": [
+          {
+            "text": "손이 많이 가다",
+            "meaning": "手がたくさん行く",
+            "pronunciation": "ソニ マニ カダ",
+            "hint": "手間がかかる"
+          },
+          {
+            "text": "눈에 띄다",
+            "meaning": "目に付く",
+            "pronunciation": "ヌネ ッティダ",
+            "hint": "目立つ"
+          },
+          {
+            "text": "귀에 익다",
+            "meaning": "耳に慣れる",
+            "pronunciation": "クィエ イクタ",
+            "hint": "聞き覚えがある"
+          },
+          {
+            "text": "입에 맞다",
+            "meaning": "口に合う",
+            "pronunciation": "イベ マッタ",
+            "hint": "口に合う、好みに合う"
+          },
+          {
+            "text": "발을 끊다",
+            "meaning": "足を断つ",
+            "pronunciation": "パルル ックンタ",
+            "hint": "縁を切る、通うのをやめる"
+          },
+          {
+            "text": "머리를 쓰다",
+            "meaning": "頭を使う",
+            "pronunciation": "モリルル ッスダ",
+            "hint": "頭を使う、知恵を絞る"
+          },
+          {
+            "text": "손을 놓다",
+            "meaning": "手を置く",
+            "pronunciation": "ソヌル ノタ",
+            "hint": "手を引く、やめる"
+          },
+          {
+            "text": "발이 묶이다",
+            "meaning": "足が縛られる",
+            "pronunciation": "パリ ムッキダ",
+            "hint": "動けなくなる"
+          }
+        ]
+      }
+    ]
+  }
+}

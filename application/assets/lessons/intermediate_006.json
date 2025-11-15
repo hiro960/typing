@@ -1,0 +1,107 @@
+{
+  "id": "les_intermediate_006",
+  "title": "食べ物②（飲み物・その他）",
+  "level": "intermediate",
+  "order": 6,
+  "description": "飲み物と食事関連の単語を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "飲み物を表す単語を入力しよう",
+        "items": [
+          {
+            "text": "물",
+            "meaning": "水",
+            "pronunciation": "ムル",
+            "hint": "ㅁ + ㅜ + ㄹ"
+          },
+          {
+            "text": "차",
+            "meaning": "お茶",
+            "pronunciation": "チャ",
+            "hint": "ㅊ + ㅏ"
+          },
+          {
+            "text": "커피",
+            "meaning": "コーヒー",
+            "pronunciation": "コピ",
+            "hint": "ㅋ + ㅓ + ㅍ + ㅣ"
+          },
+          {
+            "text": "우유",
+            "meaning": "牛乳",
+            "pronunciation": "ウユ",
+            "hint": "ㅇ + ㅜ + ㅇ + ㅠ"
+          },
+          {
+            "text": "주스",
+            "meaning": "ジュース",
+            "pronunciation": "チュス",
+            "hint": "ㅈ + ㅜ + ㅅ + ㅡ"
+          },
+          {
+            "text": "술",
+            "meaning": "お酒",
+            "pronunciation": "スル",
+            "hint": "ㅅ + ㅜ + ㄹ"
+          },
+          {
+            "text": "맥주",
+            "meaning": "ビール",
+            "pronunciation": "メクチュ",
+            "hint": "ㅁ + ㅐ + ㄱ + ㅈ + ㅜ"
+          },
+          {
+            "text": "음료",
+            "meaning": "飲料",
+            "pronunciation": "ウムニョ",
+            "hint": "ㅇ + ㅡ + ㅁ + ㄴ + ㅛ"
+          },
+          {
+            "text": "아침",
+            "meaning": "朝",
+            "pronunciation": "アチム",
+            "hint": "ㅇ + ㅏ + ㅊ + ㅣ + ㅁ"
+          },
+          {
+            "text": "점심",
+            "meaning": "昼",
+            "pronunciation": "チョムシム",
+            "hint": "ㅈ + ㅓ + ㅁ + ㅅ + ㅣ + ㅁ"
+          },
+          {
+            "text": "저녁",
+            "meaning": "夜",
+            "pronunciation": "チョニョク",
+            "hint": "ㅈ + ㅓ + ㄴ + ㅕ + ㄱ"
+          },
+          {
+            "text": "간식",
+            "meaning": "おやつ",
+            "pronunciation": "カンシク",
+            "hint": "ㄱ + ㅏ + ㄴ + ㅅ + ㅣ + ㄱ"
+          },
+          {
+            "text": "식사",
+            "meaning": "食事",
+            "pronunciation": "シクサ",
+            "hint": "ㅅ + ㅣ + ㄱ + ㅅ + ㅏ"
+          },
+          {
+            "text": "맛",
+            "meaning": "味",
+            "pronunciation": "マッ",
+            "hint": "ㅁ + ㅏ + ㅅ"
+          },
+          {
+            "text": "요리",
+            "meaning": "料理",
+            "pronunciation": "ヨリ",
+            "hint": "ㅇ + ㅛ + ㄹ + ㅣ"
+          }
+        ]
+      }
+    ]
+  }
+}

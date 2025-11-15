@@ -107,10 +107,9 @@ class ApiConstants {
   /// GET /api/lessons
   static const String lessons = '/api/lessons';
 
-  /// レッスン完了マーク
-  /// POST /api/lessons/:id/complete
-  static String completeLesson(String lessonId) =>
-      '/api/lessons/$lessonId/complete';
+  /// レッスン完了送信
+  /// POST /api/lessons/complete
+  static const String lessonComplete = '/api/lessons/complete';
 
   /// レッスン統計取得
   /// GET /api/lessons/stats

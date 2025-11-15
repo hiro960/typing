@@ -1,5 +1,4 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../data/services/auth0_service.dart';
 import '../../data/services/token_storage_service.dart';
 import '../../data/services/api_client_service.dart';
@@ -69,39 +68,35 @@ class AuthStateData {
   final UserModel? user;
   final String? errorMessage;
 
-  const AuthStateData({
-    required this.status,
-    this.user,
-    this.errorMessage,
-  });
+  const AuthStateData({required this.status, this.user, this.errorMessage});
 
   /// 初期状態
   const AuthStateData.initial()
-      : status = AuthStatus.initial,
-        user = null,
-        errorMessage = null;
+    : status = AuthStatus.initial,
+      user = null,
+      errorMessage = null;
 
   /// 未認証状態
   const AuthStateData.unauthenticated()
-      : status = AuthStatus.unauthenticated,
-        user = null,
-        errorMessage = null;
+    : status = AuthStatus.unauthenticated,
+      user = null,
+      errorMessage = null;
 
   /// 認証済みだが未登録状態
   const AuthStateData.authenticatedButNotRegistered()
-      : status = AuthStatus.authenticatedButNotRegistered,
-        user = null,
-        errorMessage = null;
+    : status = AuthStatus.authenticatedButNotRegistered,
+      user = null,
+      errorMessage = null;
 
   /// 認証済み状態
   const AuthStateData.authenticated(this.user)
-      : status = AuthStatus.authenticated,
-        errorMessage = null;
+    : status = AuthStatus.authenticated,
+      errorMessage = null;
 
   /// エラー状態
   const AuthStateData.error(this.errorMessage)
-      : status = AuthStatus.error,
-        user = null;
+    : status = AuthStatus.error,
+      user = null;
 
   AuthStateData copyWith({
     AuthStatus? status,
@@ -157,7 +152,9 @@ class AuthStateNotifier extends _$AuthStateNotifier {
         state = AuthStateData.authenticated(status.user!);
       } else {
         // 未登録ユーザー
-        AppLogger.auth('User is not registered, setting state to authenticatedButNotRegistered');
+        AppLogger.auth(
+          'User is not registered, setting state to authenticatedButNotRegistered',
+        );
         state = const AuthStateData.authenticatedButNotRegistered();
       }
     } catch (e) {
@@ -277,10 +274,7 @@ bool isAuthenticated(Ref ref) {
 
 /// ユーザー名重複チェック用プロバイダー
 @riverpod
-Future<bool> usernameAvailability(
-  Ref ref,
-  String username,
-) async {
+Future<bool> usernameAvailability(Ref ref, String username) async {
   if (username.isEmpty) {
     return false;
   }

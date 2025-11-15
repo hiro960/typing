@@ -5,7 +5,7 @@ export type LessonMode = "standard" | "challenge";
 export type DeviceType = "ios" | "android" | "web";
 export type FeedType = "forYou" | "following" | "popular";
 export type UserStatsRange = "weekly" | "monthly" | "all";
-export type LessonStatsRange = "daily" | "weekly" | "monthly";
+export type LessonStatsRange = "daily" | "weekly" | "monthly" | "all";
 export type ISODateTime = string | Date;
 
 export interface UserSettings {
@@ -93,7 +93,9 @@ export interface Lesson {
   description?: string | null;
   level: LearningLevel;
   order: number;
-  content: Record<string, unknown>;
+  assetPath?: string | null;
+  assetVersion?: number | null;
+  estimatedMinutes: number;
   createdAt: ISODateTime;
   updatedAt: ISODateTime;
 }

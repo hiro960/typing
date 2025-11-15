@@ -1,0 +1,107 @@
+{
+  "id": "les_intermediate_003",
+  "title": "家族・人間関係①",
+  "level": "intermediate",
+  "order": 3,
+  "description": "家族の呼び方を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "家族を表す単語を入力しよう",
+        "items": [
+          {
+            "text": "가족",
+            "meaning": "家族",
+            "pronunciation": "カジョク",
+            "hint": "ㄱ + ㅏ + ㅈ + ㅗ + ㄱ"
+          },
+          {
+            "text": "부모님",
+            "meaning": "両親",
+            "pronunciation": "プモニム",
+            "hint": "ㅂ + ㅜ + ㅁ + ㅗ + ㄴ + ㅣ + ㅁ"
+          },
+          {
+            "text": "아버지",
+            "meaning": "父",
+            "pronunciation": "アボジ",
+            "hint": "ㅇ + ㅏ + ㅂ + ㅓ + ㅈ + ㅣ"
+          },
+          {
+            "text": "어머니",
+            "meaning": "母",
+            "pronunciation": "オモニ",
+            "hint": "ㅇ + ㅓ + ㅁ + ㅓ + ㄴ + ㅣ"
+          },
+          {
+            "text": "아들",
+            "meaning": "息子",
+            "pronunciation": "アドゥル",
+            "hint": "ㅇ + ㅏ + ㄷ + ㅡ + ㄹ"
+          },
+          {
+            "text": "딸",
+            "meaning": "娘",
+            "pronunciation": "ッタル",
+            "hint": "ㄸ + ㅏ + ㄹ"
+          },
+          {
+            "text": "형",
+            "meaning": "兄（男から）",
+            "pronunciation": "ヒョン",
+            "hint": "ㅎ + ㅕ + ㅇ"
+          },
+          {
+            "text": "누나",
+            "meaning": "姉（男から）",
+            "pronunciation": "ヌナ",
+            "hint": "ㄴ + ㅜ + ㄴ + ㅏ"
+          },
+          {
+            "text": "오빠",
+            "meaning": "兄（女から）",
+            "pronunciation": "オッパ",
+            "hint": "ㅇ + ㅗ + ㅃ + ㅏ"
+          },
+          {
+            "text": "언니",
+            "meaning": "姉（女から）",
+            "pronunciation": "オンニ",
+            "hint": "ㅇ + ㅓ + ㄴ + ㄴ + ㅣ"
+          },
+          {
+            "text": "동생",
+            "meaning": "弟・妹",
+            "pronunciation": "トンセン",
+            "hint": "ㄷ + ㅗ + ㅇ + ㅅ + ㅐ + ㅇ"
+          },
+          {
+            "text": "남동생",
+            "meaning": "弟",
+            "pronunciation": "ナムドンセン",
+            "hint": "ㄴ + ㅏ + ㅁ + ㄷ + ㅗ + ㅇ + ㅅ + ㅐ + ㅇ"
+          },
+          {
+            "text": "여동생",
+            "meaning": "妹",
+            "pronunciation": "ヨドンセン",
+            "hint": "ㅇ + ㅕ + ㄷ + ㅗ + ㅇ + ㅅ + ㅐ + ㅇ"
+          },
+          {
+            "text": "할아버지",
+            "meaning": "祖父",
+            "pronunciation": "ハラボジ",
+            "hint": "ㅎ + ㅏ + ㄹ + ㅏ + ㅂ + ㅓ + ㅈ + ㅣ"
+          },
+          {
+            "text": "할머니",
+            "meaning": "祖母",
+            "pronunciation": "ハルモニ",
+            "hint": "ㅎ + ㅏ + ㄹ + ㅁ + ㅓ + ㄴ + ㅣ"
+          }
+        ]
+      }
+    ]
+  }
+}

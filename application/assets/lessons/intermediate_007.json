@@ -1,0 +1,107 @@
+{
+  "id": "les_intermediate_007",
+  "title": "場所①（基本的な場所）",
+  "level": "intermediate",
+  "order": 7,
+  "description": "日常でよく行く場所の単語を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "場所を表す単語を入力しよう",
+        "items": [
+          {
+            "text": "집",
+            "meaning": "家",
+            "pronunciation": "チプ",
+            "hint": "ㅈ + ㅣ + ㅂ"
+          },
+          {
+            "text": "학교",
+            "meaning": "学校",
+            "pronunciation": "ハッキョ",
+            "hint": "ㅎ + ㅏ + ㄱ + ㄱ + ㅛ"
+          },
+          {
+            "text": "회사",
+            "meaning": "会社",
+            "pronunciation": "フェサ",
+            "hint": "ㅎ + ㅚ + ㅅ + ㅏ"
+          },
+          {
+            "text": "병원",
+            "meaning": "病院",
+            "pronunciation": "ビョンウォン",
+            "hint": "ㅂ + ㅕ + ㅇ + ㅇ + ㅝ + ㄴ"
+          },
+          {
+            "text": "약국",
+            "meaning": "薬局",
+            "pronunciation": "ヤククク",
+            "hint": "ㅇ + ㅑ + ㄱ + ㄱ + ㅜ + ㄱ"
+          },
+          {
+            "text": "은행",
+            "meaning": "銀行",
+            "pronunciation": "ウネン",
+            "hint": "ㅇ + ㅡ + ㄴ + ㅎ + ㅐ + ㅇ"
+          },
+          {
+            "text": "우체국",
+            "meaning": "郵便局",
+            "pronunciation": "ウチェグク",
+            "hint": "ㅇ + ㅜ + ㅊ + ㅔ + ㄱ + ㅜ + ㄱ"
+          },
+          {
+            "text": "가게",
+            "meaning": "店",
+            "pronunciation": "カゲ",
+            "hint": "ㄱ + ㅏ + ㄱ + ㅔ"
+          },
+          {
+            "text": "시장",
+            "meaning": "市場",
+            "pronunciation": "シジャン",
+            "hint": "ㅅ + ㅣ + ㅈ + ㅏ + ㅇ"
+          },
+          {
+            "text": "백화점",
+            "meaning": "デパート",
+            "pronunciation": "ペクァジョム",
+            "hint": "ㅂ + ㅐ + ㄱ + ㅎ + ㅘ + ㅈ + ㅓ + ㅁ"
+          },
+          {
+            "text": "식당",
+            "meaning": "食堂",
+            "pronunciation": "シクタン",
+            "hint": "ㅅ + ㅣ + ㄱ + ㄷ + ㅏ + ㅇ"
+          },
+          {
+            "text": "카페",
+            "meaning": "カフェ",
+            "pronunciation": "カペ",
+            "hint": "ㅋ + ㅏ + ㅍ + ㅔ"
+          },
+          {
+            "text": "공원",
+            "meaning": "公園",
+            "pronunciation": "コンウォン",
+            "hint": "ㄱ + ㅗ + ㅇ + ㅇ + ㅝ + ㄴ"
+          },
+          {
+            "text": "도서관",
+            "meaning": "図書館",
+            "pronunciation": "トソグァン",
+            "hint": "ㄷ + ㅗ + ㅅ + ㅓ + ㄱ + ㅘ + ㄴ"
+          },
+          {
+            "text": "역",
+            "meaning": "駅",
+            "pronunciation": "ヨク",
+            "hint": "ㅇ + ㅕ + ㄱ"
+          }
+        ]
+      }
+    ]
+  }
+}

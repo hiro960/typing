@@ -1,0 +1,107 @@
+{
+  "id": "les_beginner_015",
+  "title": "複合母音 ㅘ, ㅝ, ㅢ, ㅚ, ㅟ",
+  "level": "beginner",
+  "order": 15,
+  "description": "韓国語の複合母音ㅘ, ㅝ, ㅢ, ㅚ, ㅟを学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "character_drill",
+        "title": "文字を覚えよう",
+        "items": [
+          {
+            "text": "ㅘ",
+            "meaning": "wa の音",
+            "pronunciation": "ワ",
+            "hint": "「ワ」の音です"
+          },
+          {
+            "text": "ㅝ",
+            "meaning": "wo の音",
+            "pronunciation": "ウォ",
+            "hint": "「ウォ」の音です"
+          },
+          {
+            "text": "ㅢ",
+            "meaning": "ui の音",
+            "pronunciation": "ウィ",
+            "hint": "「ウィ」の音です"
+          },
+          {
+            "text": "ㅚ",
+            "meaning": "oe の音",
+            "pronunciation": "ウェ",
+            "hint": "「ウェ」の音です"
+          },
+          {
+            "text": "ㅟ",
+            "meaning": "wi の音",
+            "pronunciation": "ウィ",
+            "hint": "「ウィ」の音です"
+          }
+        ]
+      },
+      {
+        "type": "word_practice",
+        "title": "単語を入力しよう",
+        "items": [
+          {
+            "text": "와",
+            "meaning": "と",
+            "pronunciation": "ワ",
+            "hint": "ㅇ + ㅘ"
+          },
+          {
+            "text": "왜",
+            "meaning": "なぜ",
+            "pronunciation": "ウェ",
+            "hint": "ㅇ + ㅙ"
+          },
+          {
+            "text": "워",
+            "meaning": "～",
+            "pronunciation": "ウォ",
+            "hint": "ㅇ + ㅝ"
+          },
+          {
+            "text": "의",
+            "meaning": "の",
+            "pronunciation": "ウィ",
+            "hint": "ㅇ + ㅢ"
+          },
+          {
+            "text": "외국",
+            "meaning": "外国",
+            "pronunciation": "ウェグク",
+            "hint": "ㅇ + ㅚ + ㄱ + ㅜ + ㄱ"
+          },
+          {
+            "text": "왜냐하면",
+            "meaning": "なぜなら",
+            "pronunciation": "ウェニャハミョン",
+            "hint": "ㅇ + ㅙ + ㄴ + ㅑ + ㅎ + ㅏ + ㅁ + ㅕ + ㄴ"
+          },
+          {
+            "text": "귀",
+            "meaning": "耳",
+            "pronunciation": "クィ",
+            "hint": "ㄱ + ㅟ"
+          },
+          {
+            "text": "취미",
+            "meaning": "趣味",
+            "pronunciation": "チュィミ",
+            "hint": "ㅊ + ㅟ + ㅁ + ㅣ"
+          },
+          {
+            "text": "웨딩",
+            "meaning": "ウェディング",
+            "pronunciation": "ウェディン",
+            "hint": "ㅇ + ㅞ + ㄷ + ㅣ + ㅇ"
+          }
+        ]
+      }
+    ]
+  }
+}

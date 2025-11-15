@@ -21,7 +21,6 @@ import {
  * - レッスン完了記録（正常系）
  * - 認証エラー（401）
  * - バリデーションエラー（400）
- * - クールダウン制限（422）
  * - レッスンが存在しない（404）
  */
 describe('POST /api/lessons/complete', () => {
@@ -470,102 +469,6 @@ describe('POST /api/lessons/complete', () => {
       expect(response.status).toBe(400);
       expect(data.error.code).toBe('INVALID_INPUT');
       expect(data.error.message).toContain('standard|challenge');
-    });
-  });
-
-  describe('クールダウン制限（422）', () => {
-    beforeEach(() => {
-      const authUser = createMockAuthUser({ id: 'usr_123' });
-      mockAuthUser(authUser);
-    });
-
-    it('should return 422 when resubmitting within 10 minutes', async () => {
-      const mockLesson = createMockLesson({ id: 'lesson_1' });
-      const recentCompletion = createMockLessonCompletion({
-        lessonId: 'lesson_1',
-        userId: 'usr_123',
-        completedAt: new Date(Date.now() - 5 * 60 * 1000), // 5分前
-      });
-
-      prismaMock.lesson.findUnique.mockResolvedValue(mockLesson);
-      prismaMock.lessonCompletion.findFirst.mockResolvedValue(recentCompletion);
-
-      const request = createAuthRequest('http://localhost:3000/api/lessons/complete', {
-        method: 'POST',
-        body: JSON.stringify({
-          lessonId: 'lesson_1',
-          wpm: 200,
-          accuracy: 0.95,
-          timeSpent: 180,
-        }),
-      });
-
-      const response = await POST(request);
-      const data = await response.json();
-
-      expect(response.status).toBe(422);
-      expect(data.error.code).toBe('BUSINESS_RULE_VIOLATION');
-      expect(data.error.message).toContain('10 minutes');
-    });
-
-    it('should allow resubmission after 10 minutes', async () => {
-      const mockLesson = createMockLesson({ id: 'lesson_1' });
-      const mockUser = createMockUser({ id: 'usr_123' });
-      const oldCompletion = createMockLessonCompletion({
-        lessonId: 'lesson_1',
-        userId: 'usr_123',
-        completedAt: new Date(Date.now() - 11 * 60 * 1000), // 11分前
-      });
-      const newCompletion = createMockLessonCompletion({
-        lessonId: 'lesson_1',
-        userId: 'usr_123',
-      });
-
-      prismaMock.lesson.findUnique.mockResolvedValue(mockLesson);
-      prismaMock.user.findUnique.mockResolvedValue(mockUser);
-      prismaMock.user.update.mockResolvedValue(mockUser);
-      prismaMock.lessonCompletion.findFirst.mockResolvedValue(oldCompletion);
-      prismaMock.lessonCompletion.create.mockResolvedValue(newCompletion);
-
-      const request = createAuthRequest('http://localhost:3000/api/lessons/complete', {
-        method: 'POST',
-        body: JSON.stringify({
-          lessonId: 'lesson_1',
-          wpm: 220,
-          accuracy: 0.96,
-          timeSpent: 170,
-        }),
-      });
-
-      const response = await POST(request);
-
-      expect(response.status).toBe(201);
-    });
-
-    it('should allow first-time completion without cooldown', async () => {
-      const mockLesson = createMockLesson({ id: 'lesson_1' });
-      const newCompletion = createMockLessonCompletion({
-        lessonId: 'lesson_1',
-        userId: 'usr_123',
-      });
-
-      prismaMock.lesson.findUnique.mockResolvedValue(mockLesson);
-      prismaMock.lessonCompletion.findFirst.mockResolvedValue(null); // 初回
-      prismaMock.lessonCompletion.create.mockResolvedValue(newCompletion);
-
-      const request = createAuthRequest('http://localhost:3000/api/lessons/complete', {
-        method: 'POST',
-        body: JSON.stringify({
-          lessonId: 'lesson_1',
-          wpm: 200,
-          accuracy: 0.95,
-          timeSpent: 180,
-        }),
-      });
-
-      const response = await POST(request);
-
-      expect(response.status).toBe(201);
     });
   });
 

@@ -1,0 +1,65 @@
+{
+  "id": "les_advanced_018",
+  "title": "慣用句①（感情表現）",
+  "level": "advanced",
+  "order": 18,
+  "description": "感情を表す慣用句を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "慣用句を入力しよう",
+        "items": [
+          {
+            "text": "가슴이 뛰다",
+            "meaning": "胸が跳ねる",
+            "pronunciation": "カスミ ッティダ",
+            "hint": "ドキドキする"
+          },
+          {
+            "text": "눈이 높다",
+            "meaning": "目が高い",
+            "pronunciation": "ヌニ ノプタ",
+            "hint": "理想が高い"
+          },
+          {
+            "text": "귀가 얇다",
+            "meaning": "耳が薄い",
+            "pronunciation": "クィガ ヤルタ",
+            "hint": "人の話を鵜呑みにする"
+          },
+          {
+            "text": "손이 크다",
+            "meaning": "手が大きい",
+            "pronunciation": "ソニ クダ",
+            "hint": "気前が良い"
+          },
+          {
+            "text": "발이 넓다",
+            "meaning": "足が広い",
+            "pronunciation": "パリ ノルタ",
+            "hint": "顔が広い、知り合いが多い"
+          },
+          {
+            "text": "입이 무겁다",
+            "meaning": "口が重い",
+            "pronunciation": "イビ ムゴプタ",
+            "hint": "口が堅い"
+          },
+          {
+            "text": "마음이 넓다",
+            "meaning": "心が広い",
+            "pronunciation": "マウミ ノルタ",
+            "hint": "心が広い、度量が大きい"
+          },
+          {
+            "text": "얼굴이 두껍다",
+            "meaning": "顔が厚い",
+            "pronunciation": "オルグリ トゥッコプタ",
+            "hint": "厚かましい"
+          }
+        ]
+      }
+    ]
+  }
+}

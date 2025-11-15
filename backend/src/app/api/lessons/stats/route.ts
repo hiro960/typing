@@ -4,7 +4,7 @@ import { getLessonStats } from "@/lib/store";
 import { ERROR, handleRouteError } from "@/lib/errors";
 import { LessonStatsRange, LearningLevel } from "@/lib/types";
 
-const RANGES: LessonStatsRange[] = ["daily", "weekly", "monthly"];
+const RANGES: LessonStatsRange[] = ["daily", "weekly", "monthly", "all"];
 const LEVELS: LearningLevel[] = ["beginner", "intermediate", "advanced"];
 
 export async function GET(request: NextRequest) {
@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
     const level = searchParams.get("level") as LearningLevel | null;
 
     if (!RANGES.includes(range)) {
-      throw ERROR.INVALID_INPUT("range must be daily|weekly|monthly", {
+      throw ERROR.INVALID_INPUT("range must be daily|weekly|monthly|all", {
         field: "range",
       });
     }

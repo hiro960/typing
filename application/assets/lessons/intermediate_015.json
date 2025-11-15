@@ -1,0 +1,107 @@
+{
+  "id": "les_intermediate_015",
+  "title": "形容詞③（感情①）",
+  "level": "intermediate",
+  "order": 15,
+  "description": "感情を表す形容詞を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "感情を表す形容詞を入力しよう",
+        "items": [
+          {
+            "text": "기쁘다",
+            "meaning": "嬉しい",
+            "pronunciation": "キップダ",
+            "hint": "ㄱ + ㅣ + ㅃ + ㅡ + ㄷ + ㅏ"
+          },
+          {
+            "text": "슬프다",
+            "meaning": "悲しい",
+            "pronunciation": "スルプダ",
+            "hint": "ㅅ + ㅡ + ㄹ + ㅍ + ㅡ + ㄷ + ㅏ"
+          },
+          {
+            "text": "행복하다",
+            "meaning": "幸せだ",
+            "pronunciation": "ヘンボカダ",
+            "hint": "ㅎ + ㅐ + ㅇ + ㅂ + ㅗ + ㄱ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "불행하다",
+            "meaning": "不幸だ",
+            "pronunciation": "プレンハダ",
+            "hint": "ㅂ + ㅜ + ㄹ + ㅎ + ㅐ + ㅇ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "즐겁다",
+            "meaning": "楽しい",
+            "pronunciation": "チュルゴプタ",
+            "hint": "ㅈ + ㅡ + ㄹ + ㄱ + ㅓ + ㅂ + ㄷ + ㅏ"
+          },
+          {
+            "text": "괴롭다",
+            "meaning": "苦しい",
+            "pronunciation": "クェロプタ",
+            "hint": "ㄱ + ㅚ + ㄹ + ㅗ + ㅂ + ㄷ + ㅏ"
+          },
+          {
+            "text": "외롭다",
+            "meaning": "寂しい",
+            "pronunciation": "ウェロプタ",
+            "hint": "ㅇ + ㅚ + ㄹ + ㅗ + ㅂ + ㄷ + ㅏ"
+          },
+          {
+            "text": "그립다",
+            "meaning": "恋しい",
+            "pronunciation": "クリプタ",
+            "hint": "ㄱ + ㅡ + ㄹ + ㅣ + ㅂ + ㄷ + ㅏ"
+          },
+          {
+            "text": "부럽다",
+            "meaning": "羨ましい",
+            "pronunciation": "プロプタ",
+            "hint": "ㅂ + ㅜ + ㄹ + ㅓ + ㅂ + ㄷ + ㅏ"
+          },
+          {
+            "text": "미안하다",
+            "meaning": "申し訳ない",
+            "pronunciation": "ミアナダ",
+            "hint": "ㅁ + ㅣ + ㅇ + ㅏ + ㄴ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "고맙다",
+            "meaning": "ありがたい",
+            "pronunciation": "コマプタ",
+            "hint": "ㄱ + ㅗ + ㅁ + ㅏ + ㅂ + ㄷ + ㅏ"
+          },
+          {
+            "text": "감사하다",
+            "meaning": "感謝する",
+            "pronunciation": "カムサハダ",
+            "hint": "ㄱ + ㅏ + ㅁ + ㅅ + ㅏ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "반갑다",
+            "meaning": "嬉しい（会えて）",
+            "pronunciation": "パンガプタ",
+            "hint": "ㅂ + ㅏ + ㄴ + ㄱ + ㅏ + ㅂ + ㄷ + ㅏ"
+          },
+          {
+            "text": "아쉽다",
+            "meaning": "惜しい",
+            "pronunciation": "アシュィプタ",
+            "hint": "ㅇ + ㅏ + ㅅ + ㅟ + ㅂ + ㄷ + ㅏ"
+          },
+          {
+            "text": "후회하다",
+            "meaning": "後悔する",
+            "pronunciation": "フフェハダ",
+            "hint": "ㅎ + ㅜ + ㅎ + ㅚ + ㅎ + ㅏ + ㄷ + ㅏ"
+          }
+        ]
+      }
+    ]
+  }
+}

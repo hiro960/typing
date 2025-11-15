@@ -1,0 +1,107 @@
+{
+  "id": "les_intermediate_013",
+  "title": "形容詞①（性格・性質）",
+  "level": "intermediate",
+  "order": 13,
+  "description": "性格や性質を表す形容詞を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "性格・性質を表す形容詞を入力しよう",
+        "items": [
+          {
+            "text": "좋다",
+            "meaning": "良い",
+            "pronunciation": "チョッタ",
+            "hint": "ㅈ + ㅗ + ㅎ + ㄷ + ㅏ"
+          },
+          {
+            "text": "나쁘다",
+            "meaning": "悪い",
+            "pronunciation": "ナップダ",
+            "hint": "ㄴ + ㅏ + ㅃ + ㅡ + ㄷ + ㅏ"
+          },
+          {
+            "text": "크다",
+            "meaning": "大きい",
+            "pronunciation": "クダ",
+            "hint": "ㅋ + ㅡ + ㄷ + ㅏ"
+          },
+          {
+            "text": "작다",
+            "meaning": "小さい",
+            "pronunciation": "チャクタ",
+            "hint": "ㅈ + ㅏ + ㄱ + ㄷ + ㅏ"
+          },
+          {
+            "text": "많다",
+            "meaning": "多い",
+            "pronunciation": "マンタ",
+            "hint": "ㅁ + ㅏ + ㄶ + ㄷ + ㅏ"
+          },
+          {
+            "text": "적다",
+            "meaning": "少ない",
+            "pronunciation": "チョクタ",
+            "hint": "ㅈ + ㅓ + ㄱ + ㄷ + ㅏ"
+          },
+          {
+            "text": "길다",
+            "meaning": "長い",
+            "pronunciation": "キルダ",
+            "hint": "ㄱ + ㅣ + ㄹ + ㄷ + ㅏ"
+          },
+          {
+            "text": "짧다",
+            "meaning": "短い",
+            "pronunciation": "ッチャルタ",
+            "hint": "ㅉ + ㅏ + ㄼ + ㄷ + ㅏ"
+          },
+          {
+            "text": "높다",
+            "meaning": "高い",
+            "pronunciation": "ノプタ",
+            "hint": "ㄴ + ㅗ + ㅍ + ㄷ + ㅏ"
+          },
+          {
+            "text": "낮다",
+            "meaning": "低い",
+            "pronunciation": "ナッタ",
+            "hint": "ㄴ + ㅏ + ㅈ + ㄷ + ㅏ"
+          },
+          {
+            "text": "넓다",
+            "meaning": "広い",
+            "pronunciation": "ノルタ",
+            "hint": "ㄴ + ㅓ + ㄼ + ㄷ + ㅏ"
+          },
+          {
+            "text": "좁다",
+            "meaning": "狭い",
+            "pronunciation": "チョプタ",
+            "hint": "ㅈ + ㅗ + ㅂ + ㄷ + ㅏ"
+          },
+          {
+            "text": "무겁다",
+            "meaning": "重い",
+            "pronunciation": "ムゴプタ",
+            "hint": "ㅁ + ㅜ + ㄱ + ㅓ + ㅂ + ㄷ + ㅏ"
+          },
+          {
+            "text": "가볍다",
+            "meaning": "軽い",
+            "pronunciation": "カビョプタ",
+            "hint": "ㄱ + ㅏ + ㅂ + ㅕ + ㅂ + ㄷ + ㅏ"
+          },
+          {
+            "text": "깨끗하다",
+            "meaning": "きれいだ",
+            "pronunciation": "ッケックタダ",
+            "hint": "ㄲ + ㅐ + ㄲ + ㅡ + ㅅ + ㅎ + ㅏ + ㄷ + ㅏ"
+          }
+        ]
+      }
+    ]
+  }
+}

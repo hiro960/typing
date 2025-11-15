@@ -1,0 +1,89 @@
+{
+  "id": "les_beginner_002",
+  "title": "基本の文字 ㅂ, ㅣ",
+  "level": "beginner",
+  "order": 2,
+  "description": "韓国語の子音ㅂと母音ㅣを学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "character_drill",
+        "title": "文字を覚えよう",
+        "items": [
+          {
+            "text": "ㅂ",
+            "meaning": "b/p の音",
+            "pronunciation": "ビウプ",
+            "hint": "「バ行」「パ行」です"
+          },
+          {
+            "text": "ㅣ",
+            "meaning": "i の音",
+            "pronunciation": "イ",
+            "hint": "「イ」の音です"
+          }
+        ]
+      },
+      {
+        "type": "word_practice",
+        "title": "単語を入力しよう",
+        "items": [
+          {
+            "text": "입",
+            "meaning": "口",
+            "pronunciation": "イプ",
+            "hint": "ㅇ + ㅣ + ㅂ"
+          },
+          {
+            "text": "밥",
+            "meaning": "ご飯",
+            "pronunciation": "バプ",
+            "hint": "ㅂ + ㅏ + ㅂ"
+          },
+          {
+            "text": "비빔밥",
+            "meaning": "ビビンバ",
+            "pronunciation": "ビビンバプ",
+            "hint": "ㅂ + ㅣ + ㅂ + ㅣ + ㅁ + ㅂ + ㅏ + ㅂ"
+          },
+          {
+            "text": "분",
+            "meaning": "分",
+            "pronunciation": "ブン",
+            "hint": "ㅂ + ㅜ + ㄴ"
+          },
+          {
+            "text": "비누",
+            "meaning": "石鹸",
+            "pronunciation": "ビヌ",
+            "hint": "ㅂ + ㅣ + ㄴ + ㅜ"
+          },
+          {
+            "text": "방",
+            "meaning": "部屋",
+            "pronunciation": "バン",
+            "hint": "ㅂ + ㅏ + ㅇ"
+          },
+          {
+            "text": "위",
+            "meaning": "上",
+            "pronunciation": "ウィ",
+            "hint": "ㅇ + ㅟ"
+          },
+          {
+            "text": "반",
+            "meaning": "半分/クラス",
+            "pronunciation": "バン",
+            "hint": "ㅂ + ㅏ + ㄴ"
+          },
+          {
+            "text": "아이",
+            "meaning": "子供",
+            "pronunciation": "アイ",
+            "hint": "ㅇ + ㅏ + ㅇ + ㅣ"
+          }
+        ]
+      }
+    ]
+  }
+}

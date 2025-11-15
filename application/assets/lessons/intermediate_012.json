@@ -1,0 +1,107 @@
+{
+  "id": "les_intermediate_012",
+  "title": "日常動詞④（感情・状態）",
+  "level": "intermediate",
+  "order": 12,
+  "description": "感情や状態を表す動詞を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "感情・状態を表す動詞を入力しよう",
+        "items": [
+          {
+            "text": "좋아하다",
+            "meaning": "好きだ",
+            "pronunciation": "チョアハダ",
+            "hint": "ㅈ + ㅗ + ㅎ + ㅏ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "싫어하다",
+            "meaning": "嫌いだ",
+            "pronunciation": "シロハダ",
+            "hint": "ㅅ + ㅣ + ㄹ + ㅓ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "사랑하다",
+            "meaning": "愛する",
+            "pronunciation": "サランハダ",
+            "hint": "ㅅ + ㅏ + ㄹ + ㅏ + ㅇ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "원하다",
+            "meaning": "欲しい",
+            "pronunciation": "ウォナダ",
+            "hint": "ㅇ + ㅝ + ㄴ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "필요하다",
+            "meaning": "必要だ",
+            "pronunciation": "ピリョハダ",
+            "hint": "ㅍ + ㅣ + ㄹ + ㅛ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "있다",
+            "meaning": "ある・いる",
+            "pronunciation": "イッタ",
+            "hint": "ㅇ + ㅣ + ㅆ + ㄷ + ㅏ"
+          },
+          {
+            "text": "없다",
+            "meaning": "ない・いない",
+            "pronunciation": "オプタ",
+            "hint": "ㅇ + ㅓ + ㅄ + ㄷ + ㅏ"
+          },
+          {
+            "text": "되다",
+            "meaning": "なる",
+            "pronunciation": "トェダ",
+            "hint": "ㄷ + ㅚ + ㄷ + ㅏ"
+          },
+          {
+            "text": "하다",
+            "meaning": "する",
+            "pronunciation": "ハダ",
+            "hint": "ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "일하다",
+            "meaning": "働く",
+            "pronunciation": "イラダ",
+            "hint": "ㅇ + ㅣ + ㄹ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "쉬다",
+            "meaning": "休む",
+            "pronunciation": "シュィダ",
+            "hint": "ㅅ + ㅟ + ㄷ + ㅏ"
+          },
+          {
+            "text": "놀다",
+            "meaning": "遊ぶ",
+            "pronunciation": "ノルダ",
+            "hint": "ㄴ + ㅗ + ㄹ + ㄷ + ㅏ"
+          },
+          {
+            "text": "공부하다",
+            "meaning": "勉強する",
+            "pronunciation": "コンブハダ",
+            "hint": "ㄱ + ㅗ + ㅇ + ㅂ + ㅜ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "운동하다",
+            "meaning": "運動する",
+            "pronunciation": "ウンドンハダ",
+            "hint": "ㅇ + ㅜ + ㄴ + ㄷ + ㅗ + ㅇ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "청소하다",
+            "meaning": "掃除する",
+            "pronunciation": "チョンソハダ",
+            "hint": "ㅊ + ㅓ + ㅇ + ㅅ + ㅗ + ㅎ + ㅏ + ㄷ + ㅏ"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -141,7 +141,7 @@ HTTP 401 UNAUTHORIZED
 | 403 | `FORBIDDEN` | 権限不足 (他ユーザー編集など) |
 | 404 | `NOT_FOUND` | リソース無し |
 | 409 | `CONFLICT` | 重複フォロー / いいねなど |
-| 422 | `BUSINESS_RULE_VIOLATION` | 同一レッスン短期重複登録など |
+| 422 | `BUSINESS_RULE_VIOLATION` | ビジネスルール違反（現在は予約、将来拡張用） |
 | 429 | `RATE_LIMITED` | Upstash レートリミット超過 |
 | 500 | `INTERNAL_ERROR` | 想定外エラー |
 
@@ -220,14 +220,27 @@ HTTP 401 UNAUTHORIZED
 ### 4.5 Lesson
 ```json
 {
-  "id": "les_1",
-  "title": "子音 基礎",
+  "id": "les_beginner_001",
+  "title": "基本の子音 ㄱ, ㄴ, ㄷ",
   "level": "beginner",
   "order": 1,
-  "description": "基本子音と配列",
-  "content": { "blocks": [...] }
+  "description": "韓国語の基本子音3つを学びます。",
+  "assetPath": "assets/lessons/beginner_001.json",
+  "assetVersion": 3,
+  "estimatedMinutes": 12,
+  "createdAt": "2024-03-01T00:00:00Z",
+  "updatedAt": "2024-03-01T00:00:00Z"
 }
 ```
+
+- `assetPath` / `assetVersion`: モバイルクライアントに同梱された JSON アセットを指し示すメタデータ。本文コンテンツの変更は JSON 側で管理し、API では配信しない。
+- `estimatedMinutes`: レッスンの想定学習時間。XP や報酬値は保持しない。
+- 学習アイテムの構造は `docs/11_タイピング機能の詳細.md`（セクション2）を参照。
+
+**注意**: モバイルアプリではレッスンデータはアプリ内にJSON形式で同梱されます。APIから取得するのは以下の場合のみ:
+- 新規レッスンの追加時
+- レッスン内容の更新時
+- 将来的なコンテンツ配信機能の実装時
 
 ### 4.6 LessonCompletion
 ```json
@@ -351,29 +364,49 @@ HTTP 401 UNAUTHORIZED
 
 #### GET /api/lessons
 - クエリ: `level=beginner|intermediate|advanced`, `cursor`, `limit`, `order=asc|desc`。
-- レスポンス: Lesson[]。
+- レスポンス: Lesson[]（`content`フィールドは含まれない、メタデータのみ）。
+- 使用目的: レッスン一覧の表示、レッスン選択UI
+- 注意: モバイルアプリでは通常、アプリ内に同梱されたJSONを使用するため、このエンドポイントは主にコンテンツ更新時に使用
 
 #### GET /api/lessons/{id}
-- レスポンス: Lesson + `content`。
+- レスポンス: Lessonメタデータのみ（タイトル、レベル、順序、アセット情報など）。
+- 使用目的: バックエンドのメタデータ整合性チェックや運営ツール向け。
+- **本文コンテンツは返さない**。モバイルアプリは常にアプリ内 JSON を参照する。
 
 #### POST /api/lessons/complete
 - Body:
 ```json
 {
-  "lessonId": "les_1",
-  "wpm": 210,
+  "lessonId": "les_beginner_001",
+  "wpm": 48,
   "accuracy": 0.95,
-  "timeSpent": 180,
+  "timeSpent": 332000,
   "device": "ios",
-  "mode": "standard|challenge"
+  "mode": "standard"
 }
 ```
-- 成功: 201 + LessonCompletion。
-- 422: 連続登録制限 (同レッスンは 10 分クールダウン)。
-- 完了時 Pusher `lesson.completed` を送信。
+- **フィールド説明**:
+  - `lessonId`: レッスンID（必須）
+  - `wpm`: Words Per Minute（必須、正の整数）韓国語では1文字=1単語として計算
+  - `accuracy`: 正解率（必須、0.0〜1.0）小数点2桁まで
+  - `timeSpent`: 所要時間（必須、ミリ秒単位の正の整数）
+  - `device`: デバイスタイプ（任意、`ios` | `android` | `web`。省略時は`ios`）
+  - `mode`: プレイモード（任意、`standard` | `challenge`。省略時は`standard`）
+- **バリデーション**:
+  - `wpm > 0`
+  - `0.0 <= accuracy <= 1.0`
+  - `timeSpent > 0`
+  - `device in ['ios', 'android', 'web']`
+  - `mode in ['standard', 'challenge']`
+- **成功**: 201 Created + LessonCompletion オブジェクト
+- **エラー**:
+  - 400: バリデーションエラー（不正な値）
+  - 404: レッスンが存在しない
+- **リアルタイム通知**: 完了時に Pusher `lesson.completed` イベントを送信（フォロワーのフィードに表示）
+- **備考**: 同一レッスンでもクールダウン無しで連続送信できる。再挑戦ごとに即座にAPIへ送信する。
 
 #### GET /api/lessons/stats
-- クエリ: `range=daily|weekly|monthly`, `level?`。
+- クエリ: `range=daily|weekly|monthly|all`, `level?`。
 - レスポンス:
 ```json
 {

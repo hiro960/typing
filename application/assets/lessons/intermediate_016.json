@@ -1,0 +1,107 @@
+{
+  "id": "les_intermediate_016",
+  "title": "形容詞④（感覚・体調）",
+  "level": "intermediate",
+  "order": 16,
+  "description": "感覚や体調を表す形容詞を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "感覚・体調を表す形容詞を入力しよう",
+        "items": [
+          {
+            "text": "춥다",
+            "meaning": "寒い",
+            "pronunciation": "チュプタ",
+            "hint": "ㅊ + ㅜ + ㅂ + ㄷ + ㅏ"
+          },
+          {
+            "text": "덥다",
+            "meaning": "暑い",
+            "pronunciation": "トプタ",
+            "hint": "ㄷ + ㅓ + ㅂ + ㄷ + ㅏ"
+          },
+          {
+            "text": "뜨겁다",
+            "meaning": "熱い",
+            "pronunciation": "ットゥゴプタ",
+            "hint": "ㄸ + ㅡ + ㄱ + ㅓ + ㅂ + ㄷ + ㅏ"
+          },
+          {
+            "text": "차갑다",
+            "meaning": "冷たい",
+            "pronunciation": "チャガプタ",
+            "hint": "ㅊ + ㅏ + ㄱ + ㅏ + ㅂ + ㄷ + ㅏ"
+          },
+          {
+            "text": "시원하다",
+            "meaning": "涼しい",
+            "pronunciation": "シウォナダ",
+            "hint": "ㅅ + ㅣ + ㅇ + ㅝ + ㄴ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "따뜻하다",
+            "meaning": "暖かい",
+            "pronunciation": "ッタットゥタダ",
+            "hint": "ㄸ + ㅏ + ㄸ + ㅡ + ㅅ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "아프다",
+            "meaning": "痛い",
+            "pronunciation": "アプダ",
+            "hint": "ㅇ + ㅏ + ㅍ + ㅡ + ㄷ + ㅏ"
+          },
+          {
+            "text": "피곤하다",
+            "meaning": "疲れた",
+            "pronunciation": "ピゴナダ",
+            "hint": "ㅍ + ㅣ + ㄱ + ㅗ + ㄴ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "건강하다",
+            "meaning": "健康だ",
+            "pronunciation": "コンガンハダ",
+            "hint": "ㄱ + ㅓ + ㄴ + ㄱ + ㅏ + ㅇ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "배고프다",
+            "meaning": "お腹が空いた",
+            "pronunciation": "ペゴプダ",
+            "hint": "ㅂ + ㅐ + ㄱ + ㅗ + ㅍ + ㅡ + ㄷ + ㅏ"
+          },
+          {
+            "text": "배부르다",
+            "meaning": "お腹がいっぱいだ",
+            "pronunciation": "ペブルダ",
+            "hint": "ㅂ + ㅐ + ㅂ + ㅜ + ㄹ + ㅡ + ㄷ + ㅏ"
+          },
+          {
+            "text": "목마르다",
+            "meaning": "喉が渇いた",
+            "pronunciation": "モンマルダ",
+            "hint": "ㅁ + ㅗ + ㄱ + ㅁ + ㅏ + ㄹ + ㅡ + ㄷ + ㅏ"
+          },
+          {
+            "text": "졸리다",
+            "meaning": "眠い",
+            "pronunciation": "チョルリダ",
+            "hint": "ㅈ + ㅗ + ㄹ + ㄹ + ㅣ + ㄷ + ㅏ"
+          },
+          {
+            "text": "답답하다",
+            "meaning": "息苦しい",
+            "pronunciation": "タプタパダ",
+            "hint": "ㄷ + ㅏ + ㅂ + ㄷ + ㅏ + ㅂ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "편하다",
+            "meaning": "楽だ",
+            "pronunciation": "ピョナダ",
+            "hint": "ㅍ + ㅕ + ㄴ + ㅎ + ㅏ + ㄷ + ㅏ"
+          }
+        ]
+      }
+    ]
+  }
+}

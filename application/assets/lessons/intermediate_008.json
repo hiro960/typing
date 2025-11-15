@@ -1,0 +1,107 @@
+{
+  "id": "les_intermediate_008",
+  "title": "場所②（施設・位置）",
+  "level": "intermediate",
+  "order": 8,
+  "description": "その他の場所と位置表現を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "場所と位置を表す単語を入力しよう",
+        "items": [
+          {
+            "text": "공항",
+            "meaning": "空港",
+            "pronunciation": "コンハン",
+            "hint": "ㄱ + ㅗ + ㅇ + ㅎ + ㅏ + ㅇ"
+          },
+          {
+            "text": "호텔",
+            "meaning": "ホテル",
+            "pronunciation": "ホテル",
+            "hint": "ㅎ + ㅗ + ㅌ + ㅔ + ㄹ"
+          },
+          {
+            "text": "극장",
+            "meaning": "劇場",
+            "pronunciation": "ククチャン",
+            "hint": "ㄱ + ㅡ + ㄱ + ㅈ + ㅏ + ㅇ"
+          },
+          {
+            "text": "박물관",
+            "meaning": "博物館",
+            "pronunciation": "パンムルグァン",
+            "hint": "ㅂ + ㅏ + ㄱ + ㅁ + ㅜ + ㄹ + ㄱ + ㅘ + ㄴ"
+          },
+          {
+            "text": "교회",
+            "meaning": "教会",
+            "pronunciation": "キョフェ",
+            "hint": "ㄱ + ㅛ + ㅎ + ㅚ"
+          },
+          {
+            "text": "위",
+            "meaning": "上",
+            "pronunciation": "ウィ",
+            "hint": "ㅇ + ㅟ"
+          },
+          {
+            "text": "아래",
+            "meaning": "下",
+            "pronunciation": "アレ",
+            "hint": "ㅇ + ㅏ + ㄹ + ㅐ"
+          },
+          {
+            "text": "앞",
+            "meaning": "前",
+            "pronunciation": "アプ",
+            "hint": "ㅇ + ㅏ + ㅍ"
+          },
+          {
+            "text": "뒤",
+            "meaning": "後ろ",
+            "pronunciation": "トゥィ",
+            "hint": "ㄷ + ㅟ"
+          },
+          {
+            "text": "옆",
+            "meaning": "横",
+            "pronunciation": "ヨプ",
+            "hint": "ㅇ + ㅕ + ㅂ"
+          },
+          {
+            "text": "안",
+            "meaning": "中",
+            "pronunciation": "アン",
+            "hint": "ㅇ + ㅏ + ㄴ"
+          },
+          {
+            "text": "밖",
+            "meaning": "外",
+            "pronunciation": "バク",
+            "hint": "ㅂ + ㅏ + ㄲ"
+          },
+          {
+            "text": "왼쪽",
+            "meaning": "左側",
+            "pronunciation": "ウェンッチョク",
+            "hint": "ㅇ + ㅚ + ㄴ + ㅉ + ㅗ + ㄱ"
+          },
+          {
+            "text": "오른쪽",
+            "meaning": "右側",
+            "pronunciation": "オルンッチョク",
+            "hint": "ㅇ + ㅗ + ㄹ + ㅡ + ㄴ + ㅉ + ㅗ + ㄱ"
+          },
+          {
+            "text": "사이",
+            "meaning": "間",
+            "pronunciation": "サイ",
+            "hint": "ㅅ + ㅏ + ㅇ + ㅣ"
+          }
+        ]
+      }
+    ]
+  }
+}

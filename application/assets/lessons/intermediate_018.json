@@ -1,0 +1,113 @@
+{
+  "id": "les_intermediate_018",
+  "title": "日常名詞（物・事）",
+  "level": "intermediate",
+  "order": 18,
+  "description": "日常でよく使う名詞を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "日常名詞を入力しよう",
+        "items": [
+          {
+            "text": "일",
+            "meaning": "仕事・こと",
+            "pronunciation": "イル",
+            "hint": "ㅇ + ㅣ + ㄹ"
+          },
+          {
+            "text": "돈",
+            "meaning": "お金",
+            "pronunciation": "トン",
+            "hint": "ㄷ + ㅗ + ㄴ"
+          },
+          {
+            "text": "책",
+            "meaning": "本",
+            "pronunciation": "チェク",
+            "hint": "ㅊ + ㅐ + ㄱ"
+          },
+          {
+            "text": "종이",
+            "meaning": "紙",
+            "pronunciation": "チョンイ",
+            "hint": "ㅈ + ㅗ + ㅇ + ㅇ + ㅣ"
+          },
+          {
+            "text": "펜",
+            "meaning": "ペン",
+            "pronunciation": "ペン",
+            "hint": "ㅍ + ㅔ + ㄴ"
+          },
+          {
+            "text": "가방",
+            "meaning": "カバン",
+            "pronunciation": "カバン",
+            "hint": "ㄱ + ㅏ + ㅂ + ㅏ + ㅇ"
+          },
+          {
+            "text": "옷",
+            "meaning": "服",
+            "pronunciation": "オッ",
+            "hint": "ㅇ + ㅗ + ㅅ"
+          },
+          {
+            "text": "신발",
+            "meaning": "靴",
+            "pronunciation": "シンバル",
+            "hint": "ㅅ + ㅣ + ㄴ + ㅂ + ㅏ + ㄹ"
+          },
+          {
+            "text": "모자",
+            "meaning": "帽子",
+            "pronunciation": "モジャ",
+            "hint": "ㅁ + ㅗ + ㅈ + ㅏ"
+          },
+          {
+            "text": "안경",
+            "meaning": "眼鏡",
+            "pronunciation": "アンギョン",
+            "hint": "ㅇ + ㅏ + ㄴ + ㄱ + ㅕ + ㅇ"
+          },
+          {
+            "text": "시계",
+            "meaning": "時計",
+            "pronunciation": "シゲ",
+            "hint": "ㅅ + ㅣ + ㄱ + ㅖ"
+          },
+          {
+            "text": "전화",
+            "meaning": "電話",
+            "pronunciation": "チョヌァ",
+            "hint": "ㅈ + ㅓ + ㄴ + ㅎ + ㅘ"
+          },
+          {
+            "text": "컴퓨터",
+            "meaning": "コンピューター",
+            "pronunciation": "コムピュト",
+            "hint": "ㅋ + ㅓ + ㅁ + ㅍ + ㅠ + ㅌ + ㅓ"
+          },
+          {
+            "text": "텔레비전",
+            "meaning": "テレビ",
+            "pronunciation": "テルレビジョン",
+            "hint": "ㅌ + ㅔ + ㄹ + ㄹ + ㅔ + ㅂ + ㅣ + ㅈ + ㅓ + ㄴ"
+          },
+          {
+            "text": "문",
+            "meaning": "ドア",
+            "pronunciation": "ムン",
+            "hint": "ㅁ + ㅜ + ㄴ"
+          },
+          {
+            "text": "창문",
+            "meaning": "窓",
+            "pronunciation": "チャンムン",
+            "hint": "ㅊ + ㅏ + ㅇ + ㅁ + ㅜ + ㄴ"
+          }
+        ]
+      }
+    ]
+  }
+}

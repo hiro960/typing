@@ -1,0 +1,107 @@
+{
+  "id": "les_intermediate_009",
+  "title": "日常動詞①（基本動作）",
+  "level": "intermediate",
+  "order": 9,
+  "description": "よく使う基本動詞を学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "word_practice",
+        "title": "基本動詞を入力しよう",
+        "items": [
+          {
+            "text": "가다",
+            "meaning": "行く",
+            "pronunciation": "カダ",
+            "hint": "ㄱ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "오다",
+            "meaning": "来る",
+            "pronunciation": "オダ",
+            "hint": "ㅇ + ㅗ + ㄷ + ㅏ"
+          },
+          {
+            "text": "먹다",
+            "meaning": "食べる",
+            "pronunciation": "モクタ",
+            "hint": "ㅁ + ㅓ + ㄱ + ㄷ + ㅏ"
+          },
+          {
+            "text": "마시다",
+            "meaning": "飲む",
+            "pronunciation": "マシダ",
+            "hint": "ㅁ + ㅏ + ㅅ + ㅣ + ㄷ + ㅏ"
+          },
+          {
+            "text": "자다",
+            "meaning": "寝る",
+            "pronunciation": "チャダ",
+            "hint": "ㅈ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "일어나다",
+            "meaning": "起きる",
+            "pronunciation": "イロナダ",
+            "hint": "ㅇ + ㅣ + ㄹ + ㅓ + ㄴ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "보다",
+            "meaning": "見る",
+            "pronunciation": "ポダ",
+            "hint": "ㅂ + ㅗ + ㄷ + ㅏ"
+          },
+          {
+            "text": "듣다",
+            "meaning": "聞く",
+            "pronunciation": "トゥッタ",
+            "hint": "ㄷ + ㅡ + ㄷ + ㄷ + ㅏ"
+          },
+          {
+            "text": "말하다",
+            "meaning": "話す",
+            "pronunciation": "マラダ",
+            "hint": "ㅁ + ㅏ + ㄹ + ㅎ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "읽다",
+            "meaning": "読む",
+            "pronunciation": "イクタ",
+            "hint": "ㅇ + ㅣ + ㄺ + ㄷ + ㅏ"
+          },
+          {
+            "text": "쓰다",
+            "meaning": "書く",
+            "pronunciation": "ッスダ",
+            "hint": "ㅆ + ㅡ + ㄷ + ㅏ"
+          },
+          {
+            "text": "만들다",
+            "meaning": "作る",
+            "pronunciation": "マンドゥルダ",
+            "hint": "ㅁ + ㅏ + ㄴ + ㄷ + ㅡ + ㄹ + ㄷ + ㅏ"
+          },
+          {
+            "text": "사다",
+            "meaning": "買う",
+            "pronunciation": "サダ",
+            "hint": "ㅅ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "팔다",
+            "meaning": "売る",
+            "pronunciation": "パルダ",
+            "hint": "ㅍ + ㅏ + ㄹ + ㄷ + ㅏ"
+          },
+          {
+            "text": "주다",
+            "meaning": "あげる",
+            "pronunciation": "チュダ",
+            "hint": "ㅈ + ㅜ + ㄷ + ㅏ"
+          }
+        ]
+      }
+    ]
+  }
+}

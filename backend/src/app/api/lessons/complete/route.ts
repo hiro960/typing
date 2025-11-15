@@ -1,15 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAuthUser } from "@/lib/auth";
-import {
-  getLatestLessonCompletion,
-  recordLessonCompletion,
-} from "@/lib/store";
+import { recordLessonCompletion } from "@/lib/store";
 import { ERROR, handleRouteError } from "@/lib/errors";
 import { DeviceType, LessonMode } from "@/lib/types";
 
 const DEVICES: DeviceType[] = ["ios", "android", "web"];
 const MODES: LessonMode[] = ["standard", "challenge"];
-const COOL_DOWN_MS = 10 * 60 * 1000;
 
 export async function POST(request: NextRequest) {
   try {
@@ -54,17 +50,6 @@ export async function POST(request: NextRequest) {
       throw ERROR.INVALID_INPUT("mode must be standard|challenge", {
         field: "mode",
       });
-    }
-
-    const lastCompletion = await getLatestLessonCompletion(user.id, lessonId);
-    if (lastCompletion) {
-      const diff =
-        Date.now() - new Date(lastCompletion.completedAt).getTime();
-      if (diff < COOL_DOWN_MS) {
-        throw ERROR.UNPROCESSABLE(
-          "You can resubmit the same lesson after 10 minutes"
-        );
-      }
     }
 
     const completion = await recordLessonCompletion({

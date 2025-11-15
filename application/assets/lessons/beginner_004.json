@@ -1,0 +1,95 @@
+{
+  "id": "les_beginner_004",
+  "title": "基本の文字 ㄴ, ㄷ",
+  "level": "beginner",
+  "order": 4,
+  "description": "韓国語の子音ㄴとㄷを学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "character_drill",
+        "title": "文字を覚えよう",
+        "items": [
+          {
+            "text": "ㄴ",
+            "meaning": "n の音",
+            "pronunciation": "ニウン",
+            "hint": "「ナ行」です"
+          },
+          {
+            "text": "ㄷ",
+            "meaning": "d/t の音",
+            "pronunciation": "ディグッ",
+            "hint": "「ダ行」「タ行」です"
+          }
+        ]
+      },
+      {
+        "type": "word_practice",
+        "title": "単語を入力しよう",
+        "items": [
+          {
+            "text": "다",
+            "meaning": "全部",
+            "pronunciation": "タ",
+            "hint": "ㄷ + ㅏ"
+          },
+          {
+            "text": "도",
+            "meaning": "も/都",
+            "pronunciation": "ト",
+            "hint": "ㄷ + ㅗ"
+          },
+          {
+            "text": "두",
+            "meaning": "二",
+            "pronunciation": "トゥ",
+            "hint": "ㄷ + ㅜ"
+          },
+          {
+            "text": "나",
+            "meaning": "私",
+            "pronunciation": "ナ",
+            "hint": "ㄴ + ㅏ"
+          },
+          {
+            "text": "노",
+            "meaning": "奴",
+            "pronunciation": "ノ",
+            "hint": "ㄴ + ㅗ"
+          },
+          {
+            "text": "누나",
+            "meaning": "お姉さん",
+            "pronunciation": "ヌナ",
+            "hint": "ㄴ + ㅜ + ㄴ + ㅏ"
+          },
+          {
+            "text": "다리",
+            "meaning": "橋/脚",
+            "pronunciation": "タリ",
+            "hint": "ㄷ + ㅏ + ㄹ + ㅣ"
+          },
+          {
+            "text": "도시",
+            "meaning": "都市",
+            "pronunciation": "トシ",
+            "hint": "ㄷ + ㅗ + ㅅ + ㅣ"
+          },
+          {
+            "text": "두부",
+            "meaning": "豆腐",
+            "pronunciation": "トゥブ",
+            "hint": "ㄷ + ㅜ + ㅂ + ㅜ"
+          },
+          {
+            "text": "나무",
+            "meaning": "木",
+            "pronunciation": "ナム",
+            "hint": "ㄴ + ㅏ + ㅁ + ㅜ"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "id": "les_beginner_009",
+  "title": "激音 ㅊ",
+  "level": "beginner",
+  "order": 9,
+  "description": "韓国語の激音ㅊを学びます。息を強く出して発音します。",
+  "content": {
+    "sections": [
+      {
+        "type": "character_drill",
+        "title": "文字を覚えよう",
+        "items": [
+          {
+            "text": "ㅊ",
+            "meaning": "ch の音（激音）",
+            "pronunciation": "チウッ",
+            "hint": "強い「チャ行」です"
+          }
+        ]
+      },
+      {
+        "type": "word_practice",
+        "title": "単語を入力しよう",
+        "items": [
+          {
+            "text": "차",
+            "meaning": "車/お茶",
+            "pronunciation": "チャ",
+            "hint": "ㅊ + ㅏ"
+          },
+          {
+            "text": "처",
+            "meaning": "処",
+            "pronunciation": "チョ",
+            "hint": "ㅊ + ㅓ"
+          },
+          {
+            "text": "초",
+            "meaning": "初/秒",
+            "pronunciation": "チョ",
+            "hint": "ㅊ + ㅗ"
+          },
+          {
+            "text": "추",
+            "meaning": "推",
+            "pronunciation": "チュ",
+            "hint": "ㅊ + ㅜ"
+          },
+          {
+            "text": "치다",
+            "meaning": "打つ",
+            "pronunciation": "チダ",
+            "hint": "ㅊ + ㅣ + ㄷ + ㅏ"
+          },
+          {
+            "text": "차다",
+            "meaning": "冷たい",
+            "pronunciation": "チャダ",
+            "hint": "ㅊ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "처음",
+            "meaning": "初めて",
+            "pronunciation": "チョウム",
+            "hint": "ㅊ + ㅓ + ㅇ + ㅡ + ㅁ"
+          },
+          {
+            "text": "초등학생",
+            "meaning": "小学生",
+            "pronunciation": "チョドゥンハクセン",
+            "hint": "ㅊ + ㅗ + ㄷ + ㅡ + ㅇ + ㅎ + ㅏ + ㄱ + ㅅ + ㅐ + ㅇ"
+          },
+          {
+            "text": "추다",
+            "meaning": "踊る",
+            "pronunciation": "チュダ",
+            "hint": "ㅊ + ㅜ + ㄷ + ㅏ"
+          },
+          {
+            "text": "치킨",
+            "meaning": "チキン",
+            "pronunciation": "チキン",
+            "hint": "ㅊ + ㅣ + ㅋ + ㅣ + ㄴ"
+          }
+        ]
+      }
+    ]
+  }
+}

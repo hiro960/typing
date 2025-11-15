@@ -1,0 +1,95 @@
+{
+  "id": "les_beginner_005",
+  "title": "基本の文字 ㄹ, ㅅ",
+  "level": "beginner",
+  "order": 5,
+  "description": "韓国語の子音ㄹとㅅを学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "character_drill",
+        "title": "文字を覚えよう",
+        "items": [
+          {
+            "text": "ㄹ",
+            "meaning": "r/l の音",
+            "pronunciation": "リウル",
+            "hint": "「ラ行」です"
+          },
+          {
+            "text": "ㅅ",
+            "meaning": "s の音",
+            "pronunciation": "シオッ",
+            "hint": "「サ行」です"
+          }
+        ]
+      },
+      {
+        "type": "word_practice",
+        "title": "単語を入力しよう",
+        "items": [
+          {
+            "text": "사",
+            "meaning": "四",
+            "pronunciation": "サ",
+            "hint": "ㅅ + ㅏ"
+          },
+          {
+            "text": "소",
+            "meaning": "牛",
+            "pronunciation": "ソ",
+            "hint": "ㅅ + ㅗ"
+          },
+          {
+            "text": "수",
+            "meaning": "数",
+            "pronunciation": "ス",
+            "hint": "ㅅ + ㅜ"
+          },
+          {
+            "text": "라",
+            "meaning": "～だ",
+            "pronunciation": "ラ",
+            "hint": "ㄹ + ㅏ"
+          },
+          {
+            "text": "로",
+            "meaning": "へ/で",
+            "pronunciation": "ロ",
+            "hint": "ㄹ + ㅗ"
+          },
+          {
+            "text": "수도",
+            "meaning": "首都",
+            "pronunciation": "スド",
+            "hint": "ㅅ + ㅜ + ㄷ + ㅗ"
+          },
+          {
+            "text": "사다",
+            "meaning": "買う",
+            "pronunciation": "サダ",
+            "hint": "ㅅ + ㅏ + ㄷ + ㅏ"
+          },
+          {
+            "text": "소리",
+            "meaning": "音/声",
+            "pronunciation": "ソリ",
+            "hint": "ㅅ + ㅗ + ㄹ + ㅣ"
+          },
+          {
+            "text": "사람",
+            "meaning": "人",
+            "pronunciation": "サラム",
+            "hint": "ㅅ + ㅏ + ㄹ + ㅏ + ㅁ"
+          },
+          {
+            "text": "수박",
+            "meaning": "スイカ",
+            "pronunciation": "スバク",
+            "hint": "ㅅ + ㅜ + ㅂ + ㅏ + ㄱ"
+          }
+        ]
+      }
+    ]
+  }
+}

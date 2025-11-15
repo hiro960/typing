@@ -1,0 +1,95 @@
+{
+  "id": "les_beginner_012",
+  "title": "濃音 ㄲ, ㄸ, ㅃ",
+  "level": "beginner",
+  "order": 12,
+  "description": "韓国語の濃音ㄲ, ㄸ, ㅃを学びます。舌の緊張を伴う強い発音です。",
+  "content": {
+    "sections": [
+      {
+        "type": "character_drill",
+        "title": "文字を覚えよう",
+        "items": [
+          {
+            "text": "ㄲ",
+            "meaning": "kk の音（濃音）",
+            "pronunciation": "ッカ",
+            "hint": "詰まった「カ」の音"
+          },
+          {
+            "text": "ㄸ",
+            "meaning": "tt の音（濃音）",
+            "pronunciation": "ッタ",
+            "hint": "詰まった「タ」の音"
+          },
+          {
+            "text": "ㅃ",
+            "meaning": "pp の音（濃音）",
+            "pronunciation": "ッパ",
+            "hint": "詰まった「パ」の音"
+          }
+        ]
+      },
+      {
+        "type": "word_practice",
+        "title": "単語を入力しよう",
+        "items": [
+          {
+            "text": "까",
+            "meaning": "～まで",
+            "pronunciation": "ッカ",
+            "hint": "ㄲ + ㅏ"
+          },
+          {
+            "text": "빠",
+            "meaning": "速い",
+            "pronunciation": "ッパ",
+            "hint": "ㅃ + ㅏ"
+          },
+          {
+            "text": "따",
+            "meaning": "～に従って",
+            "pronunciation": "ッタ",
+            "hint": "ㄸ + ㅏ"
+          },
+          {
+            "text": "꼬리",
+            "meaning": "尻尾",
+            "pronunciation": "ッコリ",
+            "hint": "ㄲ + ㅗ + ㄹ + ㅣ"
+          },
+          {
+            "text": "뿌리",
+            "meaning": "根",
+            "pronunciation": "ップリ",
+            "hint": "ㅃ + ㅜ + ㄹ + ㅣ"
+          },
+          {
+            "text": "딸기",
+            "meaning": "イチゴ",
+            "pronunciation": "ッタルギ",
+            "hint": "ㄸ + ㅏ + ㄹ + ㄱ + ㅣ"
+          },
+          {
+            "text": "까치",
+            "meaning": "カササギ",
+            "pronunciation": "ッカチ",
+            "hint": "ㄲ + ㅏ + ㅊ + ㅣ"
+          },
+          {
+            "text": "빠르다",
+            "meaning": "速い",
+            "pronunciation": "ッパルダ",
+            "hint": "ㅃ + ㅏ + ㄹ + ㅡ + ㄷ + ㅏ"
+          },
+          {
+            "text": "또",
+            "meaning": "また",
+            "pronunciation": "ット",
+            "hint": "ㄸ + ㅗ"
+          }
+        ]
+      }
+    ]
+  }
+}

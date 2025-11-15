@@ -1,0 +1,89 @@
+{
+  "id": "les_beginner_001",
+  "title": "基本の文字 ㅜ, ㅇ, ㅁ",
+  "level": "beginner",
+  "order": 1,
+  "description": "韓国語の基本的な母音ㅜと子音ㅇ, ㅁを学びます。",
+  "content": {
+    "sections": [
+      {
+        "type": "character_drill",
+        "title": "文字を覚えよう",
+        "items": [
+          {
+            "text": "ㅜ",
+            "meaning": "u の音",
+            "pronunciation": "ウ",
+            "hint": "「ウ」の音です"
+          },
+          {
+            "text": "ㅇ",
+            "meaning": "無音/ng の音",
+            "pronunciation": "イウン",
+            "hint": "語頭では無音、語末では「ン」の音"
+          },
+          {
+            "text": "ㅁ",
+            "meaning": "m の音",
+            "pronunciation": "ミウム",
+            "hint": "「マ行」です"
+          }
+        ]
+      },
+      {
+        "type": "word_practice",
+        "title": "単語を入力しよう",
+        "items": [
+          {
+            "text": "문",
+            "meaning": "ドア",
+            "pronunciation": "ムン",
+            "hint": "ㅁ + ㅜ + ㄴ"
+          },
+          {
+            "text": "안",
+            "meaning": "中",
+            "pronunciation": "アン",
+            "hint": "ㅇ + ㅏ + ㄴ"
+          },
+          {
+            "text": "눈",
+            "meaning": "目/雪",
+            "pronunciation": "ヌン",
+            "hint": "ㄴ + ㅜ + ㄴ"
+          },
+          {
+            "text": "나무",
+            "meaning": "木",
+            "pronunciation": "ナム",
+            "hint": "ㄴ + ㅏ + ㅁ + ㅜ"
+          },
+          {
+            "text": "아마",
+            "meaning": "おそらく",
+            "pronunciation": "アマ",
+            "hint": "ㅇ + ㅏ + ㅁ + ㅏ"
+          },
+          {
+            "text": "누나",
+            "meaning": "お姉さん",
+            "pronunciation": "ヌナ",
+            "hint": "ㄴ + ㅜ + ㄴ + ㅏ"
+          },
+          {
+            "text": "만",
+            "meaning": "だけ/万",
+            "pronunciation": "マン",
+            "hint": "ㅁ + ㅏ + ㄴ"
+          },
+          {
+            "text": "바나나",
+            "meaning": "バナナ",
+            "pronunciation": "バナナ",
+            "hint": "ㅂ + ㅏ + ㄴ + ㅏ + ㄴ + ㅏ"
+          }
+        ]
+      }
+    ]
+  }
+}
