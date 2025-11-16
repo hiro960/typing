@@ -53,7 +53,7 @@ final class LessonRepositoryProvider
   }
 }
 
-String _$lessonRepositoryHash() => r'73fdceb6fd4ab36d1782e20f4e565893d4030e88';
+String _$lessonRepositoryHash() => r'83957856d491531163d1603179a2a0c1b304c2d1';
 
 @ProviderFor(lessonIndex)
 const lessonIndexProvider = LessonIndexProvider._();
@@ -92,7 +92,7 @@ final class LessonIndexProvider
   }
 }
 
-String _$lessonIndexHash() => r'3d34b0503ab3ef2c9feec5894d7cf92cddf6a83f';
+String _$lessonIndexHash() => r'1c310258d488a8a673f00fb8f599883befa8ebe2';
 
 @ProviderFor(lessonCatalog)
 const lessonCatalogProvider = LessonCatalogProvider._();
@@ -133,7 +133,7 @@ final class LessonCatalogProvider
   }
 }
 
-String _$lessonCatalogHash() => r'ce576ba1dd50fa9960d27ef9df5f4be10578dff8';
+String _$lessonCatalogHash() => r'b4edb7346af8ee209fae1f448255f41cfae0976c';
 
 @ProviderFor(lessonsByLevel)
 const lessonsByLevelProvider = LessonsByLevelFamily._();
@@ -190,7 +190,7 @@ final class LessonsByLevelProvider
   }
 }
 
-String _$lessonsByLevelHash() => r'bc6a0c738b3fb5f60abb1153c6b499dcd64471bb';
+String _$lessonsByLevelHash() => r'1c465b0525bc544635fee49490e1a66f354d9c01';
 
 final class LessonsByLevelFamily extends $Family
     with $FunctionalFamilyOverride<FutureOr<List<LessonMeta>>, LessonLevel> {
@@ -259,7 +259,7 @@ final class LessonDetailProvider
   }
 }
 
-String _$lessonDetailHash() => r'4767fd20e7e39b981ae197164436627ae2dcaa29';
+String _$lessonDetailHash() => r'85b9f9cbc786d2b6d377026eb54b909b7fb18af5';
 
 final class LessonDetailFamily extends $Family
     with $FunctionalFamilyOverride<FutureOr<Lesson>, String> {

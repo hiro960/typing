@@ -59,15 +59,17 @@ class _TypingCompletionScreenState
     return FScaffold(
       child: Stack(
         children: [
-          Positioned.fill(
+          Align(
+            alignment: Alignment.topCenter,
             child: IgnorePointer(
               child: ConfettiWidget(
                 confettiController: _confettiController,
                 blastDirectionality: BlastDirectionality.explosive,
+                blastDirection: 1.5708, // π/2 ラジアン = 下向き
                 emissionFrequency: 0.04,
-                numberOfParticles: 18,
+                numberOfParticles: 28,
                 maxBlastForce: 12,
-                minBlastForce: 7,
+                minBlastForce: 5,
                 gravity: 0.2,
               ),
             ),

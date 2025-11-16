@@ -431,7 +431,13 @@ class _PromptCard extends StatelessWidget {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
     final targetChars = item.text.characters.toList();
-    final typedChars = session.inputBuffer.characters.toList();
+
+    // 字母レベルの進捗から完成した文字数を計算
+    final completedCharCount = _calculateCompletedCharCount(
+      item.text,
+      session.currentPosition,
+    );
+
     final bool isCharacterDrill =
         sectionType == LessonSectionType.characterDrill;
     final bool isSentence =
@@ -478,9 +484,8 @@ class _PromptCard extends StatelessWidget {
                   TextSpan(
                     text: targetChars[i],
                     style: textStyle?.copyWith(
-                      // inputBufferには正しく組み立てられた文字のみが含まれるため、
-                      // inputBufferの長さに基づいて色付け
-                      color: i < typedChars.length
+                      // 正解済みの文字数に基づいて色付け
+                      color: i < completedCharCount
                           ? colors.primary
                           : colors.onSurface,
                       fontWeight: FontWeight.w700,
@@ -501,6 +506,25 @@ class _PromptCard extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  /// 字母レベルの進捗から完成した文字数を計算
+  int _calculateCompletedCharCount(String targetText, int currentPosition) {
+    final targetChars = targetText.characters.toList();
+    int jamoCount = 0;
+
+    for (int i = 0; i < targetChars.length; i++) {
+      final jamos = HangulComposer.decomposeSyllable(targetChars[i]);
+      jamoCount += jamos.length;
+
+      // 現在の位置がこの文字の字母範囲内の場合、この文字は未完成
+      if (currentPosition < jamoCount) {
+        return i;
+      }
+    }
+
+    // すべての文字が完成
+    return targetChars.length;
   }
 }
 

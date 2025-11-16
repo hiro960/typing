@@ -134,14 +134,15 @@ class TypingSession extends _$TypingSession {
       composer.addNewLine();
       _recordCorrect(current, char, expectedJamo, composer);
     } else {
-      // その他の文字は一旦composerに渡す
-      composer.input(char);
-      _setState(
-        current.copyWith(
-          inputBuffer: composer.text,
-          jamoState: composer.jamoState,
-        ),
-      );
+      // 記号・数字などその他の文字の処理
+      if (char == expectedJamo) {
+        // 正解：composerに入力を渡して次に進む
+        composer.input(char);
+        _recordCorrect(current, char, expectedJamo, composer);
+      } else {
+        // 不正解：ミスを記録
+        _recordMistake(current, char, expectedJamo, composer);
+      }
     }
   }
 

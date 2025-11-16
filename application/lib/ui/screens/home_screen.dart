@@ -110,8 +110,18 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   void _onLessonTap(LessonMeta lesson, bool isLocked) {
     if (!mounted) return;
     if (isLocked) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('前のレッスンを完了すると解除されます')),
+      showDialog<void>(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('レッスンがロックされています'),
+          content: const Text('前のレッスンを完了すると、このレッスンが解除されます。'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('閉じる'),
+            ),
+          ],
+        ),
       );
       return;
     }
@@ -373,7 +383,7 @@ class _LessonTile extends StatelessWidget {
                   Chip(
                     backgroundColor: accent.withValues(alpha: 0.15),
                     label: Text(
-                      isLocked ? 'Locked' : '$completionRate%',
+                      isLocked ? '未解放' : '$completionRate%',
                       style: theme.textTheme.bodySmall?.copyWith(
                         color: accent,
                         fontWeight: FontWeight.bold,

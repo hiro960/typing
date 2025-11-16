@@ -53,7 +53,7 @@ final class TypingRepositoryProvider
   }
 }
 
-String _$typingRepositoryHash() => r'7311acb6d399fc7f4ad2d5c510284864e9e41d5c';
+String _$typingRepositoryHash() => r'e3ba8f008e8e3c5934c4ed22d39c0e1f4e039af7';
 
 @ProviderFor(OfflineQueue)
 const offlineQueueProvider = OfflineQueueProvider._();
@@ -79,7 +79,7 @@ final class OfflineQueueProvider
   OfflineQueue create() => OfflineQueue();
 }
 
-String _$offlineQueueHash() => r'3d733c8ca01fddaf0f33761c3d09237f4d3c9bb6';
+String _$offlineQueueHash() => r'41858e9af37a8d6d60d99d95756dea994c6f6502';
 
 abstract class _$OfflineQueue extends $AsyncNotifier<List<PendingCompletion>> {
   FutureOr<List<PendingCompletion>> build();

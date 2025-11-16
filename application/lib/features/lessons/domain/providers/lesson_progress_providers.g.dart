@@ -55,7 +55,7 @@ final class LessonProgressRepositoryProvider
 }
 
 String _$lessonProgressRepositoryHash() =>
-    r'62ec4adbf0040ba2439d54e9ab461a853b3322a9';
+    r'66f237f943ff0eec95651cd08103ee53ca568fe0';
 
 @ProviderFor(lessonStats)
 const lessonStatsProvider = LessonStatsFamily._();
@@ -114,7 +114,7 @@ final class LessonStatsProvider
   }
 }
 
-String _$lessonStatsHash() => r'a5169428375ed21e50e8e235e2bb77cb2d9789bc';
+String _$lessonStatsHash() => r'23ca0b9f9adb73ffc799ffc7fd85948b7a3600e4';
 
 final class LessonStatsFamily extends $Family
     with $FunctionalFamilyOverride<FutureOr<LessonStatsSummary>, LessonLevel?> {
@@ -163,7 +163,7 @@ final class LessonProgressControllerProvider
 }
 
 String _$lessonProgressControllerHash() =>
-    r'92580f578bf1944f0011f9fbcc6262d3169707f7';
+    r'b3eeb5113214b313ceea8bb4a2c875cdfc275f88';
 
 abstract class _$LessonProgressController
     extends $AsyncNotifier<Map<String, LessonProgress>> {

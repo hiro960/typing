@@ -67,7 +67,7 @@ final class TypingStatsProvider
   }
 }
 
-String _$typingStatsHash() => r'5499a6dd1880cc28db8e2ff2347b37058b7a5383';
+String _$typingStatsHash() => r'205953be1c23b5ab3b0a47e0ff270cc8185ed5ef';
 
 final class TypingStatsFamily extends $Family
     with $FunctionalFamilyOverride<TypingStatsData, String> {

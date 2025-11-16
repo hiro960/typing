@@ -3,6 +3,11 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+enum _KeyboardMode {
+  hangul,
+  symbols,
+}
+
 class TypingKeyboard extends StatefulWidget {
   const TypingKeyboard({
     super.key,
@@ -33,12 +38,20 @@ class TypingKeyboard extends StatefulWidget {
 
 class _TypingKeyboardState extends State<TypingKeyboard> {
   bool _shiftActive = false;
+  _KeyboardMode _currentMode = _KeyboardMode.hangul;
 
-  static const _rows = [
+  static const _hangulRows = [
     ['ㅂ', 'ㅈ', 'ㄷ', 'ㄱ', 'ㅅ', 'ㅛ', 'ㅕ', 'ㅑ', 'ㅐ', 'ㅔ'],
     ['ㅁ', 'ㄴ', 'ㅇ', 'ㄹ', 'ㅎ', 'ㅗ', 'ㅓ', 'ㅏ', 'ㅣ'],
     ['⇧', 'ㅋ', 'ㅌ', 'ㅊ', 'ㅍ', 'ㅠ', 'ㅜ', 'ㅡ', '⌫'],
-    ['123', 'space', '✓', '⏎'],
+    ['123', 'space', '.', '⏎'],
+  ];
+
+  static const _symbolRows = [
+    ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
+    ['!', '@', '#', '?', '.', ',', ';', ':'],
+    ['-', '/', '+', '=', '(', ')', '"', "'", '⌫'],
+    ['ABC', 'space', '!', '⏎'],
   ];
 
   static const _doubleConsonants = {
@@ -53,6 +66,7 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
+    final rows = _currentMode == _KeyboardMode.hangul ? _hangulRows : _symbolRows;
 
     return Container(
       width: double.infinity,
@@ -81,10 +95,11 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
             ],
           ),
           const SizedBox(height: 12),
-          for (final row in _rows) ...[
+          for (final row in rows) ...[
             _KeyboardRow(
               keys: row,
               isShiftActive: _shiftActive,
+              currentMode: _currentMode,
               highlightShift: widget.highlightShift,
               highlightedKeys: widget.highlightedKeys,
               onKeyTap: _handleKeyTap,
@@ -114,13 +129,25 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
         _notifyFeedback();
         return;
       case '⏎':
-      case '✓':
         widget.onEnter();
         setState(() => _shiftActive = false);
         _notifyFeedback();
         return;
       case '123':
-        // まだモック。実装時に切り替えを追加
+        // 数字・記号キーボードに切り替え
+        setState(() {
+          _currentMode = _KeyboardMode.symbols;
+          _shiftActive = false;
+        });
+        _notifyFeedback();
+        return;
+      case 'ABC':
+        // ハングルキーボードに切り替え
+        setState(() {
+          _currentMode = _KeyboardMode.hangul;
+          _shiftActive = false;
+        });
+        _notifyFeedback();
         return;
       default:
         final value = _shiftActive
@@ -150,6 +177,7 @@ class _KeyboardRow extends StatelessWidget {
     required this.onKeyTap,
     required this.highlightedKeys,
     required this.isShiftActive,
+    required this.currentMode,
     required this.highlightShift,
   });
 
@@ -157,7 +185,16 @@ class _KeyboardRow extends StatelessWidget {
   final void Function(String key) onKeyTap;
   final Set<String> highlightedKeys;
   final bool isShiftActive;
+  final _KeyboardMode currentMode;
   final bool highlightShift;
+
+  static const _doubleConsonants = {
+    'ㄱ': 'ㄲ',
+    'ㄷ': 'ㄸ',
+    'ㅂ': 'ㅃ',
+    'ㅅ': 'ㅆ',
+    'ㅈ': 'ㅉ',
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -170,6 +207,7 @@ class _KeyboardRow extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 3),
               child: _KeyboardKey(
                 label: keys[i],
+                displayLabel: _getDisplayLabel(keys[i]),
                 onTap: onKeyTap,
                 isHighlighted: _isHighlighted(keys[i]),
               ),
@@ -180,11 +218,22 @@ class _KeyboardRow extends StatelessWidget {
     );
   }
 
+  String _getDisplayLabel(String key) {
+    // ハングルモードかつシフト有効時、濃音に変換可能な子音は濃音を表示
+    if (currentMode == _KeyboardMode.hangul &&
+        isShiftActive &&
+        _doubleConsonants.containsKey(key)) {
+      return _doubleConsonants[key]!;
+    }
+    return key;
+  }
+
   int _flex(String key) {
     switch (key) {
       case 'space':
         return 6;
       case '123':
+      case 'ABC':
       case '⌫':
       case '⇧':
         return 2;
@@ -207,11 +256,13 @@ class _KeyboardRow extends StatelessWidget {
 class _KeyboardKey extends StatelessWidget {
   const _KeyboardKey({
     required this.label,
+    required this.displayLabel,
     required this.onTap,
     required this.isHighlighted,
   });
 
   final String label;
+  final String displayLabel;
   final void Function(String key) onTap;
   final bool isHighlighted;
 
@@ -228,7 +279,7 @@ class _KeyboardKey extends StatelessWidget {
         height: 48,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(label.length > 1 ? 16 : 12),
+          borderRadius: BorderRadius.circular(displayLabel.length > 1 ? 16 : 12),
           color: backgroundColor,
           border: Border.all(
             color: isHighlighted
@@ -238,7 +289,7 @@ class _KeyboardKey extends StatelessWidget {
           ),
         ),
         child: Text(
-          label == 'space' ? 'space' : label,
+          displayLabel == 'space' ? 'space' : displayLabel,
           style: theme.textTheme.titleMedium?.copyWith(
             color: isHighlighted
                 ? const Color(0xFFFF8C00)

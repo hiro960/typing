@@ -50,7 +50,7 @@ final class TypingSessionProvider
   }
 }
 
-String _$typingSessionHash() => r'37a46f14170c65ec76ef00759bc4ab57348233a1';
+String _$typingSessionHash() => r'19dbe23cf45abb69bd9a01a8d9a6d1ca59a83cfa';
 
 final class TypingSessionFamily extends $Family
     with
