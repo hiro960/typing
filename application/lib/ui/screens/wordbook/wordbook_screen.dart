@@ -183,7 +183,7 @@ class _WordCard extends ConsumerWidget {
       onTap: onTap,
       child: FCard.raw(
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -260,18 +260,18 @@ class _EmptyState extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               const Text(
-                'まだ単語がありません',
+                'まだ単語/文章がありません',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               const Text(
-                '覚えたい単語を追加して、マイ単語帳を作りましょう。',
+                '覚えたい単語/文章を追加して、マイ単語帳を作りましょう。',
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 16),
               FilledButton(
                 onPressed: onAdd,
-                child: const Text('単語を追加'),
+                child: const Text('単語/文章を追加'),
               ),
             ],
           ),

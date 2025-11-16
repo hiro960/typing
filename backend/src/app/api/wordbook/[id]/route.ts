@@ -7,12 +7,12 @@ import { toWordbookEntry } from "@/lib/store";
 import { validateUpdatePayload } from "../validators";
 
 type RouteParams = {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 
-export async function PUT(request: NextRequest, { params }: RouteParams) {
+export async function PUT(request: NextRequest, ctx: RouteParams) {
   try {
     const user = await requireAuthUser(request);
     const payload = await readJson(request);
@@ -25,7 +25,8 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
       throw ERROR.INVALID_INPUT("No fields to update");
     }
 
-    const existing = await prisma.wordbook.findUnique({ where: { id: params.id } });
+    const { id } = await ctx.params;
+    const existing = await prisma.wordbook.findUnique({ where: { id } });
     if (!existing || existing.userId !== user.id) {
       throw ERROR.NOT_FOUND("Word not found");
     }
@@ -92,10 +93,11 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
   }
 }
 
-export async function DELETE(request: NextRequest, { params }: RouteParams) {
+export async function DELETE(request: NextRequest, ctx: RouteParams) {
   try {
     const user = await requireAuthUser(request);
-    const existing = await prisma.wordbook.findUnique({ where: { id: params.id } });
+    const { id } = await ctx.params;
+    const existing = await prisma.wordbook.findUnique({ where: { id } });
     if (!existing || existing.userId !== user.id) {
       throw ERROR.NOT_FOUND("Word not found");
     }

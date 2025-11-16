@@ -586,7 +586,7 @@ export async function recordLessonCompletion(params: {
       timeSpent: params.timeSpent,
       device: params.device,
       mode: params.mode,
-      mistakeCharacters: params.mistakeCharacters ?? null,
+      mistakeCharacters: params.mistakeCharacters ?? Prisma.JsonNull,
     },
   });
 

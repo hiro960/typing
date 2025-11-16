@@ -1,3 +1,18 @@
+-- CreateEnum
+CREATE TYPE "UserType" AS ENUM ('NORMAL', 'PREMIUM', 'OFFICIAL');
+
+-- CreateEnum
+CREATE TYPE "DeviceType" AS ENUM ('ios', 'android', 'web');
+
+-- CreateEnum
+CREATE TYPE "LessonMode" AS ENUM ('standard', 'challenge');
+
+-- CreateEnum
+CREATE TYPE "WordStatus" AS ENUM ('MASTERED', 'REVIEWING', 'NEEDS_REVIEW');
+
+-- CreateEnum
+CREATE TYPE "WordCategory" AS ENUM ('WORDS', 'SENTENCES');
+
 -- CreateTable
 CREATE TABLE "User" (
     "id" TEXT NOT NULL,
@@ -7,9 +22,8 @@ CREATE TABLE "User" (
     "email" TEXT NOT NULL,
     "profileImageUrl" TEXT,
     "bio" TEXT,
-    "learningLevel" TEXT NOT NULL DEFAULT 'beginner',
+    "type" "UserType" NOT NULL DEFAULT 'NORMAL',
     "totalLessonsCompleted" INTEGER NOT NULL DEFAULT 0,
-    "totalPracticeTime" INTEGER NOT NULL DEFAULT 0,
     "maxWPM" INTEGER NOT NULL DEFAULT 0,
     "maxAccuracy" DOUBLE PRECISION NOT NULL DEFAULT 0,
     "followersCount" INTEGER NOT NULL DEFAULT 0,
@@ -81,7 +95,9 @@ CREATE TABLE "Lesson" (
     "description" TEXT,
     "level" TEXT NOT NULL,
     "order" INTEGER NOT NULL,
-    "content" JSONB NOT NULL,
+    "assetPath" TEXT,
+    "assetVersion" INTEGER,
+    "estimatedMinutes" INTEGER NOT NULL DEFAULT 10,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -96,9 +112,31 @@ CREATE TABLE "LessonCompletion" (
     "wpm" INTEGER NOT NULL,
     "accuracy" DOUBLE PRECISION NOT NULL,
     "timeSpent" INTEGER NOT NULL,
+    "device" "DeviceType" NOT NULL DEFAULT 'ios',
+    "mode" "LessonMode" NOT NULL DEFAULT 'standard',
+    "mistakeCharacters" JSONB,
     "completedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "LessonCompletion_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "wordbooks" (
+    "id" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
+    "word" TEXT NOT NULL,
+    "meaning" TEXT NOT NULL,
+    "example" TEXT,
+    "status" "WordStatus" NOT NULL DEFAULT 'REVIEWING',
+    "category" "WordCategory" NOT NULL DEFAULT 'WORDS',
+    "lastReviewedAt" TIMESTAMP(3),
+    "reviewCount" INTEGER NOT NULL DEFAULT 0,
+    "successRate" DOUBLE PRECISION NOT NULL DEFAULT 0,
+    "tags" TEXT[] DEFAULT ARRAY[]::TEXT[],
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "wordbooks_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
@@ -161,6 +199,15 @@ CREATE INDEX "LessonCompletion_userId_idx" ON "LessonCompletion"("userId");
 -- CreateIndex
 CREATE INDEX "LessonCompletion_completedAt_idx" ON "LessonCompletion"("completedAt");
 
+-- CreateIndex
+CREATE INDEX "wordbooks_userId_idx" ON "wordbooks"("userId");
+
+-- CreateIndex
+CREATE INDEX "wordbooks_category_idx" ON "wordbooks"("category");
+
+-- CreateIndex
+CREATE INDEX "wordbooks_status_idx" ON "wordbooks"("status");
+
 -- AddForeignKey
 ALTER TABLE "Post" ADD CONSTRAINT "Post_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
@@ -187,3 +234,6 @@ ALTER TABLE "LessonCompletion" ADD CONSTRAINT "LessonCompletion_lessonId_fkey" F
 
 -- AddForeignKey
 ALTER TABLE "LessonCompletion" ADD CONSTRAINT "LessonCompletion_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "wordbooks" ADD CONSTRAINT "wordbooks_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;

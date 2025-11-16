@@ -108,11 +108,9 @@ export function createMockLesson(overrides?: Partial<Lesson>): Lesson {
     description: 'テスト用のレッスンです',
     level: 'beginner',
     order: 1,
-    content: {
-      blocks: [
-        { type: 'text', content: 'テストコンテンツ' },
-      ],
-    },
+    assetPath: null,
+    assetVersion: null,
+    estimatedMinutes: 10,
     createdAt: new Date('2024-01-01T00:00:00Z'),
     updatedAt: new Date('2024-01-01T00:00:00Z'),
     ...overrides,
@@ -132,6 +130,9 @@ export function createMockLessonCompletion(
     wpm: 200,
     accuracy: 0.95,
     timeSpent: 180,
+    device: 'ios' as const,
+    mode: 'standard' as const,
+    mistakeCharacters: null,
     completedAt: new Date('2024-01-01T00:00:00Z'),
     ...overrides,
   };

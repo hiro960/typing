@@ -553,16 +553,6 @@ class _QuickActions extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 6),
-                  Text(
-                    '好きな単語で練習（近日公開）',
-                    style: theme.textTheme.bodyMedium,
-                  ),
-                  const SizedBox(height: 8),
-                  FButton(
-                    onPress: onCustomPracticeTap,
-                    style: FButtonStyle.ghost(),
-                    child: const Text('通知を受け取る'),
-                  ),
                 ],
               ),
             ),
