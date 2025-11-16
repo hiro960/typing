@@ -8,6 +8,7 @@ import 'ui/shell/app_shell.dart';
 import 'core/config/env_config.dart';
 import 'core/utils/logger.dart';
 
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 

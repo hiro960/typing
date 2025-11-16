@@ -6,6 +6,15 @@
  * すべてのテストファイルが実行される前に一度だけ実行されます。
  */
 
+// joseライブラリをJestでも扱えるようにモック
+jest.mock('jose', () => {
+  return {
+    __esModule: true,
+    createRemoteJWKSet: jest.fn(() => jest.fn(async () => ({}))),
+    jwtVerify: jest.fn(async () => ({ payload: {} })),
+  };
+});
+
 // Authモジュールをテスト用にモック
 jest.mock('@/lib/auth', () => {
   const actual = jest.requireActual('@/lib/auth');

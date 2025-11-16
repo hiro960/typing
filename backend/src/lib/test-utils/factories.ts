@@ -1,5 +1,5 @@
 // lib/test-utils/factories.ts
-import { User, Post, Comment, Lesson, LessonCompletion, Follow, Like } from '@prisma/client';
+import { User, Post, Comment, Lesson, LessonCompletion, Follow, Like, Wordbook } from '@prisma/client';
 
 /**
  * テストデータファクトリー
@@ -163,4 +163,26 @@ export function createMockPosts(count: number, userId: string = 'usr_test_123'):
       createdAt: new Date(`2024-01-${String(i + 1).padStart(2, '0')}T00:00:00Z`),
     })
   );
+}
+
+/**
+ * Wordbook のテストデータを生成
+ */
+export function createMockWordbook(overrides?: Partial<Wordbook>): Wordbook {
+  return {
+    id: 'word_test_123',
+    userId: 'usr_test_123',
+    word: '안녕하세요',
+    meaning: 'こんにちは',
+    example: '안녕하세요? 오늘도 열공해요!',
+    status: 'REVIEWING',
+    category: 'WORDS',
+    lastReviewedAt: null,
+    reviewCount: 0,
+    successRate: 0,
+    tags: [],
+    createdAt: new Date('2024-01-01T00:00:00Z'),
+    updatedAt: new Date('2024-01-01T00:00:00Z'),
+    ...overrides,
+  };
 }

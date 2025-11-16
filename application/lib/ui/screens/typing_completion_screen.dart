@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
-import '../../features/lessons/data/models/lesson_index.dart';
+import '../../features/lessons/data/models/lesson_index.dart'
+    as lesson_index;
 import '../../features/lessons/data/models/lesson_models.dart';
 import '../../features/lessons/domain/providers/lesson_providers.dart';
 import '../../features/typing/data/models/typing_models.dart';
@@ -315,7 +316,7 @@ class _ActionButtons extends StatelessWidget {
 
 String? _findNextLessonId(
   Lesson lesson,
-  Map<LessonLevel, List<LessonMeta>> catalog,
+  Map<LessonLevel, List<lesson_index.LessonMeta>> catalog,
 ) {
   final currentLevelList = catalog[lesson.level] ?? const [];
   final index = currentLevelList.indexWhere((meta) => meta.id == lesson.id);

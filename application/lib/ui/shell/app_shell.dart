@@ -4,12 +4,13 @@ import 'package:forui/forui.dart';
 
 import '../../features/auth/domain/providers/auth_providers.dart';
 import '../../features/typing/domain/providers/typing_providers.dart';
+import '../../features/wordbook/domain/providers/wordbook_providers.dart';
 import '../screens/diary_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/notifications_screen.dart';
 import '../screens/profile_screen.dart';
 import '../screens/settings_screen.dart';
-import '../screens/wordbook_screen.dart';
+import '../screens/wordbook/wordbook_screen.dart';
 import '../screens/profile_setup_screen.dart';
 import '../screens/onboarding_screen.dart';
 import '../widgets/post_composer_sheet.dart';
@@ -140,6 +141,7 @@ class _MainAppShellState extends ConsumerState<_MainAppShell> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
         ref.read(offlineQueueProvider.notifier).processQueue();
+        ref.read(wordbookOfflineQueueProvider.notifier).processQueue();
       }
     });
   }
@@ -207,10 +209,11 @@ class _MainAppShellState extends ConsumerState<_MainAppShell> {
             duration: const Duration(milliseconds: 250),
             child: screens[_selectedIndex],
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 24, bottom: 24),
-            child: _PostFab(onPressed: _openPostComposer),
-          ),
+          if (_selectedIndex != 2) // 単語帳画面（インデックス2）では非表示
+            Padding(
+              padding: const EdgeInsets.only(right: 24, bottom: 24),
+              child: _PostFab(onPressed: _openPostComposer),
+            ),
         ],
       ),
     );

@@ -5,6 +5,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../data/models/typing_settings.dart';
 
+extension _AsyncValueTypings<T> on AsyncValue<T> {
+  T? get valueOrNull => when(
+        data: (value) => value,
+        error: (_, __) => null,
+        loading: () => null,
+      );
+}
+
 class TypingSettingsController extends AsyncNotifier<TypingSettings> {
   static const _prefsKey = 'typing_settings_v1';
   SharedPreferences? _prefs;
@@ -22,17 +30,17 @@ class TypingSettingsController extends AsyncNotifier<TypingSettings> {
   }
 
   Future<void> toggleHints(bool value) async {
-    final current = state.hasValue ? state.requireValue : const TypingSettings();
+    final current = state.valueOrNull ?? const TypingSettings();
     await _save(current.copyWith(hintsEnabled: value));
   }
 
   Future<void> toggleKeySound(bool value) async {
-    final current = state.hasValue ? state.requireValue : const TypingSettings();
+    final current = state.valueOrNull ?? const TypingSettings();
     await _save(current.copyWith(keySoundEnabled: value));
   }
 
   Future<void> toggleHaptics(bool value) async {
-    final current = state.hasValue ? state.requireValue : const TypingSettings();
+    final current = state.valueOrNull ?? const TypingSettings();
     await _save(current.copyWith(hapticsEnabled: value));
   }
 

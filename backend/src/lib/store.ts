@@ -4,6 +4,7 @@ import {
   Post as PrismaPost,
   Lesson as PrismaLesson,
   LessonCompletion as PrismaLessonCompletion,
+  Wordbook as PrismaWordbook,
 } from "@prisma/client";
 import prisma from "@/lib/prisma";
 import { ERROR } from "@/lib/errors";
@@ -23,6 +24,7 @@ import {
   UserStatsResponse,
   UserSummary,
   Visibility,
+  WordbookEntry,
 } from "@/lib/types";
 
 const defaultSettings: UserSettings = {
@@ -803,4 +805,22 @@ export function getLatestLessonCompletion(userId: string, lessonId: string) {
     where: { userId, lessonId },
     orderBy: { completedAt: "desc" },
   });
+}
+
+export function toWordbookEntry(word: PrismaWordbook): WordbookEntry {
+  return {
+    id: word.id,
+    userId: word.userId,
+    word: word.word,
+    meaning: word.meaning,
+    example: word.example,
+    status: word.status,
+    category: word.category,
+    lastReviewedAt: word.lastReviewedAt,
+    reviewCount: word.reviewCount,
+    successRate: word.successRate,
+    tags: [...word.tags],
+    createdAt: word.createdAt,
+    updatedAt: word.updatedAt,
+  };
 }

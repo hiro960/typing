@@ -187,6 +187,14 @@ class HangulComposer {
     _final = null;
   }
 
+  void loadFromText(String text) {
+    reset();
+    if (text.isEmpty) return;
+    for (final char in text.characters) {
+      _committed.add(char);
+    }
+  }
+
   void input(String char) {
     if (char.trim().isEmpty) {
       addSpace();
@@ -314,10 +322,10 @@ class HangulComposer {
         return;
       } else {
         final carry = _final;
+        _final = null;
         _commitCurrent();
         _initial = carry;
         _medial = char;
-        _final = null;
         return;
       }
     }

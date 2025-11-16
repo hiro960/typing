@@ -3,7 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
 import '../../features/auth/domain/providers/auth_providers.dart';
-import '../../features/lessons/data/models/lesson_index.dart';
+import '../../features/lessons/data/models/lesson_index.dart'
+    as lesson_index;
 import '../../features/lessons/data/models/lesson_models.dart';
 import '../../features/lessons/data/models/lesson_progress.dart';
 import '../../features/lessons/domain/providers/lesson_progress_providers.dart';
@@ -107,7 +108,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 
-  void _onLessonTap(LessonMeta lesson, bool isLocked) {
+  void _onLessonTap(lesson_index.LessonMeta lesson, bool isLocked) {
     if (!mounted) return;
     if (isLocked) {
       showDialog<void>(
@@ -132,8 +133,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 
-  LessonMeta? _findNextLesson(
-    Map<LessonLevel, List<LessonMeta>> catalog,
+  lesson_index.LessonMeta? _findNextLesson(
+    Map<LessonLevel, List<lesson_index.LessonMeta>> catalog,
     Map<String, LessonProgress> progress,
   ) {
     for (final level in LessonLevel.values) {
@@ -239,9 +240,9 @@ class _LevelAccordions extends StatelessWidget {
   });
 
   final FAccordionController controller;
-  final Map<LessonLevel, List<LessonMeta>> catalog;
+  final Map<LessonLevel, List<lesson_index.LessonMeta>> catalog;
   final Map<String, LessonProgress> progress;
-  final void Function(LessonMeta lesson, bool isLocked) onLessonTap;
+  final void Function(lesson_index.LessonMeta lesson, bool isLocked) onLessonTap;
 
   static const _laneMeta = [
     (
@@ -272,7 +273,8 @@ class _LevelAccordions extends StatelessWidget {
     return FAccordion(
       controller: controller,
       children: _laneMeta.map((meta) {
-        final lessons = catalog[meta.level] ?? const [];
+        final lessons =
+            catalog[meta.level] ?? const <lesson_index.LessonMeta>[];
 
         return FAccordionItem(
           initiallyExpanded: false,
@@ -330,7 +332,7 @@ class _LevelAccordions extends StatelessWidget {
     );
   }
 
-  bool _isLocked(List<LessonMeta> lessons, int index) {
+  bool _isLocked(List<lesson_index.LessonMeta> lessons, int index) {
     if (index <= 0) {
       return lessons[index].isLocked;
     }
@@ -350,7 +352,7 @@ class _LessonTile extends StatelessWidget {
     required this.onTap,
   });
 
-  final LessonMeta lesson;
+  final lesson_index.LessonMeta lesson;
   final Color accent;
   final int completionRate;
   final bool isLocked;
@@ -494,7 +496,7 @@ class _QuickActions extends StatelessWidget {
     required this.onCustomPracticeTap,
   });
 
-  final LessonMeta? focusLesson;
+  final lesson_index.LessonMeta? focusLesson;
   final VoidCallback? onFocusTap;
   final VoidCallback onCustomPracticeTap;
 

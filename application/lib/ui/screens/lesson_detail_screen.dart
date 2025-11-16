@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
-import '../../features/lessons/data/models/lesson_index.dart';
+import '../../features/lessons/data/models/lesson_index.dart'
+    as lesson_index;
 import '../../features/lessons/data/models/lesson_models.dart';
 import '../../features/lessons/data/models/lesson_progress.dart';
 import '../../features/lessons/domain/providers/lesson_progress_providers.dart';
@@ -25,7 +26,8 @@ class LessonDetailScreen extends ConsumerWidget {
         final bestRecord = progressAsync.value?[lesson.id];
         final levelLessonsAsync =
             ref.watch(lessonsByLevelProvider(lesson.level));
-        final levelLessons = levelLessonsAsync.value ?? const [];
+        final levelLessons =
+            levelLessonsAsync.value ?? const <lesson_index.LessonMeta>[];
         final isLocked = _isLessonLocked(
           lesson,
           levelLessons,
@@ -92,7 +94,7 @@ class LessonDetailScreen extends ConsumerWidget {
 
 bool _isLessonLocked(
   Lesson lesson,
-  List<LessonMeta> lessons,
+  List<lesson_index.LessonMeta> lessons,
   Map<String, LessonProgress> progress,
 ) {
   final index = lessons.indexWhere((meta) => meta.id == lesson.id);

@@ -6,6 +6,8 @@ export type DeviceType = "ios" | "android" | "web";
 export type FeedType = "forYou" | "following" | "popular";
 export type UserStatsRange = "weekly" | "monthly" | "all";
 export type LessonStatsRange = "daily" | "weekly" | "monthly" | "all";
+export type WordStatus = "MASTERED" | "REVIEWING" | "NEEDS_REVIEW";
+export type WordCategory = "WORDS" | "SENTENCES";
 export type ISODateTime = string | Date;
 
 export interface UserSettings {
@@ -170,4 +172,28 @@ export interface LessonStatsResponse {
   }>;
   weakCharacters: string[];
   recommendedLessons: Lesson[];
+}
+
+export interface WordbookEntry {
+  id: string;
+  userId: string;
+  word: string;
+  meaning: string;
+  example?: string | null;
+  status: WordStatus;
+  category: WordCategory;
+  lastReviewedAt?: ISODateTime | null;
+  reviewCount: number;
+  successRate: number;
+  tags: string[];
+  createdAt: ISODateTime;
+  updatedAt: ISODateTime;
+}
+
+export interface WordbookStatsResponse {
+  totalWords: number;
+  byCategory: Record<WordCategory, number>;
+  byStatus: Record<WordStatus, number>;
+  averageSuccessRate: number;
+  totalReviewCount: number;
 }

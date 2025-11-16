@@ -25,6 +25,17 @@ enum LessonMode {
   challenge
 }
 
+enum WordStatus {
+  MASTERED
+  REVIEWING
+  NEEDS_REVIEW
+}
+
+enum WordCategory {
+  WORDS
+  SENTENCES
+}
+
 model User {
   id                      String    @id @default(cuid())
   auth0UserId             String    @unique
@@ -53,6 +64,7 @@ model User {
   following               Follow[]  @relation("Following")
   followers               Follow[]  @relation("Followers")
   lessonCompletions       LessonCompletion[]
+  wordbooks               Wordbook[]
 
   @@index([username])
   @@index([email])
@@ -158,4 +170,27 @@ model LessonCompletion {
   @@index([lessonId])
   @@index([userId])
   @@index([completedAt])
+}
+
+model Wordbook {
+  id             String       @id @default(cuid())
+  userId         String
+  word           String
+  meaning        String
+  example        String?
+  status         WordStatus   @default(REVIEWING)
+  category       WordCategory @default(WORDS)
+  lastReviewedAt DateTime?
+  reviewCount    Int          @default(0)
+  successRate    Float        @default(0)
+  tags           String[]     @default([])
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([category])
+  @@index([status])
+  @@map("wordbooks")
 }
