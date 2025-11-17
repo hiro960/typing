@@ -15,7 +15,7 @@ class EnvConfig {
 
   /// バックエンドAPIのベースURL
   static String get apiBaseUrl =>
-      dotenv.env['API_BASE_URL'] ?? 'http://localhost:3000';
+      dotenv.env['API_BASE_URL'] ?? 'https://in-eager-tahr.ngrok-free.app';
 
   /// 現在の環境 (development, staging, production)
   static String get environment => dotenv.env['ENVIRONMENT'] ?? 'development';

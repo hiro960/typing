@@ -8,7 +8,7 @@ part 'audio_settings.g.dart';
 @freezed
 abstract class AudioSettings with _$AudioSettings {
   const factory AudioSettings({
-    @Default(1.0) double speechRate,
+    @Default(0.5) double speechRate,
     @Default(false) bool autoPlay,
     String? voiceEngine,
   }) = _AudioSettings;

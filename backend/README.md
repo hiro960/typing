@@ -85,7 +85,11 @@ npx prisma studio
 npm run dev
 ```
 
-ブラウザで [http://localhost:3000](http://localhost:3000) を開いて確認します。
+```bash
+ngrok http --url=in-eager-tahr.ngrok-free.app 3000
+```
+
+ブラウザで [https://in-eager-tahr.ngrok-free.app](https://in-eager-tahr.ngrok-free.app) を開いて確認します。
 
 ## 開発コマンド
 

@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'dart:io';
+
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -610,7 +612,10 @@ class AudioSettingsNotifier extends _$AudioSettingsNotifier {
     final prefs = await SharedPreferences.getInstance();
     final json = prefs.getString(_cacheKey);
     if (json == null) {
-      return const AudioSettings();
+      // プラットフォームごとの標準速度を設定
+      // Android: 1.0が標準、iOS: 0.5が標準
+      final defaultRate = Platform.isAndroid ? 1.0 : 0.5;
+      return AudioSettings(speechRate: defaultRate);
     }
     final data = jsonDecode(json) as Map<String, dynamic>;
     return AudioSettings.fromJson(data);
@@ -649,28 +654,23 @@ class AudioSettingsNotifier extends _$AudioSettingsNotifier {
 @Riverpod(keepAlive: true)
 class WordAudioService extends _$WordAudioService {
   FlutterTts? _tts;
+  bool _initialized = false;
 
   @override
   FutureOr<void> build() async {
-    _tts = FlutterTts();
-    await _tts!.setLanguage('ko-KR');
-    await _tts!.setVolume(1.0);
-    await _tts!.setPitch(1.0);
-
-    final settings = await ref.read(audioSettingsProvider.future);
-    await _tts!.setSpeechRate(settings.speechRate);
-    final engine = settings.voiceEngine;
-    if (engine != null) {
-      await _tts!.setVoice({'name': engine});
-    }
+    await _ensureInitialized();
 
     ref.onDispose(() {
       _tts?.stop();
       _tts = null;
+      _initialized = false;
     });
   }
 
   Future<void> speak(String text) async {
+    await _ensureInitialized();
+    if (text.trim().isEmpty) return;
+    await _tts?.stop();
     await _tts?.speak(text);
   }
 
@@ -679,11 +679,47 @@ class WordAudioService extends _$WordAudioService {
   }
 
   Future<void> setSpeechRate(double rate) async {
+    await _ensureInitialized();
     await _tts?.setSpeechRate(rate);
   }
 
   Future<void> setVoiceEngine(String? engine) async {
+    await _ensureInitialized();
     if (engine == null) return;
     await _tts?.setVoice({'name': engine});
+  }
+
+  Future<void> _ensureInitialized() async {
+    if (_initialized && _tts != null) {
+      return;
+    }
+    final tts = FlutterTts();
+    _tts = tts;
+
+    if (Platform.isIOS) {
+      await tts.setSharedInstance(true);
+      await tts.setIosAudioCategory(
+        IosTextToSpeechAudioCategory.playback,
+        [
+          IosTextToSpeechAudioCategoryOptions.mixWithOthers,
+        ],
+        IosTextToSpeechAudioMode.defaultMode,
+      );
+    } else {
+      await tts.awaitSpeakCompletion(true);
+    }
+
+    await tts.setLanguage('ko-KR');
+    await tts.setVolume(1.0);
+    await tts.setPitch(1.0);
+
+    final settings = await ref.read(audioSettingsProvider.future);
+    await tts.setSpeechRate(settings.speechRate);
+    final engine = settings.voiceEngine;
+    if (engine != null) {
+      await tts.setVoice({'name': engine});
+    }
+
+    _initialized = true;
   }
 }
