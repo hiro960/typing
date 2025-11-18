@@ -81,7 +81,7 @@ final class WordbookNotifierProvider
   WordbookNotifier create() => WordbookNotifier();
 }
 
-String _$wordbookNotifierHash() => r'f4903ee9c8f65ff0dbbba6ab5646418cf8681d7c';
+String _$wordbookNotifierHash() => r'98192399a91f46d2d9407ac0f745b718d37c31bf';
 
 abstract class _$WordbookNotifier extends $AsyncNotifier<List<Word>> {
   FutureOr<List<Word>> build();
@@ -128,7 +128,7 @@ final class WordbookOfflineQueueProvider
 }
 
 String _$wordbookOfflineQueueHash() =>
-    r'6aad6f7fa4c558602ce8561fd08a377bcd82b5b6';
+    r'07fc69b5d41f1f9800ba8d5947ad94a37e442233';
 
 abstract class _$WordbookOfflineQueue
     extends $AsyncNotifier<List<PendingOperation>> {

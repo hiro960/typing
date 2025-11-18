@@ -2,18 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
+import '../../core/services/push_notification_service.dart';
 import '../../features/auth/domain/providers/auth_providers.dart';
 import '../../features/typing/domain/providers/typing_providers.dart';
 import '../../features/wordbook/domain/providers/wordbook_providers.dart';
-import '../screens/diary_screen.dart';
+import '../screens/diary/bookmarks_screen.dart';
+import '../screens/diary/diary_screen.dart';
 import '../screens/home_screen.dart';
-import '../screens/notifications_screen.dart';
+import '../screens/diary/notifications_screen.dart';
 import '../screens/profile_screen.dart';
 import '../screens/settings_screen.dart';
 import '../screens/wordbook/wordbook_screen.dart';
 import '../screens/profile_setup_screen.dart';
 import '../screens/onboarding_screen.dart';
-import '../widgets/post_composer_sheet.dart';
+import '../screens/diary/post_create_screen.dart';
+import '../screens/diary/search_screen.dart';
 
 /// 認証状態に基づいて画面を切り替えるルートウィジェット
 class AppShell extends ConsumerWidget {
@@ -142,18 +145,17 @@ class _MainAppShellState extends ConsumerState<_MainAppShell> {
       if (mounted) {
         ref.read(offlineQueueProvider.notifier).processQueue();
         ref.read(wordbookOfflineQueueProvider.notifier).processQueue();
+        PushNotificationService(ref).initialize();
       }
     });
   }
 
   void _openPostComposer() {
-    showModalBottomSheet<void>(
-      context: context,
-      useSafeArea: true,
-      isScrollControlled: true,
-      builder: (context) {
-        return const PostComposerSheet();
-      },
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => const PostCreateScreen(),
+        fullscreenDialog: true,
+      ),
     );
   }
 
@@ -161,6 +163,22 @@ class _MainAppShellState extends ConsumerState<_MainAppShell> {
     Navigator.of(
       context,
     ).push(MaterialPageRoute<void>(builder: (_) => const SettingsScreen()));
+  }
+
+  void _openSearch() {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => const SearchScreen(),
+      ),
+    );
+  }
+
+  void _openBookmarks() {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => const BookmarksScreen(),
+      ),
+    );
   }
 
   void _onDestinationSelected(int index) {
@@ -171,7 +189,10 @@ class _MainAppShellState extends ConsumerState<_MainAppShell> {
   Widget build(BuildContext context) {
     final screens = <Widget>[
       HomeScreen(onOpenSettings: _openSettings),
-      const DiaryScreen(),
+      DiaryScreen(
+        onOpenSearch: _openSearch,
+        onOpenBookmarks: _openBookmarks,
+      ),
       const WordbookScreen(),
       const NotificationsScreen(),
       ProfileScreen(onOpenSettings: _openSettings),

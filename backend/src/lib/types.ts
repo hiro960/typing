@@ -3,12 +3,20 @@ export type UserType = "NORMAL" | "PREMIUM" | "OFFICIAL";
 export type Visibility = "public" | "followers" | "private";
 export type LessonMode = "standard" | "challenge";
 export type DeviceType = "ios" | "android" | "web";
-export type FeedType = "forYou" | "following" | "popular";
+export type FeedType = "forYou" | "following" | "popular" | "recommended" | "latest";
 export type UserStatsRange = "weekly" | "monthly" | "all";
 export type LessonStatsRange = "daily" | "weekly" | "monthly" | "all";
 export type WordStatus = "MASTERED" | "REVIEWING" | "NEEDS_REVIEW";
 export type WordCategory = "WORDS" | "SENTENCES";
 export type ISODateTime = string | Date;
+export type NotificationType = "LIKE" | "COMMENT" | "REPOST" | "FOLLOW";
+export type ReportType = "POST" | "COMMENT" | "USER";
+export type ReportReason =
+  | "SPAM"
+  | "HARASSMENT"
+  | "INAPPROPRIATE_CONTENT"
+  | "HATE_SPEECH"
+  | "OTHER";
 
 export interface UserSettings {
   notifications: {
@@ -16,6 +24,7 @@ export interface UserSettings {
     email: boolean;
     comment: boolean;
     like: boolean;
+    repost: boolean;
     follow: boolean;
   };
   theme: "light" | "dark" | "auto";
@@ -55,6 +64,19 @@ export interface UserDetail extends Omit<UserSummary, "settings"> {
   settings: UserSettings;
 }
 
+export interface RepostInfo {
+  isRepost: boolean;
+  repostedAt: ISODateTime | null;
+  repostedBy: UserSummary | null;
+}
+
+export interface QuotedPostSummary {
+  id: string;
+  content: string;
+  user: UserSummary;
+  createdAt: ISODateTime;
+}
+
 export interface PostRecord {
   id: string;
   content: string;
@@ -63,16 +85,24 @@ export interface PostRecord {
   shareToDiary: boolean;
   visibility: Visibility;
   userId: string;
+  quotedPostId?: string | null;
   createdAt: ISODateTime;
   updatedAt: ISODateTime;
   likesCount: number;
   commentsCount: number;
+  repostsCount: number;
+  quotesCount: number;
+  isEdited: boolean;
+  editedAt?: ISODateTime | null;
 }
 
 export interface PostResponse extends Omit<PostRecord, "userId"> {
   user: UserSummary;
   liked: boolean;
   bookmarked: boolean;
+  reposted: boolean;
+  quotedPost: QuotedPostSummary | null;
+  repostInfo: RepostInfo;
 }
 
 export interface CommentRecord {
@@ -87,6 +117,7 @@ export interface CommentRecord {
 export interface CommentResponse extends Omit<CommentRecord, "userId"> {
   user: UserSummary;
   likesCount: number;
+  liked: boolean;
 }
 
 export interface Lesson {
@@ -147,6 +178,46 @@ export interface ErrorPayload {
     details?: Record<string, unknown> | null;
   };
 }
+
+export interface NotificationRecord {
+  id: string;
+  userId: string;
+  actorId: string;
+  type: NotificationType;
+  postId?: string | null;
+  commentId?: string | null;
+  isRead: boolean;
+  createdAt: ISODateTime;
+}
+
+export interface NotificationResponse extends NotificationRecord {
+  actor: UserSummary;
+  post?: PostResponse | null;
+  comment?: CommentResponse | null;
+}
+
+export interface BlockRecord {
+  id: string;
+  blockerId: string;
+  blockedId: string;
+  createdAt: ISODateTime;
+}
+
+export interface BlockResponse extends BlockRecord {
+  blocked: UserSummary;
+}
+
+export interface ReportRecord {
+  id: string;
+  reporterId: string;
+  type: ReportType;
+  targetId: string;
+  reason: ReportReason;
+  description?: string | null;
+  status: string;
+  createdAt: ISODateTime;
+}
+
 
 export interface UserStatsResponse {
   wpmAvg: number;

@@ -49,4 +49,16 @@ export const prismaMock = prisma as unknown as DeepMockProxy<PrismaClient>;
  */
 export function resetPrismaMock() {
   mockReset(prismaMock);
+  prismaMock.$transaction.mockImplementation(async (callback: unknown) => {
+    if (typeof callback === "function") {
+      return callback(prismaMock);
+    }
+    if (Array.isArray(callback)) {
+      return Promise.all(callback);
+    }
+    return callback;
+  });
 }
+
+// 初期化時にも$transactionのデフォルト実装を設定
+resetPrismaMock();

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { handleRouteError, ERROR } from "@/lib/errors";
-import { toPostResponse, findUserById, isFollowingUser } from "@/lib/store";
+import { toPostResponse, findUserById, canViewPost } from "@/lib/store";
 import { paginateArray, parseLimit } from "@/lib/pagination";
 import { getAuthUser } from "@/lib/auth";
 import prisma from "@/lib/prisma";
@@ -47,19 +47,15 @@ export async function GET(
     const posts = await prisma.post.findMany({
       where: postWhere,
       orderBy: { createdAt: "desc" },
-      include: { user: true },
+      include: { user: true, quotedPost: { include: { user: true } } },
     });
 
-    const isOwner = viewerId === targetUser.id;
-    const isFollower =
-      !isOwner && viewerId ? await isFollowingUser(viewerId, targetUser.id) : false;
-
-    const visiblePosts = posts.filter((post) => {
-      if (post.visibility === "public") return true;
-      if (post.visibility === "private") return isOwner;
-      if (post.visibility === "followers") return isOwner || isFollower;
-      return false;
-    });
+    const visiblePosts = [];
+    for (const post of posts) {
+      if (await canViewPost(post, viewerId)) {
+        visiblePosts.push(post);
+      }
+    }
 
     const paginated = paginateArray(visiblePosts, {
       cursor,

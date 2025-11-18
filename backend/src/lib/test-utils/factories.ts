@@ -28,6 +28,7 @@ export function createMockUser(overrides?: Partial<User>): User {
     followingCount: 0,
     postsCount: 0,
     settings: null,
+    fcmToken: null,
     createdAt: new Date('2024-01-01T00:00:00Z'),
     updatedAt: new Date('2024-01-01T00:00:00Z'),
     lastLoginAt: new Date('2024-01-01T00:00:00Z'),
@@ -51,6 +52,11 @@ export function createMockPost(overrides?: Partial<Post>): Post {
     userId: 'usr_test_123',
     likesCount: 0,
     commentsCount: 0,
+    quotedPostId: null,
+    repostsCount: 0,
+    quotesCount: 0,
+    isEdited: false,
+    editedAt: null,
     createdAt: new Date('2024-01-01T00:00:00Z'),
     updatedAt: new Date('2024-01-01T00:00:00Z'),
     ...overrides,
@@ -68,6 +74,7 @@ export function createMockComment(overrides?: Partial<Comment>): Comment {
     userId: 'usr_test_123',
     createdAt: new Date('2024-01-01T00:00:00Z'),
     updatedAt: new Date('2024-01-01T00:00:00Z'),
+     likesCount: 0,
     ...overrides,
   };
 }

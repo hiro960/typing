@@ -7,6 +7,15 @@ import prisma from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
 
 const VISIBILITIES: Visibility[] = ["public", "followers", "private"];
+type FeedBucket = "recommended" | "following" | "latest";
+
+const FEED_ALIASES: Record<string, FeedBucket> = {
+  foryou: "recommended",
+  recommended: "recommended",
+  popular: "recommended",
+  following: "following",
+  latest: "latest",
+};
 
 export async function GET(request: NextRequest) {
   try {
@@ -14,7 +23,8 @@ export async function GET(request: NextRequest) {
     const viewerId = viewer?.id;
 
     const { searchParams } = request.nextUrl;
-    const feed = (searchParams.get("feed") ?? "forYou").toLowerCase();
+    const feedParam = (searchParams.get("feed") ?? "recommended").toLowerCase();
+    const feed = FEED_ALIASES[feedParam];
     const cursor = searchParams.get("cursor");
 
     const limitParam = searchParams.get("limit");
@@ -28,13 +38,18 @@ export async function GET(request: NextRequest) {
       }
       limit = parsed;
     }
+
     const hashtag = searchParams.get("hashtag");
     const userId = searchParams.get("userId");
+    const visibilityParam = searchParams.get("visibility");
 
-    if (!["foryou", "following", "popular"].includes(feed)) {
-      throw ERROR.INVALID_INPUT("feed must be forYou|following|popular", {
-        field: "feed",
-      });
+    if (!feed) {
+      throw ERROR.INVALID_INPUT(
+        "feed must be recommended|following|latest (legacy: forYou|following|popular)",
+        {
+          field: "feed",
+        }
+      );
     }
 
     const where: Prisma.PostWhereInput = {};
@@ -49,8 +64,29 @@ export async function GET(request: NextRequest) {
     }
 
     if (hashtag) {
-      const normalized = hashtag.startsWith("#") ? hashtag : `#${hashtag}`;
+      const normalized = normalizeHashtag(hashtag);
+      if (!normalized) {
+        throw ERROR.INVALID_INPUT("Invalid hashtag provided", { field: "hashtag" });
+      }
       where.tags = { has: normalized };
+    }
+
+    if (visibilityParam) {
+      if (!VISIBILITIES.includes(visibilityParam as Visibility)) {
+        throw ERROR.INVALID_INPUT("visibility must be public|followers|private", {
+          field: "visibility",
+        });
+      }
+      if (visibilityParam === "private") {
+        if (!viewerId) {
+          throw ERROR.UNAUTHORIZED("Authentication required for private posts");
+        }
+        if (userId && userId !== viewerId) {
+          throw ERROR.FORBIDDEN("Cannot view private posts of other users");
+        }
+        where.userId = viewerId;
+      }
+      where.visibility = visibilityParam;
     }
 
     if (feed === "following") {
@@ -70,7 +106,11 @@ export async function GET(request: NextRequest) {
         });
       }
       where.userId = { in: ids };
-    } else if (feed === "popular") {
+    }
+
+    if (feed === "latest") {
+      orderBy = [{ createdAt: "desc" }];
+    } else if (feed === "recommended") {
       orderBy = [
         { likesCount: "desc" },
         { createdAt: "desc" },
@@ -80,16 +120,17 @@ export async function GET(request: NextRequest) {
     const posts =
       (await prisma.post.findMany({
         where,
-        include: { user: true },
+        include: { user: true, quotedPost: { include: { user: true } } },
         orderBy,
         take: limit + 1,
         ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
       })) ?? [];
 
     const followCache = new Map<string, boolean>();
+    const blockCache = new Map<string, boolean>();
     const visible: typeof posts = [];
     for (const post of posts) {
-      if (await canAccessPost(post, viewerId, followCache)) {
+      if (await canAccessPost(post, viewerId, followCache, blockCache)) {
         visible.push(post);
       }
     }
@@ -114,23 +155,97 @@ export async function GET(request: NextRequest) {
 }
 
 async function canAccessPost(
-  post: Prisma.PostGetPayload<{ include: { user: true } }>,
+  post: Prisma.PostGetPayload<{ include: { user: true; quotedPost: { include: { user: true } } } }>,
   viewerId?: string,
-  cache?: Map<string, boolean>
+  followCache?: Map<string, boolean>,
+  blockCache?: Map<string, boolean>
 ) {
+  if (await isBlockedFromViewer(post.userId, viewerId, blockCache)) {
+    return false;
+  }
   if (post.visibility === "public") return true;
   if (!viewerId) return false;
   if (post.userId === viewerId) return true;
   if (post.visibility === "followers") {
-    if (!cache) {
+    if (!followCache) {
       return isFollowingUser(viewerId, post.userId);
     }
-    if (!cache.has(post.userId)) {
-      cache.set(post.userId, await isFollowingUser(viewerId, post.userId));
+    if (!followCache.has(post.userId)) {
+      followCache.set(post.userId, await isFollowingUser(viewerId, post.userId));
     }
-    return cache.get(post.userId) ?? false;
+    return followCache.get(post.userId) ?? false;
   }
   return false;
+}
+
+async function isBlockedFromViewer(
+  authorId: string,
+  viewerId?: string,
+  cache?: Map<string, boolean>
+) {
+  if (!viewerId) {
+    return false;
+  }
+  if (authorId === viewerId) {
+    return false;
+  }
+  const key = `${authorId}:${viewerId}`;
+  if (cache?.has(key)) {
+    return cache.get(key) ?? false;
+  }
+  const blocked = await prisma.block.findFirst({
+    where: {
+      OR: [
+        { blockerId: authorId, blockedId: viewerId },
+        { blockerId: viewerId, blockedId: authorId },
+      ],
+    },
+    select: { id: true },
+  });
+  if (cache) {
+    cache.set(key, !!blocked);
+  }
+  return !!blocked;
+}
+
+function normalizeHashtag(tag: string): string | null {
+  if (!tag) return null;
+  let normalized = tag.trim();
+  if (!normalized) return null;
+  normalized = normalized.replace(/^#/, "").trim();
+  if (!normalized) return null;
+  if (/^[a-zA-Z0-9_]+$/.test(normalized)) {
+    normalized = normalized.toLowerCase();
+  }
+  if (normalized.length > 40) {
+    normalized = normalized.slice(0, 40);
+  }
+  return normalized;
+}
+
+function normalizeTagsInput(tags: unknown): string[] {
+  if (!Array.isArray(tags)) {
+    throw ERROR.INVALID_INPUT("tags must be an array", { field: "tags" });
+  }
+  const normalized = new Set<string>();
+  tags.forEach((tag, index) => {
+    if (typeof tag !== "string") {
+      throw ERROR.INVALID_INPUT("tags must contain strings", {
+        field: `tags[${index}]`,
+      });
+    }
+    const value = normalizeHashtag(tag);
+    if (!value) {
+      return;
+    }
+    if (value.length > 40) {
+      throw ERROR.INVALID_INPUT("tags must be string array (<=40 chars)", {
+        field: `tags[${index}]`,
+      });
+    }
+    normalized.add(value);
+  });
+  return Array.from(normalized);
 }
 
 export async function POST(request: NextRequest) {
@@ -143,6 +258,7 @@ export async function POST(request: NextRequest) {
       visibility = user.settings.postDefaultVisibility,
       tags = [],
       shareToDiary = true,
+      quotedPostId: rawQuotedPostId,
     } = body;
 
     if (typeof content !== "string" || content.trim().length === 0) {
@@ -180,16 +296,7 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    if (!Array.isArray(tags)) {
-      throw ERROR.INVALID_INPUT("tags must be an array", { field: "tags" });
-    }
-    tags.forEach((tag: unknown, index: number) => {
-      if (typeof tag !== "string" || tag.length > 40) {
-        throw ERROR.INVALID_INPUT("tags must be string array (<=40 chars)", {
-          field: `tags[${index}]`,
-        });
-      }
-    });
+    const normalizedTags = normalizeTagsInput(tags);
 
     if (typeof shareToDiary !== "boolean") {
       throw ERROR.INVALID_INPUT("shareToDiary must be boolean", {
@@ -197,13 +304,54 @@ export async function POST(request: NextRequest) {
       });
     }
 
+    let quotedPostId: string | null = null;
+    if (typeof rawQuotedPostId !== "undefined") {
+      if (rawQuotedPostId !== null && typeof rawQuotedPostId !== "string") {
+        throw ERROR.INVALID_INPUT("quotedPostId must be a string", {
+          field: "quotedPostId",
+        });
+      }
+      if (typeof rawQuotedPostId === "string" && rawQuotedPostId.trim().length === 0) {
+        throw ERROR.INVALID_INPUT("quotedPostId must not be empty", {
+          field: "quotedPostId",
+        });
+      }
+      quotedPostId = rawQuotedPostId ?? null;
+    }
+
+    if (quotedPostId) {
+      const quoted = await prisma.post.findUnique({
+        where: { id: quotedPostId },
+        include: { user: true },
+      });
+      if (!quoted) {
+        throw ERROR.NOT_FOUND("Quoted post not found");
+      }
+      if (quoted.visibility !== "public") {
+        throw ERROR.FORBIDDEN("This post cannot be quoted");
+      }
+      const blocked = await prisma.block.findFirst({
+        where: {
+          OR: [
+            { blockerId: quoted.userId, blockedId: user.id },
+            { blockerId: user.id, blockedId: quoted.userId },
+          ],
+        },
+        select: { id: true },
+      });
+      if (blocked) {
+        throw ERROR.FORBIDDEN("You cannot quote this post");
+      }
+    }
+
     const post = await createPost({
       userId: user.id,
       content: content.trim(),
       imageUrls,
       visibility,
-      tags,
+      tags: normalizedTags,
       shareToDiary,
+      quotedPostId,
     });
 
     const response = await toPostResponse(post, user.id);

@@ -7,8 +7,11 @@ import {
   Wordbook as PrismaWordbook,
 } from "@prisma/client";
 import prisma from "@/lib/prisma";
+import { sendPushNotification } from "@/lib/push";
 import { ERROR } from "@/lib/errors";
+import { deleteManagedBlobs } from "@/lib/storage";
 import {
+  BlockResponse,
   CommentResponse,
   DeviceType,
   Lesson,
@@ -16,8 +19,14 @@ import {
   LessonStatsRange,
   LessonStatsResponse,
   LearningLevel,
+  NotificationResponse,
+  NotificationType,
+  PaginatedResult,
   PostRecord,
   PostResponse,
+  ReportReason,
+  ReportType,
+  ReportResponse,
   UserDetail,
   UserSettings,
   UserStatsRange,
@@ -33,6 +42,7 @@ const defaultSettings: UserSettings = {
     email: true,
     comment: true,
     like: true,
+    repost: true,
     follow: true,
   },
   theme: "auto",
@@ -43,6 +53,16 @@ const defaultSettings: UserSettings = {
   strictMode: true,
   profileVisibility: "public",
   postDefaultVisibility: "public",
+};
+
+const notificationSettingKey: Record<
+  NotificationType,
+  keyof UserSettings["notifications"]
+> = {
+  LIKE: "like",
+  COMMENT: "comment",
+  REPOST: "repost",
+  FOLLOW: "follow",
 };
 
 type UserSummarySource = Pick<
@@ -58,14 +78,35 @@ type UserSummarySource = Pick<
 >;
 
 type PostWithUser = Prisma.PostGetPayload<{
-  include: { user: true };
+  include: { user: true; quotedPost: { include: { user: true } } };
 }>;
 
-type PostWithOptionalUser = PrismaPost & { user?: User | null };
+type PostWithOptionalUser = PrismaPost & {
+  user?: User | null;
+  quotedPost?: (PrismaPost & { user?: User | null }) | null;
+};
 
 type CommentWithUser = Prisma.CommentGetPayload<{
   include: { user: true };
 }>;
+
+type NotificationWithRelations = Prisma.NotificationGetPayload<{
+  include: {
+    actor: true;
+    post: { include: { user: true; quotedPost: { include: { user: true } } } };
+    comment: { include: { user: true } };
+  };
+}>;
+
+interface NotificationDispatch {
+  type: NotificationType;
+  targetUserId: string;
+  actorName: string;
+  token?: string | null;
+  postId?: string | null;
+  commentId?: string | null;
+  previewText?: string | null;
+}
 
 function cloneDefaultSettings(): UserSettings {
   return {
@@ -253,6 +294,13 @@ export async function updateUserProfile(
   return toUserDetail(updated);
 }
 
+export function updateUserPushToken(userId: string, token: string | null) {
+  return prisma.user.update({
+    where: { id: userId },
+    data: { fcmToken: token },
+  });
+}
+
 function toPostRecord(post: PrismaPost): PostRecord {
   return {
     id: post.id,
@@ -262,10 +310,15 @@ function toPostRecord(post: PrismaPost): PostRecord {
     shareToDiary: post.shareToDiary ?? true,
     visibility: post.visibility as Visibility,
     userId: post.userId,
+    quotedPostId: post.quotedPostId ?? null,
     createdAt: post.createdAt,
     updatedAt: post.updatedAt,
     likesCount: post.likesCount,
     commentsCount: post.commentsCount,
+    repostsCount: post.repostsCount,
+    quotesCount: post.quotesCount,
+    isEdited: post.isEdited ?? false,
+    editedAt: post.editedAt,
   };
 }
 
@@ -276,6 +329,64 @@ async function isPostLikedByUser(postId: string, userId?: string) {
     select: { id: true },
   });
   return !!like;
+}
+
+async function isPostBookmarkedByUser(postId: string, userId?: string) {
+  if (!userId) return false;
+  const bookmark = await prisma.bookmark.findUnique({
+    where: { userId_postId: { userId, postId } },
+    select: { id: true },
+  });
+  return !!bookmark;
+}
+
+async function hasUserRepostedPost(postId: string, userId?: string) {
+  if (!userId) return false;
+  const repost = await prisma.repost.findUnique({
+    where: { userId_originalPostId: { userId, originalPostId: postId } },
+    select: { id: true, createdAt: true },
+  });
+  return repost ? repost.createdAt : false;
+}
+
+async function resolveQuotedPost(
+  post: PostWithOptionalUser
+): Promise<QuotedPostSummary | null> {
+  if (!post.quotedPostId) {
+    return null;
+  }
+
+  const quoted =
+    post.quotedPost ??
+    (await prisma.post.findUnique({
+      where: { id: post.quotedPostId },
+      include: { user: true },
+    }));
+
+  if (!quoted) {
+    return null;
+  }
+
+  const quotedAuthor = quoted.user
+    ? toUserSummary(quoted.user)
+    : {
+        id: quoted.userId,
+        username: "unknown",
+        displayName: "Unknown",
+        profileImageUrl: null,
+        type: "NORMAL" as const,
+        followersCount: 0,
+        followingCount: 0,
+        postsCount: 0,
+        settings: null,
+      };
+
+  return {
+    id: quoted.id,
+    content: quoted.content,
+    user: quotedAuthor,
+    createdAt: quoted.createdAt,
+  };
 }
 
 export async function toPostResponse(
@@ -298,75 +409,196 @@ export async function toPostResponse(
         settings: null,
       };
   const liked = await isPostLikedByUser(post.id, viewerId);
+  const bookmarked = await isPostBookmarkedByUser(post.id, viewerId);
+  const viewerRepostTimestamp = await hasUserRepostedPost(post.id, viewerId);
+  const quotedPost = await resolveQuotedPost(post);
+
   return {
     ...toPostRecord(post),
     user: userSummary,
     liked,
-    bookmarked: false,
+    bookmarked,
+    reposted: Boolean(viewerRepostTimestamp),
+    quotedPost,
+    repostInfo: {
+      isRepost: false,
+      repostedAt: null,
+      repostedBy: null,
+    },
   };
 }
 
 export function getPostById(postId: string) {
   return prisma.post.findUnique({
     where: { id: postId },
-    include: { user: true },
+    include: {
+      user: true,
+      quotedPost: { include: { user: true } },
+    },
   });
 }
 
-export function createPost(params: {
+export async function createPost(params: {
   userId: string;
   content: string;
   imageUrls: string[];
   visibility: Visibility;
   tags: string[];
   shareToDiary: boolean;
+  quotedPostId?: string | null;
 }) {
-  return prisma.post.create({
-    data: {
-      userId: params.userId,
-      content: params.content,
-      imageUrls: params.imageUrls,
-      visibility: params.visibility,
-      tags: params.tags,
-      shareToDiary: params.shareToDiary,
-    },
+  const createData: Prisma.PostCreateInput = {
+    userId: params.userId,
+    content: params.content,
+    imageUrls: params.imageUrls,
+    visibility: params.visibility,
+    tags: params.tags,
+    shareToDiary: params.shareToDiary,
+  };
+  if (params.quotedPostId) {
+    createData.quotedPostId = params.quotedPostId;
+  }
+  return prisma.$transaction(async (tx) => {
+    const created = await tx.post.create({ data: createData });
+
+    if (params.visibility !== "private") {
+      await tx.user.update({
+        where: { id: params.userId },
+        data: { postsCount: { increment: 1 } },
+      });
+    }
+
+    if (params.quotedPostId) {
+      await tx.post.update({
+        where: { id: params.quotedPostId },
+        data: { quotesCount: { increment: 1 } },
+      });
+    }
+
+    const fullPost = await tx.post.findUnique({
+      where: { id: created.id },
+      include: {
+        user: true,
+        quotedPost: { include: { user: true } },
+      },
+    });
+
+    return fullPost ?? created;
   });
 }
 
-export function updatePost(postId: string, updates: Partial<PostRecord>) {
-  return prisma.post.update({
-    where: { id: postId },
-    data: {
-      content: updates.content,
-      imageUrls: updates.imageUrls,
-      visibility: updates.visibility,
-      tags: updates.tags,
-      shareToDiary: updates.shareToDiary,
-    },
-    include: { user: true },
-  });
+export function updatePost(
+  postId: string,
+  updates: Partial<PostRecord>,
+  options?: { resetCreatedAt?: boolean; markEdited?: boolean; incrementPostsCount?: boolean }
+) {
+  return prisma
+    .$transaction(async (tx) => {
+      const existing = await tx.post.findUnique({ where: { id: postId } });
+      if (!existing) {
+        throw ERROR.NOT_FOUND("Post not found");
+      }
+
+      const updated = await tx.post.update({
+        where: { id: postId },
+        data: {
+          content: typeof updates.content === "undefined" ? undefined : updates.content,
+          imageUrls: typeof updates.imageUrls === "undefined" ? undefined : updates.imageUrls,
+          visibility:
+            typeof updates.visibility === "undefined" ? undefined : updates.visibility,
+          tags: typeof updates.tags === "undefined" ? undefined : updates.tags,
+          shareToDiary:
+            typeof updates.shareToDiary === "undefined" ? undefined : updates.shareToDiary,
+          isEdited: options?.markEdited ? true : undefined,
+          editedAt: options?.markEdited ? new Date() : undefined,
+          createdAt: options?.resetCreatedAt ? new Date() : undefined,
+        },
+        include: {
+          user: true,
+          quotedPost: { include: { user: true } },
+        },
+      });
+
+      if (options?.incrementPostsCount) {
+        await tx.user.update({
+          where: { id: updated.userId },
+          data: { postsCount: { increment: 1 } },
+        });
+      }
+
+      const removedImages = existing.imageUrls.filter(
+        (url) => !updated.imageUrls.includes(url)
+      );
+      return { updated, removedImages };
+    })
+    .then(async ({ updated, removedImages }) => {
+      if (removedImages.length > 0) {
+        await deleteManagedBlobs(removedImages);
+      }
+      return updated;
+    });
 }
 
 export async function deletePost(postId: string) {
-  await prisma.post.delete({ where: { id: postId } });
+  const imageUrls = await prisma.$transaction(async (tx) => {
+    const post = await tx.post.findUnique({ where: { id: postId } });
+    if (!post) {
+      throw ERROR.NOT_FOUND("Post not found");
+    }
+
+    await tx.post.delete({ where: { id: postId } });
+
+    if (post.visibility !== "private") {
+      await tx.user.update({
+        where: { id: post.userId },
+        data: { postsCount: { decrement: 1 } },
+      });
+    }
+
+    if (post.quotedPostId) {
+      await tx.post
+        .update({
+          where: { id: post.quotedPostId },
+          data: { quotesCount: { decrement: 1 } },
+        })
+        .catch(() => null);
+    }
+    return post.imageUrls;
+  });
+  if (imageUrls.length > 0) {
+    await deleteManagedBlobs(imageUrls);
+  }
 }
 
-export function addLike(postId: string, userId: string) {
-  return prisma.$transaction(async (tx) => {
+export function addLike(post: PostWithUser, userId: string) {
+  return prisma
+    .$transaction(async (tx) => {
     const existing = await tx.like.findUnique({
-      where: { postId_userId: { postId, userId } },
+      where: { postId_userId: { postId: post.id, userId } },
     });
     if (existing) {
       throw ERROR.CONFLICT("Already liked");
     }
 
-    await tx.like.create({ data: { postId, userId } });
-    return tx.post.update({
-      where: { id: postId },
-      data: { likesCount: { increment: 1 } },
-      include: { user: true },
+      await tx.like.create({ data: { postId: post.id, userId } });
+      const updated = await tx.post.update({
+        where: { id: post.id },
+        data: { likesCount: { increment: 1 } },
+        include: { user: true },
+      });
+      const notificationDispatch = await maybeCreateNotification(tx, {
+        targetUserId: post.userId,
+        actorId: userId,
+        type: "LIKE",
+        postId: post.id,
+        previewText: post.content,
+      });
+      return { updated, notificationDispatch };
+    })
+    .then(async ({ updated, notificationDispatch }) => {
+      await dispatchNotificationPush(notificationDispatch);
+      return updated;
     });
-  });
 }
 
 export function removeLike(postId: string, userId: string) {
@@ -387,7 +619,83 @@ export function removeLike(postId: string, userId: string) {
   });
 }
 
-function toCommentResponseInternal(comment: CommentWithUser): CommentResponse {
+export function addBookmark(postId: string, userId: string) {
+  return prisma.$transaction(async (tx) => {
+    const existing = await tx.bookmark.findUnique({
+      where: { userId_postId: { userId, postId } },
+    });
+    if (existing) {
+      throw ERROR.CONFLICT("Already bookmarked");
+    }
+    await tx.bookmark.create({ data: { userId, postId } });
+    return { bookmarked: true };
+  });
+}
+
+export function removeBookmark(postId: string, userId: string) {
+  return prisma.$transaction(async (tx) => {
+    const existing = await tx.bookmark.findUnique({
+      where: { userId_postId: { userId, postId } },
+    });
+    if (!existing) {
+      throw ERROR.NOT_FOUND("Bookmark not found");
+    }
+    await tx.bookmark.delete({ where: { id: existing.id } });
+    return { bookmarked: false };
+  });
+}
+
+export function addRepost(post: PostWithUser, userId: string) {
+  return prisma
+    .$transaction(async (tx) => {
+    const existing = await tx.repost.findUnique({
+      where: { userId_originalPostId: { userId, originalPostId: post.id } },
+    });
+    if (existing) {
+      throw ERROR.CONFLICT("Already reposted");
+    }
+    const repost = await tx.repost.create({
+      data: { userId, originalPostId: post.id },
+    });
+    await tx.post.update({
+      where: { id: post.id },
+      data: { repostsCount: { increment: 1 } },
+    });
+      const notificationDispatch = await maybeCreateNotification(tx, {
+        targetUserId: post.userId,
+        actorId: userId,
+        type: "REPOST",
+        postId: post.id,
+        previewText: post.content,
+      });
+      return { repost, notificationDispatch };
+    })
+    .then(async ({ repost, notificationDispatch }) => {
+      await dispatchNotificationPush(notificationDispatch);
+      return repost;
+    });
+}
+
+export function removeRepost(postId: string, userId: string) {
+  return prisma.$transaction(async (tx) => {
+    const existing = await tx.repost.findUnique({
+      where: { userId_originalPostId: { userId, originalPostId: postId } },
+    });
+    if (!existing) {
+      throw ERROR.NOT_FOUND("Repost not found");
+    }
+    await tx.repost.delete({ where: { id: existing.id } });
+    await tx.post.update({
+      where: { id: postId },
+      data: { repostsCount: { decrement: 1 } },
+    });
+  });
+}
+
+function toCommentResponseInternal(
+  comment: CommentWithUser,
+  liked = false
+): CommentResponse {
   return {
     id: comment.id,
     content: comment.content,
@@ -395,17 +703,177 @@ function toCommentResponseInternal(comment: CommentWithUser): CommentResponse {
     createdAt: comment.createdAt,
     updatedAt: comment.updatedAt,
     user: toUserSummary(comment.user),
-    likesCount: 0,
+    likesCount: comment.likesCount,
+    liked,
   };
 }
 
-export async function listComments(postId: string): Promise<CommentResponse[]> {
+async function toNotificationResponseInternal(
+  notification: NotificationWithRelations
+): Promise<NotificationResponse> {
+  const post = notification.post
+    ? await toPostResponse(notification.post, notification.userId)
+    : null;
+  const comment = notification.comment
+    ? toCommentResponseInternal(notification.comment, false)
+    : null;
+
+  return {
+    id: notification.id,
+    userId: notification.userId,
+    actorId: notification.actorId,
+    type: notification.type as NotificationType,
+    postId: notification.postId,
+    commentId: notification.commentId,
+    isRead: notification.isRead,
+    createdAt: notification.createdAt,
+    actor: toUserSummary(notification.actor),
+    post,
+    comment,
+  };
+}
+
+function buildNotificationPreview(text?: string | null) {
+  if (!text) return "";
+  const trimmed = text.trim().replace(/\s+/g, " ");
+  if (trimmed.length <= 60) {
+    return trimmed;
+  }
+  return `${trimmed.slice(0, 57)}...`;
+}
+
+function buildNotificationBody(dispatch: NotificationDispatch) {
+  const preview = buildNotificationPreview(dispatch.previewText);
+  switch (dispatch.type) {
+    case "LIKE":
+      return preview
+        ? `${dispatch.actorName}さんが「${preview}」にいいねしました`
+        : `${dispatch.actorName}さんがあなたの投稿にいいねしました`;
+    case "COMMENT":
+      return preview
+        ? `${dispatch.actorName}さんがコメントしました: 「${preview}」`
+        : `${dispatch.actorName}さんがあなたの投稿にコメントしました`;
+    case "REPOST":
+      return preview
+        ? `${dispatch.actorName}さんが「${preview}」をリポストしました`
+        : `${dispatch.actorName}さんがあなたの投稿をリポストしました`;
+    case "FOLLOW":
+    default:
+      return `${dispatch.actorName}さんがあなたをフォローしました`;
+  }
+}
+
+async function dispatchNotificationPush(dispatch: NotificationDispatch | null) {
+  if (!dispatch?.token) {
+    return;
+  }
+  const body = buildNotificationBody(dispatch);
+  await sendPushNotification({
+    token: dispatch.token,
+    notification: {
+      title: "新しい通知",
+      body,
+    },
+    data: {
+      type: dispatch.type,
+      postId: dispatch.postId ?? "",
+      commentId: dispatch.commentId ?? "",
+    },
+  });
+}
+
+async function maybeCreateNotification(
+  tx: Prisma.TransactionClient,
+  params: {
+    targetUserId: string;
+    actorId: string;
+    type: NotificationType;
+    postId?: string | null;
+    commentId?: string | null;
+    previewText?: string | null;
+  }
+): Promise<NotificationDispatch | null> {
+  if (params.targetUserId === params.actorId) {
+    return null;
+  }
+
+  if (await hasBlockingBetween(params.targetUserId, params.actorId, tx)) {
+    return null;
+  }
+
+  const target = await tx.user.findUnique({
+    where: { id: params.targetUserId },
+    select: { id: true, settings: true, fcmToken: true },
+  });
+  if (!target) {
+    return null;
+  }
+
+  const actor = await tx.user.findUnique({
+    where: { id: params.actorId },
+    select: { displayName: true },
+  });
+  if (!actor) {
+    return null;
+  }
+
+  const settings = parseUserSettings(target.settings);
+  const key = notificationSettingKey[params.type];
+  if (!settings.notifications[key]) {
+    return null;
+  }
+
+  await tx.notification.upsert({
+    where: {
+      userId_actorId_type_postId_commentId: {
+        userId: params.targetUserId,
+        actorId: params.actorId,
+        type: params.type,
+        postId: params.postId ?? null,
+        commentId: params.commentId ?? null,
+      },
+    },
+    update: { isRead: false, createdAt: new Date() },
+    create: {
+      userId: params.targetUserId,
+      actorId: params.actorId,
+      type: params.type,
+      postId: params.postId ?? null,
+      commentId: params.commentId ?? null,
+    },
+  });
+
+  return {
+    type: params.type,
+    targetUserId: params.targetUserId,
+    actorName: actor.displayName,
+    token: settings.notifications.push ? target.fcmToken ?? null : null,
+    postId: params.postId ?? null,
+    commentId: params.commentId ?? null,
+    previewText: params.previewText ?? null,
+  };
+}
+
+export async function listComments(
+  postId: string,
+  viewerId?: string
+): Promise<CommentResponse[]> {
   const comments = await prisma.comment.findMany({
     where: { postId },
     include: { user: true },
     orderBy: { createdAt: "asc" },
   });
-  return comments.map(toCommentResponseInternal);
+  let likedIds = new Set<string>();
+  if (viewerId && comments.length > 0) {
+    const likes = await prisma.commentLike.findMany({
+      where: { userId: viewerId, commentId: { in: comments.map((c) => c.id) } },
+      select: { commentId: true },
+    });
+    likedIds = new Set(likes.map((like) => like.commentId));
+  }
+  return comments.map((comment) =>
+    toCommentResponseInternal(comment, likedIds.has(comment.id))
+  );
 }
 
 export function findCommentById(commentId: string) {
@@ -413,21 +881,32 @@ export function findCommentById(commentId: string) {
 }
 
 export async function addComment(
-  postId: string,
+  post: PostWithUser,
   userId: string,
   content: string
 ): Promise<CommentResponse> {
-  const comment = await prisma.$transaction(async (tx) => {
-    const created = await tx.comment.create({
-      data: { postId, userId, content },
-      include: { user: true },
-    });
-    await tx.post.update({
-      where: { id: postId },
-      data: { commentsCount: { increment: 1 } },
-    });
-    return created;
-  });
+  const { comment, notificationDispatch } = await prisma.$transaction(
+    async (tx) => {
+      const created = await tx.comment.create({
+        data: { postId: post.id, userId, content },
+        include: { user: true },
+      });
+      await tx.post.update({
+        where: { id: post.id },
+        data: { commentsCount: { increment: 1 } },
+      });
+      const dispatchContext = await maybeCreateNotification(tx, {
+        targetUserId: post.userId,
+        actorId: userId,
+        type: "COMMENT",
+        postId: post.id,
+        commentId: created.id,
+        previewText: content,
+      });
+      return { comment: created, notificationDispatch: dispatchContext };
+    }
+  );
+  await dispatchNotificationPush(notificationDispatch);
   return toCommentResponseInternal(comment);
 }
 
@@ -449,12 +928,130 @@ export function toCommentResponse(comment: CommentResponse) {
   return comment;
 }
 
+export function likeComment(commentId: string, userId: string) {
+  return prisma.$transaction(async (tx) => {
+    const existing = await tx.commentLike.findUnique({
+      where: { commentId_userId: { commentId, userId } },
+    });
+    if (existing) {
+      throw ERROR.CONFLICT("Already liked");
+    }
+    const comment = await tx.comment.findUnique({
+      where: { id: commentId },
+      include: { user: true },
+    });
+    if (!comment) {
+      throw ERROR.NOT_FOUND("Comment not found");
+    }
+    await tx.commentLike.create({ data: { commentId, userId } });
+    const updated = await tx.comment.update({
+      where: { id: commentId },
+      data: { likesCount: { increment: 1 } },
+      include: { user: true },
+    });
+    return toCommentResponseInternal(updated, true);
+  });
+}
+
+export function unlikeComment(commentId: string, userId: string) {
+  return prisma.$transaction(async (tx) => {
+    const existing = await tx.commentLike.findUnique({
+      where: { commentId_userId: { commentId, userId } },
+    });
+    if (!existing) {
+      throw ERROR.NOT_FOUND("Like not found");
+    }
+    const updated = await tx.comment.update({
+      where: { id: commentId },
+      data: { likesCount: { decrement: 1 } },
+      include: { user: true },
+    });
+    await tx.commentLike.delete({ where: { id: existing.id } });
+    return toCommentResponseInternal(updated, false);
+  });
+}
+
+export async function listNotificationsForUser(
+  userId: string,
+  options: { cursor?: string | null; limit?: number; unreadOnly?: boolean } = {}
+): Promise<PaginatedResult<NotificationResponse>> {
+  const limit = Math.min(Math.max(options.limit ?? 20, 1), 100);
+  const notifications = await prisma.notification.findMany({
+    where: {
+      userId,
+      ...(options.unreadOnly ? { isRead: false } : {}),
+    },
+    include: {
+      actor: true,
+      post: { include: { user: true, quotedPost: { include: { user: true } } } },
+      comment: { include: { user: true } },
+    },
+    orderBy: { createdAt: "desc" },
+    take: limit + 1,
+    ...(options.cursor ? { skip: 1, cursor: { id: options.cursor } } : {}),
+  });
+
+  const hasNextPage = notifications.length > limit;
+  const nodes = hasNextPage ? notifications.slice(0, limit) : notifications;
+  const nextCursor = hasNextPage ? nodes[nodes.length - 1]?.id ?? null : null;
+  const data = await Promise.all(
+    nodes.map((notification) => toNotificationResponseInternal(notification))
+  );
+
+  return {
+    data,
+    pageInfo: {
+      nextCursor,
+      hasNextPage,
+      count: data.length,
+    },
+  };
+}
+
+export async function markNotificationRead(userId: string, notificationId: string) {
+  const notification = await prisma.notification.findUnique({
+    where: { id: notificationId },
+    include: {
+      actor: true,
+      post: { include: { user: true, quotedPost: { include: { user: true } } } },
+      comment: { include: { user: true } },
+    },
+  });
+  if (!notification) {
+    throw ERROR.NOT_FOUND("Notification not found");
+  }
+  if (notification.userId !== userId) {
+    throw ERROR.FORBIDDEN("You cannot update this notification");
+  }
+
+  const updated = await prisma.notification.update({
+    where: { id: notificationId },
+    data: { isRead: true },
+    include: {
+      actor: true,
+      post: { include: { user: true, quotedPost: { include: { user: true } } } },
+      comment: { include: { user: true } },
+    },
+  });
+
+  return toNotificationResponseInternal(updated);
+}
+
+export async function markAllNotificationsRead(userId: string) {
+  const result = await prisma.notification.updateMany({
+    where: { userId, isRead: false },
+    data: { isRead: true },
+  });
+  return result.count;
+}
+
 export function addFollow(followerId: string, followingId: string) {
   if (followerId === followingId) {
     throw ERROR.INVALID_INPUT("Cannot follow yourself");
   }
 
-  return prisma.$transaction(async (tx) => {
+  return prisma
+    .$transaction(async (tx) => {
     const target = await tx.user.findUnique({ where: { id: followingId } });
     if (!target) {
       throw ERROR.NOT_FOUND("User not found");
@@ -481,8 +1078,18 @@ export function addFollow(followerId: string, followingId: string) {
       data: { followersCount: { increment: 1 } },
     });
 
-    return follow;
-  });
+      const notificationDispatch = await maybeCreateNotification(tx, {
+        targetUserId: followingId,
+        actorId: followerId,
+        type: "FOLLOW",
+      });
+
+      return { follow, notificationDispatch };
+    })
+    .then(async ({ follow, notificationDispatch }) => {
+      await dispatchNotificationPush(notificationDispatch);
+      return follow;
+    });
 }
 
 export function removeFollow(followerId: string, followingId: string) {
@@ -534,7 +1141,101 @@ export async function isFollowingUser(followerId: string, followingId: string) {
   return !!follow;
 }
 
+export async function createBlock(blockerId: string, blockedId: string) {
+  if (blockerId === blockedId) {
+    throw ERROR.INVALID_INPUT("You cannot block yourself");
+  }
+
+  return prisma.$transaction(async (tx) => {
+    const target = await tx.user.findUnique({ where: { id: blockedId } });
+    if (!target) {
+      throw ERROR.NOT_FOUND("User not found");
+    }
+
+    const existing = await tx.block.findUnique({
+      where: { blockerId_blockedId: { blockerId, blockedId } },
+    });
+    if (existing) {
+      return existing;
+    }
+
+    return tx.block.create({
+      data: { blockerId, blockedId },
+    });
+  });
+}
+
+export async function removeBlock(blockId: string, blockerId: string) {
+  return prisma.$transaction(async (tx) => {
+    const block = await tx.block.findUnique({ where: { id: blockId } });
+    if (!block) {
+      throw ERROR.NOT_FOUND("Block not found");
+    }
+    if (block.blockerId !== blockerId) {
+      throw ERROR.FORBIDDEN("You cannot remove this block");
+    }
+    await tx.block.delete({ where: { id: blockId } });
+    return block;
+  });
+}
+
+export async function listBlocks(blockerId: string): Promise<BlockResponse[]> {
+  const blocks = await prisma.block.findMany({
+    where: { blockerId },
+    include: { blocked: true },
+    orderBy: { createdAt: "desc" },
+  });
+  return blocks.map((block) => ({
+    id: block.id,
+    blockerId: block.blockerId,
+    blockedId: block.blockedId,
+    createdAt: block.createdAt,
+    blocked: toUserSummary(block.blocked),
+  }));
+}
+
+export async function createReport(params: {
+  reporterId: string;
+  type: ReportType;
+  targetId: string;
+  reason: ReportReason;
+  description?: string | null;
+}): Promise<ReportResponse> {
+  return prisma.report.create({
+    data: {
+      reporterId: params.reporterId,
+      type: params.type,
+      targetId: params.targetId,
+      reason: params.reason,
+      description: params.description ?? null,
+    },
+  });
+}
+
+async function hasBlockingBetween(
+  userId: string,
+  viewerId?: string,
+  client: Prisma.TransactionClient | typeof prisma = prisma
+) {
+  if (!viewerId) {
+    return false;
+  }
+  const block = await client.block.findFirst({
+    where: {
+      OR: [
+        { blockerId: userId, blockedId: viewerId },
+        { blockerId: viewerId, blockedId: userId },
+      ],
+    },
+    select: { id: true },
+  });
+  return !!block;
+}
+
 export async function canViewPost(post: PrismaPost, viewerId?: string) {
+  if (await hasBlockingBetween(post.userId, viewerId)) {
+    return false;
+  }
   if (post.visibility === "public") {
     return true;
   }

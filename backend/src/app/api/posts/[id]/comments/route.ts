@@ -30,7 +30,7 @@ export async function GET(
     const cursor = searchParams.get("cursor");
     const limit = parseLimit(searchParams.get("limit"), 20, 1, 50);
 
-    const comments = await listComments(post.id);
+    const comments = await listComments(post.id, viewer?.id);
 
     const paginated = paginateArray(comments, {
       cursor,
@@ -73,7 +73,7 @@ export async function POST(
       });
     }
 
-    const comment = await addComment(post.id, user.id, body.content.trim());
+    const comment = await addComment(post, user.id, body.content.trim());
     return NextResponse.json(toCommentResponse(comment), { status: 201 });
   } catch (error) {
     return handleRouteError(error);

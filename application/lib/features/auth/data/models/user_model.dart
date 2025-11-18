@@ -57,6 +57,7 @@ class UserModel {
 
   /// アカウントがバンされているかどうか
   final bool isBanned;
+  final UserSettingsModel settings;
 
   const UserModel({
     required this.id,
@@ -78,6 +79,7 @@ class UserModel {
     this.updatedAt,
     required this.isActive,
     required this.isBanned,
+    this.settings = const UserSettingsModel(),
   });
 
   /// JSONからUserModelを生成
@@ -106,6 +108,9 @@ class UserModel {
           : null,
       isActive: json['isActive'] as bool,
       isBanned: json['isBanned'] as bool,
+      settings: UserSettingsModel.fromJson(
+        json['settings'] as Map<String, dynamic>?,
+      ),
     );
   }
 
@@ -131,6 +136,7 @@ class UserModel {
       'updatedAt': updatedAt?.toIso8601String(),
       'isActive': isActive,
       'isBanned': isBanned,
+      'settings': settings.toJson(),
     };
   }
 
@@ -155,6 +161,7 @@ class UserModel {
     DateTime? updatedAt,
     bool? isActive,
     bool? isBanned,
+    UserSettingsModel? settings,
   }) {
     return UserModel(
       id: id ?? this.id,
@@ -176,6 +183,7 @@ class UserModel {
       updatedAt: updatedAt ?? this.updatedAt,
       isActive: isActive ?? this.isActive,
       isBanned: isBanned ?? this.isBanned,
+      settings: settings ?? this.settings,
     );
   }
 
@@ -194,4 +202,79 @@ class UserModel {
 
   @override
   int get hashCode => id.hashCode;
+}
+
+class UserSettingsModel {
+  const UserSettingsModel({
+    this.notifications = const UserNotificationSettingsModel(),
+    this.postDefaultVisibility = 'public',
+  });
+
+  final UserNotificationSettingsModel notifications;
+  final String postDefaultVisibility;
+
+  factory UserSettingsModel.fromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return const UserSettingsModel();
+    }
+    return UserSettingsModel(
+      notifications: UserNotificationSettingsModel.fromJson(
+        json['notifications'] as Map<String, dynamic>?,
+      ),
+      postDefaultVisibility:
+          (json['postDefaultVisibility'] as String?) ?? 'public',
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'notifications': notifications.toJson(),
+      'postDefaultVisibility': postDefaultVisibility,
+    };
+  }
+}
+
+class UserNotificationSettingsModel {
+  const UserNotificationSettingsModel({
+    this.push = true,
+    this.email = true,
+    this.comment = true,
+    this.like = true,
+    this.repost = true,
+    this.follow = true,
+  });
+
+  final bool push;
+  final bool email;
+  final bool comment;
+  final bool like;
+  final bool repost;
+  final bool follow;
+
+  factory UserNotificationSettingsModel.fromJson(
+    Map<String, dynamic>? json,
+  ) {
+    if (json == null) {
+      return const UserNotificationSettingsModel();
+    }
+    return UserNotificationSettingsModel(
+      push: json['push'] as bool? ?? true,
+      email: json['email'] as bool? ?? true,
+      comment: json['comment'] as bool? ?? true,
+      like: json['like'] as bool? ?? true,
+      repost: json['repost'] as bool? ?? true,
+      follow: json['follow'] as bool? ?? true,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'push': push,
+      'email': email,
+      'comment': comment,
+      'like': like,
+      'repost': repost,
+      'follow': follow,
+    };
+  }
 }

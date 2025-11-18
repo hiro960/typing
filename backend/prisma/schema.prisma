@@ -25,6 +25,27 @@ enum LessonMode {
   challenge
 }
 
+enum NotificationType {
+  LIKE
+  COMMENT
+  REPOST
+  FOLLOW
+}
+
+enum ReportType {
+  POST
+  COMMENT
+  USER
+}
+
+enum ReportReason {
+  SPAM
+  HARASSMENT
+  INAPPROPRIATE_CONTENT
+  HATE_SPEECH
+  OTHER
+}
+
 enum WordStatus {
   MASTERED
   REVIEWING
@@ -52,6 +73,7 @@ model User {
   followingCount          Int       @default(0)
   postsCount              Int       @default(0)
   settings                Json?     // ユーザー設定（通知、表示、タイピング、プライバシー）
+  fcmToken                String?
   createdAt               DateTime  @default(now())
   updatedAt               DateTime  @updatedAt
   lastLoginAt             DateTime?
@@ -61,10 +83,18 @@ model User {
   posts                   Post[]
   comments                Comment[]
   likes                   Like[]
+  commentLikes            CommentLike[]
   following               Follow[]  @relation("Following")
   followers               Follow[]  @relation("Followers")
   lessonCompletions       LessonCompletion[]
   wordbooks               Wordbook[]
+  reposts                 Repost[]
+  bookmarks               Bookmark[]
+  receivedNotifications   Notification[] @relation("ReceivedNotifications")
+  sentNotifications       Notification[] @relation("SentNotifications")
+  reports                 Report[]        @relation("Reporter")
+  blockingUsers           Block[]         @relation("Blocking")
+  blockedByUsers          Block[]         @relation("BlockedBy")
 
   @@index([username])
   @@index([email])
@@ -79,16 +109,27 @@ model Post {
   shareToDiary Boolean  @default(true)
   visibility  String    @default("public")
   userId      String
+  quotedPostId String?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   likesCount  Int       @default(0)
   commentsCount Int     @default(0)
+  repostsCount Int      @default(0)
+  quotesCount  Int      @default(0)
+  isEdited     Boolean  @default(false)
+  editedAt     DateTime?
 
   user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  quotedPost  Post?     @relation("QuotedPosts", fields: [quotedPostId], references: [id], onDelete: SetNull)
+  quotingPosts Post[]   @relation("QuotedPosts")
   comments    Comment[]
   likes       Like[]
+  reposts     Repost[]
+  bookmarks   Bookmark[]
+  notifications Notification[]
 
   @@index([userId])
+  @@index([quotedPostId])
   @@index([createdAt])
 }
 
@@ -99,9 +140,12 @@ model Comment {
   userId    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  likesCount Int     @default(0)
 
   post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  likes     CommentLike[]
+  notifications Notification[]
 
   @@index([postId])
   @@index([userId])
@@ -118,6 +162,96 @@ model Like {
 
   @@unique([postId, userId])
   @@index([userId])
+}
+
+model CommentLike {
+  id        String   @id @default(cuid())
+  commentId String
+  userId    String
+  createdAt DateTime @default(now())
+
+  comment   Comment  @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([commentId, userId])
+  @@index([userId])
+  @@index([commentId])
+}
+
+model Repost {
+  id             String   @id @default(cuid())
+  userId         String
+  originalPostId String
+  createdAt      DateTime @default(now())
+
+  user          User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  originalPost  Post @relation(fields: [originalPostId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, originalPostId])
+  @@index([userId])
+  @@index([originalPostId])
+}
+
+model Bookmark {
+  id        String   @id @default(cuid())
+  userId    String
+  postId    String
+  createdAt DateTime @default(now())
+
+  user      User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post      Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, postId])
+  @@index([userId])
+}
+
+model Notification {
+  id        String           @id @default(cuid())
+  userId    String
+  actorId   String
+  type      NotificationType
+  postId    String?
+  commentId String?
+  isRead    Boolean          @default(false)
+  createdAt DateTime         @default(now())
+
+  user      User   @relation("ReceivedNotifications", fields: [userId], references: [id], onDelete: Cascade)
+  actor     User   @relation("SentNotifications", fields: [actorId], references: [id], onDelete: Cascade)
+  post      Post?  @relation(fields: [postId], references: [id], onDelete: Cascade)
+  comment   Comment? @relation(fields: [commentId], references: [id], onDelete: SetNull)
+
+  @@unique([userId, actorId, type, postId, commentId])
+  @@index([userId, isRead])
+  @@index([createdAt])
+}
+
+model Report {
+  id          String       @id @default(cuid())
+  reporterId  String
+  type        ReportType
+  targetId    String
+  reason      ReportReason
+  description String?
+  status      String       @default("pending")
+  createdAt   DateTime     @default(now())
+
+  reporter    User @relation("Reporter", fields: [reporterId], references: [id], onDelete: Cascade)
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+model Block {
+  id        String   @id @default(cuid())
+  blockerId String
+  blockedId String
+  createdAt DateTime @default(now())
+
+  blocker   User @relation("Blocking", fields: [blockerId], references: [id], onDelete: Cascade)
+  blocked   User @relation("BlockedBy", fields: [blockedId], references: [id], onDelete: Cascade)
+
+  @@unique([blockerId, blockedId])
+  @@index([blockerId])
 }
 
 model Follow {

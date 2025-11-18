@@ -1,10 +1,6 @@
 import { NextRequest } from "next/server";
 import { requireAuthUser } from "@/lib/auth";
-import {
-  findCommentById,
-  getPostById,
-  removeComment,
-} from "@/lib/store";
+import { findCommentById, removeComment } from "@/lib/store";
 import { ERROR, handleRouteError } from "@/lib/errors";
 
 export async function DELETE(
@@ -19,12 +15,7 @@ export async function DELETE(
       throw ERROR.NOT_FOUND("Comment not found");
     }
 
-    const post = await getPostById(comment.postId);
-    if (!post) {
-      throw ERROR.NOT_FOUND("Post not found");
-    }
-
-    if (comment.userId !== user.id && post.userId !== user.id) {
+    if (comment.userId !== user.id) {
       throw ERROR.FORBIDDEN("You cannot delete this comment");
     }
 

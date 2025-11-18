@@ -448,8 +448,6 @@ class _PromptCard extends StatelessWidget {
         ?.copyWith(
       fontSize: isCharacterDrill ? 56 : (isSentence ? 36 : null),
     );
-    final pronunciation = item.pronunciation;
-    final hint = item.hint;
 
     return Container(
       width: double.infinity,

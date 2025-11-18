@@ -7,6 +7,10 @@ import { UserDetail } from '../types';
 const actualAuthModule = jest.requireActual('../auth') as typeof import('../auth');
 import * as authModule from '../auth';
 
+let auth0PayloadSpy:
+  | jest.SpiedFunction<typeof actualAuthModule.getAuth0Payload>
+  | null = null;
+
 /**
  * 認証テストユーティリティ
  *
@@ -38,6 +42,7 @@ export function createMockAuthUser(overrides?: Partial<UserDetail>): UserDetail 
         email: true,
         comment: true,
         like: true,
+        repost: true,
         follow: true,
       },
       theme: 'auto',
@@ -160,23 +165,20 @@ export function clearAuthMock() {
  * Auth0 JWTペイロードをモック化（初回登録用エンドポイント向け）
  */
 export function mockAuth0Payload(payload: JWTPayload) {
-  const getAuth0PayloadMock = authModule.getAuth0Payload as jest.MockedFunction<
-    typeof authModule.getAuth0Payload
-  >;
-
-  getAuth0PayloadMock.mockResolvedValue(payload);
+  if (!auth0PayloadSpy) {
+    auth0PayloadSpy = jest.spyOn(authModule, 'getAuth0Payload');
+  }
+  auth0PayloadSpy.mockResolvedValue(payload);
 }
 
 /**
  * Auth0ペイロードのモックをクリア
  */
 export function clearAuth0PayloadMock() {
-  const getAuth0PayloadMock = authModule.getAuth0Payload as jest.MockedFunction<
-    typeof authModule.getAuth0Payload
-  >;
-
-  getAuth0PayloadMock.mockReset();
-  getAuth0PayloadMock.mockImplementation(actualAuthModule.getAuth0Payload);
+  if (auth0PayloadSpy) {
+    auth0PayloadSpy.mockRestore();
+    auth0PayloadSpy = null;
+  }
 }
 
 /**

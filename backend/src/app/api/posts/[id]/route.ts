@@ -51,6 +51,20 @@ export async function PUT(
     }
 
     const body = await request.json();
+    if (typeof body.quotedPostId !== "undefined") {
+      throw ERROR.INVALID_INPUT("quotedPostId cannot be updated", {
+        field: "quotedPostId",
+      });
+    }
+
+    const isDraft = post.visibility === "private";
+    const publishedAt = new Date(post.createdAt);
+    const twentyFourHoursMs = 24 * 60 * 60 * 1000;
+    if (!isDraft && Date.now() - publishedAt.getTime() > twentyFourHoursMs) {
+      throw ERROR.FORBIDDEN("This post can no longer be edited");
+    }
+
+    let isPublishing = false;
     const updates: Partial<PostRecord> = {};
 
     if (typeof body.content !== "undefined") {
@@ -90,20 +104,13 @@ export async function PUT(
         });
       }
       updates.visibility = body.visibility as Visibility;
+      if (post.visibility === "private" && body.visibility !== "private") {
+        isPublishing = true;
+      }
     }
 
     if (typeof body.tags !== "undefined") {
-      if (!Array.isArray(body.tags)) {
-        throw ERROR.INVALID_INPUT("tags must be an array", { field: "tags" });
-      }
-      body.tags.forEach((tag: unknown, index: number) => {
-        if (typeof tag !== "string" || tag.length > 40) {
-          throw ERROR.INVALID_INPUT("tags must be string array (<=40 chars)", {
-            field: `tags[${index}]`,
-          });
-        }
-      });
-      updates.tags = body.tags;
+      updates.tags = normalizeTagsInput(body.tags);
     }
 
     if (typeof body.shareToDiary !== "undefined") {
@@ -115,7 +122,17 @@ export async function PUT(
       updates.shareToDiary = body.shareToDiary;
     }
 
-    const updated = await updatePost(id, updates);
+    const hasContentMutation =
+      typeof updates.content !== "undefined" ||
+      typeof updates.imageUrls !== "undefined" ||
+      typeof updates.tags !== "undefined" ||
+      typeof updates.shareToDiary !== "undefined";
+
+    const updated = await updatePost(id, updates, {
+      resetCreatedAt: isPublishing,
+      markEdited: !isPublishing && !isDraft && hasContentMutation,
+      incrementPostsCount: isPublishing,
+    });
     return NextResponse.json(await toPostResponse(updated, user.id));
   } catch (error) {
     return handleRouteError(error);
@@ -141,4 +158,30 @@ export async function DELETE(
   } catch (error) {
     return handleRouteError(error);
   }
+}
+
+function normalizeTagsInput(tags: unknown): string[] {
+  if (!Array.isArray(tags)) {
+    throw ERROR.INVALID_INPUT("tags must be an array", { field: "tags" });
+  }
+  const normalized = new Set<string>();
+  tags.forEach((tag, index) => {
+    if (typeof tag !== "string") {
+      throw ERROR.INVALID_INPUT("tags must contain strings", { field: `tags[${index}]` });
+    }
+    let value = tag.trim().replace(/^#/, "").trim();
+    if (!value) {
+      return;
+    }
+    if (/^[a-zA-Z0-9_]+$/.test(value)) {
+      value = value.toLowerCase();
+    }
+    if (value.length > 40) {
+      throw ERROR.INVALID_INPUT("tags must be string array (<=40 chars)", {
+        field: `tags[${index}]`,
+      });
+    }
+    normalized.add(value);
+  });
+  return Array.from(normalized);
 }

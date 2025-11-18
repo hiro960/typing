@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:developer' as developer;
 // import 'dart:math' as developer;
 
-import 'package:characters/characters.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../lessons/data/models/lesson_models.dart';
@@ -10,7 +9,6 @@ import '../../../lessons/domain/providers/lesson_progress_providers.dart';
 import '../../../lessons/domain/providers/lesson_providers.dart';
 import '../../data/models/typing_models.dart';
 import '../services/hangul_composer.dart';
-import '../../data/repositories/typing_repository.dart';
 
 part 'typing_session_provider.g.dart';
 

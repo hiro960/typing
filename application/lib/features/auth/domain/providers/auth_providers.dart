@@ -6,6 +6,7 @@ import '../../data/repositories/auth_repository.dart';
 import '../../data/models/user_model.dart';
 import '../../data/models/user_status_response.dart';
 import '../../../../core/utils/logger.dart';
+import '../../../diary/domain/providers/diary_providers.dart';
 
 part 'auth_providers.g.dart';
 
@@ -235,6 +236,7 @@ class AuthStateNotifier extends _$AuthStateNotifier {
 
       final authRepository = ref.read(authRepositoryProvider);
       await authRepository.logout();
+      await ref.read(diaryRepositoryProvider).clearPushToken();
 
       AppLogger.auth('Logout successful');
       state = const AuthStateData.unauthenticated();

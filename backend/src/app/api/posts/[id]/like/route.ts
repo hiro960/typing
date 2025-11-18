@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAuthUser } from "@/lib/auth";
-import { addLike, getPostById, removeLike } from "@/lib/store";
+import { addLike, canViewPost, getPostById, removeLike } from "@/lib/store";
 import { handleRouteError, ERROR } from "@/lib/errors";
 
 export async function POST(
@@ -14,7 +14,10 @@ export async function POST(
     if (!post) {
       throw ERROR.NOT_FOUND("Post not found");
     }
-    const updated = await addLike(post.id, user.id);
+    if (!(await canViewPost(post, user.id))) {
+      throw ERROR.FORBIDDEN("You cannot like this post");
+    }
+    const updated = await addLike(post, user.id);
     return NextResponse.json({
       likesCount: updated.likesCount,
       liked: true,
@@ -34,6 +37,9 @@ export async function DELETE(
     const post = await getPostById(id);
     if (!post) {
       throw ERROR.NOT_FOUND("Post not found");
+    }
+    if (!(await canViewPost(post, user.id))) {
+      throw ERROR.FORBIDDEN("You cannot like this post");
     }
     const updated = await removeLike(post.id, user.id);
     return NextResponse.json({
