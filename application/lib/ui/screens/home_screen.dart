@@ -174,7 +174,7 @@ class _StatHighlights extends StatelessWidget {
       (
         label: 'WPM',
         value: stats.wpmAvg.toStringAsFixed(0),
-        caption: 'ベスト更新を目指そう',
+        caption: '最高記録',
         icon: Icons.speed,
       ),
       (
