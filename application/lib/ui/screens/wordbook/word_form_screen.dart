@@ -66,7 +66,7 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.isEditing ? '単語を編集' : '新しい単語を追加'),
+        title: Text(widget.isEditing ? '単語を編集' : '新しい単語/文章を追加'),
       ),
       body: Column(
         children: [
@@ -83,7 +83,7 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
                       readOnly: true,
                       showCursor: true,
                       decoration: const InputDecoration(
-                        labelText: '単語 *',
+                        labelText: '単語/文章 *',
                         helperText: 'カスタムキーボードで入力します',
                       ),
                       maxLength: 100,
@@ -92,7 +92,7 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
                       },
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
-                          return '単語を入力してください';
+                          return '単語/文章を入力してください';
                         }
                         return null;
                       },

@@ -6,6 +6,7 @@ import '../../../features/wordbook/data/models/word_model.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
 import 'word_detail_screen.dart';
 import 'word_form_screen.dart';
+import 'word_quiz_screen.dart';
 
 class WordbookScreen extends ConsumerStatefulWidget {
   const WordbookScreen({super.key});
@@ -36,6 +37,11 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
       ),
     );
 
+    final reviewableWords = (asyncWords.value ?? [])
+        .where((word) => word.status != WordStatus.MASTERED)
+        .toList();
+    final canStartQuiz = reviewableWords.isNotEmpty;
+
     final isLoading = asyncWords.isLoading;
     final theme = Theme.of(context);
 
@@ -45,95 +51,116 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
-            child: FHeader(
-              title: Text('📖 単語帳', style: theme.textTheme.headlineSmall),
-              suffixes: [
-                FButton(
-                  style: FButtonStyle.ghost(),
-                  onPress: () => _openForm(),
-                  child: const Text('新規単語追加'),
-                ),
-              ],
-            ),
-          ),
-          if (isLoading) const LinearProgressIndicator(minHeight: 2),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: SegmentedButton<WordCategory>(
-              segments: [
-                for (final category in WordCategory.values)
-                  ButtonSegment(
-                    value: category,
-                    label: Text(category.label),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
+              child: FHeader(
+                title: Text('📖 単語帳', style: theme.textTheme.headlineSmall),
+                suffixes: [
+                  FButton(
+                    style: FButtonStyle.ghost(),
+                    onPress: () => _openForm(),
+                    child: const Text('新規単語追加'),
                   ),
-              ],
-              selected: {_category},
-              onSelectionChanged: (selection) {
-                if (selection.isEmpty) return;
-                setState(() => _category = selection.first);
-              },
-              showSelectedIcon: false,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
-            child: TextField(
-              controller: _searchController,
-              onChanged: (_) => setState(() {}),
-              decoration: const InputDecoration(
-                prefixIcon: Icon(Icons.search),
-                hintText: '単語・意味・例文で検索',
+                ],
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
-            child: Wrap(
-              spacing: 8,
-              children: [
-                for (final status in WordStatus.values)
-                  FilterChip(
-                    label: Text(status.label),
-                    selected: _statusFilters.contains(status),
-                    onSelected: (_) => _toggleStatus(status),
+            if (isLoading) const LinearProgressIndicator(minHeight: 2),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: SegmentedButton<WordCategory>(
+                      segments: [
+                        for (final category in WordCategory.values)
+                          ButtonSegment(
+                            value: category,
+                            label: Text(category.label),
+                          ),
+                      ],
+                      selected: {_category},
+                      onSelectionChanged: (selection) {
+                        if (selection.isEmpty) return;
+                        setState(() => _category = selection.first);
+                      },
+                      showSelectedIcon: false,
+                    ),
                   ),
-              ],
+                  const SizedBox(width: 12),
+                  FilledButton.icon(
+                    onPressed: canStartQuiz ? () => _startQuiz(reviewableWords) : null,
+                    icon: const Icon(Icons.quiz_outlined),
+                    label: const Text('クイズ'),
+                  ),
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: 12),
-          Expanded(
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
+              child: TextField(
+                controller: _searchController,
+                onChanged: (_) => setState(() {}),
+                decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.search),
+                  hintText: '単語・意味・例文で検索',
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
+              child: Wrap(
+                spacing: 8,
+                children: [
+                  for (final status in WordStatus.values)
+                    FilterChip(
+                      label: Text(status.label),
+                      selected: _statusFilters.contains(status),
+                      onSelected: (_) => _toggleStatus(status),
+                    ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 12),
+            Expanded(
               child: RefreshIndicator(
                 onRefresh: () =>
-                  ref.read(wordbookProvider.notifier).refresh(),
-              child: filteredWords.isEmpty
-                  ? _EmptyState(
-                      onAdd: _openForm,
-                    )
-                  : GridView.builder(
-                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
-                      physics: const AlwaysScrollableScrollPhysics(),
-                      itemCount: filteredWords.length,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: 16,
-                        crossAxisSpacing: 16,
-                        childAspectRatio: 0.95,
+                    ref.read(wordbookProvider.notifier).refresh(),
+                child: filteredWords.isEmpty
+                    ? _EmptyState(
+                        onAdd: _openForm,
+                      )
+                    : GridView.builder(
+                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
+                        physics: const AlwaysScrollableScrollPhysics(),
+                        itemCount: filteredWords.length,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 16,
+                          crossAxisSpacing: 16,
+                          childAspectRatio: 0.95,
+                        ),
+                        itemBuilder: (context, index) {
+                          final word = filteredWords[index];
+                          return _WordCard(
+                            word: word,
+                            onTap: () => _openDetail(word.id),
+                          );
+                        },
                       ),
-                      itemBuilder: (context, index) {
-                        final word = filteredWords[index];
-                        return _WordCard(
-                          word: word,
-                          onTap: () => _openDetail(word.id),
-                        );
-                      },
-                    ),
+              ),
             ),
-          ),
-        ],
+          ],
         ),
+      ),
+    );
+  }
+
+  Future<void> _startQuiz(List<Word> words) async {
+    if (words.isEmpty) return;
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => WordQuizScreen(words: words),
       ),
     );
   }

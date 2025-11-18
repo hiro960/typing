@@ -1,9 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:math';
-
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -133,9 +131,7 @@ class WordbookNotifier extends _$WordbookNotifier {
     required WordStatus status,
     List<String> tags = const [],
   }) async {
-    final isOnline = await _hasConnection();
-
-    if (isOnline) {
+    try {
       final repository = ref.read(wordbookRepositoryProvider);
       final created = await repository.createWord(
         word: word,
@@ -150,17 +146,20 @@ class WordbookNotifier extends _$WordbookNotifier {
       final updated = [created, ...current];
       state = AsyncData(updated);
       await _saveToCache(updated);
-      return;
+    } catch (error) {
+      AppLogger.info(
+        'Failed to create word online, saving to offline queue',
+        tag: 'WordbookNotifier',
+      );
+      await _saveToOfflineQueue(
+        word: word,
+        meaning: meaning,
+        example: example,
+        category: category,
+        status: status,
+        tags: tags,
+      );
     }
-
-    await _saveToOfflineQueue(
-      word: word,
-      meaning: meaning,
-      example: example,
-      category: category,
-      status: status,
-      tags: tags,
-    );
   }
 
   Future<void> _saveToOfflineQueue({
@@ -233,27 +232,9 @@ class WordbookNotifier extends _$WordbookNotifier {
     WordStatus? status,
     List<String>? tags,
   }) async {
-    final isOnline = await _hasConnection();
     final currentWords = state.value ?? [];
 
-    if (isOnline) {
-      final repository = ref.read(wordbookRepositoryProvider);
-      final updated = await repository.updateWord(
-        id: id,
-        word: word,
-        meaning: meaning,
-        example: example,
-        category: category,
-        status: status,
-        tags: tags,
-      );
-
-      final mapped = currentWords.map((w) => w.id == id ? updated : w).toList();
-      state = AsyncData(mapped);
-      await _saveToCache(mapped);
-      return;
-    }
-
+    // Optimistic update
     final updatedWords = currentWords.map((entry) {
       if (entry.id != id) return entry;
       return entry.copyWith(
@@ -282,6 +263,7 @@ class WordbookNotifier extends _$WordbookNotifier {
       return;
     }
 
+    // Handle temp IDs (offline-created words)
     if (id.startsWith('temp_')) {
       await ref
           .read(wordbookOfflineQueueProvider.notifier)
@@ -289,46 +271,74 @@ class WordbookNotifier extends _$WordbookNotifier {
       return;
     }
 
-    final operation = PendingOperation(
-      id: _uuid.v4(),
-      operationType: 'UPDATE',
-      wordId: id,
-      tempId: null,
-      data: changes,
-      createdAt: DateTime.now(),
-    );
+    // Try to update on server
+    try {
+      final repository = ref.read(wordbookRepositoryProvider);
+      final updated = await repository.updateWord(
+        id: id,
+        word: word,
+        meaning: meaning,
+        example: example,
+        category: category,
+        status: status,
+        tags: tags,
+      );
 
-    await ref.read(wordbookOfflineQueueProvider.notifier).addOperation(operation);
+      final mapped = currentWords.map((w) => w.id == id ? updated : w).toList();
+      state = AsyncData(mapped);
+      await _saveToCache(mapped);
+    } catch (error) {
+      AppLogger.info(
+        'Failed to update word online, saving to offline queue',
+        tag: 'WordbookNotifier',
+      );
+      final operation = PendingOperation(
+        id: _uuid.v4(),
+        operationType: 'UPDATE',
+        wordId: id,
+        tempId: null,
+        data: changes,
+        createdAt: DateTime.now(),
+      );
+      await ref.read(wordbookOfflineQueueProvider.notifier).addOperation(operation);
+    }
   }
 
   Future<void> deleteWord(String id) async {
-    final isOnline = await _hasConnection();
     final currentWords = state.value ?? [];
 
+    // Optimistic delete
     final newWords = currentWords.where((word) => word.id != id).toList();
     state = AsyncData(newWords);
     await _saveToCache(newWords);
 
-    if (isOnline && !id.startsWith('temp_')) {
-      final repository = ref.read(wordbookRepositoryProvider);
-      await repository.deleteWord(id);
+    // Handle temp IDs (offline-created words)
+    if (id.startsWith('temp_')) {
+      await ref
+          .read(wordbookOfflineQueueProvider.notifier)
+          .removeOperationsForTempId(id);
       return;
     }
 
-    final operation = PendingOperation(
-      id: _uuid.v4(),
-      operationType: 'DELETE',
-      wordId: id,
-      tempId: null,
-      data: const {},
-      createdAt: DateTime.now(),
-    );
-    final queue = ref.read(wordbookOfflineQueueProvider.notifier);
-    if (id.startsWith('temp_')) {
-      await queue.removeOperationsForTempId(id);
-      return;
+    // Try to delete on server
+    try {
+      final repository = ref.read(wordbookRepositoryProvider);
+      await repository.deleteWord(id);
+    } catch (error) {
+      AppLogger.info(
+        'Failed to delete word online, saving to offline queue',
+        tag: 'WordbookNotifier',
+      );
+      final operation = PendingOperation(
+        id: _uuid.v4(),
+        operationType: 'DELETE',
+        wordId: id,
+        tempId: null,
+        data: const {},
+        createdAt: DateTime.now(),
+      );
+      await ref.read(wordbookOfflineQueueProvider.notifier).addOperation(operation);
     }
-    await queue.addOperation(operation);
   }
 
   Future<void> executeOperation(PendingOperation operation) async {
@@ -422,26 +432,14 @@ class WordbookNotifier extends _$WordbookNotifier {
     state = AsyncData(updated);
     await _saveToCache(updated);
   }
-
-  Future<bool> _hasConnection() async {
-    final results = await Connectivity().checkConnectivity();
-    return results.any((result) => result != ConnectivityResult.none);
-  }
 }
 
 @Riverpod(keepAlive: true)
 class WordbookOfflineQueue extends _$WordbookOfflineQueue {
   static const _queueKey = 'wordbook_offline_queue_v1';
-  StreamSubscription<List<ConnectivityResult>>? _subscription;
 
   @override
   FutureOr<List<PendingOperation>> build() async {
-    _subscription = Connectivity().onConnectivityChanged.listen((results) {
-      if (results.any((result) => result != ConnectivityResult.none)) {
-        processQueue();
-      }
-    });
-    ref.onDispose(() => _subscription?.cancel());
     return _loadQueue();
   }
 
