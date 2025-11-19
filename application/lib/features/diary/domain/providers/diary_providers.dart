@@ -218,21 +218,7 @@ class DiaryTimelineController extends _$DiaryTimelineController {
     }
   }
 
-  Future<void> toggleRepost(String postId, {required bool repost}) async {
-    final previous = state;
-    _updatePostEverywhere(postId, (post) {
-      final updatedCount = repost
-          ? post.repostsCount + 1
-          : (post.repostsCount - 1).clamp(0, 1 << 31);
-      return post.copyWith(reposted: repost, repostsCount: updatedCount);
-    });
-    try {
-      await _repository.toggleRepost(postId, repost: repost);
-    } catch (error) {
-      state = previous;
-      rethrow;
-    }
-  }
+
 
   void _updatePostEverywhere(
     String postId,

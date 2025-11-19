@@ -24,6 +24,7 @@ import {
   PaginatedResult,
   PostRecord,
   PostResponse,
+  QuotedPostSummary,
   ReportReason,
   ReportType,
   ReportResponse,
@@ -42,7 +43,6 @@ const defaultSettings: UserSettings = {
     email: true,
     comment: true,
     like: true,
-    repost: true,
     follow: true,
   },
   theme: "auto",
@@ -61,7 +61,6 @@ const notificationSettingKey: Record<
 > = {
   LIKE: "like",
   COMMENT: "comment",
-  REPOST: "repost",
   FOLLOW: "follow",
 };
 
@@ -315,7 +314,6 @@ function toPostRecord(post: PrismaPost): PostRecord {
     updatedAt: post.updatedAt,
     likesCount: post.likesCount,
     commentsCount: post.commentsCount,
-    repostsCount: post.repostsCount,
     quotesCount: post.quotesCount,
     isEdited: post.isEdited ?? false,
     editedAt: post.editedAt,
@@ -340,14 +338,7 @@ async function isPostBookmarkedByUser(postId: string, userId?: string) {
   return !!bookmark;
 }
 
-async function hasUserRepostedPost(postId: string, userId?: string) {
-  if (!userId) return false;
-  const repost = await prisma.repost.findUnique({
-    where: { userId_originalPostId: { userId, originalPostId: postId } },
-    select: { id: true, createdAt: true },
-  });
-  return repost ? repost.createdAt : false;
-}
+
 
 async function resolveQuotedPost(
   post: PostWithOptionalUser
@@ -410,7 +401,6 @@ export async function toPostResponse(
     };
   const liked = await isPostLikedByUser(post.id, viewerId);
   const bookmarked = await isPostBookmarkedByUser(post.id, viewerId);
-  const viewerRepostTimestamp = await hasUserRepostedPost(post.id, viewerId);
   const quotedPost = await resolveQuotedPost(post);
 
   return {
@@ -418,13 +408,7 @@ export async function toPostResponse(
     user: userSummary,
     liked,
     bookmarked,
-    reposted: Boolean(viewerRepostTimestamp),
     quotedPost,
-    repostInfo: {
-      isRepost: false,
-      repostedAt: null,
-      repostedBy: null,
-    },
   };
 }
 
@@ -447,7 +431,7 @@ export async function createPost(params: {
   shareToDiary: boolean;
   quotedPostId?: string | null;
 }) {
-  const createData: Prisma.PostCreateInput = {
+  const createData: Prisma.PostUncheckedCreateInput = {
     userId: params.userId,
     content: params.content,
     imageUrls: params.imageUrls,
@@ -645,52 +629,7 @@ export function removeBookmark(postId: string, userId: string) {
   });
 }
 
-export function addRepost(post: PostWithUser, userId: string) {
-  return prisma
-    .$transaction(async (tx) => {
-      const existing = await tx.repost.findUnique({
-        where: { userId_originalPostId: { userId, originalPostId: post.id } },
-      });
-      if (existing) {
-        throw ERROR.CONFLICT("Already reposted");
-      }
-      const repost = await tx.repost.create({
-        data: { userId, originalPostId: post.id },
-      });
-      const updatedPost = await tx.post.update({
-        where: { id: post.id },
-        data: { repostsCount: { increment: 1 } },
-      });
-      const notificationDispatch = await maybeCreateNotification(tx, {
-        targetUserId: post.userId,
-        actorId: userId,
-        type: "REPOST",
-        postId: post.id,
-        previewText: post.content,
-      });
-      return { repost, updatedPost, notificationDispatch };
-    })
-    .then(async ({ repost, updatedPost, notificationDispatch }) => {
-      await dispatchNotificationPush(notificationDispatch);
-      return { repost, updatedPost };
-    });
-}
 
-export function removeRepost(postId: string, userId: string) {
-  return prisma.$transaction(async (tx) => {
-    const existing = await tx.repost.findUnique({
-      where: { userId_originalPostId: { userId, originalPostId: postId } },
-    });
-    if (!existing) {
-      throw ERROR.NOT_FOUND("Repost not found");
-    }
-    await tx.repost.delete({ where: { id: existing.id } });
-    return tx.post.update({
-      where: { id: postId },
-      data: { repostsCount: { decrement: 1 } },
-    });
-  });
-}
 
 function toCommentResponseInternal(
   comment: CommentWithUser,
@@ -753,10 +692,7 @@ function buildNotificationBody(dispatch: NotificationDispatch) {
       return preview
         ? `${dispatch.actorName}さんがコメントしました: 「${preview}」`
         : `${dispatch.actorName}さんがあなたの投稿にコメントしました`;
-    case "REPOST":
-      return preview
-        ? `${dispatch.actorName}さんが「${preview}」をリポストしました`
-        : `${dispatch.actorName}さんがあなたの投稿をリポストしました`;
+
     case "FOLLOW":
     default:
       return `${dispatch.actorName}さんがあなたをフォローしました`;
@@ -829,8 +765,8 @@ async function maybeCreateNotification(
         userId: params.targetUserId,
         actorId: params.actorId,
         type: params.type,
-        postId: params.postId ?? null,
-        commentId: params.commentId ?? null,
+        postId: (params.postId ?? null) as any,
+        commentId: (params.commentId ?? null) as any,
       },
     },
     update: { isRead: false, createdAt: new Date() },
@@ -848,8 +784,8 @@ async function maybeCreateNotification(
     targetUserId: params.targetUserId,
     actorName: actor.displayName,
     token: settings.notifications.push ? target.fcmToken ?? null : null,
-    postId: params.postId ?? null,
-    commentId: params.commentId ?? null,
+    postId: params.postId,
+    commentId: params.commentId,
     previewText: params.previewText ?? null,
   };
 }
@@ -1201,7 +1137,7 @@ export async function createReport(params: {
   reason: ReportReason;
   description?: string | null;
 }): Promise<ReportResponse> {
-  return prisma.report.create({
+  const report = await prisma.report.create({
     data: {
       reporterId: params.reporterId,
       type: params.type,
@@ -1209,7 +1145,14 @@ export async function createReport(params: {
       reason: params.reason,
       description: params.description ?? null,
     },
+    include: {
+      reporter: true,
+    },
   });
+  return {
+    ...report,
+    reporter: toUserSummary(report.reporter),
+  };
 }
 
 async function hasBlockingBetween(

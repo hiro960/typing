@@ -53,14 +53,13 @@ export function createMockPost(overrides?: Partial<Post>): Post {
     likesCount: 0,
     commentsCount: 0,
     quotedPostId: null,
-    repostsCount: 0,
     quotesCount: 0,
     isEdited: false,
     editedAt: null,
     createdAt: new Date('2024-01-01T00:00:00Z'),
     updatedAt: new Date('2024-01-01T00:00:00Z'),
     ...overrides,
-  };
+  } as unknown as Post;
 }
 
 /**
@@ -74,7 +73,7 @@ export function createMockComment(overrides?: Partial<Comment>): Comment {
     userId: 'usr_test_123',
     createdAt: new Date('2024-01-01T00:00:00Z'),
     updatedAt: new Date('2024-01-01T00:00:00Z'),
-     likesCount: 0,
+    likesCount: 0,
     ...overrides,
   };
 }

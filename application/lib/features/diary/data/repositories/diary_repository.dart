@@ -235,23 +235,7 @@ class DiaryRepository {
     }
   }
 
-  Future<void> toggleRepost(String postId, {required bool repost}) async {
-    try {
-      if (repost) {
-        await _apiClient.dio.post('/api/posts/$postId/repost');
-      } else {
-        await _apiClient.dio.delete('/api/posts/$postId/repost');
-      }
-    } on DioException catch (error, stackTrace) {
-      AppLogger.error(
-        'Failed to toggle repost',
-        tag: 'DiaryRepository',
-        error: error,
-        stackTrace: stackTrace,
-      );
-      throw ApiClientService.handleDioException(error);
-    }
-  }
+
 
   Future<DiaryCommentsPage> fetchComments(
     String postId, {

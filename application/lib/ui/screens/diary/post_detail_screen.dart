@@ -120,19 +120,7 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
     }
   }
 
-  Future<void> _toggleRepost() async {
-    try {
-      await ref
-          .read(diaryTimelineControllerProvider.notifier)
-          .toggleRepost(_post.id, repost: !_post.reposted);
-      await _refreshPost();
-    } catch (error) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(error.toString())),
-      );
-    }
-  }
+
 
   Future<void> _editPost() async {
     final updated = await Navigator.of(context).push<DiaryPost>(
@@ -346,7 +334,6 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
                       onTap: () {},
                       onToggleLike: _togglePostLike,
                       onToggleBookmark: _toggleBookmark,
-                      onToggleRepost: _toggleRepost,
                       onComment: () {},
                       onQuote: _quotePost,
                       onBlock: _blockAuthor,

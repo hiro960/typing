@@ -575,299 +575,6 @@ $DiaryUserSummaryCopyWith<$Res> get user {
 
 
 /// @nodoc
-mixin _$DiaryRepostInfo {
-
- bool get isRepost; DiaryUserSummary? get repostedBy; DateTime? get repostedAt;
-/// Create a copy of DiaryRepostInfo
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$DiaryRepostInfoCopyWith<DiaryRepostInfo> get copyWith => _$DiaryRepostInfoCopyWithImpl<DiaryRepostInfo>(this as DiaryRepostInfo, _$identity);
-
-  /// Serializes this DiaryRepostInfo to a JSON map.
-  Map<String, dynamic> toJson();
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DiaryRepostInfo&&(identical(other.isRepost, isRepost) || other.isRepost == isRepost)&&(identical(other.repostedBy, repostedBy) || other.repostedBy == repostedBy)&&(identical(other.repostedAt, repostedAt) || other.repostedAt == repostedAt));
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,isRepost,repostedBy,repostedAt);
-
-@override
-String toString() {
-  return 'DiaryRepostInfo(isRepost: $isRepost, repostedBy: $repostedBy, repostedAt: $repostedAt)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class $DiaryRepostInfoCopyWith<$Res>  {
-  factory $DiaryRepostInfoCopyWith(DiaryRepostInfo value, $Res Function(DiaryRepostInfo) _then) = _$DiaryRepostInfoCopyWithImpl;
-@useResult
-$Res call({
- bool isRepost, DiaryUserSummary? repostedBy, DateTime? repostedAt
-});
-
-
-$DiaryUserSummaryCopyWith<$Res>? get repostedBy;
-
-}
-/// @nodoc
-class _$DiaryRepostInfoCopyWithImpl<$Res>
-    implements $DiaryRepostInfoCopyWith<$Res> {
-  _$DiaryRepostInfoCopyWithImpl(this._self, this._then);
-
-  final DiaryRepostInfo _self;
-  final $Res Function(DiaryRepostInfo) _then;
-
-/// Create a copy of DiaryRepostInfo
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? isRepost = null,Object? repostedBy = freezed,Object? repostedAt = freezed,}) {
-  return _then(_self.copyWith(
-isRepost: null == isRepost ? _self.isRepost : isRepost // ignore: cast_nullable_to_non_nullable
-as bool,repostedBy: freezed == repostedBy ? _self.repostedBy : repostedBy // ignore: cast_nullable_to_non_nullable
-as DiaryUserSummary?,repostedAt: freezed == repostedAt ? _self.repostedAt : repostedAt // ignore: cast_nullable_to_non_nullable
-as DateTime?,
-  ));
-}
-/// Create a copy of DiaryRepostInfo
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$DiaryUserSummaryCopyWith<$Res>? get repostedBy {
-    if (_self.repostedBy == null) {
-    return null;
-  }
-
-  return $DiaryUserSummaryCopyWith<$Res>(_self.repostedBy!, (value) {
-    return _then(_self.copyWith(repostedBy: value));
-  });
-}
-}
-
-
-/// Adds pattern-matching-related methods to [DiaryRepostInfo].
-extension DiaryRepostInfoPatterns on DiaryRepostInfo {
-/// A variant of `map` that fallback to returning `orElse`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
-
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _DiaryRepostInfo value)?  $default,{required TResult orElse(),}){
-final _that = this;
-switch (_that) {
-case _DiaryRepostInfo() when $default != null:
-return $default(_that);case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// Callbacks receives the raw object, upcasted.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case final Subclass2 value:
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _DiaryRepostInfo value)  $default,){
-final _that = this;
-switch (_that) {
-case _DiaryRepostInfo():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
-}
-/// A variant of `map` that fallback to returning `null`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _DiaryRepostInfo value)?  $default,){
-final _that = this;
-switch (_that) {
-case _DiaryRepostInfo() when $default != null:
-return $default(_that);case _:
-  return null;
-
-}
-}
-/// A variant of `when` that fallback to an `orElse` callback.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
-
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool isRepost,  DiaryUserSummary? repostedBy,  DateTime? repostedAt)?  $default,{required TResult orElse(),}) {final _that = this;
-switch (_that) {
-case _DiaryRepostInfo() when $default != null:
-return $default(_that.isRepost,_that.repostedBy,_that.repostedAt);case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// As opposed to `map`, this offers destructuring.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case Subclass2(:final field2):
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool isRepost,  DiaryUserSummary? repostedBy,  DateTime? repostedAt)  $default,) {final _that = this;
-switch (_that) {
-case _DiaryRepostInfo():
-return $default(_that.isRepost,_that.repostedBy,_that.repostedAt);case _:
-  throw StateError('Unexpected subclass');
-
-}
-}
-/// A variant of `when` that fallback to returning `null`
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool isRepost,  DiaryUserSummary? repostedBy,  DateTime? repostedAt)?  $default,) {final _that = this;
-switch (_that) {
-case _DiaryRepostInfo() when $default != null:
-return $default(_that.isRepost,_that.repostedBy,_that.repostedAt);case _:
-  return null;
-
-}
-}
-
-}
-
-/// @nodoc
-@JsonSerializable()
-
-class _DiaryRepostInfo implements DiaryRepostInfo {
-  const _DiaryRepostInfo({this.isRepost = false, this.repostedBy, this.repostedAt});
-  factory _DiaryRepostInfo.fromJson(Map<String, dynamic> json) => _$DiaryRepostInfoFromJson(json);
-
-@override@JsonKey() final  bool isRepost;
-@override final  DiaryUserSummary? repostedBy;
-@override final  DateTime? repostedAt;
-
-/// Create a copy of DiaryRepostInfo
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$DiaryRepostInfoCopyWith<_DiaryRepostInfo> get copyWith => __$DiaryRepostInfoCopyWithImpl<_DiaryRepostInfo>(this, _$identity);
-
-@override
-Map<String, dynamic> toJson() {
-  return _$DiaryRepostInfoToJson(this, );
-}
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DiaryRepostInfo&&(identical(other.isRepost, isRepost) || other.isRepost == isRepost)&&(identical(other.repostedBy, repostedBy) || other.repostedBy == repostedBy)&&(identical(other.repostedAt, repostedAt) || other.repostedAt == repostedAt));
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,isRepost,repostedBy,repostedAt);
-
-@override
-String toString() {
-  return 'DiaryRepostInfo(isRepost: $isRepost, repostedBy: $repostedBy, repostedAt: $repostedAt)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$DiaryRepostInfoCopyWith<$Res> implements $DiaryRepostInfoCopyWith<$Res> {
-  factory _$DiaryRepostInfoCopyWith(_DiaryRepostInfo value, $Res Function(_DiaryRepostInfo) _then) = __$DiaryRepostInfoCopyWithImpl;
-@override @useResult
-$Res call({
- bool isRepost, DiaryUserSummary? repostedBy, DateTime? repostedAt
-});
-
-
-@override $DiaryUserSummaryCopyWith<$Res>? get repostedBy;
-
-}
-/// @nodoc
-class __$DiaryRepostInfoCopyWithImpl<$Res>
-    implements _$DiaryRepostInfoCopyWith<$Res> {
-  __$DiaryRepostInfoCopyWithImpl(this._self, this._then);
-
-  final _DiaryRepostInfo _self;
-  final $Res Function(_DiaryRepostInfo) _then;
-
-/// Create a copy of DiaryRepostInfo
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? isRepost = null,Object? repostedBy = freezed,Object? repostedAt = freezed,}) {
-  return _then(_DiaryRepostInfo(
-isRepost: null == isRepost ? _self.isRepost : isRepost // ignore: cast_nullable_to_non_nullable
-as bool,repostedBy: freezed == repostedBy ? _self.repostedBy : repostedBy // ignore: cast_nullable_to_non_nullable
-as DiaryUserSummary?,repostedAt: freezed == repostedAt ? _self.repostedAt : repostedAt // ignore: cast_nullable_to_non_nullable
-as DateTime?,
-  ));
-}
-
-/// Create a copy of DiaryRepostInfo
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$DiaryUserSummaryCopyWith<$Res>? get repostedBy {
-    if (_self.repostedBy == null) {
-    return null;
-  }
-
-  return $DiaryUserSummaryCopyWith<$Res>(_self.repostedBy!, (value) {
-    return _then(_self.copyWith(repostedBy: value));
-  });
-}
-}
-
-
-/// @nodoc
 mixin _$DiaryPageInfo {
 
  String? get nextCursor; bool get hasNextPage; int get count;
@@ -1139,7 +846,7 @@ as int,
 /// @nodoc
 mixin _$DiaryPost {
 
- String get id; String get content; List<String> get imageUrls; List<String> get tags; String? get quotedPostId; bool get shareToDiary; String get visibility; DiaryUserSummary get user; DiaryQuotedPost? get quotedPost; int get likesCount; int get commentsCount; int get repostsCount; int get quotesCount; bool get liked; bool get bookmarked; bool get reposted; bool get isEdited; DateTime? get createdAt; DateTime? get updatedAt; DateTime? get editedAt; DiaryRepostInfo? get repostInfo;
+ String get id; String get content; List<String> get imageUrls; List<String> get tags; String? get quotedPostId; bool get shareToDiary; String get visibility; DiaryUserSummary get user; DiaryQuotedPost? get quotedPost; int get likesCount; int get commentsCount; int get quotesCount; bool get liked; bool get bookmarked; bool get isEdited; DateTime? get createdAt; DateTime? get updatedAt; DateTime? get editedAt;
 /// Create a copy of DiaryPost
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1152,16 +859,16 @@ $DiaryPostCopyWith<DiaryPost> get copyWith => _$DiaryPostCopyWithImpl<DiaryPost>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DiaryPost&&(identical(other.id, id) || other.id == id)&&(identical(other.content, content) || other.content == content)&&const DeepCollectionEquality().equals(other.imageUrls, imageUrls)&&const DeepCollectionEquality().equals(other.tags, tags)&&(identical(other.quotedPostId, quotedPostId) || other.quotedPostId == quotedPostId)&&(identical(other.shareToDiary, shareToDiary) || other.shareToDiary == shareToDiary)&&(identical(other.visibility, visibility) || other.visibility == visibility)&&(identical(other.user, user) || other.user == user)&&(identical(other.quotedPost, quotedPost) || other.quotedPost == quotedPost)&&(identical(other.likesCount, likesCount) || other.likesCount == likesCount)&&(identical(other.commentsCount, commentsCount) || other.commentsCount == commentsCount)&&(identical(other.repostsCount, repostsCount) || other.repostsCount == repostsCount)&&(identical(other.quotesCount, quotesCount) || other.quotesCount == quotesCount)&&(identical(other.liked, liked) || other.liked == liked)&&(identical(other.bookmarked, bookmarked) || other.bookmarked == bookmarked)&&(identical(other.reposted, reposted) || other.reposted == reposted)&&(identical(other.isEdited, isEdited) || other.isEdited == isEdited)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.editedAt, editedAt) || other.editedAt == editedAt)&&(identical(other.repostInfo, repostInfo) || other.repostInfo == repostInfo));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DiaryPost&&(identical(other.id, id) || other.id == id)&&(identical(other.content, content) || other.content == content)&&const DeepCollectionEquality().equals(other.imageUrls, imageUrls)&&const DeepCollectionEquality().equals(other.tags, tags)&&(identical(other.quotedPostId, quotedPostId) || other.quotedPostId == quotedPostId)&&(identical(other.shareToDiary, shareToDiary) || other.shareToDiary == shareToDiary)&&(identical(other.visibility, visibility) || other.visibility == visibility)&&(identical(other.user, user) || other.user == user)&&(identical(other.quotedPost, quotedPost) || other.quotedPost == quotedPost)&&(identical(other.likesCount, likesCount) || other.likesCount == likesCount)&&(identical(other.commentsCount, commentsCount) || other.commentsCount == commentsCount)&&(identical(other.quotesCount, quotesCount) || other.quotesCount == quotesCount)&&(identical(other.liked, liked) || other.liked == liked)&&(identical(other.bookmarked, bookmarked) || other.bookmarked == bookmarked)&&(identical(other.isEdited, isEdited) || other.isEdited == isEdited)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.editedAt, editedAt) || other.editedAt == editedAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,id,content,const DeepCollectionEquality().hash(imageUrls),const DeepCollectionEquality().hash(tags),quotedPostId,shareToDiary,visibility,user,quotedPost,likesCount,commentsCount,repostsCount,quotesCount,liked,bookmarked,reposted,isEdited,createdAt,updatedAt,editedAt,repostInfo]);
+int get hashCode => Object.hash(runtimeType,id,content,const DeepCollectionEquality().hash(imageUrls),const DeepCollectionEquality().hash(tags),quotedPostId,shareToDiary,visibility,user,quotedPost,likesCount,commentsCount,quotesCount,liked,bookmarked,isEdited,createdAt,updatedAt,editedAt);
 
 @override
 String toString() {
-  return 'DiaryPost(id: $id, content: $content, imageUrls: $imageUrls, tags: $tags, quotedPostId: $quotedPostId, shareToDiary: $shareToDiary, visibility: $visibility, user: $user, quotedPost: $quotedPost, likesCount: $likesCount, commentsCount: $commentsCount, repostsCount: $repostsCount, quotesCount: $quotesCount, liked: $liked, bookmarked: $bookmarked, reposted: $reposted, isEdited: $isEdited, createdAt: $createdAt, updatedAt: $updatedAt, editedAt: $editedAt, repostInfo: $repostInfo)';
+  return 'DiaryPost(id: $id, content: $content, imageUrls: $imageUrls, tags: $tags, quotedPostId: $quotedPostId, shareToDiary: $shareToDiary, visibility: $visibility, user: $user, quotedPost: $quotedPost, likesCount: $likesCount, commentsCount: $commentsCount, quotesCount: $quotesCount, liked: $liked, bookmarked: $bookmarked, isEdited: $isEdited, createdAt: $createdAt, updatedAt: $updatedAt, editedAt: $editedAt)';
 }
 
 
@@ -1172,11 +879,11 @@ abstract mixin class $DiaryPostCopyWith<$Res>  {
   factory $DiaryPostCopyWith(DiaryPost value, $Res Function(DiaryPost) _then) = _$DiaryPostCopyWithImpl;
 @useResult
 $Res call({
- String id, String content, List<String> imageUrls, List<String> tags, String? quotedPostId, bool shareToDiary, String visibility, DiaryUserSummary user, DiaryQuotedPost? quotedPost, int likesCount, int commentsCount, int repostsCount, int quotesCount, bool liked, bool bookmarked, bool reposted, bool isEdited, DateTime? createdAt, DateTime? updatedAt, DateTime? editedAt, DiaryRepostInfo? repostInfo
+ String id, String content, List<String> imageUrls, List<String> tags, String? quotedPostId, bool shareToDiary, String visibility, DiaryUserSummary user, DiaryQuotedPost? quotedPost, int likesCount, int commentsCount, int quotesCount, bool liked, bool bookmarked, bool isEdited, DateTime? createdAt, DateTime? updatedAt, DateTime? editedAt
 });
 
 
-$DiaryUserSummaryCopyWith<$Res> get user;$DiaryQuotedPostCopyWith<$Res>? get quotedPost;$DiaryRepostInfoCopyWith<$Res>? get repostInfo;
+$DiaryUserSummaryCopyWith<$Res> get user;$DiaryQuotedPostCopyWith<$Res>? get quotedPost;
 
 }
 /// @nodoc
@@ -1189,7 +896,7 @@ class _$DiaryPostCopyWithImpl<$Res>
 
 /// Create a copy of DiaryPost
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? content = null,Object? imageUrls = null,Object? tags = null,Object? quotedPostId = freezed,Object? shareToDiary = null,Object? visibility = null,Object? user = null,Object? quotedPost = freezed,Object? likesCount = null,Object? commentsCount = null,Object? repostsCount = null,Object? quotesCount = null,Object? liked = null,Object? bookmarked = null,Object? reposted = null,Object? isEdited = null,Object? createdAt = freezed,Object? updatedAt = freezed,Object? editedAt = freezed,Object? repostInfo = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? content = null,Object? imageUrls = null,Object? tags = null,Object? quotedPostId = freezed,Object? shareToDiary = null,Object? visibility = null,Object? user = null,Object? quotedPost = freezed,Object? likesCount = null,Object? commentsCount = null,Object? quotesCount = null,Object? liked = null,Object? bookmarked = null,Object? isEdited = null,Object? createdAt = freezed,Object? updatedAt = freezed,Object? editedAt = freezed,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
@@ -1202,17 +909,14 @@ as String,user: null == user ? _self.user : user // ignore: cast_nullable_to_non
 as DiaryUserSummary,quotedPost: freezed == quotedPost ? _self.quotedPost : quotedPost // ignore: cast_nullable_to_non_nullable
 as DiaryQuotedPost?,likesCount: null == likesCount ? _self.likesCount : likesCount // ignore: cast_nullable_to_non_nullable
 as int,commentsCount: null == commentsCount ? _self.commentsCount : commentsCount // ignore: cast_nullable_to_non_nullable
-as int,repostsCount: null == repostsCount ? _self.repostsCount : repostsCount // ignore: cast_nullable_to_non_nullable
 as int,quotesCount: null == quotesCount ? _self.quotesCount : quotesCount // ignore: cast_nullable_to_non_nullable
 as int,liked: null == liked ? _self.liked : liked // ignore: cast_nullable_to_non_nullable
 as bool,bookmarked: null == bookmarked ? _self.bookmarked : bookmarked // ignore: cast_nullable_to_non_nullable
-as bool,reposted: null == reposted ? _self.reposted : reposted // ignore: cast_nullable_to_non_nullable
 as bool,isEdited: null == isEdited ? _self.isEdited : isEdited // ignore: cast_nullable_to_non_nullable
 as bool,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,editedAt: freezed == editedAt ? _self.editedAt : editedAt // ignore: cast_nullable_to_non_nullable
-as DateTime?,repostInfo: freezed == repostInfo ? _self.repostInfo : repostInfo // ignore: cast_nullable_to_non_nullable
-as DiaryRepostInfo?,
+as DateTime?,
   ));
 }
 /// Create a copy of DiaryPost
@@ -1235,18 +939,6 @@ $DiaryQuotedPostCopyWith<$Res>? get quotedPost {
 
   return $DiaryQuotedPostCopyWith<$Res>(_self.quotedPost!, (value) {
     return _then(_self.copyWith(quotedPost: value));
-  });
-}/// Create a copy of DiaryPost
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$DiaryRepostInfoCopyWith<$Res>? get repostInfo {
-    if (_self.repostInfo == null) {
-    return null;
-  }
-
-  return $DiaryRepostInfoCopyWith<$Res>(_self.repostInfo!, (value) {
-    return _then(_self.copyWith(repostInfo: value));
   });
 }
 }
@@ -1330,10 +1022,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String content,  List<String> imageUrls,  List<String> tags,  String? quotedPostId,  bool shareToDiary,  String visibility,  DiaryUserSummary user,  DiaryQuotedPost? quotedPost,  int likesCount,  int commentsCount,  int repostsCount,  int quotesCount,  bool liked,  bool bookmarked,  bool reposted,  bool isEdited,  DateTime? createdAt,  DateTime? updatedAt,  DateTime? editedAt,  DiaryRepostInfo? repostInfo)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String content,  List<String> imageUrls,  List<String> tags,  String? quotedPostId,  bool shareToDiary,  String visibility,  DiaryUserSummary user,  DiaryQuotedPost? quotedPost,  int likesCount,  int commentsCount,  int quotesCount,  bool liked,  bool bookmarked,  bool isEdited,  DateTime? createdAt,  DateTime? updatedAt,  DateTime? editedAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _DiaryPost() when $default != null:
-return $default(_that.id,_that.content,_that.imageUrls,_that.tags,_that.quotedPostId,_that.shareToDiary,_that.visibility,_that.user,_that.quotedPost,_that.likesCount,_that.commentsCount,_that.repostsCount,_that.quotesCount,_that.liked,_that.bookmarked,_that.reposted,_that.isEdited,_that.createdAt,_that.updatedAt,_that.editedAt,_that.repostInfo);case _:
+return $default(_that.id,_that.content,_that.imageUrls,_that.tags,_that.quotedPostId,_that.shareToDiary,_that.visibility,_that.user,_that.quotedPost,_that.likesCount,_that.commentsCount,_that.quotesCount,_that.liked,_that.bookmarked,_that.isEdited,_that.createdAt,_that.updatedAt,_that.editedAt);case _:
   return orElse();
 
 }
@@ -1351,10 +1043,10 @@ return $default(_that.id,_that.content,_that.imageUrls,_that.tags,_that.quotedPo
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String content,  List<String> imageUrls,  List<String> tags,  String? quotedPostId,  bool shareToDiary,  String visibility,  DiaryUserSummary user,  DiaryQuotedPost? quotedPost,  int likesCount,  int commentsCount,  int repostsCount,  int quotesCount,  bool liked,  bool bookmarked,  bool reposted,  bool isEdited,  DateTime? createdAt,  DateTime? updatedAt,  DateTime? editedAt,  DiaryRepostInfo? repostInfo)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String content,  List<String> imageUrls,  List<String> tags,  String? quotedPostId,  bool shareToDiary,  String visibility,  DiaryUserSummary user,  DiaryQuotedPost? quotedPost,  int likesCount,  int commentsCount,  int quotesCount,  bool liked,  bool bookmarked,  bool isEdited,  DateTime? createdAt,  DateTime? updatedAt,  DateTime? editedAt)  $default,) {final _that = this;
 switch (_that) {
 case _DiaryPost():
-return $default(_that.id,_that.content,_that.imageUrls,_that.tags,_that.quotedPostId,_that.shareToDiary,_that.visibility,_that.user,_that.quotedPost,_that.likesCount,_that.commentsCount,_that.repostsCount,_that.quotesCount,_that.liked,_that.bookmarked,_that.reposted,_that.isEdited,_that.createdAt,_that.updatedAt,_that.editedAt,_that.repostInfo);case _:
+return $default(_that.id,_that.content,_that.imageUrls,_that.tags,_that.quotedPostId,_that.shareToDiary,_that.visibility,_that.user,_that.quotedPost,_that.likesCount,_that.commentsCount,_that.quotesCount,_that.liked,_that.bookmarked,_that.isEdited,_that.createdAt,_that.updatedAt,_that.editedAt);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -1371,10 +1063,10 @@ return $default(_that.id,_that.content,_that.imageUrls,_that.tags,_that.quotedPo
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String content,  List<String> imageUrls,  List<String> tags,  String? quotedPostId,  bool shareToDiary,  String visibility,  DiaryUserSummary user,  DiaryQuotedPost? quotedPost,  int likesCount,  int commentsCount,  int repostsCount,  int quotesCount,  bool liked,  bool bookmarked,  bool reposted,  bool isEdited,  DateTime? createdAt,  DateTime? updatedAt,  DateTime? editedAt,  DiaryRepostInfo? repostInfo)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String content,  List<String> imageUrls,  List<String> tags,  String? quotedPostId,  bool shareToDiary,  String visibility,  DiaryUserSummary user,  DiaryQuotedPost? quotedPost,  int likesCount,  int commentsCount,  int quotesCount,  bool liked,  bool bookmarked,  bool isEdited,  DateTime? createdAt,  DateTime? updatedAt,  DateTime? editedAt)?  $default,) {final _that = this;
 switch (_that) {
 case _DiaryPost() when $default != null:
-return $default(_that.id,_that.content,_that.imageUrls,_that.tags,_that.quotedPostId,_that.shareToDiary,_that.visibility,_that.user,_that.quotedPost,_that.likesCount,_that.commentsCount,_that.repostsCount,_that.quotesCount,_that.liked,_that.bookmarked,_that.reposted,_that.isEdited,_that.createdAt,_that.updatedAt,_that.editedAt,_that.repostInfo);case _:
+return $default(_that.id,_that.content,_that.imageUrls,_that.tags,_that.quotedPostId,_that.shareToDiary,_that.visibility,_that.user,_that.quotedPost,_that.likesCount,_that.commentsCount,_that.quotesCount,_that.liked,_that.bookmarked,_that.isEdited,_that.createdAt,_that.updatedAt,_that.editedAt);case _:
   return null;
 
 }
@@ -1386,7 +1078,7 @@ return $default(_that.id,_that.content,_that.imageUrls,_that.tags,_that.quotedPo
 @JsonSerializable()
 
 class _DiaryPost implements DiaryPost {
-  const _DiaryPost({required this.id, required this.content, final  List<String> imageUrls = const <String>[], final  List<String> tags = const <String>[], this.quotedPostId, this.shareToDiary = true, this.visibility = 'public', required this.user, this.quotedPost, this.likesCount = 0, this.commentsCount = 0, this.repostsCount = 0, this.quotesCount = 0, this.liked = false, this.bookmarked = false, this.reposted = false, this.isEdited = false, this.createdAt, this.updatedAt, this.editedAt, this.repostInfo}): _imageUrls = imageUrls,_tags = tags;
+  const _DiaryPost({required this.id, required this.content, final  List<String> imageUrls = const <String>[], final  List<String> tags = const <String>[], this.quotedPostId, this.shareToDiary = true, this.visibility = 'public', required this.user, this.quotedPost, this.likesCount = 0, this.commentsCount = 0, this.quotesCount = 0, this.liked = false, this.bookmarked = false, this.isEdited = false, this.createdAt, this.updatedAt, this.editedAt}): _imageUrls = imageUrls,_tags = tags;
   factory _DiaryPost.fromJson(Map<String, dynamic> json) => _$DiaryPostFromJson(json);
 
 @override final  String id;
@@ -1412,16 +1104,13 @@ class _DiaryPost implements DiaryPost {
 @override final  DiaryQuotedPost? quotedPost;
 @override@JsonKey() final  int likesCount;
 @override@JsonKey() final  int commentsCount;
-@override@JsonKey() final  int repostsCount;
 @override@JsonKey() final  int quotesCount;
 @override@JsonKey() final  bool liked;
 @override@JsonKey() final  bool bookmarked;
-@override@JsonKey() final  bool reposted;
 @override@JsonKey() final  bool isEdited;
 @override final  DateTime? createdAt;
 @override final  DateTime? updatedAt;
 @override final  DateTime? editedAt;
-@override final  DiaryRepostInfo? repostInfo;
 
 /// Create a copy of DiaryPost
 /// with the given fields replaced by the non-null parameter values.
@@ -1436,16 +1125,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DiaryPost&&(identical(other.id, id) || other.id == id)&&(identical(other.content, content) || other.content == content)&&const DeepCollectionEquality().equals(other._imageUrls, _imageUrls)&&const DeepCollectionEquality().equals(other._tags, _tags)&&(identical(other.quotedPostId, quotedPostId) || other.quotedPostId == quotedPostId)&&(identical(other.shareToDiary, shareToDiary) || other.shareToDiary == shareToDiary)&&(identical(other.visibility, visibility) || other.visibility == visibility)&&(identical(other.user, user) || other.user == user)&&(identical(other.quotedPost, quotedPost) || other.quotedPost == quotedPost)&&(identical(other.likesCount, likesCount) || other.likesCount == likesCount)&&(identical(other.commentsCount, commentsCount) || other.commentsCount == commentsCount)&&(identical(other.repostsCount, repostsCount) || other.repostsCount == repostsCount)&&(identical(other.quotesCount, quotesCount) || other.quotesCount == quotesCount)&&(identical(other.liked, liked) || other.liked == liked)&&(identical(other.bookmarked, bookmarked) || other.bookmarked == bookmarked)&&(identical(other.reposted, reposted) || other.reposted == reposted)&&(identical(other.isEdited, isEdited) || other.isEdited == isEdited)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.editedAt, editedAt) || other.editedAt == editedAt)&&(identical(other.repostInfo, repostInfo) || other.repostInfo == repostInfo));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DiaryPost&&(identical(other.id, id) || other.id == id)&&(identical(other.content, content) || other.content == content)&&const DeepCollectionEquality().equals(other._imageUrls, _imageUrls)&&const DeepCollectionEquality().equals(other._tags, _tags)&&(identical(other.quotedPostId, quotedPostId) || other.quotedPostId == quotedPostId)&&(identical(other.shareToDiary, shareToDiary) || other.shareToDiary == shareToDiary)&&(identical(other.visibility, visibility) || other.visibility == visibility)&&(identical(other.user, user) || other.user == user)&&(identical(other.quotedPost, quotedPost) || other.quotedPost == quotedPost)&&(identical(other.likesCount, likesCount) || other.likesCount == likesCount)&&(identical(other.commentsCount, commentsCount) || other.commentsCount == commentsCount)&&(identical(other.quotesCount, quotesCount) || other.quotesCount == quotesCount)&&(identical(other.liked, liked) || other.liked == liked)&&(identical(other.bookmarked, bookmarked) || other.bookmarked == bookmarked)&&(identical(other.isEdited, isEdited) || other.isEdited == isEdited)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.editedAt, editedAt) || other.editedAt == editedAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,id,content,const DeepCollectionEquality().hash(_imageUrls),const DeepCollectionEquality().hash(_tags),quotedPostId,shareToDiary,visibility,user,quotedPost,likesCount,commentsCount,repostsCount,quotesCount,liked,bookmarked,reposted,isEdited,createdAt,updatedAt,editedAt,repostInfo]);
+int get hashCode => Object.hash(runtimeType,id,content,const DeepCollectionEquality().hash(_imageUrls),const DeepCollectionEquality().hash(_tags),quotedPostId,shareToDiary,visibility,user,quotedPost,likesCount,commentsCount,quotesCount,liked,bookmarked,isEdited,createdAt,updatedAt,editedAt);
 
 @override
 String toString() {
-  return 'DiaryPost(id: $id, content: $content, imageUrls: $imageUrls, tags: $tags, quotedPostId: $quotedPostId, shareToDiary: $shareToDiary, visibility: $visibility, user: $user, quotedPost: $quotedPost, likesCount: $likesCount, commentsCount: $commentsCount, repostsCount: $repostsCount, quotesCount: $quotesCount, liked: $liked, bookmarked: $bookmarked, reposted: $reposted, isEdited: $isEdited, createdAt: $createdAt, updatedAt: $updatedAt, editedAt: $editedAt, repostInfo: $repostInfo)';
+  return 'DiaryPost(id: $id, content: $content, imageUrls: $imageUrls, tags: $tags, quotedPostId: $quotedPostId, shareToDiary: $shareToDiary, visibility: $visibility, user: $user, quotedPost: $quotedPost, likesCount: $likesCount, commentsCount: $commentsCount, quotesCount: $quotesCount, liked: $liked, bookmarked: $bookmarked, isEdited: $isEdited, createdAt: $createdAt, updatedAt: $updatedAt, editedAt: $editedAt)';
 }
 
 
@@ -1456,11 +1145,11 @@ abstract mixin class _$DiaryPostCopyWith<$Res> implements $DiaryPostCopyWith<$Re
   factory _$DiaryPostCopyWith(_DiaryPost value, $Res Function(_DiaryPost) _then) = __$DiaryPostCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String content, List<String> imageUrls, List<String> tags, String? quotedPostId, bool shareToDiary, String visibility, DiaryUserSummary user, DiaryQuotedPost? quotedPost, int likesCount, int commentsCount, int repostsCount, int quotesCount, bool liked, bool bookmarked, bool reposted, bool isEdited, DateTime? createdAt, DateTime? updatedAt, DateTime? editedAt, DiaryRepostInfo? repostInfo
+ String id, String content, List<String> imageUrls, List<String> tags, String? quotedPostId, bool shareToDiary, String visibility, DiaryUserSummary user, DiaryQuotedPost? quotedPost, int likesCount, int commentsCount, int quotesCount, bool liked, bool bookmarked, bool isEdited, DateTime? createdAt, DateTime? updatedAt, DateTime? editedAt
 });
 
 
-@override $DiaryUserSummaryCopyWith<$Res> get user;@override $DiaryQuotedPostCopyWith<$Res>? get quotedPost;@override $DiaryRepostInfoCopyWith<$Res>? get repostInfo;
+@override $DiaryUserSummaryCopyWith<$Res> get user;@override $DiaryQuotedPostCopyWith<$Res>? get quotedPost;
 
 }
 /// @nodoc
@@ -1473,7 +1162,7 @@ class __$DiaryPostCopyWithImpl<$Res>
 
 /// Create a copy of DiaryPost
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? content = null,Object? imageUrls = null,Object? tags = null,Object? quotedPostId = freezed,Object? shareToDiary = null,Object? visibility = null,Object? user = null,Object? quotedPost = freezed,Object? likesCount = null,Object? commentsCount = null,Object? repostsCount = null,Object? quotesCount = null,Object? liked = null,Object? bookmarked = null,Object? reposted = null,Object? isEdited = null,Object? createdAt = freezed,Object? updatedAt = freezed,Object? editedAt = freezed,Object? repostInfo = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? content = null,Object? imageUrls = null,Object? tags = null,Object? quotedPostId = freezed,Object? shareToDiary = null,Object? visibility = null,Object? user = null,Object? quotedPost = freezed,Object? likesCount = null,Object? commentsCount = null,Object? quotesCount = null,Object? liked = null,Object? bookmarked = null,Object? isEdited = null,Object? createdAt = freezed,Object? updatedAt = freezed,Object? editedAt = freezed,}) {
   return _then(_DiaryPost(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
@@ -1486,17 +1175,14 @@ as String,user: null == user ? _self.user : user // ignore: cast_nullable_to_non
 as DiaryUserSummary,quotedPost: freezed == quotedPost ? _self.quotedPost : quotedPost // ignore: cast_nullable_to_non_nullable
 as DiaryQuotedPost?,likesCount: null == likesCount ? _self.likesCount : likesCount // ignore: cast_nullable_to_non_nullable
 as int,commentsCount: null == commentsCount ? _self.commentsCount : commentsCount // ignore: cast_nullable_to_non_nullable
-as int,repostsCount: null == repostsCount ? _self.repostsCount : repostsCount // ignore: cast_nullable_to_non_nullable
 as int,quotesCount: null == quotesCount ? _self.quotesCount : quotesCount // ignore: cast_nullable_to_non_nullable
 as int,liked: null == liked ? _self.liked : liked // ignore: cast_nullable_to_non_nullable
 as bool,bookmarked: null == bookmarked ? _self.bookmarked : bookmarked // ignore: cast_nullable_to_non_nullable
-as bool,reposted: null == reposted ? _self.reposted : reposted // ignore: cast_nullable_to_non_nullable
 as bool,isEdited: null == isEdited ? _self.isEdited : isEdited // ignore: cast_nullable_to_non_nullable
 as bool,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,editedAt: freezed == editedAt ? _self.editedAt : editedAt // ignore: cast_nullable_to_non_nullable
-as DateTime?,repostInfo: freezed == repostInfo ? _self.repostInfo : repostInfo // ignore: cast_nullable_to_non_nullable
-as DiaryRepostInfo?,
+as DateTime?,
   ));
 }
 
@@ -1520,18 +1206,6 @@ $DiaryQuotedPostCopyWith<$Res>? get quotedPost {
 
   return $DiaryQuotedPostCopyWith<$Res>(_self.quotedPost!, (value) {
     return _then(_self.copyWith(quotedPost: value));
-  });
-}/// Create a copy of DiaryPost
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$DiaryRepostInfoCopyWith<$Res>? get repostInfo {
-    if (_self.repostInfo == null) {
-    return null;
-  }
-
-  return $DiaryRepostInfoCopyWith<$Res>(_self.repostInfo!, (value) {
-    return _then(_self.copyWith(repostInfo: value));
   });
 }
 }

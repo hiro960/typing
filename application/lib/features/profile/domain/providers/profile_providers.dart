@@ -2,6 +2,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../auth/data/models/user_model.dart';
 import '../../../auth/domain/providers/auth_providers.dart';
+import '../../../diary/data/models/diary_post.dart';
 import '../../data/models/user_stats_model.dart';
 import '../../data/repositories/profile_repository.dart';
 
@@ -30,7 +31,7 @@ Future<UserStatsModel> userStats(
 }
 
 @riverpod
-Future<List<Map<String, dynamic>>> userPosts(Ref ref, String userId) async {
+Future<List<DiaryPost>> userPosts(Ref ref, String userId) async {
   final repository = ref.watch(profileRepositoryProvider);
   return repository.fetchUserPosts(userId);
 }

@@ -32,18 +32,6 @@ abstract class DiaryQuotedPost with _$DiaryQuotedPost {
 }
 
 @freezed
-abstract class DiaryRepostInfo with _$DiaryRepostInfo {
-  const factory DiaryRepostInfo({
-    @Default(false) bool isRepost,
-    DiaryUserSummary? repostedBy,
-    DateTime? repostedAt,
-  }) = _DiaryRepostInfo;
-
-  factory DiaryRepostInfo.fromJson(Map<String, dynamic> json) =>
-      _$DiaryRepostInfoFromJson(json);
-}
-
-@freezed
 abstract class DiaryPageInfo with _$DiaryPageInfo {
   const factory DiaryPageInfo({
     String? nextCursor,
@@ -69,16 +57,13 @@ abstract class DiaryPost with _$DiaryPost {
     DiaryQuotedPost? quotedPost,
     @Default(0) int likesCount,
     @Default(0) int commentsCount,
-    @Default(0) int repostsCount,
     @Default(0) int quotesCount,
     @Default(false) bool liked,
     @Default(false) bool bookmarked,
-    @Default(false) bool reposted,
     @Default(false) bool isEdited,
     DateTime? createdAt,
     DateTime? updatedAt,
     DateTime? editedAt,
-    DiaryRepostInfo? repostInfo,
   }) = _DiaryPost;
 
   factory DiaryPost.fromJson(Map<String, dynamic> json) =>

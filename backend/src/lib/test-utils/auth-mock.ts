@@ -42,7 +42,6 @@ export function createMockAuthUser(overrides?: Partial<UserDetail>): UserDetail 
         email: true,
         comment: true,
         like: true,
-        repost: true,
         follow: true,
       },
       theme: 'auto',

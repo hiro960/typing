@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import '../../../../core/utils/logger.dart';
 import '../../../auth/data/models/user_model.dart';
 import '../../../auth/data/services/api_client_service.dart';
+import '../../../diary/data/models/diary_post.dart';
 import '../models/user_stats_model.dart';
 
 class ProfileRepository {
@@ -51,7 +52,7 @@ class ProfileRepository {
   }
 
   /// ユーザーの投稿を取得（最初のN件）
-  Future<List<Map<String, dynamic>>> fetchUserPosts(
+  Future<List<DiaryPost>> fetchUserPosts(
     String userId, {
     int limit = 20,
   }) async {
@@ -64,7 +65,9 @@ class ProfileRepository {
       if (data == null) {
         return [];
       }
-      return data.cast<Map<String, dynamic>>();
+      return data
+          .map((json) => DiaryPost.fromJson(json as Map<String, dynamic>))
+          .toList();
     } on DioException catch (error, stackTrace) {
       AppLogger.error(
         'Failed to fetch user posts',

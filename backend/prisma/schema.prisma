@@ -28,7 +28,6 @@ enum LessonMode {
 enum NotificationType {
   LIKE
   COMMENT
-  REPOST
   FOLLOW
 }
 
@@ -88,7 +87,6 @@ model User {
   followers               Follow[]  @relation("Followers")
   lessonCompletions       LessonCompletion[]
   wordbooks               Wordbook[]
-  reposts                 Repost[]
   bookmarks               Bookmark[]
   receivedNotifications   Notification[] @relation("ReceivedNotifications")
   sentNotifications       Notification[] @relation("SentNotifications")
@@ -114,7 +112,6 @@ model Post {
   updatedAt   DateTime  @updatedAt
   likesCount  Int       @default(0)
   commentsCount Int     @default(0)
-  repostsCount Int      @default(0)
   quotesCount  Int      @default(0)
   isEdited     Boolean  @default(false)
   editedAt     DateTime?
@@ -124,7 +121,6 @@ model Post {
   quotingPosts Post[]   @relation("QuotedPosts")
   comments    Comment[]
   likes       Like[]
-  reposts     Repost[]
   bookmarks   Bookmark[]
   notifications Notification[]
 
@@ -176,20 +172,6 @@ model CommentLike {
   @@unique([commentId, userId])
   @@index([userId])
   @@index([commentId])
-}
-
-model Repost {
-  id             String   @id @default(cuid())
-  userId         String
-  originalPostId String
-  createdAt      DateTime @default(now())
-
-  user          User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  originalPost  Post @relation(fields: [originalPostId], references: [id], onDelete: Cascade)
-
-  @@unique([userId, originalPostId])
-  @@index([userId])
-  @@index([originalPostId])
 }
 
 model Bookmark {

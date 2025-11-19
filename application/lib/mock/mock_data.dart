@@ -65,7 +65,6 @@ class DiaryPost {
     required this.hashtags,
     required this.likes,
     required this.comments,
-    required this.reposts,
     this.imageUrl,
   });
 
@@ -78,7 +77,6 @@ class DiaryPost {
   final List<String> hashtags;
   final int likes;
   final int comments;
-  final int reposts;
   final String? imageUrl;
 }
 
@@ -547,7 +545,6 @@ const diaryPosts = <DiaryPost>[
     hashtags: ['#한국어공부', '#드라마', '#일상'],
     likes: 24,
     comments: 5,
-    reposts: 3,
     imageUrl: null,
   ),
   DiaryPost(
@@ -560,7 +557,6 @@ const diaryPosts = <DiaryPost>[
     hashtags: ['#카공족', '#韓国語', '#studylog'],
     likes: 18,
     comments: 2,
-    reposts: 1,
     imageUrl:
         'https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&w=600&q=80',
   ),
@@ -574,7 +570,6 @@ const diaryPosts = <DiaryPost>[
     hashtags: ['#완벽', '#타이핑', '#성장'],
     likes: 56,
     comments: 9,
-    reposts: 4,
     imageUrl: null,
   ),
 ];

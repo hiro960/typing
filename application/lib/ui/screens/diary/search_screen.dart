@@ -465,9 +465,6 @@ class _PostsResultList extends StatelessWidget {
                 onToggleBookmark: () => ref
                     .read(diaryTimelineControllerProvider.notifier)
                     .toggleBookmark(post.id, bookmark: !post.bookmarked),
-                onToggleRepost: () => ref
-                    .read(diaryTimelineControllerProvider.notifier)
-                    .toggleRepost(post.id, repost: !post.reposted),
                 onComment: () => onPostTap(post),
                 onQuote: () => onQuote(post),
                 onEdit: () => onEdit(post),

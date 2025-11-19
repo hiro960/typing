@@ -244,7 +244,6 @@ class UserNotificationSettingsModel {
     this.email = true,
     this.comment = true,
     this.like = true,
-    this.repost = true,
     this.follow = true,
   });
 
@@ -252,7 +251,6 @@ class UserNotificationSettingsModel {
   final bool email;
   final bool comment;
   final bool like;
-  final bool repost;
   final bool follow;
 
   factory UserNotificationSettingsModel.fromJson(
@@ -266,7 +264,6 @@ class UserNotificationSettingsModel {
       email: json['email'] as bool? ?? true,
       comment: json['comment'] as bool? ?? true,
       like: json['like'] as bool? ?? true,
-      repost: json['repost'] as bool? ?? true,
       follow: json['follow'] as bool? ?? true,
     );
   }
@@ -277,7 +274,6 @@ class UserNotificationSettingsModel {
       'email': email,
       'comment': comment,
       'like': like,
-      'repost': repost,
       'follow': follow,
     };
   }

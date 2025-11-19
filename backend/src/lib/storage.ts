@@ -55,7 +55,7 @@ export async function uploadOptimizedImage(options: {
   buffer: Buffer;
   contentType: string;
   filenamePrefix: string;
-  access?: "public" | "private";
+  access?: "public";
 }) {
   if (!BLOB_TOKEN) {
     throw new Error("BLOB_READ_WRITE_TOKEN is not configured");

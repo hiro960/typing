@@ -112,20 +112,7 @@ class _BookmarksScreenState extends ConsumerState<BookmarksScreen> {
     }
   }
 
-  Future<void> _toggleRepost(DiaryPost post) async {
-    try {
-      await ref
-          .read(diaryTimelineControllerProvider.notifier)
-          .toggleRepost(post.id, repost: !post.reposted);
-      final fresh =
-          await ref.read(diaryRepositoryProvider).fetchPostById(post.id);
-      ref
-          .read(diaryBookmarksControllerProvider.notifier)
-          .replacePost(fresh);
-    } catch (error) {
-      _showError(error);
-    }
-  }
+
 
   void _showError(Object error) {
     if (!mounted) return;
@@ -254,7 +241,6 @@ class _BookmarksScreenState extends ConsumerState<BookmarksScreen> {
                           onTap: () => _openDetail(post),
                           onToggleLike: () => _toggleLike(post),
                           onToggleBookmark: () => _toggleBookmark(post),
-                          onToggleRepost: () => _toggleRepost(post),
                           onComment: () => _openDetail(post),
                           onQuote: () => _quotePost(post),
                           onEdit: () => _editPost(post),

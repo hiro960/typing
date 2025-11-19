@@ -226,8 +226,7 @@ class _NotificationTile extends StatelessWidget {
     switch (notification.type) {
       case 'COMMENT':
         return '${notification.actor.displayName}さんがコメントしました';
-      case 'REPOST':
-        return '${notification.actor.displayName}さんがあなたの投稿をリポストしました';
+
       case 'FOLLOW':
         return '${notification.actor.displayName}さんがあなたをフォローしました';
       case 'LIKE':

@@ -215,13 +215,11 @@ const userPostsProvider = UserPostsFamily._();
 final class UserPostsProvider
     extends
         $FunctionalProvider<
-          AsyncValue<List<Map<String, dynamic>>>,
-          List<Map<String, dynamic>>,
-          FutureOr<List<Map<String, dynamic>>>
+          AsyncValue<List<DiaryPost>>,
+          List<DiaryPost>,
+          FutureOr<List<DiaryPost>>
         >
-    with
-        $FutureModifier<List<Map<String, dynamic>>>,
-        $FutureProvider<List<Map<String, dynamic>>> {
+    with $FutureModifier<List<DiaryPost>>, $FutureProvider<List<DiaryPost>> {
   const UserPostsProvider._({
     required UserPostsFamily super.from,
     required String super.argument,
@@ -245,12 +243,12 @@ final class UserPostsProvider
 
   @$internal
   @override
-  $FutureProviderElement<List<Map<String, dynamic>>> $createElement(
+  $FutureProviderElement<List<DiaryPost>> $createElement(
     $ProviderPointer pointer,
   ) => $FutureProviderElement(pointer);
 
   @override
-  FutureOr<List<Map<String, dynamic>>> create(Ref ref) {
+  FutureOr<List<DiaryPost>> create(Ref ref) {
     final argument = this.argument as String;
     return userPosts(ref, argument);
   }
@@ -266,14 +264,10 @@ final class UserPostsProvider
   }
 }
 
-String _$userPostsHash() => r'b0931b852c84f73a1e1b27308b34bf3a7b70594a';
+String _$userPostsHash() => r'8a1874250e27a12c4fd28712e2991b1028a5063c';
 
 final class UserPostsFamily extends $Family
-    with
-        $FunctionalFamilyOverride<
-          FutureOr<List<Map<String, dynamic>>>,
-          String
-        > {
+    with $FunctionalFamilyOverride<FutureOr<List<DiaryPost>>, String> {
   const UserPostsFamily._()
     : super(
         retry: null,

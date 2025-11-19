@@ -9,7 +9,7 @@ export type LessonStatsRange = "daily" | "weekly" | "monthly" | "all";
 export type WordStatus = "MASTERED" | "REVIEWING" | "NEEDS_REVIEW";
 export type WordCategory = "WORDS" | "SENTENCES";
 export type ISODateTime = string | Date;
-export type NotificationType = "LIKE" | "COMMENT" | "REPOST" | "FOLLOW";
+export type NotificationType = "LIKE" | "COMMENT" | "FOLLOW";
 export type ReportType = "POST" | "COMMENT" | "USER";
 export type ReportReason =
   | "SPAM"
@@ -24,7 +24,6 @@ export interface UserSettings {
     email: boolean;
     comment: boolean;
     like: boolean;
-    repost: boolean;
     follow: boolean;
   };
   theme: "light" | "dark" | "auto";
@@ -64,12 +63,6 @@ export interface UserDetail extends Omit<UserSummary, "settings"> {
   settings: UserSettings;
 }
 
-export interface RepostInfo {
-  isRepost: boolean;
-  repostedAt: ISODateTime | null;
-  repostedBy: UserSummary | null;
-}
-
 export interface QuotedPostSummary {
   id: string;
   content: string;
@@ -90,7 +83,6 @@ export interface PostRecord {
   updatedAt: ISODateTime;
   likesCount: number;
   commentsCount: number;
-  repostsCount: number;
   quotesCount: number;
   isEdited: boolean;
   editedAt?: ISODateTime | null;
@@ -100,9 +92,7 @@ export interface PostResponse extends Omit<PostRecord, "userId"> {
   user: UserSummary;
   liked: boolean;
   bookmarked: boolean;
-  reposted: boolean;
   quotedPost: QuotedPostSummary | null;
-  repostInfo: RepostInfo;
 }
 
 export interface CommentRecord {
@@ -218,6 +208,9 @@ export interface ReportRecord {
   createdAt: ISODateTime;
 }
 
+export interface ReportResponse extends ReportRecord {
+  reporter: UserSummary;
+}
 
 export interface UserStatsResponse {
   wpmAvg: number;

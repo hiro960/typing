@@ -10,7 +10,6 @@ class DiaryPostCard extends StatelessWidget {
     required this.onTap,
     required this.onToggleLike,
     required this.onToggleBookmark,
-    required this.onToggleRepost,
     required this.onComment,
     this.showActions = true,
     this.onQuote,
@@ -24,7 +23,6 @@ class DiaryPostCard extends StatelessWidget {
   final VoidCallback onTap;
   final VoidCallback onToggleLike;
   final VoidCallback onToggleBookmark;
-  final VoidCallback onToggleRepost;
   final VoidCallback onComment;
   final bool showActions;
   final VoidCallback? onQuote;
@@ -64,17 +62,6 @@ class DiaryPostCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  if (post.repostInfo?.isRepost ?? false)
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8),
-                      child: Text(
-                        '${post.repostInfo?.repostedBy?.displayName ?? 'ユーザー'}さんがリポストしました',
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color:
-                              theme.colorScheme.onSurface.withValues(alpha: 0.6),
-                        ),
-                      ),
-                    ),
                   Row(
                     children: [
                       CircleAvatar(
@@ -151,14 +138,6 @@ class DiaryPostCard extends StatelessWidget {
                       icon: Icons.chat_bubble_outline,
                       count: post.commentsCount,
                       onPressed: onComment,
-                    ),
-                    _ActionButton(
-                      icon: Icons.autorenew,
-                      color: post.reposted
-                          ? theme.colorScheme.primary
-                          : theme.colorScheme.onSurfaceVariant,
-                      count: post.repostsCount,
-                      onPressed: onToggleRepost,
                     ),
                     _ActionButton(
                       icon: Icons.format_quote,
@@ -289,16 +268,50 @@ class _ImageGrid extends StatelessWidget {
 
   final List<String> imageUrls;
 
+  void _showFullScreenImage(BuildContext context, String imageUrl) {
+    showDialog(
+      context: context,
+      builder: (context) => Dialog.fullscreen(
+        backgroundColor: Colors.black,
+        child: Stack(
+          children: [
+            Center(
+              child: InteractiveViewer(
+                minScale: 0.5,
+                maxScale: 4.0,
+                child: CachedNetworkImage(
+                  imageUrl: imageUrl,
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+            Positioned(
+              top: MediaQuery.of(context).padding.top + 16,
+              left: 16,
+              child: IconButton(
+                icon: const Icon(Icons.close, color: Colors.white, size: 30),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     if (imageUrls.length == 1) {
-      return ClipRRect(
-        borderRadius: BorderRadius.circular(16),
-        child: AspectRatio(
-          aspectRatio: 16 / 9,
-          child: CachedNetworkImage(
-            imageUrl: imageUrls.first,
-            fit: BoxFit.cover,
+      return GestureDetector(
+        onTap: () => _showFullScreenImage(context, imageUrls.first),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(16),
+          child: AspectRatio(
+            aspectRatio: 16 / 9,
+            child: CachedNetworkImage(
+              imageUrl: imageUrls.first,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
       );
@@ -315,11 +328,14 @@ class _ImageGrid extends StatelessWidget {
         mainAxisSpacing: 8,
       ),
       itemBuilder: (context, index) {
-        return ClipRRect(
-          borderRadius: BorderRadius.circular(12),
-          child: CachedNetworkImage(
-            imageUrl: imageUrls[index],
-            fit: BoxFit.cover,
+        return GestureDetector(
+          onTap: () => _showFullScreenImage(context, imageUrls[index]),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: CachedNetworkImage(
+              imageUrl: imageUrls[index],
+              fit: BoxFit.cover,
+            ),
           ),
         );
       },

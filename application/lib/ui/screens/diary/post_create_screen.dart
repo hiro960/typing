@@ -402,6 +402,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                             controller: _contentController,
                             focusNode: _focusNode,
                             readOnly: _useCustomKeyboard,
+                            enableInteractiveSelection: !_useCustomKeyboard,
                             minLines: 8,
                             maxLines: 12,
                             maxLength: _maxLength,

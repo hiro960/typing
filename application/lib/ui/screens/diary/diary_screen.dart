@@ -99,18 +99,7 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
     }
   }
 
-  Future<void> _toggleRepost(DiaryPost post) async {
-    try {
-      await ref
-          .read(diaryTimelineControllerProvider.notifier)
-          .toggleRepost(post.id, repost: !post.reposted);
-    } catch (error) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(error.toString())),
-      );
-    }
-  }
+
 
   void _quotePost(DiaryPost post) {
     Navigator.of(context).push(
@@ -304,7 +293,6 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
                           onTap: () => _openDetail(post),
                           onToggleLike: () => _toggleLike(post),
                           onToggleBookmark: () => _toggleBookmark(post),
-                          onToggleRepost: () => _toggleRepost(post),
                           onComment: () => _openDetail(post),
                           onQuote: () => _quotePost(post),
                           onBlock: () => _blockUser(post),

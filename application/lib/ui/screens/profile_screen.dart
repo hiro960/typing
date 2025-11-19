@@ -4,8 +4,10 @@ import 'package:forui/forui.dart';
 
 import '../../features/auth/data/models/user_model.dart';
 import '../../features/auth/domain/providers/auth_providers.dart';
+import '../../features/diary/data/models/diary_post.dart';
 import '../../features/profile/data/models/user_stats_model.dart';
 import '../../features/profile/domain/providers/profile_providers.dart';
+import '../widgets/diary_post_card.dart';
 import 'diary/drafts_screen.dart';
 
 class ProfileScreen extends ConsumerWidget {
@@ -76,7 +78,7 @@ class ProfileScreen extends ConsumerWidget {
     ThemeData theme,
     UserModel profile,
     AsyncValue<UserStatsModel> statsAsync,
-    AsyncValue<List<Map<String, dynamic>>> postsAsync,
+    AsyncValue<List<DiaryPost>> postsAsync,
     String? currentUserId,
   ) {
     return SafeArea(
@@ -232,12 +234,30 @@ class ProfileScreen extends ConsumerWidget {
                   );
                 }
                 return Column(
-                  children: posts.take(20).map((post) {
-                    return Padding(
-                      padding: const EdgeInsets.only(bottom: 16),
-                      child: _MiniPostCard(post: post),
-                    );
-                  }).toList(),
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+                      child: Text(
+                        '日記',
+                        style: theme.textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    ...posts.take(20).map((post) {
+                      return DiaryPostCard(
+                        post: post,
+                        onTap: () {
+                          // TODO: Navigate to post detail
+                        },
+                        onToggleLike: () {},
+                        onToggleBookmark: () {},
+                        onComment: () {},
+                        currentUserId: currentUserId,
+                      );
+                    }),
+                  ],
                 );
               },
               loading: () => const Center(child: CircularProgressIndicator()),
@@ -373,67 +393,4 @@ class _TabItem extends StatelessWidget {
   }
 }
 
-class _MiniPostCard extends StatelessWidget {
-  const _MiniPostCard({required this.post});
 
-  final Map<String, dynamic> post;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final content = post['content'] as String? ?? '';
-    final likesCount = post['likesCount'] as int? ?? 0;
-    final createdAt = post['createdAt'] as String? ?? '';
-
-    return FCard.raw(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(content, style: theme.textTheme.bodyLarge),
-            const SizedBox(height: 8),
-            Row(
-              children: [
-                Icon(
-                  Icons.schedule,
-                  size: 16,
-                  color: theme.colorScheme.primary,
-                ),
-                const SizedBox(width: 4),
-                Text(
-                  _formatTimeAgo(createdAt),
-                  style: theme.textTheme.bodySmall,
-                ),
-                const Spacer(),
-                Icon(Icons.favorite, size: 16, color: theme.colorScheme.error),
-                const SizedBox(width: 4),
-                Text('$likesCount'),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  String _formatTimeAgo(String isoDate) {
-    try {
-      final date = DateTime.parse(isoDate);
-      final now = DateTime.now();
-      final diff = now.difference(date);
-
-      if (diff.inDays > 0) {
-        return '${diff.inDays}日前';
-      } else if (diff.inHours > 0) {
-        return '${diff.inHours}時間前';
-      } else if (diff.inMinutes > 0) {
-        return '${diff.inMinutes}分前';
-      } else {
-        return 'たった今';
-      }
-    } catch (e) {
-      return '';
-    }
-  }
-}
