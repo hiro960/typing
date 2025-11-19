@@ -5,6 +5,7 @@ import { getAuthUser, requireAuthUser } from "@/lib/auth";
 import { Visibility } from "@/lib/types";
 import prisma from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
+import { ratelimit } from "@/lib/ratelimit";
 
 const VISIBILITIES: Visibility[] = ["public", "followers", "private"];
 type FeedBucket = "recommended" | "following" | "latest";
@@ -251,6 +252,14 @@ function normalizeTagsInput(tags: unknown): string[] {
 export async function POST(request: NextRequest) {
   try {
     const user = await requireAuthUser(request);
+
+    if (process.env.NODE_ENV === "production") {
+      const { success } = await ratelimit.post.limit(user.id);
+      if (!success) {
+        throw ERROR.TOO_MANY_REQUESTS("Rate limit exceeded");
+      }
+    }
+
     const body = await request.json();
     const {
       content,
@@ -265,8 +274,8 @@ export async function POST(request: NextRequest) {
       throw ERROR.INVALID_INPUT("content is required", { field: "content" });
     }
 
-    if (content.length > 280) {
-      throw ERROR.INVALID_INPUT("content must be <= 280 characters", {
+    if (content.length > 600) {
+      throw ERROR.INVALID_INPUT("content must be <= 600 characters", {
         field: "content",
       });
     }

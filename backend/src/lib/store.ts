@@ -370,16 +370,16 @@ async function resolveQuotedPost(
   const quotedAuthor = quoted.user
     ? toUserSummary(quoted.user)
     : {
-        id: quoted.userId,
-        username: "unknown",
-        displayName: "Unknown",
-        profileImageUrl: null,
-        type: "NORMAL" as const,
-        followersCount: 0,
-        followingCount: 0,
-        postsCount: 0,
-        settings: null,
-      };
+      id: quoted.userId,
+      username: "unknown",
+      displayName: "Unknown",
+      profileImageUrl: null,
+      type: "NORMAL" as const,
+      followersCount: 0,
+      followingCount: 0,
+      postsCount: 0,
+      settings: null,
+    };
 
   return {
     id: quoted.id,
@@ -398,16 +398,16 @@ export async function toPostResponse(
   const userSummary = author
     ? toUserSummary(author)
     : {
-        id: post.userId,
-        username: "unknown",
-        displayName: "Unknown",
-        profileImageUrl: null,
-        type: "NORMAL" as const,
-        followersCount: 0,
-        followingCount: 0,
-        postsCount: 0,
-        settings: null,
-      };
+      id: post.userId,
+      username: "unknown",
+      displayName: "Unknown",
+      profileImageUrl: null,
+      type: "NORMAL" as const,
+      followersCount: 0,
+      followingCount: 0,
+      postsCount: 0,
+      settings: null,
+    };
   const liked = await isPostLikedByUser(post.id, viewerId);
   const bookmarked = await isPostBookmarkedByUser(post.id, viewerId);
   const viewerRepostTimestamp = await hasUserRepostedPost(post.id, viewerId);
@@ -573,12 +573,12 @@ export async function deletePost(postId: string) {
 export function addLike(post: PostWithUser, userId: string) {
   return prisma
     .$transaction(async (tx) => {
-    const existing = await tx.like.findUnique({
-      where: { postId_userId: { postId: post.id, userId } },
-    });
-    if (existing) {
-      throw ERROR.CONFLICT("Already liked");
-    }
+      const existing = await tx.like.findUnique({
+        where: { postId_userId: { postId: post.id, userId } },
+      });
+      if (existing) {
+        throw ERROR.CONFLICT("Already liked");
+      }
 
       await tx.like.create({ data: { postId: post.id, userId } });
       const updated = await tx.post.update({
@@ -648,19 +648,19 @@ export function removeBookmark(postId: string, userId: string) {
 export function addRepost(post: PostWithUser, userId: string) {
   return prisma
     .$transaction(async (tx) => {
-    const existing = await tx.repost.findUnique({
-      where: { userId_originalPostId: { userId, originalPostId: post.id } },
-    });
-    if (existing) {
-      throw ERROR.CONFLICT("Already reposted");
-    }
-    const repost = await tx.repost.create({
-      data: { userId, originalPostId: post.id },
-    });
-    await tx.post.update({
-      where: { id: post.id },
-      data: { repostsCount: { increment: 1 } },
-    });
+      const existing = await tx.repost.findUnique({
+        where: { userId_originalPostId: { userId, originalPostId: post.id } },
+      });
+      if (existing) {
+        throw ERROR.CONFLICT("Already reposted");
+      }
+      const repost = await tx.repost.create({
+        data: { userId, originalPostId: post.id },
+      });
+      const updatedPost = await tx.post.update({
+        where: { id: post.id },
+        data: { repostsCount: { increment: 1 } },
+      });
       const notificationDispatch = await maybeCreateNotification(tx, {
         targetUserId: post.userId,
         actorId: userId,
@@ -668,11 +668,11 @@ export function addRepost(post: PostWithUser, userId: string) {
         postId: post.id,
         previewText: post.content,
       });
-      return { repost, notificationDispatch };
+      return { repost, updatedPost, notificationDispatch };
     })
-    .then(async ({ repost, notificationDispatch }) => {
+    .then(async ({ repost, updatedPost, notificationDispatch }) => {
       await dispatchNotificationPush(notificationDispatch);
-      return repost;
+      return { repost, updatedPost };
     });
 }
 
@@ -685,7 +685,7 @@ export function removeRepost(postId: string, userId: string) {
       throw ERROR.NOT_FOUND("Repost not found");
     }
     await tx.repost.delete({ where: { id: existing.id } });
-    await tx.post.update({
+    return tx.post.update({
       where: { id: postId },
       data: { repostsCount: { decrement: 1 } },
     });
@@ -1052,31 +1052,31 @@ export function addFollow(followerId: string, followingId: string) {
 
   return prisma
     .$transaction(async (tx) => {
-    const target = await tx.user.findUnique({ where: { id: followingId } });
-    if (!target) {
-      throw ERROR.NOT_FOUND("User not found");
-    }
+      const target = await tx.user.findUnique({ where: { id: followingId } });
+      if (!target) {
+        throw ERROR.NOT_FOUND("User not found");
+      }
 
-    const existing = await tx.follow.findUnique({
-      where: { followerId_followingId: { followerId, followingId } },
-    });
-    if (existing) {
-      throw ERROR.CONFLICT("Already following");
-    }
+      const existing = await tx.follow.findUnique({
+        where: { followerId_followingId: { followerId, followingId } },
+      });
+      if (existing) {
+        throw ERROR.CONFLICT("Already following");
+      }
 
-    const follow = await tx.follow.create({
-      data: { followerId, followingId },
-    });
+      const follow = await tx.follow.create({
+        data: { followerId, followingId },
+      });
 
-    await tx.user.update({
-      where: { id: followerId },
-      data: { followingCount: { increment: 1 } },
-    });
+      await tx.user.update({
+        where: { id: followerId },
+        data: { followingCount: { increment: 1 } },
+      });
 
-    await tx.user.update({
-      where: { id: followingId },
-      data: { followersCount: { increment: 1 } },
-    });
+      await tx.user.update({
+        where: { id: followingId },
+        data: { followersCount: { increment: 1 } },
+      });
 
       const notificationDispatch = await maybeCreateNotification(tx, {
         targetUserId: followingId,

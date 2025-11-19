@@ -9,6 +9,7 @@ import {
 } from "@/lib/store";
 import { handleRouteError, ERROR } from "@/lib/errors";
 import { PostRecord, Visibility } from "@/lib/types";
+import { ratelimit } from "@/lib/ratelimit";
 
 const VISIBILITIES: Visibility[] = ["public", "followers", "private"];
 
@@ -34,13 +35,21 @@ export async function GET(
   }
 }
 
-export async function PUT(
+export async function PATCH(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const { id } = await params;
     const user = await requireAuthUser(request);
+
+    if (process.env.NODE_ENV === "production") {
+      const { success } = await ratelimit.post.limit(user.id);
+      if (!success) {
+        throw ERROR.TOO_MANY_REQUESTS("Rate limit exceeded");
+      }
+    }
+
     const post = await getPostById(id);
     if (!post) {
       throw ERROR.NOT_FOUND("Post not found");
@@ -73,8 +82,8 @@ export async function PUT(
           field: "content",
         });
       }
-      if (body.content.length > 280) {
-        throw ERROR.INVALID_INPUT("content must be <= 280 characters", {
+      if (body.content.length > 600) {
+        throw ERROR.INVALID_INPUT("content must be <= 600 characters", {
           field: "content",
         });
       }

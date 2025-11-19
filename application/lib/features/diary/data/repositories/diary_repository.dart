@@ -9,7 +9,7 @@ import '../models/diary_notification.dart';
 import '../models/diary_post.dart';
 import '../models/diary_search.dart';
 
-enum DiaryFeedType { recommended, following, latest }
+enum DiaryFeedType { recommended, following }
 
 extension DiaryFeedTypeQuery on DiaryFeedType {
   String get query {
@@ -18,8 +18,6 @@ extension DiaryFeedTypeQuery on DiaryFeedType {
         return 'recommended';
       case DiaryFeedType.following:
         return 'following';
-      case DiaryFeedType.latest:
-        return 'latest';
     }
   }
 }
@@ -41,6 +39,7 @@ class DiaryRepository {
     required DiaryFeedType feed,
     String? cursor,
     int limit = 20,
+    String? visibility,
   }) async {
     try {
       final response = await _apiClient.dio.get(
@@ -49,6 +48,7 @@ class DiaryRepository {
           'feed': feed.query,
           'limit': limit,
           if (cursor != null) 'cursor': cursor,
+          if (visibility != null) 'visibility': visibility,
         },
       );
       final payload = response.data as Map<String, dynamic>;
@@ -160,7 +160,7 @@ class DiaryRepository {
     bool? shareToDiary,
   }) async {
     try {
-      final response = await _apiClient.dio.put(
+      final response = await _apiClient.dio.patch(
         '/api/posts/$postId',
         data: {
           if (content != null) 'content': content,

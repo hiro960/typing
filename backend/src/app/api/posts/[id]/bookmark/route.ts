@@ -18,7 +18,7 @@ export async function POST(
       throw ERROR.FORBIDDEN("You cannot bookmark this post");
     }
     await addBookmark(post.id, user.id);
-    return NextResponse.json({ bookmarked: true });
+    return NextResponse.json({ bookmarked: true }, { status: 201 });
   } catch (error) {
     return handleRouteError(error);
   }

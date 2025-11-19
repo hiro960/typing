@@ -208,10 +208,12 @@ class UserSettingsModel {
   const UserSettingsModel({
     this.notifications = const UserNotificationSettingsModel(),
     this.postDefaultVisibility = 'public',
+    this.profileVisibility = 'public',
   });
 
   final UserNotificationSettingsModel notifications;
   final String postDefaultVisibility;
+  final String profileVisibility;
 
   factory UserSettingsModel.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
@@ -223,6 +225,7 @@ class UserSettingsModel {
       ),
       postDefaultVisibility:
           (json['postDefaultVisibility'] as String?) ?? 'public',
+      profileVisibility: (json['profileVisibility'] as String?) ?? 'public',
     );
   }
 
@@ -230,6 +233,7 @@ class UserSettingsModel {
     return {
       'notifications': notifications.toJson(),
       'postDefaultVisibility': postDefaultVisibility,
+      'profileVisibility': profileVisibility,
     };
   }
 }

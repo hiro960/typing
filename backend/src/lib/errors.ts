@@ -25,6 +25,8 @@ export const ERROR = {
     new ApiError(409, "CONFLICT", message, details),
   UNPROCESSABLE: (message: string) =>
     new ApiError(422, "BUSINESS_RULE_VIOLATION", message),
+  TOO_MANY_REQUESTS: (message = "Too many requests") =>
+    new ApiError(429, "TOO_MANY_REQUESTS", message),
 };
 
 export function createErrorPayload(error: ApiError): ErrorPayload {

@@ -20,8 +20,14 @@ export async function POST(
     if (!(await canViewPost(post, user.id))) {
       throw ERROR.FORBIDDEN("You cannot repost this post");
     }
-    const repost = await addRepost(post, user.id);
-    return NextResponse.json(repost, { status: 201 });
+    const { updatedPost } = await addRepost(post, user.id);
+    return NextResponse.json(
+      {
+        repostsCount: updatedPost.repostsCount,
+        reposted: true,
+      },
+      { status: 201 }
+    );
   } catch (error) {
     return handleRouteError(error);
   }
@@ -41,8 +47,11 @@ export async function DELETE(
     if (!(await canViewPost(post, user.id))) {
       throw ERROR.FORBIDDEN("You cannot modify this repost");
     }
-    await removeRepost(post.id, user.id);
-    return new NextResponse(null, { status: 204 });
+    const updatedPost = await removeRepost(post.id, user.id);
+    return NextResponse.json({
+      repostsCount: updatedPost.repostsCount,
+      reposted: false,
+    });
   } catch (error) {
     return handleRouteError(error);
   }

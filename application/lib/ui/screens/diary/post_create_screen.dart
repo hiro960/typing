@@ -26,7 +26,7 @@ class PostCreateScreen extends ConsumerStatefulWidget {
 }
 
 class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
-  final _contentController = TextEditingController();
+  late final _contentController = _HashtagEditingController();
   final _focusNode = FocusNode();
   final _picker = ImagePicker();
   final List<_ComposerImage> _images = [];
@@ -38,7 +38,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
   DiaryQuotedPost? _quotedPost;
   String? _quotedPostId;
 
-  static const _maxLength = 280;
+  static const _maxLength = 600;
 
   @override
   void initState() {
@@ -297,7 +297,8 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
               TextField(
                 controller: _contentController,
                 focusNode: _focusNode,
-                maxLines: null,
+                minLines: 8,
+                maxLines: 8,
                 maxLength: _maxLength,
                 decoration: InputDecoration(
                   hintText: '今日は何をしましたか？韓国語で書いてみましょう。',
@@ -307,14 +308,6 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                 ),
               ),
               const SizedBox(height: 8),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  '残り $remaining 文字',
-                  style: theme.textTheme.bodySmall,
-                ),
-              ),
-              const SizedBox(height: 16),
               if (_hashtags.isNotEmpty) ...[
                 Text('ハッシュタグ', style: theme.textTheme.titleSmall),
                 const SizedBox(height: 8),
@@ -555,4 +548,52 @@ class _ComposerImage {
 
   final XFile? file;
   final String? url;
+}
+
+class _HashtagEditingController extends TextEditingController {
+  @override
+  TextSpan buildTextSpan({
+    required BuildContext context,
+    TextStyle? style,
+    required bool withComposing,
+  }) {
+    final theme = Theme.of(context);
+    final children = <InlineSpan>[];
+    final pattern = RegExp(r'#([^\s#]+)');
+    var currentIndex = 0;
+
+    for (final match in pattern.allMatches(text)) {
+      if (match.start > currentIndex) {
+        children.add(
+          TextSpan(
+            text: text.substring(currentIndex, match.start),
+            style: style,
+          ),
+        );
+      }
+
+      children.add(
+        TextSpan(
+          text: text.substring(match.start, match.end),
+          style: style?.copyWith(
+            color: theme.colorScheme.primary,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      );
+
+      currentIndex = match.end;
+    }
+
+    if (currentIndex < text.length) {
+      children.add(
+        TextSpan(
+          text: text.substring(currentIndex),
+          style: style,
+        ),
+      );
+    }
+
+    return TextSpan(style: style, children: children);
+  }
 }

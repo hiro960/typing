@@ -18,10 +18,13 @@ export async function POST(
       throw ERROR.FORBIDDEN("You cannot like this post");
     }
     const updated = await addLike(post, user.id);
-    return NextResponse.json({
-      likesCount: updated.likesCount,
-      liked: true,
-    });
+    return NextResponse.json(
+      {
+        likesCount: updated.likesCount,
+        liked: true,
+      },
+      { status: 201 }
+    );
   } catch (error) {
     return handleRouteError(error);
   }

@@ -442,7 +442,7 @@ describe('POST /api/posts', () => {
     });
 
     it('should return 400 when content is too long', async () => {
-      const longContent = 'a'.repeat(281);
+      const longContent = 'a'.repeat(601);
       const request = createAuthRequest('http://localhost:3000/api/posts', {
         method: 'POST',
         body: JSON.stringify({
@@ -455,7 +455,7 @@ describe('POST /api/posts', () => {
 
       expect(response.status).toBe(400);
       expect(data.error.code).toBe('INVALID_INPUT');
-      expect(data.error.message).toContain('280 characters');
+      expect(data.error.message).toContain('600 characters');
     });
 
     it('should return 400 when imageUrls is not array', async () => {

@@ -30,7 +30,6 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
   static const _feedLabels = {
     DiaryFeedType.recommended: 'おすすめ',
     DiaryFeedType.following: 'フォロー中',
-    DiaryFeedType.latest: '最新',
   };
 
   @override

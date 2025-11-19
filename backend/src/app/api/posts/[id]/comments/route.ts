@@ -9,6 +9,7 @@ import {
 } from "@/lib/store";
 import { handleRouteError, ERROR } from "@/lib/errors";
 import { paginateArray, parseLimit } from "@/lib/pagination";
+import { ratelimit } from "@/lib/ratelimit";
 
 export async function GET(
   request: NextRequest,
@@ -54,6 +55,14 @@ export async function POST(
   try {
     const { id } = await params;
     const user = await requireAuthUser(request);
+
+    if (process.env.NODE_ENV === "production") {
+      const { success } = await ratelimit.comment.limit(user.id);
+      if (!success) {
+        throw ERROR.TOO_MANY_REQUESTS("Rate limit exceeded");
+      }
+    }
+
     const post = await getPostById(id);
     if (!post) {
       throw ERROR.NOT_FOUND("Post not found");
