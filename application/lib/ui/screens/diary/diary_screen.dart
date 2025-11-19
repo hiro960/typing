@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
+import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/data/repositories/diary_repository.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
@@ -120,6 +121,18 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
     );
   }
 
+  Future<void> _editPost(DiaryPost post) async {
+    final updated = await Navigator.of(context).push<DiaryPost>(
+      MaterialPageRoute(
+        builder: (_) => PostCreateScreen(initialPost: post),
+        fullscreenDialog: true,
+      ),
+    );
+    if (updated != null) {
+      ref.read(diaryTimelineControllerProvider.notifier).updatePost(updated);
+    }
+  }
+
   Future<void> _blockUser(DiaryPost post) async {
     final confirm = await showDialog<bool>(
       context: context,
@@ -202,6 +215,7 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
     final theme = Theme.of(context);
     final timelineState = ref.watch(diaryTimelineControllerProvider);
     final feedState = timelineState.feed(_selectedFeed);
+    final currentUser = ref.watch(currentUserProvider);
 
     return SafeArea(
       child: Column(
@@ -295,6 +309,8 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
                           onQuote: () => _quotePost(post),
                           onBlock: () => _blockUser(post),
                           onReport: () => _reportPost(post),
+                          onEdit: () => _editPost(post),
+                          currentUserId: currentUser?.id,
                         );
                       },
                     );

@@ -10,6 +10,8 @@ import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/data/repositories/diary_repository.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
+import '../../../features/typing/domain/services/hangul_composer.dart';
+import '../../widgets/typing_keyboard.dart';
 
 class PostCreateScreen extends ConsumerStatefulWidget {
   const PostCreateScreen({
@@ -30,6 +32,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
   final _focusNode = FocusNode();
   final _picker = ImagePicker();
   final List<_ComposerImage> _images = [];
+  late final HangulComposer _composer;
 
   bool _isSubmitting = false;
   bool _shareToDiary = true;
@@ -37,6 +40,8 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
   DiaryPost? _editingPost;
   DiaryQuotedPost? _quotedPost;
   String? _quotedPostId;
+  bool _useCustomKeyboard = true;
+  bool _showCustomKeyboard = false;
 
   static const _maxLength = 600;
 
@@ -57,7 +62,59 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
       );
     }
 
+    _composer = HangulComposer();
+    _composer.loadFromText(_contentController.text);
+
     _contentController.addListener(() => setState(() {}));
+    _focusNode.addListener(_onFocusChange);
+  }
+
+  void _onFocusChange() {
+    if (_focusNode.hasFocus && _useCustomKeyboard) {
+      setState(() => _showCustomKeyboard = true);
+    }
+  }
+
+  void _onKeyboardTextInput(String text) {
+    _composer.input(text);
+    _applyComposerText();
+  }
+
+  void _onKeyboardBackspace() {
+    _composer.backspace();
+    _applyComposerText();
+  }
+
+  void _onKeyboardSpace() {
+    _composer.addSpace();
+    _applyComposerText();
+  }
+
+  void _onKeyboardEnter() {
+    _composer.input('\n');
+    _applyComposerText();
+  }
+
+  void _applyComposerText() {
+    final text = _composer.text;
+    _contentController.value = TextEditingValue(
+      text: text,
+      selection: TextSelection.collapsed(
+        offset: text.characters.length,
+      ),
+    );
+  }
+
+  void _toggleKeyboardType() {
+    setState(() {
+      _useCustomKeyboard = !_useCustomKeyboard;
+      if (_useCustomKeyboard) {
+        _focusNode.requestFocus();
+        _showCustomKeyboard = true;
+      } else {
+        _showCustomKeyboard = false;
+      }
+    });
   }
 
   @override
@@ -272,101 +329,249 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
     final theme = Theme.of(context);
     final remaining = _maxLength - _contentController.text.characters.length;
 
+    final isOverLimit = remaining < 0;
+    final remainingLabel =
+        isOverLimit ? '${remaining.abs()}文字オーバー' : '残り$remaining文字';
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text(_isEditing ? '投稿を編集' : '新規投稿'),
-        actions: [
-          TextButton(
-            onPressed: _isSubmitting ? null : _submit,
-            child: _isSubmitting
-                ? const SizedBox(
-                    width: 16,
-                    height: 16,
-                    child: CircularProgressIndicator(strokeWidth: 2),
-                  )
-                : Text(_isEditing ? '更新' : '投稿'),
-          ),
-        ],
-      ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TextField(
-                controller: _contentController,
-                focusNode: _focusNode,
-                minLines: 8,
-                maxLines: 8,
-                maxLength: _maxLength,
-                decoration: InputDecoration(
-                  hintText: '今日は何をしましたか？韓国語で書いてみましょう。',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 8),
-              if (_hashtags.isNotEmpty) ...[
-                Text('ハッシュタグ', style: theme.textTheme.titleSmall),
-                const SizedBox(height: 8),
-                Wrap(
-                  spacing: 8,
-                  children: _hashtags
-                      .map((tag) => Chip(label: Text('#$tag')))
-                      .toList(),
-                ),
-                const SizedBox(height: 16),
-              ],
-              if (_images.isNotEmpty) ...[
-                _ImageGrid(
-                  images: _images,
-                  onRemove: _removeImage,
-                ),
-                const SizedBox(height: 16),
-              ],
-              if (_quotedPost != null) ...[
-                _QuotedPostPreview(
-                  quotedPost: _quotedPost!,
-                  onRemove: _isEditing ? null : _removeQuote,
-                ),
-                const SizedBox(height: 16),
-              ],
-              Row(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 16, 20, 12),
+              child: Row(
                 children: [
-                  _ComposerActionButton(
-                    icon: Icons.image_outlined,
-                    label: '画像',
-                    onTap: _pickImages,
+                  _ToolbarIconButton(
+                    icon: Icons.close,
+                    tooltip: '閉じる',
+                    onPressed: () => Navigator.of(context).maybePop(),
                   ),
                   const SizedBox(width: 12),
-                  if (_quotedPostId != null && !_isEditing)
-                    _ComposerActionButton(
-                      icon: Icons.close,
-                      label: '引用を削除',
-                      onTap: _removeQuote,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          _isEditing ? '投稿を編集' : '新規投稿',
+                          style: theme.textTheme.headlineSmall,
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          remainingLabel,
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: isOverLimit
+                                ? theme.colorScheme.error
+                                : theme.colorScheme.secondary,
+                          ),
+                        ),
+                      ],
                     ),
+                  ),
+                  const SizedBox(width: 12),
+                  FilledButton(
+                    onPressed: _isSubmitting ? null : _submit,
+                    child: _isSubmitting
+                        ? const SizedBox(
+                            width: 18,
+                            height: 18,
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          )
+                        : Text(_isEditing ? '更新' : '投稿'),
+                  ),
                 ],
               ),
-              const SizedBox(height: 16),
-              ListTile(
-                contentPadding: EdgeInsets.zero,
-                title: const Text('公開範囲'),
-                subtitle: Text(_visibilityLabel(_visibility)),
-                trailing: IconButton(
-                  icon: const Icon(Icons.arrow_drop_down),
-                  onPressed: _showVisibilitySheet,
-                ),
+            ),
+            Divider(
+              height: 1,
+              thickness: 1,
+              color: theme.colorScheme.outlineVariant,
+            ),
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.fromLTRB(20, 12, 20, 20),
+                children: [
+                  Card(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('投稿内容', style: theme.textTheme.titleMedium),
+                          const SizedBox(height: 12),
+                          TextField(
+                            controller: _contentController,
+                            focusNode: _focusNode,
+                            readOnly: _useCustomKeyboard,
+                            minLines: 8,
+                            maxLines: 12,
+                            maxLength: _maxLength,
+                            decoration: const InputDecoration(
+                              hintText: '今日は何をしましたか？韓国語で書いてみましょう。',
+                              border: InputBorder.none,
+                              counterText: '',
+                            ),
+                          ),
+                          if (_hashtags.isNotEmpty) ...[
+                            const SizedBox(height: 12),
+                            Text('ハッシュタグ', style: theme.textTheme.titleSmall),
+                            const SizedBox(height: 8),
+                            Wrap(
+                              spacing: 8,
+                              runSpacing: 8,
+                              children: _hashtags
+                                  .map((tag) => Chip(label: Text('#$tag')))
+                                  .toList(),
+                            ),
+                          ],
+                          if (_images.isNotEmpty) ...[
+                            const SizedBox(height: 16),
+                            _ImageGrid(
+                              images: _images,
+                              onRemove: _removeImage,
+                            ),
+                          ],
+                          if (_quotedPost != null) ...[
+                            const SizedBox(height: 16),
+                            _QuotedPostPreview(
+                              quotedPost: _quotedPost!,
+                              onRemove: _isEditing ? null : _removeQuote,
+                            ),
+                          ],
+                          const SizedBox(height: 16),
+                          Wrap(
+                            spacing: 12,
+                            runSpacing: 12,
+                            children: [
+                              _ComposerActionButton(
+                                icon: Icons.image_outlined,
+                                label: '画像を追加',
+                                onTap: _pickImages,
+                              ),
+                              if (_quotedPostId != null && !_isEditing)
+                                _ComposerActionButton(
+                                  icon: Icons.close,
+                                  label: '引用を削除',
+                                  onTap: _removeQuote,
+                                ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Card(
+                    child: Column(
+                      children: [
+                        ListTile(
+                          contentPadding:
+                              const EdgeInsets.fromLTRB(20, 12, 20, 12),
+                          title: const Text('公開範囲'),
+                          subtitle: Text(_visibilityLabel(_visibility)),
+                          trailing: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12,
+                              vertical: 6,
+                            ),
+                            decoration: BoxDecoration(
+                              color: theme.colorScheme.primary
+                                  .withValues(alpha: 0.12),
+                              borderRadius: BorderRadius.circular(999),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  '変更',
+                                  style: theme.textTheme.labelMedium?.copyWith(
+                                    color: theme.colorScheme.primary,
+                                  ),
+                                ),
+                                const SizedBox(width: 4),
+                                Icon(
+                                  Icons.keyboard_arrow_down,
+                                  color: theme.colorScheme.primary,
+                                ),
+                              ],
+                            ),
+                          ),
+                          onTap: _showVisibilitySheet,
+                        ),
+                        const Divider(height: 1),
+                        SwitchListTile.adaptive(
+                          contentPadding:
+                              const EdgeInsets.symmetric(horizontal: 20),
+                          title: const Text('日記として共有'),
+                          subtitle: const Text('ホームの日記タイムラインにも表示します'),
+                          value: _shareToDiary,
+                          onChanged: (value) =>
+                              setState(() => _shareToDiary = value),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              SwitchListTile(
-                contentPadding: EdgeInsets.zero,
-                title: const Text('日記として共有'),
-                value: _shareToDiary,
-                onChanged: (value) => setState(() => _shareToDiary = value),
-              ),
-            ],
-          ),
+            ),
+            AnimatedSwitcher(
+              duration: const Duration(milliseconds: 200),
+              child: _showCustomKeyboard
+                  ? ColoredBox(
+                      color: theme.colorScheme.surface,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 8,
+                            ),
+                            decoration: BoxDecoration(
+                              border: Border(
+                                top: BorderSide(
+                                  color: theme.colorScheme.outlineVariant,
+                                  width: 1,
+                                ),
+                              ),
+                            ),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    _useCustomKeyboard
+                                        ? '韓国語キーボード'
+                                        : 'デフォルトキーボード',
+                                    style: theme.textTheme.bodyMedium,
+                                  ),
+                                ),
+                                IconButton(
+                                  icon: Icon(
+                                    _useCustomKeyboard
+                                        ? Icons.keyboard
+                                        : Icons.keyboard_alt_outlined,
+                                  ),
+                                  onPressed: _toggleKeyboardType,
+                                  tooltip: _useCustomKeyboard
+                                      ? 'デフォルトキーボードに切り替え'
+                                      : 'カスタムキーボードに切り替え',
+                                ),
+                              ],
+                            ),
+                          ),
+                          TypingKeyboard(
+                            onTextInput: _onKeyboardTextInput,
+                            onBackspace: _onKeyboardBackspace,
+                            onSpace: _onKeyboardSpace,
+                            onEnter: _onKeyboardEnter,
+                            enableHaptics: true,
+                            enableSound: false,
+                          ),
+                        ],
+                      ),
+                    )
+                  : const SizedBox.shrink(),
+            ),
+          ],
         ),
       ),
     );
@@ -382,6 +587,49 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
       default:
         return '全体公開';
     }
+  }
+}
+
+class _ToolbarIconButton extends StatelessWidget {
+  const _ToolbarIconButton({
+    required this.icon,
+    required this.onPressed,
+    this.tooltip,
+    this.enabled = true,
+  });
+
+  final IconData icon;
+  final VoidCallback onPressed;
+  final String? tooltip;
+  final bool enabled;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final button = Material(
+      color: theme.colorScheme.surface,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: theme.colorScheme.outlineVariant),
+      ),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16),
+        onTap: enabled ? onPressed : null,
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Icon(
+            icon,
+            size: 20,
+            color: theme.colorScheme.onSurface,
+          ),
+        ),
+      ),
+    );
+    final decorated = Opacity(opacity: enabled ? 1 : 0.4, child: button);
+    if (tooltip != null) {
+      return Tooltip(message: tooltip!, child: decorated);
+    }
+    return decorated;
   }
 }
 
@@ -425,10 +673,17 @@ class _ComposerActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return OutlinedButton.icon(
+    final theme = Theme.of(context);
+    return FilledButton.icon(
       onPressed: onTap,
       icon: Icon(icon),
       label: Text(label),
+      style: FilledButton.styleFrom(
+        backgroundColor: theme.colorScheme.primary.withValues(alpha: 0.12),
+        foregroundColor: theme.colorScheme.primary,
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      ),
     );
   }
 }
@@ -524,11 +779,6 @@ class _QuotedPostPreview extends StatelessWidget {
                   style: theme.textTheme.titleSmall,
                 ),
               ),
-              if (onRemove != null)
-                IconButton(
-                  icon: const Icon(Icons.close),
-                  onPressed: onRemove,
-                ),
             ],
           ),
           const SizedBox(height: 8),

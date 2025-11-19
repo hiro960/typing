@@ -351,6 +351,8 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
                       onQuote: _quotePost,
                       onBlock: _blockAuthor,
                       onReport: _reportPost,
+                      onEdit: _editPost,
+                      currentUserId: currentUser?.id,
                     );
                   }
                   if (_showInitialLoader(commentsState) &&
@@ -478,9 +480,29 @@ class _CommentTile extends StatelessWidget {
   final VoidCallback onToggleLike;
   final VoidCallback onDelete;
 
+  String _relativeTime(DateTime? time) {
+    if (time == null) return '';
+    final now = DateTime.now();
+    final difference = now.difference(time);
+    if (difference.inSeconds < 60) {
+      return '${difference.inSeconds}s';
+    } else if (difference.inMinutes < 60) {
+      return '${difference.inMinutes}m';
+    } else if (difference.inHours < 24) {
+      return '${difference.inHours}h';
+    } else {
+      return '${difference.inDays}d';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final subtitle = [
+      '@${comment.user.username}',
+      _relativeTime(comment.createdAt),
+    ].where((value) => value.isNotEmpty).join(' ・ ');
+
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8),
       child: Padding(
@@ -508,7 +530,7 @@ class _CommentTile extends StatelessWidget {
                         style: theme.textTheme.titleSmall,
                       ),
                       Text(
-                        '@${comment.user.username}',
+                        subtitle,
                         style: theme.textTheme.bodySmall?.copyWith(
                           color: theme.colorScheme.onSurface.withValues(
                             alpha: 0.6,

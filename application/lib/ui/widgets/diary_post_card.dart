@@ -16,6 +16,8 @@ class DiaryPostCard extends StatelessWidget {
     this.onQuote,
     this.onBlock,
     this.onReport,
+    this.onEdit,
+    this.currentUserId,
   });
 
   final DiaryPost post;
@@ -28,6 +30,8 @@ class DiaryPostCard extends StatelessWidget {
   final VoidCallback? onQuote;
   final VoidCallback? onBlock;
   final VoidCallback? onReport;
+  final VoidCallback? onEdit;
+  final String? currentUserId;
 
   @override
   Widget build(BuildContext context) {
@@ -40,85 +44,69 @@ class DiaryPostCard extends StatelessWidget {
       if (post.isEdited) '編集済み',
     ].where((value) => value.isNotEmpty).join(' ・ ');
 
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(16),
-      child: Card(
-        margin: const EdgeInsets.symmetric(vertical: 8),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              if (post.repostInfo?.isRepost ?? false)
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: Text(
-                    '${post.repostInfo?.repostedBy?.displayName ?? 'ユーザー'}さんがリポストしました',
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
-                    ),
-                  ),
-                ),
-              Row(
+    // 自分の投稿かどうかを判定
+    final isOwnPost = currentUserId != null && post.user.id == currentUserId;
+
+    // 投稿から24時間以内かどうかを判定
+    final canEdit = isOwnPost &&
+        post.createdAt != null &&
+        DateTime.now().difference(post.createdAt!).inHours < 24;
+
+    return Card(
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(16),
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CircleAvatar(
-                    backgroundImage: avatar != null
-                        ? CachedNetworkImageProvider(avatar)
-                        : null,
-                    child: avatar == null
-                        ? Text(post.user.displayName.substring(0, 1))
-                        : null,
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          post.user.displayName,
-                          style: theme.textTheme.titleMedium,
+                  if (post.repostInfo?.isRepost ?? false)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: Text(
+                        '${post.repostInfo?.repostedBy?.displayName ?? 'ユーザー'}さんがリポストしました',
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color:
+                              theme.colorScheme.onSurface.withValues(alpha: 0.6),
                         ),
-                        Row(
+                      ),
+                    ),
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundImage: avatar != null
+                            ? CachedNetworkImageProvider(avatar)
+                            : null,
+                        child: avatar == null
+                            ? Text(post.user.displayName.substring(0, 1))
+                            : null,
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Expanded(
-                              child: Text(
-                                subtitle,
-                                style: theme.textTheme.bodySmall?.copyWith(
-                                  color: theme.colorScheme.onSurface
-                                      .withValues(alpha: 0.6),
-                                ),
+                            Text(
+                              post.user.displayName,
+                              style: theme.textTheme.titleMedium,
+                            ),
+                            Text(
+                              subtitle,
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: theme.colorScheme.onSurface
+                                    .withValues(alpha: 0.6),
                               ),
                             ),
-                            if (onBlock != null || onReport != null)
-                              PopupMenuButton<String>(
-                                onSelected: (value) {
-                                  if (value == 'report') {
-                                    onReport?.call();
-                                  } else if (value == 'block') {
-                                    onBlock?.call();
-                                  }
-                                },
-                                itemBuilder: (context) => [
-                                  if (onReport != null)
-                                    const PopupMenuItem(
-                                      value: 'report',
-                                      child: Text('通報'),
-                                    ),
-                                  if (onBlock != null)
-                                    const PopupMenuItem(
-                                      value: 'block',
-                                      child: Text('ブロック'),
-                                    ),
-                                ],
-                              ),
                           ],
                         ),
-                      ],
-                    ),
+                      ),
+                      const SizedBox(width: 40),
+                    ],
                   ),
-                ],
-              ),
               const SizedBox(height: 12),
               Text(post.content, style: theme.textTheme.bodyLarge),
               if (post.imageUrls.isNotEmpty) ...[
@@ -195,6 +183,58 @@ class DiaryPostCard extends StatelessWidget {
             ],
           ),
         ),
+        Positioned(
+          top: 8,
+          right: 8,
+          child: PopupMenuButton<String>(
+            onSelected: (value) {
+              if (value == 'edit') {
+                onEdit?.call();
+              } else if (value == 'report') {
+                onReport?.call();
+              } else if (value == 'block') {
+                onBlock?.call();
+              }
+            },
+            itemBuilder: (context) => [
+              if (canEdit && onEdit != null)
+                const PopupMenuItem(
+                  value: 'edit',
+                  child: Row(
+                    children: [
+                      Icon(Icons.edit, size: 20),
+                      SizedBox(width: 12),
+                      Text('編集'),
+                    ],
+                  ),
+                ),
+              if (!isOwnPost && onReport != null)
+                const PopupMenuItem(
+                  value: 'report',
+                  child: Row(
+                    children: [
+                      Icon(Icons.flag, size: 20),
+                      SizedBox(width: 12),
+                      Text('通報'),
+                    ],
+                  ),
+                ),
+              if (!isOwnPost && onBlock != null)
+                const PopupMenuItem(
+                  value: 'block',
+                  child: Row(
+                    children: [
+                      Icon(Icons.block, size: 20),
+                      SizedBox(width: 12),
+                      Text('ブロック'),
+                    ],
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ],
+    ),
       ),
     );
   }

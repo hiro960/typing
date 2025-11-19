@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/data/models/diary_search.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
@@ -286,11 +287,26 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
     );
   }
 
+  Future<void> _editPost(DiaryPost post) async {
+    final updated = await Navigator.of(context).push<DiaryPost>(
+      MaterialPageRoute(
+        builder: (_) => PostCreateScreen(initialPost: post),
+        fullscreenDialog: true,
+      ),
+    );
+    if (updated != null) {
+      ref.read(diaryTimelineControllerProvider.notifier).updatePost(updated);
+      // Refresh search results
+      _search(_SearchTab.posts);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final postsState = _stateFor<DiaryPost>(_SearchTab.posts);
     final usersState = _stateFor<DiaryUserSummary>(_SearchTab.users);
     final tagsState = _stateFor<DiaryHashtagTrend>(_SearchTab.hashtags);
+    final currentUser = ref.watch(currentUserProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -369,7 +385,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
                   onRefresh: () => _search(_SearchTab.posts),
                   onPostTap: _openPost,
                   onQuote: _quotePost,
+                  onEdit: _editPost,
                   ref: ref,
+                  currentUserId: currentUser?.id,
                 ),
                 _UsersResultList(
                   state: usersState,
@@ -397,7 +415,9 @@ class _PostsResultList extends StatelessWidget {
     required this.onRefresh,
     required this.onPostTap,
     required this.onQuote,
+    required this.onEdit,
     required this.ref,
+    this.currentUserId,
   });
 
   final _SearchState<DiaryPost> state;
@@ -405,7 +425,9 @@ class _PostsResultList extends StatelessWidget {
   final Future<void> Function() onRefresh;
   final ValueChanged<DiaryPost> onPostTap;
   final ValueChanged<DiaryPost> onQuote;
+  final ValueChanged<DiaryPost> onEdit;
   final WidgetRef ref;
+  final String? currentUserId;
 
   @override
   Widget build(BuildContext context) {
@@ -448,6 +470,8 @@ class _PostsResultList extends StatelessWidget {
                     .toggleRepost(post.id, repost: !post.reposted),
                 onComment: () => onPostTap(post),
                 onQuote: () => onQuote(post),
+                onEdit: () => onEdit(post),
+                currentUserId: currentUserId,
               );
             },
           );

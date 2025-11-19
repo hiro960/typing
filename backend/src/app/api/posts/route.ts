@@ -100,12 +100,6 @@ export async function GET(request: NextRequest) {
       });
       const ids = following.map((item) => item.followingId);
       ids.push(viewerId);
-      if (ids.length === 0) {
-        return NextResponse.json({
-          data: [],
-          pageInfo: { nextCursor: null, hasNextPage: false, count: 0 },
-        });
-      }
       where.userId = { in: ids };
     }
 

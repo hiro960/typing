@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
+import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../../features/diary/data/repositories/diary_repository.dart'; // Add this line
@@ -73,6 +74,8 @@ class _DraftsScreenState extends ConsumerState<DraftsScreen> {
   }
 
   Widget _buildBody() {
+    final currentUser = ref.watch(currentUserProvider);
+
     if (_isLoading) {
       return const Center(child: CircularProgressIndicator());
     }
@@ -97,8 +100,8 @@ class _DraftsScreenState extends ConsumerState<DraftsScreen> {
           onToggleRepost: () {},
           onComment: () {},
           onQuote: () {},
-          onBlock: () {},
-          onReport: () {},
+          onEdit: () => _openEditor(post),
+          currentUserId: currentUser?.id,
         );
       },
     );
