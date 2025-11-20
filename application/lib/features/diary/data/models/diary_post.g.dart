@@ -27,6 +27,14 @@ _DiaryQuotedPost _$DiaryQuotedPostFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       content: json['content'] as String,
       user: DiaryUserSummary.fromJson(json['user'] as Map<String, dynamic>),
+      imageUrls: (json['imageUrls'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const <String>[],
+      tags: (json['tags'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const <String>[],
       createdAt: json['createdAt'] == null
           ? null
           : DateTime.parse(json['createdAt'] as String),
@@ -37,6 +45,8 @@ Map<String, dynamic> _$DiaryQuotedPostToJson(_DiaryQuotedPost instance) =>
       'id': instance.id,
       'content': instance.content,
       'user': instance.user,
+      'imageUrls': instance.imageUrls,
+      'tags': instance.tags,
       'createdAt': instance.createdAt?.toIso8601String(),
     };
 

@@ -124,7 +124,6 @@ class DiaryRepository {
     List<String> imageUrls = const [],
     String visibility = 'public',
     List<String> tags = const [],
-    bool shareToDiary = true,
     String? quotedPostId,
   }) async {
     try {
@@ -135,7 +134,6 @@ class DiaryRepository {
           'imageUrls': imageUrls,
           'visibility': visibility,
           'tags': tags,
-          'shareToDiary': shareToDiary,
           if (quotedPostId != null) 'quotedPostId': quotedPostId,
         },
       );
@@ -157,7 +155,6 @@ class DiaryRepository {
     List<String>? imageUrls,
     String? visibility,
     List<String>? tags,
-    bool? shareToDiary,
   }) async {
     try {
       final response = await _apiClient.dio.patch(
@@ -167,7 +164,6 @@ class DiaryRepository {
           if (imageUrls != null) 'imageUrls': imageUrls,
           if (visibility != null) 'visibility': visibility,
           if (tags != null) 'tags': tags,
-          if (shareToDiary != null) 'shareToDiary': shareToDiary,
         },
       );
       return DiaryPost.fromJson(response.data as Map<String, dynamic>);

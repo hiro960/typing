@@ -376,6 +376,8 @@ async function resolveQuotedPost(
     id: quoted.id,
     content: quoted.content,
     user: quotedAuthor,
+    imageUrls: quoted.imageUrls,
+    tags: quoted.tags,
     createdAt: quoted.createdAt,
   };
 }

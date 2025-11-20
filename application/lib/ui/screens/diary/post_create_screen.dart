@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -11,6 +12,7 @@ import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/data/repositories/diary_repository.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
+import '../../widgets/diary_post_card.dart';
 import '../../widgets/typing_keyboard.dart';
 
 class PostCreateScreen extends ConsumerStatefulWidget {
@@ -35,7 +37,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
   late final HangulComposer _composer;
 
   bool _isSubmitting = false;
-  bool _shareToDiary = true;
+
   String _visibility = 'public';
   DiaryPost? _editingPost;
   DiaryQuotedPost? _quotedPost;
@@ -50,7 +52,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
     super.initState();
     _editingPost = widget.initialPost;
     _contentController.text = _editingPost?.content ?? '';
-    _shareToDiary = _editingPost?.shareToDiary ?? true;
+
     _visibility = _editingPost?.visibility ?? _defaultVisibility();
     _quotedPostId = _editingPost?.quotedPostId ?? widget.quotedPost?.id;
     _quotedPost =
@@ -105,15 +107,22 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
     );
   }
 
-  void _toggleKeyboardType() {
+  void _switchToDefaultKeyboard() {
     setState(() {
-      _useCustomKeyboard = !_useCustomKeyboard;
-      if (_useCustomKeyboard) {
-        _focusNode.requestFocus();
-        _showCustomKeyboard = true;
-      } else {
-        _showCustomKeyboard = false;
-      }
+      _useCustomKeyboard = false;
+      _showCustomKeyboard = false;
+    });
+    _focusNode.requestFocus();
+  }
+
+  Future<void> _switchToCustomKeyboard() async {
+    await SystemChannels.textInput.invokeMethod('TextInput.hide');
+    _focusNode.requestFocus();
+    _composer.loadFromText(_contentController.text);
+    _applyComposerText();
+    setState(() {
+      _useCustomKeyboard = true;
+      _showCustomKeyboard = true;
     });
   }
 
@@ -135,6 +144,8 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
       id: post.id,
       content: post.content,
       user: post.user,
+      imageUrls: post.imageUrls,
+      tags: post.tags,
       createdAt: post.createdAt,
     );
   }
@@ -168,7 +179,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
           imageUrls: imageUrls,
           visibility: _visibility,
           tags: _hashtags,
-          shareToDiary: _shareToDiary,
+
         );
         timeline.updatePost(post);
       } else {
@@ -177,7 +188,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
           imageUrls: imageUrls,
           visibility: _visibility,
           tags: _hashtags,
-          shareToDiary: _shareToDiary,
+
           quotedPostId: _quotedPostId,
         );
         timeline.prependPost(post);
@@ -433,10 +444,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                           ],
                           if (_quotedPost != null) ...[
                             const SizedBox(height: 16),
-                            _QuotedPostPreview(
-                              quotedPost: _quotedPost!,
-                              onRemove: _isEditing ? null : _removeQuote,
-                            ),
+                            DiaryQuotedPostCard(quotedPost: _quotedPost!),
                           ],
                           const SizedBox(height: 16),
                           Wrap(
@@ -498,79 +506,59 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                           ),
                           onTap: _showVisibilitySheet,
                         ),
-                        const Divider(height: 1),
-                        SwitchListTile.adaptive(
-                          contentPadding:
-                              const EdgeInsets.symmetric(horizontal: 20),
-                          title: const Text('日記として共有'),
-                          subtitle: const Text('ホームの日記タイムラインにも表示します'),
-                          value: _shareToDiary,
-                          onChanged: (value) =>
-                              setState(() => _shareToDiary = value),
-                        ),
+
                       ],
                     ),
                   ),
                 ],
               ),
             ),
-            AnimatedSwitcher(
+            AnimatedSize(
               duration: const Duration(milliseconds: 200),
-              child: _showCustomKeyboard
-                  ? ColoredBox(
-                      color: theme.colorScheme.surface,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 8,
-                            ),
-                            decoration: BoxDecoration(
-                              border: Border(
-                                top: BorderSide(
-                                  color: theme.colorScheme.outlineVariant,
-                                  width: 1,
-                                ),
-                              ),
-                            ),
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  child: Text(
-                                    _useCustomKeyboard
-                                        ? '韓国語キーボード'
-                                        : 'デフォルトキーボード',
-                                    style: theme.textTheme.bodyMedium,
-                                  ),
-                                ),
-                                IconButton(
-                                  icon: Icon(
-                                    _useCustomKeyboard
-                                        ? Icons.keyboard
-                                        : Icons.keyboard_alt_outlined,
-                                  ),
-                                  onPressed: _toggleKeyboardType,
-                                  tooltip: _useCustomKeyboard
-                                      ? 'デフォルトキーボードに切り替え'
-                                      : 'カスタムキーボードに切り替え',
-                                ),
-                              ],
+              curve: Curves.easeOut,
+              child: SafeArea(
+                top: false,
+                child: ColoredBox(
+                  color: theme.colorScheme.surface,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 10,
+                        ),
+                        decoration: BoxDecoration(
+                          border: Border(
+                            top: BorderSide(
+                              color: theme.colorScheme.outlineVariant,
+                              width: 1,
                             ),
                           ),
-                          TypingKeyboard(
-                            onTextInput: _onKeyboardTextInput,
-                            onBackspace: _onKeyboardBackspace,
-                            onSpace: _onKeyboardSpace,
-                            onEnter: _onKeyboardEnter,
-                            enableHaptics: true,
-                            enableSound: false,
-                          ),
-                        ],
+                        ),
+                        child: Row(
+                          children: [
+                            TextButton.icon(
+                              icon: const Icon(Icons.keyboard, size: 18),
+                              label: const Text('キーボード切り替え'),
+                              onPressed: _useCustomKeyboard ? _switchToDefaultKeyboard : _switchToCustomKeyboard,
+                            )
+                          ],
+                        ),
                       ),
-                    )
-                  : const SizedBox.shrink(),
+                      if (_useCustomKeyboard && _showCustomKeyboard)
+                        TypingKeyboard(
+                          onTextInput: _onKeyboardTextInput,
+                          onBackspace: _onKeyboardBackspace,
+                          onSpace: _onKeyboardSpace,
+                          onEnter: _onKeyboardEnter,
+                          enableHaptics: true,
+                          enableSound: false,
+                        ),
+                    ],
+                  ),
+                ),
+              ),
             ),
           ],
         ),
@@ -746,49 +734,6 @@ class _ImageGrid extends StatelessWidget {
           ],
         );
       },
-    );
-  }
-}
-
-class _QuotedPostPreview extends StatelessWidget {
-  const _QuotedPostPreview({
-    required this.quotedPost,
-    this.onRemove,
-  });
-
-  final DiaryQuotedPost quotedPost;
-  final VoidCallback? onRemove;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        border: Border.all(color: theme.colorScheme.outlineVariant),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  quotedPost.user.displayName,
-                  style: theme.textTheme.titleSmall,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          Text(
-            quotedPost.content,
-            style: theme.textTheme.bodyMedium,
-          ),
-        ],
-      ),
     );
   }
 }

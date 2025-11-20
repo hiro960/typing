@@ -287,7 +287,7 @@ as String?,
 /// @nodoc
 mixin _$DiaryQuotedPost {
 
- String get id; String get content; DiaryUserSummary get user; DateTime? get createdAt;
+ String get id; String get content; DiaryUserSummary get user; List<String> get imageUrls; List<String> get tags; DateTime? get createdAt;
 /// Create a copy of DiaryQuotedPost
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -300,16 +300,16 @@ $DiaryQuotedPostCopyWith<DiaryQuotedPost> get copyWith => _$DiaryQuotedPostCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DiaryQuotedPost&&(identical(other.id, id) || other.id == id)&&(identical(other.content, content) || other.content == content)&&(identical(other.user, user) || other.user == user)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DiaryQuotedPost&&(identical(other.id, id) || other.id == id)&&(identical(other.content, content) || other.content == content)&&(identical(other.user, user) || other.user == user)&&const DeepCollectionEquality().equals(other.imageUrls, imageUrls)&&const DeepCollectionEquality().equals(other.tags, tags)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,content,user,createdAt);
+int get hashCode => Object.hash(runtimeType,id,content,user,const DeepCollectionEquality().hash(imageUrls),const DeepCollectionEquality().hash(tags),createdAt);
 
 @override
 String toString() {
-  return 'DiaryQuotedPost(id: $id, content: $content, user: $user, createdAt: $createdAt)';
+  return 'DiaryQuotedPost(id: $id, content: $content, user: $user, imageUrls: $imageUrls, tags: $tags, createdAt: $createdAt)';
 }
 
 
@@ -320,7 +320,7 @@ abstract mixin class $DiaryQuotedPostCopyWith<$Res>  {
   factory $DiaryQuotedPostCopyWith(DiaryQuotedPost value, $Res Function(DiaryQuotedPost) _then) = _$DiaryQuotedPostCopyWithImpl;
 @useResult
 $Res call({
- String id, String content, DiaryUserSummary user, DateTime? createdAt
+ String id, String content, DiaryUserSummary user, List<String> imageUrls, List<String> tags, DateTime? createdAt
 });
 
 
@@ -337,12 +337,14 @@ class _$DiaryQuotedPostCopyWithImpl<$Res>
 
 /// Create a copy of DiaryQuotedPost
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? content = null,Object? user = null,Object? createdAt = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? content = null,Object? user = null,Object? imageUrls = null,Object? tags = null,Object? createdAt = freezed,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
 as String,user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
-as DiaryUserSummary,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DiaryUserSummary,imageUrls: null == imageUrls ? _self.imageUrls : imageUrls // ignore: cast_nullable_to_non_nullable
+as List<String>,tags: null == tags ? _self.tags : tags // ignore: cast_nullable_to_non_nullable
+as List<String>,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,
   ));
 }
@@ -437,10 +439,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String content,  DiaryUserSummary user,  DateTime? createdAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String content,  DiaryUserSummary user,  List<String> imageUrls,  List<String> tags,  DateTime? createdAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _DiaryQuotedPost() when $default != null:
-return $default(_that.id,_that.content,_that.user,_that.createdAt);case _:
+return $default(_that.id,_that.content,_that.user,_that.imageUrls,_that.tags,_that.createdAt);case _:
   return orElse();
 
 }
@@ -458,10 +460,10 @@ return $default(_that.id,_that.content,_that.user,_that.createdAt);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String content,  DiaryUserSummary user,  DateTime? createdAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String content,  DiaryUserSummary user,  List<String> imageUrls,  List<String> tags,  DateTime? createdAt)  $default,) {final _that = this;
 switch (_that) {
 case _DiaryQuotedPost():
-return $default(_that.id,_that.content,_that.user,_that.createdAt);case _:
+return $default(_that.id,_that.content,_that.user,_that.imageUrls,_that.tags,_that.createdAt);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -478,10 +480,10 @@ return $default(_that.id,_that.content,_that.user,_that.createdAt);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String content,  DiaryUserSummary user,  DateTime? createdAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String content,  DiaryUserSummary user,  List<String> imageUrls,  List<String> tags,  DateTime? createdAt)?  $default,) {final _that = this;
 switch (_that) {
 case _DiaryQuotedPost() when $default != null:
-return $default(_that.id,_that.content,_that.user,_that.createdAt);case _:
+return $default(_that.id,_that.content,_that.user,_that.imageUrls,_that.tags,_that.createdAt);case _:
   return null;
 
 }
@@ -493,12 +495,26 @@ return $default(_that.id,_that.content,_that.user,_that.createdAt);case _:
 @JsonSerializable()
 
 class _DiaryQuotedPost implements DiaryQuotedPost {
-  const _DiaryQuotedPost({required this.id, required this.content, required this.user, this.createdAt});
+  const _DiaryQuotedPost({required this.id, required this.content, required this.user, final  List<String> imageUrls = const <String>[], final  List<String> tags = const <String>[], this.createdAt}): _imageUrls = imageUrls,_tags = tags;
   factory _DiaryQuotedPost.fromJson(Map<String, dynamic> json) => _$DiaryQuotedPostFromJson(json);
 
 @override final  String id;
 @override final  String content;
 @override final  DiaryUserSummary user;
+final  List<String> _imageUrls;
+@override
+List<String> get imageUrls {
+  if (_imageUrls is EqualUnmodifiableListView) return _imageUrls;
+  return EqualUnmodifiableListView(_imageUrls);
+}
+
+final  List<String> _tags;
+@override
+List<String> get tags {
+  if (_tags is EqualUnmodifiableListView) return _tags;
+  return EqualUnmodifiableListView(_tags);
+}
+
 @override final  DateTime? createdAt;
 
 /// Create a copy of DiaryQuotedPost
@@ -514,16 +530,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DiaryQuotedPost&&(identical(other.id, id) || other.id == id)&&(identical(other.content, content) || other.content == content)&&(identical(other.user, user) || other.user == user)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DiaryQuotedPost&&(identical(other.id, id) || other.id == id)&&(identical(other.content, content) || other.content == content)&&(identical(other.user, user) || other.user == user)&&const DeepCollectionEquality().equals(other._imageUrls, _imageUrls)&&const DeepCollectionEquality().equals(other._tags, _tags)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,content,user,createdAt);
+int get hashCode => Object.hash(runtimeType,id,content,user,const DeepCollectionEquality().hash(_imageUrls),const DeepCollectionEquality().hash(_tags),createdAt);
 
 @override
 String toString() {
-  return 'DiaryQuotedPost(id: $id, content: $content, user: $user, createdAt: $createdAt)';
+  return 'DiaryQuotedPost(id: $id, content: $content, user: $user, imageUrls: $imageUrls, tags: $tags, createdAt: $createdAt)';
 }
 
 
@@ -534,7 +550,7 @@ abstract mixin class _$DiaryQuotedPostCopyWith<$Res> implements $DiaryQuotedPost
   factory _$DiaryQuotedPostCopyWith(_DiaryQuotedPost value, $Res Function(_DiaryQuotedPost) _then) = __$DiaryQuotedPostCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String content, DiaryUserSummary user, DateTime? createdAt
+ String id, String content, DiaryUserSummary user, List<String> imageUrls, List<String> tags, DateTime? createdAt
 });
 
 
@@ -551,12 +567,14 @@ class __$DiaryQuotedPostCopyWithImpl<$Res>
 
 /// Create a copy of DiaryQuotedPost
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? content = null,Object? user = null,Object? createdAt = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? content = null,Object? user = null,Object? imageUrls = null,Object? tags = null,Object? createdAt = freezed,}) {
   return _then(_DiaryQuotedPost(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
 as String,user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
-as DiaryUserSummary,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DiaryUserSummary,imageUrls: null == imageUrls ? _self._imageUrls : imageUrls // ignore: cast_nullable_to_non_nullable
+as List<String>,tags: null == tags ? _self._tags : tags // ignore: cast_nullable_to_non_nullable
+as List<String>,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,
   ));
 }

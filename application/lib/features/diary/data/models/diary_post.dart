@@ -24,6 +24,8 @@ abstract class DiaryQuotedPost with _$DiaryQuotedPost {
     required String id,
     required String content,
     required DiaryUserSummary user,
+    @Default(<String>[]) List<String> imageUrls,
+    @Default(<String>[]) List<String> tags,
     DateTime? createdAt,
   }) = _DiaryQuotedPost;
 

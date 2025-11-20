@@ -67,6 +67,8 @@ export interface QuotedPostSummary {
   id: string;
   content: string;
   user: UserSummary;
+  imageUrls: string[];
+  tags: string[];
   createdAt: ISODateTime;
 }
 
