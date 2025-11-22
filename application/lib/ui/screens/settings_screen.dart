@@ -7,6 +7,8 @@ import '../../features/auth/data/models/user_model.dart';
 import '../../features/auth/domain/providers/auth_providers.dart';
 import 'settings/blocked_accounts_screen.dart';
 import '../../features/profile/domain/providers/profile_providers.dart';
+import '../../features/typing/domain/providers/typing_settings_provider.dart';
+import '../../features/typing/data/models/typing_settings.dart';
 
 class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
@@ -17,11 +19,37 @@ class SettingsScreen extends ConsumerStatefulWidget {
 
 class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   bool _pushNotifications = true;
-  bool _keySounds = true;
-  bool _haptics = true;
-  bool _showHints = true;
   bool _isLoggingOut = false;
   bool _isUpdatingDisplayName = false;
+  bool _isUpdatingPush = false;
+  ProviderSubscription<UserModel?>? _userSub;
+
+  @override
+  void initState() {
+    super.initState();
+    // 現在のユーザー設定を反映
+    final user = ref.read(currentUserProvider);
+    if (user != null) {
+      _pushNotifications = user.settings.notifications.push;
+    }
+    // ProviderSubscriptionを使い initState で購読
+    _userSub = ref.listenManual<UserModel?>(
+      currentUserProvider,
+      (previous, next) {
+        if (!mounted || next == null) return;
+        final push = next.settings.notifications.push;
+        if (push != _pushNotifications) {
+          setState(() => _pushNotifications = push);
+        }
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    _userSub?.close();
+    super.dispose();
+  }
 
   Future<void> _handleLogout() async {
     // 確認ダイアログを表示
@@ -147,8 +175,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 title: 'プッシュ通知',
                 subtitle: 'アプリからのお知らせを受け取る',
                 value: _pushNotifications,
-                onChanged: (value) =>
-                    setState(() => _pushNotifications = value),
+                onChanged: (value) {
+                  if (_isUpdatingPush) return;
+                  _updatePushNotifications(value);
+                },
               ),
             ],
           ),
@@ -156,24 +186,37 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           _SettingsSection(
             title: '学習体験',
             children: [
-              _SwitchTile(
-                title: 'キー音',
-                subtitle: 'タイプ音でリズムを把握',
-                value: _keySounds,
-                onChanged: (value) => setState(() => _keySounds = value),
-              ),
-              _SwitchTile(
-                title: 'ハプティクス',
-                subtitle: '正解/不正解で軽い振動',
-                value: _haptics,
-                onChanged: (value) => setState(() => _haptics = value),
-              ),
-              _SwitchTile(
-                title: 'ヒント表示',
-                subtitle: '入力時にヒントを表示',
-                value: _showHints,
-                onChanged: (value) => setState(() => _showHints = value),
-              ),
+              Builder(builder: (context) {
+                final typingSettingsAsync = ref.watch(typingSettingsProvider);
+                final typingSettings =
+                    typingSettingsAsync.value ?? const TypingSettings();
+                final typingController =
+                    ref.read(typingSettingsProvider.notifier);
+                final isTypingLoading = typingSettingsAsync.isLoading;
+
+                return Column(
+                  children: [
+                    _SwitchTile(
+                      title: '触覚フィードバック',
+                      subtitle: 'キー入力時のバイブレーション',
+                      value: typingSettings.hapticsEnabled,
+                      onChanged: (value) {
+                        if (isTypingLoading) return;
+                        typingController.toggleHaptics(value);
+                      },
+                    ),
+                    _SwitchTile(
+                      title: 'ヒント表示',
+                      subtitle: '次に押すキーを表示する',
+                      value: typingSettings.hintsEnabled,
+                      onChanged: (value) {
+                        if (isTypingLoading) return;
+                        typingController.toggleHints(value);
+                      },
+                    ),
+                  ],
+                );
+              }),
             ],
           ),
           const SizedBox(height: 16),
@@ -228,6 +271,40 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     messenger?.showSnackBar(
       const SnackBar(content: Text('ユーザーIDをコピーしました')),
     );
+  }
+
+  Future<void> _updatePushNotifications(bool enabled) async {
+    final user = ref.read(currentUserProvider);
+    if (user == null) {
+      setState(() => _pushNotifications = enabled);
+      return;
+    }
+
+    final previous = _pushNotifications;
+    setState(() {
+      _isUpdatingPush = true;
+      _pushNotifications = enabled;
+    });
+
+    try {
+      final updatedSettings = await ref
+          .read(profileRepositoryProvider)
+          .updateSettings(push: enabled);
+      // ローカルのユーザー情報も更新
+      final updatedUser = user.copyWith(settings: updatedSettings);
+      ref.read(authStateProvider.notifier).updateUser(updatedUser);
+    } catch (error) {
+      // 失敗したら元に戻す
+      setState(() => _pushNotifications = previous);
+      final messenger = ScaffoldMessenger.maybeOf(context);
+      messenger?.showSnackBar(
+        const SnackBar(content: Text('プッシュ通知設定の更新に失敗しました')),
+      );
+    } finally {
+      if (mounted) {
+        setState(() => _isUpdatingPush = false);
+      }
+    }
   }
 
   Future<void> _editDisplayName(UserModel user) async {

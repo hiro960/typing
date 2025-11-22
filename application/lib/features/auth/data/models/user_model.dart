@@ -247,6 +247,18 @@ class UserSettingsModel {
       'profileVisibility': profileVisibility,
     };
   }
+
+  UserSettingsModel copyWith({
+    UserNotificationSettingsModel? notifications,
+    String? postDefaultVisibility,
+    String? profileVisibility,
+  }) {
+    return UserSettingsModel(
+      notifications: notifications ?? this.notifications,
+      postDefaultVisibility: postDefaultVisibility ?? this.postDefaultVisibility,
+      profileVisibility: profileVisibility ?? this.profileVisibility,
+    );
+  }
 }
 
 class UserNotificationSettingsModel {
@@ -291,5 +303,23 @@ class UserNotificationSettingsModel {
       'follow': follow,
       'quote': quote,
     };
+  }
+
+  UserNotificationSettingsModel copyWith({
+    bool? push,
+    bool? email,
+    bool? comment,
+    bool? like,
+    bool? follow,
+    bool? quote,
+  }) {
+    return UserNotificationSettingsModel(
+      push: push ?? this.push,
+      email: email ?? this.email,
+      comment: comment ?? this.comment,
+      like: like ?? this.like,
+      follow: follow ?? this.follow,
+      quote: quote ?? this.quote,
+    );
   }
 }

@@ -251,4 +251,50 @@ class ProfileRepository {
       throw ApiClientService.handleDioException(error);
     }
   }
+
+  /// ユーザー設定を部分更新（プッシュ通知など）
+  Future<UserSettingsModel> updateSettings({
+    bool? push,
+    bool? email,
+    bool? comment,
+    bool? like,
+    bool? follow,
+    bool? quote,
+    String? postDefaultVisibility,
+    String? profileVisibility,
+  }) async {
+    try {
+      final Map<String, dynamic> payload = {};
+      final notifications = <String, dynamic>{};
+      if (push != null) notifications['push'] = push;
+      if (email != null) notifications['email'] = email;
+      if (comment != null) notifications['comment'] = comment;
+      if (like != null) notifications['like'] = like;
+      if (follow != null) notifications['follow'] = follow;
+      if (quote != null) notifications['quote'] = quote;
+      if (notifications.isNotEmpty) {
+        payload['notifications'] = notifications;
+      }
+      if (postDefaultVisibility != null) {
+        payload['postDefaultVisibility'] = postDefaultVisibility;
+      }
+      if (profileVisibility != null) {
+        payload['profileVisibility'] = profileVisibility;
+      }
+
+      final response = await _apiClient.dio.patch(
+        '/api/users/me/settings',
+        data: payload,
+      );
+      return UserSettingsModel.fromJson(response.data as Map<String, dynamic>?);
+    } on DioException catch (error, stackTrace) {
+      AppLogger.error(
+        'Failed to update user settings',
+        tag: 'ProfileRepository',
+        error: error,
+        stackTrace: stackTrace,
+      );
+      throw ApiClientService.handleDioException(error);
+    }
+  }
 }

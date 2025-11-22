@@ -3,22 +3,18 @@ import 'dart:convert';
 class TypingSettings {
   const TypingSettings({
     this.hintsEnabled = true,
-    this.keySoundEnabled = false,
     this.hapticsEnabled = true,
   });
 
   final bool hintsEnabled;
-  final bool keySoundEnabled;
   final bool hapticsEnabled;
 
   TypingSettings copyWith({
     bool? hintsEnabled,
-    bool? keySoundEnabled,
     bool? hapticsEnabled,
   }) {
     return TypingSettings(
       hintsEnabled: hintsEnabled ?? this.hintsEnabled,
-      keySoundEnabled: keySoundEnabled ?? this.keySoundEnabled,
       hapticsEnabled: hapticsEnabled ?? this.hapticsEnabled,
     );
   }
@@ -26,7 +22,6 @@ class TypingSettings {
   Map<String, dynamic> toJson() {
     return {
       'hintsEnabled': hintsEnabled,
-      'keySoundEnabled': keySoundEnabled,
       'hapticsEnabled': hapticsEnabled,
     };
   }
@@ -34,7 +29,6 @@ class TypingSettings {
   static TypingSettings fromJson(Map<String, dynamic> json) {
     return TypingSettings(
       hintsEnabled: json['hintsEnabled'] as bool? ?? true,
-      keySoundEnabled: json['keySoundEnabled'] as bool? ?? false,
       hapticsEnabled: json['hapticsEnabled'] as bool? ?? true,
     );
   }
