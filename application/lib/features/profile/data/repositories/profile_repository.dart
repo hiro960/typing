@@ -226,4 +226,29 @@ class ProfileRepository {
       throw ApiClientService.handleDioException(error);
     }
   }
+
+  Future<UserModel> updateProfile({
+    required String userId,
+    String? displayName,
+    String? bio,
+  }) async {
+    try {
+      final response = await _apiClient.dio.put(
+        ApiConstants.userById(userId),
+        data: {
+          if (displayName != null) 'displayName': displayName,
+          if (bio != null) 'bio': bio,
+        },
+      );
+      return UserModel.fromJson(response.data as Map<String, dynamic>);
+    } on DioException catch (error, stackTrace) {
+      AppLogger.error(
+        'Failed to update profile',
+        tag: 'ProfileRepository',
+        error: error,
+        stackTrace: stackTrace,
+      );
+      throw ApiClientService.handleDioException(error);
+    }
+  }
 }

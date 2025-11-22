@@ -87,7 +87,7 @@ class _DraftsScreenState extends ConsumerState<DraftsScreen> {
     }
     return ListView.builder(
       controller: _scrollController,
-      padding: const EdgeInsets.symmetric(vertical: 12),
+      padding: const EdgeInsets.fromLTRB(20, 12, 20, 12),
       itemCount: _drafts.length,
       itemBuilder: (context, index) {
         final post = _drafts[index];

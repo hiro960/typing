@@ -99,7 +99,6 @@ export async function GET(request: NextRequest) {
         select: { followingId: true },
       });
       const ids = following.map((item) => item.followingId);
-      ids.push(viewerId);
       where.userId = { in: ids };
     }
 

@@ -12,7 +12,6 @@ import '../../features/diary/domain/providers/diary_providers.dart';
 import '../../features/profile/data/models/user_stats_model.dart';
 import '../../features/profile/domain/providers/profile_providers.dart';
 import '../widgets/diary_post_card.dart';
-import 'diary/drafts_screen.dart';
 
 class ProfileScreen extends ConsumerStatefulWidget {
   const ProfileScreen({
@@ -111,17 +110,6 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         ],
         title: Text('👤 プロフィール', style: theme.textTheme.headlineSmall),
         suffixes: [
-          if (currentUserId == profile.id)
-            FHeaderAction(
-              icon: const Icon(Icons.edit_document),
-              onPress: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute<void>(
-                    builder: (_) => const DraftsScreen(),
-                  ),
-                );
-              },
-            ),
           FHeaderAction(
             icon: const Icon(Icons.settings_outlined),
             onPress: widget.onOpenSettings,

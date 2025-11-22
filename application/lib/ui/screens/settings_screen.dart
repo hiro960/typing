@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
+import '../../features/auth/data/models/user_model.dart';
 import '../../features/auth/domain/providers/auth_providers.dart';
 import 'settings/blocked_accounts_screen.dart';
+import '../../features/profile/domain/providers/profile_providers.dart';
 
 class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
@@ -14,14 +17,11 @@ class SettingsScreen extends ConsumerStatefulWidget {
 
 class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   bool _pushNotifications = true;
-  bool _dailyReminder = true;
-  bool _streakAlerts = true;
   bool _keySounds = true;
   bool _haptics = true;
   bool _showHints = true;
-  bool _highContrast = false;
-  double _dailyGoal = 15;
   bool _isLoggingOut = false;
+  bool _isUpdatingDisplayName = false;
 
   Future<void> _handleLogout() async {
     // 確認ダイアログを表示
@@ -74,6 +74,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final currentUser = ref.watch(currentUserProvider);
+    final displayName = currentUser?.displayName ?? '未設定';
+    final username = currentUser?.username != null ? '@${currentUser!.username}' : '--';
     return FScaffold(
       header: FHeader.nested(
         prefixes: [
@@ -82,22 +85,35 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         title: const Text('設定'),
       ),
       child: ListView(
-        padding: const EdgeInsets.fromLTRB(20, 12, 20, 120),
+        padding: const EdgeInsets.fromLTRB(16, 12, 16, 120),
         children: [
           _SettingsSection(
             title: 'アカウント',
             children: [
               _SettingsTile(
                 title: '表示名',
-                subtitle: 'Hana Suzuki',
-                trailing: TextButton(onPressed: () {}, child: const Text('編集')),
+                subtitle: displayName,
+                trailing: TextButton(
+                  onPressed: currentUser == null || _isUpdatingDisplayName
+                      ? null
+                      : () => _editDisplayName(currentUser),
+                  child: _isUpdatingDisplayName
+                      ? const SizedBox(
+                          width: 16,
+                          height: 16,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        )
+                      : const Text('編集'),
+                ),
               ),
               _SettingsTile(
                 title: 'ユーザーID',
-                subtitle: '@hana_typing',
+                subtitle: username,
                 trailing: IconButton(
                   icon: const Icon(Icons.copy),
-                  onPressed: () {},
+                  onPressed: currentUser == null
+                      ? null
+                      : () => _copyUsername(currentUser.username),
                 ),
               ),
               Material(
@@ -134,18 +150,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 onChanged: (value) =>
                     setState(() => _pushNotifications = value),
               ),
-              _SwitchTile(
-                title: '学習リマインダー',
-                subtitle: '毎日19時にリマインド',
-                value: _dailyReminder,
-                onChanged: (value) => setState(() => _dailyReminder = value),
-              ),
-              _SwitchTile(
-                title: 'ストリーク警告',
-                subtitle: 'ストリーク終了前に通知',
-                value: _streakAlerts,
-                onChanged: (value) => setState(() => _streakAlerts = value),
-              ),
             ],
           ),
           const SizedBox(height: 16),
@@ -170,36 +174,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 value: _showHints,
                 onChanged: (value) => setState(() => _showHints = value),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('1日の目標時間', style: theme.textTheme.titleMedium),
-                    const SizedBox(height: 4),
-                    Text(
-                      '${_dailyGoal.round()}分',
-                      style: theme.textTheme.bodySmall?.copyWith(
-                        color: theme.colorScheme.onSurface.withValues(
-                          alpha: 0.7,
-                        ),
-                      ),
-                    ),
-                    Material(
-                      color: Colors.transparent,
-                      child: Slider(
-                        value: _dailyGoal,
-                        min: 5,
-                        max: 30,
-                        divisions: 5,
-                        label: '${_dailyGoal.round()}分',
-                        onChanged: (value) =>
-                            setState(() => _dailyGoal = value),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
             ],
           ),
           const SizedBox(height: 16),
@@ -211,12 +185,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 subtitle: '黒基調 + 青アクセント',
                 trailing: const Icon(Icons.lock_outline),
               ),
-              _SwitchTile(
-                title: 'ハイコントラストモード',
-                subtitle: '文字コントラストを強調',
-                value: _highContrast,
-                onChanged: (value) => setState(() => _highContrast = value),
-              ),
             ],
           ),
           const SizedBox(height: 16),
@@ -224,12 +192,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             title: 'データ & サポート',
             withDividers: false,
             children: [
-              FButton(
-                onPress: () {},
-                style: FButtonStyle.secondary(),
-                child: const Text('学習履歴をエクスポート'),
-              ),
-              const SizedBox(height: 12),
               FButton(
                 onPress: () {},
                 style: FButtonStyle.outline(),
@@ -258,6 +220,101 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         ],
       ),
     );
+  }
+
+  void _copyUsername(String username) {
+    Clipboard.setData(ClipboardData(text: '@$username'));
+    final messenger = ScaffoldMessenger.maybeOf(context);
+    messenger?.showSnackBar(
+      const SnackBar(content: Text('ユーザーIDをコピーしました')),
+    );
+  }
+
+  Future<void> _editDisplayName(UserModel user) async {
+    setState(() => _isUpdatingDisplayName = true);
+    final controller = TextEditingController(text: user.displayName);
+    String? errorText;
+    bool saving = false;
+
+    String? validate(String value) {
+      final trimmed = value.trim();
+      if (trimmed.isEmpty) return '表示名を入力してください';
+      if (trimmed.length > 40) return '40文字以内で入力してください';
+      return null;
+    }
+
+    final newName = await showDialog<String>(
+      context: context,
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return AlertDialog(
+              title: const Text('表示名を編集'),
+              content: TextField(
+                controller: controller,
+                autofocus: true,
+                maxLength: 40,
+                decoration: InputDecoration(
+                  hintText: '表示名',
+                  errorText: errorText,
+                ),
+                onChanged: (value) => setState(() {
+                  errorText = validate(value);
+                }),
+              ),
+              actions: [
+                TextButton(
+                  onPressed: saving ? null : () => Navigator.of(context).pop(),
+                  child: const Text('キャンセル'),
+                ),
+                TextButton(
+                  onPressed: saving
+                      ? null
+                      : () async {
+                          final text = controller.text;
+                          final error = validate(text);
+                          if (error != null) {
+                            setState(() => errorText = error);
+                            return;
+                          }
+                          setState(() => saving = true);
+                          try {
+                            final repo = ref.read(profileRepositoryProvider);
+                            final updated = await repo.updateProfile(
+                              userId: user.id,
+                              displayName: text.trim(),
+                            );
+                            Navigator.of(context).pop(updated.displayName);
+                            ref.read(authStateProvider.notifier).updateUser(updated);
+                          } catch (e) {
+                            setState(() {
+                              saving = false;
+                              errorText = e.toString();
+                            });
+                          }
+                        },
+                  child: saving
+                      ? const SizedBox(
+                          width: 16,
+                          height: 16,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        )
+                      : const Text('保存'),
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
+
+    setState(() => _isUpdatingDisplayName = false);
+
+    if (newName != null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('表示名を「$newName」に更新しました')),
+      );
+    }
   }
 }
 

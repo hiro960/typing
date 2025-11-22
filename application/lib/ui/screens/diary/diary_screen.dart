@@ -279,6 +279,21 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
                         child: Text(feedState.errorMessage!),
                       );
                     }
+                    if (feedState.posts.isEmpty) {
+                      return Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(32),
+                          child: Text(
+                            _selectedFeed == DiaryFeedType.following
+                                ? 'フォロー中のユーザーはいません'
+                                : '投稿がありません',
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+                            ),
+                          ),
+                        ),
+                      );
+                    }
                     return ListView.builder(
                       controller: _scrollController,
                       padding: const EdgeInsets.only(
