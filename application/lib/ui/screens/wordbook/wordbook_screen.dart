@@ -5,6 +5,7 @@ import 'package:forui/forui.dart';
 import '../../../features/wordbook/data/models/word_model.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
 import '../../widgets/app_page_scaffold.dart';
+import '../../app_spacing.dart';
 import 'word_detail_screen.dart';
 import 'word_form_screen.dart';
 import 'word_quiz_screen.dart';
@@ -72,7 +73,12 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
         children: [
           if (isLoading) const LinearProgressIndicator(minHeight: 2),
           Padding(
-            padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
+            padding: EdgeInsets.fromLTRB(
+              AppPadding.homePage.left,
+              8,
+              AppPadding.homePage.right,
+              0,
+            ),
             child: FTabs(
               key: ValueKey(_category),
               initialIndex: WordCategory.values.indexOf(_category),
@@ -84,7 +90,9 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
                   .map(
                     (category) => FTabEntry(
                       label: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: AppSpacing.sm,
+                        ),
                         child: Text(
                           category.label,
                           style: theme.textTheme.bodySmall,
@@ -97,10 +105,15 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
+            padding: EdgeInsets.fromLTRB(
+              AppPadding.homePage.left,
+              12,
+              AppPadding.homePage.right,
+              0,
+            ),
             child: Wrap(
-              spacing: 8,
-              runSpacing: 8,
+              spacing: AppSpacing.sm,
+              runSpacing: AppSpacing.sm,
               children: [
                 for (final status in WordStatus.values)
                   _StatusFilterChip(
@@ -111,14 +124,19 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
               ],
             ),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: AppSpacing.md),
           Expanded(
             child: RefreshIndicator(
               onRefresh: () => ref.read(wordbookProvider.notifier).refresh(),
               child: filteredWords.isEmpty
                   ? _EmptyState(onAdd: _openForm)
                   : GridView.builder(
-                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
+                padding: EdgeInsets.fromLTRB(
+                  AppPadding.homePage.left,
+                  0,
+                  AppPadding.homePage.right,
+                  AppSpacing.xl,
+                ),
                       physics: const AlwaysScrollableScrollPhysics(),
                       itemCount: filteredWords.length,
                       gridDelegate:

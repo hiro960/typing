@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../features/wordbook/data/models/word_model.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
+import '../../app_spacing.dart';
 import 'word_form_screen.dart';
 
 class WordDetailScreen extends ConsumerStatefulWidget {
@@ -56,7 +57,7 @@ class _WordDetailScreenState extends ConsumerState<WordDetailScreen> {
         ],
       ),
       body: ListView(
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.all(AppSpacing.xl - 4),
         children: [
           _StatusHeader(
             status: word.status,
@@ -65,9 +66,9 @@ class _WordDetailScreenState extends ConsumerState<WordDetailScreen> {
                 .read(wordAudioServiceProvider.notifier)
                 .speak(word.word),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           Text('ステータス', style: theme.textTheme.titleSmall),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.sm),
           SegmentedButton<WordStatus>(
             segments: [
               for (final status in WordStatus.values)
@@ -87,31 +88,31 @@ class _WordDetailScreenState extends ConsumerState<WordDetailScreen> {
                     }
                   },
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: AppSpacing.xl),
           Text(word.word, style: theme.textTheme.headlineMedium),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.sm),
           Text(
             word.meaning,
             style: theme.textTheme.titleMedium,
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: AppSpacing.xl),
           Text(
             '例文',
             style: theme.textTheme.titleSmall,
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.sm),
           Text(word.example ?? '例文が登録されていません。'),
-          const SizedBox(height: 24),
+          const SizedBox(height: AppSpacing.xl),
           Text(
             'タグ',
             style: theme.textTheme.titleSmall,
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.sm),
           if (word.tags.isEmpty)
             const Text('タグなし')
           else
             Wrap(
-              spacing: 8,
+              spacing: AppSpacing.sm,
               children: [
                 for (final tag in word.tags)
                   Chip(

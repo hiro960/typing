@@ -15,6 +15,7 @@ import '../../features/typing/domain/providers/typing_session_provider.dart';
 import '../../features/typing/domain/providers/typing_stats_provider.dart';
 import '../../features/typing/domain/providers/typing_settings_provider.dart';
 import '../../features/typing/domain/services/hangul_composer.dart';
+import '../utils/snackbar_helper.dart';
 import '../widgets/typing_keyboard.dart';
 import 'typing_completion_screen.dart';
 
@@ -211,12 +212,6 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen>
         );
   }
 
-  void _showSnack(String message) {
-    if (!mounted) return;
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(SnackBar(content: Text(message)));
-  }
 
 }
 

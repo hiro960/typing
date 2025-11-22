@@ -12,8 +12,11 @@ import '../../features/typing/domain/providers/typing_settings_provider.dart';
 import '../../features/typing/data/models/typing_settings.dart';
 import '../../features/theme/theme_mode_provider.dart';
 import '../../features/diary/domain/providers/diary_providers.dart';
+import '../utils/dialog_helper.dart';
+import '../utils/snackbar_helper.dart';
 import '../widgets/app_page_scaffold.dart';
 import '../widgets/user_avatar.dart';
+import '../app_spacing.dart';
 
 class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
@@ -29,8 +32,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   bool _isLoggingOut = false;
   bool _isUpdatingDisplayName = false;
   bool _isUpdatingPush = false;
-  bool _isLoadingBlockedCount = false;
-  int? _blockedCount;
   ProviderSubscription<UserModel?>? _userSub;
 
   @override
@@ -40,7 +41,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     final user = ref.read(currentUserProvider);
     if (user != null) {
       _pushNotifications = user.settings.notifications.push;
-      _loadBlockedCount();
     }
     // ProviderSubscriptionを使い initState で購読
     _userSub = ref.listenManual<UserModel?>(
@@ -50,9 +50,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         final push = next.settings.notifications.push;
         if (push != _pushNotifications) {
           setState(() => _pushNotifications = push);
-        }
-        if (previous == null) {
-          _loadBlockedCount();
         }
       },
     );
@@ -66,28 +63,15 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
 
   Future<void> _handleLogout() async {
     // 確認ダイアログを表示
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('ログアウト'),
-        content: const Text('本当にログアウトしますか？'),
-        actions: [
-          FButton(
-            style: FButtonStyle.outline(),
-            onPress: () => Navigator.of(context).pop(false),
-            child: const Text('キャンセル'),
-          ),
-          const SizedBox(height: 6,),
-          FButton(
-            style: FButtonStyle.destructive(),
-            onPress: () => Navigator.of(context).pop(true),
-            child: const Text('ログアウト'),
-          ),
-        ],
-      ),
+    final confirmed = await DialogHelper.showConfirmDialog(
+      context,
+      title: 'ログアウト',
+      content: '本当にログアウトしますか？',
+      positiveLabel: 'ログアウト',
+      isDestructive: true,
     );
 
-    if (confirmed != true || !mounted) return;
+    if (!confirmed || !mounted) return;
 
     setState(() => _isLoggingOut = true);
 
@@ -119,6 +103,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final currentUser = ref.watch(currentUserProvider);
+    final blockedAsync = ref.watch(blockedAccountsProvider);
+    final blockedCount = blockedAsync.value?.length;
     final displayName = currentUser?.displayName ?? '未設定';
     final username = currentUser?.username != null ? '@${currentUser!.username}' : '--';
     return AppPageScaffold(
@@ -129,7 +115,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         title: const Text('設定'),
       ),
       child: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 12, 16, 120),
+        padding: AppPadding.settingsPage,
         children: [
           _ProfileHeader(
             displayName: displayName,
@@ -143,7 +129,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 : () => _copyUsername(currentUser.username),
             isSaving: _isUpdatingDisplayName,
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           _SettingsSection(
             title: 'アカウント',
             children: [
@@ -163,11 +149,13 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 prefix: const Icon(Icons.block_outlined),
                 title: const Text('ブロックしているアカウント'),
                 subtitle: Text(
-                  _blockedCount == null && !_isLoadingBlockedCount
-                      ? 'ブロックしたユーザーの一覧と解除'
-                      : _isLoadingBlockedCount
-                          ? '件数を読み込み中...'
-                          : 'ブロック中: $_blockedCount件',
+                  blockedAsync.when(
+                    data: (blocks) => blocks.isEmpty
+                        ? 'ブロックしたユーザーの一覧と解除'
+                        : 'ブロック中: ${blocks.length}件',
+                    loading: () => '件数を読み込み中...',
+                    error: (_, __) => '件数の取得に失敗しました',
+                  ),
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
                   ),
@@ -175,7 +163,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 suffix: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    if (_blockedCount != null)
+                    if (blockedCount != null)
                       Container(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 8,
@@ -186,14 +174,14 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Text(
-                          '$_blockedCount件',
+                          '$blockedCount件',
                           style: theme.textTheme.labelMedium?.copyWith(
                             color: theme.colorScheme.primary,
                           ),
                         ),
                       ),
                     const SizedBox(width: 8),
-                    _isLoadingBlockedCount
+                    blockedAsync.isLoading
                         ? const SizedBox(
                             width: 16,
                             height: 16,
@@ -209,12 +197,12 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     ),
                   );
                   if (!mounted) return;
-                  await _loadBlockedCount();
+                  ref.invalidate(blockedAccountsProvider);
                 },
               ),
             ],
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           _SettingsSection(
             title: '通知',
             children: [
@@ -232,7 +220,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               ),
             ],
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           _SettingsSection(
             title: '学習体験',
             children: [
@@ -276,7 +264,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               }),
             ],
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           _SettingsSection(
             title: 'テーマ',
             children: [
@@ -302,7 +290,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               }),
             ],
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           _SettingsSection(
             title: 'サポート',
             children: [
@@ -320,7 +308,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               ),
             ],
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -385,10 +373,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
 
   void _copyUsername(String username) {
     Clipboard.setData(ClipboardData(text: '@$username'));
-    final messenger = ScaffoldMessenger.maybeOf(context);
-    messenger?.showSnackBar(
-      const SnackBar(content: Text('ユーザーIDをコピーしました')),
-    );
+    SnackBarHelper.show(context, 'ユーザーIDをコピーしました');
   }
 
   Future<void> _updatePushNotifications(bool enabled) async {
@@ -463,7 +448,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   onPress: saving ? null : () => Navigator.of(context).pop(),
                   child: const Text('キャンセル'),
                 ),
-                const SizedBox(height: 6,),
+                      const SizedBox(height: AppSpacing.sm),
                 FButton(
                   style: FButtonStyle.primary(),
                   onPress: saving
@@ -515,30 +500,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     }
   }
 
-  Future<void> _loadBlockedCount() async {
-    if (_isLoadingBlockedCount || !mounted) return;
-    try {
-      setState(() {
-        _isLoadingBlockedCount = true;
-      });
-      final repo = ref.read(diaryRepositoryProvider);
-      final blocks = await repo.fetchBlockedAccounts();
-      if (!mounted) return;
-      setState(() {
-        _blockedCount = blocks.length;
-      });
-    } catch (_) {
-      if (!mounted) return;
-      setState(() {
-        _blockedCount = null;
-      });
-    } finally {
-      if (mounted) {
-        setState(() => _isLoadingBlockedCount = false);
-      }
-    }
-  }
-
   void _showFeedbackSheet() {
     showModalBottomSheet<void>(
       context: context,
@@ -562,7 +523,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                 ),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: AppSpacing.lg),
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(

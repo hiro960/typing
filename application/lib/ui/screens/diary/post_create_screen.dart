@@ -15,6 +15,8 @@ import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
 import '../../widgets/diary_post_card.dart';
 import '../../widgets/typing_keyboard.dart';
+import '../../app_spacing.dart';
+import '../../app_spacing.dart';
 
 class PostCreateScreen extends ConsumerStatefulWidget {
   const PostCreateScreen({super.key, this.initialPost, this.quotedPost});
@@ -353,7 +355,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
         ),
         suffixes: [
           Padding(
-            padding: const EdgeInsets.only(right: 16),
+            padding: const EdgeInsets.only(right: AppSpacing.lg),
             child: Text(
               remainingLabel,
               style: theme.textTheme.bodySmall?.copyWith(
@@ -382,7 +384,12 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
         children: [
           Expanded(
             child: ListView(
-              padding: const EdgeInsets.fromLTRB(20, 12, 20, 20),
+              padding: EdgeInsets.fromLTRB(
+                AppPadding.homePage.left,
+                AppSpacing.md,
+                AppPadding.homePage.right,
+                AppSpacing.xl,
+              ),
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -397,29 +404,29 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                       onChange: (_) => setState(() {}),
                     ),
                     if (_hashtags.isNotEmpty) ...[
-                      const SizedBox(height: 12),
+                      const SizedBox(height: AppSpacing.md),
                       Text('ハッシュタグ', style: theme.textTheme.titleSmall),
-                      const SizedBox(height: 8),
+                      const SizedBox(height: AppSpacing.sm),
                       Wrap(
-                        spacing: 8,
-                        runSpacing: 8,
+                        spacing: AppSpacing.sm,
+                        runSpacing: AppSpacing.sm,
                         children: _hashtags
                             .map((tag) => Chip(label: Text('#$tag')))
                             .toList(),
                       ),
                     ],
                     if (_images.isNotEmpty) ...[
-                      const SizedBox(height: 16),
+                      const SizedBox(height: AppSpacing.lg),
                       _ImageGrid(images: _images, onRemove: _removeImage),
                     ],
                     if (_quotedPost != null) ...[
-                      const SizedBox(height: 16),
+                      const SizedBox(height: AppSpacing.lg),
                       DiaryQuotedPostCard(quotedPost: _quotedPost!),
                     ],
-                    const SizedBox(height: 16),
+                    const SizedBox(height: AppSpacing.lg),
                     Wrap(
-                      spacing: 12,
-                      runSpacing: 12,
+                      spacing: AppSpacing.md,
+                      runSpacing: AppSpacing.md,
                       children: [
                         _ComposerActionButton(
                           icon: Icons.image_outlined,
@@ -436,7 +443,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: AppSpacing.xl),
                 FTile(
                   title: const Text('公開範囲'),
                   subtitle: Text(_visibilityLabel(_visibility)),

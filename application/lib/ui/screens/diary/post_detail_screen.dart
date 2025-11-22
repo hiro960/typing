@@ -10,6 +10,7 @@ import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../widgets/diary_post_card.dart';
 import '../../widgets/user_avatar.dart';
 import 'post_create_screen.dart';
+import '../../app_spacing.dart';
 
 class PostDetailScreen extends ConsumerStatefulWidget {
   const PostDetailScreen({super.key, required this.initialPost});
@@ -348,7 +349,12 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
               },
               child: ListView.builder(
                 controller: _scrollController,
-                padding: const EdgeInsets.fromLTRB(20, 16, 20, 80),
+                padding: EdgeInsets.fromLTRB(
+                  AppPadding.homePage.left,
+                  AppSpacing.lg,
+                  AppPadding.homePage.right,
+                  80,
+                ),
                 itemCount: _itemCount(commentsState),
                 itemBuilder: (context, index) {
                   if (index == 0) {
@@ -369,7 +375,7 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
                       index == 1 &&
                       commentsState.comments.isEmpty) {
                     return const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 24),
+                      padding: EdgeInsets.symmetric(vertical: AppSpacing.xl),
                       child: Center(child: CircularProgressIndicator()),
                     );
                   }
@@ -378,7 +384,7 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
                   final commentIndex = index - 1 - commentOffset;
                   if (commentIndex >= commentsState.comments.length) {
                     return const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 16),
+                      padding: EdgeInsets.symmetric(vertical: AppSpacing.lg),
                       child: Center(child: CircularProgressIndicator()),
                     );
                   }
@@ -396,7 +402,12 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
           SafeArea(
             top: false,
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(20, 8, 20, 20),
+              padding: EdgeInsets.fromLTRB(
+                AppPadding.homePage.left,
+                AppSpacing.sm,
+                AppPadding.homePage.right,
+                AppSpacing.xl - AppSpacing.sm,
+              ),
               child: Row(
                 children: [
                   Expanded(

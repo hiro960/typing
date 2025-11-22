@@ -6,8 +6,11 @@ import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/data/repositories/diary_repository.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
+import '../../utils/dialog_helper.dart';
+import '../../utils/snackbar_helper.dart';
 import '../../widgets/diary_post_card.dart';
 import '../../widgets/app_page_scaffold.dart';
+import '../../app_spacing.dart';
 import 'drafts_screen.dart';
 import 'post_create_screen.dart';
 import 'post_detail_screen.dart';
@@ -125,57 +128,37 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
   }
 
   Future<void> _blockUser(DiaryPost post) async {
-    final confirm = await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('ブロック'),
-        content: Text('${post.user.displayName}さんをブロックしますか？'),
-        actions: [
-          FButton(
-            style: FButtonStyle.outline(),
-            onPress: () => Navigator.of(context).pop(false),
-            child: const Text('キャンセル'),
-          ),
-          FButton(
-            style: FButtonStyle.destructive(),
-            onPress: () => Navigator.of(context).pop(true),
-            child: const Text('ブロック'),
-          ),
-        ],
-      ),
+    final confirm = await DialogHelper.showConfirmDialog(
+      context,
+      title: 'ブロック',
+      content: '${post.user.displayName}さんをブロックしますか？',
+      positiveLabel: 'ブロック',
+      isDestructive: true,
     );
-    if (confirm != true) return;
+    if (!confirm) return;
     try {
       await ref.read(diaryRepositoryProvider).blockUser(post.user.id);
-      _showSnack('${post.user.displayName}さんをブロックしました');
+      SnackBarHelper.show(context, '${post.user.displayName}さんをブロックしました');
       await _refresh();
     } catch (error) {
-      _showError(error);
+      SnackBarHelper.showError(context, error);
     }
   }
 
   Future<void> _reportPost(DiaryPost post) async {
-    const reasons = [
-      {'label': 'スパム', 'value': 'SPAM'},
-      {'label': '嫌がらせ', 'value': 'HARASSMENT'},
-      {'label': '不適切な内容', 'value': 'INAPPROPRIATE_CONTENT'},
-      {'label': 'ヘイト発言', 'value': 'HATE_SPEECH'},
-      {'label': 'その他', 'value': 'OTHER'},
+    final choices = [
+      const DialogChoice(label: 'スパム', value: 'SPAM'),
+      const DialogChoice(label: '嫌がらせ', value: 'HARASSMENT'),
+      const DialogChoice(label: '不適切な内容', value: 'INAPPROPRIATE_CONTENT'),
+      const DialogChoice(label: 'ヘイト発言', value: 'HATE_SPEECH'),
+      const DialogChoice(label: 'その他', value: 'OTHER'),
     ];
-    final selected = await showModalBottomSheet<String>(
-      context: context,
-      builder: (context) => SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: reasons
-              .map(
-                (reason) => FTile(
-                  title: Text(reason['label']!),
-                  onPress: () => Navigator.of(context).pop(reason['value']),
-                ),
-              )
-              .toList(),
-        ),
+    final selected = await DialogHelper.showChoiceBottomSheet<String>(
+      context,
+      choices: choices,
+      builder: (context, choice, onTap) => FTile(
+        title: Text(choice.label),
+        onPress: onTap,
       ),
     );
     if (selected == null) return;
@@ -184,21 +167,12 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
             postId: post.id,
             reason: selected,
           );
-      _showSnack('投稿を通報しました');
+      SnackBarHelper.show(context, '投稿を通報しました');
     } catch (error) {
-      _showError(error);
+      SnackBarHelper.showError(context, error);
     }
   }
 
-  void _showError(Object error) {
-    _showSnack(error.toString());
-  }
-
-  void _showSnack(String message) {
-    if (!mounted) return;
-    final messenger = ScaffoldMessenger.maybeOf(context);
-    messenger?.showSnackBar(SnackBar(content: Text(message)));
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -245,7 +219,12 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
+            padding: EdgeInsets.fromLTRB(
+              AppPadding.homePage.left,
+              8,
+              AppPadding.homePage.right,
+              0,
+            ),
             child: FTabs(
               key: ValueKey(_selectedFeed),
               initialIndex: DiaryFeedType.values.indexOf(_selectedFeed),
@@ -260,7 +239,9 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
                   .map(
                     (feed) => FTabEntry(
                       label: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: AppSpacing.sm,
+                        ),
                         child: Text(_feedLabels[feed]!),
                       ),
                       child: const SizedBox.shrink(),
@@ -273,7 +254,9 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
             child: RefreshIndicator(
               onRefresh: _refresh,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppPadding.homePage.left,
+                ),
                 child: Builder(
                   builder: (context) {
                     if (feedState.isLoading && feedState.posts.isEmpty) {
@@ -288,7 +271,7 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
                     if (feedState.posts.isEmpty) {
                       return Center(
                         child: Padding(
-                          padding: const EdgeInsets.all(32),
+                          padding: const EdgeInsets.all(AppSpacing.xxl),
                           child: Text(
                             _selectedFeed == DiaryFeedType.following
                                 ? 'フォロー中のユーザーはいません'

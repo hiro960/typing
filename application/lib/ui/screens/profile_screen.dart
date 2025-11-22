@@ -11,7 +11,10 @@ import '../../features/diary/data/models/diary_post.dart';
 import '../../features/diary/domain/providers/diary_providers.dart';
 import '../../features/profile/data/models/user_stats_model.dart';
 import '../../features/profile/domain/providers/profile_providers.dart';
+import '../utils/dialog_helper.dart';
+import '../utils/snackbar_helper.dart';
 import '../widgets/app_page_scaffold.dart';
+import '../app_spacing.dart';
 import '../widgets/diary_post_card.dart';
 import 'profile/profile_header.dart';
 import 'profile/profile_posts.dart';
@@ -136,9 +139,9 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         ],
       ),
       child: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 0, 16, 140),
+        padding: AppPadding.profilePage,
         children: [
-          const SizedBox(height: 12),
+          const SizedBox(height: AppSpacing.md),
           ProfileHero(
             profile: profile,
             theme: theme,
@@ -156,9 +159,9 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
             startText: _formatStartDate(profile.createdAt),
             isUpdatingAvatar: _isUpdatingAvatar,
           ),
-          const SizedBox(height: 56),
+          const SizedBox(height: AppSpacing.xxl + AppSpacing.lg),
           SummaryChips(profile: profile),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           if (_canViewStats(profile, currentUserId)) ...[
             statsAsync.when(
               data: (stats) => Row(
@@ -170,7 +173,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                       value: stats.wpmAvg.toStringAsFixed(0),
                     ),
                   ),
-                  const SizedBox(width: 12),
+                  const SizedBox(width: AppSpacing.md),
                   Expanded(
                     child: ProfileStatCard(
                       icon: Icons.school_outlined,
@@ -201,7 +204,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                 ],
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: AppSpacing.lg),
           ],
           ProfileTabs(
             selectedIndex: _selectedTabIndex,
@@ -278,25 +281,26 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   }
 
   Future<void> _showAvatarActionSheet(UserModel profile) async {
-    final choice = await showModalBottomSheet<String>(
-      context: context,
-      builder: (context) => SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            FTile(
-              prefix: const Icon(Icons.photo_library_outlined),
-              title: const Text('写真を選択'),
-              onPress: () => Navigator.of(context).pop('pick'),
-            ),
-            if (profile.profileImageUrl != null)
-              FTile(
-                prefix: const Icon(Icons.delete_outline),
-                title: const Text('画像を削除'),
-                onPress: () => Navigator.of(context).pop('remove'),
-              ),
-          ],
+    final choices = [
+      const DialogChoice(
+        label: '写真を選択',
+        value: 'pick',
+        icon: Icons.photo_library_outlined,
+      ),
+      if (profile.profileImageUrl != null)
+        const DialogChoice(
+          label: '画像を削除',
+          value: 'remove',
+          icon: Icons.delete_outline,
         ),
+    ];
+    final choice = await DialogHelper.showChoiceBottomSheet<String>(
+      context,
+      choices: choices,
+      builder: (context, choice, onTap) => FTile(
+        prefix: Icon(choice.icon),
+        title: Text(choice.label),
+        onPress: onTap,
       ),
     );
     if (choice == 'pick') {
@@ -316,7 +320,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
       if (picked == null) return;
       await _updateProfileImage(profile, file: File(picked.path));
     } catch (error) {
-      _showMessage('画像の取得に失敗しました: $error');
+      SnackBarHelper.showError(context, error);
     }
   }
 
@@ -342,9 +346,9 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
       if (currentUser?.id == profile.id) {
         ref.read(authStateProvider.notifier).updateUser(updated);
       }
-      _showMessage(remove ? 'プロフィール画像を削除しました' : 'プロフィール画像を更新しました');
+      SnackBarHelper.show(context, remove ? 'プロフィール画像を削除しました' : 'プロフィール画像を更新しました');
     } catch (error) {
-      _showMessage('プロフィール画像の更新に失敗しました: $error');
+      SnackBarHelper.showError(context, error);
     } finally {
       if (mounted) {
         setState(() => _isUpdatingAvatar = false);
@@ -411,10 +415,6 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
     );
   }
 
-  void _showMessage(String message) {
-    if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
-  }
 
   Widget _buildFollowersList(BuildContext context, String userId) {
     final followersAsync = ref.watch(userFollowersProvider(userId));
