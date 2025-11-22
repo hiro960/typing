@@ -130,12 +130,14 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
         title: const Text('ブロック'),
         content: Text('${post.user.displayName}さんをブロックしますか？'),
         actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
+          FButton(
+            style: FButtonStyle.outline(),
+            onPress: () => Navigator.of(context).pop(false),
             child: const Text('キャンセル'),
           ),
-          ElevatedButton(
-            onPressed: () => Navigator.of(context).pop(true),
+          FButton(
+            style: FButtonStyle.destructive(),
+            onPress: () => Navigator.of(context).pop(true),
             child: const Text('ブロック'),
           ),
         ],
@@ -166,9 +168,9 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
           mainAxisSize: MainAxisSize.min,
           children: reasons
               .map(
-                (reason) => ListTile(
+                (reason) => FTile(
                   title: Text(reason['label']!),
-                  onTap: () => Navigator.of(context).pop(reason['value']),
+                  onPress: () => Navigator.of(context).pop(reason['value']),
                 ),
               )
               .toList(),

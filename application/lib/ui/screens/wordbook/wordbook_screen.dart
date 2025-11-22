@@ -72,29 +72,78 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
               child: Row(
                 children: [
                   Expanded(
-                    child: SegmentedButton<WordCategory>(
-                      segments: [
-                        for (final category in WordCategory.values)
-                          ButtonSegment(
-                            value: category,
-                            label: Text(category.label),
-                          ),
-                      ],
-                      selected: {_category},
-                      onSelectionChanged: (selection) {
-                        if (selection.isEmpty) return;
-                        setState(() => _category = selection.first);
+                    child: FTabs(
+                      key: ValueKey(_category),
+                      initialIndex: WordCategory.values.indexOf(_category),
+                      onChange: (index) {
+                        final selected = WordCategory.values[index];
+                        setState(() => _category = selected);
                       },
-                      showSelectedIcon: false,
+                      children: WordCategory.values
+                          .map(
+                            (category) => FTabEntry(
+                              label: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8),
+                                child: Text(
+                                  category.label,
+                                  style: theme.textTheme.bodySmall,
+                                ),
+                              ),
+                              child: const SizedBox.shrink(),
+                            ),
+                          )
+                          .toList(),
                     ),
                   ),
                   const SizedBox(width: 12),
-                  FilledButton.icon(
-                    onPressed: canStartQuiz
-                        ? () => _startQuiz(reviewableWords)
-                        : null,
-                    icon: const Icon(Icons.quiz_outlined),
-                    label: const Text('クイズ'),
+                  SizedBox(
+                    height: 40,
+                    child: FButton.icon(
+                      style: FButtonStyle.outline(),
+                      onPress: canStartQuiz
+                          ? () => _startQuiz(reviewableWords)
+                          : null,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.quiz_outlined,
+                            size: 18,
+                            color: theme.colorScheme.primary,
+                          ),
+                          const SizedBox(width: 6),
+                          Text(
+                            'クイズ',
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              color: theme.colorScheme.primary,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          if (canStartQuiz) ...[
+                            const SizedBox(width: 6),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 2,
+                              ),
+                              decoration: BoxDecoration(
+                                color: theme.colorScheme.primary
+                                    .withValues(alpha: 0.12),
+                                borderRadius: BorderRadius.circular(999),
+                              ),
+                              child: Text(
+                                '${reviewableWords.length}',
+                                style: theme.textTheme.labelSmall?.copyWith(
+                                  color: theme.colorScheme.primary,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -104,8 +153,17 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
               child: TextField(
                 controller: _searchController,
                 onChanged: (_) => setState(() {}),
-                decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.search),
+                decoration: InputDecoration(
+                  prefixIcon: const Icon(Icons.search),
+                  suffixIcon: _searchController.text.isEmpty
+                      ? null
+                      : IconButton(
+                          onPressed: () {
+                            _searchController.clear();
+                            setState(() {});
+                          },
+                          icon: const Icon(Icons.close),
+                        ),
                   hintText: '単語・意味・例文で検索',
                 ),
               ),
@@ -114,21 +172,22 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
               padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
               child: Wrap(
                 spacing: 8,
+                runSpacing: 8,
                 children: [
                   for (final status in WordStatus.values)
                     FilterChip(
-                      label: Text(status.label),
+                      label: Text(
+                        status.label,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                       selected: _statusFilters.contains(status),
                       onSelected: (_) => _toggleStatus(status),
-                      labelStyle: TextStyle(
-                        color: _statusFilters.contains(status)
-                            ? theme.colorScheme.onPrimary
-                            : theme.colorScheme.onSurface,
-                        fontWeight: FontWeight.w600,
-                      ),
                       selectedColor: theme.colorScheme.primary,
                       checkmarkColor: theme.colorScheme.onPrimary,
-                      backgroundColor: theme.colorScheme.surfaceVariant,
+                      backgroundColor:
+                          theme.colorScheme.surfaceVariant.withValues(alpha: 0.6),
                     ),
                 ],
               ),
@@ -144,12 +203,12 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
                         physics: const AlwaysScrollableScrollPhysics(),
                         itemCount: filteredWords.length,
                         gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              mainAxisSpacing: 16,
-                              crossAxisSpacing: 16,
-                              childAspectRatio: 0.95,
-                            ),
+                            const SliverGridDelegateWithMaxCrossAxisExtent(
+                          maxCrossAxisExtent: 260,
+                          mainAxisSpacing: 16,
+                          crossAxisSpacing: 16,
+                          childAspectRatio: 0.95,
+                        ),
                         itemBuilder: (context, index) {
                           final word = filteredWords[index];
                           return _WordCard(
@@ -211,54 +270,67 @@ class _WordCard extends ConsumerWidget {
       onTap: onTap,
       child: FCard.raw(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Chip(
-                label: Text(word.status.label),
-                backgroundColor: theme.colorScheme.primary.withValues(
-                  alpha: 0.08,
-                ),
-                labelStyle: theme.textTheme.labelSmall?.copyWith(
-                  color: theme.colorScheme.primary,
-                ),
+              Row(
+                children: [
+                  Container(
+                    width: 10,
+                    height: 10,
+                    decoration: BoxDecoration(
+                      color: _statusColor(word.status, theme),
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                  const SizedBox(width: 6),
+                  Text(
+                    word.status.label,
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: theme.colorScheme.onSurface.withValues(alpha: 0.8),
+                    ),
+                  ),
+                  const Spacer(),
+                  FButton.icon(
+                    style: FButtonStyle.ghost(),
+                    onPress: () async {
+                      await ref
+                          .read(wordAudioServiceProvider.notifier)
+                          .speak(word.word);
+                    },
+                    child: const Icon(Icons.volume_up_outlined, size: 18),
+                  ),
+                ],
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 10),
               Text(
                 word.word,
-                style: theme.textTheme.headlineSmall,
+                style: theme.textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.w700,
+                ),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
-              const SizedBox(height: 4),
+              const SizedBox(height: 6),
               Text(
                 word.meaning,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                 ),
-                maxLines: 1,
+                maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 10),
               Expanded(
                 child: Text(
                   word.example ?? '例文なし',
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
-                  style: theme.textTheme.bodySmall,
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomRight,
-                child: FButton.icon(
-                  style: FButtonStyle.ghost(),
-                  onPress: () async {
-                    await ref
-                        .read(wordAudioServiceProvider.notifier)
-                        .speak(word.word);
-                  },
-                  child: const Icon(Icons.volume_up_outlined, size: 18),
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
+                  ),
                 ),
               ),
             ],
@@ -269,6 +341,17 @@ class _WordCard extends ConsumerWidget {
   }
 }
 
+Color _statusColor(WordStatus status, ThemeData theme) {
+  switch (status) {
+    case WordStatus.MASTERED:
+      return theme.colorScheme.secondary;
+    case WordStatus.REVIEWING:
+      return theme.colorScheme.primary;
+    case WordStatus.NEEDS_REVIEW:
+      return theme.colorScheme.tertiary;
+  }
+}
+
 class _EmptyState extends StatelessWidget {
   const _EmptyState({required this.onAdd});
 
@@ -276,6 +359,7 @@ class _EmptyState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return ListView(
       physics: const AlwaysScrollableScrollPhysics(),
       children: [
@@ -283,19 +367,32 @@ class _EmptyState extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 80),
           child: Column(
             children: [
-              const Icon(Icons.book_outlined, size: 64, color: Colors.white70),
-              const SizedBox(height: 16),
-              const Text(
-                'まだ単語/文章がありません',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              Icon(
+                Icons.book_outlined,
+                size: 64,
+                color: theme.colorScheme.primary.withValues(alpha: 0.35),
               ),
-              const SizedBox(height: 8),
-              const Text(
-                '覚えたい単語/文章を追加して、マイ単語帳を作りましょう。',
+              const SizedBox(height: 16),
+              Text(
+                'まだ単語/文章がありません',
+                style: theme.textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
                 textAlign: TextAlign.center,
               ),
+              const SizedBox(height: 8),
+              Text(
+                '覚えたい単語/文章を追加して、マイ単語帳を作りましょう。',
+                textAlign: TextAlign.center,
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+                ),
+              ),
               const SizedBox(height: 16),
-              FilledButton(onPressed: onAdd, child: const Text('単語/文章を追加')),
+              FButton(
+                onPress: onAdd,
+                child: const Text('単語/文章を追加'),
+              ),
             ],
           ),
         ),

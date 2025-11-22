@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:forui/forui.dart';
 
 import '../../../features/wordbook/data/models/word_model.dart';
 import '../../../features/wordbook/domain/providers/word_quiz_controller.dart';
@@ -43,25 +44,26 @@ class _WordQuizScreenState extends ConsumerState<WordQuizScreen> {
 
     return WillPopScope(
       onWillPop: () => _handleEarlyExit(),
-      child: Scaffold(
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(20, 12, 20, 24),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.arrow_back),
-                      onPressed: _handleBackPressed,
-                    ),
-                    const Spacer(),
-                    Text(
-                      '${state.totalCards == 0 ? 0 : state.currentPosition}/${state.totalCards}',
-                      style: theme.textTheme.titleMedium,
-                    ),
-                  ],
-                ),
+      child: FScaffold(
+        header: FHeader.nested(
+          prefixes: [
+            FHeaderAction.back(onPress: _handleBackPressed),
+          ],
+          title: const SizedBox.shrink(),
+          suffixes: [
+            Padding(
+              padding: const EdgeInsets.only(right: 16),
+              child: Text(
+                '${state.totalCards == 0 ? 0 : state.currentPosition}/${state.totalCards}',
+                style: theme.textTheme.titleMedium,
+              ),
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 12, 20, 24),
+          child: Column(
+            children: [
                 const SizedBox(height: 12),
                 Expanded(
                   child: state.hasCurrentCard
@@ -89,7 +91,6 @@ class _WordQuizScreenState extends ConsumerState<WordQuizScreen> {
             ),
           ),
         ),
-      ),
     );
   }
 
@@ -206,9 +207,10 @@ class _QuizCard extends StatelessWidget {
             children: [
               Align(
                 alignment: Alignment.topRight,
-                child: IconButton(
-                  icon: const Icon(Icons.volume_up_outlined),
-                  onPressed: onSpeak,
+                child: FButton.icon(
+                  style: FButtonStyle.ghost(),
+                  child: const Icon(Icons.volume_up_outlined),
+                  onPress: onSpeak,
                 ),
               ),
               Expanded(
@@ -314,13 +316,11 @@ class _ActionButtons extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: FilledButton(
-            style: FilledButton.styleFrom(
-              backgroundColor: meaningVisible ? scheme.error : scheme.errorContainer,
-              foregroundColor: meaningVisible ? scheme.onError : scheme.onErrorContainer,
-              padding: const EdgeInsets.symmetric(vertical: 20),
-            ),
-            onPressed: onUnknownPressed,
+          child: FButton(
+            style: meaningVisible
+                ? FButtonStyle.destructive()
+                : FButtonStyle.secondary(), // Using secondary as a fallback for errorContainer if custom style not easy
+            onPress: onUnknownPressed,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: const [
@@ -333,13 +333,9 @@ class _ActionButtons extends StatelessWidget {
         ),
         const SizedBox(width: 16),
         Expanded(
-          child: FilledButton(
-            style: FilledButton.styleFrom(
-              backgroundColor: scheme.primaryContainer,
-              foregroundColor: scheme.onPrimaryContainer,
-              padding: const EdgeInsets.symmetric(vertical: 20),
-            ),
-            onPressed: onKnownPressed,
+          child: FButton(
+            style: FButtonStyle.primary(),
+            onPress: onKnownPressed,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: const [

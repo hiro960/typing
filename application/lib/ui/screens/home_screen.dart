@@ -119,8 +119,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           title: const Text('レッスンがロックされています'),
           content: const Text('前のレッスンを完了すると、このレッスンが解除されます。'),
           actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(),
+            FButton(
+              style: FButtonStyle.outline(),
+              onPress: () => Navigator.of(context).pop(),
               child: const Text('閉じる'),
             ),
           ],

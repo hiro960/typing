@@ -629,16 +629,26 @@ class _TypingSettingsSheet extends ConsumerWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const SizedBox(height: 12),
-            SwitchListTile.adaptive(
+            FTile(
               title: const Text('ヒント表示'),
               subtitle: const Text('次に押すキーをハイライト表示します'),
-              value: settings.hintsEnabled,
-              onChanged: isLoading ? null : controller.toggleHints,
+              suffix: FSwitch(
+                value: settings.hintsEnabled,
+                onChange: isLoading ? null : controller.toggleHints,
+              ),
+              onPress: isLoading
+                  ? null
+                  : () => controller.toggleHints(!settings.hintsEnabled),
             ),
-            SwitchListTile.adaptive(
+            FTile(
               title: const Text('触覚フィードバック'),
-              value: settings.hapticsEnabled,
-              onChanged: isLoading ? null : controller.toggleHaptics,
+              suffix: FSwitch(
+                value: settings.hapticsEnabled,
+                onChange: isLoading ? null : controller.toggleHaptics,
+              ),
+              onPress: isLoading
+                  ? null
+                  : () => controller.toggleHaptics(!settings.hapticsEnabled),
             ),
           ],
         ),
@@ -665,8 +675,8 @@ class _ErrorScaffold extends StatelessWidget {
               const SizedBox(height: 12),
               Text(error, textAlign: TextAlign.center),
               const SizedBox(height: 12),
-              FilledButton(
-                onPressed: () => Navigator.of(context).maybePop(),
+              FButton(
+                onPress: () => Navigator.of(context).maybePop(),
                 child: const Text('戻る'),
               ),
             ],

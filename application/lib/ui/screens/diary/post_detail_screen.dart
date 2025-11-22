@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:forui/forui.dart';
 
 import '../../../core/utils/logger.dart';
 import '../../../features/auth/domain/providers/auth_providers.dart';
@@ -142,12 +143,14 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
         title: const Text('投稿を削除'),
         content: const Text('この投稿を削除しますか？'),
         actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
+          FButton(
+            style: FButtonStyle.outline(),
+            onPress: () => Navigator.of(context).pop(false),
             child: const Text('キャンセル'),
           ),
-          ElevatedButton(
-            onPressed: () => Navigator.of(context).pop(true),
+          FButton(
+            style: FButtonStyle.destructive(),
+            onPress: () => Navigator.of(context).pop(true),
             child: const Text('削除'),
           ),
         ],
@@ -176,6 +179,66 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
     );
   }
 
+  Future<void> _showMenu(bool isMine) async {
+    final value = await showModalBottomSheet<String>(
+      context: context,
+      builder: (context) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (isMine) ...[
+              FTile(
+                prefix: const Icon(Icons.edit_outlined),
+                title: const Text('編集'),
+                onPress: () => Navigator.of(context).pop('edit'),
+              ),
+              FTile(
+                prefix: const Icon(Icons.delete_outline),
+                title: const Text('削除'),
+                onPress: () => Navigator.of(context).pop('delete'),
+              ),
+            ],
+            FTile(
+              prefix: const Icon(Icons.format_quote_outlined),
+              title: const Text('引用する'),
+              onPress: () => Navigator.of(context).pop('quote'),
+            ),
+            FTile(
+              prefix: const Icon(Icons.flag_outlined),
+              title: const Text('通報'),
+              onPress: () => Navigator.of(context).pop('report'),
+            ),
+            FTile(
+              prefix: const Icon(Icons.block_outlined),
+              title: const Text('ブロック'),
+              onPress: () => Navigator.of(context).pop('block'),
+            ),
+          ],
+        ),
+      ),
+    );
+
+    if (value == null) return;
+
+    switch (value) {
+      case 'edit':
+        _editPost();
+        break;
+      case 'delete':
+        _deletePost();
+        break;
+      case 'quote':
+        _quotePost();
+        break;
+      case 'report':
+        _reportPost();
+        break;
+      case 'block':
+        _blockAuthor();
+        break;
+    }
+  }
+
   Future<void> _blockAuthor() async {
     final confirm = await showDialog<bool>(
       context: context,
@@ -183,12 +246,14 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
         title: const Text('ブロック'),
         content: Text('${_post.user.displayName}さんをブロックしますか？'),
         actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
+          FButton(
+            style: FButtonStyle.outline(),
+            onPress: () => Navigator.of(context).pop(false),
             child: const Text('キャンセル'),
           ),
-          ElevatedButton(
-            onPressed: () => Navigator.of(context).pop(true),
+          FButton(
+            style: FButtonStyle.destructive(),
+            onPress: () => Navigator.of(context).pop(true),
             child: const Text('ブロック'),
           ),
         ],
@@ -222,9 +287,9 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
           mainAxisSize: MainAxisSize.min,
           children: reasons
               .map(
-                (reason) => ListTile(
+                (reason) => FTile(
                   title: Text(reason['label']!),
-                  onTap: () => Navigator.of(context).pop(reason['value']),
+                  onPress: () => Navigator.of(context).pop(reason['value']),
                 ),
               )
               .toList(),
@@ -251,69 +316,26 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
     final commentsState = ref.watch(postCommentsControllerProvider(_post.id));
     final currentUser = ref.watch(currentUserProvider);
 
-    return Scaffold(
-      appBar: AppBar(
+    return FScaffold(
+      header: FHeader.nested(
         title: const Text('投稿'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.refresh),
-            onPressed: _refreshPost,
+        suffixes: [
+          FButton.icon(
+            style: FButtonStyle.ghost(),
+            onPress: _refreshPost,
+            child: const Icon(Icons.refresh),
           ),
-          PopupMenuButton<String>(
-            onSelected: (value) {
-              switch (value) {
-                case 'edit':
-                  _editPost();
-                  break;
-                case 'delete':
-                  _deletePost();
-                  break;
-                case 'quote':
-                  _quotePost();
-                  break;
-                case 'report':
-                  _reportPost();
-                  break;
-                case 'block':
-                  _blockAuthor();
-                  break;
-              }
-            },
-            itemBuilder: (context) {
-              final items = <PopupMenuEntry<String>>[];
-              final isMine = currentUser?.id == _post.user.id;
-              if (isMine) {
-                items.addAll([
-                  const PopupMenuItem(
-                    value: 'edit',
-                    child: Text('編集'),
-                  ),
-                  const PopupMenuItem(
-                    value: 'delete',
-                    child: Text('削除'),
-                  ),
-                ]);
-              }
-              items.addAll([
-                const PopupMenuItem(
-                  value: 'quote',
-                  child: Text('引用する'),
-                ),
-                const PopupMenuItem(
-                  value: 'report',
-                  child: Text('通報'),
-                ),
-                const PopupMenuItem(
-                  value: 'block',
-                  child: Text('ブロック'),
-                ),
-              ]);
-              return items;
-            },
+          FButton.icon(
+            style: FButtonStyle.ghost(),
+            onPress: () => _showMenu(currentUser?.id == _post.user.id),
+            child: const Icon(Icons.more_vert),
           ),
         ],
+        prefixes: [
+          FHeaderAction.back(onPress: () => Navigator.of(context).maybePop()),
+        ],
       ),
-      body: Column(
+      child: Column(
         children: [
           Expanded(
             child: RefreshIndicator(
@@ -377,12 +399,9 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
               child: Row(
                 children: [
                   Expanded(
-                    child: TextField(
+                    child: FTextField(
                       controller: _commentController,
-                      decoration: const InputDecoration(
-                        hintText: 'コメントを入力',
-                        border: OutlineInputBorder(),
-                      ),
+                      hint: 'コメントを入力',
                       minLines: 1,
                       maxLines: 4,
                     ),
@@ -394,9 +413,10 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
                           height: 24,
                           child: CircularProgressIndicator(strokeWidth: 2),
                         )
-                      : IconButton(
-                          icon: const Icon(Icons.send),
-                          onPressed: _addComment,
+                      : FButton.icon(
+                          style: FButtonStyle.ghost(),
+                          onPress: _addComment,
+                          child: const Icon(Icons.send),
                         ),
                 ],
               ),
@@ -490,8 +510,7 @@ class _CommentTile extends StatelessWidget {
       _relativeTime(comment.createdAt),
     ].where((value) => value.isNotEmpty).join(' ・ ');
 
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8),
+    return FCard(
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -528,9 +547,10 @@ class _CommentTile extends StatelessWidget {
                   ),
                 ),
                 if (isMine)
-                  IconButton(
-                    icon: const Icon(Icons.delete_outline),
-                    onPressed: onDelete,
+                  FButton.icon(
+                    style: FButtonStyle.ghost(),
+                    onPress: onDelete,
+                    child: const Icon(Icons.delete_outline),
                   ),
               ],
             ),
@@ -539,13 +559,14 @@ class _CommentTile extends StatelessWidget {
             const SizedBox(height: 12),
             Row(
               children: [
-                IconButton(
-                  icon: Icon(
+                FButton.icon(
+                  style: FButtonStyle.ghost(),
+                  onPress: onToggleLike,
+                  child: Icon(
                     comment.liked ? Icons.favorite : Icons.favorite_border,
                     color:
                         comment.liked ? theme.colorScheme.primary : null,
                   ),
-                  onPressed: onToggleLike,
                 ),
                 Text('${comment.likesCount}'),
               ],

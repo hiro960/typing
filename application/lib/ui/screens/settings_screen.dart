@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:characters/characters.dart';
 
 import '../../features/auth/data/models/user_model.dart';
 import '../../features/auth/domain/providers/auth_providers.dart';
@@ -10,6 +11,7 @@ import '../../features/profile/domain/providers/profile_providers.dart';
 import '../../features/typing/domain/providers/typing_settings_provider.dart';
 import '../../features/typing/data/models/typing_settings.dart';
 import '../../features/theme/theme_mode_provider.dart';
+import '../../features/diary/domain/providers/diary_providers.dart';
 
 class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
@@ -19,10 +21,14 @@ class SettingsScreen extends ConsumerStatefulWidget {
 }
 
 class _SettingsScreenState extends ConsumerState<SettingsScreen> {
+  static const _feedbackEmail = 'support@chaletta.app';
+
   bool _pushNotifications = true;
   bool _isLoggingOut = false;
   bool _isUpdatingDisplayName = false;
   bool _isUpdatingPush = false;
+  bool _isLoadingBlockedCount = false;
+  int? _blockedCount;
   ProviderSubscription<UserModel?>? _userSub;
 
   @override
@@ -32,6 +38,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     final user = ref.read(currentUserProvider);
     if (user != null) {
       _pushNotifications = user.settings.notifications.push;
+      _loadBlockedCount();
     }
     // ProviderSubscriptionを使い initState で購読
     _userSub = ref.listenManual<UserModel?>(
@@ -41,6 +48,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         final push = next.settings.notifications.push;
         if (push != _pushNotifications) {
           setState(() => _pushNotifications = push);
+        }
+        if (previous == null) {
+          _loadBlockedCount();
         }
       },
     );
@@ -60,12 +70,15 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         title: const Text('ログアウト'),
         content: const Text('本当にログアウトしますか？'),
         actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
+          FButton(
+            style: FButtonStyle.outline(),
+            onPress: () => Navigator.of(context).pop(false),
             child: const Text('キャンセル'),
           ),
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(true),
+          const SizedBox(height: 6,),
+          FButton(
+            style: FButtonStyle.destructive(),
+            onPress: () => Navigator.of(context).pop(true),
             child: const Text('ログアウト'),
           ),
         ],
@@ -116,55 +129,86 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       child: ListView(
         padding: const EdgeInsets.fromLTRB(16, 12, 16, 120),
         children: [
+          _ProfileHeader(
+            displayName: displayName,
+            username: username,
+            profileImageUrl: currentUser?.profileImageUrl,
+            onEdit: currentUser == null || _isUpdatingDisplayName
+                ? null
+                : () => _editDisplayName(currentUser),
+            onCopyId: currentUser == null
+                ? null
+                : () => _copyUsername(currentUser.username),
+            isSaving: _isUpdatingDisplayName,
+          ),
+          const SizedBox(height: 16),
           _SettingsSection(
             title: 'アカウント',
             children: [
-              _SettingsTile(
-                title: '表示名',
-                subtitle: displayName,
-                trailing: TextButton(
-                  onPressed: currentUser == null || _isUpdatingDisplayName
-                      ? null
-                      : () => _editDisplayName(currentUser),
-                  child: _isUpdatingDisplayName
-                      ? const SizedBox(
-                          width: 16,
-                          height: 16,
-                          child: CircularProgressIndicator(strokeWidth: 2),
-                        )
-                      : const Text('編集'),
-                ),
-              ),
-              _SettingsTile(
-                title: 'ユーザーID',
-                subtitle: username,
-                trailing: IconButton(
-                  icon: const Icon(Icons.copy),
-                  onPressed: currentUser == null
+              FTile(
+                prefix: const Icon(Icons.alternate_email),
+                title: const Text('ユーザーID'),
+                subtitle: Text(username),
+                suffix: FButton.icon(
+                  style: FButtonStyle.ghost(),
+                  child: const Icon(Icons.copy),
+                  onPress: currentUser == null
                       ? null
                       : () => _copyUsername(currentUser.username),
                 ),
               ),
-              Material(
-                color: Colors.transparent,
-                child: ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  title: const Text('ブロックしているアカウント'),
-                  subtitle: Text(
-                    'ブロックしたユーザーの一覧と解除',
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
-                    ),
+              FTile(
+                prefix: const Icon(Icons.block_outlined),
+                title: const Text('ブロックしているアカウント'),
+                subtitle: Text(
+                  _blockedCount == null && !_isLoadingBlockedCount
+                      ? 'ブロックしたユーザーの一覧と解除'
+                      : _isLoadingBlockedCount
+                          ? '件数を読み込み中...'
+                          : 'ブロック中: $_blockedCount件',
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
                   ),
-                  trailing: const Icon(Icons.chevron_right),
-                  onTap: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute<void>(
-                        builder: (_) => const BlockedAccountsScreen(),
-                      ),
-                    );
-                  },
                 ),
+                suffix: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (_blockedCount != null)
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.primary.withValues(alpha: 0.08),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text(
+                          '$_blockedCount件',
+                          style: theme.textTheme.labelMedium?.copyWith(
+                            color: theme.colorScheme.primary,
+                          ),
+                        ),
+                      ),
+                    const SizedBox(width: 8),
+                    _isLoadingBlockedCount
+                        ? const SizedBox(
+                            width: 16,
+                            height: 16,
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          )
+                        : const Icon(Icons.chevron_right),
+                  ],
+                ),
+                onPress: () async {
+                  await Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => const BlockedAccountsScreen(),
+                    ),
+                  );
+                  if (!mounted) return;
+                  await _loadBlockedCount();
+                },
               ),
             ],
           ),
@@ -173,9 +217,12 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             title: '通知',
             children: [
               _SwitchTile(
+                icon: Icons.notifications_outlined,
                 title: 'プッシュ通知',
                 subtitle: 'アプリからのお知らせを受け取る',
                 value: _pushNotifications,
+                isBusy: _isUpdatingPush,
+                statusText: _isUpdatingPush ? '保存中...' : null,
                 onChanged: (value) {
                   if (_isUpdatingPush) return;
                   _updatePushNotifications(value);
@@ -198,18 +245,25 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 return Column(
                   children: [
                     _SwitchTile(
+                      icon: Icons.vibration,
                       title: '触覚フィードバック',
                       subtitle: 'キー入力時のバイブレーション',
                       value: typingSettings.hapticsEnabled,
+                      isBusy: isTypingLoading,
                       onChanged: (value) {
                         if (isTypingLoading) return;
                         typingController.toggleHaptics(value);
                       },
                     ),
+                    Divider(
+                      color: theme.colorScheme.onSurface.withValues(alpha: 0.1),
+                    ),
                     _SwitchTile(
+                      icon: Icons.lightbulb_outline,
                       title: 'ヒント表示',
                       subtitle: '次に押すキーを表示する',
                       value: typingSettings.hintsEnabled,
+                      isBusy: isTypingLoading,
                       onChanged: (value) {
                         if (isTypingLoading) return;
                         typingController.toggleHints(value);
@@ -230,10 +284,14 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 final controller = ref.read(themeModeProvider.notifier);
                 final isLoading = themeModeAsync.isLoading;
                 final isDark = themeMode == ThemeMode.dark;
+                final themeLabel = isDark ? 'ダーク' : 'ライト';
                 return _SwitchTile(
+                  icon: isDark ? Icons.dark_mode_outlined : Icons.light_mode_outlined,
                   title: 'ダークテーマ',
-                  subtitle: 'オフで白基調のテーマに切り替え',
+                  subtitle: '現在: $themeLabel。オフで白基調のテーマに切り替え',
                   value: isDark,
+                  isBusy: isLoading,
+                  statusText: isLoading ? '保存中...' : null,
                   onChanged: (value) {
                     if (isLoading) return;
                     controller.toggle(value);
@@ -244,31 +302,77 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           ),
           const SizedBox(height: 16),
           _SettingsSection(
-            title: 'データ & サポート',
-            withDividers: false,
+            title: 'サポート',
             children: [
-              FButton(
-                onPress: () {},
-                style: FButtonStyle.outline(),
-                child: const Text('フィードバックを送る'),
+              FTile(
+                prefix: const Icon(Icons.feedback_outlined),
+                title: const Text('フィードバックを送る'),
+                subtitle: Text(
+                  '改善点や不具合の報告はこちらから',
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                  ),
+                ),
+                onPress: _showFeedbackSheet,
+                suffix: const Icon(Icons.chevron_right),
               ),
-              const SizedBox(height: 12),
-              FButton(
-                onPress: _isLoggingOut ? null : _handleLogout,
-                style: FButtonStyle.secondary(),
-                child: _isLoggingOut
-                    ? const SizedBox(
-                        width: 20,
-                        height: 20,
-                        child: CircularProgressIndicator(strokeWidth: 2),
-                      )
-                    : const Text('ログアウト'),
-              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('アカウント操作', style: theme.textTheme.titleMedium),
               const SizedBox(height: 8),
-              FButton(
-                onPress: () {},
-                style: FButtonStyle.destructive(),
-                child: const Text('アカウントを削除'),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 2,
+                  vertical: 4,
+                ),
+                child: Column(
+                  children: [
+                    FTile(
+                      prefix: const Icon(Icons.logout),
+                      title: const Text('ログアウト'),
+                      subtitle: Text(
+                        '他のアカウントでログインする場合はこちら',
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: theme.colorScheme.onSurface
+                              .withValues(alpha: 0.6),
+                        ),
+                      ),
+                      onPress: _isLoggingOut ? null : _handleLogout,
+                      suffix: _isLoggingOut
+                          ? const SizedBox(
+                              width: 20,
+                              height: 20,
+                              child: CircularProgressIndicator(strokeWidth: 2),
+                            )
+                          : const Icon(Icons.chevron_right),
+                    ),
+                    Divider(
+                      color: theme.colorScheme.error.withValues(alpha: 0.4),
+                    ),
+                    FTile(
+                      prefix: Icon(
+                        Icons.delete_forever_outlined,
+                        color: theme.colorScheme.error,
+                      ),
+                      title: Text(
+                        'アカウントを削除',
+                        style: TextStyle(color: theme.colorScheme.error),
+                      ),
+                      subtitle: Text(
+                        '投稿・学習記録をすべて削除します',
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: theme.colorScheme.error.withValues(alpha: 0.8),
+                        ),
+                      ),
+                      onPress: () {},
+                      suffix: const Icon(Icons.chevron_right),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
@@ -352,12 +456,15 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 }),
               ),
               actions: [
-                TextButton(
-                  onPressed: saving ? null : () => Navigator.of(context).pop(),
+                FButton(
+                  style: FButtonStyle.outline(),
+                  onPress: saving ? null : () => Navigator.of(context).pop(),
                   child: const Text('キャンセル'),
                 ),
-                TextButton(
-                  onPressed: saving
+                const SizedBox(height: 6,),
+                FButton(
+                  style: FButtonStyle.primary(),
+                  onPress: saving
                       ? null
                       : () async {
                           final text = controller.text;
@@ -405,6 +512,106 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       );
     }
   }
+
+  Future<void> _loadBlockedCount() async {
+    if (_isLoadingBlockedCount || !mounted) return;
+    try {
+      setState(() {
+        _isLoadingBlockedCount = true;
+      });
+      final repo = ref.read(diaryRepositoryProvider);
+      final blocks = await repo.fetchBlockedAccounts();
+      if (!mounted) return;
+      setState(() {
+        _blockedCount = blocks.length;
+      });
+    } catch (_) {
+      if (!mounted) return;
+      setState(() {
+        _blockedCount = null;
+      });
+    } finally {
+      if (mounted) {
+        setState(() => _isLoadingBlockedCount = false);
+      }
+    }
+  }
+
+  void _showFeedbackSheet() {
+    showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (context) {
+        final theme = Theme.of(context);
+        return Padding(
+          padding: const EdgeInsets.fromLTRB(20, 4, 20, 24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('フィードバックを送る', style: theme.textTheme.titleLarge),
+              const SizedBox(height: 8),
+              Text(
+                '不具合の報告や改善のアイデアをメールでお送りください。',
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+                ),
+              ),
+              const SizedBox(height: 16),
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: theme.colorScheme.primary.withValues(alpha: 0.06),
+                ),
+                child: Row(
+                  children: [
+                    Icon(Icons.mail_outline, color: theme.colorScheme.primary),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            _feedbackEmail,
+                            style: theme.textTheme.bodyLarge?.copyWith(
+                              color: theme.colorScheme.onSurface,
+                            ),
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            'メールアプリで新規作成し、このアドレスに送信してください。',
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    FButton.icon(
+                      style: FButtonStyle.ghost(),
+                      onPress: () {
+                        Clipboard.setData(
+                          const ClipboardData(text: _feedbackEmail),
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('メールアドレスをコピーしました')),
+                        );
+                      },
+                      child: const Icon(Icons.copy_outlined),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
 }
 
 class _SettingsSection extends StatelessWidget {
@@ -426,63 +633,21 @@ class _SettingsSection extends StatelessWidget {
       children: [
         Text(title, style: theme.textTheme.titleMedium),
         const SizedBox(height: 8),
-        FCard.raw(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              children: [
-                for (int i = 0; i < children.length; i++) ...[
-                  children[i],
-                  if (withDividers && i != children.length - 1)
-                    Divider(
-                      color: theme.colorScheme.onSurface.withValues(alpha: 0.1),
-                    ),
-                ],
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 2),
+          child: Column(
+            children: [
+              for (int i = 0; i < children.length; i++) ...[
+                children[i],
+                if (withDividers && i != children.length - 1)
+                  Divider(
+                    color: theme.colorScheme.onSurface.withValues(alpha: 0.08),
+                  ),
               ],
-            ),
+            ],
           ),
         ),
       ],
-    );
-  }
-}
-
-class _SettingsTile extends StatelessWidget {
-  const _SettingsTile({
-    required this.title,
-    required this.subtitle,
-    required this.trailing,
-  });
-
-  final String title;
-  final String subtitle;
-  final Widget trailing;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(title, style: theme.textTheme.bodyLarge),
-                const SizedBox(height: 4),
-                Text(
-                  subtitle,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Material(color: Colors.transparent, child: trailing),
-        ],
-      ),
     );
   }
 }
@@ -493,28 +658,162 @@ class _SwitchTile extends StatelessWidget {
     required this.subtitle,
     required this.value,
     required this.onChanged,
+    this.icon,
+    this.isBusy = false,
+    this.statusText,
   });
 
   final String title;
   final String subtitle;
   final bool value;
   final ValueChanged<bool> onChanged;
+  final IconData? icon;
+  final bool isBusy;
+  final String? statusText;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Material(
-      color: Colors.transparent,
-      child: SwitchListTile(
-        contentPadding: EdgeInsets.zero,
-        value: value,
-        onChanged: onChanged,
+    final subtitleColor =
+        theme.colorScheme.onSurface.withValues(alpha: 0.6);
+    return Opacity(
+      opacity: isBusy ? 0.85 : 1,
+      child: FTile(
+        prefix: icon != null ? Icon(icon) : null,
         title: Text(title),
-        subtitle: Text(
-          subtitle,
-          style: theme.textTheme.bodySmall?.copyWith(
-            color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
-          ),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              subtitle,
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: subtitleColor,
+              ),
+            ),
+            if (statusText != null || isBusy)
+              Padding(
+                padding: const EdgeInsets.only(top: 4),
+                child: Text(
+                  statusText ?? '保存中...',
+                  style: theme.textTheme.labelSmall?.copyWith(
+                    color: theme.colorScheme.primary,
+                  ),
+                ),
+              ),
+          ],
+        ),
+        suffix: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (isBusy)
+              const SizedBox(
+                width: 16,
+                height: 16,
+                child: CircularProgressIndicator(strokeWidth: 2),
+              ),
+            if (isBusy) const SizedBox(width: 8),
+            AbsorbPointer(
+              absorbing: isBusy,
+              child: FSwitch(
+                value: value,
+                onChange: onChanged,
+              ),
+            ),
+          ],
+        ),
+        onPress: isBusy ? null : () => onChanged(!value),
+      ),
+    );
+  }
+}
+
+class _ProfileHeader extends StatelessWidget {
+  const _ProfileHeader({
+    required this.displayName,
+    required this.username,
+    required this.profileImageUrl,
+    required this.onEdit,
+    required this.onCopyId,
+    required this.isSaving,
+  });
+
+  final String displayName;
+  final String username;
+  final String? profileImageUrl;
+  final VoidCallback? onEdit;
+  final VoidCallback? onCopyId;
+  final bool isSaving;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final initial = displayName.isNotEmpty
+        ? displayName.characters.take(1).toString()
+        : '?';
+    return FCard.raw(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Row(
+          children: [
+            CircleAvatar(
+              radius: 28,
+              backgroundColor: theme.colorScheme.primaryContainer,
+              backgroundImage:
+                  profileImageUrl != null ? NetworkImage(profileImageUrl!) : null,
+              child: profileImageUrl == null
+                  ? Text(
+                      initial,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        color: theme.colorScheme.onPrimaryContainer,
+                      ),
+                    )
+                  : null,
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    displayName,
+                    style: theme.textTheme.titleMedium,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 4),
+                  Row(
+                    children: [
+                      Text(
+                        username,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: theme.colorScheme.onSurface
+                              .withValues(alpha: 0.6),
+                        ),
+                      ),
+                      const SizedBox(width: 4),
+                      FButton.icon(
+                        style: FButtonStyle.ghost(),
+                        onPress: onCopyId,
+                        child: const Icon(Icons.copy_outlined, size: 16),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 8),
+            FButton(
+              style: FButtonStyle.ghost(),
+              onPress: onEdit,
+              child: isSaving
+                  ? const SizedBox(
+                      width: 16,
+                      height: 16,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    )
+                  : const Text('編集'),
+            ),
+          ],
         ),
       ),
     );

@@ -60,8 +60,9 @@ class _SocialAuthScreenState extends ConsumerState<SocialAuthScreen> {
         title: const Text('ログインエラー'),
         content: Text(message),
         actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
+          FButton(
+            style: FButtonStyle.outline(),
+            onPress: () => Navigator.of(context).pop(),
             child: const Text('OK'),
           ),
         ],

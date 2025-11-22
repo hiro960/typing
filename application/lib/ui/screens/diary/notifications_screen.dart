@@ -1,3 +1,4 @@
+import 'package:characters/characters.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
@@ -42,150 +43,122 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
     final state = ref.watch(diaryNotificationsControllerProvider);
 
     final theme = Theme.of(context);
-    final isLight = theme.brightness == Brightness.light;
-    return Material(
-      color: isLight ? Colors.white : theme.colorScheme.surface,
-      child: SafeArea(
-        top: true,
-        bottom: false,
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
-              child: FHeader(
-                title: Text('🔔 通知', style: theme.textTheme.headlineSmall),
-                suffixes: [
-                  FHeaderAction(
-                    icon: const Icon(Icons.mark_email_read_outlined),
-                    onPress: state.notifications.isEmpty
-                        ? null
-                        : () {
-                            ref
-                                .read(
-                                  diaryNotificationsControllerProvider.notifier,
-                                )
-                                .markAllRead();
-                          },
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: Row(
-                children: [
-                  _FilterChip(
-                    label: 'すべて',
-                    selected: !state.unreadOnly,
-                    onSelected: (value) {
-                      if (!value) return;
-                      ref
-                          .read(diaryNotificationsControllerProvider.notifier)
-                          .toggleUnreadOnly(false);
-                    },
-                  ),
-                  const SizedBox(width: 8),
-                  _FilterChip(
-                    label: '未読のみ',
-                    selected: state.unreadOnly,
-                    onSelected: (value) {
-                      if (!value) return;
-                      ref
-                          .read(diaryNotificationsControllerProvider.notifier)
-                          .toggleUnreadOnly(true);
-                    },
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: RefreshIndicator(
-                onRefresh: _refresh,
-                child: Builder(
-                  builder: (context) {
-                    if (state.isLoading && state.notifications.isEmpty) {
-                      return const Center(child: CircularProgressIndicator());
-                    }
-                    if (state.errorMessage != null &&
-                        state.notifications.isEmpty) {
-                      return Center(child: Text(state.errorMessage!));
-                    }
-                    if (state.notifications.isEmpty) {
-                      return const Center(child: Text('通知はありません'));
-                    }
-                    return NotificationListener<ScrollNotification>(
-                      onNotification: (notification) {
-                        if (notification.metrics.pixels >=
-                            notification.metrics.maxScrollExtent - 100) {
-                          ref
-                              .read(
-                                diaryNotificationsControllerProvider.notifier,
-                              )
-                              .loadMore();
-                        }
-                        return false;
-                      },
-                      child: ListView.builder(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 12,
-                        ),
-                        itemCount:
-                            state.notifications.length +
-                            (state.isLoadingMore ? 1 : 0),
-                        itemBuilder: (context, index) {
-                          if (index >= state.notifications.length) {
-                            return const Padding(
-                              padding: EdgeInsets.symmetric(vertical: 16),
-                              child: Center(child: CircularProgressIndicator()),
-                            );
-                          }
-                          final notification = state.notifications[index];
-                          return _NotificationTile(
-                            notification: notification,
-                            onTap: () {
-                              _openPost(notification);
-                              if (!notification.isRead) {
-                                ref
-                                    .read(
-                                      diaryNotificationsControllerProvider
-                                          .notifier,
-                                    )
-                                    .markAsRead(notification.id);
-                              }
-                            },
-                          );
-                        },
-                      ),
-                    );
+    final unreadCount =
+        state.notifications.where((notification) => !notification.isRead).length;
+    return FScaffold(
+      header: FHeader(
+        title: Text('🔔 通知', style: theme.textTheme.headlineSmall),
+        suffixes: [
+          FHeaderAction(
+            icon: const Icon(Icons.mark_email_read_outlined),
+            onPress: state.notifications.isEmpty
+                ? null
+                : () {
+                    ref
+                        .read(
+                          diaryNotificationsControllerProvider.notifier,
+                        )
+                        .markAllRead();
                   },
-                ),
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            child: _FilterSegment(
+              unreadOnly: state.unreadOnly,
+              unreadCount: unreadCount,
+              onChanged: (value) {
+                if (value == state.unreadOnly) return;
+                ref
+                    .read(diaryNotificationsControllerProvider.notifier)
+                    .toggleUnreadOnly(value);
+              },
+            ),
+          ),
+          Expanded(
+            child: RefreshIndicator(
+              onRefresh: _refresh,
+              child: Builder(
+                builder: (context) {
+                  if (state.isLoading && state.notifications.isEmpty) {
+                    return const _NotificationSkeletonList();
+                  }
+                  if (state.errorMessage != null &&
+                      state.notifications.isEmpty) {
+                    return _ErrorView(
+                      message: state.errorMessage!,
+                      onRetry: _refresh,
+                    );
+                  }
+                  if (state.notifications.isEmpty) {
+                    return _EmptyState(onReload: _refresh);
+                  }
+                  return NotificationListener<ScrollNotification>(
+                    onNotification: (notification) {
+                      if (state.hasMore &&
+                          !state.isLoadingMore &&
+                          notification.metrics.pixels >=
+                              notification.metrics.maxScrollExtent - 100) {
+                        ref
+                            .read(
+                              diaryNotificationsControllerProvider.notifier,
+                            )
+                            .loadMore();
+                      }
+                      return false;
+                    },
+                    child: ListView.separated(
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 8,
+                        horizontal: 12,
+                      ),
+                      itemCount:
+                          state.notifications.length +
+                          (state.isLoadingMore ? 1 : 0),
+                      separatorBuilder: (context, index) =>
+                          const SizedBox(height: 8),
+                      itemBuilder: (context, index) {
+                        if (index >= state.notifications.length) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: const [
+                                CircularProgressIndicator(),
+                                SizedBox(height: 8),
+                                Text('読み込み中...'),
+                              ],
+                            ),
+                          );
+                        }
+                        final notification = state.notifications[index];
+                        return _NotificationTile(
+                          notification: notification,
+                          onTap: () {
+                            _openPost(notification);
+                            if (!notification.isRead) {
+                              ref
+                                  .read(
+                                    diaryNotificationsControllerProvider
+                                        .notifier,
+                                  )
+                                  .markAsRead(notification.id);
+                            }
+                          },
+                        );
+                      },
+                    ),
+                  );
+                },
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
-    );
-  }
-}
-
-class _FilterChip extends StatelessWidget {
-  const _FilterChip({
-    required this.label,
-    required this.selected,
-    required this.onSelected,
-  });
-
-  final String label;
-  final bool selected;
-  final ValueChanged<bool> onSelected;
-
-  @override
-  Widget build(BuildContext context) {
-    return ChoiceChip(
-      label: Text(label),
-      selected: selected,
-      onSelected: onSelected,
     );
   }
 }
@@ -202,30 +175,68 @@ class _NotificationTile extends StatelessWidget {
     final title = _title(notification);
     final subtitle =
         notification.post?.content ?? notification.comment?.content ?? '';
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      child: ListTile(
-        onTap: onTap,
-        leading: CircleAvatar(
+    final backgroundColor = notification.isRead
+        ? Colors.transparent
+        : theme.colorScheme.primary.withValues(alpha: 0.08);
+    final relativeTime = _formatRelativeTime(notification.createdAt);
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: FTile(
+        onPress: onTap,
+        prefix: CircleAvatar(
           backgroundImage: notification.actor.profileImageUrl != null
               ? NetworkImage(notification.actor.profileImageUrl!)
               : null,
+          backgroundColor: notification.actor.profileImageUrl == null
+              ? _avatarColor(notification.type, theme)
+              : null,
+          foregroundColor: notification.actor.profileImageUrl == null
+              ? theme.colorScheme.onPrimary
+              : null,
           child: notification.actor.profileImageUrl == null
-              ? Text(notification.actor.displayName.substring(0, 1))
+              ? Text(
+                  _initial(notification.actor.displayName),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                )
               : null,
         ),
         title: Text(
           title,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
           style: notification.isRead
               ? theme.textTheme.bodyMedium
               : theme.textTheme.bodyMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
         ),
-        subtitle: subtitle.isNotEmpty ? Text(subtitle) : null,
-        trailing: notification.isRead
-            ? null
-            : const Icon(Icons.fiber_manual_record, size: 12),
+        subtitle: subtitle.isNotEmpty
+            ? Text(
+                subtitle,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              )
+            : null,
+        suffix: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            if (relativeTime.isNotEmpty)
+              Text(
+                relativeTime,
+                style: theme.textTheme.labelSmall?.copyWith(
+                  color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                ),
+              ),
+            if (!notification.isRead) ...[
+              const SizedBox(height: 6),
+              const Icon(Icons.fiber_manual_record, size: 12),
+            ],
+          ],
+        ),
       ),
     );
   }
@@ -245,4 +256,300 @@ class _NotificationTile extends StatelessWidget {
         return '${notification.actor.displayName}さんがいいねしました';
     }
   }
+
+  String _initial(String text) {
+    if (text.isEmpty) return '?';
+    final trimmed = text.trim();
+    return trimmed.isEmpty ? '?' : trimmed.characters.first;
+  }
+}
+
+class _FilterSegment extends StatelessWidget {
+  const _FilterSegment({
+    required this.unreadOnly,
+    required this.unreadCount,
+    required this.onChanged,
+  });
+
+  final bool unreadOnly;
+  final int unreadCount;
+  final ValueChanged<bool> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return SegmentedButton<bool>(
+      segments: [
+        const ButtonSegment(
+          value: false,
+          label: Text('すべて'),
+          icon: Icon(Icons.inbox_outlined),
+        ),
+        ButtonSegment(
+          value: true,
+          icon: const Icon(Icons.mark_chat_unread_outlined),
+          label: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text('未読のみ'),
+              if (unreadCount > 0) ...[
+                const SizedBox(width: 6),
+                _CountBadge(
+                  count: unreadCount,
+                  color: theme.colorScheme.primary,
+                ),
+              ],
+            ],
+          ),
+        ),
+      ],
+      showSelectedIcon: false,
+      style: ButtonStyle(
+        padding: MaterialStateProperty.all(
+          const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+        ),
+      ),
+      selected: {unreadOnly},
+      onSelectionChanged: (selection) {
+        if (selection.isEmpty) return;
+        onChanged(selection.first);
+      },
+    );
+  }
+}
+
+class _CountBadge extends StatelessWidget {
+  const _CountBadge({required this.count, required this.color});
+
+  final int count;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.15),
+        borderRadius: BorderRadius.circular(999),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+        child: Text(
+          '$count',
+          style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                color: color,
+                fontWeight: FontWeight.bold,
+              ),
+        ),
+      ),
+    );
+  }
+}
+
+class _EmptyState extends StatelessWidget {
+  const _EmptyState({required this.onReload});
+
+  final VoidCallback onReload;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return ListView(
+      physics: const AlwaysScrollableScrollPhysics(),
+      children: [
+        const SizedBox(height: 120),
+        Center(
+          child: Icon(
+            Icons.notifications_off_outlined,
+            size: 64,
+            color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+          ),
+        ),
+        const SizedBox(height: 16),
+        Text(
+          '通知はありません',
+          textAlign: TextAlign.center,
+          style: theme.textTheme.titleMedium,
+        ),
+        const SizedBox(height: 8),
+        Text(
+          '新しいコメントやリアクションが届くとここに表示されます。',
+          textAlign: TextAlign.center,
+          style: theme.textTheme.bodySmall?.copyWith(
+            color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+          ),
+        ),
+        const SizedBox(height: 16),
+        Center(
+          child: FButton(
+            onPress: onReload,
+            child: const Text('再読み込み'),
+          ),
+        ),
+        const SizedBox(height: 80),
+      ],
+    );
+  }
+}
+
+class _ErrorView extends StatelessWidget {
+  const _ErrorView({required this.message, required this.onRetry});
+
+  final String message;
+  final VoidCallback onRetry;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return ListView(
+      physics: const AlwaysScrollableScrollPhysics(),
+      children: [
+        const SizedBox(height: 120),
+        Center(
+          child: Icon(
+            Icons.error_outline,
+            size: 64,
+            color: theme.colorScheme.error,
+          ),
+        ),
+        const SizedBox(height: 16),
+        Text(
+          '読み込みに失敗しました',
+          textAlign: TextAlign.center,
+          style: theme.textTheme.titleMedium?.copyWith(
+            color: theme.colorScheme.error,
+          ),
+        ),
+        const SizedBox(height: 8),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Text(
+            message,
+            textAlign: TextAlign.center,
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        Center(
+          child: FButton(
+            onPress: onRetry,
+            child: const Text('再試行'),
+          ),
+        ),
+        const SizedBox(height: 80),
+      ],
+    );
+  }
+}
+
+class _NotificationSkeletonList extends StatelessWidget {
+  const _NotificationSkeletonList();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final baseColor =
+        theme.colorScheme.onSurface.withValues(alpha: 0.06);
+    return ListView.separated(
+      physics: const AlwaysScrollableScrollPhysics(),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      itemCount: 6,
+      separatorBuilder: (_, __) => const SizedBox(height: 12),
+      itemBuilder: (_, __) {
+        return Row(
+          children: [
+            Container(
+              width: 44,
+              height: 44,
+              decoration: BoxDecoration(
+                color: baseColor,
+                shape: BoxShape.circle,
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _SkeletonBlock(
+                    widthFactor: 0.85,
+                    height: 14,
+                    color: baseColor,
+                  ),
+                  const SizedBox(height: 8),
+                  _SkeletonBlock(
+                    widthFactor: 0.65,
+                    height: 12,
+                    color: baseColor,
+                  ),
+                  const SizedBox(height: 6),
+                  _SkeletonBlock(
+                    widthFactor: 0.4,
+                    height: 12,
+                    color: baseColor,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class _SkeletonBlock extends StatelessWidget {
+  const _SkeletonBlock({
+    required this.widthFactor,
+    required this.height,
+    required this.color,
+  });
+
+  final double widthFactor;
+  final double height;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return FractionallySizedBox(
+      widthFactor: widthFactor,
+      child: Container(
+        height: height,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
+    );
+  }
+}
+
+Color _avatarColor(String type, ThemeData theme) {
+  switch (type) {
+    case 'COMMENT':
+      return theme.colorScheme.primary;
+    case 'QUOTE':
+      return theme.colorScheme.secondary;
+    case 'FOLLOW':
+      return theme.colorScheme.tertiary;
+    case 'LIKE':
+    default:
+      return theme.colorScheme.secondaryContainer;
+  }
+}
+
+String _formatRelativeTime(DateTime? createdAt) {
+  if (createdAt == null) return '';
+  final now = DateTime.now();
+  final diff = now.difference(createdAt);
+  if (diff.isNegative || diff.inSeconds < 5) return 'たった今';
+  if (diff.inMinutes < 1) return '${diff.inSeconds}秒前';
+  if (diff.inHours < 1) return '${diff.inMinutes}分前';
+  if (diff.inHours < 24) return '${diff.inHours}時間前';
+  if (diff.inDays < 30) return '${diff.inDays}日前';
+  final months = (diff.inDays / 30).floor();
+  if (months < 12) return '${months}か月前';
+  final years = (diff.inDays / 365).floor();
+  return '${years}年前';
 }
