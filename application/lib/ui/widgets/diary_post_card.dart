@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/diary/data/models/diary_post.dart';
+import '../screens/profile_screen.dart';
 
 class DiaryPostCard extends StatelessWidget {
   const DiaryPostCard({
@@ -63,31 +64,37 @@ class DiaryPostCard extends StatelessWidget {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CircleAvatar(
-                        backgroundImage: avatar != null
-                            ? CachedNetworkImageProvider(avatar)
-                            : null,
-                        child: avatar == null
-                            ? Text(post.user.displayName.substring(0, 1))
-                            : null,
+                      GestureDetector(
+                        onTap: () => _navigateToProfile(context),
+                        child: CircleAvatar(
+                          backgroundImage: avatar != null
+                              ? CachedNetworkImageProvider(avatar)
+                              : null,
+                          child: avatar == null
+                              ? Text(post.user.displayName.substring(0, 1))
+                              : null,
+                        ),
                       ),
                       const SizedBox(width: 12),
                       Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              post.user.displayName,
-                              style: theme.textTheme.titleMedium,
-                            ),
-                            Text(
-                              subtitle,
-                              style: theme.textTheme.bodySmall?.copyWith(
-                                color: theme.colorScheme.onSurface
-                                    .withValues(alpha: 0.6),
+                        child: GestureDetector(
+                          onTap: () => _navigateToProfile(context),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                post.user.displayName,
+                                style: theme.textTheme.titleMedium,
                               ),
-                            ),
-                          ],
+                              Text(
+                                subtitle,
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  color: theme.colorScheme.onSurface
+                                      .withValues(alpha: 0.6),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       if (visibilityBadge != null) ...[
@@ -241,6 +248,17 @@ class DiaryPostCard extends StatelessWidget {
       );
     }
     return null;
+  }
+
+  void _navigateToProfile(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => ProfileScreen(
+          userId: post.user.id,
+          onOpenSettings: () {},
+        ),
+      ),
+    );
   }
 }
 
@@ -421,32 +439,38 @@ class DiaryQuotedPostCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              CircleAvatar(
-                radius: 20,
-                backgroundImage:
-                    avatar != null ? CachedNetworkImageProvider(avatar) : null,
-                child: avatar == null
-                    ? Text(quotedPost.user.displayName.substring(0, 1))
-                    : null,
+              GestureDetector(
+                onTap: () => _navigateToProfile(context),
+                child: CircleAvatar(
+                  radius: 20,
+                  backgroundImage:
+                      avatar != null ? CachedNetworkImageProvider(avatar) : null,
+                  child: avatar == null
+                      ? Text(quotedPost.user.displayName.substring(0, 1))
+                      : null,
+                ),
               ),
               const SizedBox(width: 12),
               Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      quotedPost.user.displayName,
-                      style: theme.textTheme.titleSmall,
-                    ),
-                    if (subtitle.isNotEmpty)
+                child: GestureDetector(
+                  onTap: () => _navigateToProfile(context),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       Text(
-                        subtitle,
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurface
-                              .withValues(alpha: 0.6),
-                        ),
+                        quotedPost.user.displayName,
+                        style: theme.textTheme.titleSmall,
                       ),
-                  ],
+                      if (subtitle.isNotEmpty)
+                        Text(
+                          subtitle,
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.colorScheme.onSurface
+                                .withValues(alpha: 0.6),
+                          ),
+                        ),
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -477,6 +501,16 @@ class DiaryQuotedPostCard extends StatelessWidget {
             ),
           ],
         ],
+      ),
+    );
+  }
+  void _navigateToProfile(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => ProfileScreen(
+          userId: quotedPost.user.id,
+          onOpenSettings: () {},
+        ),
       ),
     );
   }

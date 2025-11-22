@@ -56,8 +56,12 @@ class UserModel {
   final bool isActive;
 
   /// アカウントがバンされているかどうか
+  /// アカウントがバンされているかどうか
   final bool isBanned;
   final UserSettingsModel settings;
+
+  /// ログインユーザーがこのユーザーをフォローしているか
+  final bool isFollowing;
 
   const UserModel({
     required this.id,
@@ -80,6 +84,7 @@ class UserModel {
     required this.isActive,
     required this.isBanned,
     this.settings = const UserSettingsModel(),
+    this.isFollowing = false,
   });
 
   /// JSONからUserModelを生成
@@ -111,6 +116,7 @@ class UserModel {
       settings: UserSettingsModel.fromJson(
         json['settings'] as Map<String, dynamic>?,
       ),
+      isFollowing: json['isFollowing'] as bool? ?? false,
     );
   }
 
@@ -137,6 +143,7 @@ class UserModel {
       'isActive': isActive,
       'isBanned': isBanned,
       'settings': settings.toJson(),
+      'isFollowing': isFollowing,
     };
   }
 
@@ -162,6 +169,7 @@ class UserModel {
     bool? isActive,
     bool? isBanned,
     UserSettingsModel? settings,
+    bool? isFollowing,
   }) {
     return UserModel(
       id: id ?? this.id,
@@ -184,24 +192,25 @@ class UserModel {
       isActive: isActive ?? this.isActive,
       isBanned: isBanned ?? this.isBanned,
       settings: settings ?? this.settings,
+      isFollowing: isFollowing ?? this.isFollowing,
     );
   }
 
   @override
   String toString() {
     return 'UserModel(id: $id, username: $username, displayName: $displayName, '
-        'email: $email, type: $type)';
+        'email: $email, type: $type, isFollowing: $isFollowing)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is UserModel && other.id == id;
+    return other is UserModel && other.id == id && other.isFollowing == isFollowing;
   }
 
   @override
-  int get hashCode => id.hashCode;
+  int get hashCode => id.hashCode ^ isFollowing.hashCode;
 }
 
 class UserSettingsModel {

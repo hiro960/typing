@@ -78,4 +78,37 @@ class ProfileRepository {
       throw ApiClientService.handleDioException(error);
     }
   }
+
+  /// ユーザーをフォロー
+  Future<void> followUser(String userId) async {
+    try {
+      await _apiClient.dio.post(
+        '/api/follows',
+        data: {'userId': userId},
+      );
+    } on DioException catch (error, stackTrace) {
+      AppLogger.error(
+        'Failed to follow user',
+        tag: 'ProfileRepository',
+        error: error,
+        stackTrace: stackTrace,
+      );
+      throw ApiClientService.handleDioException(error);
+    }
+  }
+
+  /// ユーザーのフォローを解除
+  Future<void> unfollowUser(String userId) async {
+    try {
+      await _apiClient.dio.delete('/api/follows/$userId');
+    } on DioException catch (error, stackTrace) {
+      AppLogger.error(
+        'Failed to unfollow user',
+        tag: 'ProfileRepository',
+        error: error,
+        stackTrace: stackTrace,
+      );
+      throw ApiClientService.handleDioException(error);
+    }
+  }
 }
