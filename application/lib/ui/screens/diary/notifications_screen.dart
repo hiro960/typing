@@ -227,6 +227,9 @@ class _NotificationTile extends StatelessWidget {
       case 'COMMENT':
         return '${notification.actor.displayName}さんがコメントしました';
 
+      case 'QUOTE':
+        return '${notification.actor.displayName}さんがあなたの投稿を引用しました';
+
       case 'FOLLOW':
         return '${notification.actor.displayName}さんがあなたをフォローしました';
       case 'LIKE':

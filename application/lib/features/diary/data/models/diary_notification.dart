@@ -25,9 +25,14 @@ class DiaryNotification {
   final DateTime? createdAt;
 
   factory DiaryNotification.fromJson(Map<String, dynamic> json) {
+    // Normalize type to upper-case and fallback to LIKE when unknown.
+    final rawType = (json['type'] as String? ?? 'LIKE').toUpperCase();
+    const allowedTypes = ['LIKE', 'COMMENT', 'FOLLOW', 'QUOTE'];
+    final type = allowedTypes.contains(rawType) ? rawType : 'LIKE';
+
     return DiaryNotification(
       id: json['id'] as String,
-      type: json['type'] as String? ?? 'LIKE',
+      type: type,
       actor: DiaryUserSummary.fromJson(
         json['actor'] as Map<String, dynamic>,
       ),

@@ -9,7 +9,7 @@ export type LessonStatsRange = "daily" | "weekly" | "monthly" | "all";
 export type WordStatus = "MASTERED" | "REVIEWING" | "NEEDS_REVIEW";
 export type WordCategory = "WORDS" | "SENTENCES";
 export type ISODateTime = string | Date;
-export type NotificationType = "LIKE" | "COMMENT" | "FOLLOW";
+export type NotificationType = "LIKE" | "COMMENT" | "FOLLOW" | "QUOTE";
 export type ReportType = "POST" | "COMMENT" | "USER";
 export type ReportReason =
   | "SPAM"
@@ -25,6 +25,7 @@ export interface UserSettings {
     comment: boolean;
     like: boolean;
     follow: boolean;
+    quote: boolean;
   };
   theme: "light" | "dark" | "auto";
   fontSize: "small" | "medium" | "large";

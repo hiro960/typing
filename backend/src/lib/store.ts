@@ -44,6 +44,7 @@ const defaultSettings: UserSettings = {
     comment: true,
     like: true,
     follow: true,
+    quote: true,
   },
   theme: "auto",
   fontSize: "medium",
@@ -62,6 +63,7 @@ const notificationSettingKey: Record<
   LIKE: "like",
   COMMENT: "comment",
   FOLLOW: "follow",
+  QUOTE: "quote",
 };
 
 type UserSummarySource = Pick<
@@ -447,7 +449,7 @@ export async function createPost(params: {
   if (params.quotedPostId) {
     createData.quotedPostId = params.quotedPostId;
   }
-  return prisma.$transaction(async (tx) => {
+  const { post, notificationDispatch } = await prisma.$transaction(async (tx) => {
     const created = await tx.post.create({ data: createData });
 
     if (params.visibility !== "private") {
@@ -472,8 +474,28 @@ export async function createPost(params: {
       },
     });
 
-    return fullPost ?? created;
+    let notificationDispatch: NotificationDispatch | null = null;
+    if (params.quotedPostId) {
+      const quoted = await tx.post.findUnique({
+        where: { id: params.quotedPostId },
+        select: { userId: true },
+      });
+      if (quoted) {
+        notificationDispatch = await maybeCreateNotification(tx, {
+          targetUserId: quoted.userId,
+          actorId: params.userId,
+          type: "QUOTE",
+          postId: fullPost?.id ?? created.id,
+          previewText: params.content,
+        });
+      }
+    }
+
+    return { post: fullPost ?? created, notificationDispatch };
   });
+
+  await dispatchNotificationPush(notificationDispatch);
+  return post;
 }
 
 export function updatePost(
@@ -697,6 +719,10 @@ function buildNotificationBody(dispatch: NotificationDispatch) {
       return preview
         ? `${dispatch.actorName}さんがコメントしました: 「${preview}」`
         : `${dispatch.actorName}さんがあなたの投稿にコメントしました`;
+    case "QUOTE":
+      return preview
+        ? `${dispatch.actorName}さんがあなたの投稿を引用しました: 「${preview}」`
+        : `${dispatch.actorName}さんがあなたの投稿を引用しました`;
 
     case "FOLLOW":
     default:

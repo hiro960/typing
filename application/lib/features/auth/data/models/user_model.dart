@@ -256,6 +256,7 @@ class UserNotificationSettingsModel {
     this.comment = true,
     this.like = true,
     this.follow = true,
+    this.quote = true,
   });
 
   final bool push;
@@ -263,6 +264,7 @@ class UserNotificationSettingsModel {
   final bool comment;
   final bool like;
   final bool follow;
+  final bool quote;
 
   factory UserNotificationSettingsModel.fromJson(
     Map<String, dynamic>? json,
@@ -276,6 +278,7 @@ class UserNotificationSettingsModel {
       comment: json['comment'] as bool? ?? true,
       like: json['like'] as bool? ?? true,
       follow: json['follow'] as bool? ?? true,
+      quote: json['quote'] as bool? ?? true,
     );
   }
 
@@ -286,6 +289,7 @@ class UserNotificationSettingsModel {
       'comment': comment,
       'like': like,
       'follow': follow,
+      'quote': quote,
     };
   }
 }

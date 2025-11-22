@@ -29,6 +29,7 @@ enum NotificationType {
   LIKE
   COMMENT
   FOLLOW
+  QUOTE
 }
 
 enum ReportType {

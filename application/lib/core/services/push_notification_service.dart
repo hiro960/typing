@@ -3,6 +3,9 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'package:firebase_core/firebase_core.dart';
+import '../../firebase_options.dart';
+
 import '../../features/diary/domain/providers/diary_providers.dart';
 
 class PushNotificationService {
@@ -14,7 +17,9 @@ class PushNotificationService {
   Future<void> initialize() async {
     if (_initialized) return;
     try {
-      await Firebase.initializeApp();
+      await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform
+      );
       final messaging = FirebaseMessaging.instance;
       await messaging.requestPermission();
       final token = await messaging.getToken();
