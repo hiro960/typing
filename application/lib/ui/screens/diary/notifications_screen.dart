@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:forui/forui.dart';
 
 import '../../../features/diary/data/models/diary_notification.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
@@ -13,8 +14,7 @@ class NotificationsScreen extends ConsumerStatefulWidget {
       _NotificationsScreenState();
 }
 
-class _NotificationsScreenState
-    extends ConsumerState<NotificationsScreen> {
+class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
   @override
   void initState() {
     super.initState();
@@ -24,9 +24,7 @@ class _NotificationsScreenState
   }
 
   Future<void> _refresh() async {
-    await ref
-        .read(diaryNotificationsControllerProvider.notifier)
-        .refresh();
+    await ref.read(diaryNotificationsControllerProvider.notifier).refresh();
   }
 
   void _openPost(DiaryNotification notification) {
@@ -43,115 +41,129 @@ class _NotificationsScreenState
   Widget build(BuildContext context) {
     final state = ref.watch(diaryNotificationsControllerProvider);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('通知'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.mark_email_read_outlined),
-            tooltip: 'すべて既読にする',
-            onPressed: state.notifications.isEmpty
-                ? null
-                : () {
-                    ref
-                        .read(diaryNotificationsControllerProvider.notifier)
-                        .markAllRead();
-                  },
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Row(
-              children: [
-                _FilterChip(
-                  label: 'すべて',
-                  selected: !state.unreadOnly,
-                  onSelected: (value) {
-                    if (!value) return;
-                    ref
-                        .read(diaryNotificationsControllerProvider.notifier)
-                        .toggleUnreadOnly(false);
-                  },
-                ),
-                const SizedBox(width: 8),
-                _FilterChip(
-                  label: '未読のみ',
-                  selected: state.unreadOnly,
-                  onSelected: (value) {
-                    if (!value) return;
-                    ref
-                        .read(diaryNotificationsControllerProvider.notifier)
-                        .toggleUnreadOnly(true);
-                  },
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: RefreshIndicator(
-              onRefresh: _refresh,
-              child: Builder(
-                builder: (context) {
-                  if (state.isLoading && state.notifications.isEmpty) {
-                    return const Center(child: CircularProgressIndicator());
-                  }
-                  if (state.errorMessage != null &&
-                      state.notifications.isEmpty) {
-                    return Center(child: Text(state.errorMessage!));
-                  }
-                  if (state.notifications.isEmpty) {
-                    return const Center(child: Text('通知はありません'));
-                  }
-                  return NotificationListener<ScrollNotification>(
-                    onNotification: (notification) {
-                      if (notification.metrics.pixels >=
-                          notification.metrics.maxScrollExtent - 100) {
-                        ref
-                            .read(diaryNotificationsControllerProvider.notifier)
-                            .loadMore();
-                      }
-                      return false;
-                    },
-                    child: ListView.builder(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 12,
-                      ),
-                      itemCount: state.notifications.length +
-                          (state.isLoadingMore ? 1 : 0),
-                      itemBuilder: (context, index) {
-                        if (index >= state.notifications.length) {
-                          return const Padding(
-                            padding: EdgeInsets.symmetric(vertical: 16),
-                            child:
-                                Center(child: CircularProgressIndicator()),
-                          );
-                        }
-                        final notification = state.notifications[index];
-                        return _NotificationTile(
-                          notification: notification,
-                          onTap: () {
-                            _openPost(notification);
-                            if (!notification.isRead) {
-                              ref
-                                  .read(
-                                      diaryNotificationsControllerProvider
-                                          .notifier)
-                                  .markAsRead(notification.id);
-                            }
+    final theme = Theme.of(context);
+    final isLight = theme.brightness == Brightness.light;
+    return Material(
+      color: isLight ? Colors.white : theme.colorScheme.surface,
+      child: SafeArea(
+        top: true,
+        bottom: false,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
+              child: FHeader(
+                title: Text('🔔 通知', style: theme.textTheme.headlineSmall),
+                suffixes: [
+                  FHeaderAction(
+                    icon: const Icon(Icons.mark_email_read_outlined),
+                    onPress: state.notifications.isEmpty
+                        ? null
+                        : () {
+                            ref
+                                .read(
+                                  diaryNotificationsControllerProvider.notifier,
+                                )
+                                .markAllRead();
                           },
-                        );
-                      },
-                    ),
-                  );
-                },
+                  ),
+                ],
               ),
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: Row(
+                children: [
+                  _FilterChip(
+                    label: 'すべて',
+                    selected: !state.unreadOnly,
+                    onSelected: (value) {
+                      if (!value) return;
+                      ref
+                          .read(diaryNotificationsControllerProvider.notifier)
+                          .toggleUnreadOnly(false);
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  _FilterChip(
+                    label: '未読のみ',
+                    selected: state.unreadOnly,
+                    onSelected: (value) {
+                      if (!value) return;
+                      ref
+                          .read(diaryNotificationsControllerProvider.notifier)
+                          .toggleUnreadOnly(true);
+                    },
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: RefreshIndicator(
+                onRefresh: _refresh,
+                child: Builder(
+                  builder: (context) {
+                    if (state.isLoading && state.notifications.isEmpty) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                    if (state.errorMessage != null &&
+                        state.notifications.isEmpty) {
+                      return Center(child: Text(state.errorMessage!));
+                    }
+                    if (state.notifications.isEmpty) {
+                      return const Center(child: Text('通知はありません'));
+                    }
+                    return NotificationListener<ScrollNotification>(
+                      onNotification: (notification) {
+                        if (notification.metrics.pixels >=
+                            notification.metrics.maxScrollExtent - 100) {
+                          ref
+                              .read(
+                                diaryNotificationsControllerProvider.notifier,
+                              )
+                              .loadMore();
+                        }
+                        return false;
+                      },
+                      child: ListView.builder(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 12,
+                        ),
+                        itemCount:
+                            state.notifications.length +
+                            (state.isLoadingMore ? 1 : 0),
+                        itemBuilder: (context, index) {
+                          if (index >= state.notifications.length) {
+                            return const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 16),
+                              child: Center(child: CircularProgressIndicator()),
+                            );
+                          }
+                          final notification = state.notifications[index];
+                          return _NotificationTile(
+                            notification: notification,
+                            onTap: () {
+                              _openPost(notification);
+                              if (!notification.isRead) {
+                                ref
+                                    .read(
+                                      diaryNotificationsControllerProvider
+                                          .notifier,
+                                    )
+                                    .markAsRead(notification.id);
+                              }
+                            },
+                          );
+                        },
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -179,10 +191,7 @@ class _FilterChip extends StatelessWidget {
 }
 
 class _NotificationTile extends StatelessWidget {
-  const _NotificationTile({
-    required this.notification,
-    required this.onTap,
-  });
+  const _NotificationTile({required this.notification, required this.onTap});
 
   final DiaryNotification notification;
   final VoidCallback onTap;
@@ -191,9 +200,8 @@ class _NotificationTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final title = _title(notification);
-    final subtitle = notification.post?.content ??
-        notification.comment?.content ??
-        '';
+    final subtitle =
+        notification.post?.content ?? notification.comment?.content ?? '';
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8),
       child: ListTile(

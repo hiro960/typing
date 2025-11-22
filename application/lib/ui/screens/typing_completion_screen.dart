@@ -267,11 +267,16 @@ class _ActionButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Column(
       children: [
         SizedBox(
           width: double.infinity,
           child: FilledButton(
+            style: FilledButton.styleFrom(
+              backgroundColor: theme.colorScheme.primary,
+              foregroundColor: theme.colorScheme.onPrimary,
+            ),
             onPressed: nextLessonId == null
                 ? null
                 : () {
@@ -289,6 +294,10 @@ class _ActionButtons extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: FilledButton.tonal(
+            style: FilledButton.styleFrom(
+              backgroundColor: theme.colorScheme.secondaryContainer,
+              foregroundColor: theme.colorScheme.onSecondaryContainer,
+            ),
             onPressed: () {
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute<void>(
@@ -303,6 +312,10 @@ class _ActionButtons extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: OutlinedButton(
+            style: OutlinedButton.styleFrom(
+              foregroundColor: theme.colorScheme.primary,
+              side: BorderSide(color: theme.colorScheme.primary),
+            ),
             onPressed: () {
               Navigator.of(context).popUntil((route) => route.isFirst);
             },

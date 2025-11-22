@@ -45,6 +45,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             progressAsync.value ?? const <String, LessonProgress>{};
         final focusLesson = _findNextLesson(catalog, progress);
         return SafeArea(
+          top: true,
+          bottom: false,
           child: Material(
             color: Colors.transparent,
             child: CustomScrollView(

@@ -9,6 +9,7 @@ import 'settings/blocked_accounts_screen.dart';
 import '../../features/profile/domain/providers/profile_providers.dart';
 import '../../features/typing/domain/providers/typing_settings_provider.dart';
 import '../../features/typing/data/models/typing_settings.dart';
+import '../../features/theme/theme_mode_provider.dart';
 
 class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
@@ -223,11 +224,22 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           _SettingsSection(
             title: 'テーマ',
             children: [
-              _SettingsTile(
-                title: 'ダークテーマ',
-                subtitle: '黒基調 + 青アクセント',
-                trailing: const Icon(Icons.lock_outline),
-              ),
+              Builder(builder: (context) {
+                final themeModeAsync = ref.watch(themeModeProvider);
+                final themeMode = themeModeAsync.value ?? ThemeMode.dark;
+                final controller = ref.read(themeModeProvider.notifier);
+                final isLoading = themeModeAsync.isLoading;
+                final isDark = themeMode == ThemeMode.dark;
+                return _SwitchTile(
+                  title: 'ダークテーマ',
+                  subtitle: 'オフで白基調のテーマに切り替え',
+                  value: isDark,
+                  onChanged: (value) {
+                    if (isLoading) return;
+                    controller.toggle(value);
+                  },
+                );
+              }),
             ],
           ),
           const SizedBox(height: 16),

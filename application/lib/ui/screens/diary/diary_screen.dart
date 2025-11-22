@@ -205,35 +205,32 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
     final currentUser = ref.watch(currentUserProvider);
 
     return SafeArea(
+      top: true,
+      bottom: false,
       child: Column(
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text('📝 日記', style: theme.textTheme.headlineSmall),
-                ),
-                IconButton(
+            child: FHeader(
+              title: Text('📝 日記', style: theme.textTheme.headlineSmall),
+              suffixes: [
+                FHeaderAction(
                   icon: const Icon(Icons.search),
-                  onPressed: widget.onOpenSearch,
-                  tooltip: '検索',
+                  onPress: widget.onOpenSearch,
                 ),
-                IconButton(
+                FHeaderAction(
                   icon: const Icon(Icons.bookmark_outline),
-                  onPressed: widget.onOpenBookmarks,
-                  tooltip: 'ブックマーク',
+                  onPress: widget.onOpenBookmarks,
                 ),
-                IconButton(
+                FHeaderAction(
                   icon: const Icon(Icons.edit_document),
-                  onPressed: () {
+                  onPress: () {
                     Navigator.of(context).push(
                       MaterialPageRoute<void>(
                         builder: (_) => const DraftsScreen(),
                       ),
                     );
                   },
-                  tooltip: '下書き',
                 ),
               ],
             ),

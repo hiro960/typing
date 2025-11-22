@@ -525,7 +525,6 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
               duration: const Duration(milliseconds: 200),
               curve: Curves.easeOut,
               child: SafeArea(
-                top: false,
                 child: ColoredBox(
                   color: theme.colorScheme.surface,
                   child: Column(

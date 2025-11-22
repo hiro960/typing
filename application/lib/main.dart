@@ -7,7 +7,7 @@ import 'ui/app_theme.dart';
 import 'ui/shell/app_shell.dart';
 import 'core/config/env_config.dart';
 import 'core/utils/logger.dart';
-
+import 'features/theme/theme_mode_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,21 +41,25 @@ Future<void> main() async {
   );
 }
 
-class TypingApp extends StatelessWidget {
+class TypingApp extends ConsumerWidget {
   const TypingApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeModeAsync = ref.watch(themeModeProvider);
+    final themeMode = themeModeAsync.value ?? ThemeMode.dark;
+    final foruiTheme =
+        themeMode == ThemeMode.dark ? AppTheme.foruiDark() : AppTheme.foruiLight();
+
     return MaterialApp(
       title: '韓国語タイピング',
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.dark(),
+      theme: AppTheme.light(),
       darkTheme: AppTheme.dark(),
-      themeMode: ThemeMode.dark,
+      themeMode: themeMode,
       localizationsDelegates: FLocalizations.localizationsDelegates,
       supportedLocales: FLocalizations.supportedLocales,
-      builder: (context, child) =>
-          FTheme(data: AppTheme.foruiDark(), child: child!),
+      builder: (context, child) => FTheme(data: foruiTheme, child: child!),
       // AppShellが認証状態に基づいて画面を切り替え
       home: const AppShell(),
     );

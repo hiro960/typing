@@ -61,24 +61,28 @@ class LessonDetailScreen extends ConsumerWidget {
                   _SectionList(sections: lesson.content.sections),
                   const SizedBox(height: 16),
                   _BestRecordCard(progress: bestRecord),
-                  const SizedBox(height: 24),
-                  SizedBox(
-                    width: double.infinity,
-                    child: FilledButton.icon(
-                      icon: const Icon(Icons.play_arrow),
-                      onPressed: isLocked
-                          ? null
-                          : () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute<void>(
-                                  builder: (_) =>
-                                      TypingLessonScreen(lessonId: lesson.id),
-                                ),
-                              );
-                            },
-                      label: const Text('今すぐ開始'),
+                const SizedBox(height: 24),
+                SizedBox(
+                  width: double.infinity,
+                  child: FilledButton.icon(
+                    style: FilledButton.styleFrom(
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                      foregroundColor: Theme.of(context).colorScheme.onPrimary,
                     ),
+                    icon: const Icon(Icons.play_arrow),
+                    onPressed: isLocked
+                        ? null
+                        : () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute<void>(
+                                builder: (_) =>
+                                    TypingLessonScreen(lessonId: lesson.id),
+                              ),
+                            );
+                          },
+                    label: const Text('今すぐ開始'),
                   ),
+                ),
                 ],
               ),
             ),

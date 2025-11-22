@@ -44,12 +44,14 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
 
     final isLoading = asyncWords.isLoading;
     final theme = Theme.of(context);
+    final isLight = theme.brightness == Brightness.light;
 
-    return SafeArea(
-      child: Material(
-        color: Colors.transparent,
+    return Material(
+      color: isLight ? Colors.white : theme.colorScheme.surface,
+      child: SafeArea(
+        top: true,
+        bottom: false,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
@@ -88,7 +90,9 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
                   ),
                   const SizedBox(width: 12),
                   FilledButton.icon(
-                    onPressed: canStartQuiz ? () => _startQuiz(reviewableWords) : null,
+                    onPressed: canStartQuiz
+                        ? () => _startQuiz(reviewableWords)
+                        : null,
                     icon: const Icon(Icons.quiz_outlined),
                     label: const Text('クイズ'),
                   ),
@@ -116,6 +120,15 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
                       label: Text(status.label),
                       selected: _statusFilters.contains(status),
                       onSelected: (_) => _toggleStatus(status),
+                      labelStyle: TextStyle(
+                        color: _statusFilters.contains(status)
+                            ? theme.colorScheme.onPrimary
+                            : theme.colorScheme.onSurface,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      selectedColor: theme.colorScheme.primary,
+                      checkmarkColor: theme.colorScheme.onPrimary,
+                      backgroundColor: theme.colorScheme.surfaceVariant,
                     ),
                 ],
               ),
@@ -123,23 +136,20 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
             const SizedBox(height: 12),
             Expanded(
               child: RefreshIndicator(
-                onRefresh: () =>
-                    ref.read(wordbookProvider.notifier).refresh(),
+                onRefresh: () => ref.read(wordbookProvider.notifier).refresh(),
                 child: filteredWords.isEmpty
-                    ? _EmptyState(
-                        onAdd: _openForm,
-                      )
+                    ? _EmptyState(onAdd: _openForm)
                     : GridView.builder(
                         padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
                         physics: const AlwaysScrollableScrollPhysics(),
                         itemCount: filteredWords.length,
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          mainAxisSpacing: 16,
-                          crossAxisSpacing: 16,
-                          childAspectRatio: 0.95,
-                        ),
+                              crossAxisCount: 2,
+                              mainAxisSpacing: 16,
+                              crossAxisSpacing: 16,
+                              childAspectRatio: 0.95,
+                            ),
                         itemBuilder: (context, index) {
                           final word = filteredWords[index];
                           return _WordCard(
@@ -159,9 +169,7 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
   Future<void> _startQuiz(List<Word> words) async {
     if (words.isEmpty) return;
     await Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (_) => WordQuizScreen(words: words),
-      ),
+      MaterialPageRoute<void>(builder: (_) => WordQuizScreen(words: words)),
     );
   }
 
@@ -178,27 +186,20 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
   }
 
   Future<void> _openForm([Word? word]) async {
-    await Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (_) => WordFormScreen(word: word),
-      ),
-    );
+    await Navigator.of(
+      context,
+    ).push(MaterialPageRoute<void>(builder: (_) => WordFormScreen(word: word)));
   }
 
   Future<void> _openDetail(String wordId) async {
     await Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (_) => WordDetailScreen(wordId: wordId),
-      ),
+      MaterialPageRoute<void>(builder: (_) => WordDetailScreen(wordId: wordId)),
     );
   }
 }
 
 class _WordCard extends ConsumerWidget {
-  const _WordCard({
-    required this.word,
-    required this.onTap,
-  });
+  const _WordCard({required this.word, required this.onTap});
 
   final Word word;
   final VoidCallback onTap;
@@ -216,7 +217,9 @@ class _WordCard extends ConsumerWidget {
             children: [
               Chip(
                 label: Text(word.status.label),
-                backgroundColor: theme.colorScheme.primary.withValues(alpha: 0.08),
+                backgroundColor: theme.colorScheme.primary.withValues(
+                  alpha: 0.08,
+                ),
                 labelStyle: theme.textTheme.labelSmall?.copyWith(
                   color: theme.colorScheme.primary,
                 ),
@@ -280,11 +283,7 @@ class _EmptyState extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 80),
           child: Column(
             children: [
-              const Icon(
-                Icons.book_outlined,
-                size: 64,
-                color: Colors.white70,
-              ),
+              const Icon(Icons.book_outlined, size: 64, color: Colors.white70),
               const SizedBox(height: 16),
               const Text(
                 'まだ単語/文章がありません',
@@ -296,10 +295,7 @@ class _EmptyState extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 16),
-              FilledButton(
-                onPressed: onAdd,
-                child: const Text('単語/文章を追加'),
-              ),
+              FilledButton(onPressed: onAdd, child: const Text('単語/文章を追加')),
             ],
           ),
         ),
