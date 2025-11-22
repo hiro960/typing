@@ -761,18 +761,8 @@ async function maybeCreateNotification(
     return null;
   }
 
-  await tx.notification.upsert({
+  const existingNotification = await tx.notification.findFirst({
     where: {
-      userId_actorId_type_postId_commentId: {
-        userId: params.targetUserId,
-        actorId: params.actorId,
-        type: params.type,
-        postId: (params.postId ?? null) as any,
-        commentId: (params.commentId ?? null) as any,
-      },
-    },
-    update: { isRead: false, createdAt: new Date() },
-    create: {
       userId: params.targetUserId,
       actorId: params.actorId,
       type: params.type,
@@ -780,6 +770,23 @@ async function maybeCreateNotification(
       commentId: params.commentId ?? null,
     },
   });
+
+  if (existingNotification) {
+    await tx.notification.update({
+      where: { id: existingNotification.id },
+      data: { isRead: false, createdAt: new Date() },
+    });
+  } else {
+    await tx.notification.create({
+      data: {
+        userId: params.targetUserId,
+        actorId: params.actorId,
+        type: params.type,
+        postId: params.postId ?? null,
+        commentId: params.commentId ?? null,
+      },
+    });
+  }
 
   return {
     type: params.type,

@@ -1,4 +1,7 @@
+import 'dart:io' show Platform;
+
 import 'package:auth0_flutter/auth0_flutter.dart';
+import 'package:flutter/foundation.dart';
 import '../models/auth_tokens.dart';
 import '../../../../core/config/env_config.dart';
 import '../../../../core/utils/logger.dart';
@@ -37,14 +40,20 @@ class Auth0Service {
   /// Authorization Code + PKCE フローを使用
   Future<AuthTokens> login() async {
     try {
-      AppLogger.auth('Starting Auth0 login');
 
       // Use HTTPS callback URL on iOS 17.4+ / macOS 14.4+
       // For Android, use custom scheme
       final webAuth = _auth0.webAuthentication();
+      final useHttps = !kIsWeb && (Platform.isIOS || Platform.isMacOS);
+
+      final redirectUrl = Platform.isAndroid
+          ? 'app.koreantyping.chaletta://${EnvConfig.auth0Domain}/android/app.koreantyping.chaletta/callback'
+          : null;
+      
 
       final credentials = await webAuth.login(
-        useHTTPS: true, // iOS/macOS用のUniversal Link
+        useHTTPS: useHttps, // iOS/macOS用のUniversal Link（Androidはカスタムスキーム）
+        redirectUrl: redirectUrl,
         audience: EnvConfig.auth0Audience.isNotEmpty ? EnvConfig.auth0Audience : null,
         scopes: {
           'openid',
@@ -54,11 +63,6 @@ class Auth0Service {
         },
       );
 
-      AppLogger.auth('Auth0 login successful');
-      AppLogger.debug('Access Token: ${credentials.accessToken}', tag: 'Auth0Service');
-      AppLogger.debug('ID Token: ${credentials.idToken}', tag: 'Auth0Service');
-      AppLogger.debug('Access Token parts: ${credentials.accessToken.split('.').length}', tag: 'Auth0Service');
-      AppLogger.debug('ID Token parts: ${credentials.idToken.split('.').length}', tag: 'Auth0Service');
 
       return AuthTokens(
         accessToken: credentials.accessToken,
@@ -101,7 +105,6 @@ class Auth0Service {
           .webAuthentication()
           .logout(useHTTPS: true);
 
-      AppLogger.auth('Auth0 logout successful');
     } on WebAuthenticationException catch (e) {
       AppLogger.error(
         'Auth0 logout failed',
@@ -124,11 +127,8 @@ class Auth0Service {
   /// リフレッシュトークンを使用して新しいアクセストークンを取得
   Future<AuthTokens> refreshTokens() async {
     try {
-      AppLogger.auth('Refreshing Auth0 tokens');
 
       final credentials = await _credentialsManager.credentials();
-
-      AppLogger.auth('Tokens refreshed successfully');
 
       return AuthTokens(
         accessToken: credentials.accessToken,

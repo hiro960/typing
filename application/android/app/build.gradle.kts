@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "app.korean-typing.chaletta"
+    namespace = "app.koreantyping.chaletta"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -21,14 +21,18 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "app.korean-typing.chaletta"
+        applicationId = "app.koreantyping.chaletta"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
-        manifestPlaceholders += [auth0Domain: "dev-pg00ixxndhbgt68s.us.auth0.com", auth0Scheme: "https"]
+        manifestPlaceholders += mapOf(
+            "auth0Domain" to "dev-pg00ixxndhbgt68s.us.auth0.com",
+            // Use a custom scheme for Auth0 redirect on Android (must match Auth0 dashboard)
+            "auth0Scheme" to "app.koreantyping.chaletta"
+        )
     }
 
     buildTypes {

@@ -196,6 +196,11 @@ class HangulComposer {
   }
 
   void input(String char) {
+    if (char == '\n') {
+      addNewLine();
+      return;
+    }
+
     if (char.trim().isEmpty) {
       addSpace();
       return;

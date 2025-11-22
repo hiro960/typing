@@ -69,10 +69,10 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(5, 10, 0, 5),
+      padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
       decoration: BoxDecoration(
         color: colors.surface,
-        borderRadius: const BorderRadius.all(Radius.circular(18),),
+        borderRadius: const BorderRadius.all(Radius.circular(6),),
         border: Border.all(color: colors.primary.withValues(alpha: 0.08)),
       ),
       child: Column(
@@ -83,6 +83,7 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
+                    const SizedBox(width: 6),
                     const Icon(Icons.lightbulb_outline, size: 16),
                     const SizedBox(width: 6),
                     Text(
@@ -275,10 +276,10 @@ class _KeyboardKey extends StatelessWidget {
     return GestureDetector(
       onTap: () => onTap(label),
       child: Container(
-        height: 48,
+        height: 40,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(displayLabel.length > 1 ? 16 : 12),
+          borderRadius: BorderRadius.circular(displayLabel.length > 1 ? 8 : 6),
           color: backgroundColor,
           border: Border.all(
             color: isHighlighted

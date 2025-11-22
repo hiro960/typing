@@ -61,6 +61,17 @@ class _SearchState<T> {
   }
 }
 
+class _EmptyQueryMessage extends StatelessWidget {
+  const _EmptyQueryMessage();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text('キーワードを入力してください'),
+    );
+  }
+}
+
 class _SearchScreenState extends ConsumerState<SearchScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
@@ -147,15 +158,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
   }
 
   void _resetStates() {
-    for (final tab in _SearchTab.values) {
-      _states[tab] = _stateFor<dynamic>(tab).copyWith(
-        items: const [],
-        nextCursor: null,
-        hasMore: false,
-        initialized: false,
-        errorMessage: null,
-      );
-    }
+    _states[_SearchTab.posts] = const _SearchState<DiaryPost>();
+    _states[_SearchTab.users] = const _SearchState<DiaryUserSummary>();
+    _states[_SearchTab.hashtags] = const _SearchState<DiaryHashtagTrend>();
   }
 
   void _ensureLoaded(_SearchTab tab) {
@@ -168,6 +173,23 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
     _SearchTab tab, {
     bool loadMore = false,
   }) async {
+    final trimmedQuery = _query.trim();
+    if (trimmedQuery.isEmpty) {
+      switch (tab) {
+        case _SearchTab.posts:
+          _states[tab] = _emptyInitializedPostsState();
+          break;
+        case _SearchTab.users:
+          _states[tab] = _emptyInitializedUsersState();
+          break;
+        case _SearchTab.hashtags:
+          _states[tab] = _emptyInitializedHashtagsState();
+          break;
+      }
+      setState(() {});
+      return;
+    }
+
     final repository = ref.read(diaryRepositoryProvider);
     switch (tab) {
       case _SearchTab.posts:
@@ -181,7 +203,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
         setState(() {});
         try {
           final page = await repository.searchPosts(
-            _query,
+            trimmedQuery,
             cursor: loadMore ? current.nextCursor : null,
           );
           final items =
@@ -213,7 +235,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
         setState(() {});
         try {
           final page = await repository.searchUsers(
-            _query,
+            trimmedQuery,
             cursor: loadMore ? current.nextCursor : null,
           );
           final items =
@@ -245,7 +267,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
         setState(() {});
         try {
           final page = await repository.searchHashtags(
-            _query,
+            trimmedQuery,
             cursor: loadMore ? current.nextCursor : null,
           );
           final items =
@@ -269,6 +291,39 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
     }
     setState(() {});
   }
+
+  _SearchState<DiaryPost> _emptyInitializedPostsState() =>
+      const _SearchState<DiaryPost>(
+        items: [],
+        nextCursor: null,
+        hasMore: false,
+        isLoading: false,
+        isLoadingMore: false,
+        initialized: true,
+        errorMessage: null,
+      );
+
+  _SearchState<DiaryUserSummary> _emptyInitializedUsersState() =>
+      const _SearchState<DiaryUserSummary>(
+        items: [],
+        nextCursor: null,
+        hasMore: false,
+        isLoading: false,
+        isLoadingMore: false,
+        initialized: true,
+        errorMessage: null,
+      );
+
+  _SearchState<DiaryHashtagTrend> _emptyInitializedHashtagsState() =>
+      const _SearchState<DiaryHashtagTrend>(
+        items: [],
+        nextCursor: null,
+        hasMore: false,
+        isLoading: false,
+        isLoadingMore: false,
+        initialized: true,
+        errorMessage: null,
+      );
 
   void _openPost(DiaryPost post) {
     Navigator.of(context).push(
@@ -388,16 +443,19 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
                   onEdit: _editPost,
                   ref: ref,
                   currentUserId: currentUser?.id,
+                  isQueryEmpty: _query.isEmpty,
                 ),
                 _UsersResultList(
                   state: usersState,
                   controller: _scrollControllers[_SearchTab.users]!,
                   onRefresh: () => _search(_SearchTab.users),
+                  isQueryEmpty: _query.isEmpty,
                 ),
                 _TagsResultList(
                   state: tagsState,
                   controller: _scrollControllers[_SearchTab.hashtags]!,
                   onRefresh: () => _search(_SearchTab.hashtags),
+                  isQueryEmpty: _query.isEmpty,
                 ),
               ],
             ),
@@ -418,6 +476,7 @@ class _PostsResultList extends StatelessWidget {
     required this.onEdit,
     required this.ref,
     this.currentUserId,
+    required this.isQueryEmpty,
   });
 
   final _SearchState<DiaryPost> state;
@@ -428,6 +487,7 @@ class _PostsResultList extends StatelessWidget {
   final ValueChanged<DiaryPost> onEdit;
   final WidgetRef ref;
   final String? currentUserId;
+  final bool isQueryEmpty;
 
   @override
   Widget build(BuildContext context) {
@@ -435,6 +495,9 @@ class _PostsResultList extends StatelessWidget {
       onRefresh: onRefresh,
       child: Builder(
         builder: (context) {
+          if (isQueryEmpty) {
+            return const _EmptyQueryMessage();
+          }
           if (state.isLoading && state.items.isEmpty) {
             return const Center(child: CircularProgressIndicator());
           }
@@ -483,11 +546,13 @@ class _UsersResultList extends StatelessWidget {
     required this.state,
     required this.controller,
     required this.onRefresh,
+    required this.isQueryEmpty,
   });
 
   final _SearchState<DiaryUserSummary> state;
   final ScrollController controller;
   final Future<void> Function() onRefresh;
+  final bool isQueryEmpty;
 
   @override
   Widget build(BuildContext context) {
@@ -495,6 +560,9 @@ class _UsersResultList extends StatelessWidget {
       onRefresh: onRefresh,
       child: Builder(
         builder: (context) {
+          if (isQueryEmpty) {
+            return const _EmptyQueryMessage();
+          }
           if (state.isLoading && state.items.isEmpty) {
             return const Center(child: CircularProgressIndicator());
           }
@@ -542,11 +610,13 @@ class _TagsResultList extends StatelessWidget {
     required this.state,
     required this.controller,
     required this.onRefresh,
+    required this.isQueryEmpty,
   });
 
   final _SearchState<DiaryHashtagTrend> state;
   final ScrollController controller;
   final Future<void> Function() onRefresh;
+  final bool isQueryEmpty;
 
   @override
   Widget build(BuildContext context) {
@@ -554,6 +624,9 @@ class _TagsResultList extends StatelessWidget {
       onRefresh: onRefresh,
       child: Builder(
         builder: (context) {
+          if (isQueryEmpty) {
+            return const _EmptyQueryMessage();
+          }
           if (state.isLoading && state.items.isEmpty) {
             return const Center(child: CircularProgressIndicator());
           }

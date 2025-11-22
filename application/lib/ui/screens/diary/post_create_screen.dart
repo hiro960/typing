@@ -93,7 +93,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
   }
 
   void _onKeyboardEnter() {
-    _composer.input('\n');
+    _composer.addNewLine();
     _applyComposerText();
   }
 
