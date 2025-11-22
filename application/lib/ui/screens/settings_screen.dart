@@ -13,6 +13,7 @@ import '../../features/typing/data/models/typing_settings.dart';
 import '../../features/theme/theme_mode_provider.dart';
 import '../../features/diary/domain/providers/diary_providers.dart';
 import '../widgets/app_page_scaffold.dart';
+import '../widgets/user_avatar.dart';
 
 class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
@@ -748,27 +749,20 @@ class _ProfileHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final initial = displayName.isNotEmpty
-        ? displayName.characters.take(1).toString()
-        : '?';
     return FCard.raw(
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Row(
           children: [
-            CircleAvatar(
+            UserAvatar(
+              displayName: displayName,
+              imageUrl: profileImageUrl,
               radius: 28,
               backgroundColor: theme.colorScheme.primaryContainer,
-              backgroundImage:
-                  profileImageUrl != null ? NetworkImage(profileImageUrl!) : null,
-              child: profileImageUrl == null
-                  ? Text(
-                      initial,
-                      style: theme.textTheme.titleMedium?.copyWith(
-                        color: theme.colorScheme.onPrimaryContainer,
-                      ),
-                    )
-                  : null,
+              foregroundColor: theme.colorScheme.onPrimaryContainer,
+              textStyle: theme.textTheme.titleMedium?.copyWith(
+                color: theme.colorScheme.onPrimaryContainer,
+              ),
             ),
             const SizedBox(width: 12),
             Expanded(

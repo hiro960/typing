@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../features/diary/data/models/diary_post.dart';
 import '../screens/profile_screen.dart';
+import 'user_avatar.dart';
 
 class DiaryPostCard extends StatelessWidget {
   const DiaryPostCard({
@@ -66,16 +67,11 @@ class DiaryPostCard extends StatelessWidget {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      GestureDetector(
+                      UserAvatar(
+                        displayName: post.user.displayName,
+                        imageUrl: avatar,
+                        useCachedImage: true,
                         onTap: () => _navigateToProfile(context),
-                        child: CircleAvatar(
-                          backgroundImage: avatar != null
-                              ? CachedNetworkImageProvider(avatar)
-                              : null,
-                          child: avatar == null
-                              ? Text(post.user.displayName.substring(0, 1))
-                              : null,
-                        ),
                       ),
                       const SizedBox(width: 12),
                       Expanded(
@@ -444,16 +440,11 @@ class DiaryQuotedPostCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              GestureDetector(
+              UserAvatar(
+                displayName: quotedPost.user.displayName,
+                imageUrl: avatar,
+                useCachedImage: true,
                 onTap: () => _navigateToProfile(context),
-                child: CircleAvatar(
-                  radius: 20,
-                  backgroundImage:
-                      avatar != null ? CachedNetworkImageProvider(avatar) : null,
-                  child: avatar == null
-                      ? Text(quotedPost.user.displayName.substring(0, 1))
-                      : null,
-                ),
               ),
               const SizedBox(width: 12),
               Expanded(

@@ -13,6 +13,80 @@ import '../app_theme.dart';
 import '../widgets/app_page_scaffold.dart';
 import 'lesson_detail_screen.dart';
 
+class HomeState {
+  const HomeState({
+    required this.catalog,
+    required this.stats,
+    required this.progress,
+    required this.focusLesson,
+  });
+
+  final Map<LessonLevel, List<lesson_index.LessonMeta>> catalog;
+  final LessonStatsSummary stats;
+  final Map<String, LessonProgress> progress;
+  final lesson_index.LessonMeta? focusLesson;
+}
+
+final homeStateProvider =
+    Provider.autoDispose<AsyncValue<HomeState>>((ref) {
+  final catalogAsync = ref.watch(lessonCatalogProvider);
+  final statsAsync = ref.watch(lessonStatsProvider(level: null));
+  final progressAsync = ref.watch(lessonProgressControllerProvider);
+
+  if (catalogAsync.hasError) {
+    return AsyncError(
+      catalogAsync.error!,
+      catalogAsync.stackTrace ?? StackTrace.current,
+    );
+  }
+  if (statsAsync.hasError) {
+    return AsyncError(
+      statsAsync.error!,
+      statsAsync.stackTrace ?? StackTrace.current,
+    );
+  }
+  if (progressAsync.hasError) {
+    return AsyncError(
+      progressAsync.error!,
+      progressAsync.stackTrace ?? StackTrace.current,
+    );
+  }
+
+  if (catalogAsync.isLoading || statsAsync.isLoading || progressAsync.isLoading) {
+    return const AsyncLoading();
+  }
+
+  final catalog = catalogAsync.value ?? const {};
+  final stats = statsAsync.value ?? const LessonStatsSummary();
+  final progress = progressAsync.value ?? const <String, LessonProgress>{};
+  final focusLesson = _findNextLesson(catalog, progress);
+
+  return AsyncData(
+    HomeState(
+      catalog: catalog,
+      stats: stats,
+      progress: progress,
+      focusLesson: focusLesson,
+    ),
+  );
+});
+
+lesson_index.LessonMeta? _findNextLesson(
+  Map<LessonLevel, List<lesson_index.LessonMeta>> catalog,
+  Map<String, LessonProgress> progress,
+) {
+  for (final level in LessonLevel.values) {
+    final lessons = catalog[level] ?? const [];
+    for (final lesson in lessons) {
+      final rate = progress[lesson.id]?.normalizedCompletionRate ?? 0;
+      if (rate < 100) {
+        return lesson;
+      }
+    }
+  }
+  return null;
+}
+
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key, required this.onOpenSettings});
 
@@ -33,30 +107,24 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final catalogAsync = ref.watch(lessonCatalogProvider);
-    final statsAsync = ref.watch(lessonStatsProvider(level: null));
-    final progressAsync = ref.watch(lessonProgressControllerProvider);
+    final homeStateAsync = ref.watch(homeStateProvider);
     final user = ref.watch(currentUserProvider);
     final displayName = user?.displayName ?? 'Guest';
 
-    return catalogAsync.when(
-      data: (catalog) {
-        final stats = statsAsync.value ?? const LessonStatsSummary();
-        final progress =
-            progressAsync.value ?? const <String, LessonProgress>{};
-        final focusLesson = _findNextLesson(catalog, progress);
+    return homeStateAsync.when(
+      data: (state) {
         return AppPageScaffold(
           childPad: false,
-      header: FHeader(
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              '안녕하세요, $displayName',
-              style: Theme.of(context).textTheme.headlineSmall,
+          header: FHeader(
+            title: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '안녕하세요, $displayName',
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+              ],
             ),
-          ],
-        ),
             suffixes: [
               FHeaderAction(
                 icon: const Icon(Icons.settings_outlined),
@@ -73,22 +141,22 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _ProgressHero(stats: stats),
+                      _ProgressHero(stats: state.stats),
                       const SizedBox(height: 16),
-                      _StatHighlights(stats: stats),
+                      _StatHighlights(stats: state.stats),
                       const SizedBox(height: 24),
                       _LevelAccordions(
                         controller: _accordionController,
-                        catalog: catalog,
-                        progress: progress,
+                        catalog: state.catalog,
+                        progress: state.progress,
                         onLessonTap: _onLessonTap,
                       ),
                       const SizedBox(height: 24),
                       _QuickActions(
-                        focusLesson: focusLesson,
-                        onFocusTap: focusLesson == null
+                        focusLesson: state.focusLesson,
+                        onFocusTap: state.focusLesson == null
                             ? null
-                            : () => _onLessonTap(focusLesson, false),
+                            : () => _onLessonTap(state.focusLesson!, false),
                         onCustomPracticeTap: _showCustomPracticeHint,
                       ),
                     ],
@@ -100,7 +168,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         );
       },
       loading: () => AppPageScaffold(
-        child: Center(child: CircularProgressIndicator()),
+        child: const Center(child: CircularProgressIndicator()),
       ),
       error: (error, _) => AppPageScaffold(
         child: Center(child: Text(error.toString())),
@@ -132,22 +200,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         builder: (_) => LessonDetailScreen(lessonId: lesson.id),
       ),
     );
-  }
-
-  lesson_index.LessonMeta? _findNextLesson(
-    Map<LessonLevel, List<lesson_index.LessonMeta>> catalog,
-    Map<String, LessonProgress> progress,
-  ) {
-    for (final level in LessonLevel.values) {
-      final lessons = catalog[level] ?? const [];
-      for (final lesson in lessons) {
-        final rate = progress[lesson.id]?.normalizedCompletionRate ?? 0;
-        if (rate < 100) {
-          return lesson;
-        }
-      }
-    }
-    return null;
   }
 
   void _showCustomPracticeHint() {

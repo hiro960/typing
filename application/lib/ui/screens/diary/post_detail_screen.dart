@@ -8,6 +8,7 @@ import '../../../features/diary/data/models/diary_comment.dart';
 import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../widgets/diary_post_card.dart';
+import '../../widgets/user_avatar.dart';
 import 'post_create_screen.dart';
 
 class PostDetailScreen extends ConsumerStatefulWidget {
@@ -518,13 +519,9 @@ class _CommentTile extends StatelessWidget {
           children: [
             Row(
               children: [
-                CircleAvatar(
-                  backgroundImage: comment.user.profileImageUrl != null
-                      ? NetworkImage(comment.user.profileImageUrl!)
-                      : null,
-                  child: comment.user.profileImageUrl == null
-                      ? Text(comment.user.displayName.substring(0, 1))
-                      : null,
+                UserAvatar(
+                  displayName: comment.user.displayName,
+                  imageUrl: comment.user.profileImageUrl,
                 ),
                 const SizedBox(width: 12),
                 Expanded(

@@ -10,6 +10,7 @@ import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
 import '../../widgets/diary_post_card.dart';
 import '../../widgets/typing_keyboard.dart';
+import '../../widgets/user_avatar.dart';
 import 'post_create_screen.dart';
 import 'post_detail_screen.dart';
 
@@ -745,13 +746,9 @@ class _UsersResultList extends StatelessWidget {
               }
               final user = state.items[index];
               return ListTile(
-                leading: CircleAvatar(
-                  backgroundImage: user.profileImageUrl != null
-                      ? NetworkImage(user.profileImageUrl!)
-                      : null,
-                  child: user.profileImageUrl == null
-                      ? Text(user.displayName.substring(0, 1))
-                      : null,
+                leading: UserAvatar(
+                  displayName: user.displayName,
+                  imageUrl: user.profileImageUrl,
                 ),
                 title: Text(user.displayName),
                 subtitle: Text('@${user.username}'),

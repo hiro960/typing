@@ -1,4 +1,3 @@
-import 'package:characters/characters.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
@@ -6,6 +5,7 @@ import 'package:forui/forui.dart';
 import '../../../features/diary/data/models/diary_notification.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../widgets/app_page_scaffold.dart';
+import '../../widgets/user_avatar.dart';
 import 'post_detail_screen.dart';
 
 class NotificationsScreen extends ConsumerStatefulWidget {
@@ -197,22 +197,12 @@ class _NotificationTile extends StatelessWidget {
       ),
       child: FTile(
         onPress: onTap,
-        prefix: CircleAvatar(
-          backgroundImage: notification.actor.profileImageUrl != null
-              ? NetworkImage(notification.actor.profileImageUrl!)
-              : null,
-          backgroundColor: notification.actor.profileImageUrl == null
-              ? _avatarColor(notification.type, theme)
-              : null,
-          foregroundColor: notification.actor.profileImageUrl == null
-              ? theme.colorScheme.onPrimary
-              : null,
-          child: notification.actor.profileImageUrl == null
-              ? Text(
-                  _initial(notification.actor.displayName),
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                )
-              : null,
+        prefix: UserAvatar(
+          displayName: notification.actor.displayName,
+          imageUrl: notification.actor.profileImageUrl,
+          backgroundColor: _avatarColor(notification.type, theme),
+          foregroundColor: theme.colorScheme.onPrimary,
+          textStyle: const TextStyle(fontWeight: FontWeight.bold),
         ),
         title: Text(
           title,
@@ -266,12 +256,6 @@ class _NotificationTile extends StatelessWidget {
       default:
         return '${notification.actor.displayName}さんがいいねしました';
     }
-  }
-
-  String _initial(String text) {
-    if (text.isEmpty) return '?';
-    final trimmed = text.trim();
-    return trimmed.isEmpty ? '?' : trimmed.characters.first;
   }
 }
 
