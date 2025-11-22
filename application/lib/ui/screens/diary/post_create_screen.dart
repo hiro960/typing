@@ -97,6 +97,14 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
     _applyComposerText();
   }
 
+  Future<void> _closeKeyboard() async {
+    setState(() {
+      _showCustomKeyboard = false;
+    });
+    _focusNode.unfocus();
+    await SystemChannels.textInput.invokeMethod('TextInput.hide');
+  }
+
   void _applyComposerText() {
     final text = _composer.text;
     _contentController.value = TextEditingValue(
@@ -536,16 +544,22 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                             ),
                           ),
                         ),
-                        child: Row(
-                          children: [
-                            TextButton.icon(
-                              icon: const Icon(Icons.keyboard, size: 18),
-                              label: const Text('キーボード切り替え'),
-                              onPressed: _useCustomKeyboard ? _switchToDefaultKeyboard : _switchToCustomKeyboard,
-                            )
-                          ],
-                        ),
-                      ),
+                            child: Row(
+                              children: [
+                                TextButton.icon(
+                                  icon: const Icon(Icons.keyboard, size: 18),
+                                  label: const Text('キーボード切り替え'),
+                                  onPressed: _useCustomKeyboard ? _switchToDefaultKeyboard : _switchToCustomKeyboard,
+                                ),
+                                const Spacer(),
+                                if (_showCustomKeyboard || _focusNode.hasFocus)
+                                  TextButton(
+                                    onPressed: _closeKeyboard,
+                                    child: const Text('閉じる'),
+                                  ),
+                              ],
+                            ),
+                          ),
                       if (_useCustomKeyboard && _showCustomKeyboard)
                         TypingKeyboard(
                           onTextInput: _onKeyboardTextInput,

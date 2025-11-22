@@ -35,3 +35,15 @@ Future<List<DiaryPost>> userPosts(Ref ref, String userId) async {
   final repository = ref.watch(profileRepositoryProvider);
   return repository.fetchUserPosts(userId);
 }
+
+@riverpod
+Future<List<UserModel>> userFollowers(Ref ref, String userId) async {
+  final repository = ref.watch(profileRepositoryProvider);
+  return repository.fetchFollowers(userId);
+}
+
+@riverpod
+Future<List<UserModel>> userFollowing(Ref ref, String userId) async {
+  final repository = ref.watch(profileRepositoryProvider);
+  return repository.fetchFollowing(userId);
+}

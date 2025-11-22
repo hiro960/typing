@@ -111,4 +111,68 @@ class ProfileRepository {
       throw ApiClientService.handleDioException(error);
     }
   }
+
+  /// フォロワー一覧を取得
+  Future<List<UserModel>> fetchFollowers(
+    String userId, {
+    int limit = 20,
+  }) async {
+    try {
+      final response = await _apiClient.dio.get(
+        '/api/follows/followers',
+        queryParameters: {
+          'userId': userId,
+          'limit': limit,
+        },
+      );
+      final data = response.data['data'] as List<dynamic>?;
+      if (data == null) {
+        return [];
+      }
+      return data.map((json) {
+        final userJson = json['user'] as Map<String, dynamic>;
+        return UserModel.fromJson(userJson);
+      }).toList();
+    } on DioException catch (error, stackTrace) {
+      AppLogger.error(
+        'Failed to fetch followers',
+        tag: 'ProfileRepository',
+        error: error,
+        stackTrace: stackTrace,
+      );
+      throw ApiClientService.handleDioException(error);
+    }
+  }
+
+  /// フォロー中一覧を取得
+  Future<List<UserModel>> fetchFollowing(
+    String userId, {
+    int limit = 20,
+  }) async {
+    try {
+      final response = await _apiClient.dio.get(
+        '/api/follows/following',
+        queryParameters: {
+          'userId': userId,
+          'limit': limit,
+        },
+      );
+      final data = response.data['data'] as List<dynamic>?;
+      if (data == null) {
+        return [];
+      }
+      return data.map((json) {
+        final userJson = json['user'] as Map<String, dynamic>;
+        return UserModel.fromJson(userJson);
+      }).toList();
+    } on DioException catch (error, stackTrace) {
+      AppLogger.error(
+        'Failed to fetch following',
+        tag: 'ProfileRepository',
+        error: error,
+        stackTrace: stackTrace,
+      );
+      throw ApiClientService.handleDioException(error);
+    }
+  }
 }

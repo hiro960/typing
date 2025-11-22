@@ -91,28 +91,30 @@ class UserModel {
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       id: json['id'] as String,
-      auth0UserId: json['auth0UserId'] as String,
+      auth0UserId: json['auth0UserId'] as String? ?? '',
       username: json['username'] as String,
       displayName: json['displayName'] as String,
-      email: json['email'] as String,
+      email: json['email'] as String? ?? '',
       profileImageUrl: json['profileImageUrl'] as String?,
       bio: json['bio'] as String?,
-      type: json['type'] as String,
-      followersCount: json['followersCount'] as int,
-      followingCount: json['followingCount'] as int,
-      postsCount: json['postsCount'] as int,
-      totalLessonsCompleted: json['totalLessonsCompleted'] as int,
-      maxWPM: (json['maxWPM'] as num).toDouble(),
-      maxAccuracy: (json['maxAccuracy'] as num).toDouble(),
+      type: json['type'] as String? ?? 'NORMAL',
+      followersCount: json['followersCount'] as int? ?? 0,
+      followingCount: json['followingCount'] as int? ?? 0,
+      postsCount: json['postsCount'] as int? ?? 0,
+      totalLessonsCompleted: json['totalLessonsCompleted'] as int? ?? 0,
+      maxWPM: (json['maxWPM'] as num?)?.toDouble() ?? 0.0,
+      maxAccuracy: (json['maxAccuracy'] as num?)?.toDouble() ?? 0.0,
       lastLoginAt: json['lastLoginAt'] != null
           ? DateTime.parse(json['lastLoginAt'] as String)
           : null,
-      createdAt: DateTime.parse(json['createdAt'] as String),
+      createdAt: json['createdAt'] != null
+          ? DateTime.parse(json['createdAt'] as String)
+          : DateTime.now(),
       updatedAt: json['updatedAt'] != null
           ? DateTime.parse(json['updatedAt'] as String)
           : null,
-      isActive: json['isActive'] as bool,
-      isBanned: json['isBanned'] as bool,
+      isActive: json['isActive'] as bool? ?? true,
+      isBanned: json['isBanned'] as bool? ?? false,
       settings: UserSettingsModel.fromJson(
         json['settings'] as Map<String, dynamic>?,
       ),

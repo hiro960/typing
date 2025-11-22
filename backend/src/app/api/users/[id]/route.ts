@@ -4,8 +4,11 @@ import { handleRouteError, ERROR } from "@/lib/errors";
 import { assertSameUser, requireAuthUser } from "@/lib/auth";
 import { validateUserSettings } from "@/lib/validators/user-settings";
 
+import prisma from "@/lib/prisma";
+import { getAuthUser } from "@/lib/auth";
+
 export async function GET(
-  _request: NextRequest,
+  request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
@@ -15,7 +18,22 @@ export async function GET(
       throw ERROR.NOT_FOUND("User not found");
     }
 
-    return NextResponse.json(user);
+    const authUser = await getAuthUser(request);
+    let isFollowing = false;
+
+    if (authUser) {
+      const follow = await prisma.follow.findUnique({
+        where: {
+          followerId_followingId: {
+            followerId: authUser.id,
+            followingId: id,
+          },
+        },
+      });
+      isFollowing = !!follow;
+    }
+
+    return NextResponse.json({ ...user, isFollowing });
   } catch (error) {
     return handleRouteError(error);
   }

@@ -27,13 +27,13 @@ _DiaryQuotedPost _$DiaryQuotedPostFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       content: json['content'] as String,
       user: DiaryUserSummary.fromJson(json['user'] as Map<String, dynamic>),
-      imageUrls: (json['imageUrls'] as List<dynamic>?)
+      imageUrls:
+          (json['imageUrls'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const <String>[],
-      tags: (json['tags'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
+      tags:
+          (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList() ??
           const <String>[],
       createdAt: json['createdAt'] == null
           ? null

@@ -501,17 +501,17 @@ class _DiaryQuotedPost implements DiaryQuotedPost {
 @override final  String id;
 @override final  String content;
 @override final  DiaryUserSummary user;
-final  List<String> _imageUrls;
-@override
-List<String> get imageUrls {
+ final  List<String> _imageUrls;
+@override@JsonKey() List<String> get imageUrls {
   if (_imageUrls is EqualUnmodifiableListView) return _imageUrls;
+  // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_imageUrls);
 }
 
-final  List<String> _tags;
-@override
-List<String> get tags {
+ final  List<String> _tags;
+@override@JsonKey() List<String> get tags {
   if (_tags is EqualUnmodifiableListView) return _tags;
+  // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_tags);
 }
 

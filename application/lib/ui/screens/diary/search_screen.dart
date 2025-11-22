@@ -1,14 +1,15 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/data/models/diary_search.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
+import '../../../features/typing/domain/services/hangul_composer.dart';
 import '../../widgets/diary_post_card.dart';
+import '../../widgets/typing_keyboard.dart';
 import 'post_create_screen.dart';
 import 'post_detail_screen.dart';
 
@@ -76,6 +77,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   final _queryController = TextEditingController();
+  final _focusNode = FocusNode();
   final Map<_SearchTab, dynamic> _states = {
     _SearchTab.posts: const _SearchState<DiaryPost>(),
     _SearchTab.users: const _SearchState<DiaryUserSummary>(),
@@ -83,8 +85,10 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
   };
   final Map<_SearchTab, ScrollController> _scrollControllers = {};
   String _query = '';
-  Timer? _debounce;
   List<String> _history = const [];
+  late final HangulComposer _composer;
+  bool _useCustomKeyboard = true;
+  bool _showCustomKeyboard = false;
 
   _SearchState<T> _stateFor<T>(_SearchTab tab) =>
       _states[tab] as _SearchState<T>;
@@ -102,6 +106,8 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
       controller.addListener(() => _maybeLoadMore(tab));
       _scrollControllers[tab] = controller;
     }
+    _composer = HangulComposer()..loadFromText(_queryController.text);
+    _focusNode.addListener(_onFocusChange);
     _loadHistory();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _ensureLoaded(_currentTab);
@@ -125,13 +131,20 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
     setState(() => _history = entries);
   }
 
+  Future<void> _removeHistory(String term) async {
+    final prefs = await SharedPreferences.getInstance();
+    final entries = _history.where((item) => item != term).toList();
+    await prefs.setStringList('diary_search_history', entries);
+    setState(() => _history = entries);
+  }
+
   _SearchTab get _currentTab => _SearchTab.values[_tabController.index];
 
   @override
   void dispose() {
     _queryController.dispose();
+    _focusNode.dispose();
     _tabController.dispose();
-    _debounce?.cancel();
     for (final controller in _scrollControllers.values) {
       controller.dispose();
     }
@@ -147,13 +160,87 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
     }
   }
 
-  void _onQueryChanged(String value) {
-    _debounce?.cancel();
-    _debounce = Timer(const Duration(milliseconds: 350), () {
-      setState(() => _query = value.trim());
-      _resetStates();
-      _ensureLoaded(_currentTab);
-      _saveHistory(_query);
+  void _onFocusChange() {
+    if (!_focusNode.hasFocus) {
+      setState(() => _showCustomKeyboard = false);
+      return;
+    }
+    if (_useCustomKeyboard) {
+      SystemChannels.textInput.invokeMethod('TextInput.hide');
+      _composer.loadFromText(_queryController.text);
+      _applyComposerText();
+      setState(() => _showCustomKeyboard = true);
+    } else {
+      setState(() {});
+    }
+  }
+
+  Future<void> _onSubmitted() async {
+    await _performSearch(_queryController.text);
+  }
+
+  Future<void> _performSearch(String value) async {
+    final nextQuery = value.trim();
+    setState(() => _query = nextQuery);
+    _composer.loadFromText(nextQuery);
+    _resetStates();
+    _ensureLoaded(_currentTab);
+    await _saveHistory(nextQuery);
+  }
+
+  void _onKeyboardTextInput(String text) {
+    _composer.input(text);
+    _applyComposerText();
+  }
+
+  void _onKeyboardBackspace() {
+    _composer.backspace();
+    _applyComposerText();
+  }
+
+  void _onKeyboardSpace() {
+    _composer.addSpace();
+    _applyComposerText();
+  }
+
+  void _onKeyboardEnter() {
+    _onSubmitted();
+  }
+
+  Future<void> _closeKeyboard() async {
+    setState(() {
+      _showCustomKeyboard = false;
+    });
+    _focusNode.unfocus();
+    await SystemChannels.textInput.invokeMethod('TextInput.hide');
+  }
+
+  void _applyComposerText() {
+    final text = _composer.text;
+    _queryController.value = TextEditingValue(
+      text: text,
+      selection: TextSelection.collapsed(
+        offset: text.characters.length,
+      ),
+    );
+  }
+
+  void _switchToDefaultKeyboard() {
+    setState(() {
+      _useCustomKeyboard = false;
+      _showCustomKeyboard = false;
+    });
+    _focusNode.requestFocus();
+  }
+
+  Future<void> _switchToCustomKeyboard() async {
+    await SystemChannels.textInput.invokeMethod('TextInput.hide');
+    _focusNode.requestFocus();
+    _composer.loadFromText(_queryController.text);
+    _applyComposerText();
+    setState(() {
+      _useCustomKeyboard = true;
+      _showCustomKeyboard = true;
     });
   }
 
@@ -373,52 +460,66 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
             padding: const EdgeInsets.all(16),
             child: TextField(
               controller: _queryController,
+              focusNode: _focusNode,
+              readOnly: _useCustomKeyboard,
+              enableInteractiveSelection: !_useCustomKeyboard,
               decoration: InputDecoration(
                 hintText: '投稿、ユーザー、ハッシュタグを検索',
                 prefixIcon: const Icon(Icons.search),
-                suffixIcon: _queryController.text.isNotEmpty
-                    ? IconButton(
+                suffixIcon: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (_queryController.text.isNotEmpty)
+                      IconButton(
                         icon: const Icon(Icons.clear),
                         onPressed: () {
                           _queryController.clear();
-                          _onQueryChanged('');
+                          _composer.loadFromText('');
+                          setState(() => _query = '');
+                          _resetStates();
                         },
-                      )
-                    : null,
+                      ),
+                    IconButton(
+                      icon: const Icon(Icons.search),
+                      onPressed: () => _performSearch(_queryController.text),
+                    ),
+                  ],
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(24),
                 ),
               ),
-              onChanged: _onQueryChanged,
-              textInputAction: TextInputAction.search,
-              onSubmitted: (value) {
-                _onQueryChanged(value);
-                _saveHistory(value.trim());
+              onChanged: (_) {
+                setState(() {});
+                _composer.loadFromText(_queryController.text);
               },
+              textInputAction: TextInputAction.search,
+              onSubmitted: (_) => _onSubmitted(),
             ),
           ),
-          if (_query.isEmpty && _history.isNotEmpty)
+          if (_queryController.text.isEmpty && _history.isNotEmpty)
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Wrap(
                   spacing: 8,
-                  children: _history
-                      .map(
-                        (item) => ActionChip(
-                          label: Text(item),
-                          onPressed: () {
-                            _queryController.text = item;
-                            _queryController.selection =
-                                TextSelection.fromPosition(
-                              TextPosition(offset: item.length),
-                            );
-                            _onQueryChanged(item);
-                          },
-                        ),
-                      )
-                      .toList(),
+                  runSpacing: 8,
+                  children: _history.map((item) {
+                    return _HistoryChip(
+                      label: item,
+                      onSelect: () {
+                        _queryController.text = item;
+                        _queryController.selection =
+                            TextSelection.fromPosition(
+                          TextPosition(offset: item.length),
+                        );
+                        _composer.loadFromText(item);
+                        _performSearch(item);
+                      },
+                      onDelete: () => _removeHistory(item),
+                    );
+                  }).toList(),
                 ),
               ),
             ),
@@ -459,6 +560,64 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
                 ),
               ],
             ),
+          ),
+          AnimatedSize(
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.easeOut,
+            child: _focusNode.hasFocus
+                ? SafeArea(
+                    top: false,
+                    child: ColoredBox(
+                      color: Theme.of(context).colorScheme.surface,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 10,
+                            ),
+                            decoration: BoxDecoration(
+                              border: Border(
+                                top: BorderSide(
+                                  color:
+                                      Theme.of(context).colorScheme.outlineVariant,
+                                  width: 1,
+                                ),
+                              ),
+                            ),
+                            child: Row(
+                              children: [
+                                TextButton.icon(
+                                  icon: const Icon(Icons.keyboard, size: 18),
+                                  label: const Text('キーボード切り替え'),
+                                  onPressed: _useCustomKeyboard
+                                      ? _switchToDefaultKeyboard
+                                      : _switchToCustomKeyboard,
+                                ),
+                                const Spacer(),
+                                if (_showCustomKeyboard || _focusNode.hasFocus)
+                                  TextButton(
+                                    onPressed: _closeKeyboard,
+                                    child: const Text('閉じる'),
+                                  ),
+                              ],
+                            ),
+                          ),
+                          if (_useCustomKeyboard && _showCustomKeyboard)
+                            TypingKeyboard(
+                              onTextInput: _onKeyboardTextInput,
+                              onBackspace: _onKeyboardBackspace,
+                              onSpace: _onKeyboardSpace,
+                              onEnter: _onKeyboardEnter,
+                              enableHaptics: true,
+                              enableSound: false,
+                            ),
+                        ],
+                      ),
+                    ),
+                  )
+                : const SizedBox.shrink(),
           ),
         ],
       ),
@@ -656,6 +815,55 @@ class _TagsResultList extends StatelessWidget {
           );
         },
       ),
+    );
+  }
+}
+
+class _HistoryChip extends StatelessWidget {
+  const _HistoryChip({
+    required this.label,
+    required this.onSelect,
+    required this.onDelete,
+  });
+
+  final String label;
+  final VoidCallback onSelect;
+  final VoidCallback onDelete;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        ActionChip(
+          label: Padding(
+            padding: const EdgeInsets.only(right: 12),
+            child: Text(label),
+          ),
+          onPressed: onSelect,
+        ),
+        Positioned(
+          top: -6,
+          right: -6,
+          child: Material(
+            color: theme.colorScheme.surface,
+            shape: const CircleBorder(),
+            child: InkWell(
+              customBorder: const CircleBorder(),
+              onTap: onDelete,
+              child: Padding(
+                padding: const EdgeInsets.all(4),
+                child: Icon(
+                  Icons.close,
+                  size: 14,
+                  color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

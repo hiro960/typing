@@ -7,6 +7,7 @@ import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/data/repositories/diary_repository.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../widgets/diary_post_card.dart';
+import 'drafts_screen.dart';
 import 'post_create_screen.dart';
 import 'post_detail_screen.dart';
 
@@ -225,6 +226,17 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
                   icon: const Icon(Icons.bookmark_outline),
                   onPressed: widget.onOpenBookmarks,
                   tooltip: 'ブックマーク',
+                ),
+                IconButton(
+                  icon: const Icon(Icons.edit_document),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (_) => const DraftsScreen(),
+                      ),
+                    );
+                  },
+                  tooltip: '下書き',
                 ),
               ],
             ),

@@ -283,3 +283,153 @@ final class UserPostsFamily extends $Family
   @override
   String toString() => r'userPostsProvider';
 }
+
+@ProviderFor(userFollowers)
+const userFollowersProvider = UserFollowersFamily._();
+
+final class UserFollowersProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<UserModel>>,
+          List<UserModel>,
+          FutureOr<List<UserModel>>
+        >
+    with $FutureModifier<List<UserModel>>, $FutureProvider<List<UserModel>> {
+  const UserFollowersProvider._({
+    required UserFollowersFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'userFollowersProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$userFollowersHash();
+
+  @override
+  String toString() {
+    return r'userFollowersProvider'
+        ''
+        '($argument)';
+  }
+
+  @$internal
+  @override
+  $FutureProviderElement<List<UserModel>> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<UserModel>> create(Ref ref) {
+    final argument = this.argument as String;
+    return userFollowers(ref, argument);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is UserFollowersProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
+  }
+}
+
+String _$userFollowersHash() => r'6db7f15f97ad6e6de14ef1e0f03e0e019099269d';
+
+final class UserFollowersFamily extends $Family
+    with $FunctionalFamilyOverride<FutureOr<List<UserModel>>, String> {
+  const UserFollowersFamily._()
+    : super(
+        retry: null,
+        name: r'userFollowersProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  UserFollowersProvider call(String userId) =>
+      UserFollowersProvider._(argument: userId, from: this);
+
+  @override
+  String toString() => r'userFollowersProvider';
+}
+
+@ProviderFor(userFollowing)
+const userFollowingProvider = UserFollowingFamily._();
+
+final class UserFollowingProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<UserModel>>,
+          List<UserModel>,
+          FutureOr<List<UserModel>>
+        >
+    with $FutureModifier<List<UserModel>>, $FutureProvider<List<UserModel>> {
+  const UserFollowingProvider._({
+    required UserFollowingFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'userFollowingProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$userFollowingHash();
+
+  @override
+  String toString() {
+    return r'userFollowingProvider'
+        ''
+        '($argument)';
+  }
+
+  @$internal
+  @override
+  $FutureProviderElement<List<UserModel>> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<UserModel>> create(Ref ref) {
+    final argument = this.argument as String;
+    return userFollowing(ref, argument);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is UserFollowingProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
+  }
+}
+
+String _$userFollowingHash() => r'a7c9f894bd9e206f95feeaab766df034e80ffddd';
+
+final class UserFollowingFamily extends $Family
+    with $FunctionalFamilyOverride<FutureOr<List<UserModel>>, String> {
+  const UserFollowingFamily._()
+    : super(
+        retry: null,
+        name: r'userFollowingProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  UserFollowingProvider call(String userId) =>
+      UserFollowingProvider._(argument: userId, from: this);
+
+  @override
+  String toString() => r'userFollowingProvider';
+}

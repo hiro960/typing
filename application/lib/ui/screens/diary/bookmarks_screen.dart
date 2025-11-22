@@ -128,132 +128,111 @@ class _BookmarksScreenState extends ConsumerState<BookmarksScreen> {
     final currentUser = ref.watch(currentUserProvider);
 
     return Scaffold(
-      body: SafeArea(
-        child: Column(
+      appBar: AppBar(
+        titleSpacing: 20,
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 16, 20, 12),
-              child: Row(
-                children: [
-                  _ToolbarIconButton(
-                    icon: Icons.arrow_back,
-                    tooltip: '戻る',
-                    onPressed: () => Navigator.of(context).maybePop(),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('🔖 ブックマーク',
-                            style: theme.textTheme.headlineSmall),
-                        const SizedBox(height: 4),
-                        Text(
-                          '保存した投稿をまとめて確認',
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            color: theme.colorScheme.onSurface
-                                .withValues(alpha: 0.6),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  _ToolbarIconButton(
-                    icon: Icons.refresh,
-                    tooltip: '再読み込み',
-                    enabled: !state.isLoading,
-                    onPressed: () => _refresh(),
-                  ),
-                ],
-              ),
-            ),
-            Divider(
-              height: 1,
-              thickness: 1,
-              color: theme.colorScheme.outlineVariant,
-            ),
-            if (state.isLoading && state.posts.isNotEmpty)
-              const LinearProgressIndicator(minHeight: 2),
-            Expanded(
-              child: RefreshIndicator(
-                onRefresh: _refresh,
-                child: Builder(
-                  builder: (context) {
-                    if (state.isLoading && state.posts.isEmpty) {
-                      return ListView(
-                        physics: const AlwaysScrollableScrollPhysics(),
-                        padding: const EdgeInsets.fromLTRB(20, 80, 20, 20),
-                        children: const [
-                          SizedBox(
-                            height: 160,
-                            child: Center(
-                              child: CircularProgressIndicator(),
-                            ),
-                          ),
-                        ],
-                      );
-                    }
-                    if (state.errorMessage != null &&
-                        state.posts.isEmpty) {
-                      return ListView(
-                        physics: const AlwaysScrollableScrollPhysics(),
-                        padding: const EdgeInsets.fromLTRB(20, 80, 20, 20),
-                        children: [
-                          _BookmarksEmptyState(
-                            icon: Icons.error_outline,
-                            title: '読み込みに失敗しました',
-                            message: state.errorMessage!,
-                            iconColor: theme.colorScheme.error,
-                          ),
-                        ],
-                      );
-                    }
-                    if (state.posts.isEmpty) {
-                      return ListView(
-                        physics: const AlwaysScrollableScrollPhysics(),
-                        padding: const EdgeInsets.fromLTRB(20, 80, 20, 20),
-                        children: const [
-                          _BookmarksEmptyState(
-                            icon: Icons.bookmark_border,
-                            title: 'ブックマークはありません',
-                            message: '気になる投稿にブックマークを付けるとここに表示されます。',
-                          ),
-                        ],
-                      );
-                    }
-                    return ListView.builder(
-                      controller: _scrollController,
-                      physics: const AlwaysScrollableScrollPhysics(),
-                      padding: const EdgeInsets.fromLTRB(20, 12, 20, 120),
-                      itemCount:
-                          state.posts.length + (state.isLoadingMore ? 1 : 0),
-                      itemBuilder: (context, index) {
-                        if (index >= state.posts.length) {
-                          return const Padding(
-                            padding: EdgeInsets.symmetric(vertical: 16),
-                            child: Center(child: CircularProgressIndicator()),
-                          );
-                        }
-                        final post = state.posts[index];
-                        return DiaryPostCard(
-                          post: post,
-                          onTap: () => _openDetail(post),
-                          onToggleLike: () => _toggleLike(post),
-                          onToggleBookmark: () => _toggleBookmark(post),
-                          onComment: () => _openDetail(post),
-                          onQuote: () => _quotePost(post),
-                          onEdit: () => _editPost(post),
-                          currentUserId: currentUser?.id,
-                        );
-                      },
-                    );
-                  },
-                ),
+            Text('🔖 ブックマーク', style: theme.textTheme.headlineSmall),
+            const SizedBox(height: 4),
+            Text(
+              '保存した投稿をまとめて確認',
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
               ),
             ),
           ],
         ),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(1),
+          child: Container(
+            color: theme.colorScheme.outlineVariant,
+            height: 1,
+          ),
+        ),
+      ),
+      body: Column(
+        children: [
+          if (state.isLoading && state.posts.isNotEmpty)
+            const LinearProgressIndicator(minHeight: 2),
+          Expanded(
+            child: RefreshIndicator(
+              onRefresh: _refresh,
+              child: Builder(
+                builder: (context) {
+                  if (state.isLoading && state.posts.isEmpty) {
+                    return ListView(
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      padding: const EdgeInsets.fromLTRB(20, 80, 20, 20),
+                      children: const [
+                        SizedBox(
+                          height: 160,
+                          child: Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                        ),
+                      ],
+                    );
+                  }
+                  if (state.errorMessage != null &&
+                      state.posts.isEmpty) {
+                    return ListView(
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      padding: const EdgeInsets.fromLTRB(20, 80, 20, 20),
+                      children: [
+                        _BookmarksEmptyState(
+                          icon: Icons.error_outline,
+                          title: '読み込みに失敗しました',
+                          message: state.errorMessage!,
+                          iconColor: theme.colorScheme.error,
+                        ),
+                      ],
+                    );
+                  }
+                  if (state.posts.isEmpty) {
+                    return ListView(
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      padding: const EdgeInsets.fromLTRB(20, 80, 20, 20),
+                      children: const [
+                        _BookmarksEmptyState(
+                          icon: Icons.bookmark_border,
+                          title: 'ブックマークはありません',
+                          message: '気になる投稿にブックマークを付けるとここに表示されます。',
+                        ),
+                      ],
+                    );
+                  }
+                  return ListView.builder(
+                    controller: _scrollController,
+                    physics: const AlwaysScrollableScrollPhysics(),
+                    padding: const EdgeInsets.fromLTRB(20, 12, 20, 120),
+                    itemCount:
+                        state.posts.length + (state.isLoadingMore ? 1 : 0),
+                    itemBuilder: (context, index) {
+                      if (index >= state.posts.length) {
+                        return const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 16),
+                          child: Center(child: CircularProgressIndicator()),
+                        );
+                      }
+                      final post = state.posts[index];
+                      return DiaryPostCard(
+                        post: post,
+                        onTap: () => _openDetail(post),
+                        onToggleLike: () => _toggleLike(post),
+                        onToggleBookmark: () => _toggleBookmark(post),
+                        onComment: () => _openDetail(post),
+                        onQuote: () => _quotePost(post),
+                        onEdit: () => _editPost(post),
+                        currentUserId: currentUser?.id,
+                      );
+                    },
+                  );
+                },
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -294,48 +273,5 @@ class _BookmarksEmptyState extends StatelessWidget {
         ),
       ],
     );
-  }
-}
-
-class _ToolbarIconButton extends StatelessWidget {
-  const _ToolbarIconButton({
-    required this.icon,
-    required this.onPressed,
-    this.tooltip,
-    this.enabled = true,
-  });
-
-  final IconData icon;
-  final VoidCallback onPressed;
-  final String? tooltip;
-  final bool enabled;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final button = Material(
-      color: theme.colorScheme.surface,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: theme.colorScheme.outlineVariant),
-      ),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(16),
-        onTap: enabled ? onPressed : null,
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Icon(
-            icon,
-            size: 20,
-            color: theme.colorScheme.onSurface,
-          ),
-        ),
-      ),
-    );
-    final decorated = Opacity(opacity: enabled ? 1 : 0.4, child: button);
-    if (tooltip != null) {
-      return Tooltip(message: tooltip!, child: decorated);
-    }
-    return decorated;
   }
 }

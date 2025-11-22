@@ -5,12 +5,14 @@ import 'package:forui/forui.dart';
 import '../../features/auth/data/models/user_model.dart';
 import '../../features/auth/domain/providers/auth_providers.dart';
 import '../../features/diary/data/models/diary_post.dart';
+import '../../features/diary/data/repositories/diary_repository.dart';
+import '../../features/diary/domain/providers/diary_providers.dart';
 import '../../features/profile/data/models/user_stats_model.dart';
 import '../../features/profile/domain/providers/profile_providers.dart';
 import '../widgets/diary_post_card.dart';
 import 'diary/drafts_screen.dart';
 
-class ProfileScreen extends ConsumerWidget {
+class ProfileScreen extends ConsumerStatefulWidget {
   const ProfileScreen({
     super.key,
     this.userId,
@@ -21,12 +23,19 @@ class ProfileScreen extends ConsumerWidget {
   final VoidCallback onOpenSettings;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends ConsumerState<ProfileScreen> {
+  int _selectedTabIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
     // 表示対象のユーザーIDを決定
     final currentUser = ref.watch(currentUserProvider);
-    final targetUserId = userId ?? currentUser?.id;
+    final targetUserId = widget.userId ?? currentUser?.id;
 
     if (targetUserId == null) {
       return const Center(child: Text('ユーザー情報の取得に失敗しました'));
@@ -35,7 +44,12 @@ class ProfileScreen extends ConsumerWidget {
     // プロバイダーを監視
     final profileAsync = ref.watch(userProfileProvider(targetUserId));
     final statsAsync = ref.watch(userStatsProvider(targetUserId));
-    final postsAsync = ref.watch(userPostsProvider(targetUserId));
+    
+    // タブに応じてデータを取得
+    // 投稿タブの場合のみ投稿を取得
+    final postsAsync = _selectedTabIndex == 0 
+        ? ref.watch(userPostsProvider(targetUserId))
+        : const AsyncValue.data(<DiaryPost>[]);
 
     // AsyncValue.whenで状態管理
     return profileAsync.when(
@@ -106,7 +120,7 @@ class ProfileScreen extends ConsumerWidget {
             ),
           FHeaderAction(
             icon: const Icon(Icons.settings_outlined),
-            onPress: onOpenSettings,
+            onPress: widget.onOpenSettings,
           ),
         ],
       ),
@@ -214,75 +228,137 @@ class ProfileScreen extends ConsumerWidget {
                   _TabItem(
                     label: '投稿',
                     value: '${profile.postsCount}',
-                    selected: true,
+                    selected: _selectedTabIndex == 0,
+                    onTap: () => setState(() => _selectedTabIndex = 0),
                   ),
                   _TabItem(
                     label: 'フォロワー',
                     value: '${profile.followersCount}',
+                    selected: _selectedTabIndex == 1,
+                    onTap: () => setState(() => _selectedTabIndex = 1),
                   ),
                   _TabItem(
                     label: 'フォロー中',
                     value: '${profile.followingCount}',
+                    selected: _selectedTabIndex == 2,
+                    onTap: () => setState(() => _selectedTabIndex = 2),
                   ),
                 ],
               ),
             ),
           ),
           const SizedBox(height: 24),
-          postsAsync.when(
-            data: (posts) {
-              if (posts.isEmpty) {
-                return Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(32),
-                    child: Text(
-                      'まだ投稿がありません',
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+          if (_selectedTabIndex == 0)
+            postsAsync.when(
+              data: (posts) {
+                if (posts.isEmpty) {
+                  return Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(32),
+                      child: Text(
+                        'まだ投稿がありません',
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+                        ),
                       ),
                     ),
-                  ),
+                  );
+                }
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+                      child: Text(
+                        '日記',
+                        style: theme.textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    ...posts.take(20).map((post) {
+                      return DiaryPostCard(
+                        post: post,
+                        onTap: () {
+                          // TODO: Navigate to post detail
+                        },
+                        onToggleLike: () async {
+                          await ref
+                              .read(diaryRepositoryProvider)
+                              .toggleLike(post.id, like: !post.liked);
+                          ref.invalidate(userPostsProvider(profile.id));
+                        },
+                        onToggleBookmark: () async {
+                          await ref
+                              .read(diaryRepositoryProvider)
+                              .toggleBookmark(post.id, bookmark: !post.bookmarked);
+                          ref.invalidate(userPostsProvider(profile.id));
+                        },
+                        onComment: () {},
+                        currentUserId: currentUserId,
+                      );
+                    }),
+                  ],
                 );
-              }
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
-                    child: Text(
-                      '日記',
-                      style: theme.textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+              },
+              loading: () => const Center(child: CircularProgressIndicator()),
+              error: (_, __) => Center(
+                child: Text(
+                  '投稿の取得に失敗しました',
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.error,
                   ),
-                  ...posts.take(20).map((post) {
-                    return DiaryPostCard(
-                      post: post,
-                      onTap: () {
-                        // TODO: Navigate to post detail
-                      },
-                      onToggleLike: () {},
-                      onToggleBookmark: () {},
-                      onComment: () {},
-                      currentUserId: currentUserId,
-                    );
-                  }),
-                ],
-              );
-            },
-            loading: () => const Center(child: CircularProgressIndicator()),
-            error: (_, __) => Center(
-              child: Text(
-                '投稿の取得に失敗しました',
-                style: theme.textTheme.bodySmall?.copyWith(
-                  color: theme.colorScheme.error,
                 ),
               ),
-            ),
-          ),
+            )
+          else if (_selectedTabIndex == 1)
+            _buildFollowersList(context, profile.id)
+          else
+            _buildFollowingList(context, profile.id),
         ],
       ),
+    );
+  }
+
+  Widget _buildFollowersList(BuildContext context, String userId) {
+    final followersAsync = ref.watch(userFollowersProvider(userId));
+    return followersAsync.when(
+      data: (users) {
+        if (users.isEmpty) {
+          return const Center(
+            child: Padding(
+              padding: EdgeInsets.all(32),
+              child: Text('フォロワーはいません'),
+            ),
+          );
+        }
+        return Column(
+          children: users.map((user) => _UserListTile(user: user)).toList(),
+        );
+      },
+      loading: () => const Center(child: CircularProgressIndicator()),
+      error: (e, _) => Center(child: Text('エラーが発生しました: $e')),
+    );
+  }
+
+  Widget _buildFollowingList(BuildContext context, String userId) {
+    final followingAsync = ref.watch(userFollowingProvider(userId));
+    return followingAsync.when(
+      data: (users) {
+        if (users.isEmpty) {
+          return const Center(
+            child: Padding(
+              padding: EdgeInsets.all(32),
+              child: Text('フォロー中のユーザーはいません'),
+            ),
+          );
+        }
+        return Column(
+          children: users.map((user) => _UserListTile(user: user)).toList(),
+        );
+      },
+      loading: () => const Center(child: CircularProgressIndicator()),
+      error: (e, _) => Center(child: Text('エラーが発生しました: $e')),
     );
   }
 
@@ -362,42 +438,51 @@ class _TabItem extends StatelessWidget {
     required this.label,
     required this.value,
     this.selected = false,
+    required this.onTap,
   });
 
   final String label;
   final String value;
   final bool selected;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Expanded(
-      child: Column(
-        children: [
-          Text(
-            value,
-            style: theme.textTheme.titleLarge?.copyWith(
-              color: selected
-                  ? theme.colorScheme.primary
-                  : theme.colorScheme.onSurface,
-            ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(8),
+          child: Column(
+            children: [
+              Text(
+                value,
+                style: theme.textTheme.titleLarge?.copyWith(
+                  color: selected
+                      ? theme.colorScheme.primary
+                      : theme.colorScheme.onSurface,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                label,
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                ),
+              ),
+              const SizedBox(height: 6),
+              Container(
+                height: 4,
+                decoration: BoxDecoration(
+                  color: selected ? theme.colorScheme.primary : Colors.transparent,
+                  borderRadius: BorderRadius.circular(4),
+                ),
+              ),
+            ],
           ),
-          const SizedBox(height: 4),
-          Text(
-            label,
-            style: theme.textTheme.bodyMedium?.copyWith(
-              color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
-            ),
-          ),
-          const SizedBox(height: 6),
-          Container(
-            height: 4,
-            decoration: BoxDecoration(
-              color: selected ? theme.colorScheme.primary : Colors.transparent,
-              borderRadius: BorderRadius.circular(4),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
@@ -478,6 +563,66 @@ class _FollowButtonState extends ConsumerState<_FollowButton> {
               child: CircularProgressIndicator(strokeWidth: 2),
             )
           : Text(_isFollowing ? 'フォロー中' : 'フォローする'),
+    );
+  }
+}
+
+class _UserListTile extends StatelessWidget {
+  const _UserListTile({required this.user});
+
+  final UserModel user;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute<void>(
+              builder: (_) => ProfileScreen(
+                userId: user.id,
+                onOpenSettings: () {}, // 設定画面への遷移は不要、または親から渡す
+              ),
+            ),
+          );
+        },
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          child: Row(
+            children: [
+              CircleAvatar(
+                radius: 24,
+                backgroundImage: user.profileImageUrl != null
+                    ? NetworkImage(user.profileImageUrl!)
+                    : null,
+                child: user.profileImageUrl == null
+                    ? const Icon(Icons.person)
+                    : null,
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      user.displayName,
+                      style: theme.textTheme.titleMedium,
+                    ),
+                    Text(
+                      '@${user.username}',
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
