@@ -72,6 +72,7 @@ abstract class DiaryPost with _$DiaryPost {
       _$DiaryPostFromJson(json);
 }
 
+
 class DiaryFeedPage {
   DiaryFeedPage({required this.posts, required this.pageInfo});
 

@@ -49,7 +49,7 @@ export async function PUT(
     assertSameUser(authUser.id, id);
 
     const payload = await request.json();
-    const { displayName, bio, settings } = payload;
+    const { displayName, bio, settings, profileImageUrl } = payload;
 
     if (typeof displayName !== "undefined") {
       if (typeof displayName !== "string" || displayName.trim().length === 0) {
@@ -76,10 +76,24 @@ export async function PUT(
       validateUserSettings(settings);
     }
 
+    if (typeof profileImageUrl !== "undefined") {
+      if (profileImageUrl !== null && typeof profileImageUrl !== "string") {
+        throw ERROR.INVALID_INPUT("profileImageUrl must be string or null", {
+          field: "profileImageUrl",
+        });
+      }
+      if (typeof profileImageUrl === "string" && profileImageUrl.trim().length === 0) {
+        throw ERROR.INVALID_INPUT("profileImageUrl must be non-empty", {
+          field: "profileImageUrl",
+        });
+      }
+    }
+
     const updated = await updateUserProfile(id, {
       displayName,
       bio,
       settings,
+      profileImageUrl: typeof profileImageUrl === "undefined" ? undefined : profileImageUrl ?? null,
     });
 
     return NextResponse.json(updated);

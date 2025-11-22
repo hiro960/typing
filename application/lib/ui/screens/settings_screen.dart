@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
 import '../../features/auth/domain/providers/auth_providers.dart';
+import 'settings/blocked_accounts_screen.dart';
 
 class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
@@ -97,6 +98,27 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 trailing: IconButton(
                   icon: const Icon(Icons.copy),
                   onPressed: () {},
+                ),
+              ),
+              Material(
+                color: Colors.transparent,
+                child: ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  title: const Text('ブロックしているアカウント'),
+                  subtitle: Text(
+                    'ブロックしたユーザーの一覧と解除',
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                    ),
+                  ),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (_) => const BlockedAccountsScreen(),
+                      ),
+                    );
+                  },
                 ),
               ),
             ],

@@ -196,7 +196,7 @@ export interface BlockRecord {
 }
 
 export interface BlockResponse extends BlockRecord {
-  blocked: UserSummary;
+  blockedUser: UserSummary | null;
 }
 
 export interface ReportRecord {

@@ -1,11 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../features/auth/data/models/user_model.dart';
 import '../../features/auth/domain/providers/auth_providers.dart';
 import '../../features/diary/data/models/diary_post.dart';
-import '../../features/diary/data/repositories/diary_repository.dart';
 import '../../features/diary/domain/providers/diary_providers.dart';
 import '../../features/profile/data/models/user_stats_model.dart';
 import '../../features/profile/domain/providers/profile_providers.dart';
@@ -28,6 +30,8 @@ class ProfileScreen extends ConsumerStatefulWidget {
 
 class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   int _selectedTabIndex = 0;
+  final _imagePicker = ImagePicker();
+  bool _isUpdatingAvatar = false;
 
   @override
   Widget build(BuildContext context) {
@@ -131,14 +135,64 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
           Center(
             child: Column(
               children: [
-                CircleAvatar(
-                  radius: 60,
-                  backgroundImage: profile.profileImageUrl != null
-                      ? NetworkImage(profile.profileImageUrl!)
-                      : null,
-                  child: profile.profileImageUrl == null
-                      ? const Icon(Icons.person, size: 60)
-                      : null,
+                GestureDetector(
+                  onTap: () => _onAvatarTap(profile, currentUserId),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 60,
+                        backgroundImage: profile.profileImageUrl != null
+                            ? NetworkImage(profile.profileImageUrl!)
+                            : null,
+                        child: profile.profileImageUrl == null
+                            ? const Icon(Icons.person, size: 60)
+                            : null,
+                      ),
+                      if (currentUserId == profile.id)
+                        Positioned(
+                          bottom: 2,
+                          right: 6,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: theme.colorScheme.surface,
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withValues(alpha: 0.12),
+                                  blurRadius: 4,
+                                ),
+                              ],
+                            ),
+                            padding: const EdgeInsets.all(6),
+                            child: Icon(
+                              Icons.edit,
+                              size: 16,
+                              color: theme.colorScheme.primary,
+                            ),
+                          ),
+                        ),
+                      if (_isUpdatingAvatar)
+                        Container(
+                          width: 120,
+                          height: 120,
+                          decoration: BoxDecoration(
+                            color: Colors.black.withValues(alpha: 0.35),
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Center(
+                            child: SizedBox(
+                              width: 28,
+                              height: 28,
+                              child: CircularProgressIndicator(
+                                strokeWidth: 3,
+                                valueColor: AlwaysStoppedAnimation(Colors.white),
+                              ),
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 16),
                 Text(profile.displayName, style: theme.textTheme.headlineSmall),
@@ -318,6 +372,153 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         ],
       ),
     );
+  }
+
+  Future<void> _onAvatarTap(UserModel profile, String? currentUserId) async {
+    if (currentUserId == profile.id) {
+      await _showAvatarActionSheet(profile);
+      return;
+    }
+    if (profile.profileImageUrl == null) return;
+    _showProfileImageDialog(profile.profileImageUrl!, profile.displayName);
+  }
+
+  Future<void> _showAvatarActionSheet(UserModel profile) async {
+    final choice = await showModalBottomSheet<String>(
+      context: context,
+      builder: (context) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              leading: const Icon(Icons.photo_library_outlined),
+              title: const Text('写真を選択'),
+              onTap: () => Navigator.of(context).pop('pick'),
+            ),
+            if (profile.profileImageUrl != null)
+              ListTile(
+                leading: const Icon(Icons.delete_outline),
+                title: const Text('画像を削除'),
+                onTap: () => Navigator.of(context).pop('remove'),
+              ),
+          ],
+        ),
+      ),
+    );
+    if (choice == 'pick') {
+      await _pickAndUploadAvatar(profile);
+    } else if (choice == 'remove') {
+      await _updateProfileImage(profile, remove: true);
+    }
+  }
+
+  Future<void> _pickAndUploadAvatar(UserModel profile) async {
+    try {
+      final picked = await _imagePicker.pickImage(
+        source: ImageSource.gallery,
+        imageQuality: 90,
+        maxWidth: 2048,
+      );
+      if (picked == null) return;
+      await _updateProfileImage(profile, file: File(picked.path));
+    } catch (error) {
+      _showMessage('画像の取得に失敗しました: $error');
+    }
+  }
+
+  Future<void> _updateProfileImage(
+    UserModel profile, {
+    File? file,
+    bool remove = false,
+  }) async {
+    if (!remove && file == null) return;
+    setState(() => _isUpdatingAvatar = true);
+    try {
+      final repository = ref.read(profileRepositoryProvider);
+      String? imageUrl;
+      if (!remove && file != null) {
+        imageUrl = await repository.uploadProfileImage(file);
+      }
+      final updated = await repository.updateProfileImage(
+        userId: profile.id,
+        profileImageUrl: remove ? null : imageUrl,
+      );
+      ref.invalidate(userProfileProvider(profile.id));
+      final currentUser = ref.read(currentUserProvider);
+      if (currentUser?.id == profile.id) {
+        ref.read(authStateProvider.notifier).updateUser(updated);
+      }
+      _showMessage(remove ? 'プロフィール画像を削除しました' : 'プロフィール画像を更新しました');
+    } catch (error) {
+      _showMessage('プロフィール画像の更新に失敗しました: $error');
+    } finally {
+      if (mounted) {
+        setState(() => _isUpdatingAvatar = false);
+      }
+    }
+  }
+
+  void _showProfileImageDialog(String imageUrl, String displayName) {
+    showDialog<void>(
+      context: context,
+      builder: (context) => Dialog(
+        insetPadding: const EdgeInsets.all(16),
+        child: Stack(
+          children: [
+            InteractiveViewer(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.network(
+                  imageUrl,
+                  fit: BoxFit.contain,
+                  loadingBuilder: (context, child, progress) {
+                    if (progress == null) return child;
+                    return SizedBox(
+                      height: 280,
+                      child: Center(
+                        child: CircularProgressIndicator(
+                          value: progress.expectedTotalBytes != null
+                              ? progress.cumulativeBytesLoaded /
+                                  progress.expectedTotalBytes!
+                              : null,
+                        ),
+                      ),
+                    );
+                  },
+                  errorBuilder: (_, __, ___) => const SizedBox(
+                    height: 280,
+                    child: Center(child: Icon(Icons.error_outline)),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 8,
+              right: 8,
+              child: IconButton(
+                icon: const Icon(Icons.close),
+                onPressed: () => Navigator.of(context).maybePop(),
+              ),
+            ),
+            Positioned(
+              bottom: 12,
+              left: 16,
+              right: 16,
+              child: Text(
+                displayName,
+                style: Theme.of(context).textTheme.titleMedium,
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _showMessage(String message) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
   }
 
   Widget _buildFollowersList(BuildContext context, String userId) {

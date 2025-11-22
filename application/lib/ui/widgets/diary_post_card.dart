@@ -48,6 +48,8 @@ class DiaryPostCard extends StatelessWidget {
     final canEdit = isOwnPost &&
         post.createdAt != null &&
         DateTime.now().difference(post.createdAt!).inHours < 24;
+    final hasMenu = (!isOwnPost && ((onReport != null) || (onBlock != null))) ||
+        (canEdit && onEdit != null);
 
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8),
@@ -172,56 +174,57 @@ class DiaryPostCard extends StatelessWidget {
                 ],
               ),
             ),
-            Positioned(
-              top: 8,
-              right: 8,
-              child: PopupMenuButton<String>(
-                onSelected: (value) {
-                  if (value == 'edit') {
-                    onEdit?.call();
-                  } else if (value == 'report') {
-                    onReport?.call();
-                  } else if (value == 'block') {
-                    onBlock?.call();
-                  }
-                },
-                itemBuilder: (context) => [
-                  if (canEdit && onEdit != null)
-                    const PopupMenuItem(
-                      value: 'edit',
-                      child: Row(
-                        children: [
-                          Icon(Icons.edit, size: 20),
-                          SizedBox(width: 12),
-                          Text('編集'),
-                        ],
+            if (hasMenu)
+              Positioned(
+                top: 8,
+                right: 8,
+                child: PopupMenuButton<String>(
+                  onSelected: (value) {
+                    if (value == 'edit') {
+                      onEdit?.call();
+                    } else if (value == 'report') {
+                      onReport?.call();
+                    } else if (value == 'block') {
+                      onBlock?.call();
+                    }
+                  },
+                  itemBuilder: (context) => [
+                    if (canEdit && onEdit != null)
+                      const PopupMenuItem(
+                        value: 'edit',
+                        child: Row(
+                          children: [
+                            Icon(Icons.edit, size: 20),
+                            SizedBox(width: 12),
+                            Text('編集'),
+                          ],
+                        ),
                       ),
-                    ),
-                  if (!isOwnPost && onReport != null)
-                    const PopupMenuItem(
-                      value: 'report',
-                      child: Row(
-                        children: [
-                          Icon(Icons.flag, size: 20),
-                          SizedBox(width: 12),
-                          Text('通報'),
-                        ],
+                    if (!isOwnPost && onReport != null)
+                      const PopupMenuItem(
+                        value: 'report',
+                        child: Row(
+                          children: [
+                            Icon(Icons.flag, size: 20),
+                            SizedBox(width: 12),
+                            Text('通報'),
+                          ],
+                        ),
                       ),
-                    ),
-                  if (!isOwnPost && onBlock != null)
-                    const PopupMenuItem(
-                      value: 'block',
-                      child: Row(
-                        children: [
-                          Icon(Icons.block, size: 20),
-                          SizedBox(width: 12),
-                          Text('ブロック'),
-                        ],
+                    if (!isOwnPost && onBlock != null)
+                      const PopupMenuItem(
+                        value: 'block',
+                        child: Row(
+                          children: [
+                            Icon(Icons.block, size: 20),
+                            SizedBox(width: 12),
+                            Text('ブロック'),
+                          ],
+                        ),
                       ),
-                    ),
-                ],
+                  ],
+                ),
               ),
-            ),
           ],
         ),
       ),

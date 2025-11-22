@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 
 import '../../../../core/utils/logger.dart';
+import '../../../../core/constants/api_constants.dart';
 import '../../../auth/data/models/user_model.dart';
 import '../../../auth/data/services/api_client_service.dart';
 import '../../../diary/data/models/diary_post.dart';
@@ -168,6 +171,54 @@ class ProfileRepository {
     } on DioException catch (error, stackTrace) {
       AppLogger.error(
         'Failed to fetch following',
+        tag: 'ProfileRepository',
+        error: error,
+        stackTrace: stackTrace,
+      );
+      throw ApiClientService.handleDioException(error);
+    }
+  }
+
+  Future<String> uploadProfileImage(File file) async {
+    try {
+      final filename = file.path.split(Platform.pathSeparator).last;
+      final formData = FormData.fromMap({
+        'type': 'profile',
+        'file': await MultipartFile.fromFile(
+          file.path,
+          filename: filename,
+        ),
+      });
+      final response = await _apiClient.dio.post(
+        '/api/upload/image',
+        data: formData,
+      );
+      final payload = response.data as Map<String, dynamic>;
+      return payload['url'] as String? ?? '';
+    } on DioException catch (error, stackTrace) {
+      AppLogger.error(
+        'Failed to upload profile image',
+        tag: 'ProfileRepository',
+        error: error,
+        stackTrace: stackTrace,
+      );
+      throw ApiClientService.handleDioException(error);
+    }
+  }
+
+  Future<UserModel> updateProfileImage({
+    required String userId,
+    required String? profileImageUrl,
+  }) async {
+    try {
+      final response = await _apiClient.dio.put(
+        ApiConstants.userById(userId),
+        data: {'profileImageUrl': profileImageUrl},
+      );
+      return UserModel.fromJson(response.data as Map<String, dynamic>);
+    } on DioException catch (error, stackTrace) {
+      AppLogger.error(
+        'Failed to update profile image',
         tag: 'ProfileRepository',
         error: error,
         stackTrace: stackTrace,

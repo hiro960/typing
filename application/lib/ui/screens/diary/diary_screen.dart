@@ -144,10 +144,7 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
     if (confirm != true) return;
     try {
       await ref.read(diaryRepositoryProvider).blockUser(post.user.id);
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${post.user.displayName}さんをブロックしました')),
-      );
+      _showSnack('${post.user.displayName}さんをブロックしました');
       await _refresh();
     } catch (error) {
       _showError(error);
@@ -184,20 +181,20 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
             postId: post.id,
             reason: selected,
           );
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('投稿を通報しました')),
-      );
+      _showSnack('投稿を通報しました');
     } catch (error) {
       _showError(error);
     }
   }
 
   void _showError(Object error) {
+    _showSnack(error.toString());
+  }
+
+  void _showSnack(String message) {
     if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(error.toString())),
-    );
+    final messenger = ScaffoldMessenger.maybeOf(context);
+    messenger?.showSnackBar(SnackBar(content: Text(message)));
   }
 
   @override

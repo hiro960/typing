@@ -270,6 +270,7 @@ export async function updateUserProfile(
     displayName?: string;
     bio?: string | null;
     settings?: Partial<UserSettings>;
+    profileImageUrl?: string | null;
   }
 ): Promise<UserDetail> {
   const current = await prisma.user.findUnique({ where: { id: userId } });
@@ -287,6 +288,8 @@ export async function updateUserProfile(
       displayName: typeof updates.displayName === "undefined" ? undefined : updates.displayName,
       bio: typeof updates.bio === "undefined" ? undefined : updates.bio,
       settings: mergedSettings ? serializeSettings(mergedSettings) : undefined,
+      profileImageUrl:
+        typeof updates.profileImageUrl === "undefined" ? undefined : updates.profileImageUrl,
     },
   });
 
@@ -1135,7 +1138,7 @@ export async function listBlocks(blockerId: string): Promise<BlockResponse[]> {
     blockerId: block.blockerId,
     blockedId: block.blockedId,
     createdAt: block.createdAt,
-    blocked: toUserSummary(block.blocked),
+    blockedUser: block.blocked ? toUserSummary(block.blocked) : null,
   }));
 }
 

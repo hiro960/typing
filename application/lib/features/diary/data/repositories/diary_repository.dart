@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 
 import '../../../../core/utils/logger.dart';
 import '../../../auth/data/services/api_client_service.dart';
+import '../models/blocked_account.dart';
 import '../models/diary_comment.dart';
 import '../models/diary_notification.dart';
 import '../models/diary_post.dart';
@@ -532,6 +533,38 @@ class DiaryRepository {
     } on DioException catch (error, stackTrace) {
       AppLogger.error(
         'Failed to block user',
+        tag: 'DiaryRepository',
+        error: error,
+        stackTrace: stackTrace,
+      );
+      throw ApiClientService.handleDioException(error);
+    }
+  }
+
+  Future<List<BlockedAccount>> fetchBlockedAccounts() async {
+    try {
+      final response = await _apiClient.dio.get('/api/blocks');
+      final data = response.data['data'] as List<dynamic>? ?? [];
+      return data
+          .map((json) => BlockedAccount.fromJson(json as Map<String, dynamic>))
+          .toList();
+    } on DioException catch (error, stackTrace) {
+      AppLogger.error(
+        'Failed to fetch blocked accounts',
+        tag: 'DiaryRepository',
+        error: error,
+        stackTrace: stackTrace,
+      );
+      throw ApiClientService.handleDioException(error);
+    }
+  }
+
+  Future<void> unblock(String blockId) async {
+    try {
+      await _apiClient.dio.delete('/api/blocks/$blockId');
+    } on DioException catch (error, stackTrace) {
+      AppLogger.error(
+        'Failed to unblock user',
         tag: 'DiaryRepository',
         error: error,
         stackTrace: stackTrace,
