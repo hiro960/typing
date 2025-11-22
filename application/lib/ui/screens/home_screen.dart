@@ -10,6 +10,7 @@ import '../../features/lessons/data/models/lesson_progress.dart';
 import '../../features/lessons/domain/providers/lesson_progress_providers.dart';
 import '../../features/lessons/domain/providers/lesson_providers.dart';
 import '../app_theme.dart';
+import '../widgets/app_page_scaffold.dart';
 import 'lesson_detail_screen.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
@@ -44,69 +45,66 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         final progress =
             progressAsync.value ?? const <String, LessonProgress>{};
         final focusLesson = _findNextLesson(catalog, progress);
-        return SafeArea(
-          top: true,
-          bottom: false,
-          child: Material(
-            color: Colors.transparent,
-            child: CustomScrollView(
-              physics: const BouncingScrollPhysics(),
-              slivers: [
-                SliverPadding(
-                  padding: const EdgeInsets.fromLTRB(20, 16, 20, 140),
-                  sliver: SliverToBoxAdapter(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        FHeader(
-                          title: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                '안녕하세요, $displayName',
-                                style: Theme.of(
-                                  context,
-                                ).textTheme.headlineSmall,
-                              ),
-                            ],
-                          ),
-                          suffixes: [
-                            FHeaderAction(
-                              icon: const Icon(Icons.settings_outlined),
-                              onPress: widget.onOpenSettings,
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 16),
-                        _ProgressHero(stats: stats),
-                        const SizedBox(height: 16),
-                        _StatHighlights(stats: stats),
-                        const SizedBox(height: 24),
-                        _LevelAccordions(
-                          controller: _accordionController,
-                          catalog: catalog,
-                          progress: progress,
-                          onLessonTap: _onLessonTap,
-                        ),
-                        const SizedBox(height: 24),
-                        _QuickActions(
-                          focusLesson: focusLesson,
-                          onFocusTap: focusLesson == null
-                              ? null
-                              : () => _onLessonTap(focusLesson, false),
-                          onCustomPracticeTap: _showCustomPracticeHint,
-                        ),
-                      ],
-                    ),
+        return AppPageScaffold(
+          childPad: false,
+      header: FHeader(
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              '안녕하세요, $displayName',
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
+          ],
+        ),
+            suffixes: [
+              FHeaderAction(
+                icon: const Icon(Icons.settings_outlined),
+                onPress: widget.onOpenSettings,
+              ),
+            ],
+          ),
+          child: CustomScrollView(
+            physics: const BouncingScrollPhysics(),
+            slivers: [
+              SliverPadding(
+                padding: const EdgeInsets.fromLTRB(20, 16, 20, 140),
+                sliver: SliverToBoxAdapter(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _ProgressHero(stats: stats),
+                      const SizedBox(height: 16),
+                      _StatHighlights(stats: stats),
+                      const SizedBox(height: 24),
+                      _LevelAccordions(
+                        controller: _accordionController,
+                        catalog: catalog,
+                        progress: progress,
+                        onLessonTap: _onLessonTap,
+                      ),
+                      const SizedBox(height: 24),
+                      _QuickActions(
+                        focusLesson: focusLesson,
+                        onFocusTap: focusLesson == null
+                            ? null
+                            : () => _onLessonTap(focusLesson, false),
+                        onCustomPracticeTap: _showCustomPracticeHint,
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         );
       },
-      loading: () => const Center(child: CircularProgressIndicator()),
-      error: (error, _) => Center(child: Text(error.toString())),
+      loading: () => AppPageScaffold(
+        child: Center(child: CircularProgressIndicator()),
+      ),
+      error: (error, _) => AppPageScaffold(
+        child: Center(child: Text(error.toString())),
+      ),
     );
   }
 

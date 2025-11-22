@@ -7,6 +7,7 @@ import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/data/repositories/diary_repository.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../widgets/diary_post_card.dart';
+import '../../widgets/app_page_scaffold.dart';
 import 'drafts_screen.dart';
 import 'post_create_screen.dart';
 import 'post_detail_screen.dart';
@@ -206,39 +207,45 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
     final feedState = timelineState.feed(_selectedFeed);
     final currentUser = ref.watch(currentUserProvider);
 
-    return SafeArea(
-      top: true,
-      bottom: false,
+    return AppPageScaffold(
+      childPad: false,
+      header: FHeader(
+        title: Row(
+          children: [
+            Icon(
+              Icons.menu_book_outlined,
+              size: 22,
+              color: theme.colorScheme.onSurface,
+            ),
+            const SizedBox(width: 8),
+            Text('日記', style: theme.textTheme.headlineSmall),
+          ],
+        ),
+        suffixes: [
+          FHeaderAction(
+            icon: const Icon(Icons.search),
+            onPress: widget.onOpenSearch,
+          ),
+          FHeaderAction(
+            icon: const Icon(Icons.bookmark_outline),
+            onPress: widget.onOpenBookmarks,
+          ),
+          FHeaderAction(
+            icon: const Icon(Icons.edit_document),
+            onPress: () {
+              Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => const DraftsScreen(),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
-            child: FHeader(
-              title: Text('📝 日記', style: theme.textTheme.headlineSmall),
-              suffixes: [
-                FHeaderAction(
-                  icon: const Icon(Icons.search),
-                  onPress: widget.onOpenSearch,
-                ),
-                FHeaderAction(
-                  icon: const Icon(Icons.bookmark_outline),
-                  onPress: widget.onOpenBookmarks,
-                ),
-                FHeaderAction(
-                  icon: const Icon(Icons.edit_document),
-                  onPress: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute<void>(
-                        builder: (_) => const DraftsScreen(),
-                      ),
-                    );
-                  },
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
             child: FTabs(
               key: ValueKey(_selectedFeed),
               initialIndex: DiaryFeedType.values.indexOf(_selectedFeed),

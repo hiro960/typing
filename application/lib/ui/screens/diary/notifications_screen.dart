@@ -5,6 +5,7 @@ import 'package:forui/forui.dart';
 
 import '../../../features/diary/data/models/diary_notification.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
+import '../../widgets/app_page_scaffold.dart';
 import 'post_detail_screen.dart';
 
 class NotificationsScreen extends ConsumerStatefulWidget {
@@ -45,9 +46,19 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
     final theme = Theme.of(context);
     final unreadCount =
         state.notifications.where((notification) => !notification.isRead).length;
-    return FScaffold(
+    return AppPageScaffold(
       header: FHeader(
-        title: Text('🔔 通知', style: theme.textTheme.headlineSmall),
+        title: Row(
+          children: [
+            Icon(
+              Icons.notifications_outlined,
+              size: 22,
+              color: theme.colorScheme.onSurface,
+            ),
+            const SizedBox(width: 8),
+            Text('通知', style: theme.textTheme.headlineSmall),
+          ],
+        ),
         suffixes: [
           FHeaderAction(
             icon: const Icon(Icons.mark_email_read_outlined),

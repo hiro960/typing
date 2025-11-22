@@ -12,6 +12,7 @@ import '../../features/diary/data/models/diary_post.dart';
 import '../../features/diary/domain/providers/diary_providers.dart';
 import '../../features/profile/data/models/user_stats_model.dart';
 import '../../features/profile/domain/providers/profile_providers.dart';
+import '../widgets/app_page_scaffold.dart';
 import '../widgets/diary_post_card.dart';
 
 class ProfileScreen extends ConsumerStatefulWidget {
@@ -102,15 +103,26 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
     String? currentUserId,
   ) {
     final isOwner = currentUserId == profile.id;
-    return FScaffold(
+    return AppPageScaffold(
       header: FHeader.nested(
+        titleAlignment: AlignmentDirectional.centerStart,
         prefixes: [
           if (Navigator.of(context).canPop())
             FHeaderAction.back(
               onPress: () => Navigator.of(context).maybePop(),
             ),
         ],
-        title: Text('👤 プロフィール', style: theme.textTheme.headlineSmall),
+        title: Row(
+          children: [
+            Icon(
+              Icons.person_outline,
+              size: 22,
+              color: theme.colorScheme.onSurface,
+            ),
+            const SizedBox(width: 8),
+            Text('プロフィール', style: theme.textTheme.headlineSmall),
+          ],
+        ),
         suffixes: [
           if (isOwner)
             FHeaderAction(

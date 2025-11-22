@@ -4,6 +4,7 @@ import 'package:forui/forui.dart';
 
 import '../../../features/wordbook/data/models/word_model.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
+import '../../widgets/app_page_scaffold.dart';
 import 'word_detail_screen.dart';
 import 'word_form_screen.dart';
 import 'word_quiz_screen.dart';
@@ -16,15 +17,8 @@ class WordbookScreen extends ConsumerStatefulWidget {
 }
 
 class _WordbookScreenState extends ConsumerState<WordbookScreen> {
-  final TextEditingController _searchController = TextEditingController();
   WordCategory _category = WordCategory.WORDS;
   Set<WordStatus> _statusFilters = {};
-
-  @override
-  void dispose() {
-    _searchController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +27,7 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
       filteredWordsProvider(
         category: _category,
         statusFilters: _statusFilters,
-        searchQuery: _searchController.text,
+        searchQuery: '',
       ),
     );
 
@@ -44,183 +38,107 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
 
     final isLoading = asyncWords.isLoading;
     final theme = Theme.of(context);
-    final isLight = theme.brightness == Brightness.light;
 
-    return Material(
-      color: isLight ? Colors.white : theme.colorScheme.surface,
-      child: SafeArea(
-        top: true,
-        bottom: false,
-        child: Column(
+    return AppPageScaffold(
+      childPad: false,
+      header: FHeader(
+        title: Row(
           children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
-              child: FHeader(
-                title: Text('📖 単語帳', style: theme.textTheme.headlineSmall),
-                suffixes: [
-                  FButton(
-                    style: FButtonStyle.ghost(),
-                    onPress: () => _openForm(),
-                    child: const Text('新規単語追加'),
-                  ),
-                ],
-              ),
+            Icon(
+              Icons.book_outlined,
+              size: 22,
+              color: theme.colorScheme.onSurface,
             ),
-            if (isLoading) const LinearProgressIndicator(minHeight: 2),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: FTabs(
-                      key: ValueKey(_category),
-                      initialIndex: WordCategory.values.indexOf(_category),
-                      onChange: (index) {
-                        final selected = WordCategory.values[index];
-                        setState(() => _category = selected);
-                      },
-                      children: WordCategory.values
-                          .map(
-                            (category) => FTabEntry(
-                              label: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 8),
-                                child: Text(
-                                  category.label,
-                                  style: theme.textTheme.bodySmall,
-                                ),
-                              ),
-                              child: const SizedBox.shrink(),
-                            ),
-                          )
-                          .toList(),
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  SizedBox(
-                    height: 40,
-                    child: FButton.icon(
-                      style: FButtonStyle.outline(),
-                      onPress: canStartQuiz
-                          ? () => _startQuiz(reviewableWords)
-                          : null,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(
-                            Icons.quiz_outlined,
-                            size: 18,
-                            color: theme.colorScheme.primary,
-                          ),
-                          const SizedBox(width: 6),
-                          Text(
-                            'クイズ',
-                            style: theme.textTheme.bodyMedium?.copyWith(
-                              color: theme.colorScheme.primary,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                          if (canStartQuiz) ...[
-                            const SizedBox(width: 6),
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8,
-                                vertical: 2,
-                              ),
-                              decoration: BoxDecoration(
-                                color: theme.colorScheme.primary
-                                    .withValues(alpha: 0.12),
-                                borderRadius: BorderRadius.circular(999),
-                              ),
-                              child: Text(
-                                '${reviewableWords.length}',
-                                style: theme.textTheme.labelSmall?.copyWith(
-                                  color: theme.colorScheme.primary,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
-              child: TextField(
-                controller: _searchController,
-                onChanged: (_) => setState(() {}),
-                decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.search),
-                  suffixIcon: _searchController.text.isEmpty
-                      ? null
-                      : IconButton(
-                          onPressed: () {
-                            _searchController.clear();
-                            setState(() {});
-                          },
-                          icon: const Icon(Icons.close),
-                        ),
-                  hintText: '単語・意味・例文で検索',
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
-              child: Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: [
-                  for (final status in WordStatus.values)
-                    FilterChip(
-                      label: Text(
-                        status.label,
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      selected: _statusFilters.contains(status),
-                      onSelected: (_) => _toggleStatus(status),
-                      selectedColor: theme.colorScheme.primary,
-                      checkmarkColor: theme.colorScheme.onPrimary,
-                      backgroundColor:
-                          theme.colorScheme.surfaceVariant.withValues(alpha: 0.6),
-                    ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 12),
-            Expanded(
-              child: RefreshIndicator(
-                onRefresh: () => ref.read(wordbookProvider.notifier).refresh(),
-                child: filteredWords.isEmpty
-                    ? _EmptyState(onAdd: _openForm)
-                    : GridView.builder(
-                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
-                        physics: const AlwaysScrollableScrollPhysics(),
-                        itemCount: filteredWords.length,
-                        gridDelegate:
-                            const SliverGridDelegateWithMaxCrossAxisExtent(
-                          maxCrossAxisExtent: 260,
-                          mainAxisSpacing: 16,
-                          crossAxisSpacing: 16,
-                          childAspectRatio: 0.95,
-                        ),
-                        itemBuilder: (context, index) {
-                          final word = filteredWords[index];
-                          return _WordCard(
-                            word: word,
-                            onTap: () => _openDetail(word.id),
-                          );
-                        },
-                      ),
-              ),
-            ),
+            const SizedBox(width: 8),
+            Text('単語帳', style: theme.textTheme.headlineSmall),
           ],
         ),
+        suffixes: [
+          FHeaderAction(
+            icon: Badge(
+              isLabelVisible: canStartQuiz,
+              label: Text('${reviewableWords.length}'),
+              child: const Icon(Icons.quiz_outlined),
+            ),
+            onPress: canStartQuiz ? () => _startQuiz(reviewableWords) : null,
+          ),
+          FHeaderAction(
+            icon: const Icon(Icons.add),
+            onPress: () => _openForm(),
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          if (isLoading) const LinearProgressIndicator(minHeight: 2),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
+            child: FTabs(
+              key: ValueKey(_category),
+              initialIndex: WordCategory.values.indexOf(_category),
+              onChange: (index) {
+                final selected = WordCategory.values[index];
+                setState(() => _category = selected);
+              },
+              children: WordCategory.values
+                  .map(
+                    (category) => FTabEntry(
+                      label: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        child: Text(
+                          category.label,
+                          style: theme.textTheme.bodySmall,
+                        ),
+                      ),
+                      child: const SizedBox.shrink(),
+                    ),
+                  )
+                  .toList(),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
+            child: Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                for (final status in WordStatus.values)
+                  _StatusFilterChip(
+                    label: status.label,
+                    selected: _statusFilters.contains(status),
+                    onTap: () => _toggleStatus(status),
+                  ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 12),
+          Expanded(
+            child: RefreshIndicator(
+              onRefresh: () => ref.read(wordbookProvider.notifier).refresh(),
+              child: filteredWords.isEmpty
+                  ? _EmptyState(onAdd: _openForm)
+                  : GridView.builder(
+                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      itemCount: filteredWords.length,
+                      gridDelegate:
+                          const SliverGridDelegateWithMaxCrossAxisExtent(
+                        maxCrossAxisExtent: 260,
+                        mainAxisSpacing: 16,
+                        crossAxisSpacing: 16,
+                        childAspectRatio: 0.95,
+                      ),
+                      itemBuilder: (context, index) {
+                        final word = filteredWords[index];
+                        return _WordCard(
+                          word: word,
+                          onTap: () => _openDetail(word.id),
+                        );
+                      },
+                    ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -397,6 +315,62 @@ class _EmptyState extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class _StatusFilterChip extends StatelessWidget {
+  const _StatusFilterChip({
+    required this.label,
+    required this.selected,
+    required this.onTap,
+  });
+
+  final String label;
+  final bool selected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        decoration: BoxDecoration(
+          color: selected
+              ? theme.colorScheme.primary
+              : theme.colorScheme.surfaceContainerHighest,
+          borderRadius: BorderRadius.circular(8),
+          border: selected
+              ? null
+              : Border.all(
+                  color: theme.colorScheme.outline.withValues(alpha: 0.3),
+                ),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (selected) ...[
+              Icon(
+                Icons.check,
+                size: 16,
+                color: theme.colorScheme.onPrimary,
+              ),
+              const SizedBox(width: 4),
+            ],
+            Text(
+              label,
+              style: theme.textTheme.bodySmall?.copyWith(
+                fontWeight: FontWeight.w600,
+                color: selected
+                    ? theme.colorScheme.onPrimary
+                    : theme.colorScheme.onSurface,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -17,11 +17,7 @@ import '../../widgets/diary_post_card.dart';
 import '../../widgets/typing_keyboard.dart';
 
 class PostCreateScreen extends ConsumerStatefulWidget {
-  const PostCreateScreen({
-    super.key,
-    this.initialPost,
-    this.quotedPost,
-  });
+  const PostCreateScreen({super.key, this.initialPost, this.quotedPost});
 
   final DiaryPost? initialPost;
   final DiaryPost? quotedPost;
@@ -60,9 +56,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
         _editingPost?.quotedPost ?? _quotedFromPost(widget.quotedPost);
 
     if (_editingPost?.imageUrls.isNotEmpty ?? false) {
-      _images.addAll(
-        _editingPost!.imageUrls.map(_ComposerImage.remote),
-      );
+      _images.addAll(_editingPost!.imageUrls.map(_ComposerImage.remote));
     }
 
     _composer = HangulComposer();
@@ -110,9 +104,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
     final text = _composer.text;
     _contentController.value = TextEditingValue(
       text: text,
-      selection: TextSelection.collapsed(
-        offset: text.characters.length,
-      ),
+      selection: TextSelection.collapsed(offset: text.characters.length),
     );
   }
 
@@ -188,7 +180,6 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
           imageUrls: imageUrls,
           visibility: _visibility,
           tags: _hashtags,
-
         );
         timeline.updatePost(post);
       } else {
@@ -317,9 +308,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
       if (picked.isEmpty) return;
       final availableSlots = 4 - _images.length;
       setState(() {
-        _images.addAll(
-          picked.take(availableSlots).map(_ComposerImage.local),
-        );
+        _images.addAll(picked.take(availableSlots).map(_ComposerImage.local));
       });
     } catch (error) {
       _showMessage('画像の取得に失敗しました: $error');
@@ -334,7 +323,9 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
 
   void _showMessage(String message) {
     if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(message)));
   }
 
   void _removeQuote() {
@@ -350,8 +341,9 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
     final remaining = _maxLength - _contentController.text.characters.length;
 
     final isOverLimit = remaining < 0;
-    final remainingLabel =
-        isOverLimit ? '${remaining.abs()}文字オーバー' : '残り$remaining文字';
+    final remainingLabel = isOverLimit
+        ? '${remaining.abs()}文字オーバー'
+        : '残り$remaining文字';
 
     return FScaffold(
       header: FHeader.nested(
@@ -392,90 +384,80 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
             child: ListView(
               padding: const EdgeInsets.fromLTRB(20, 12, 20, 20),
               children: [
-                FCard(
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    FTextField(
+                      controller: _contentController,
+                      focusNode: _focusNode,
+                      minLines: 5,
+                      maxLines: null,
+                      hint: 'いまどうしてる？',
+                      enabled: !_isSubmitting,
+                      onChange: (_) => setState(() {}),
+                    ),
+                    if (_hashtags.isNotEmpty) ...[
+                      const SizedBox(height: 12),
+                      Text('ハッシュタグ', style: theme.textTheme.titleSmall),
+                      const SizedBox(height: 8),
+                      Wrap(
+                        spacing: 8,
+                        runSpacing: 8,
+                        children: _hashtags
+                            .map((tag) => Chip(label: Text('#$tag')))
+                            .toList(),
+                      ),
+                    ],
+                    if (_images.isNotEmpty) ...[
+                      const SizedBox(height: 16),
+                      _ImageGrid(images: _images, onRemove: _removeImage),
+                    ],
+                    if (_quotedPost != null) ...[
+                      const SizedBox(height: 16),
+                      DiaryQuotedPostCard(quotedPost: _quotedPost!),
+                    ],
+                    const SizedBox(height: 16),
+                    Wrap(
+                      spacing: 12,
+                      runSpacing: 12,
                       children: [
-                        FTextField(
-                          controller: _contentController,
-                          focusNode: _focusNode,
-                          minLines: 5,
-                          maxLines: null,
-                          hint: 'いまどうしてる？',
-                          enabled: !_isSubmitting,
-                          onChange: (_) => setState(() {}),
+                        _ComposerActionButton(
+                          icon: Icons.image_outlined,
+                          label: '画像を追加',
+                          onTap: _pickImages,
                         ),
-                        if (_hashtags.isNotEmpty) ...[
-                          const SizedBox(height: 12),
-                          Text('ハッシュタグ', style: theme.textTheme.titleSmall),
-                          const SizedBox(height: 8),
-                          Wrap(
-                            spacing: 8,
-                            runSpacing: 8,
-                            children: _hashtags
-                                .map((tag) => Chip(label: Text('#$tag')))
-                                .toList(),
+                        if (_quotedPostId != null && !_isEditing)
+                          _ComposerActionButton(
+                            icon: Icons.close,
+                            label: '引用を削除',
+                            onTap: _removeQuote,
                           ),
-                        ],
-                        if (_images.isNotEmpty) ...[
-                          const SizedBox(height: 16),
-                          _ImageGrid(
-                            images: _images,
-                            onRemove: _removeImage,
-                          ),
-                        ],
-                        if (_quotedPost != null) ...[
-                          const SizedBox(height: 16),
-                          DiaryQuotedPostCard(quotedPost: _quotedPost!),
-                        ],
-                        const SizedBox(height: 16),
-                        Wrap(
-                          spacing: 12,
-                          runSpacing: 12,
-                          children: [
-                            _ComposerActionButton(
-                              icon: Icons.image_outlined,
-                              label: '画像を追加',
-                              onTap: _pickImages,
-                            ),
-                            if (_quotedPostId != null && !_isEditing)
-                              _ComposerActionButton(
-                                icon: Icons.close,
-                                label: '引用を削除',
-                                onTap: _removeQuote,
-                              ),
-                          ],
-                        ),
                       ],
                     ),
-                  ),
+                  ],
                 ),
                 const SizedBox(height: 24),
-                FCard(
-                  child: FTile(
-                    title: const Text('公開範囲'),
-                    subtitle: Text(_visibilityLabel(_visibility)),
-                    prefix: const Icon(Icons.public),
-                    suffix: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          '変更',
-                          style: theme.textTheme.labelMedium?.copyWith(
-                            color: theme.colorScheme.primary,
-                          ),
-                        ),
-                        const SizedBox(width: 4),
-                        Icon(
-                          Icons.keyboard_arrow_down,
+                FTile(
+                  title: const Text('公開範囲'),
+                  subtitle: Text(_visibilityLabel(_visibility)),
+                  prefix: const Icon(Icons.public),
+                  suffix: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        '変更',
+                        style: theme.textTheme.labelMedium?.copyWith(
                           color: theme.colorScheme.primary,
                         ),
-                      ],
-                    ),
-                    onPress: _showVisibilitySheet,
+                      ),
+                      const SizedBox(width: 4),
+                      Icon(
+                        Icons.keyboard_arrow_down,
+                        color: theme.colorScheme.primary,
+                      ),
+                    ],
                   ),
+                  onPress: _showVisibilitySheet,
                 ),
               ],
             ),
@@ -553,8 +535,6 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
   }
 }
 
-
-
 class _VisibilityTile extends StatelessWidget {
   const _VisibilityTile({
     required this.label,
@@ -604,10 +584,7 @@ class _ComposerActionButton extends StatelessWidget {
 }
 
 class _ImageGrid extends StatelessWidget {
-  const _ImageGrid({
-    required this.images,
-    required this.onRemove,
-  });
+  const _ImageGrid({required this.images, required this.onRemove});
 
   final List<_ComposerImage> images;
   final void Function(int index) onRemove;
@@ -636,10 +613,7 @@ class _ImageGrid extends StatelessWidget {
                         imageUrl: image.url!,
                         fit: BoxFit.cover,
                       )
-                    : Image.file(
-                        File(image.file!.path),
-                        fit: BoxFit.cover,
-                      ),
+                    : Image.file(File(image.file!.path), fit: BoxFit.cover),
               ),
             ),
             Positioned(
@@ -708,12 +682,7 @@ class _HashtagEditingController extends TextEditingController {
     }
 
     if (currentIndex < text.length) {
-      children.add(
-        TextSpan(
-          text: text.substring(currentIndex),
-          style: style,
-        ),
-      );
+      children.add(TextSpan(text: text.substring(currentIndex), style: style));
     }
 
     return TextSpan(style: style, children: children);

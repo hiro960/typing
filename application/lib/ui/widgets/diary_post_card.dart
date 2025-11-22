@@ -435,7 +435,7 @@ class DiaryQuotedPostCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: theme.colorScheme.surface.withValues(alpha: 0.4),
         border: Border.all(
-          color: theme.colorScheme.outlineVariant.withValues(alpha: 0.8),
+          color: theme.colorScheme.outlineVariant.withValues(alpha: 0.1),
         ),
         borderRadius: BorderRadius.circular(16),
       ),

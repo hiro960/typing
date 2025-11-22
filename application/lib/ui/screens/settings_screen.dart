@@ -12,6 +12,7 @@ import '../../features/typing/domain/providers/typing_settings_provider.dart';
 import '../../features/typing/data/models/typing_settings.dart';
 import '../../features/theme/theme_mode_provider.dart';
 import '../../features/diary/domain/providers/diary_providers.dart';
+import '../widgets/app_page_scaffold.dart';
 
 class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
@@ -119,7 +120,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     final currentUser = ref.watch(currentUserProvider);
     final displayName = currentUser?.displayName ?? '未設定';
     final username = currentUser?.username != null ? '@${currentUser!.username}' : '--';
-    return FScaffold(
+    return AppPageScaffold(
       header: FHeader.nested(
         prefixes: [
           FHeaderAction.back(onPress: () => Navigator.of(context).maybePop()),
