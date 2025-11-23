@@ -4,19 +4,19 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 import 'package:characters/characters.dart';
 
-import '../../features/auth/data/models/user_model.dart';
-import '../../features/auth/domain/providers/auth_providers.dart';
-import 'settings/blocked_accounts_screen.dart';
-import '../../features/profile/domain/providers/profile_providers.dart';
-import '../../features/typing/domain/providers/typing_settings_provider.dart';
-import '../../features/typing/data/models/typing_settings.dart';
-import '../../features/theme/theme_mode_provider.dart';
-import '../../features/diary/domain/providers/diary_providers.dart';
-import '../utils/dialog_helper.dart';
-import '../utils/snackbar_helper.dart';
-import '../widgets/app_page_scaffold.dart';
-import '../widgets/user_avatar.dart';
-import '../app_spacing.dart';
+import '../../../features/auth/data/models/user_model.dart';
+import '../../../features/auth/domain/providers/auth_providers.dart';
+import '../settings/blocked_accounts_screen.dart';
+import '../../../features/profile/domain/providers/profile_providers.dart';
+import '../../../features/typing/domain/providers/typing_settings_provider.dart';
+import '../../../features/typing/data/models/typing_settings.dart';
+import '../../../features/theme/theme_mode_provider.dart';
+import '../../../features/diary/domain/providers/diary_providers.dart';
+import '../../utils/dialog_helper.dart';
+import '../../utils/snackbar_helper.dart';
+import '../../widgets/app_page_scaffold.dart';
+import '../../widgets/user_avatar.dart';
+import '../../app_spacing.dart';
 
 class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});

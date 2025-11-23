@@ -1,13 +1,13 @@
+import 'package:chaletta/features/lessons/data/models/lesson_models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
-import '../../features/lessons/data/models/lesson_index.dart'
+import '../../../features/lessons/data/models/lesson_index.dart'
     as lesson_index;
-import '../../features/lessons/data/models/lesson_models.dart';
-import '../../features/lessons/data/models/lesson_progress.dart';
-import '../../features/lessons/domain/providers/lesson_progress_providers.dart';
-import '../../features/lessons/domain/providers/lesson_providers.dart';
+import '../../../features/lessons/data/models/lesson_progress.dart';
+import '../../../features/lessons/domain/providers/lesson_progress_providers.dart';
+import '../../../features/lessons/domain/providers/lesson_providers.dart';
 import 'typing_lesson_screen.dart';
 
 class LessonDetailScreen extends ConsumerWidget {

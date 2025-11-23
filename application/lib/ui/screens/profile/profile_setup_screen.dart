@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
-import '../../features/auth/domain/providers/auth_providers.dart';
-import '../../core/exceptions/app_exception.dart';
-import '../../core/utils/logger.dart';
+import '../../../features/auth/domain/providers/auth_providers.dart';
+import '../../../core/exceptions/app_exception.dart';
+import '../../../core/utils/logger.dart';
 
 class ProfileSetupScreen extends ConsumerStatefulWidget {
   const ProfileSetupScreen({super.key});

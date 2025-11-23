@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../features/auth/data/models/user_model.dart';
-import '../profile_screen.dart';
+import 'profile_screen.dart';
 import '../../widgets/user_avatar.dart';
 
 class UserListTile extends StatelessWidget {

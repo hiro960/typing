@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/diary/data/models/diary_post.dart';
-import '../screens/profile_screen.dart';
+import '../screens/profile/profile_screen.dart';
 import 'user_avatar.dart';
 
 class DiaryPostCard extends StatelessWidget {

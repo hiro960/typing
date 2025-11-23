@@ -5,22 +5,22 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../../features/auth/data/models/user_model.dart';
-import '../../features/auth/domain/providers/auth_providers.dart';
-import '../../features/diary/data/models/diary_post.dart';
-import '../../features/diary/domain/providers/diary_providers.dart';
-import '../../features/profile/data/models/user_stats_model.dart';
-import '../../features/profile/domain/providers/profile_providers.dart';
-import '../utils/dialog_helper.dart';
-import '../utils/snackbar_helper.dart';
-import '../widgets/app_page_scaffold.dart';
-import '../app_spacing.dart';
-import '../widgets/diary_post_card.dart';
-import 'profile/profile_header.dart';
-import 'profile/profile_posts.dart';
-import 'profile/profile_relations.dart';
-import 'profile/profile_stats.dart';
-import 'profile/profile_tabs.dart';
+import '../../../features/auth/data/models/user_model.dart';
+import '../../../features/auth/domain/providers/auth_providers.dart';
+import '../../../features/diary/data/models/diary_post.dart';
+import '../../../features/diary/domain/providers/diary_providers.dart';
+import '../../../features/profile/data/models/user_stats_model.dart';
+import '../../../features/profile/domain/providers/profile_providers.dart';
+import '../../utils/dialog_helper.dart';
+import '../../utils/snackbar_helper.dart';
+import '../../widgets/app_page_scaffold.dart';
+import '../../app_spacing.dart';
+import '../../widgets/diary_post_card.dart';
+import 'profile_header.dart';
+import 'profile_posts.dart';
+import 'profile_relations.dart';
+import 'profile_stats.dart';
+import 'profile_tabs.dart';
 
 class ProfileScreen extends ConsumerStatefulWidget {
   const ProfileScreen({

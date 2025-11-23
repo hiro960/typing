@@ -4,19 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
-import '../../core/exceptions/app_exception.dart';
-import '../../core/utils/logger.dart';
-import '../../features/lessons/data/models/lesson_models.dart';
-import '../../features/lessons/domain/providers/lesson_progress_providers.dart';
-import '../../features/typing/data/models/typing_models.dart';
-import '../../features/typing/data/models/typing_settings.dart';
-import '../../features/typing/domain/providers/typing_providers.dart';
-import '../../features/typing/domain/providers/typing_session_provider.dart';
-import '../../features/typing/domain/providers/typing_stats_provider.dart';
-import '../../features/typing/domain/providers/typing_settings_provider.dart';
-import '../../features/typing/domain/services/hangul_composer.dart';
-import '../utils/snackbar_helper.dart';
-import '../widgets/typing_keyboard.dart';
+import '../../../core/exceptions/app_exception.dart';
+import '../../../core/utils/logger.dart';
+import '../../../features/lessons/data/models/lesson_models.dart';
+import '../../../features/lessons/domain/providers/lesson_progress_providers.dart';
+import '../../../features/typing/data/models/typing_models.dart';
+import '../../../features/typing/data/models/typing_settings.dart';
+import '../../../features/typing/domain/providers/typing_providers.dart';
+import '../../../features/typing/domain/providers/typing_session_provider.dart';
+import '../../../features/typing/domain/providers/typing_stats_provider.dart';
+import '../../../features/typing/domain/providers/typing_settings_provider.dart';
+import '../../../features/typing/domain/services/hangul_composer.dart';
+import '../../utils/snackbar_helper.dart';
+import '../../widgets/typing_keyboard.dart';
 import 'typing_completion_screen.dart';
 
 class TypingLessonScreen extends ConsumerStatefulWidget {
