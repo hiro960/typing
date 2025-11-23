@@ -16,6 +16,7 @@ import '../../../features/typing/domain/services/hangul_composer.dart';
 import '../../widgets/diary_post_card.dart';
 import '../../widgets/typing_keyboard.dart';
 import '../../widgets/ai_gradient_button.dart';
+import '../../widgets/modern_text_input.dart';
 import '../../app_spacing.dart';
 
 class PostCreateScreen extends ConsumerStatefulWidget {
@@ -430,14 +431,15 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    FTextField(
+                    ModernTextInput(
                       controller: _contentController,
                       focusNode: _focusNode,
                       minLines: 10,
                       maxLines: null,
-                      hint: 'いまどうしてる？',
+                      placeholder: 'いまどうしてる？',
                       enabled: !_isSubmitting,
-                      onChange: (_) => setState(() {}),
+                      showCharacterCount: false,
+                      onChanged: (_) => setState(() {}),
                     ),
                     if (_hashtags.isNotEmpty) ...[
                       const SizedBox(height: AppSpacing.md),

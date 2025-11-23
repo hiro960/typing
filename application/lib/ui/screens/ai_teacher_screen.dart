@@ -1,6 +1,7 @@
 import 'package:chaletta/ui/app_spacing.dart';
 import 'package:chaletta/ui/widgets/ai_gradient_button.dart';
 import 'package:chaletta/ui/widgets/app_page_scaffold.dart';
+import 'package:chaletta/ui/widgets/modern_text_input.dart';
 import 'package:chaletta/ui/widgets/typing_keyboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -164,36 +165,38 @@ class _AiTeacherScreenState extends ConsumerState<AiTeacherScreen> {
             child: ListView(
               padding: const EdgeInsets.all(AppSpacing.lg),
               children: [
-                FTextField(
+                ModernTextInputWithActions(
                   controller: _controller,
                   focusNode: _focusNode,
+                  placeholder: '質問や知りたい単語、言い方、翻訳したい文章を入力してください',
                   minLines: 5,
-                  maxLines: null,
-                  hint: '質問や知りたい単語、言い方、翻訳したい文章を入力してください',
+                  maxLines: 15,
                   enabled: !_isLoading,
-                  onChange: (value) {
+                  showCharacterCount: false,
+                  onChanged: (value) {
                     if (!_useCustomKeyboard) {
                       _composer.loadFromText(value);
                     }
                   },
-                ),
-                const SizedBox(height: AppSpacing.xl),
-                Row(
-                  children: [
-                    Expanded(
-                      child: AiGradientButton(
-                        label: '質問\n(日➡︎韓)',
-                        icon: Icons.translate,
-                        onTap: _isLoading ? null : _askJpKr,
-                      ),
-                    ),
-                    const SizedBox(width: AppSpacing.md),
-                    Expanded(
-                      child: AiGradientButton(
-                        label: '翻訳\n(韓➡︎日)',
-                        icon: Icons.g_translate,
-                        onTap: _isLoading ? null : _translateKrJp,
-                      ),
+                  actions: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: AiGradientButton(
+                            label: '質問\n(日➡︎韓)',
+                            icon: Icons.translate,
+                            onTap: _isLoading ? null : _askJpKr,
+                          ),
+                        ),
+                        const SizedBox(width: AppSpacing.md),
+                        Expanded(
+                          child: AiGradientButton(
+                            label: '翻訳\n(韓➡︎日)',
+                            icon: Icons.g_translate,
+                            onTap: _isLoading ? null : _translateKrJp,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -218,36 +221,37 @@ class _AiTeacherScreenState extends ConsumerState<AiTeacherScreen> {
                 ],
                 if (_resultController.text.isNotEmpty) ...[
                   const SizedBox(height: AppSpacing.xl),
-                  const Text(
-                    '回答',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: AppSpacing.sm),
-                  Stack(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      FTextField(
-                        controller: _resultController,
-                        readOnly: true,
-                        minLines: 3,
-                        maxLines: null,
-                      ),
-                      Positioned(
-                        right: 8,
-                        bottom: 8,
-                        child: FButton.icon(
-                          style: FButtonStyle.ghost(),
-                          child: const Icon(Icons.copy, size: 18),
-                          onPress: () {
-                            Clipboard.setData(
-                              ClipboardData(text: _resultController.text),
-                            );
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('コピーしました')),
-                            );
-                          },
+                      const Text(
+                        '回答',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
                         ),
                       ),
+                      FButton.icon(
+                        style: FButtonStyle.ghost(),
+                        child: const Icon(Icons.copy, size: 18),
+                        onPress: () {
+                          Clipboard.setData(
+                            ClipboardData(text: _resultController.text),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('コピーしました')),
+                          );
+                        },
+                      ),
                     ],
+                  ),
+                  const SizedBox(height: AppSpacing.sm),
+                  ModernTextInput(
+                    controller: _resultController,
+                    placeholder: '',
+                    minLines: 3,
+                    maxLines: 20,
+                    enabled: false,
                   ),
                 ],
               ],
