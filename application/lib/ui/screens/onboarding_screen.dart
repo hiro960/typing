@@ -105,7 +105,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   itemBuilder: (context, index) {
                     final slide = _slides[index];
                     return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 2),
+                      padding: const EdgeInsets.symmetric(horizontal: 6),
                       child: _OnboardingCard(
                         title: slide.title,
                         description: slide.description,

@@ -144,6 +144,7 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
       builder: (context) => AlertDialog(
         title: const Text('投稿を削除'),
         content: const Text('この投稿を削除しますか？'),
+        buttonPadding: EdgeInsets.only(bottom: AppSpacing.sm),
         actions: [
           FButton(
             style: FButtonStyle.outline(),

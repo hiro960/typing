@@ -3,63 +3,126 @@ import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
+    <div className={styles.container}>
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        {/* Hero Section */}
+        <section className={styles.hero}>
+          <div className={styles.heroContent}>
+            <h1 className={styles.title}>
+              韓国語の学習を、<br />もっと楽しく、効果的に。
+            </h1>
+            <p className={styles.subtitle}>
+              タイピング練習からTOPIK対策まで。<br />
+              あなたの韓国語学習をサポートするオールインワンアプリ。
+            </p>
+            <a href="#features" className={styles.ctaButton}>
+              機能を見る
+            </a>
+          </div>
+          <div className={styles.heroImageWrapper}>
             <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/screen/screen-top.png"
+              alt="App Dashboard"
+              width={1000}
+              height={600}
+              priority
+              style={{ width: "100%", height: "auto" }}
             />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section id="features" className={styles.features}>
+          {/* Feature 1: Typing */}
+          <div className={styles.featureRow}>
+            <div className={styles.featureText}>
+              <h2 className={styles.featureTitle}>実践的なタイピング練習</h2>
+              <p className={styles.featureDescription}>
+                K-POPの歌詞やドラマのセリフで楽しくタイピング練習。<br />
+                正確な指使いとスピードを身につけながら、自然な韓国語表現も学べます。
+              </p>
+            </div>
+            <div className={styles.featureImageWrapper}>
+              <Image
+                src="/screen/screen-typing.png"
+                alt="Typing Practice Screen"
+                width={600}
+                height={400}
+                style={{ width: "100%", height: "auto" }}
+              />
+            </div>
+          </div>
+
+          {/* Feature 2: Wordbook (Reverse) */}
+          <div className={`${styles.featureRow} ${styles.reverse}`}>
+            <div className={styles.featureText}>
+              <h2 className={styles.featureTitle}>自分だけの単語帳</h2>
+              <p className={styles.featureDescription}>
+                覚えたい単語を登録して、効率的に復習。<br />
+                TOPIK必須単語も収録されており、試験対策にも最適です。
+              </p>
+            </div>
+            <div className={styles.featureImageWrapper}>
+              <Image
+                src="/screen/screen-word.png"
+                alt="Wordbook Screen"
+                width={600}
+                height={400}
+                style={{ width: "100%", height: "auto" }}
+              />
+            </div>
+          </div>
+
+          {/* Feature 3: Diary */}
+          <div className={styles.featureRow}>
+            <div className={styles.featureText}>
+              <h2 className={styles.featureTitle}>韓国語日記でアウトプット</h2>
+              <p className={styles.featureDescription}>
+                毎日の出来事を韓国語で記録。<br />
+                書く習慣をつけることで、語彙力と表現力が飛躍的に向上します。
+              </p>
+            </div>
+            <div className={styles.featureImageWrapper}>
+              <Image
+                src="/screen/screen-diary.png"
+                alt="Diary Screen"
+                width={600}
+                height={400}
+                style={{ width: "100%", height: "auto" }}
+              />
+            </div>
+          </div>
+
+          {/* Feature 4: Profile (Reverse) */}
+          <div className={`${styles.featureRow} ${styles.reverse}`}>
+            <div className={styles.featureText}>
+              <h2 className={styles.featureTitle}>学習の記録を可視化</h2>
+              <p className={styles.featureDescription}>
+                日々の学習時間や達成度をグラフで確認。<br />
+                成長を実感できるから、モチベーションが続きます。
+              </p>
+            </div>
+            <div className={styles.featureImageWrapper}>
+              <Image
+                src="/screen/screen-profile.png"
+                alt="Profile Screen"
+                width={600}
+                height={400}
+                style={{ width: "100%", height: "auto" }}
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className={styles.footer}>
+          <div className={styles.footerLinks}>
+            <a href="#" className={styles.footerLink}>利用規約</a>
+            <a href="#" className={styles.footerLink}>プライバシーポリシー</a>
+            <a href="#" className={styles.footerLink}>お問い合わせ</a>
+          </div>
+          <p className={styles.copyright}>&copy; 2024 Korean Typing App. All rights reserved.</p>
+        </footer>
       </main>
     </div>
   );

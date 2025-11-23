@@ -16,6 +16,7 @@ import '../../utils/snackbar_helper.dart';
 import '../../widgets/app_page_scaffold.dart';
 import '../../app_spacing.dart';
 import '../../widgets/diary_post_card.dart';
+import '../diary/post_detail_screen.dart';
 import 'profile_header.dart';
 import 'profile_posts.dart';
 import 'profile_relations.dart';
@@ -40,6 +41,14 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   int _selectedTabIndex = 0;
   final _imagePicker = ImagePicker();
   bool _isUpdatingAvatar = false;
+
+  void _openDetail(DiaryPost post) {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => PostDetailScreen(initialPost: post),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -224,10 +233,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ...posts.take(20).map((post) {
-                      return 
+                      return
                         DiaryPostCard(
                           post: post,
-                          onTap: () {},
+                          onTap: () => _openDetail(post),
                           onToggleLike: () async {
                             await ref
                                 .read(diaryRepositoryProvider)

@@ -288,6 +288,13 @@ class HangulComposer {
       return;
     }
 
+    // 初声がなく中声だけがある場合、母音単独の音節をコミットして新しい音節を開始
+    if (_initial == null) {
+      _commitCurrent();
+      _initial = char;
+      return;
+    }
+
     if (_final == null) {
       _final = char;
       return;
