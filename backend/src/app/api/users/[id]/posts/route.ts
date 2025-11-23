@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { handleRouteError, ERROR } from "@/lib/errors";
 import { toPostResponse, findUserById, canViewPost } from "@/lib/store";
 import { paginateArray, parseLimit } from "@/lib/pagination";
-import { getAuthUser } from "@/lib/auth";
+import { requireAuthUser } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
 
@@ -17,8 +17,8 @@ export async function GET(
       throw ERROR.NOT_FOUND("User not found");
     }
 
-    const viewer = await getAuthUser(request);
-    const viewerId = viewer?.id;
+    const viewer = await requireAuthUser(request);
+    const viewerId = viewer.id;
 
     const { searchParams } = request.nextUrl;
     const cursor = searchParams.get("cursor");

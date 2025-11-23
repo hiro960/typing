@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { requireAuthUser } from "@/lib/auth";
 import { handleRouteError, ERROR } from "@/lib/errors";
 import { listLessons } from "@/lib/store";
 import { LearningLevel } from "@/lib/types";
@@ -8,6 +9,7 @@ const LEVELS: LearningLevel[] = ["beginner", "intermediate", "advanced"];
 
 export async function GET(request: NextRequest) {
   try {
+    await requireAuthUser(request);
     const { searchParams } = request.nextUrl;
     const level = searchParams.get("level") as LearningLevel | null;
     const order = (searchParams.get("order") ?? "asc").toLowerCase();

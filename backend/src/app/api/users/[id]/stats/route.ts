@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { findUserById, getUserStats } from "@/lib/store";
+import { requireAuthUser } from "@/lib/auth";
 import { handleRouteError, ERROR } from "@/lib/errors";
 import { UserStatsRange } from "@/lib/types";
 
@@ -10,6 +11,7 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    await requireAuthUser(request);
     const { id } = await params;
     const user = await findUserById(id);
     if (!user) {

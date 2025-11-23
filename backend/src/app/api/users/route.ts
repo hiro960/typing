@@ -2,11 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { paginateArray } from "@/lib/pagination";
 import { ERROR, handleRouteError } from "@/lib/errors";
 import { toUserSummary } from "@/lib/store";
+import { requireAuthUser } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
 
 export async function GET(request: NextRequest) {
   try {
+    await requireAuthUser(request);
     const { searchParams } = request.nextUrl;
     const q = searchParams.get("q") ?? "";
     const cursor = searchParams.get("cursor");

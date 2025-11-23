@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Prisma } from "@prisma/client";
 import prisma from "@/lib/prisma";
-import { getAuthUser } from "@/lib/auth";
+import { requireAuthUser } from "@/lib/auth";
 import { handleRouteError, ERROR } from "@/lib/errors";
 import { parseLimit, paginateArray } from "@/lib/pagination";
 import { canViewPost, toPostResponse, toUserSummary } from "@/lib/store";
@@ -174,7 +174,7 @@ async function searchHashtags(
 
 export async function GET(request: NextRequest) {
   try {
-    const viewer = await getAuthUser(request);
+    const viewer = await requireAuthUser(request);
     const { searchParams } = request.nextUrl;
     const q = normalizeQuery(searchParams.get("q") ?? "");
     if (!q) {
@@ -185,14 +185,14 @@ export async function GET(request: NextRequest) {
     const limit = parseLimit(searchParams.get("limit"), 20, 1, 50);
 
     if (type === "users") {
-      const result = await searchUsers(viewer?.id, q, limit, cursor);
+      const result = await searchUsers(viewer.id, q, limit, cursor);
       return NextResponse.json(result);
     }
     if (type === "hashtags") {
       const result = await searchHashtags(q, limit, cursor);
       return NextResponse.json(result);
     }
-    const result = await searchPosts(viewer?.id, q, limit, cursor);
+    const result = await searchPosts(viewer.id, q, limit, cursor);
     return NextResponse.json(result);
   } catch (error) {
     return handleRouteError(error);
