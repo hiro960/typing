@@ -1,0 +1,68 @@
+{
+  "id": "intro_body_conclusion",
+  "name": "導入・本論・結論",
+  "description": "総論型の文章構成",
+  "icon": "description",
+  "topics": [
+    {
+      "id": "intro_culture",
+      "name": "文化に関する総論",
+      "description": "伝統文化の保存",
+      "patternId": "intro_body_conclusion",
+      "entries": [
+        { "id": "intro_culture_001", "level": "template", "jpText": "最近...について関心が高まっている", "koText": "최근 ...에 대한 관심이 높아지고 있다." },
+        { "id": "intro_culture_002", "level": "template", "jpText": "まず", "koText": "먼저" },
+        { "id": "intro_culture_003", "level": "template", "jpText": "本論では二点述べる", "koText": "본론에서는 두 가지를 말하겠다." },
+        { "id": "intro_culture_004", "level": "template", "jpText": "続いて", "koText": "이어" },
+        { "id": "intro_culture_005", "level": "template", "jpText": "結論として", "koText": "결론적으로" },
+        { "id": "intro_culture_basic_001", "level": "basic", "jpText": "文化", "koText": "문화" },
+        { "id": "intro_culture_basic_002", "level": "basic", "jpText": "伝統", "koText": "전통" },
+        { "id": "intro_culture_basic_003", "level": "basic", "jpText": "価値", "koText": "가치" },
+        { "id": "intro_culture_006", "level": "advanced", "jpText": "保存する", "koText": "보존하다" },
+        { "id": "intro_culture_007", "level": "advanced", "jpText": "継承する", "koText": "계승하다" },
+        { "id": "intro_culture_008", "level": "advanced", "jpText": "多様性を尊重する", "koText": "다양성을 존중하다" },
+        { "id": "intro_culture_sentence_001", "level": "sentence", "jpText": "伝統文化を保存し継承することが重要である。", "koText": "전통 문화를 보존하고 계승하는 것이 중요하다." }
+      ]
+    },
+    {
+      "id": "intro_regional",
+      "name": "地方活性化の総論",
+      "description": "人口流出と活性化策",
+      "patternId": "intro_body_conclusion",
+      "entries": [
+        { "id": "intro_regional_001", "level": "template", "jpText": "最近地方の人口流出が問題になっている", "koText": "최근 지방 인구 유출이 문제가 되고 있다." },
+        { "id": "intro_regional_002", "level": "template", "jpText": "まず現状を示す", "koText": "먼저 현황을 제시한다." },
+        { "id": "intro_regional_003", "level": "template", "jpText": "次に解決策を二つ述べる", "koText": "다음으로 해결책 두 가지를 말한다." },
+        { "id": "intro_regional_004", "level": "template", "jpText": "最後に期待される効果をまとめる", "koText": "마지막으로 기대 효과를 정리한다." },
+        { "id": "intro_regional_005", "level": "template", "jpText": "結論として地域投資が必要だ", "koText": "결론적으로 지역 투자가 필요하다." },
+        { "id": "intro_regional_basic_001", "level": "basic", "jpText": "地方", "koText": "지방" },
+        { "id": "intro_regional_basic_002", "level": "basic", "jpText": "人口流出", "koText": "인구 유출" },
+        { "id": "intro_regional_basic_003", "level": "basic", "jpText": "観光", "koText": "관광" },
+        { "id": "intro_regional_adv_001", "level": "advanced", "jpText": "持続可能な発展", "koText": "지속 가능한 발전" },
+        { "id": "intro_regional_adv_002", "level": "advanced", "jpText": "雇用を創出する", "koText": "고용을 창출하다" },
+        { "id": "intro_regional_adv_003", "level": "advanced", "jpText": "インフラを整備する", "koText": "인프라를 정비하다" },
+        { "id": "intro_regional_sentence_001", "level": "sentence", "jpText": "地方活性化には雇用とインフラ整備が不可欠だ。", "koText": "지방 활성화에는 고용과 인프라 정비가 필수적이다." }
+      ]
+    },
+    {
+      "id": "intro_ai_ethics",
+      "name": "AI倫理と規制",
+      "description": "技術と社会のバランス",
+      "patternId": "intro_body_conclusion",
+      "entries": [
+        { "id": "intro_ai_001", "level": "template", "jpText": "AIの倫理問題への関心が高まっている", "koText": "AI의 윤리 문제에 대한 관심이 높아지고 있다." },
+        { "id": "intro_ai_002", "level": "template", "jpText": "まず課題を挙げる", "koText": "먼저 과제를 제시한다." },
+        { "id": "intro_ai_003", "level": "template", "jpText": "次に規制の方向性を述べる", "koText": "다음으로 규제 방향을 말한다." },
+        { "id": "intro_ai_004", "level": "template", "jpText": "最後に結論をまとめる", "koText": "마지막으로 결론을 정리한다." },
+        { "id": "intro_ai_005", "level": "template", "jpText": "結論として透明性が鍵だ", "koText": "결론적으로 투명성이 핵심이다." },
+        { "id": "intro_ai_basic_001", "level": "basic", "jpText": "規制", "koText": "규제" },
+        { "id": "intro_ai_basic_002", "level": "basic", "jpText": "透明性", "koText": "투명성" },
+        { "id": "intro_ai_basic_003", "level": "basic", "jpText": "責任", "koText": "책임" },
+        { "id": "intro_ai_adv_001", "level": "advanced", "jpText": "倫理指針", "koText": "윤리지침" },
+        { "id": "intro_ai_adv_002", "level": "advanced", "jpText": "アルゴリズムの偏り", "koText": "알고리즘의 편향" },
+        { "id": "intro_ai_adv_003", "level": "advanced", "jpText": "説明責任を果たす", "koText": "설명 책임을 다하다" },
+        { "id": "intro_ai_sentence_001", "level": "sentence", "jpText": "AIには透明性と説明責任を確保する規制が必要だ。", "koText": "AI에는 투명성과 설명 책임을 확보하는 규제가 필요하다." }
+      ]
+    }
+  ]
+}

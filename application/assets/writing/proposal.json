@@ -1,0 +1,68 @@
+{
+  "id": "proposal",
+  "name": "提案・代案提示",
+  "description": "提言や施策を示す",
+  "icon": "work",
+  "topics": [
+    {
+      "id": "proposal_economy",
+      "name": "経済政策の提案",
+      "description": "中小企業支援策",
+      "patternId": "proposal",
+      "entries": [
+        { "id": "proposal_econ_001", "level": "template", "jpText": "...を提案する", "koText": "...을/를 제안한다." },
+        { "id": "proposal_econ_002", "level": "template", "jpText": "...という方法もある", "koText": "...라는 방법도 있다." },
+        { "id": "proposal_econ_003", "level": "template", "jpText": "このような措置が必要だ", "koText": "이러한 조치가 필요하다." },
+        { "id": "proposal_econ_004", "level": "template", "jpText": "まず補助金を拡大する", "koText": "먼저 보조금을 확대한다." },
+        { "id": "proposal_econ_005", "level": "template", "jpText": "次に規制を緩和する", "koText": "다음으로 규제를 완화한다." },
+        { "id": "proposal_econ_basic_001", "level": "basic", "jpText": "補助金", "koText": "보조금" },
+        { "id": "proposal_econ_basic_002", "level": "basic", "jpText": "税制", "koText": "세제" },
+        { "id": "proposal_econ_basic_003", "level": "basic", "jpText": "融資", "koText": "융자" },
+        { "id": "proposal_econ_006", "level": "advanced", "jpText": "支援する", "koText": "지원하다" },
+        { "id": "proposal_econ_007", "level": "advanced", "jpText": "強化する", "koText": "강화하다" },
+        { "id": "proposal_econ_008", "level": "advanced", "jpText": "インセンティブを設ける", "koText": "인센티브를 마련하다" },
+        { "id": "proposal_econ_sentence_001", "level": "sentence", "jpText": "中小企業への支援を強化する必要がある。", "koText": "중소기업에 대한 지원을 강화할 필요가 있다." }
+      ]
+    },
+    {
+      "id": "proposal_childcare",
+      "name": "育児支援策の提案",
+      "description": "少子化への対応",
+      "patternId": "proposal",
+      "entries": [
+        { "id": "proposal_child_001", "level": "template", "jpText": "育児支援を拡充すべきだ", "koText": "육아 지원을 확대해야 한다." },
+        { "id": "proposal_child_002", "level": "template", "jpText": "具体策として保育費を補助する", "koText": "구체적으로 보육비를 지원한다." },
+        { "id": "proposal_child_003", "level": "template", "jpText": "育児休業を柔軟にする", "koText": "육아 휴직을 유연하게 한다." },
+        { "id": "proposal_child_004", "level": "template", "jpText": "父親の参加を促す", "koText": "아버지의 참여를 촉진한다." },
+        { "id": "proposal_child_005", "level": "template", "jpText": "結論として財政支援が不可欠だ", "koText": "결론적으로 재정 지원이 필수적이다." },
+        { "id": "proposal_child_basic_001", "level": "basic", "jpText": "育児", "koText": "육아" },
+        { "id": "proposal_child_basic_002", "level": "basic", "jpText": "保育費", "koText": "보육비" },
+        { "id": "proposal_child_basic_003", "level": "basic", "jpText": "休業", "koText": "휴직" },
+        { "id": "proposal_child_adv_001", "level": "advanced", "jpText": "柔軟な制度", "koText": "유연한 제도" },
+        { "id": "proposal_child_adv_002", "level": "advanced", "jpText": "参加を促す", "koText": "참여를 촉진하다" },
+        { "id": "proposal_child_adv_003", "level": "advanced", "jpText": "財政支援", "koText": "재정 지원" },
+        { "id": "proposal_child_sentence_001", "level": "sentence", "jpText": "保育費補助と柔軟な休業制度が出生率に寄与する。", "koText": "보육비 지원과 유연한 휴직 제도가 출산율에 기여한다." }
+      ]
+    },
+    {
+      "id": "proposal_renewable",
+      "name": "再生可能エネルギー投資",
+      "description": "脱炭素への提案",
+      "patternId": "proposal",
+      "entries": [
+        { "id": "proposal_renew_001", "level": "template", "jpText": "再生可能エネルギーへの投資を増やす", "koText": "재생에너지 투자를 늘린다." },
+        { "id": "proposal_renew_002", "level": "template", "jpText": "インフラを整備する", "koText": "인프라를 정비한다." },
+        { "id": "proposal_renew_003", "level": "template", "jpText": "補助金で普及を促す", "koText": "보조금으로 보급을 촉진한다." },
+        { "id": "proposal_renew_004", "level": "template", "jpText": "長期的なロードマップを示す", "koText": "장기 로드맵을 제시한다." },
+        { "id": "proposal_renew_005", "level": "template", "jpText": "結論として脱炭素を加速する", "koText": "결론적으로 탈탄소를 가속한다." },
+        { "id": "proposal_renew_basic_001", "level": "basic", "jpText": "投資", "koText": "투자" },
+        { "id": "proposal_renew_basic_002", "level": "basic", "jpText": "普及", "koText": "보급" },
+        { "id": "proposal_renew_basic_003", "level": "basic", "jpText": "電力", "koText": "전력" },
+        { "id": "proposal_renew_adv_001", "level": "advanced", "jpText": "脱炭素", "koText": "탈탄소" },
+        { "id": "proposal_renew_adv_002", "level": "advanced", "jpText": "エネルギー転換", "koText": "에너지 전환" },
+        { "id": "proposal_renew_adv_003", "level": "advanced", "jpText": "安定供給", "koText": "안정 공급" },
+        { "id": "proposal_renew_sentence_001", "level": "sentence", "jpText": "再エネ投資と補助金で脱炭素を加速できる。", "koText": "재생에너지 투자와 보조금으로 탈탄소를 가속할 수 있다." }
+      ]
+    }
+  ]
+}

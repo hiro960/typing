@@ -1,0 +1,68 @@
+{
+  "id": "pro_con",
+  "name": "賛成・反対",
+  "description": "立場を明示し反論に対応する",
+  "icon": "balance",
+  "topics": [
+    {
+      "id": "procon_technology",
+      "name": "テクノロジーに関する賛否",
+      "description": "AI技術の発展",
+      "patternId": "pro_con",
+      "entries": [
+        { "id": "procon_tech_001", "level": "template", "jpText": "...に賛成する", "koText": "...에 찬성한다." },
+        { "id": "procon_tech_002", "level": "template", "jpText": "...という意見もあるが", "koText": "...라는 의견도 있지만" },
+        { "id": "procon_tech_003", "level": "template", "jpText": "それにもかかわらず", "koText": "그럼에도 불구하고" },
+        { "id": "procon_tech_004", "level": "template", "jpText": "私は...に反対する", "koText": "나는 ...에 반대한다." },
+        { "id": "procon_tech_005", "level": "template", "jpText": "利点もあるが欠点が大きい", "koText": "장점도 있지만 단점이 크다." },
+        { "id": "procon_tech_basic_001", "level": "basic", "jpText": "賛成", "koText": "찬성" },
+        { "id": "procon_tech_basic_002", "level": "basic", "jpText": "反対", "koText": "반대" },
+        { "id": "procon_tech_basic_003", "level": "basic", "jpText": "リスク", "koText": "위험" },
+        { "id": "procon_tech_006", "level": "advanced", "jpText": "革新的な", "koText": "혁신적인" },
+        { "id": "procon_tech_007", "level": "advanced", "jpText": "懸念される", "koText": "우려되다" },
+        { "id": "procon_tech_008", "level": "advanced", "jpText": "倫理的な問題", "koText": "윤리적 문제" },
+        { "id": "procon_tech_sentence_001", "level": "sentence", "jpText": "AI技術の発展には革新的な面と懸念される面がある。", "koText": "AI 기술의 발전에는 혁신적인 면과 우려되는 면이 있다." }
+      ]
+    },
+    {
+      "id": "procon_nuclear",
+      "name": "原発再稼働の賛否",
+      "description": "安全性と経済性の議論",
+      "patternId": "pro_con",
+      "entries": [
+        { "id": "procon_nuclear_001", "level": "template", "jpText": "私は原発再稼働に反対する", "koText": "나는 원전 재가동에 반대한다." },
+        { "id": "procon_nuclear_002", "level": "template", "jpText": "なぜなら安全性が十分でない", "koText": "왜냐하면 안전성이 충분하지 않기 때문이다." },
+        { "id": "procon_nuclear_003", "level": "template", "jpText": "経済的利点もあるが", "koText": "경제적 이점도 있지만" },
+        { "id": "procon_nuclear_004", "level": "template", "jpText": "代替エネルギーを拡大すべきだ", "koText": "대체 에너지를 확대해야 한다." },
+        { "id": "procon_nuclear_005", "level": "template", "jpText": "結論として私は反対を維持する", "koText": "결론적으로 나는 반대를 유지한다." },
+        { "id": "procon_nuclear_basic_001", "level": "basic", "jpText": "再稼働", "koText": "재가동" },
+        { "id": "procon_nuclear_basic_002", "level": "basic", "jpText": "安全性", "koText": "안전성" },
+        { "id": "procon_nuclear_basic_003", "level": "basic", "jpText": "廃棄物", "koText": "폐기물" },
+        { "id": "procon_nuclear_adv_001", "level": "advanced", "jpText": "事故リスク", "koText": "사고 위험" },
+        { "id": "procon_nuclear_adv_002", "level": "advanced", "jpText": "費用対効果", "koText": "비용 대비 효과" },
+        { "id": "procon_nuclear_adv_003", "level": "advanced", "jpText": "長期的影響", "koText": "장기적 영향" },
+        { "id": "procon_nuclear_sentence_001", "level": "sentence", "jpText": "原発は事故リスクと廃棄物問題が残る。", "koText": "원전은 사고 위험과 폐기물 문제가 남아 있다." }
+      ]
+    },
+    {
+      "id": "procon_animal_testing",
+      "name": "動物実験の是非",
+      "description": "倫理と必要性の議論",
+      "patternId": "pro_con",
+      "entries": [
+        { "id": "procon_animal_001", "level": "template", "jpText": "私は条件付きで賛成する", "koText": "나는 조건부로 찬성한다." },
+        { "id": "procon_animal_002", "level": "template", "jpText": "代替法がある場合は避けるべきだ", "koText": "대체 방법이 있으면 피해야 한다." },
+        { "id": "procon_animal_003", "level": "template", "jpText": "しかし現段階では必要な研究もある", "koText": "그러나 현 단계에서는 필요한 연구도 있다." },
+        { "id": "procon_animal_004", "level": "template", "jpText": "倫理基準を厳格に守るべきだ", "koText": "윤리 기준을 엄격히 지켜야 한다." },
+        { "id": "procon_animal_005", "level": "template", "jpText": "透明性を高めて信頼を得る", "koText": "투명성을 높여 신뢰를 얻는다." },
+        { "id": "procon_animal_basic_001", "level": "basic", "jpText": "代替法", "koText": "대체법" },
+        { "id": "procon_animal_basic_002", "level": "basic", "jpText": "倫理", "koText": "윤리" },
+        { "id": "procon_animal_basic_003", "level": "basic", "jpText": "規制", "koText": "규제" },
+        { "id": "procon_animal_adv_001", "level": "advanced", "jpText": "三つのR原則", "koText": "3R 원칙" },
+        { "id": "procon_animal_adv_002", "level": "advanced", "jpText": "必要最小限", "koText": "필요 최소한" },
+        { "id": "procon_animal_adv_003", "level": "advanced", "jpText": "代替技術を導入する", "koText": "대체 기술을 도입하다" },
+        { "id": "procon_animal_sentence_001", "level": "sentence", "jpText": "動物実験は透明性と代替技術の導入が不可欠だ。", "koText": "동물실험은 투명성과 대체 기술 도입이 필수적이다." }
+      ]
+    }
+  ]
+}

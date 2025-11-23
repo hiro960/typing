@@ -310,12 +310,6 @@ class HangulComposer {
       return;
     }
 
-    final combination = _medialCombinations['$_medial+$char'];
-    if (combination != null) {
-      _medial = combination;
-      return;
-    }
-
     if (_final != null) {
       final decomposition = _finalDecompositions[_final!];
       if (decomposition != null) {
@@ -333,6 +327,12 @@ class HangulComposer {
         _medial = char;
         return;
       }
+    }
+
+    final combination = _medialCombinations['$_medial+$char'];
+    if (combination != null) {
+      _medial = combination;
+      return;
     }
 
     _commitCurrent();

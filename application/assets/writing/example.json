@@ -1,0 +1,68 @@
+{
+  "id": "example",
+  "name": "例示・具体化",
+  "description": "例を挙げて分析する",
+  "icon": "push_pin",
+  "topics": [
+    {
+      "id": "example_society",
+      "name": "社会現象の例示",
+      "description": "SNSの影響",
+      "patternId": "example",
+      "entries": [
+        { "id": "example_society_001", "level": "template", "jpText": "例えば", "koText": "예를 들어" },
+        { "id": "example_society_002", "level": "template", "jpText": "このように", "koText": "이처럼" },
+        { "id": "example_society_003", "level": "template", "jpText": "具体的には", "koText": "구체적으로" },
+        { "id": "example_society_004", "level": "template", "jpText": "一つ目の例は", "koText": "첫 번째 예는" },
+        { "id": "example_society_005", "level": "template", "jpText": "二つ目の例として", "koText": "두 번째 예로" },
+        { "id": "example_society_basic_001", "level": "basic", "jpText": "例", "koText": "예" },
+        { "id": "example_society_basic_002", "level": "basic", "jpText": "事例", "koText": "사례" },
+        { "id": "example_society_basic_003", "level": "basic", "jpText": "影響", "koText": "영향" },
+        { "id": "example_society_006", "level": "advanced", "jpText": "影響を与える", "koText": "영향을 미치다" },
+        { "id": "example_society_007", "level": "advanced", "jpText": "普及する", "koText": "보급되다" },
+        { "id": "example_society_008", "level": "advanced", "jpText": "拡散する", "koText": "확산하다" },
+        { "id": "example_society_sentence_001", "level": "sentence", "jpText": "SNSが社会に大きな影響を与えている。", "koText": "SNS가 사회에 큰 영향을 미치고 있다." }
+      ]
+    },
+    {
+      "id": "example_local",
+      "name": "地域行事と高齢者参加",
+      "description": "地域社会の具体例",
+      "patternId": "example",
+      "entries": [
+        { "id": "example_local_001", "level": "template", "jpText": "例えば地域祭りでは", "koText": "예를 들어 지역 축제에서는" },
+        { "id": "example_local_002", "level": "template", "jpText": "高齢者が参加する事例が多い", "koText": "노인이 참여하는 사례가 많다" },
+        { "id": "example_local_003", "level": "template", "jpText": "具体的にはボランティアとして", "koText": "구체적으로는 봉사자로" },
+        { "id": "example_local_004", "level": "template", "jpText": "交流の場を提供している", "koText": "교류의 장을 제공하고 있다" },
+        { "id": "example_local_005", "level": "template", "jpText": "この例からわかることは", "koText": "이 예에서 알 수 있는 것은" },
+        { "id": "example_local_basic_001", "level": "basic", "jpText": "地域", "koText": "지역" },
+        { "id": "example_local_basic_002", "level": "basic", "jpText": "参加", "koText": "참여" },
+        { "id": "example_local_basic_003", "level": "basic", "jpText": "交流", "koText": "교류" },
+        { "id": "example_local_adv_001", "level": "advanced", "jpText": "世代間", "koText": "세대 간" },
+        { "id": "example_local_adv_002", "level": "advanced", "jpText": "孤立を防ぐ", "koText": "고립을 막다" },
+        { "id": "example_local_adv_003", "level": "advanced", "jpText": "役割を持つ", "koText": "역할을 갖다" },
+        { "id": "example_local_sentence_001", "level": "sentence", "jpText": "地域行事に高齢者が参加することで孤立を防げる。", "koText": "지역 행사에 노인이 참여함으로써 고립을 막을 수 있다." }
+      ]
+    },
+    {
+      "id": "example_environment",
+      "name": "環境保護の具体例",
+      "description": "日常でできる取り組み",
+      "patternId": "example",
+      "entries": [
+        { "id": "example_env_001", "level": "template", "jpText": "例えば家庭では", "koText": "예를 들어 가정에서는" },
+        { "id": "example_env_002", "level": "template", "jpText": "再利用できる容器を使う", "koText": "재사용 가능한 용기를 쓴다" },
+        { "id": "example_env_003", "level": "template", "jpText": "具体的には買い物袋を持参する", "koText": "구체적으로 장바구니를 가져간다" },
+        { "id": "example_env_004", "level": "template", "jpText": "職場ではペーパーレスを進める", "koText": "직장에서는 페이퍼리스로 나아간다" },
+        { "id": "example_env_005", "level": "template", "jpText": "このような小さな例が積み重なる", "koText": "이러한 작은 예가 쌓인다" },
+        { "id": "example_env_basic_001", "level": "basic", "jpText": "再利用", "koText": "재사용" },
+        { "id": "example_env_basic_002", "level": "basic", "jpText": "節約", "koText": "절약" },
+        { "id": "example_env_basic_003", "level": "basic", "jpText": "ペーパーレス", "koText": "페이퍼리스" },
+        { "id": "example_env_adv_001", "level": "advanced", "jpText": "環境保護", "koText": "환경 보호" },
+        { "id": "example_env_adv_002", "level": "advanced", "jpText": "小さな実践", "koText": "작은 실천" },
+        { "id": "example_env_adv_003", "level": "advanced", "jpText": "積み重ね", "koText": "축적" },
+        { "id": "example_env_sentence_001", "level": "sentence", "jpText": "再利用やペーパーレスなどの小さな実践が環境保護につながる。", "koText": "재사용과 페이퍼리스 같은 작은 실천이 환경 보호로 이어진다." }
+      ]
+    }
+  ]
+}

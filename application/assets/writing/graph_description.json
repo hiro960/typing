@@ -1,0 +1,68 @@
+{
+  "id": "graph_description",
+  "name": "グラフ・資料描写",
+  "description": "増減・割合・比較を表現する",
+  "icon": "bar_chart",
+  "topics": [
+    {
+      "id": "graph_environment",
+      "name": "環境の推移",
+      "description": "プラスチック使用量の推移",
+      "patternId": "graph_description",
+      "entries": [
+        { "id": "graph_env_001", "level": "template", "jpText": "下のグラフは...について示したものである", "koText": "아래 그래프는 ...에 대해 나타낸 것이다." },
+        { "id": "graph_env_002", "level": "template", "jpText": "...が増加している", "koText": "...이/가 증가하고 있다." },
+        { "id": "graph_env_003", "level": "template", "jpText": "...と比較すると", "koText": "...와/과 비교하면" },
+        { "id": "graph_env_006", "level": "template", "jpText": "...の割合は横ばいで推移している", "koText": "...의 비율은 횡보하고 있다." },
+        { "id": "graph_env_007", "level": "template", "jpText": "...が減少傾向にある", "koText": "...이/가 감소 추세에 있다." },
+        { "id": "graph_env_basic_001", "level": "basic", "jpText": "増える", "koText": "늘다" },
+        { "id": "graph_env_basic_002", "level": "basic", "jpText": "減る", "koText": "줄다" },
+        { "id": "graph_env_basic_003", "level": "basic", "jpText": "割合", "koText": "비율" },
+        { "id": "graph_env_004", "level": "advanced", "jpText": "急増する", "koText": "급증하다" },
+        { "id": "graph_env_005", "level": "advanced", "jpText": "顕著な増加", "koText": "현저한 증가" },
+        { "id": "graph_env_011", "level": "advanced", "jpText": "緩やかに増える", "koText": "완만하게 늘다" },
+        { "id": "graph_env_sentence_001", "level": "sentence", "jpText": "最近プラスチック使用量が急増している。", "koText": "최근 플라스틱 사용량이 급증하고 있다." }
+      ]
+    },
+    {
+      "id": "graph_population",
+      "name": "人口動態のグラフ",
+      "description": "出生率と高齢化率の推移",
+      "patternId": "graph_description",
+      "entries": [
+        { "id": "graph_pop_001", "level": "template", "jpText": "このグラフは出生率の推移を示している", "koText": "이 그래프는 출생률의 추이를 보여 준다." },
+        { "id": "graph_pop_002", "level": "template", "jpText": "高齢化率が徐々に上昇している", "koText": "고령화율이 점차 상승하고 있다." },
+        { "id": "graph_pop_003", "level": "template", "jpText": "10年間で約20%減少した", "koText": "10년 동안 약 20% 감소했다." },
+        { "id": "graph_pop_004", "level": "template", "jpText": "都市と地方の差が拡大している", "koText": "도시와 지방의 격차가 확대되고 있다." },
+        { "id": "graph_pop_005", "level": "template", "jpText": "ピークは2010年に記録された", "koText": "정점은 2010년에 기록되었다." },
+        { "id": "graph_pop_basic_001", "level": "basic", "jpText": "出生率", "koText": "출생률" },
+        { "id": "graph_pop_basic_002", "level": "basic", "jpText": "高齢者", "koText": "고령자" },
+        { "id": "graph_pop_basic_003", "level": "basic", "jpText": "人口構成", "koText": "인구 구성" },
+        { "id": "graph_pop_adv_001", "level": "advanced", "jpText": "急減する", "koText": "급감하다" },
+        { "id": "graph_pop_adv_002", "level": "advanced", "jpText": "少子高齢化", "koText": "저출산 고령화" },
+        { "id": "graph_pop_adv_003", "level": "advanced", "jpText": "依存人口比率", "koText": "부양 인구 비율" },
+        { "id": "graph_pop_sentence_001", "level": "sentence", "jpText": "出生率が下がる一方で高齢化率は上がっている。", "koText": "출생률은 낮아지는 반면 고령화율은 올라가고 있다." }
+      ]
+    },
+    {
+      "id": "graph_sales",
+      "name": "売上推移のグラフ",
+      "description": "四半期別の増減と構成比",
+      "patternId": "graph_description",
+      "entries": [
+        { "id": "graph_sales_001", "level": "template", "jpText": "四半期別売上の推移を示している", "koText": "분기별 매출 추이를 보여 준다." },
+        { "id": "graph_sales_002", "level": "template", "jpText": "前年同期比で増加した", "koText": "전년 동기 대비 증가했다." },
+        { "id": "graph_sales_003", "level": "template", "jpText": "第2四半期に落ち込んだ", "koText": "2분기에 떨어졌다." },
+        { "id": "graph_sales_004", "level": "template", "jpText": "構成比を見るとオンラインが最も多い", "koText": "구성비를 보면 온라인이 가장 많다." },
+        { "id": "graph_sales_005", "level": "template", "jpText": "前年比5%減少した", "koText": "전년 대비 5% 감소했다." },
+        { "id": "graph_sales_basic_001", "level": "basic", "jpText": "売上", "koText": "매출" },
+        { "id": "graph_sales_basic_002", "level": "basic", "jpText": "構成比", "koText": "구성비" },
+        { "id": "graph_sales_basic_003", "level": "basic", "jpText": "増減", "koText": "증감" },
+        { "id": "graph_sales_adv_001", "level": "advanced", "jpText": "顕著な回復", "koText": "뚜렷한 회복" },
+        { "id": "graph_sales_adv_002", "level": "advanced", "jpText": "一時的な落ち込み", "koText": "일시적 하락" },
+        { "id": "graph_sales_adv_003", "level": "advanced", "jpText": "需要が冷え込む", "koText": "수요가 위축되다" },
+        { "id": "graph_sales_sentence_001", "level": "sentence", "jpText": "オンライン売上が全体の半分を占めている。", "koText": "온라인 매출이 전체의 절반을 차지하고 있다." }
+      ]
+    }
+  ]
+}

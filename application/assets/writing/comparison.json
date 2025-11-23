@@ -1,0 +1,68 @@
+{
+  "id": "comparison",
+  "name": "比較対照",
+  "description": "長所と短所を対比させる",
+  "icon": "compare_arrows",
+  "topics": [
+    {
+      "id": "comparison_lifestyle",
+      "name": "ライフスタイルの比較",
+      "description": "都市生活と田舎生活",
+      "patternId": "comparison",
+      "entries": [
+        { "id": "comparison_life_001", "level": "template", "jpText": "...に比べて", "koText": "...에 비해" },
+        { "id": "comparison_life_002", "level": "template", "jpText": "一方", "koText": "반면" },
+        { "id": "comparison_life_003", "level": "template", "jpText": "...の長所は", "koText": "...의 장점은" },
+        { "id": "comparison_life_004", "level": "template", "jpText": "短所は", "koText": "단점은" },
+        { "id": "comparison_life_005", "level": "template", "jpText": "まとめると", "koText": "정리하자면" },
+        { "id": "comparison_life_basic_001", "level": "basic", "jpText": "長所", "koText": "장점" },
+        { "id": "comparison_life_basic_002", "level": "basic", "jpText": "短所", "koText": "단점" },
+        { "id": "comparison_life_basic_003", "level": "basic", "jpText": "生活費", "koText": "생활비" },
+        { "id": "comparison_life_006", "level": "advanced", "jpText": "便利な", "koText": "편리한" },
+        { "id": "comparison_life_007", "level": "advanced", "jpText": "静かな", "koText": "조용한" },
+        { "id": "comparison_life_008", "level": "advanced", "jpText": "自然が豊かだ", "koText": "자연이 풍부하다" },
+        { "id": "comparison_life_sentence_001", "level": "sentence", "jpText": "都市生活は便利だが、田舎生活は静かで自然が豊かだ。", "koText": "도시 생활은 편리하지만 시골 생활은 조용하고 자연이 풍부하다." }
+      ]
+    },
+    {
+      "id": "comparison_education_mode",
+      "name": "オンライン教育と対面授業",
+      "description": "学習形態の比較",
+      "patternId": "comparison",
+      "entries": [
+        { "id": "comparison_edu_001", "level": "template", "jpText": "オンラインは柔軟だが", "koText": "온라인은 유연하지만" },
+        { "id": "comparison_edu_002", "level": "template", "jpText": "対面は交流がしやすい", "koText": "대면은 교류하기 쉽다" },
+        { "id": "comparison_edu_003", "level": "template", "jpText": "両者の違いは", "koText": "두 방식의 차이는" },
+        { "id": "comparison_edu_004", "level": "template", "jpText": "共通点は", "koText": "공통점은" },
+        { "id": "comparison_edu_005", "level": "template", "jpText": "結論として目的に応じて選ぶ", "koText": "결론적으로 목적에 따라 선택한다." },
+        { "id": "comparison_edu_basic_001", "level": "basic", "jpText": "柔軟性", "koText": "유연성" },
+        { "id": "comparison_edu_basic_002", "level": "basic", "jpText": "交流", "koText": "교류" },
+        { "id": "comparison_edu_basic_003", "level": "basic", "jpText": "集中", "koText": "집중" },
+        { "id": "comparison_edu_adv_001", "level": "advanced", "jpText": "自己管理", "koText": "자기관리" },
+        { "id": "comparison_edu_adv_002", "level": "advanced", "jpText": "没入感", "koText": "몰입감" },
+        { "id": "comparison_edu_adv_003", "level": "advanced", "jpText": "対面の臨場感", "koText": "대면의 현장감" },
+        { "id": "comparison_edu_sentence_001", "level": "sentence", "jpText": "オンラインは柔軟だが、対面は交流と臨場感に強みがある。", "koText": "온라인은 유연하지만 대면은 교류와 현장감에 강점이 있다." }
+      ]
+    },
+    {
+      "id": "comparison_transport",
+      "name": "公共交通と自家用車",
+      "description": "移動手段の比較",
+      "patternId": "comparison",
+      "entries": [
+        { "id": "comparison_trans_001", "level": "template", "jpText": "公共交通は環境に優しい", "koText": "대중교통은 환경에 친절하다." },
+        { "id": "comparison_trans_002", "level": "template", "jpText": "自家用車は自由度が高い", "koText": "자가용은 자유도가 높다." },
+        { "id": "comparison_trans_003", "level": "template", "jpText": "一方で費用に差がある", "koText": "한편 비용에 차이가 있다." },
+        { "id": "comparison_trans_004", "level": "template", "jpText": "状況によって適切さが変わる", "koText": "상황에 따라 적절성이 달라진다." },
+        { "id": "comparison_trans_005", "level": "template", "jpText": "結論として目的に合わせて選択する", "koText": "결론적으로 목적에 맞게 선택한다." },
+        { "id": "comparison_trans_basic_001", "level": "basic", "jpText": "環境", "koText": "환경" },
+        { "id": "comparison_trans_basic_002", "level": "basic", "jpText": "費用", "koText": "비용" },
+        { "id": "comparison_trans_basic_003", "level": "basic", "jpText": "自由度", "koText": "자유도" },
+        { "id": "comparison_trans_adv_001", "level": "advanced", "jpText": "利便性", "koText": "편의성" },
+        { "id": "comparison_trans_adv_002", "level": "advanced", "jpText": "環境負荷", "koText": "환경 부담" },
+        { "id": "comparison_trans_adv_003", "level": "advanced", "jpText": "渋滞", "koText": "정체" },
+        { "id": "comparison_trans_sentence_001", "level": "sentence", "jpText": "公共交通は環境に優しく、車は自由度が高い。", "koText": "대중교통은 환경에 친절하고, 차는 자유도가 높다." }
+      ]
+    }
+  ]
+}

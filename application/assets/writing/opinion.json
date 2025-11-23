@@ -1,0 +1,68 @@
+{
+  "id": "opinion",
+  "name": "意見文",
+  "description": "主張と根拠を明確に述べる",
+  "icon": "lightbulb",
+  "topics": [
+    {
+      "id": "opinion_education",
+      "name": "教育に関する意見",
+      "description": "オンライン教育の是非",
+      "patternId": "opinion",
+      "entries": [
+        { "id": "opinion_edu_001", "level": "template", "jpText": "私は...と考える", "koText": "나는 ...라고 생각한다." },
+        { "id": "opinion_edu_002", "level": "template", "jpText": "なぜなら...だからである", "koText": "왜냐하면 ...기 때문이다." },
+        { "id": "opinion_edu_003", "level": "template", "jpText": "したがって...すべきである", "koText": "따라서 ...해야 한다." },
+        { "id": "opinion_edu_004", "level": "template", "jpText": "まず結論を述べる", "koText": "우선 결론을 말하고자 한다." },
+        { "id": "opinion_edu_005", "level": "template", "jpText": "理由は二つある", "koText": "이유는 두 가지다." },
+        { "id": "opinion_edu_basic_001", "level": "basic", "jpText": "意見", "koText": "의견" },
+        { "id": "opinion_edu_basic_002", "level": "basic", "jpText": "根拠", "koText": "근거" },
+        { "id": "opinion_edu_basic_003", "level": "basic", "jpText": "具体例", "koText": "구체적 예" },
+        { "id": "opinion_edu_006", "level": "advanced", "jpText": "効果的な", "koText": "효과적인" },
+        { "id": "opinion_edu_007", "level": "advanced", "jpText": "必須的な", "koText": "필수적인" },
+        { "id": "opinion_edu_008", "level": "advanced", "jpText": "合理的だ", "koText": "합리적이다" },
+        { "id": "opinion_edu_sentence_001", "level": "sentence", "jpText": "オンライン教育は効果的な学習方法である。", "koText": "온라인 교육은 효과적인 학습 방법이다." }
+      ]
+    },
+    {
+      "id": "opinion_remote_work",
+      "name": "リモートワークの是非",
+      "description": "在宅勤務への賛否",
+      "patternId": "opinion",
+      "entries": [
+        { "id": "opinion_remote_001", "level": "template", "jpText": "私はリモートワークに賛成だ", "koText": "나는 원격 근무에 찬성한다." },
+        { "id": "opinion_remote_002", "level": "template", "jpText": "理由は二つある", "koText": "이유는 두 가지다." },
+        { "id": "opinion_remote_003", "level": "template", "jpText": "第一に時間を節約できる", "koText": "첫째, 시간을 절약할 수 있다." },
+        { "id": "opinion_remote_004", "level": "template", "jpText": "第二にワークライフバランスが改善する", "koText": "둘째, 워라밸이 개선된다." },
+        { "id": "opinion_remote_005", "level": "template", "jpText": "したがって企業は柔軟な制度を導入すべきだ", "koText": "따라서 기업은 유연한 제도를 도입해야 한다." },
+        { "id": "opinion_remote_basic_001", "level": "basic", "jpText": "在宅勤務", "koText": "재택근무" },
+        { "id": "opinion_remote_basic_002", "level": "basic", "jpText": "通勤時間", "koText": "통근 시간" },
+        { "id": "opinion_remote_basic_003", "level": "basic", "jpText": "柔軟性", "koText": "유연성" },
+        { "id": "opinion_remote_adv_001", "level": "advanced", "jpText": "生産性が向上する", "koText": "생산성이 향상된다" },
+        { "id": "opinion_remote_adv_002", "level": "advanced", "jpText": "集中しやすい", "koText": "집중하기 쉽다" },
+        { "id": "opinion_remote_adv_003", "level": "advanced", "jpText": "孤立感を感じる", "koText": "고립감을 느끼다" },
+        { "id": "opinion_remote_sentence_001", "level": "sentence", "jpText": "リモートワークは通勤時間を減らし、生産性を高める。", "koText": "원격 근무는 통근 시간을 줄이고 생산성을 높인다." }
+      ]
+    },
+    {
+      "id": "opinion_public_transport",
+      "name": "公共交通無料化の是非",
+      "description": "運賃無料政策への賛否",
+      "patternId": "opinion",
+      "entries": [
+        { "id": "opinion_transit_001", "level": "template", "jpText": "公共交通を無料化すべきだ", "koText": "대중교통을 무료화해야 한다." },
+        { "id": "opinion_transit_002", "level": "template", "jpText": "その理由は公平性の向上だ", "koText": "그 이유는 공정성 향상이다." },
+        { "id": "opinion_transit_003", "level": "template", "jpText": "財源は税で賄える", "koText": "재원은 세금으로 충당할 수 있다." },
+        { "id": "opinion_transit_004", "level": "template", "jpText": "短期的には混雑が増える可能性がある", "koText": "단기적으로는 혼잡이 늘 수 있다." },
+        { "id": "opinion_transit_005", "level": "template", "jpText": "それでも長期的効果が大きい", "koText": "그래도 장기적 효과가 크다." },
+        { "id": "opinion_transit_basic_001", "level": "basic", "jpText": "運賃", "koText": "요금" },
+        { "id": "opinion_transit_basic_002", "level": "basic", "jpText": "財源", "koText": "재원" },
+        { "id": "opinion_transit_basic_003", "level": "basic", "jpText": "混雑", "koText": "혼잡" },
+        { "id": "opinion_transit_adv_001", "level": "advanced", "jpText": "交通弱者", "koText": "교통 약자" },
+        { "id": "opinion_transit_adv_002", "level": "advanced", "jpText": "環境負荷を減らす", "koText": "환경 부담을 줄이다" },
+        { "id": "opinion_transit_adv_003", "level": "advanced", "jpText": "政策効果を検証する", "koText": "정책 효과를 검증하다" },
+        { "id": "opinion_transit_sentence_001", "level": "sentence", "jpText": "無料化は利用者を増やし、車依存を減らすだろう。", "koText": "무료화는 이용자를 늘리고 자동차 의존을 줄일 것이다." }
+      ]
+    }
+  ]
+}

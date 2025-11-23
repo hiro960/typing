@@ -1,0 +1,68 @@
+{
+  "id": "problem_solution",
+  "name": "問題と解決策",
+  "description": "問題を分析し解決策を提示する",
+  "icon": "build",
+  "topics": [
+    {
+      "id": "problem_health",
+      "name": "健康問題の解決",
+      "description": "運動不足の改善",
+      "patternId": "problem_solution",
+      "entries": [
+        { "id": "problem_health_001", "level": "template", "jpText": "...という問題がある", "koText": "...라는 문제가 있다." },
+        { "id": "problem_health_002", "level": "template", "jpText": "これを解決するために", "koText": "이를 해결하기 위해" },
+        { "id": "problem_health_003", "level": "template", "jpText": "...する必要がある", "koText": "...할 필요가 있다." },
+        { "id": "problem_health_004", "level": "template", "jpText": "第一に習慣を見直す", "koText": "첫째, 습관을 되돌아본다." },
+        { "id": "problem_health_005", "level": "template", "jpText": "具体策として毎日30分歩く", "koText": "구체적 대안으로 매일 30분 걷는다." },
+        { "id": "problem_health_basic_001", "level": "basic", "jpText": "習慣", "koText": "습관" },
+        { "id": "problem_health_basic_002", "level": "basic", "jpText": "食生活", "koText": "식생활" },
+        { "id": "problem_health_basic_003", "level": "basic", "jpText": "運動", "koText": "운동" },
+        { "id": "problem_health_006", "level": "advanced", "jpText": "改善する", "koText": "개선하다" },
+        { "id": "problem_health_007", "level": "advanced", "jpText": "実践する", "koText": "실천하다" },
+        { "id": "problem_health_008", "level": "advanced", "jpText": "継続する", "koText": "지속하다" },
+        { "id": "problem_health_sentence_001", "level": "sentence", "jpText": "運動不足を改善する必要がある。", "koText": "운동 부족을 개선할 필요가 있다." }
+      ]
+    },
+    {
+      "id": "problem_waste",
+      "name": "ごみとリサイクル",
+      "description": "廃棄物問題への解決策",
+      "patternId": "problem_solution",
+      "entries": [
+        { "id": "problem_waste_001", "level": "template", "jpText": "ごみの増加という問題がある", "koText": "쓰레기 증가라는 문제가 있다." },
+        { "id": "problem_waste_002", "level": "template", "jpText": "原因は分別の徹底不足だ", "koText": "원인은 분리수거 미흡이다." },
+        { "id": "problem_waste_003", "level": "template", "jpText": "解決策としてインセンティブを導入する", "koText": "해결책으로 인센티브를 도입한다." },
+        { "id": "problem_waste_004", "level": "template", "jpText": "短期的には教育を強化する", "koText": "단기적으로는 교육을 강화한다." },
+        { "id": "problem_waste_005", "level": "template", "jpText": "長期的には循環型社会を作る", "koText": "장기적으로는 순환형 사회를 만든다." },
+        { "id": "problem_waste_basic_001", "level": "basic", "jpText": "分別", "koText": "분리수거" },
+        { "id": "problem_waste_basic_002", "level": "basic", "jpText": "リサイクル", "koText": "재활용" },
+        { "id": "problem_waste_basic_003", "level": "basic", "jpText": "資源", "koText": "자원" },
+        { "id": "problem_waste_adv_001", "level": "advanced", "jpText": "インセンティブを与える", "koText": "인센티브를 제공하다" },
+        { "id": "problem_waste_adv_002", "level": "advanced", "jpText": "再利用を促進する", "koText": "재이용을 촉진하다" },
+        { "id": "problem_waste_adv_003", "level": "advanced", "jpText": "循環型社会", "koText": "순환형 사회" },
+        { "id": "problem_waste_sentence_001", "level": "sentence", "jpText": "分別とインセンティブでごみ問題を減らせる。", "koText": "분리수거와 인센티브로 쓰레기 문제를 줄일 수 있다." }
+      ]
+    },
+    {
+      "id": "problem_cyberbullying",
+      "name": "ネットいじめ対策",
+      "description": "オンライン上の被害を防ぐ",
+      "patternId": "problem_solution",
+      "entries": [
+        { "id": "problem_cyber_001", "level": "template", "jpText": "ネットいじめが増えているという問題", "koText": "사이버 괴롭힘이 늘고 있다는 문제" },
+        { "id": "problem_cyber_002", "level": "template", "jpText": "原因は匿名性と監視不足だ", "koText": "원인은 익명성과 감시 부족이다." },
+        { "id": "problem_cyber_003", "level": "template", "jpText": "解決策として通報システムを整える", "koText": "해결책으로 신고 시스템을 갖춘다." },
+        { "id": "problem_cyber_004", "level": "template", "jpText": "教育と罰則を並行して進める", "koText": "교육과 처벌을 병행한다." },
+        { "id": "problem_cyber_005", "level": "template", "jpText": "サポート窓口を常設する", "koText": "지원 창구를 상설한다." },
+        { "id": "problem_cyber_basic_001", "level": "basic", "jpText": "匿名性", "koText": "익명성" },
+        { "id": "problem_cyber_basic_002", "level": "basic", "jpText": "通報", "koText": "신고" },
+        { "id": "problem_cyber_basic_003", "level": "basic", "jpText": "被害者", "koText": "피해자" },
+        { "id": "problem_cyber_adv_001", "level": "advanced", "jpText": "監視を強化する", "koText": "감시를 강화하다" },
+        { "id": "problem_cyber_adv_002", "level": "advanced", "jpText": "予防教育", "koText": "예방 교육" },
+        { "id": "problem_cyber_adv_003", "level": "advanced", "jpText": "サポートを提供する", "koText": "지원을 제공하다" },
+        { "id": "problem_cyber_sentence_001", "level": "sentence", "jpText": "通報と教育を強化すればネットいじめを減らせる。", "koText": "신고와 교육을 강화하면 사이버 괴롭힘을 줄일 수 있다." }
+      ]
+    }
+  ]
+}
