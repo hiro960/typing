@@ -14,6 +14,7 @@ import '../../../features/profile/domain/providers/profile_providers.dart';
 import '../../utils/dialog_helper.dart';
 import '../../utils/snackbar_helper.dart';
 import '../../widgets/app_page_scaffold.dart';
+import '../../widgets/ai_gradient_button.dart';
 import '../../app_spacing.dart';
 import '../../widgets/diary_post_card.dart';
 import '../diary/post_detail_screen.dart';
@@ -22,6 +23,7 @@ import 'profile_posts.dart';
 import 'profile_relations.dart';
 import 'profile_stats.dart';
 import 'profile_tabs.dart';
+import '../analysis/analysis_screen.dart';
 
 class ProfileScreen extends ConsumerStatefulWidget {
   const ProfileScreen({
@@ -208,6 +210,18 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   ),
                 ],
               ),
+            ),
+            const SizedBox(height: AppSpacing.lg),
+          ],
+          if (isOwner) ...[
+            AiGradientButton(
+              label: '詳細分析を見る',
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => const AnalysisScreen(),
+                ),
+              ),
+              icon: Icons.analytics_outlined,
             ),
             const SizedBox(height: AppSpacing.lg),
           ],

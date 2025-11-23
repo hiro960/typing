@@ -129,4 +129,10 @@ class ApiConstants {
   /// 全通知既読マーク
   /// PUT /api/notifications/read-all
   static const String markAllNotificationsRead = '/api/notifications/read-all';
+
+  // ==================== Analysis関連 ====================
+
+  /// 分析ダッシュボード取得
+  /// GET /api/analysis/dashboard
+  static const String analysisDashboard = '/api/analysis/dashboard';
 }

@@ -18,7 +18,8 @@ class SnackBarHelper {
     SnackBarAction? action,
   }) {
     final messenger = ScaffoldMessenger.maybeOf(context);
-    if (messenger == null) return;
+    final hasScaffold = Scaffold.maybeOf(context) != null;
+    if (messenger == null || !hasScaffold) return;
 
     messenger.showSnackBar(
       SnackBar(
