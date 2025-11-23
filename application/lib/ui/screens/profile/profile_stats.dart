@@ -4,12 +4,10 @@ import 'package:forui/forui.dart';
 class ProfileStatCard extends StatelessWidget {
   const ProfileStatCard({
     super.key,
-    required this.icon,
     required this.label,
     required this.value,
   });
 
-  final IconData icon;
   final String label;
   final String value;
 
@@ -22,18 +20,6 @@ class ProfileStatCard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: theme.colorScheme.primary.withValues(alpha: 0.12),
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                icon,
-                color: theme.colorScheme.primary,
-              ),
-            ),
-            const SizedBox(width: 12),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

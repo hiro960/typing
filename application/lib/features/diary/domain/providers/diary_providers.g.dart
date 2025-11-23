@@ -51,6 +51,54 @@ final class DiaryRepositoryProvider
 
 String _$diaryRepositoryHash() => r'400063008b3ec91e2cd672ed41835350da6c7a8d';
 
+@ProviderFor(aiCorrectionService)
+const aiCorrectionServiceProvider = AiCorrectionServiceProvider._();
+
+final class AiCorrectionServiceProvider
+    extends
+        $FunctionalProvider<
+          AiCorrectionService,
+          AiCorrectionService,
+          AiCorrectionService
+        >
+    with $Provider<AiCorrectionService> {
+  const AiCorrectionServiceProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'aiCorrectionServiceProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$aiCorrectionServiceHash();
+
+  @$internal
+  @override
+  $ProviderElement<AiCorrectionService> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  AiCorrectionService create(Ref ref) {
+    return aiCorrectionService(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(AiCorrectionService value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<AiCorrectionService>(value),
+    );
+  }
+}
+
+String _$aiCorrectionServiceHash() =>
+    r'7783fd60cc1615dc560c96f2d948151e6f0c7a1d';
+
 @ProviderFor(DiaryTimelineController)
 const diaryTimelineControllerProvider = DiaryTimelineControllerProvider._();
 

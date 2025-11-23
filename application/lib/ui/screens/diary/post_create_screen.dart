@@ -36,6 +36,39 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
   late final HangulComposer _composer;
 
   bool _isSubmitting = false;
+  bool _isCorrecting = false;
+  String? _aiResult;
+  String? _aiError;
+
+  Future<void> _correctText() async {
+    final content = _contentController.text.trim();
+    if (content.isEmpty) return;
+
+    setState(() {
+      _isCorrecting = true;
+      _aiResult = null;
+      _aiError = null;
+    });
+
+    try {
+      final service = ref.read(aiCorrectionServiceProvider);
+      final result = await service.correctText(content);
+      if (!mounted) return;
+
+      setState(() {
+        _aiResult = result;
+      });
+    } catch (e) {
+      if (!mounted) return;
+      setState(() {
+        _aiError = '添削に失敗しました。もう一度お試しください。($e)';
+      });
+    } finally {
+      if (mounted) {
+        setState(() => _isCorrecting = false);
+      }
+    }
+  }
 
   String _visibility = 'public';
   DiaryPost? _editingPost;
@@ -272,6 +305,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                 setState(() => _visibility = 'public');
                 Navigator.of(context).pop();
               },
+              icon: Icons.public,
             ),
             _VisibilityTile(
               label: 'フォロワーのみ',
@@ -281,6 +315,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                 setState(() => _visibility = 'followers');
                 Navigator.of(context).pop();
               },
+              icon: Icons.people_outline,
             ),
             _VisibilityTile(
               label: '下書き',
@@ -290,6 +325,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                 setState(() => _visibility = 'private');
                 Navigator.of(context).pop();
               },
+              icon: Icons.lock_outline,
             ),
           ],
         ),
@@ -397,7 +433,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                     FTextField(
                       controller: _contentController,
                       focusNode: _focusNode,
-                      minLines: 5,
+                      minLines: 10,
                       maxLines: null,
                       hint: 'いまどうしてる？',
                       enabled: !_isSubmitting,
@@ -439,33 +475,84 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                             label: '引用を削除',
                             onTap: _removeQuote,
                           ),
+                        // 公開範囲設定ボタン
+                        _ComposerActionButton(
+                          icon: _visibilityIcon(_visibility),
+                          label: _visibilityLabel(_visibility),
+                          onTap: _showVisibilitySheet,
+                        ),
                       ],
                     ),
                   ],
                 ),
                 const SizedBox(height: AppSpacing.xl),
-                FTile(
-                  title: const Text('公開範囲'),
-                  subtitle: Text(_visibilityLabel(_visibility)),
-                  prefix: const Icon(Icons.public),
-                  suffix: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        '変更',
-                        style: theme.textTheme.labelMedium?.copyWith(
-                          color: theme.colorScheme.primary,
-                        ),
-                      ),
-                      const SizedBox(width: 4),
-                      Icon(
-                        Icons.keyboard_arrow_down,
-                        color: theme.colorScheme.primary,
-                      ),
-                    ],
-                  ),
-                  onPress: _showVisibilitySheet,
+                _AiCorrectionButton(
+                  enabled: _contentController.text.trim().isNotEmpty && !_isSubmitting && !_isCorrecting,
+                  loading: _isCorrecting,
+                  onTap: _correctText,
                 ),
+                if (_aiResult != null) ...[
+                  const SizedBox(height: AppSpacing.lg),
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.surfaceContainerHighest.withOpacity(0.3),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                        color: const Color(0xFF4facfe).withOpacity(0.3),
+                      ),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            const Icon(Icons.auto_awesome, size: 20, color: Color(0xFF4facfe)),
+                            const SizedBox(width: 8),
+                            Text(
+                              'AI先生のアドバイス',
+                              style: theme.textTheme.titleSmall?.copyWith(
+                                color: const Color(0xFF4facfe),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          _aiResult!,
+                          style: theme.textTheme.bodyMedium?.copyWith(height: 1.6),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+                if (_aiError != null) ...[
+                  const SizedBox(height: AppSpacing.lg),
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.errorContainer,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(Icons.error_outline, color: theme.colorScheme.error),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            _aiError!,
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: theme.colorScheme.onErrorContainer,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ],
             ),
           ),
@@ -540,6 +627,18 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
         return '全体公開';
     }
   }
+
+  IconData _visibilityIcon(String visibility) {
+    switch (visibility) {
+      case 'private':
+        return Icons.lock_outline;
+      case 'followers':
+        return Icons.people_outline;
+      case 'public':
+      default:
+        return Icons.public;
+    }
+  }
 }
 
 class _VisibilityTile extends StatelessWidget {
@@ -548,17 +647,20 @@ class _VisibilityTile extends StatelessWidget {
     required this.description,
     required this.selected,
     required this.onTap,
+    required this.icon,
   });
 
   final String label;
   final String description;
   final bool selected;
   final VoidCallback onTap;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return FTile(
+    return FItem(
+      prefix: Icon(icon),
       title: Text(label),
       subtitle: Text(description),
       suffix: selected
@@ -695,3 +797,75 @@ class _HashtagEditingController extends TextEditingController {
     return TextSpan(style: style, children: children);
   }
 }
+
+class _AiCorrectionButton extends StatelessWidget {
+  const _AiCorrectionButton({
+    required this.enabled,
+    required this.loading,
+    required this.onTap,
+  });
+
+  final bool enabled;
+  final bool loading;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Opacity(
+      opacity: enabled ? 1.0 : 0.5,
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            colors: [Color(0xFF4facfe), Color(0xFF00f2fe)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+              color: const Color(0xFF4facfe).withOpacity(0.3),
+              blurRadius: 8,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: enabled ? onTap : null,
+            borderRadius: BorderRadius.circular(12),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  if (loading)
+                    const SizedBox(
+                      width: 20,
+                      height: 20,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        valueColor: AlwaysStoppedAnimation(Colors.white),
+                      ),
+                    )
+                  else
+                    const Icon(Icons.auto_awesome, color: Colors.white),
+                  const SizedBox(width: 12),
+                  Text(
+                    loading ? '添削中...' : 'AI先生の添削',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+

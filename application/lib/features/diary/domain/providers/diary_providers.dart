@@ -1,12 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import 'package:dio/dio.dart';
 import '../../../auth/domain/providers/auth_providers.dart';
 import '../../data/models/blocked_account.dart';
 import '../../data/models/diary_comment.dart';
 import '../../data/models/diary_notification.dart';
 import '../../data/models/diary_post.dart';
 import '../../data/repositories/diary_repository.dart';
+import '../../data/services/ai_correction_service.dart';
 
 part 'diary_providers.g.dart';
 
@@ -14,6 +16,11 @@ part 'diary_providers.g.dart';
 DiaryRepository diaryRepository(Ref ref) {
   final apiClient = ref.watch(apiClientServiceProvider);
   return DiaryRepository(apiClient: apiClient);
+}
+
+@riverpod
+AiCorrectionService aiCorrectionService(Ref ref) {
+  return AiCorrectionService(Dio());
 }
 
 final blockedAccountsProvider =

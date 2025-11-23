@@ -168,7 +168,6 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                 children: [
                   Expanded(
                     child: ProfileStatCard(
-                      icon: Icons.speed,
                       label: 'WPM最高',
                       value: stats.wpmAvg.toStringAsFixed(0),
                     ),
@@ -176,7 +175,6 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   const SizedBox(width: AppSpacing.md),
                   Expanded(
                     child: ProfileStatCard(
-                      icon: Icons.school_outlined,
                       label: '完了レッスン',
                       value: '${stats.lessonsCompleted}',
                     ),
@@ -188,7 +186,6 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                 children: const [
                   Expanded(
                     child: ProfileStatCard(
-                      icon: Icons.speed,
                       label: 'WPM最高',
                       value: '--',
                     ),
@@ -196,7 +193,6 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   SizedBox(width: 12),
                   Expanded(
                     child: ProfileStatCard(
-                      icon: Icons.school_outlined,
                       label: '完了レッスン',
                       value: '--',
                     ),
@@ -213,7 +209,6 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
             followingCount: profile.followingCount,
             onChanged: (index) => setState(() => _selectedTabIndex = index),
           ),
-          const SizedBox(height: 16),
           if (_selectedTabIndex == 0)
             postsAsync.when(
               data: (posts) {
@@ -229,9 +224,8 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ...posts.take(20).map((post) {
-                      return Padding(
-                        padding: const EdgeInsets.only(bottom: 12),
-                        child: DiaryPostCard(
+                      return 
+                        DiaryPostCard(
                           post: post,
                           onTap: () {},
                           onToggleLike: () async {
@@ -251,7 +245,6 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                           },
                           onComment: () {},
                           currentUserId: currentUserId,
-                        ),
                       );
                     }),
                   ],

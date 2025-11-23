@@ -26,6 +26,16 @@ class EnvConfig {
   /// 本番環境かどうか
   static bool get isProduction => environment == 'production';
 
+  /// OpenAI API Key
+  static String get openAiApiKey => dotenv.env['OPENAI_API_KEY'] ?? '';
+
+  /// OpenAI API Prompt Id
+  static String get openAiPromptId => dotenv.env['OPENAI_PROMPT_ID'] ?? '';
+
+  /// OpenAI API Prompt Version
+  static String get openAiPromptVersion => dotenv.env['OPENAI_PROMPT_VERSION'] ?? '';
+
+
   /// 環境変数の検証
   /// 必要な環境変数が設定されているかチェック
   static void validate() {
@@ -37,6 +47,15 @@ class EnvConfig {
     }
     if (apiBaseUrl.isEmpty) {
       throw Exception('API_BASE_URL is not set in .env file');
+    }
+    if (openAiApiKey.isEmpty) {
+      throw Exception('OPENAI_API_KEY is not set in .env file');
+    }
+    if (openAiPromptId.isEmpty) {
+      throw Exception('OPENAI_PROMPT_ID is not set in .env file');
+    }
+    if (openAiPromptVersion.isEmpty) {
+      throw Exception('OPENAI_PROMPT_VERSION is not set in .env file');
     }
   }
 }
