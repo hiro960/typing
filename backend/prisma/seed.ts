@@ -92,10 +92,17 @@ async function main() {
 
   // レッスンを登録
   for (const lesson of allLessons) {
-    await prisma.lesson.create({
-      data: lesson,
+    await prisma.lesson.upsert({
+      where: { id: lesson.id },
+      update: {
+        title: lesson.title,
+        level: lesson.level,
+        order: lesson.order,
+        estimatedMinutes: lesson.estimatedMinutes,
+      },
+      create: lesson,
     });
-    console.log(`Created lesson: ${lesson.id} - ${lesson.title}`);
+    console.log(`Upserted lesson: ${lesson.id} - ${lesson.title}`);
   }
 
   console.log(`Seed completed successfully! Total lessons created: ${allLessons.length}`);

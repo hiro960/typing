@@ -38,7 +38,7 @@ export default function Home() {
             <div className={styles.featureText}>
               <h2 className={styles.featureTitle}>実践的なタイピング練習</h2>
               <p className={styles.featureDescription}>
-                K-POPの歌詞やドラマのセリフで楽しくタイピング練習。<br />
+                単語から文章まで気持ちよくタイピング練習。<br />
                 正確な指使いとスピードを身につけながら、自然な韓国語表現も学べます。
               </p>
             </div>
@@ -59,7 +59,7 @@ export default function Home() {
               <h2 className={styles.featureTitle}>自分だけの単語帳</h2>
               <p className={styles.featureDescription}>
                 覚えたい単語を登録して、効率的に復習。<br />
-                TOPIK必須単語も収録されており、試験対策にも最適です。
+                クイズ形式の出題も用意されていて、試験対策にも最適です。
               </p>
             </div>
             <div className={styles.featureImageWrapper}>
@@ -98,7 +98,7 @@ export default function Home() {
             <div className={styles.featureText}>
               <h2 className={styles.featureTitle}>学習の記録を可視化</h2>
               <p className={styles.featureDescription}>
-                日々の学習時間や達成度をグラフで確認。<br />
+                日々の達成度をグラフで確認。<br />
                 成長を実感できるから、モチベーションが続きます。
               </p>
             </div>
@@ -117,11 +117,11 @@ export default function Home() {
         {/* Footer */}
         <footer className={styles.footer}>
           <div className={styles.footerLinks}>
-            <a href="#" className={styles.footerLink}>利用規約</a>
-            <a href="#" className={styles.footerLink}>プライバシーポリシー</a>
+            <a href="/terms" className={styles.footerLink}>利用規約</a>
+            <a href="/privacy" className={styles.footerLink}>プライバシーポリシー</a>
             <a href="#" className={styles.footerLink}>お問い合わせ</a>
           </div>
-          <p className={styles.copyright}>&copy; 2024 Korean Typing App. All rights reserved.</p>
+          <p className={styles.copyright}>&copy; 2025 Korean Typing App. All rights reserved.</p>
         </footer>
       </main>
     </div>
