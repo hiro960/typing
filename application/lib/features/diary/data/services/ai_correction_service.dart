@@ -8,6 +8,34 @@ class AiCorrectionService {
   AiCorrectionService(this._dio);
 
   Future<String> correctText(String text) async {
+    return _executePrompt(
+      promptId: EnvConfig.openAiPromptId,
+      version: EnvConfig.openAiPromptVersion,
+      input: text,
+    );
+  }
+
+  Future<String> askJpKr(String text) async {
+    return _executePrompt(
+      promptId: EnvConfig.openAiJpKrPromptId,
+      version: EnvConfig.openAiJpKrPromptVersion,
+      input: text,
+    );
+  }
+
+  Future<String> translateKrJp(String text) async {
+    return _executePrompt(
+      promptId: EnvConfig.openAiKrJpPromptId,
+      version: EnvConfig.openAiKrJpPromptVersion,
+      input: text,
+    );
+  }
+
+  Future<String> _executePrompt({
+    required String promptId,
+    required String version,
+    required String input,
+  }) async {
     try {
       final response = await _dio.post(
         'https://api.openai.com/v1/responses',
@@ -19,10 +47,10 @@ class AiCorrectionService {
         ),
         data: {
           'prompt': {
-            'id': EnvConfig.openAiPromptId,
-            'version': EnvConfig.openAiPromptVersion,
+            'id': promptId,
+            'version': version,
           },
-          'input': text,
+          'input': input,
         },
       );
 
@@ -52,8 +80,7 @@ class AiCorrectionService {
       return response.data.toString();
     } catch (e, stackTrace) {
       AppLogger.error(
-        'Failed to correct text',
-        tag: 'AiCorrectionService',
+        'Failed to execute prompt',
         error: e,
         stackTrace: stackTrace,
       );

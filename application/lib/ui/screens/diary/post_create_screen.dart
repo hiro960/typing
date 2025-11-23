@@ -15,7 +15,7 @@ import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
 import '../../widgets/diary_post_card.dart';
 import '../../widgets/typing_keyboard.dart';
-import '../../app_spacing.dart';
+import '../../widgets/ai_gradient_button.dart';
 import '../../app_spacing.dart';
 
 class PostCreateScreen extends ConsumerStatefulWidget {
@@ -486,7 +486,9 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                   ],
                 ),
                 const SizedBox(height: AppSpacing.xl),
-                _AiCorrectionButton(
+                AiGradientButton(
+                  label: 'AI先生の添削',
+                  loadingLabel: '添削中...',
                   enabled: _contentController.text.trim().isNotEmpty && !_isSubmitting && !_isCorrecting,
                   loading: _isCorrecting,
                   onTap: _correctText,
@@ -798,74 +800,4 @@ class _HashtagEditingController extends TextEditingController {
   }
 }
 
-class _AiCorrectionButton extends StatelessWidget {
-  const _AiCorrectionButton({
-    required this.enabled,
-    required this.loading,
-    required this.onTap,
-  });
-
-  final bool enabled;
-  final bool loading;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return Opacity(
-      opacity: enabled ? 1.0 : 0.5,
-      child: Container(
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [Color(0xFF4facfe), Color(0xFF00f2fe)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          borderRadius: BorderRadius.circular(12),
-          boxShadow: [
-            BoxShadow(
-              color: const Color(0xFF4facfe).withOpacity(0.3),
-              blurRadius: 8,
-              offset: const Offset(0, 4),
-            ),
-          ],
-        ),
-        child: Material(
-          color: Colors.transparent,
-          child: InkWell(
-            onTap: enabled ? onTap : null,
-            borderRadius: BorderRadius.circular(12),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  if (loading)
-                    const SizedBox(
-                      width: 20,
-                      height: 20,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                        valueColor: AlwaysStoppedAnimation(Colors.white),
-                      ),
-                    )
-                  else
-                    const Icon(Icons.auto_awesome, color: Colors.white),
-                  const SizedBox(width: 12),
-                  Text(
-                    loading ? '添削中...' : 'AI先生の添削',
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
 

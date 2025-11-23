@@ -3,22 +3,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
 import '../../features/auth/domain/providers/auth_providers.dart';
-import '../../features/lessons/data/models/lesson_index.dart'
-    as lesson_index;
+import '../../features/lessons/data/models/lesson_index.dart' as lesson_index;
 import '../../features/lessons/data/models/lesson_models.dart';
 import '../../features/lessons/data/models/lesson_progress.dart';
 import '../../features/lessons/domain/providers/home_state_provider.dart';
-import '../../features/lessons/domain/providers/lesson_providers.dart';
 import '../app_theme.dart';
 import '../app_spacing.dart';
 import '../utils/snackbar_helper.dart';
 import '../widgets/app_page_scaffold.dart';
 import 'lesson_detail_screen.dart';
+import 'ai_teacher_screen.dart';
+import '../widgets/ai_gradient_button.dart';
 
 part 'home_progress_hero.dart';
 part 'home_stat_highlights.dart';
 part 'home_level_accordions.dart';
-part 'home_quick_actions.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key, required this.onOpenSettings});
@@ -77,7 +76,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       _ProgressHero(stats: state.stats),
                       const SizedBox(height: AppSpacing.lg),
                       _StatHighlights(stats: state.stats),
-                      const SizedBox(height: AppSpacing.xl),
+                      const SizedBox(height: AppSpacing.xxl),
+                      const Text('タイピング練習'),
                       _LevelAccordions(
                         controller: _accordionController,
                         catalog: state.catalog,
@@ -85,12 +85,20 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         onLessonTap: _onLessonTap,
                       ),
                       const SizedBox(height: AppSpacing.xl),
-                      _QuickActions(
-                        focusLesson: state.focusLesson,
-                        onFocusTap: state.focusLesson == null
-                            ? null
-                            : () => _onLessonTap(state.focusLesson!, false),
-                        onCustomPracticeTap: _showCustomPracticeHint,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: AppSpacing.lg,
+                        ),
+                        child: AiGradientButton(
+                          label: 'AI先生に聞く',
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const AiTeacherScreen(),
+                              ),
+                            );
+                          },
+                        ),
                       ),
                     ],
                   ),
@@ -103,9 +111,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       loading: () => AppPageScaffold(
         child: const Center(child: CircularProgressIndicator()),
       ),
-      error: (error, _) => AppPageScaffold(
-        child: Center(child: Text(error.toString())),
-      ),
+      error: (error, _) =>
+          AppPageScaffold(child: Center(child: Text(error.toString()))),
     );
   }
 
