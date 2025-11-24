@@ -215,6 +215,14 @@ class UserModel {
   int get hashCode => id.hashCode ^ isFollowing.hashCode;
 }
 
+extension UserModelX on UserModel {
+  /// 有料プランまたは公式アカウントかどうか
+  bool get isPremiumUser {
+    final normalized = type.toUpperCase();
+    return normalized == 'PREMIUM' || normalized == 'OFFICIAL';
+  }
+}
+
 class UserSettingsModel {
   const UserSettingsModel({
     this.notifications = const UserNotificationSettingsModel(),

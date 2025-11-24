@@ -8,6 +8,7 @@ import 'package:forui/forui.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../core/utils/logger.dart';
+import '../../../features/auth/data/models/user_model.dart';
 import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/data/repositories/diary_repository.dart';
@@ -44,6 +45,12 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
   Future<void> _correctText() async {
     final content = _contentController.text.trim();
     if (content.isEmpty) return;
+
+    final user = ref.read(currentUserProvider);
+    if (!(user?.isPremiumUser ?? false)) {
+      _showMessage('AI先生の添削は月額プラン限定です');
+      return;
+    }
 
     setState(() {
       _isCorrecting = true;
@@ -377,6 +384,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isPremiumUser = ref.watch(currentUserProvider)?.isPremiumUser ?? false;
     final remaining = _maxLength - _contentController.text.characters.length;
 
     final isOverLimit = remaining < 0;
@@ -493,8 +501,19 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                   loadingLabel: '添削中...',
                   enabled: _contentController.text.trim().isNotEmpty && !_isSubmitting && !_isCorrecting,
                   loading: _isCorrecting,
-                  onTap: _correctText,
+                  onTap: isPremiumUser
+                      ? _correctText
+                      : () => _showMessage('AI先生の添削は月額プラン限定です'),
                 ),
+                if (!isPremiumUser) ...[
+                  const SizedBox(height: AppSpacing.sm),
+                  Text(
+                    '月額プラン登録でAI先生の添削が使えるようになります。',
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                ],
                 if (_aiResult != null) ...[
                   const SizedBox(height: AppSpacing.lg),
                   Container(
@@ -801,5 +820,4 @@ class _HashtagEditingController extends TextEditingController {
     return TextSpan(style: style, children: children);
   }
 }
-
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
+import '../../../features/auth/data/models/user_model.dart';
 import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/lessons/data/models/lesson_index.dart'
     as lesson_index;
@@ -49,6 +50,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final homeStateAsync = ref.watch(homeStateProvider);
     final user = ref.watch(currentUserProvider);
     final displayName = user?.displayName ?? 'Guest';
+    final isPremiumUser = user?.isPremiumUser ?? false;
 
     return homeStateAsync.when(
       data: (state) {
@@ -101,6 +103,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                             AiGradientButton(
                               label: 'AI先生に聞く',
                               onTap: () {
+                                if (!isPremiumUser) {
+                                  SnackBarHelper.show(
+                                    context,
+                                    'AI先生は月額プラン限定の機能です',
+                                  );
+                                  return;
+                                }
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
                                     builder: (context) =>

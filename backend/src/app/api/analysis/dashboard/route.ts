@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
     try {
         const user = await requireAuthUser(request);
         const { searchParams } = request.nextUrl;
-        const period = searchParams.get("period") || "month"; // 'week', 'month', 'all'
+        const period = searchParams.get("period") || "month"; // 'week', 'month', 'half_year'
 
         // Calculate date range
         let dateFrom: Date | undefined;
@@ -17,6 +17,8 @@ export async function GET(request: NextRequest) {
             dateFrom = new Date(now.setDate(now.getDate() - 7));
         } else if (period === "month") {
             dateFrom = new Date(now.setMonth(now.getMonth() - 1));
+        } else if (period === "half_year") {
+            dateFrom = new Date(now.setMonth(now.getMonth() - 6));
         }
 
         // Fetch completions

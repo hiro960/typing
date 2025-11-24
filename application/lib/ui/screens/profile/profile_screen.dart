@@ -121,6 +121,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
     String? currentUserId,
   ) {
     final isOwner = currentUserId == profile.id;
+    final isPremiumUser = profile.isPremiumUser;
     return AppPageScaffold(
       header: FHeader.nested(
         titleAlignment: AlignmentDirectional.centerStart,
@@ -216,11 +217,20 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
           if (isOwner) ...[
             AiGradientButton(
               label: '詳細分析を見る',
-              onTap: () => Navigator.of(context).push(
-                MaterialPageRoute<void>(
-                  builder: (_) => const AnalysisScreen(),
-                ),
-              ),
+              onTap: () {
+                if (!isPremiumUser) {
+                  SnackBarHelper.show(
+                    context,
+                    '詳細分析は月額プラン限定の機能です',
+                  );
+                  return;
+                }
+                Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => const AnalysisScreen(),
+                  ),
+                );
+              },
               icon: Icons.analytics_outlined,
             ),
             const SizedBox(height: AppSpacing.lg),

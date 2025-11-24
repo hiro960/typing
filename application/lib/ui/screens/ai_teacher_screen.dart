@@ -1,7 +1,10 @@
+import 'package:chaletta/features/auth/data/models/user_model.dart';
+import 'package:chaletta/features/auth/domain/providers/auth_providers.dart';
 import 'package:chaletta/ui/app_spacing.dart';
 import 'package:chaletta/ui/widgets/ai_gradient_button.dart';
 import 'package:chaletta/ui/widgets/app_page_scaffold.dart';
 import 'package:chaletta/ui/widgets/modern_text_input.dart';
+import 'package:chaletta/ui/widgets/premium_feature_gate.dart';
 import 'package:chaletta/ui/widgets/typing_keyboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -152,13 +155,30 @@ class _AiTeacherScreenState extends ConsumerState<AiTeacherScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final user = ref.watch(currentUserProvider);
+    final isPremiumUser = user?.isPremiumUser ?? false;
+    final header = FHeader.nested(
+      title: const Text('AI先生に聞く'),
+      prefixes: [
+        FHeaderAction.back(onPress: () => Navigator.of(context).pop()),
+      ],
+    );
+
+    if (!isPremiumUser) {
+      return AppPageScaffold(
+        header: header,
+        child: Padding(
+          padding: const EdgeInsets.all(AppSpacing.lg),
+          child: const PremiumFeatureGate(
+            title: 'AI先生',
+            description: '質問や翻訳のAIサポートは月額プランでご利用いただけます。',
+          ),
+        ),
+      );
+    }
+
     return AppPageScaffold(
-      header: FHeader.nested(
-        title: const Text('AI先生に聞く'),
-        prefixes: [
-          FHeaderAction.back(onPress: () => Navigator.of(context).pop()),
-        ],
-      ),
+      header: header,
       child: Column(
         children: [
           Expanded(

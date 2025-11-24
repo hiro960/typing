@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
-import '../../../../features/analysis/domain/providers/analysis_providers.dart';
-import '../../app_spacing.dart';
-import '../../widgets/app_page_scaffold.dart';
+import 'package:chaletta/features/analysis/domain/providers/analysis_providers.dart';
+import 'package:chaletta/features/auth/data/models/user_model.dart';
+import 'package:chaletta/features/auth/domain/providers/auth_providers.dart';
+import 'package:chaletta/ui/app_spacing.dart';
+import 'package:chaletta/ui/widgets/app_page_scaffold.dart';
+import 'package:chaletta/ui/widgets/premium_feature_gate.dart';
+
 import 'widgets/growth_trend_chart.dart';
 import 'widgets/learning_habit_chart.dart';
 import 'widgets/weak_keys_heatmap.dart';
@@ -17,20 +21,38 @@ class AnalysisScreen extends ConsumerStatefulWidget {
 }
 
 class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
-  String _period = 'month'; // 'week', 'month', 'all'
+  String _period = 'month'; // 'week', 'month', 'half_year'
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final user = ref.watch(currentUserProvider);
+    final isPremiumUser = user?.isPremiumUser ?? false;
+
+    final header = FHeader.nested(
+      title: const Text('詳細分析'),
+      prefixes: [
+        FHeaderAction.back(onPress: () => Navigator.of(context).pop()),
+      ],
+    );
+
+    if (!isPremiumUser) {
+      return AppPageScaffold(
+        header: header,
+        child: Padding(
+          padding: const EdgeInsets.all(AppSpacing.lg),
+          child: const PremiumFeatureGate(
+            title: '詳細分析',
+            description: '月額プランに登録すると、キーの弱点や成長推移など詳細な分析が表示されます。',
+          ),
+        ),
+      );
+    }
+
     final dashboardAsync = ref.watch(analysisDashboardProvider(period: _period));
 
     return AppPageScaffold(
-      header: FHeader.nested(
-        title: const Text('詳細分析'),
-        prefixes: [
-          FHeaderAction.back(onPress: () => Navigator.of(context).pop()),
-        ],
-      ),
+      header: header,
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(AppSpacing.lg),
         child: Column(
@@ -43,7 +65,7 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
                 segments: const [
                   ButtonSegment(value: 'week', label: Text('1週間')),
                   ButtonSegment(value: 'month', label: Text('1ヶ月')),
-                  ButtonSegment(value: 'all', label: Text('全期間')),
+                  ButtonSegment(value: 'half_year', label: Text('半年')),
                 ],
                 selected: {_period},
                 onSelectionChanged: (newSelection) {
