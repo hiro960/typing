@@ -297,4 +297,19 @@ class ProfileRepository {
       throw ApiClientService.handleDioException(error);
     }
   }
+
+  /// アカウントを削除
+  Future<void> deleteAccount(String userId) async {
+    try {
+      await _apiClient.dio.delete(ApiConstants.userById(userId));
+    } on DioException catch (error, stackTrace) {
+      AppLogger.error(
+        'Failed to delete account',
+        tag: 'ProfileRepository',
+        error: error,
+        stackTrace: stackTrace,
+      );
+      throw ApiClientService.handleDioException(error);
+    }
+  }
 }

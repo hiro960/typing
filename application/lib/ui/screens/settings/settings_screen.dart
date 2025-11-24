@@ -99,6 +99,52 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     }
   }
 
+  Future<void> _handleDeleteAccount() async {
+    final user = ref.read(currentUserProvider);
+    if (user == null) return;
+
+    // 確認ダイアログを表示
+    final confirmed = await DialogHelper.showConfirmDialog(
+      context,
+      title: 'アカウント削除',
+      content: '本当にアカウントを削除しますか？\nこの操作は取り消せません。\nすべての投稿と学習記録が削除されます。',
+      positiveLabel: '削除する',
+      isDestructive: true,
+    );
+
+    if (!confirmed || !mounted) return;
+
+    setState(() => _isLoggingOut = true);
+
+    try {
+      // アカウント削除実行
+      await ref.read(profileRepositoryProvider).deleteAccount(user.id);
+
+      // ログアウト処理も実行（ローカルデータのクリア）
+      await ref.read(authStateProvider.notifier).logout();
+
+      if (!mounted) return;
+
+      // 成功 - 設定画面を閉じる
+      Navigator.of(context).pop();
+      
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('アカウントを削除しました')),
+      );
+    } catch (e) {
+      if (!mounted) return;
+
+      setState(() => _isLoggingOut = false);
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('アカウント削除に失敗しました: $e'),
+          backgroundColor: Theme.of(context).colorScheme.error,
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -358,7 +404,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                           color: theme.colorScheme.error.withValues(alpha: 0.8),
                         ),
                       ),
-                      onPress: () {},
+                      onPress: _isLoggingOut ? null : _handleDeleteAccount,
                       suffix: const Icon(Icons.chevron_right),
                     ),
                   ],

@@ -119,7 +119,7 @@ export default function Home() {
           <div className={styles.footerLinks}>
             <a href="/terms" className={styles.footerLink}>利用規約</a>
             <a href="/privacy" className={styles.footerLink}>プライバシーポリシー</a>
-            <a href="#" className={styles.footerLink}>お問い合わせ</a>
+            <a href="/contact" className={styles.footerLink}>お問い合わせ</a>
           </div>
           <p className={styles.copyright}>&copy; 2025 Korean Typing App. All rights reserved.</p>
         </footer>

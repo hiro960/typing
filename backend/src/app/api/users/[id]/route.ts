@@ -101,3 +101,22 @@ export async function PUT(
     return handleRouteError(error);
   }
 }
+
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+    const authUser = await requireAuthUser(request);
+    assertSameUser(authUser.id, id);
+
+    await prisma.user.delete({
+      where: { id },
+    });
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    return handleRouteError(error);
+  }
+}
