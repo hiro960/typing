@@ -29,30 +29,19 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
     final user = ref.watch(currentUserProvider);
     final isPremiumUser = user?.isPremiumUser ?? false;
 
-    final header = FHeader.nested(
-      title: const Text('詳細分析'),
-      prefixes: [
-        FHeaderAction.back(onPress: () => Navigator.of(context).pop()),
-      ],
-    );
-
     if (!isPremiumUser) {
-      return AppPageScaffold(
-        header: header,
-        child: Padding(
-          padding: const EdgeInsets.all(AppSpacing.lg),
-          child: const PremiumFeatureGate(
-            title: '詳細分析',
-            description: '月額プランに登録すると、キーの弱点や成長推移など詳細な分析が表示されます。',
-          ),
-        ),
-      );
+      return const PremiumFeatureGateScreen(focusFeature: '詳細分析');
     }
 
     final dashboardAsync = ref.watch(analysisDashboardProvider(period: _period));
 
     return AppPageScaffold(
-      header: header,
+      header: FHeader.nested(
+        title: const Text('詳細分析'),
+        prefixes: [
+          FHeaderAction.back(onPress: () => Navigator.of(context).pop()),
+        ],
+      ),
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(AppSpacing.lg),
         child: Column(

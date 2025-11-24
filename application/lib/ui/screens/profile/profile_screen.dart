@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:chaletta/ui/widgets/premium_feature_gate.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
@@ -219,9 +220,12 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               label: '詳細分析を見る',
               onTap: () {
                 if (!isPremiumUser) {
-                  SnackBarHelper.show(
-                    context,
-                    '詳細分析は月額プラン限定の機能です',
+                  Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => const PremiumFeatureGateScreen(
+                        focusFeature: '詳細分析',
+                      ),
+                    ),
                   );
                   return;
                 }

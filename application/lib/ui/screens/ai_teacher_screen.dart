@@ -165,16 +165,7 @@ class _AiTeacherScreenState extends ConsumerState<AiTeacherScreen> {
     );
 
     if (!isPremiumUser) {
-      return AppPageScaffold(
-        header: header,
-        child: Padding(
-          padding: const EdgeInsets.all(AppSpacing.lg),
-          child: const PremiumFeatureGate(
-            title: 'AI先生',
-            description: '質問や翻訳のAIサポートは月額プランでご利用いただけます。',
-          ),
-        ),
-      );
+      return const PremiumFeatureGateScreen(focusFeature: 'AI先生');
     }
 
     return AppPageScaffold(

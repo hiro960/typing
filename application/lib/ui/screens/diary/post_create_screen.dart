@@ -19,6 +19,7 @@ import '../../widgets/typing_keyboard.dart';
 import '../../widgets/ai_gradient_button.dart';
 import '../../widgets/modern_text_input.dart';
 import '../../app_spacing.dart';
+import '../../widgets/premium_feature_gate.dart';
 
 class PostCreateScreen extends ConsumerStatefulWidget {
   const PostCreateScreen({super.key, this.initialPost, this.quotedPost});
@@ -48,7 +49,13 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
 
     final user = ref.read(currentUserProvider);
     if (!(user?.isPremiumUser ?? false)) {
-      _showMessage('AI先生の添削は月額プラン限定です');
+      if (!mounted) return;
+      await Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (_) =>
+              const PremiumFeatureGateScreen(focusFeature: 'AI先生の添削'),
+        ),
+      );
       return;
     }
 
@@ -503,17 +510,16 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                   loading: _isCorrecting,
                   onTap: isPremiumUser
                       ? _correctText
-                      : () => _showMessage('AI先生の添削は月額プラン限定です'),
+                      : () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute<void>(
+                              builder: (_) => const PremiumFeatureGateScreen(
+                                focusFeature: 'AI先生の添削',
+                              ),
+                            ),
+                          );
+                        },
                 ),
-                if (!isPremiumUser) ...[
-                  const SizedBox(height: AppSpacing.sm),
-                  Text(
-                    '月額プラン登録でAI先生の添削が使えるようになります。',
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      color: theme.colorScheme.onSurfaceVariant,
-                    ),
-                  ),
-                ],
                 if (_aiResult != null) ...[
                   const SizedBox(height: AppSpacing.lg),
                   Container(
@@ -820,4 +826,3 @@ class _HashtagEditingController extends TextEditingController {
     return TextSpan(style: style, children: children);
   }
 }
-
