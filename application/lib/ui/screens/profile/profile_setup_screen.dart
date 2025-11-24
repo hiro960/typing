@@ -252,7 +252,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
                     label: 'ユーザー名',
                     prefixText: '@',
                     hint: 'hana_typing',
-                    helper: '30日に1回のみ変更できます。',
+                    helper: '変更できません。',
                     errorText: _usernameError,
                     isValidating: _isCheckingUsername,
                     onChanged: (value) {

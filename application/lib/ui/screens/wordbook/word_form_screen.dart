@@ -25,6 +25,7 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
   late final TextEditingController _meaningController;
   late final TextEditingController _exampleController;
   late final TextEditingController _tagsController;
+  late TextEditingController _activeComposerController;
   late WordCategory _category;
   late WordStatus _status;
   late final FocusNode _wordFocusNode;
@@ -44,6 +45,7 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
     _exampleController = TextEditingController(text: initial?.example ?? '');
     _tagsController =
         TextEditingController(text: initial?.tags.join(' ') ?? '');
+    _activeComposerController = _wordController;
     _category = initial?.category ?? WordCategory.WORDS;
     _status = initial?.status ?? WordStatus.REVIEWING;
     _wordFocusNode = FocusNode();
@@ -61,6 +63,14 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
     final anyHasFocus = _wordFocusNode.hasFocus ||
         _meaningFocusNode.hasFocus ||
         _exampleFocusNode.hasFocus;
+
+    if (_wordFocusNode.hasFocus) {
+      _activeComposerController = _wordController;
+    } else if (_meaningFocusNode.hasFocus) {
+      _activeComposerController = _meaningController;
+    } else if (_exampleFocusNode.hasFocus) {
+      _activeComposerController = _exampleController;
+    }
 
     if (anyHasFocus && _useCustomKeyboard) {
       setState(() => _showCustomKeyboard = true);
@@ -341,13 +351,11 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
   }
 
   TextEditingController get _activeController {
-    if (_wordFocusNode.hasFocus) return _wordController;
-    if (_meaningFocusNode.hasFocus) return _meaningController;
-    if (_exampleFocusNode.hasFocus) return _exampleController;
-    return _wordController;
+    return _activeComposerController;
   }
 
   void _loadComposerFromField(TextEditingController controller) {
+    _activeComposerController = controller;
     _composer.loadFromText(controller.text);
     _applyComposerText();
   }
@@ -418,7 +426,7 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
 
   void _applyComposerText() {
     final text = _composer.text;
-    final controller = _activeController;
+    final controller = _activeComposerController;
     controller.value = TextEditingValue(
       text: text,
       selection: TextSelection.collapsed(

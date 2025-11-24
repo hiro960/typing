@@ -5,8 +5,9 @@ import { ERROR, handleRouteError } from "@/lib/errors";
 import prisma from "@/lib/prisma";
 import { findUserById } from "@/lib/store";
 import { UserType } from "@/lib/types";
+import { google } from "googleapis";
 
-const SUPPORTED_PRODUCT_IDS = new Set<string>(["PRO_0001"]);
+const SUPPORTED_PRODUCT_IDS = new Set<string>(["PRO_0001", "pro_0001"]);
 const SUPPORTED_PLATFORMS = new Set<string>(["ios", "android"]);
 const APPLE_PROD_VERIFY_URL = "https://buy.itunes.apple.com/verifyReceipt";
 const APPLE_SANDBOX_VERIFY_URL = "https://sandbox.itunes.apple.com/verifyReceipt";
@@ -40,9 +41,13 @@ export async function POST(request: NextRequest) {
         productId,
         transactionId,
       });
+    } else if (platform === "android") {
+      await verifyAndroidPurchase({
+        token: verificationData,
+        productId,
+      });
     } else {
-      // Androidは未実装。Play署名検証を入れられるまではエラーにする。
-      throw ERROR.UNPROCESSABLE("Androidのレシート検証は未実装です");
+      throw ERROR.INVALID_INPUT("Unsupported platform");
     }
 
     // 検証成功 -> 権限付与
@@ -66,6 +71,56 @@ export async function POST(request: NextRequest) {
 }
 
 import { decodeJwt } from "jose";
+
+async function verifyAndroidPurchase(params: { token: string; productId: string }) {
+  const { GOOGLE_SERVICE_ACCOUNT_JSON, GOOGLE_PLAY_PACKAGE_NAME } = process.env;
+
+  if (!GOOGLE_SERVICE_ACCOUNT_JSON) {
+    throw new Error("Missing GOOGLE_SERVICE_ACCOUNT_JSON");
+  }
+  if (!GOOGLE_PLAY_PACKAGE_NAME) {
+    throw new Error("Missing GOOGLE_PLAY_PACKAGE_NAME");
+  }
+
+  try {
+    const credentials = JSON.parse(GOOGLE_SERVICE_ACCOUNT_JSON);
+    const auth = new google.auth.GoogleAuth({
+      credentials,
+      scopes: ["https://www.googleapis.com/auth/androidpublisher"],
+    });
+
+    const androidPublisher = google.androidpublisher({
+      version: "v3",
+      auth,
+    });
+
+    const res = await androidPublisher.purchases.subscriptions.get({
+      packageName: GOOGLE_PLAY_PACKAGE_NAME,
+      subscriptionId: params.productId,
+      token: params.token,
+    });
+
+    console.log("[billing/verify] Android verify result", res.data);
+
+    if (res.data.expiryTimeMillis && Number(res.data.expiryTimeMillis) < Date.now()) {
+      throw ERROR.UNPROCESSABLE("Subscription has expired");
+    }
+
+    if (!res.data.acknowledgementState) {
+      console.log("[billing/verify] Acknowledging subscription...");
+      await androidPublisher.purchases.subscriptions.acknowledge({
+        packageName: GOOGLE_PLAY_PACKAGE_NAME,
+        subscriptionId: params.productId,
+        token: params.token,
+      });
+    }
+
+    return;
+  } catch (e) {
+    console.error("[billing/verify] Android verification failed", e);
+    throw ERROR.UNPROCESSABLE("Android verification failed");
+  }
+}
 
 async function verifyAppleReceipt(params: {
   receiptData: string;

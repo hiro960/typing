@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
@@ -7,10 +8,13 @@ import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/diary/data/models/diary_comment.dart';
 import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
+import '../../../features/typing/domain/services/hangul_composer.dart';
 import '../../widgets/diary_post_card.dart';
 import '../../widgets/user_avatar.dart';
+import '../../widgets/typing_keyboard.dart';
 import 'post_create_screen.dart';
 import '../../app_spacing.dart';
+import '../../widgets/modern_text_input.dart';
 
 class PostDetailScreen extends ConsumerStatefulWidget {
   const PostDetailScreen({super.key, required this.initialPost});
@@ -25,12 +29,18 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
   late DiaryPost _post;
   final _commentController = TextEditingController();
   final _scrollController = ScrollController();
+  final _commentFocusNode = FocusNode();
+  late final HangulComposer _composer;
   bool _isSubmitting = false;
+  bool _useCustomKeyboard = true;
+  bool _showCustomKeyboard = false;
 
   @override
   void initState() {
     super.initState();
     _post = widget.initialPost;
+    _composer = HangulComposer()..loadFromText(_commentController.text);
+    _commentFocusNode.addListener(_onFocusChange);
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await ref
           .read(postCommentsControllerProvider(_post.id).notifier)
@@ -44,6 +54,7 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
   void dispose() {
     _scrollController.dispose();
     _commentController.dispose();
+    _commentFocusNode.dispose();
     super.dispose();
   }
 
@@ -69,6 +80,21 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
       ref
           .read(postCommentsControllerProvider(_post.id).notifier)
           .loadMore();
+    }
+  }
+
+  void _onFocusChange() {
+    if (!_commentFocusNode.hasFocus) {
+      setState(() => _showCustomKeyboard = false);
+      return;
+    }
+    if (_useCustomKeyboard) {
+      SystemChannels.textInput.invokeMethod('TextInput.hide');
+      _composer.loadFromText(_commentController.text);
+      _applyComposerText();
+      setState(() => _showCustomKeyboard = true);
+    } else {
+      setState(() => _showCustomKeyboard = false);
     }
   }
 
@@ -121,6 +147,62 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
         SnackBar(content: Text(error.toString())),
       );
     }
+  }
+
+  void _onKeyboardTextInput(String text) {
+    _composer.input(text);
+    _applyComposerText();
+  }
+
+  void _onKeyboardBackspace() {
+    _composer.backspace();
+    _applyComposerText();
+  }
+
+  void _onKeyboardSpace() {
+    _composer.addSpace();
+    _applyComposerText();
+  }
+
+  void _onKeyboardEnter() {
+    _composer.addNewLine();
+    _applyComposerText();
+  }
+
+  Future<void> _closeKeyboard() async {
+    setState(() {
+      _showCustomKeyboard = false;
+    });
+    _commentFocusNode.unfocus();
+    await SystemChannels.textInput.invokeMethod('TextInput.hide');
+  }
+
+  void _applyComposerText() {
+    final text = _composer.text;
+    _commentController.value = TextEditingValue(
+      text: text,
+      selection: TextSelection.collapsed(offset: text.characters.length),
+    );
+  }
+
+  void _switchToDefaultKeyboard() {
+    setState(() {
+      _useCustomKeyboard = false;
+      _showCustomKeyboard = false;
+    });
+    _commentFocusNode.requestFocus();
+    SystemChannels.textInput.invokeMethod('TextInput.show');
+  }
+
+  Future<void> _switchToCustomKeyboard() async {
+    await SystemChannels.textInput.invokeMethod('TextInput.hide');
+    _commentFocusNode.requestFocus();
+    _composer.loadFromText(_commentController.text);
+    _applyComposerText();
+    setState(() {
+      _useCustomKeyboard = true;
+      _showCustomKeyboard = true;
+    });
   }
 
 
@@ -400,38 +482,108 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
               ),
             ),
           ),
-          SafeArea(
-            top: false,
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(
-                AppPadding.homePage.left,
-                AppSpacing.sm,
-                AppPadding.homePage.right,
-                AppSpacing.xl - AppSpacing.sm,
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: FTextField(
-                      controller: _commentController,
-                      hint: 'コメントを入力',
-                      minLines: 1,
-                      maxLines: 4,
+          AnimatedSize(
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.easeOut,
+            child: SafeArea(
+              top: false,
+              child: ColoredBox(
+                color: Theme.of(context).colorScheme.surface,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(
+                        AppPadding.homePage.left,
+                        AppSpacing.sm,
+                        AppPadding.homePage.right,
+                        AppSpacing.sm,
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: ModernTextInput(
+                              controller: _commentController,
+                              focusNode: _commentFocusNode,
+                              placeholder: 'コメントを入力',
+                              minLines: 1,
+                              maxLines: 4,
+                              enabled: !_isSubmitting,
+                              readOnly: _useCustomKeyboard,
+                              showCursor: true,
+                              keyboardType: _useCustomKeyboard
+                                  ? TextInputType.none
+                                  : TextInputType.multiline,
+                              onTap: _useCustomKeyboard
+                                  ? () {
+                                      _composer
+                                          .loadFromText(_commentController.text);
+                                      _applyComposerText();
+                                    }
+                                  : null,
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          _isSubmitting
+                              ? const SizedBox(
+                                  width: 24,
+                                  height: 24,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                  ),
+                                )
+                              : FButton.icon(
+                                  style: FButtonStyle.ghost(),
+                                  onPress: _addComment,
+                                  child: const Icon(Icons.send),
+                                ),
+                        ],
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 12),
-                  _isSubmitting
-                      ? const SizedBox(
-                          width: 24,
-                          height: 24,
-                          child: CircularProgressIndicator(strokeWidth: 2),
-                        )
-                      : FButton.icon(
-                          style: FButtonStyle.ghost(),
-                          onPress: _addComment,
-                          child: const Icon(Icons.send),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 10,
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border(
+                          top: BorderSide(
+                            color: Theme.of(context).colorScheme.outlineVariant,
+                            width: 1,
+                          ),
                         ),
-                ],
+                      ),
+                      child: Row(
+                        children: [
+                          FButton.icon(
+                            style: FButtonStyle.ghost(),
+                            onPress: _useCustomKeyboard
+                                ? _switchToDefaultKeyboard
+                                : _switchToCustomKeyboard,
+                            child: const Icon(Icons.keyboard, size: 18),
+                          ),
+                          const Spacer(),
+                          if (_showCustomKeyboard || _commentFocusNode.hasFocus)
+                            FButton(
+                              style: FButtonStyle.ghost(),
+                              onPress: _closeKeyboard,
+                              child: const Text('閉じる'),
+                            ),
+                        ],
+                      ),
+                    ),
+                    if (_useCustomKeyboard && _showCustomKeyboard)
+                      TypingKeyboard(
+                        onTextInput: _onKeyboardTextInput,
+                        onBackspace: _onKeyboardBackspace,
+                        onSpace: _onKeyboardSpace,
+                        onEnter: _onKeyboardEnter,
+                        enableHaptics: true,
+                        enableSound: false,
+                      ),
+                  ],
+                ),
               ),
             ),
           ),

@@ -117,7 +117,7 @@ class _GrowthTrendChartState extends State<GrowthTrendChart> {
                   spots: widget.trends.asMap().entries.map((e) {
                     return FlSpot(
                       e.key.toDouble(),
-                      _showWpm ? e.value.wpm.toDouble() : e.value.accuracy,
+                      _showWpm ? e.value.wpm.toDouble() : e.value.accuracy * 100,
                     );
                   }).toList(),
                   isCurved: true,
@@ -146,7 +146,7 @@ class _GrowthTrendChartState extends State<GrowthTrendChart> {
                           TextSpan(
                             text: _showWpm 
                                 ? '${trend.wpm} WPM' 
-                                : '${trend.accuracy}%',
+                                : '${(trend.accuracy * 100).toStringAsFixed(1)}%',
                             style: theme.textTheme.titleSmall?.copyWith(
                               color: _showWpm ? colors.primary : colors.tertiary,
                               fontWeight: FontWeight.bold,

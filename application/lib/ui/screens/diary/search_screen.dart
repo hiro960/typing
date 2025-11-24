@@ -590,8 +590,8 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
                             child: Row(
                               children: [
                                 TextButton.icon(
+                                  label: const Text('切替'),
                                   icon: const Icon(Icons.keyboard, size: 18),
-                                  label: const Text('キーボード切り替え'),
                                   onPressed: _useCustomKeyboard
                                       ? _switchToDefaultKeyboard
                                       : _switchToCustomKeyboard,

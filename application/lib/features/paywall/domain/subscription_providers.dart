@@ -10,7 +10,7 @@ import 'package:flutter/services.dart';
 import '../data/subscription_repository.dart';
 import 'subscription_state.dart';
 
-const _productId = 'PRO_0001';
+String get _productId => Platform.isAndroid ? 'pro_0001' : 'PRO_0001';
 
 final subscriptionRepositoryProvider = Provider<SubscriptionRepository>((ref) {
   final apiClient = ref.read(apiClientServiceProvider);
@@ -24,7 +24,7 @@ final subscriptionControllerProvider =
 
 class SubscriptionController extends Notifier<SubscriptionState> {
   final _iap = InAppPurchase.instance;
-  final _productIds = const {_productId};
+  Set<String> get _productIds => {_productId};
   final Set<String> _handledTransactions = {};
 
   @override

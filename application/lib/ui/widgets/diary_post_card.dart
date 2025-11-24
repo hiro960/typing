@@ -106,7 +106,7 @@ class DiaryPostCard extends StatelessWidget {
                   Text(post.content, style: theme.textTheme.bodyLarge),
                   if (post.imageUrls.isNotEmpty) ...[
                     const SizedBox(height: 12),
-                    _ImageGrid(imageUrls: post.imageUrls),
+                    _ImageCarousel(imageUrls: post.imageUrls),
                   ],
                   if (post.quotedPost != null) ...[
                     const SizedBox(height: 12),
@@ -330,10 +330,17 @@ class _ActionButton extends StatelessWidget {
   }
 }
 
-class _ImageGrid extends StatelessWidget {
-  const _ImageGrid({required this.imageUrls});
+class _ImageCarousel extends StatefulWidget {
+  const _ImageCarousel({required this.imageUrls});
 
   final List<String> imageUrls;
+
+  @override
+  State<_ImageCarousel> createState() => _ImageCarouselState();
+}
+
+class _ImageCarouselState extends State<_ImageCarousel> {
+  int _currentIndex = 0;
 
   void _showFullScreenImage(BuildContext context, String imageUrl) {
     showDialog(
@@ -368,44 +375,57 @@ class _ImageGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (imageUrls.length == 1) {
-      return GestureDetector(
-        onTap: () => _showFullScreenImage(context, imageUrls.first),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(16),
-          child: AspectRatio(
-            aspectRatio: 16 / 9,
-            child: CachedNetworkImage(
-              imageUrl: imageUrls.first,
-              fit: BoxFit.cover,
-            ),
+    final theme = Theme.of(context);
+    
+    return Column(
+      children: [
+        AspectRatio(
+          aspectRatio: 16 / 9,
+          child: PageView.builder(
+            itemCount: widget.imageUrls.length,
+            onPageChanged: (index) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: () => _showFullScreenImage(context, widget.imageUrls[index]),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 4),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: CachedNetworkImage(
+                      imageUrl: widget.imageUrls[index],
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              );
+            },
           ),
         ),
-      );
-    }
-
-    final crossAxisCount = imageUrls.length > 2 ? 2 : 1;
-    return GridView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: imageUrls.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: crossAxisCount,
-        crossAxisSpacing: 8,
-        mainAxisSpacing: 8,
-      ),
-      itemBuilder: (context, index) {
-        return GestureDetector(
-          onTap: () => _showFullScreenImage(context, imageUrls[index]),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: CachedNetworkImage(
-              imageUrl: imageUrls[index],
-              fit: BoxFit.cover,
+        if (widget.imageUrls.length > 1) ...[
+          const SizedBox(height: 8),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(
+              widget.imageUrls.length,
+              (index) => Container(
+                width: 8,
+                height: 8,
+                margin: const EdgeInsets.symmetric(horizontal: 4),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: _currentIndex == index
+                      ? theme.colorScheme.primary
+                      : theme.colorScheme.surfaceContainerHighest,
+                ),
+              ),
             ),
           ),
-        );
-      },
+        ],
+      ],
     );
   }
 }
@@ -478,7 +498,7 @@ class DiaryQuotedPostCard extends StatelessWidget {
           ),
           if (quotedPost.imageUrls.isNotEmpty) ...[
             const SizedBox(height: 12),
-            _ImageGrid(imageUrls: quotedPost.imageUrls),
+            _ImageCarousel(imageUrls: quotedPost.imageUrls),
           ],
           if (hashtags.isNotEmpty) ...[
             const SizedBox(height: 12),

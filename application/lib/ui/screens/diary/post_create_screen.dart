@@ -118,6 +118,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
 
   void _onFocusChange() {
     if (_focusNode.hasFocus && _useCustomKeyboard) {
+      SystemChannels.textInput.invokeMethod('TextInput.hide');
       setState(() => _showCustomKeyboard = true);
     }
   }
@@ -164,6 +165,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
       _showCustomKeyboard = false;
     });
     _focusNode.requestFocus();
+    SystemChannels.textInput.invokeMethod('TextInput.show');
   }
 
   Future<void> _switchToCustomKeyboard() async {
@@ -453,6 +455,10 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                       maxLines: null,
                       placeholder: 'いまどうしてる？',
                       enabled: !_isSubmitting,
+                      readOnly: _useCustomKeyboard,
+                      showCursor: true,
+                      keyboardType:
+                          _useCustomKeyboard ? TextInputType.none : TextInputType.multiline,
                       showCharacterCount: false,
                       onChanged: (_) => setState(() {}),
                     ),

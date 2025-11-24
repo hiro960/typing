@@ -35,7 +35,7 @@ class _AiTeacherScreenState extends ConsumerState<AiTeacherScreen> {
   @override
   void initState() {
     super.initState();
-    _composer = HangulComposer();
+    _composer = HangulComposer()..loadFromText(_controller.text);
     _focusNode.addListener(_onFocusChange);
   }
 
@@ -48,8 +48,17 @@ class _AiTeacherScreenState extends ConsumerState<AiTeacherScreen> {
   }
 
   void _onFocusChange() {
-    if (_focusNode.hasFocus && _useCustomKeyboard) {
+    if (!_focusNode.hasFocus) {
+      setState(() => _showCustomKeyboard = false);
+      return;
+    }
+    if (_useCustomKeyboard) {
+      SystemChannels.textInput.invokeMethod('TextInput.hide');
+      _composer.loadFromText(_controller.text);
+      _applyComposerText();
       setState(() => _showCustomKeyboard = true);
+    } else {
+      setState(() => _showCustomKeyboard = false);
     }
   }
 
@@ -95,6 +104,7 @@ class _AiTeacherScreenState extends ConsumerState<AiTeacherScreen> {
       _showCustomKeyboard = false;
     });
     _focusNode.requestFocus();
+    SystemChannels.textInput.invokeMethod('TextInput.show');
   }
 
   Future<void> _switchToCustomKeyboard() async {
@@ -184,6 +194,16 @@ class _AiTeacherScreenState extends ConsumerState<AiTeacherScreen> {
                   maxLines: 15,
                   enabled: !_isLoading,
                   showCharacterCount: false,
+                  readOnly: _useCustomKeyboard,
+                  showCursor: true,
+                  keyboardType:
+                      _useCustomKeyboard ? TextInputType.none : TextInputType.multiline,
+                  onTap: _useCustomKeyboard
+                      ? () {
+                          _composer.loadFromText(_controller.text);
+                          _applyComposerText();
+                        }
+                      : null,
                   onChanged: (value) {
                     if (!_useCustomKeyboard) {
                       _composer.loadFromText(value);

@@ -14,6 +14,10 @@ class ModernTextInput extends StatefulWidget {
     this.showCharacterCount = false,
     this.onChanged,
     this.onSubmitted,
+    this.readOnly = false,
+    this.showCursor,
+    this.keyboardType,
+    this.onTap,
   });
 
   final TextEditingController controller;
@@ -26,6 +30,10 @@ class ModernTextInput extends StatefulWidget {
   final bool showCharacterCount;
   final ValueChanged<String>? onChanged;
   final ValueChanged<String>? onSubmitted;
+  final bool readOnly;
+  final bool? showCursor;
+  final TextInputType? keyboardType;
+  final VoidCallback? onTap;
 
   @override
   State<ModernTextInput> createState() => _ModernTextInputState();
@@ -123,6 +131,9 @@ class _ModernTextInputState extends State<ModernTextInput>
                     controller: widget.controller,
                     focusNode: _focusNode,
                     enabled: widget.enabled,
+                    readOnly: widget.readOnly,
+                    showCursor: widget.showCursor,
+                    keyboardType: widget.keyboardType,
                     minLines: widget.minLines,
                     maxLines: _isFocused
                         ? (widget.maxLines ?? 10)
@@ -140,6 +151,7 @@ class _ModernTextInputState extends State<ModernTextInput>
                     ),
                     onChanged: widget.onChanged,
                     onSubmitted: widget.onSubmitted,
+                    onTap: widget.onTap,
                   ),
                 ),
                 if (widget.showCharacterCount || (_isFocused && textLength > 0))
@@ -194,6 +206,10 @@ class ModernTextInputWithActions extends StatelessWidget {
     this.showCharacterCount = false,
     this.onChanged,
     this.actions = const [],
+    this.readOnly = false,
+    this.showCursor,
+    this.keyboardType,
+    this.onTap,
   });
 
   final TextEditingController controller;
@@ -206,6 +222,10 @@ class ModernTextInputWithActions extends StatelessWidget {
   final bool showCharacterCount;
   final ValueChanged<String>? onChanged;
   final List<Widget> actions;
+  final bool readOnly;
+  final bool? showCursor;
+  final TextInputType? keyboardType;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -222,6 +242,10 @@ class ModernTextInputWithActions extends StatelessWidget {
           enabled: enabled,
           showCharacterCount: showCharacterCount,
           onChanged: onChanged,
+          readOnly: readOnly,
+          showCursor: showCursor,
+          keyboardType: keyboardType,
+          onTap: onTap,
         ),
         if (actions.isNotEmpty) ...[
           const SizedBox(height: 12),
