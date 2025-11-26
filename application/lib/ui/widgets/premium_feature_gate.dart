@@ -10,28 +10,55 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
-class PremiumFeatureGateScreen extends ConsumerWidget {
+class PremiumFeatureGateScreen extends ConsumerStatefulWidget {
   const PremiumFeatureGateScreen({super.key, this.focusFeature});
 
   final String? focusFeature;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final featureLabel = focusFeature ?? 'この機能';
+  ConsumerState<PremiumFeatureGateScreen> createState() =>
+      _PremiumFeatureGateScreenState();
+}
+
+class _PremiumFeatureGateScreenState
+    extends ConsumerState<PremiumFeatureGateScreen> {
+  bool _isRestoring = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final featureLabel = widget.focusFeature ?? 'この機能';
     final subscriptionState = ref.watch(subscriptionControllerProvider);
 
     ref.listen<SubscriptionState>(subscriptionControllerProvider, (prev, next) {
       if (next.isSuccess) {
-        SnackBarHelper.showSuccess(context, 'プロプランにアップグレードしました！');
+        final message =
+            _isRestoring ? '購入情報を復元しました！' : 'プロプランにアップグレードしました！';
+        SnackBarHelper.showSuccess(context, message);
         Navigator.of(context).maybePop();
       } else if (next.hasError && next.error != null) {
         _logError(next.error!);
-        // UIには詳細を出さず、短め通知のみ
+        final errorMessage = next.error.toString();
+
+        String displayMessage;
+        if (errorMessage.contains('復元できる購入情報が見つかりません')) {
+          displayMessage = '復元できる購入情報が見つかりませんでした。';
+        } else if (errorMessage.contains('expired') ||
+            errorMessage.contains('Subscription has expired')) {
+          displayMessage = 'サブスクリプションの期限が切れています。再購入してください。';
+        } else {
+          displayMessage = '購入に失敗しました。時間をおいて再度お試しください。';
+        }
+
         SnackBarHelper.show(
           context,
-          '購入に失敗しました。時間をおいて再度お試しください。',
-          duration: const Duration(seconds: 2),
+          displayMessage,
+          duration: const Duration(seconds: 3),
         );
+
+        // エラー後はフラグをリセット
+        setState(() {
+          _isRestoring = false;
+        });
       }
     });
 
@@ -45,9 +72,18 @@ class PremiumFeatureGateScreen extends ConsumerWidget {
       child: PremiumFeatureGate(
         focusFeature: featureLabel,
         isLoading: subscriptionState.isLoading,
-        onSubscribe: () => ref
-            .read(subscriptionControllerProvider.notifier)
-            .startSubscription(),
+        onSubscribe: () {
+          setState(() {
+            _isRestoring = false;
+          });
+          ref.read(subscriptionControllerProvider.notifier).startSubscription();
+        },
+        onRestore: () {
+          setState(() {
+            _isRestoring = true;
+          });
+          ref.read(subscriptionControllerProvider.notifier).restorePurchases();
+        },
       ),
     );
   }
@@ -59,11 +95,13 @@ class PremiumFeatureGate extends StatelessWidget {
     required this.focusFeature,
     this.isLoading = false,
     this.onSubscribe,
+    this.onRestore,
   });
 
   final String focusFeature;
   final bool isLoading;
   final VoidCallback? onSubscribe;
+  final VoidCallback? onRestore;
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +111,6 @@ class PremiumFeatureGate extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const SizedBox(height: AppSpacing.lg),
             Center(
               child: Icon(
                 Icons.workspace_premium_outlined,
@@ -94,7 +131,7 @@ class PremiumFeatureGate extends StatelessWidget {
             const SizedBox(height: AppSpacing.xs),
             Center(
               child: Text(
-                '月額¥400でアップグレードすると、AIサポートと詳細分析が使い放題になります。',
+                '月額¥600でアップグレードすると、AIサポートと詳細分析が使い放題になります。',
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: theme.colorScheme.onSurfaceVariant,
                 ),
@@ -138,6 +175,18 @@ class PremiumFeatureGate extends StatelessWidget {
               onPressed: () => Navigator.of(context).maybePop(),
               child: const Text('後で考える'),
             ),
+            const SizedBox(height: AppSpacing.sm),
+            TextButton(
+              onPressed: isLoading ? null : onRestore,
+              child: Text(
+                '購入情報を復元',
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.onSurfaceVariant,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+            const SizedBox(height: AppSpacing.lg),
           ],
         ),
       ),

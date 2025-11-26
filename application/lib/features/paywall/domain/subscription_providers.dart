@@ -39,6 +39,8 @@ class SubscriptionController extends Notifier<SubscriptionState> {
     _handledTransactions.clear();
     StreamSubscription<List<PurchaseDetails>>? sub;
     Timer? timeout;
+    Object? lastExpiredError;
+    StackTrace? lastExpiredStackTrace;
 
     try {
       debugPrint('[IAP] startSubscription begin');
@@ -85,10 +87,18 @@ class SubscriptionController extends Notifier<SubscriptionState> {
       timeout = Timer(const Duration(seconds: 60), () {
         if (!completer.isCompleted) {
           debugPrint('[IAP] timed out waiting for purchase updates');
-          state = SubscriptionState.error(
-            TimeoutException('購入処理がタイムアウトしました'),
-            StackTrace.current,
-          );
+          // 期限切れエラーがあった場合はそれを表示、なければタイムアウトエラー
+          if (lastExpiredError != null) {
+            state = SubscriptionState.error(
+              lastExpiredError!,
+              lastExpiredStackTrace ?? StackTrace.current,
+            );
+          } else {
+            state = SubscriptionState.error(
+              TimeoutException('購入処理がタイムアウトしました'),
+              StackTrace.current,
+            );
+          }
           completer.complete();
         }
       });
@@ -124,23 +134,30 @@ class SubscriptionController extends Notifier<SubscriptionState> {
                   await sub?.cancel();
                   timeout?.cancel();
                   if (!completer.isCompleted) completer.complete();
-                  return; 
+                  return;
                 } catch (e, st) {
                   debugPrint('[IAP] verify/complete error: $e');
-                  // エラーがあっても、他のトランザクションが成功する可能性があるので
-                  // ここではstateをエラーにせず、ログ出力にとどめる。
-                  // ただし、これが最後のトランザクションで全て失敗した場合などは考慮が必要だが、
-                  // ユーザーが再度ボタンを押せば良いので、一旦成功以外は無視する戦略をとる。
-                  // (明示的なエラー表示よりも、成功を阻害しないことを優先)
-                  
                   // 課金処理自体は完了させる（再試行を防ぐため）
                   if (purchase.pendingCompletePurchase) {
                     try {
                       await _iap.completePurchase(purchase);
                     } catch (_) {}
                   }
-                } 
-                break;
+                  // 期限切れエラーの場合は次のトランザクションを待つ
+                  if (_isExpiredError(e)) {
+                    debugPrint('[IAP] expired error, waiting for next transaction...');
+                    lastExpiredError = e;
+                    lastExpiredStackTrace = st;
+                    // 次のトランザクションを待つため、ここでは終了しない
+                  } else {
+                    // その他のエラーは即座にエラー状態にする
+                    state = SubscriptionState.error(e, st);
+                    await sub?.cancel();
+                    timeout?.cancel();
+                    if (!completer.isCompleted) completer.complete();
+                    return;
+                  }
+                }
              case PurchaseStatus.error:
                 final err = purchase.error ??
                     IAPError(
@@ -239,5 +256,152 @@ class SubscriptionController extends Notifier<SubscriptionState> {
       return true;
     }
     return false;
+  }
+
+  /// エラーが「期限切れ」エラーかどうかを判断する
+  bool _isExpiredError(Object? error) {
+    if (error == null) return false;
+    final errorString = error.toString().toLowerCase();
+    return errorString.contains('expired') ||
+        errorString.contains('subscription has expired');
+  }
+
+  /// 過去の購入情報を復元する
+  Future<void> restorePurchases() async {
+    if (state.isLoading) return;
+
+    state = const SubscriptionState.loading();
+    _handledTransactions.clear();
+    StreamSubscription<List<PurchaseDetails>>? sub;
+    Timer? timeout;
+    bool foundPurchase = false;
+    Object? lastExpiredError;
+    StackTrace? lastExpiredStackTrace;
+
+    try {
+      debugPrint('[IAP] restorePurchases begin');
+
+      final authState = ref.read(authStateProvider);
+      debugPrint(
+          '[IAP] auth status=${authState.status} user=${authState.user?.id}');
+      if (authState.status != AuthStatus.authenticated ||
+          authState.user == null) {
+        state = SubscriptionState.error(
+          Exception('未ログインのため復元できません'),
+          StackTrace.current,
+        );
+        return;
+      }
+
+      final available = await _iap.isAvailable();
+      debugPrint('[IAP] isAvailable=$available');
+      if (!available) {
+        throw Exception('ストアに接続できませんでした。時間をおいて再度お試しください。');
+      }
+
+      final completer = Completer<void>();
+
+      // タイムアウト設定（30秒）
+      timeout = Timer(const Duration(seconds: 30), () {
+        if (!completer.isCompleted) {
+          debugPrint('[IAP] restore timed out, foundPurchase=$foundPurchase');
+          // 期限切れエラーがあった場合はそれを表示
+          if (lastExpiredError != null) {
+            state = SubscriptionState.error(
+              lastExpiredError!,
+              lastExpiredStackTrace ?? StackTrace.current,
+            );
+          } else if (!foundPurchase) {
+            state = SubscriptionState.error(
+              Exception('復元できる購入情報が見つかりませんでした'),
+              StackTrace.current,
+            );
+          }
+          completer.complete();
+        }
+      });
+
+      sub = _iap.purchaseStream.listen(
+        (purchases) async {
+          debugPrint('[IAP] restore stream event count=${purchases.length}');
+          for (final p in purchases) {
+            debugPrint(
+                '[IAP] restore item: id=${p.productID} status=${p.status} txId=${p.purchaseID}');
+          }
+
+          for (final purchase in purchases) {
+            if (purchase.productID != _productId) continue;
+
+            final txKey = purchase.purchaseID ??
+                purchase.verificationData.serverVerificationData;
+            if (_handledTransactions.contains(txKey)) {
+              debugPrint('[IAP] skip already handled transaction $txKey');
+              continue;
+            }
+            _handledTransactions.add(txKey);
+
+            if (purchase.status == PurchaseStatus.restored) {
+              foundPurchase = true;
+              try {
+                debugPrint('[IAP] restore status=${purchase.status}');
+                await _verifyAndComplete(purchase);
+                state = const SubscriptionState.success();
+
+                if (purchase.pendingCompletePurchase) {
+                  await _iap.completePurchase(purchase);
+                }
+                await sub?.cancel();
+                timeout?.cancel();
+                if (!completer.isCompleted) completer.complete();
+                return;
+              } catch (e, st) {
+                debugPrint('[IAP] restore verify error: $e');
+                if (purchase.pendingCompletePurchase) {
+                  try {
+                    await _iap.completePurchase(purchase);
+                  } catch (_) {}
+                }
+                // 期限切れエラーの場合は次のトランザクションを待つ
+                if (_isExpiredError(e)) {
+                  debugPrint('[IAP] expired error, waiting for next transaction...');
+                  lastExpiredError = e;
+                  lastExpiredStackTrace = st;
+                  // 次のトランザクションを待つため、ここでは終了しない
+                } else {
+                  // その他のエラーは即座にエラー状態にする
+                  state = SubscriptionState.error(e, st);
+                  await sub?.cancel();
+                  timeout?.cancel();
+                  if (!completer.isCompleted) completer.complete();
+                  return;
+                }
+              }
+            }
+          }
+        },
+        onError: (error, stackTrace) {
+          debugPrint('[IAP] restore stream error: $error');
+          state = SubscriptionState.error(error, stackTrace);
+          sub?.cancel();
+          timeout?.cancel();
+          if (!completer.isCompleted) {
+            completer.complete();
+          }
+        },
+      );
+
+      debugPrint('[IAP] calling restorePurchases');
+      await _iap.restorePurchases();
+      debugPrint('[IAP] restorePurchases returned, waiting for stream...');
+
+      // 復元イベントが来るのを待つ（タイムアウトまで）
+      await completer.future;
+    } catch (e, st) {
+      debugPrint('[IAP] restore flow error: $e');
+      state = SubscriptionState.error(e, st);
+    } finally {
+      await sub?.cancel();
+      timeout?.cancel();
+    }
   }
 }
