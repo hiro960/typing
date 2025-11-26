@@ -13,6 +13,7 @@ import 'package:forui/forui.dart';
 
 import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
+import '../utils/toast_helper.dart';
 
 class AiTeacherScreen extends ConsumerStatefulWidget {
   const AiTeacherScreen({super.key});
@@ -269,9 +270,7 @@ class _AiTeacherScreenState extends ConsumerState<AiTeacherScreen> {
                           Clipboard.setData(
                             ClipboardData(text: _resultController.text),
                           );
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('コピーしました')),
-                          );
+                          ToastHelper.show(context, 'コピーしました');
                         },
                       ),
                     ],

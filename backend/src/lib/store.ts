@@ -207,6 +207,17 @@ export async function findUserByAuth0Id(auth0UserId: string): Promise<UserDetail
 }
 
 /**
+ * ユーザーの最終ログイン日時を更新
+ */
+export async function updateLastLogin(userId: string): Promise<UserDetail> {
+  const user = await prisma.user.update({
+    where: { id: userId },
+    data: { lastLoginAt: new Date() },
+  });
+  return toUserDetail(user);
+}
+
+/**
  * usernameが利用可能かチェック
  * @returns true: 利用可能, false: 既に使用中
  */

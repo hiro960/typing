@@ -14,6 +14,21 @@ class GrowthTrendChart extends StatefulWidget {
 class _GrowthTrendChartState extends State<GrowthTrendChart> {
   bool _showWpm = true;
 
+  double _calculateMaxY() {
+    if (widget.trends.isEmpty) return 100;
+    if (!_showWpm) return 100;
+
+    final maxWpm = widget.trends
+        .map((e) => e.wpm)
+        .fold<int>(0, (max, e) => e > max ? e : max);
+    return (maxWpm * 1.2).ceilToDouble().clamp(100, double.infinity);
+  }
+
+  double _calculateInterval() {
+    if (!_showWpm) return 20;
+    return _calculateMaxY() / 5;
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -29,6 +44,9 @@ class _GrowthTrendChartState extends State<GrowthTrendChart> {
         ),
       );
     }
+
+    final maxY = _calculateMaxY();
+    final interval = _calculateInterval();
 
     return Column(
       children: [
@@ -58,9 +76,12 @@ class _GrowthTrendChartState extends State<GrowthTrendChart> {
           aspectRatio: 1.7,
           child: LineChart(
             LineChartData(
+              minY: 0,
+              maxY: maxY,
               gridData: FlGridData(
                 show: true,
                 drawVerticalLine: false,
+                horizontalInterval: interval,
                 getDrawingHorizontalLine: (value) => FlLine(
                   color: colors.outlineVariant.withValues(alpha: 0.5),
                   strokeWidth: 1,
@@ -87,6 +108,7 @@ class _GrowthTrendChartState extends State<GrowthTrendChart> {
                       final date = DateTime.parse(widget.trends[index].date);
                       return SideTitleWidget(
                         meta: meta,
+                        fitInside: SideTitleFitInsideData.fromTitleMeta(meta),
                         child: Text(
                           '${date.month}/${date.day}',
                           style: theme.textTheme.labelSmall,
@@ -99,7 +121,9 @@ class _GrowthTrendChartState extends State<GrowthTrendChart> {
                   sideTitles: SideTitles(
                     showTitles: true,
                     reservedSize: 40,
+                    interval: interval,
                     getTitlesWidget: (value, meta) {
+                      if (value > maxY) return const SizedBox.shrink();
                       return SideTitleWidget(
                         meta: meta,
                         child: Text(

@@ -314,14 +314,11 @@ class TypingSession extends _$TypingSession {
   }
 
   /// 正解率を計算
+  /// 正解率 = (入力文字数 - ミス入力文字数) / 入力文字数
   double _calculateAccuracy(TypingSessionState state) {
-    final correctCount = state.records.length;
-    final incorrectCount = state.mistakeHistory.values.fold<int>(
-      0,
-      (sum, count) => sum + count,
-    );
-    final totalCount = correctCount + incorrectCount;
-    return totalCount == 0 ? 0.0 : correctCount / totalCount;
+    final totalCount = state.records.length;
+    final incorrectCount = state.records.where((r) => !r.isCorrect).length;
+    return totalCount == 0 ? 0.0 : (totalCount - incorrectCount) / totalCount;
   }
 
   void _advanceToNextItem() {

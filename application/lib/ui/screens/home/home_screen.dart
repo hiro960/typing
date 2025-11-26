@@ -85,7 +85,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     children: [
                       _ProgressHero(stats: state.stats),
                       const SizedBox(height: AppSpacing.lg),
-                      _StatHighlights(stats: state.stats),
+                      _StatHighlights(
+                        stats: state.stats,
+                        maxWpm: user?.maxWPM ?? 0,
+                      ),
                       const SizedBox(height: AppSpacing.xxl),
                       const Text('タイピング練習'),
                       _LevelAccordions(
@@ -149,11 +152,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   void _onLessonTap(lesson_index.LessonMeta lesson, bool isLocked) {
     if (!mounted) return;
     if (isLocked) {
-      showDialog<void>(
+      showFDialog<void>(
         context: context,
-        builder: (context) => AlertDialog(
+        useRootNavigator: true,
+        barrierDismissible: true,
+        builder: (context, style, animation) => FDialog.adaptive(
+          style: style,
+          animation: animation,
           title: const Text('レッスンがロックされています'),
-          content: const Text('前のレッスンを完了すると、このレッスンが解除されます。'),
+          body: const Text('前のレッスンを完了すると、このレッスンが解除されます。'),
           actions: [
             FButton(
               style: FButtonStyle.outline(),

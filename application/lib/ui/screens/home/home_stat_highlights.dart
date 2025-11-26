@@ -1,9 +1,13 @@
 part of 'home_screen.dart';
 
 class _StatHighlights extends StatelessWidget {
-  const _StatHighlights({required this.stats});
+  const _StatHighlights({
+    required this.stats,
+    required this.maxWpm,
+  });
 
   final LessonStatsSummary stats;
+  final double maxWpm;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +20,7 @@ class _StatHighlights extends StatelessWidget {
       ),
       (
         label: 'WPM',
-        value: stats.wpmAvg.toStringAsFixed(0),
+        value: maxWpm.toStringAsFixed(0),
         caption: '最高記録',
         icon: Icons.speed,
       ),

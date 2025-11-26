@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAuth0Payload } from "@/lib/auth";
-import { findUserByAuth0Id } from "@/lib/store";
+import { findUserByAuth0Id, updateLastLogin } from "@/lib/store";
 import { ERROR, handleRouteError } from "@/lib/errors";
 
 /**
@@ -23,11 +23,12 @@ export async function GET(request: NextRequest) {
     const user = await findUserByAuth0Id(auth0UserId);
 
     if (user) {
-      // 登録済み
+      // 登録済み - lastLoginAtを更新
+      const updatedUser = await updateLastLogin(user.id);
       return NextResponse.json(
         {
           registered: true,
-          user,
+          user: updatedUser,
         },
         { status: 200 }
       );

@@ -1,8 +1,46 @@
 name: chaletta
-description: "韓国語タイピング・文章作成能力の上達アプリ"
+description: "韓国語タイピングと文章作成を楽しく学べる学習アプリ。仲間と一緒に上達しよう！"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+#  【チャレッタとは】
+#   韓国語のタイピングスキルと文章作成能力を、ゲーム感覚で楽しく身につけられる学習アプリです。
+#   初心者から上級者まで、あなたのレベルに合わせたレッスンで着実にスキルアップできます。
+
+#   【こんな方におすすめ】
+#   ・韓国語の入力に慣れたい方
+#   ・韓国語で文章を書けるようになりたい方
+#   ・独学でモチベーションが続かない方
+#   ・他の学習者と交流しながら学びたい方
+
+#   【主な機能】
+
+#   ■ タイピング練習
+#   レベル別（初級・中級・上級）のレッスンで、文字・単語・短文を段階的に練習。入力速度（WPM）と正確度をリアルタイムで計測し、上達を実感できます 。
+
+#   ■ 書き取り練習
+#   日本語から韓国語への翻訳タイピングで実践力を養成。日常会話から旅行、ビジネスまで、様々なシーンに対応したトピックを収録。
+
+#   ■ 単語帳
+#   覚えたい単語や例文を登録して、オリジナルの単語帳を作成。クイズ機能で記憶の定着度をチェックできます。
+
+#   ■ 学習分析
+#   あなたの学習データをグラフで可視化。入力速度や正確度の推移、苦手なキーの傾向、学習習慣などを一目で確認できます。
+
+#   ■ 学習日記（ソーシャル機能）
+#   学習の記録を日記として投稿。他のユーザーの投稿にいいねやコメントができ、仲間と励まし合いながら学習を続けられます。AI添削機能で文章力もアップ。
+
+#   ■ プロフィール・統計
+#   累計レッスン数、最高入力速度、連続学習日数などの実績を確認。目標達成のモチベーションを高めます。
+
+#   【特徴】
+#   ・オフラインでも学習可能
+#   ・音声読み上げ機能で発音も確認
+#   ・ダークモード対応
+#   ・プレミアムプランでさらに充実した学習体験
+
+#   今日からチャレッタで、韓国語タイピングをマスターしましょう！
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -16,7 +54,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.1+2
+version: 1.0.1+3
 
 environment:
   sdk: ^3.9.2

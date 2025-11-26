@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
+import '../../app_theme.dart';
 import '../../../features/lessons/data/models/lesson_index.dart'
     as lesson_index;
 import '../../../features/lessons/data/models/lesson_models.dart';
@@ -267,15 +268,21 @@ class _ActionButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Column(
       children: [
+        // プライマリアクション: 次のレッスンへ
         SizedBox(
           width: double.infinity,
           child: FilledButton(
             style: FilledButton.styleFrom(
-              backgroundColor: theme.colorScheme.primary,
-              foregroundColor: theme.colorScheme.onPrimary,
+              backgroundColor: AppColors.primary,
+              foregroundColor: Colors.white,
+              disabledBackgroundColor: AppColors.primary.withValues(alpha: 0.4),
+              disabledForegroundColor: Colors.white.withValues(alpha: 0.6),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
             ),
             onPressed: nextLessonId == null
                 ? null
@@ -287,16 +294,24 @@ class _ActionButtons extends StatelessWidget {
                       ),
                     );
                   },
-            child: const Text('次のレッスンへ'),
+            child: const Text(
+              '次のレッスンへ',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            ),
           ),
         ),
         const SizedBox(height: 12),
+        // セカンダリアクション: もう一度挑戦
         SizedBox(
           width: double.infinity,
-          child: FilledButton.tonal(
+          child: FilledButton(
             style: FilledButton.styleFrom(
-              backgroundColor: theme.colorScheme.secondaryContainer,
-              foregroundColor: theme.colorScheme.onSecondaryContainer,
+              backgroundColor: AppColors.secondary.withValues(alpha: 0.15),
+              foregroundColor: AppColors.secondary,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
             ),
             onPressed: () {
               Navigator.of(context).pushReplacement(
@@ -305,21 +320,31 @@ class _ActionButtons extends StatelessWidget {
                 ),
               );
             },
-            child: const Text('もう一度挑戦'),
+            child: const Text(
+              'もう一度挑戦',
+              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+            ),
           ),
         ),
         const SizedBox(height: 12),
+        // サブアクション: ホームに戻る
         SizedBox(
           width: double.infinity,
-          child: OutlinedButton(
-            style: OutlinedButton.styleFrom(
-              foregroundColor: theme.colorScheme.primary,
-              side: BorderSide(color: theme.colorScheme.primary),
+          child: TextButton(
+            style: TextButton.styleFrom(
+              foregroundColor: AppColors.mutedForeground,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
             ),
             onPressed: () {
               Navigator.of(context).popUntil((route) => route.isFirst);
             },
-            child: const Text('ホームに戻る'),
+            child: const Text(
+              'ホームに戻る',
+              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+            ),
           ),
         ),
       ],

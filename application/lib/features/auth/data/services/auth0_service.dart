@@ -61,6 +61,9 @@ class Auth0Service {
           'email',
           'offline_access', // リフレッシュトークン取得用
         },
+        parameters: {
+          'ui_locales': 'ja', // OpenID Connect仕様: 日本語UIを要求
+        },
       );
 
 

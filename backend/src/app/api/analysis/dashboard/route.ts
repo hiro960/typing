@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
             dateFrom = new Date(now.setMonth(now.getMonth() - 6));
         }
 
-        // Fetch completions
+        // Fetch completions (include timeSpent for practice time stats)
         const completions = await prisma.lessonCompletion.findMany({
             where: {
                 userId: user.id,
@@ -33,6 +33,7 @@ export async function GET(request: NextRequest) {
                 accuracy: true,
                 mistakeCharacters: true,
                 completedAt: true,
+                timeSpent: true,
             },
         });
 
@@ -90,6 +91,93 @@ export async function GET(request: NextRequest) {
             byDayOfWeek[day]++;
         });
 
+        // 4. Practice Time Statistics
+        const totalTimeMs = completions.reduce((sum, c) => sum + c.timeSpent, 0);
+        const sessionCount = completions.length;
+        const averageTimeMs = sessionCount > 0 ? Math.round(totalTimeMs / sessionCount) : 0;
+
+        // Daily practice time for chart
+        const dailyTimeMap: Record<string, number> = {};
+        completions.forEach((c) => {
+            const dateKey = c.completedAt.toISOString().split("T")[0];
+            dailyTimeMap[dateKey] = (dailyTimeMap[dateKey] || 0) + c.timeSpent;
+        });
+
+        const dailyPracticeTime = Object.entries(dailyTimeMap)
+            .map(([date, timeMs]) => ({ date, timeMs }))
+            .sort((a, b) => a.date.localeCompare(b.date));
+
+        const practiceTime = {
+            totalTimeMs,
+            sessionCount,
+            averageTimeMs,
+            dailyPracticeTime,
+        };
+
+        // 5. Vocabulary Status (from Wordbook)
+        const wordbookStats = await prisma.wordbook.groupBy({
+            by: ["status"],
+            where: { userId: user.id },
+            _count: { status: true },
+        });
+
+        const vocabularyStatus = {
+            mastered: 0,
+            reviewing: 0,
+            needsReview: 0,
+            total: 0,
+        };
+
+        wordbookStats.forEach((stat) => {
+            const count = stat._count.status;
+            vocabularyStatus.total += count;
+            switch (stat.status) {
+                case "MASTERED":
+                    vocabularyStatus.mastered = count;
+                    break;
+                case "REVIEWING":
+                    vocabularyStatus.reviewing = count;
+                    break;
+                case "NEEDS_REVIEW":
+                    vocabularyStatus.needsReview = count;
+                    break;
+            }
+        });
+
+        // 6. Vocabulary Growth (monthly aggregation)
+        const wordbooks = await prisma.wordbook.findMany({
+            where: {
+                userId: user.id,
+                ...(dateFrom ? { createdAt: { gte: dateFrom } } : {}),
+            },
+            select: {
+                createdAt: true,
+                status: true,
+            },
+            orderBy: { createdAt: "asc" },
+        });
+
+        // Group by month (YYYY-MM format)
+        const monthlyGrowthMap: Record<string, { added: number; mastered: number }> = {};
+        wordbooks.forEach((w) => {
+            const monthKey = w.createdAt.toISOString().slice(0, 7); // YYYY-MM
+            if (!monthlyGrowthMap[monthKey]) {
+                monthlyGrowthMap[monthKey] = { added: 0, mastered: 0 };
+            }
+            monthlyGrowthMap[monthKey].added += 1;
+            if (w.status === "MASTERED") {
+                monthlyGrowthMap[monthKey].mastered += 1;
+            }
+        });
+
+        const vocabularyGrowth = Object.entries(monthlyGrowthMap)
+            .map(([month, data]) => ({
+                month,
+                added: data.added,
+                mastered: data.mastered,
+            }))
+            .sort((a, b) => a.month.localeCompare(b.month));
+
         return NextResponse.json({
             weakKeys,
             trends,
@@ -97,6 +185,9 @@ export async function GET(request: NextRequest) {
                 byHour,
                 byDayOfWeek,
             },
+            practiceTime,
+            vocabularyStatus,
+            vocabularyGrowth,
         });
     } catch (error) {
         return handleRouteError(error);

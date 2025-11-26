@@ -151,18 +151,24 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
     // refをキャプチャ (widgetがunmountされた後でも使用可能)
     final authNotifier = ref.read(authStateProvider.notifier);
 
-    showDialog(
+    showFDialog<void>(
       context: context,
-      builder: (context) => AlertDialog(
+      useRootNavigator: true,
+      barrierDismissible: true,
+      builder: (context, style, animation) => FDialog.adaptive(
+        style: style,
+        animation: animation,
         title: const Text('エラー'),
-        content: Text(message),
+        body: Text(message),
         actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
+          FButton(
+            style: FButtonStyle.outline(),
+            onPress: () => Navigator.of(context).pop(),
             child: const Text('キャンセル'),
           ),
-          TextButton(
-            onPressed: () async {
+          FButton(
+            style: FButtonStyle.primary(),
+            onPress: () async {
               Navigator.of(context).pop();
               // ログアウトしてログイン画面に戻る
               await authNotifier.logout();

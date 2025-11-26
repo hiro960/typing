@@ -99,9 +99,12 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen>
 
   Future<void> _openSettings() async {
     if (!mounted) return;
-    await showModalBottomSheet<void>(
+    await showFSheet<void>(
       context: context,
-      showDragHandle: true,
+      side: FLayout.btt,
+      useRootNavigator: true,
+      barrierDismissible: true,
+      draggable: true,
       builder: (context) => const _TypingSettingsSheet(),
     );
   }
@@ -612,16 +615,26 @@ class _TypingSettingsSheet extends ConsumerWidget {
     final controller = ref.read(typingSettingsProvider.notifier);
     final isLoading = settingsAsync.isLoading;
 
-    return SafeArea(
+    return Container(
+      decoration: BoxDecoration(
+        color: context.theme.colors.background,
+        border: Border.symmetric(
+          horizontal: BorderSide(color: context.theme.colors.border),
+        ),
+      ),
       child: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'クイック設定',
-              style: Theme.of(context).textTheme.titleLarge,
+              style: context.theme.typography.xl2.copyWith(
+                fontWeight: FontWeight.w600,
+                color: context.theme.colors.foreground,
+                height: 1.5,
+              ),
             ),
             const SizedBox(height: 12),
             FTile(

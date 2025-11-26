@@ -5,6 +5,7 @@ import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../widgets/diary_post_card.dart';
+import '../../utils/toast_helper.dart';
 import 'post_create_screen.dart';
 import 'post_detail_screen.dart';
 
@@ -116,9 +117,7 @@ class _BookmarksScreenState extends ConsumerState<BookmarksScreen> {
 
   void _showError(Object error) {
     if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(error.toString())),
-    );
+    ToastHelper.showError(context, error);
   }
 
   @override

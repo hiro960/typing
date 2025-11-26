@@ -6,6 +6,7 @@ import 'package:forui/forui.dart';
 import '../../../features/wordbook/data/models/word_model.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
+import '../../utils/toast_helper.dart';
 import '../../widgets/typing_keyboard.dart';
 
 class WordFormScreen extends ConsumerStatefulWidget {
@@ -287,15 +288,11 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
 
     final tags = _parseTags(_tagsController.text);
     if (tags.length > 10) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('タグは最大10個までです。')),
-      );
+      ToastHelper.showError(context, 'タグは最大10個までです。');
       return;
     }
     if (tags.any((tag) => tag.length > 20)) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('タグは20文字以内で入力してください。')),
-      );
+      ToastHelper.showError(context, 'タグは20文字以内で入力してください。');
       return;
     }
 
@@ -331,16 +328,13 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
 
       if (!mounted) return;
       Navigator.pop(context);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(widget.isEditing ? '単語を更新しました' : '単語を追加しました'),
-        ),
+      ToastHelper.show(
+        context,
+        widget.isEditing ? '単語を更新しました' : '単語を追加しました',
       );
     } catch (error) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('保存に失敗しました: $error')),
-      );
+      ToastHelper.showError(context, '保存に失敗しました: $error');
     } finally {
       if (mounted) {
         setState(() {

@@ -300,11 +300,15 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
     } catch (e) {
       if (!mounted) return;
       // エラーダイアログを表示
-      showDialog<void>(
+      showFDialog<void>(
         context: context,
-        builder: (context) => AlertDialog(
+        useRootNavigator: true,
+        barrierDismissible: true,
+        builder: (context, style, animation) => FDialog.adaptive(
+          style: style,
+          animation: animation,
           title: const Text('エラー'),
-          content: Text('保存に失敗しました: $e'),
+          body: Text('保存に失敗しました: $e'),
           actions: [
             FButton(
               style: FButtonStyle.primary(),

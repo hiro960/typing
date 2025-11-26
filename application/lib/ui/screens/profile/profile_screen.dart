@@ -12,10 +12,10 @@ import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../../features/profile/data/models/user_stats_model.dart';
 import '../../../features/profile/domain/providers/profile_providers.dart';
-import '../../utils/dialog_helper.dart';
 import '../../utils/snackbar_helper.dart';
 import '../../widgets/app_page_scaffold.dart';
 import '../../widgets/ai_gradient_button.dart';
+import '../../widgets/sheet_content.dart';
 import '../../app_spacing.dart';
 import '../../widgets/diary_post_card.dart';
 import '../diary/post_detail_screen.dart';
@@ -311,26 +311,26 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   }
 
   Future<void> _showAvatarActionSheet(UserModel profile) async {
-    final choices = [
-      const DialogChoice(
-        label: '写真を選択',
-        value: 'pick',
-        icon: Icons.photo_library_outlined,
-      ),
-      if (profile.profileImageUrl != null)
-        const DialogChoice(
-          label: '画像を削除',
-          value: 'remove',
-          icon: Icons.delete_outline,
-        ),
-    ];
-    final choice = await DialogHelper.showChoiceBottomSheet<String>(
-      context,
-      choices: choices,
-      builder: (context, choice, onTap) => FTile(
-        prefix: Icon(choice.icon),
-        title: Text(choice.label),
-        onPress: onTap,
+    final choice = await showFSheet<String>(
+      context: context,
+      side: FLayout.btt,
+      useRootNavigator: true,
+      barrierDismissible: true,
+      draggable: true,
+      builder: (context) => SheetContent(
+        children: [
+          SheetOption(
+            label: '写真を選択',
+            icon: Icons.photo_library_outlined,
+            onPress: () => Navigator.of(context).pop('pick'),
+          ),
+          if (profile.profileImageUrl != null)
+            SheetOption(
+              label: '画像を削除',
+              icon: Icons.delete_outline,
+              onPress: () => Navigator.of(context).pop('remove'),
+            ),
+        ],
       ),
     );
     if (choice == 'pick') {

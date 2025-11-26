@@ -8,8 +8,10 @@ import '../../../features/diary/data/repositories/diary_repository.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../utils/dialog_helper.dart';
 import '../../utils/snackbar_helper.dart';
+import '../../utils/toast_helper.dart';
 import '../../widgets/diary_post_card.dart';
 import '../../widgets/app_page_scaffold.dart';
+import '../../widgets/sheet_content.dart';
 import '../../app_spacing.dart';
 import 'drafts_screen.dart';
 import 'post_create_screen.dart';
@@ -85,9 +87,7 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
           .toggleLike(post.id, like: !post.liked);
     } catch (error) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(error.toString())),
-      );
+      ToastHelper.showError(context, error);
     }
   }
 
@@ -98,9 +98,7 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
           .toggleBookmark(post.id, bookmark: !post.bookmarked);
     } catch (error) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(error.toString())),
-      );
+      ToastHelper.showError(context, error);
     }
   }
 
@@ -146,19 +144,35 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
   }
 
   Future<void> _reportPost(DiaryPost post) async {
-    final choices = [
-      const DialogChoice(label: 'スパム', value: 'SPAM'),
-      const DialogChoice(label: '嫌がらせ', value: 'HARASSMENT'),
-      const DialogChoice(label: '不適切な内容', value: 'INAPPROPRIATE_CONTENT'),
-      const DialogChoice(label: 'ヘイト発言', value: 'HATE_SPEECH'),
-      const DialogChoice(label: 'その他', value: 'OTHER'),
-    ];
-    final selected = await DialogHelper.showChoiceBottomSheet<String>(
-      context,
-      choices: choices,
-      builder: (context, choice, onTap) => FTile(
-        title: Text(choice.label),
-        onPress: onTap,
+    final selected = await showFSheet<String>(
+      context: context,
+      side: FLayout.btt,
+      useRootNavigator: true,
+      barrierDismissible: true,
+      draggable: true,
+      builder: (context) => SheetContent(
+        children: [
+          SheetOption(
+            label: 'スパム',
+            onPress: () => Navigator.of(context).pop('SPAM'),
+          ),
+          SheetOption(
+            label: '嫌がらせ',
+            onPress: () => Navigator.of(context).pop('HARASSMENT'),
+          ),
+          SheetOption(
+            label: '不適切な内容',
+            onPress: () => Navigator.of(context).pop('INAPPROPRIATE_CONTENT'),
+          ),
+          SheetOption(
+            label: 'ヘイト発言',
+            onPress: () => Navigator.of(context).pop('HATE_SPEECH'),
+          ),
+          SheetOption(
+            label: 'その他',
+            onPress: () => Navigator.of(context).pop('OTHER'),
+          ),
+        ],
       ),
     );
     if (selected == null) return;

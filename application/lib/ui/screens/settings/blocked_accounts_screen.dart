@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../features/diary/data/models/blocked_account.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
+import '../../utils/toast_helper.dart';
 import '../../widgets/user_avatar.dart';
 
 class BlockedAccountsScreen extends ConsumerWidget {
@@ -17,17 +18,12 @@ class BlockedAccountsScreen extends ConsumerWidget {
       final repo = ref.read(diaryRepositoryProvider);
       await repo.unblock(entry.id);
       await ref.refresh(blockedAccountsProvider.future);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            '${entry.blockedUser?.displayName ?? entry.blockedId}をブロック解除しました',
-          ),
-        ),
+      ToastHelper.show(
+        context,
+        '${entry.blockedUser?.displayName ?? entry.blockedId}をブロック解除しました',
       );
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('解除に失敗しました: $e')),
-      );
+      ToastHelper.showError(context, '解除に失敗しました: $e');
     }
   }
 

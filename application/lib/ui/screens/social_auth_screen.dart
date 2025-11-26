@@ -54,11 +54,15 @@ class _SocialAuthScreenState extends ConsumerState<SocialAuthScreen> {
   }
 
   void _showErrorDialog(String message) {
-    showDialog(
+    showFDialog<void>(
       context: context,
-      builder: (context) => AlertDialog(
+      useRootNavigator: true,
+      barrierDismissible: true,
+      builder: (context, style, animation) => FDialog.adaptive(
+        style: style,
+        animation: animation,
         title: const Text('ログインエラー'),
-        content: Text(message),
+        body: Text(message),
         actions: [
           FButton(
             style: FButtonStyle.outline(),

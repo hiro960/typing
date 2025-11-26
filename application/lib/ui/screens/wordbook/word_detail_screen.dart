@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:forui/forui.dart';
 
 import '../../../features/wordbook/data/models/word_model.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
 import '../../app_spacing.dart';
+import '../../utils/toast_helper.dart';
 import 'word_form_screen.dart';
 
 class WordDetailScreen extends ConsumerStatefulWidget {
@@ -152,19 +154,16 @@ class _WordDetailScreenState extends ConsumerState<WordDetailScreen> {
 
   Future<void> _updateStatus(WordStatus status, Word word) async {
     setState(() => _updatingStatus = true);
-    final messenger = ScaffoldMessenger.of(context);
     try {
       await ref.read(wordbookProvider.notifier).updateWord(
             word.id,
             status: status,
           );
-      messenger.showSnackBar(
-        SnackBar(content: Text('ステータスを「${status.label}」に変更しました')),
-      );
+      if (!mounted) return;
+      ToastHelper.show(context, 'ステータスを「${status.label}」に変更しました');
     } catch (error) {
-      messenger.showSnackBar(
-        SnackBar(content: Text('更新に失敗しました: $error')),
-      );
+      if (!mounted) return;
+      ToastHelper.showError(context, '更新に失敗しました: $error');
     } finally {
       if (mounted) {
         setState(() => _updatingStatus = false);
@@ -173,20 +172,25 @@ class _WordDetailScreenState extends ConsumerState<WordDetailScreen> {
   }
 
   Future<void> _confirmDelete(BuildContext context, Word word) async {
-    final messenger = ScaffoldMessenger.of(context);
     final navigator = Navigator.of(context);
-    final confirmed = await showDialog<bool>(
+    final confirmed = await showFDialog<bool>(
       context: context,
-      builder: (context) => AlertDialog(
+      useRootNavigator: true,
+      barrierDismissible: true,
+      builder: (context, style, animation) => FDialog.adaptive(
+        style: style,
+        animation: animation,
         title: const Text('削除しますか？'),
-        content: Text('「${word.word}」を単語帳から削除します。'),
+        body: Text('「${word.word}」を単語帳から削除します。'),
         actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context, false),
+          FButton(
+            style: FButtonStyle.outline(),
+            onPress: () => Navigator.pop(context, false),
             child: const Text('キャンセル'),
           ),
-          FilledButton(
-            onPressed: () => Navigator.pop(context, true),
+          FButton(
+            style: FButtonStyle.destructive(),
+            onPress: () => Navigator.pop(context, true),
             child: const Text('削除'),
           ),
         ],
@@ -197,9 +201,8 @@ class _WordDetailScreenState extends ConsumerState<WordDetailScreen> {
 
     await ref.read(wordbookProvider.notifier).deleteWord(word.id);
     navigator.pop();
-    messenger.showSnackBar(
-      SnackBar(content: Text('「${word.word}」を削除しました。')),
-    );
+    if (!mounted) return;
+    ToastHelper.show(context, '「${word.word}」を削除しました。');
   }
 
   String _formatDate(DateTime? dateTime) {

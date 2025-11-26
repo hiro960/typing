@@ -20,6 +20,8 @@ import '../../widgets/ai_gradient_button.dart';
 import '../../widgets/modern_text_input.dart';
 import '../../app_spacing.dart';
 import '../../widgets/premium_feature_gate.dart';
+import '../../widgets/sheet_content.dart';
+import '../../utils/toast_helper.dart';
 
 class PostCreateScreen extends ConsumerStatefulWidget {
   const PostCreateScreen({super.key, this.initialPost, this.quotedPost});
@@ -308,44 +310,42 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
   }
 
   void _showVisibilitySheet() {
-    showModalBottomSheet<void>(
+    showFSheet<void>(
       context: context,
-      builder: (context) => SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            _VisibilityTile(
-              label: '全体公開',
-              description: '全てのユーザーに公開されます',
-              selected: _visibility == 'public',
-              onTap: () {
-                setState(() => _visibility = 'public');
-                Navigator.of(context).pop();
-              },
-              icon: Icons.public,
-            ),
-            _VisibilityTile(
-              label: 'フォロワーのみ',
-              description: 'フォロワーのみに公開されます',
-              selected: _visibility == 'followers',
-              onTap: () {
-                setState(() => _visibility = 'followers');
-                Navigator.of(context).pop();
-              },
-              icon: Icons.people_outline,
-            ),
-            _VisibilityTile(
-              label: '下書き',
-              description: '自分のみが閲覧できます',
-              selected: _visibility == 'private',
-              onTap: () {
-                setState(() => _visibility = 'private');
-                Navigator.of(context).pop();
-              },
-              icon: Icons.lock_outline,
-            ),
-          ],
-        ),
+      side: FLayout.btt,
+      useRootNavigator: true,
+      barrierDismissible: true,
+      draggable: true,
+      builder: (context) => SheetContent(
+        children: [
+          SheetOption(
+            label: '全体公開',
+            icon: Icons.public,
+            style: _visibility == 'public' ? FButtonStyle.primary() : FButtonStyle.outline(),
+            onPress: () {
+              setState(() => _visibility = 'public');
+              Navigator.of(context).pop();
+            },
+          ),
+          SheetOption(
+            label: 'フォロワーのみ',
+            icon: Icons.people_outline,
+            style: _visibility == 'followers' ? FButtonStyle.primary() : FButtonStyle.outline(),
+            onPress: () {
+              setState(() => _visibility = 'followers');
+              Navigator.of(context).pop();
+            },
+          ),
+          SheetOption(
+            label: '下書き',
+            icon: Icons.lock_outline,
+            style: _visibility == 'private' ? FButtonStyle.primary() : FButtonStyle.outline(),
+            onPress: () {
+              setState(() => _visibility = 'private');
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
       ),
     );
   }
@@ -378,9 +378,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
 
   void _showMessage(String message) {
     if (!mounted) return;
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(SnackBar(content: Text(message)));
+    ToastHelper.show(context, message);
   }
 
   void _removeQuote() {
@@ -673,36 +671,6 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
       default:
         return Icons.public;
     }
-  }
-}
-
-class _VisibilityTile extends StatelessWidget {
-  const _VisibilityTile({
-    required this.label,
-    required this.description,
-    required this.selected,
-    required this.onTap,
-    required this.icon,
-  });
-
-  final String label;
-  final String description;
-  final bool selected;
-  final VoidCallback onTap;
-  final IconData icon;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return FItem(
-      prefix: Icon(icon),
-      title: Text(label),
-      subtitle: Text(description),
-      suffix: selected
-          ? Icon(Icons.check, color: theme.colorScheme.primary)
-          : null,
-      onPress: onTap,
-    );
   }
 }
 

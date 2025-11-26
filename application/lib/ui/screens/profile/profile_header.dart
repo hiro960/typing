@@ -4,6 +4,7 @@ import 'package:forui/forui.dart';
 
 import '../../../features/auth/data/models/user_model.dart';
 import '../../../features/profile/domain/providers/profile_providers.dart';
+import '../../utils/toast_helper.dart';
 import '../../widgets/user_avatar.dart';
 
 class ProfileHero extends StatelessWidget {
@@ -29,93 +30,100 @@ class ProfileHero extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final foreground = theme.colorScheme.onPrimary;
+    // アバターの半径46 + 下にはみ出す分38 = 余分な高さが必要
+    const avatarOverflow = 38.0;
+
     return Stack(
-      clipBehavior: Clip.none,
       children: [
-        Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                theme.colorScheme.primary.withValues(alpha: 0.9),
-                theme.colorScheme.secondary.withValues(alpha: 0.65),
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          padding: const EdgeInsets.fromLTRB(16, 16, 16, 70),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          profile.displayName,
-                          style: theme.textTheme.headlineSmall?.copyWith(
-                            color: foreground,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 4),
-                        Text(
-                          '@${profile.username}',
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            color: foreground.withValues(alpha: 0.85),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  if (isOwner)
-                    FButton.icon(
-                      style: FButtonStyle.ghost(),
-                      child: const Icon(Icons.photo_camera_outlined),
-                      onPress: onAvatarTap,
-                    )
-                  else if (followButton != null)
-                    followButton!,
+        // 下部にアバターのはみ出し分のスペースを確保
+        Padding(
+          padding: const EdgeInsets.only(bottom: avatarOverflow),
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  theme.colorScheme.primary.withValues(alpha: 0.9),
+                  theme.colorScheme.secondary.withValues(alpha: 0.65),
                 ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
-              const SizedBox(height: 10),
-              Row(
-                children: [
-                  Icon(
-                    Icons.calendar_month_outlined,
-                    size: 16,
-                    color: foreground.withValues(alpha: 0.9),
-                  ),
-                  const SizedBox(width: 6),
-                  Text(
-                    startText,
-                    style: theme.textTheme.bodySmall?.copyWith(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 70),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            profile.displayName,
+                            style: theme.textTheme.headlineSmall?.copyWith(
+                              color: foreground,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            '@${profile.username}',
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              color: foreground.withValues(alpha: 0.85),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    if (isOwner)
+                      FButton.icon(
+                        style: FButtonStyle.ghost(),
+                        child: const Icon(Icons.photo_camera_outlined),
+                        onPress: onAvatarTap,
+                      )
+                    else if (followButton != null)
+                      followButton!,
+                  ],
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.calendar_month_outlined,
+                      size: 16,
                       color: foreground.withValues(alpha: 0.9),
                     ),
+                    const SizedBox(width: 6),
+                    Text(
+                      startText,
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: foreground.withValues(alpha: 0.9),
+                      ),
+                    ),
+                  ],
+                ),
+                if (profile.bio != null && profile.bio!.isNotEmpty) ...[
+                  const SizedBox(height: 12),
+                  Text(
+                    profile.bio!,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: foreground.withValues(alpha: 0.95),
+                    ),
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ],
-              ),
-              if (profile.bio != null && profile.bio!.isNotEmpty) ...[
-                const SizedBox(height: 12),
-                Text(
-                  profile.bio!,
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: foreground.withValues(alpha: 0.95),
-                  ),
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
-                ),
               ],
-            ],
+            ),
           ),
         ),
+        // アバターをStack内に配置（bottom: 0でStack下端に揃える）
         Positioned(
           left: 20,
-          bottom: -38,
+          bottom: 0,
           child: ProfileAvatar(
             imageUrl: profile.profileImageUrl,
             displayName: profile.displayName,
@@ -154,7 +162,7 @@ class ProfileAvatar extends StatelessWidget {
       displayName: displayName,
       imageUrl: imageUrl,
       radius: 46,
-      backgroundColor: theme.colorScheme.primary.withValues(alpha: 0.12),
+      backgroundColor: theme.colorScheme.primary.withValues(alpha: 0.42),
       foregroundColor: theme.colorScheme.primary,
       textStyle: const TextStyle(
         fontSize: 28,
@@ -163,22 +171,25 @@ class ProfileAvatar extends StatelessWidget {
       showShadow: true,
       onTap: onTap,
       badge: showEditBadge
-          ? Container(
-              decoration: BoxDecoration(
-                color: theme.colorScheme.surface,
-                shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.18),
-                    blurRadius: 4,
-                  ),
-                ],
-              ),
-              padding: const EdgeInsets.all(6),
-              child: Icon(
-                Icons.edit,
-                size: 16,
-                color: theme.colorScheme.primary,
+          ? GestureDetector(
+              onTap: onTap,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.surface,
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.18),
+                      blurRadius: 4,
+                    ),
+                  ],
+                ),
+                padding: const EdgeInsets.all(6),
+                child: Icon(
+                  Icons.edit,
+                  size: 16,
+                  color: theme.colorScheme.primary,
+                ),
               ),
             )
           : null,
@@ -340,12 +351,7 @@ class _FollowButtonState extends ConsumerState<FollowButton> {
         setState(() {
           _isLoading = false;
         });
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('操作に失敗しました: $e'),
-            backgroundColor: Theme.of(context).colorScheme.error,
-          ),
-        );
+        ToastHelper.showError(context, '操作に失敗しました: $e');
       }
     }
   }

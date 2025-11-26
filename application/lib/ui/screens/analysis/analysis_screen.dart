@@ -11,6 +11,9 @@ import 'package:chaletta/ui/widgets/premium_feature_gate.dart';
 
 import 'widgets/growth_trend_chart.dart';
 import 'widgets/learning_habit_chart.dart';
+import 'widgets/practice_time_chart.dart';
+import 'widgets/vocabulary_growth_chart.dart';
+import 'widgets/vocabulary_status_chart.dart';
 import 'widgets/weak_keys_heatmap.dart';
 
 class AnalysisScreen extends ConsumerStatefulWidget {
@@ -98,6 +101,36 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
                   ),
                   const SizedBox(height: AppSpacing.md),
                   LearningHabitChart(habits: dashboard.habits),
+                  const SizedBox(height: AppSpacing.xxl),
+
+                  // Practice Time Section
+                  _SectionHeader(
+                    title: '練習時間統計',
+                    subtitle: '累計・平均練習時間と日別推移',
+                    icon: Icons.timer_outlined,
+                  ),
+                  const SizedBox(height: AppSpacing.md),
+                  PracticeTimeChart(stats: dashboard.practiceTime),
+                  const SizedBox(height: AppSpacing.xxl),
+
+                  // Vocabulary Status Section
+                  _SectionHeader(
+                    title: '語彙習得状況',
+                    subtitle: '単語帳の習得状況',
+                    icon: Icons.library_books_rounded,
+                  ),
+                  const SizedBox(height: AppSpacing.md),
+                  VocabularyStatusChart(status: dashboard.vocabularyStatus),
+                  const SizedBox(height: AppSpacing.xxl),
+
+                  // Vocabulary Growth Section
+                  _SectionHeader(
+                    title: '語彙成長推移',
+                    subtitle: '月別の語彙登録・習得数',
+                    icon: Icons.trending_up_rounded,
+                  ),
+                  const SizedBox(height: AppSpacing.md),
+                  VocabularyGrowthChart(growth: dashboard.vocabularyGrowth),
                 ],
               ),
               loading: () => const Center(

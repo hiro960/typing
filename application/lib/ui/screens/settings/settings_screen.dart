@@ -14,8 +14,10 @@ import '../../../features/theme/theme_mode_provider.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../utils/dialog_helper.dart';
 import '../../utils/snackbar_helper.dart';
+import '../../utils/toast_helper.dart';
 import '../../widgets/app_page_scaffold.dart';
 import '../../widgets/user_avatar.dart';
+import '../../widgets/sheet_content.dart';
 import '../../app_spacing.dart';
 
 class SettingsScreen extends ConsumerStatefulWidget {
@@ -90,12 +92,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       setState(() => _isLoggingOut = false);
 
       // エラー表示
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('ログアウトに失敗しました: $e'),
-          backgroundColor: Theme.of(context).colorScheme.error,
-        ),
-      );
+      ToastHelper.showError(context, 'ログアウトに失敗しました: $e');
     }
   }
 
@@ -128,20 +125,13 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       // 成功 - 設定画面を閉じる
       Navigator.of(context).pop();
       
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('アカウントを削除しました')),
-      );
+      ToastHelper.show(context, 'アカウントを削除しました');
     } catch (e) {
       if (!mounted) return;
 
       setState(() => _isLoggingOut = false);
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('アカウント削除に失敗しました: $e'),
-          backgroundColor: Theme.of(context).colorScheme.error,
-        ),
-      );
+      ToastHelper.showError(context, 'アカウント削除に失敗しました: $e');
     }
   }
 
@@ -445,10 +435,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     } catch (error) {
       // 失敗したら元に戻す
       setState(() => _pushNotifications = previous);
-      final messenger = ScaffoldMessenger.maybeOf(context);
-      messenger?.showSnackBar(
-        const SnackBar(content: Text('プッシュ通知設定の更新に失敗しました')),
-      );
+      ToastHelper.showError(context, 'プッシュ通知設定の更新に失敗しました');
     } finally {
       if (mounted) {
         setState(() => _isUpdatingPush = false);
@@ -469,14 +456,18 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       return null;
     }
 
-    final newName = await showDialog<String>(
+    final newName = await showFDialog<String>(
       context: context,
-      builder: (context) {
+      useRootNavigator: true,
+      barrierDismissible: false,
+      builder: (context, style, animation) {
         return StatefulBuilder(
           builder: (context, setState) {
-            return AlertDialog(
+            return FDialog.adaptive(
+              style: style,
+              animation: animation,
               title: const Text('表示名を編集'),
-              content: TextField(
+              body: TextField(
                 controller: controller,
                 autofocus: true,
                 maxLength: 40,
@@ -494,7 +485,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   onPress: saving ? null : () => Navigator.of(context).pop(),
                   child: const Text('キャンセル'),
                 ),
-                      const SizedBox(height: AppSpacing.sm),
                 FButton(
                   style: FButtonStyle.primary(),
                   onPress: saving
@@ -540,82 +530,94 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     setState(() => _isUpdatingDisplayName = false);
 
     if (newName != null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('表示名を「$newName」に更新しました')),
-      );
+      ToastHelper.show(context, '表示名を「$newName」に更新しました');
     }
   }
 
   void _showFeedbackSheet() {
-    showModalBottomSheet<void>(
+    showFSheet<void>(
       context: context,
-      showDragHandle: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-      ),
+      side: FLayout.btt,
+      useRootNavigator: true,
+      barrierDismissible: true,
+      draggable: true,
       builder: (context) {
-        final theme = Theme.of(context);
-        return Padding(
-          padding: const EdgeInsets.fromLTRB(20, 4, 20, 24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('フィードバックを送る', style: theme.textTheme.titleLarge),
-              const SizedBox(height: 8),
-              Text(
-                '不具合の報告や改善のアイデアをメールでお送りください。',
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+        return Container(
+          decoration: BoxDecoration(
+            color: context.theme.colors.background,
+            border: Border.symmetric(
+              horizontal: BorderSide(color: context.theme.colors.border),
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'フィードバックを送る',
+                  style: context.theme.typography.xl2.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: context.theme.colors.foreground,
+                    height: 1.5,
+                  ),
                 ),
-              ),
-              const SizedBox(height: AppSpacing.lg),
-              Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: theme.colorScheme.primary.withValues(alpha: 0.06),
+                Text(
+                  '不具合の報告や改善のアイデアをメールでお送りください。',
+                  style: context.theme.typography.sm.copyWith(
+                    color: context.theme.colors.mutedForeground,
+                  ),
                 ),
-                child: Row(
-                  children: [
-                    Icon(Icons.mail_outline, color: theme.colorScheme.primary),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            _feedbackEmail,
-                            style: theme.textTheme.bodyLarge?.copyWith(
-                              color: theme.colorScheme.onSurface,
-                            ),
-                          ),
-                          const SizedBox(height: 2),
-                          Text(
-                            'メールアプリで新規作成し、このアドレスに送信してください。',
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
-                            ),
-                          ),
-                        ],
+                const SizedBox(height: AppSpacing.lg),
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: context.theme.colors.primary.withValues(alpha: 0.06),
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.mail_outline,
+                        color: context.theme.colors.primary,
                       ),
-                    ),
-                    FButton.icon(
-                      style: FButtonStyle.ghost(),
-                      onPress: () {
-                        Clipboard.setData(
-                          const ClipboardData(text: _feedbackEmail),
-                        );
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('メールアドレスをコピーしました')),
-                        );
-                      },
-                      child: const Icon(Icons.copy_outlined),
-                    ),
-                  ],
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              _feedbackEmail,
+                              style: context.theme.typography.base.copyWith(
+                                color: context.theme.colors.foreground,
+                              ),
+                            ),
+                            const SizedBox(height: 2),
+                            Text(
+                              'メールアプリで新規作成し、このアドレスに送信してください。',
+                              style: context.theme.typography.xs.copyWith(
+                                color: context.theme.colors.mutedForeground,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      FButton.icon(
+                        style: FButtonStyle.ghost(),
+                        onPress: () {
+                          Clipboard.setData(
+                            const ClipboardData(text: _feedbackEmail),
+                          );
+                          ToastHelper.show(context, 'メールアドレスをコピーしました');
+                        },
+                        child: const Icon(Icons.copy_outlined),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },

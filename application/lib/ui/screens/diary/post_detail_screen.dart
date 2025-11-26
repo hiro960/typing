@@ -9,9 +9,11 @@ import '../../../features/diary/data/models/diary_comment.dart';
 import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
+import '../../utils/toast_helper.dart';
 import '../../widgets/diary_post_card.dart';
 import '../../widgets/user_avatar.dart';
 import '../../widgets/typing_keyboard.dart';
+import '../../widgets/sheet_content.dart';
 import 'post_create_screen.dart';
 import '../../app_spacing.dart';
 import '../../widgets/modern_text_input.dart';
@@ -111,9 +113,7 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
       FocusScope.of(context).unfocus();
     } catch (error) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(error.toString())),
-      );
+      ToastHelper.showError(context, error);
     } finally {
       if (mounted) {
         setState(() => _isSubmitting = false);
@@ -129,9 +129,7 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
       await _refreshPost();
     } catch (error) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(error.toString())),
-      );
+      ToastHelper.showError(context, error);
     }
   }
 
@@ -143,9 +141,7 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
       await _refreshPost();
     } catch (error) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(error.toString())),
-      );
+      ToastHelper.showError(context, error);
     }
   }
 
@@ -221,12 +217,15 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
   }
 
   Future<void> _deletePost() async {
-    final confirm = await showDialog<bool>(
+    final confirm = await showFDialog<bool>(
       context: context,
-      builder: (context) => AlertDialog(
+      useRootNavigator: true,
+      barrierDismissible: true,
+      builder: (context, style, animation) => FDialog.adaptive(
+        style: style,
+        animation: animation,
         title: const Text('投稿を削除'),
-        content: const Text('この投稿を削除しますか？'),
-        buttonPadding: EdgeInsets.only(bottom: AppSpacing.sm),
+        body: const Text('この投稿を削除しますか？'),
         actions: [
           FButton(
             style: FButtonStyle.outline(),
@@ -247,9 +246,7 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
       ref.read(diaryTimelineControllerProvider.notifier).removePost(_post.id);
       if (!mounted) return;
       Navigator.of(context).pop();
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('投稿を削除しました')),
-      );
+      ToastHelper.show(context, '投稿を削除しました');
     } catch (error) {
       _showError(error);
     }
@@ -265,41 +262,42 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
   }
 
   Future<void> _showMenu(bool isMine) async {
-    final value = await showModalBottomSheet<String>(
+    final value = await showFSheet<String>(
       context: context,
-      builder: (context) => SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (isMine) ...[
-              FTile(
-                prefix: const Icon(Icons.edit_outlined),
-                title: const Text('編集'),
-                onPress: () => Navigator.of(context).pop('edit'),
-              ),
-              FTile(
-                prefix: const Icon(Icons.delete_outline),
-                title: const Text('削除'),
-                onPress: () => Navigator.of(context).pop('delete'),
-              ),
-            ],
-            FTile(
-              prefix: const Icon(Icons.format_quote_outlined),
-              title: const Text('引用する'),
-              onPress: () => Navigator.of(context).pop('quote'),
+      side: FLayout.btt,
+      useRootNavigator: true,
+      barrierDismissible: true,
+      draggable: true,
+      builder: (context) => SheetContent(
+        children: [
+          if (isMine) ...[
+            SheetOption(
+              label: '編集',
+              icon: Icons.edit_outlined,
+              onPress: () => Navigator.of(context).pop('edit'),
             ),
-            FTile(
-              prefix: const Icon(Icons.flag_outlined),
-              title: const Text('通報'),
-              onPress: () => Navigator.of(context).pop('report'),
-            ),
-            FTile(
-              prefix: const Icon(Icons.block_outlined),
-              title: const Text('ブロック'),
-              onPress: () => Navigator.of(context).pop('block'),
+            SheetOption(
+              label: '削除',
+              icon: Icons.delete_outline,
+              onPress: () => Navigator.of(context).pop('delete'),
             ),
           ],
-        ),
+          SheetOption(
+            label: '引用する',
+            icon: Icons.format_quote_outlined,
+            onPress: () => Navigator.of(context).pop('quote'),
+          ),
+          SheetOption(
+            label: '通報',
+            icon: Icons.flag_outlined,
+            onPress: () => Navigator.of(context).pop('report'),
+          ),
+          SheetOption(
+            label: 'ブロック',
+            icon: Icons.block_outlined,
+            onPress: () => Navigator.of(context).pop('block'),
+          ),
+        ],
       ),
     );
 
@@ -325,11 +323,15 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
   }
 
   Future<void> _blockAuthor() async {
-    final confirm = await showDialog<bool>(
+    final confirm = await showFDialog<bool>(
       context: context,
-      builder: (context) => AlertDialog(
+      useRootNavigator: true,
+      barrierDismissible: true,
+      builder: (context, style, animation) => FDialog.adaptive(
+        style: style,
+        animation: animation,
         title: const Text('ブロック'),
-        content: Text('${_post.user.displayName}さんをブロックしますか？'),
+        body: Text('${_post.user.displayName}さんをブロックしますか？'),
         actions: [
           FButton(
             style: FButtonStyle.outline(),
@@ -348,9 +350,7 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
     try {
       await ref.read(diaryRepositoryProvider).blockUser(_post.user.id);
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${_post.user.displayName}さんをブロックしました')),
-      );
+      ToastHelper.show(context, '${_post.user.displayName}さんをブロックしました');
       Navigator.of(context).pop();
     } catch (error) {
       _showError(error);
@@ -358,27 +358,35 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
   }
 
   Future<void> _reportPost() async {
-    const reasons = [
-      {'label': 'スパム', 'value': 'SPAM'},
-      {'label': '嫌がらせ', 'value': 'HARASSMENT'},
-      {'label': '不適切な内容', 'value': 'INAPPROPRIATE_CONTENT'},
-      {'label': 'ヘイト発言', 'value': 'HATE_SPEECH'},
-      {'label': 'その他', 'value': 'OTHER'},
-    ];
-    final selected = await showModalBottomSheet<String>(
+    final selected = await showFSheet<String>(
       context: context,
-      builder: (context) => SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: reasons
-              .map(
-                (reason) => FTile(
-                  title: Text(reason['label']!),
-                  onPress: () => Navigator.of(context).pop(reason['value']),
-                ),
-              )
-              .toList(),
-        ),
+      side: FLayout.btt,
+      useRootNavigator: true,
+      barrierDismissible: true,
+      draggable: true,
+      builder: (context) => SheetContent(
+        children: [
+          SheetOption(
+            label: 'スパム',
+            onPress: () => Navigator.of(context).pop('SPAM'),
+          ),
+          SheetOption(
+            label: '嫌がらせ',
+            onPress: () => Navigator.of(context).pop('HARASSMENT'),
+          ),
+          SheetOption(
+            label: '不適切な内容',
+            onPress: () => Navigator.of(context).pop('INAPPROPRIATE_CONTENT'),
+          ),
+          SheetOption(
+            label: 'ヘイト発言',
+            onPress: () => Navigator.of(context).pop('HATE_SPEECH'),
+          ),
+          SheetOption(
+            label: 'その他',
+            onPress: () => Navigator.of(context).pop('OTHER'),
+          ),
+        ],
       ),
     );
     if (selected == null) return;
@@ -388,9 +396,7 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
             reason: selected,
           );
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('投稿を通報しました')),
-      );
+      ToastHelper.show(context, '投稿を通報しました');
     } catch (error) {
       _showError(error);
     }
@@ -602,17 +608,13 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
           );
     } catch (error) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(error.toString())),
-      );
+      ToastHelper.showError(context, error);
     }
   }
 
   void _showError(Object error) {
     if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(error.toString())),
-    );
+    ToastHelper.showError(context, error);
   }
 
   Future<void> _deleteComment(DiaryComment comment) async {
@@ -622,9 +624,7 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
           .deleteComment(comment.id);
     } catch (error) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(error.toString())),
-      );
+      ToastHelper.showError(context, error);
     }
   }
 

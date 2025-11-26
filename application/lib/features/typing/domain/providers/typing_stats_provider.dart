@@ -16,16 +16,14 @@ TypingStatsData typingStats(Ref ref, String lessonId) {
 }
 
 TypingStatsData _calculateStats(TypingSessionState session) {
-  // recordsには正解文字のみが記録されている
-  final correctCount = session.records.length;
+  // recordsには全入力（正解+ミス）が記録されている
+  final totalCount = session.records.length;
 
-  // mistakeHistoryから誤答の総数を計算
-  final incorrectCount = session.mistakeHistory.values.fold<int>(
-    0,
-    (sum, count) => sum + count,
-  );
+  // recordsからミス数をカウント
+  final incorrectCount = session.records.where((r) => !r.isCorrect).length;
+  final correctCount = totalCount - incorrectCount;
 
-  final totalCount = correctCount + incorrectCount;
+  // 正解率 = (入力文字数 - ミス入力文字数) / 入力文字数
   final accuracy = totalCount == 0 ? 0.0 : correctCount / totalCount;
   final wpm = _calculateWpm(correctCount, session.elapsedMs);
 
