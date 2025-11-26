@@ -122,10 +122,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
 
       if (!mounted) return;
 
-      // 成功 - 設定画面を閉じる
-      Navigator.of(context).pop();
-      
+      // 成功メッセージを表示してから設定画面を閉じる
       ToastHelper.show(context, 'アカウントを削除しました');
+      Navigator.of(context).pop();
     } catch (e) {
       if (!mounted) return;
 

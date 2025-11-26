@@ -200,9 +200,9 @@ class _WordDetailScreenState extends ConsumerState<WordDetailScreen> {
     if (confirmed != true) return;
 
     await ref.read(wordbookProvider.notifier).deleteWord(word.id);
-    navigator.pop();
     if (!mounted) return;
     ToastHelper.show(context, '「${word.word}」を削除しました。');
+    navigator.pop();
   }
 
   String _formatDate(DateTime? dateTime) {

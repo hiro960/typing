@@ -92,11 +92,20 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.isEditing ? '単語を編集' : '新しい単語/文章を追加'),
+    final theme = Theme.of(context);
+    return FScaffold(
+      header: FHeader.nested(
+        title: Text(
+          widget.isEditing ? '単語を編集' : '新しい単語/文章を追加',
+          style: theme.textTheme.titleLarge,
+        ),
+        prefixes: [
+          FHeaderAction.back(
+            onPress: () => Navigator.of(context).maybePop(),
+          ),
+        ],
       ),
-      body: Column(
+      child: Column(
         children: [
           Expanded(
             child: SingleChildScrollView(
@@ -327,11 +336,11 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
       }
 
       if (!mounted) return;
-      Navigator.pop(context);
       ToastHelper.show(
         context,
         widget.isEditing ? '単語を更新しました' : '単語を追加しました',
       );
+      Navigator.pop(context);
     } catch (error) {
       if (!mounted) return;
       ToastHelper.showError(context, '保存に失敗しました: $error');

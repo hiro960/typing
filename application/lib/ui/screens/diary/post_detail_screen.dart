@@ -245,8 +245,8 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
       await ref.read(diaryRepositoryProvider).deletePost(_post.id);
       ref.read(diaryTimelineControllerProvider.notifier).removePost(_post.id);
       if (!mounted) return;
-      Navigator.of(context).pop();
       ToastHelper.show(context, '投稿を削除しました');
+      Navigator.of(context).pop();
     } catch (error) {
       _showError(error);
     }

@@ -116,7 +116,7 @@ class PremiumFeatureGate extends StatelessWidget {
             const SizedBox(height: AppSpacing.md),
             _BenefitCard(
               icon: Icons.analytics_outlined,
-              title: '詳細な分析レポート',
+              title: '詳細な学習分析レポート',
               description: '苦手なキー・成長推移・学習習慣を可視化し、効率アップを後押し。',
             ),
             const SizedBox(height: AppSpacing.xxl),
@@ -130,7 +130,7 @@ class PremiumFeatureGate extends StatelessWidget {
                         height: 18,
                         child: CircularProgressIndicator(strokeWidth: 2),
                       )
-                    : const Text('月額¥400でアップグレード'),
+                    : const Text('月額¥600でアップグレード'),
               ),
             ),
             const SizedBox(height: AppSpacing.lg),

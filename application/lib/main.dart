@@ -61,10 +61,12 @@ class TypingApp extends ConsumerWidget {
       supportedLocales: FLocalizations.supportedLocales,
       builder: (context, child) => FTheme(
         data: foruiTheme,
-        child: Scaffold(
-          resizeToAvoidBottomInset: false,
-          backgroundColor: Colors.transparent,
-          body: child ?? const SizedBox.shrink(),
+        child: FToaster(
+          child: Scaffold(
+            resizeToAvoidBottomInset: false,
+            backgroundColor: Colors.transparent,
+            body: child ?? const SizedBox.shrink(),
+          ),
         ),
       ),
       // AppShellが認証状態に基づいて画面を切り替え

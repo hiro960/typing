@@ -18,6 +18,7 @@ import '../../widgets/ai_gradient_button.dart';
 import '../../widgets/sheet_content.dart';
 import '../../app_spacing.dart';
 import '../../widgets/diary_post_card.dart';
+import '../diary/post_create_screen.dart';
 import '../diary/post_detail_screen.dart';
 import 'profile_header.dart';
 import 'profile_posts.dart';
@@ -261,27 +262,35 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ...posts.take(20).map((post) {
-                      return
-                        DiaryPostCard(
-                          post: post,
-                          onTap: () => _openDetail(post),
-                          onToggleLike: () async {
-                            await ref
-                                .read(diaryRepositoryProvider)
-                                .toggleLike(post.id, like: !post.liked);
-                            ref.invalidate(userPostsProvider(profile.id));
-                          },
-                          onToggleBookmark: () async {
-                            await ref
-                                .read(diaryRepositoryProvider)
-                                .toggleBookmark(
-                                  post.id,
-                                  bookmark: !post.bookmarked,
-                                );
-                            ref.invalidate(userPostsProvider(profile.id));
-                          },
-                          onComment: () {},
-                          currentUserId: currentUserId,
+                      return DiaryPostCard(
+                        post: post,
+                        onTap: () => _openDetail(post),
+                        onToggleLike: () async {
+                          await ref
+                              .read(diaryRepositoryProvider)
+                              .toggleLike(post.id, like: !post.liked);
+                          ref.invalidate(userPostsProvider(profile.id));
+                        },
+                        onToggleBookmark: () async {
+                          await ref
+                              .read(diaryRepositoryProvider)
+                              .toggleBookmark(
+                                post.id,
+                                bookmark: !post.bookmarked,
+                              );
+                          ref.invalidate(userPostsProvider(profile.id));
+                        },
+                        onComment: () => _openDetail(post),
+                        onQuote: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute<void>(
+                              builder: (_) =>
+                                  PostCreateScreen(quotedPost: post),
+                              fullscreenDialog: true,
+                            ),
+                          );
+                        },
+                        currentUserId: currentUserId,
                       );
                     }),
                   ],

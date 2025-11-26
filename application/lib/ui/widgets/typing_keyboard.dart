@@ -53,12 +53,15 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
     ['ABC', 'space', '!', '⏎'],
   ];
 
-  static const _doubleConsonants = {
+  // シフトキー押下時の変換マップ（濃音子音 + 母音）
+  static const _shiftMappings = {
     'ㄱ': 'ㄲ',
     'ㄷ': 'ㄸ',
     'ㅂ': 'ㅃ',
     'ㅅ': 'ㅆ',
     'ㅈ': 'ㅉ',
+    'ㅐ': 'ㅒ',
+    'ㅔ': 'ㅖ',
   };
 
   @override
@@ -151,7 +154,7 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
         return;
       default:
         final value = _shiftActive
-            ? (_doubleConsonants[label] ?? label)
+            ? (_shiftMappings[label] ?? label)
             : label;
         widget.onTextInput(value);
         if (_shiftActive) {
@@ -188,12 +191,15 @@ class _KeyboardRow extends StatelessWidget {
   final _KeyboardMode currentMode;
   final bool highlightShift;
 
-  static const _doubleConsonants = {
+  // シフトキー押下時の変換マップ（濃音子音 + 母音）
+  static const _shiftMappings = {
     'ㄱ': 'ㄲ',
     'ㄷ': 'ㄸ',
     'ㅂ': 'ㅃ',
     'ㅅ': 'ㅆ',
     'ㅈ': 'ㅉ',
+    'ㅐ': 'ㅒ',
+    'ㅔ': 'ㅖ',
   };
 
   @override
@@ -219,11 +225,11 @@ class _KeyboardRow extends StatelessWidget {
   }
 
   String _getDisplayLabel(String key) {
-    // ハングルモードかつシフト有効時、濃音に変換可能な子音は濃音を表示
+    // ハングルモードかつシフト有効時、シフト変換可能な文字は変換後を表示
     if (currentMode == _KeyboardMode.hangul &&
         isShiftActive &&
-        _doubleConsonants.containsKey(key)) {
-      return _doubleConsonants[key]!;
+        _shiftMappings.containsKey(key)) {
+      return _shiftMappings[key]!;
     }
     return key;
   }

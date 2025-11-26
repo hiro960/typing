@@ -248,8 +248,8 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
         timeline.prependPost(post);
       }
       if (!mounted) return;
-      Navigator.of(context).pop(post);
       _showMessage(_isEditing ? '投稿を更新しました' : '投稿を公開しました');
+      Navigator.of(context).pop(post);
     } catch (error, stackTrace) {
       AppLogger.error(
         'Failed to submit post',
@@ -507,6 +507,27 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                   ],
                 ),
                 const SizedBox(height: AppSpacing.xl),
+                SizedBox(
+                  width: double.infinity,
+                  child: FButton(
+                    onPress: _isSubmitting ||
+                            _contentController.text.trim().isEmpty ||
+                            remaining < 0
+                        ? null
+                        : _submit,
+                    child: _isSubmitting
+                        ? const SizedBox(
+                            width: 20,
+                            height: 20,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                              color: Colors.white,
+                            ),
+                          )
+                        : Text(_isEditing ? '更新する' : '投稿する'),
+                  ),
+                ),
+                const SizedBox(height: AppSpacing.md),
                 AiGradientButton(
                   label: 'AI先生の添削',
                   loadingLabel: '添削中...',
