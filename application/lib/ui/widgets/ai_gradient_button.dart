@@ -29,7 +29,7 @@ class AiGradientButton extends StatelessWidget {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(8),
           boxShadow: [
             BoxShadow(
               color: const Color(0xFF4facfe).withOpacity(0.3),
@@ -42,7 +42,7 @@ class AiGradientButton extends StatelessWidget {
           color: Colors.transparent,
           child: InkWell(
             onTap: enabled && !loading ? onTap : null,
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(8),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
               child: Row(

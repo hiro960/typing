@@ -78,7 +78,7 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            child: _FilterSegment(
+            child: _FilterTabs(
               unreadOnly: state.unreadOnly,
               unreadCount: unreadCount,
               onChanged: (value) {
@@ -259,8 +259,8 @@ class _NotificationTile extends StatelessWidget {
   }
 }
 
-class _FilterSegment extends StatelessWidget {
-  const _FilterSegment({
+class _FilterTabs extends StatelessWidget {
+  const _FilterTabs({
     required this.unreadOnly,
     required this.unreadCount,
     required this.onChanged,
@@ -273,42 +273,77 @@ class _FilterSegment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return SegmentedButton<bool>(
-      segments: [
-        const ButtonSegment(
-          value: false,
-          label: Text('すべて'),
-          icon: Icon(Icons.inbox_outlined),
-        ),
-        ButtonSegment(
-          value: true,
-          icon: const Icon(Icons.mark_chat_unread_outlined),
-          label: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Text('未読のみ'),
-              if (unreadCount > 0) ...[
+    final selectedIndex = unreadOnly ? 1 : 0;
+
+    return FTabs(
+      key: ValueKey(selectedIndex),
+      initialIndex: selectedIndex,
+      onChange: (index) => onChanged(index == 1),
+      children: [
+        FTabEntry(
+          label: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  Icons.inbox_outlined,
+                  size: 16,
+                  color: !unreadOnly
+                      ? theme.colorScheme.primary
+                      : theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                ),
                 const SizedBox(width: 6),
-                _CountBadge(
-                  count: unreadCount,
-                  color: theme.colorScheme.primary,
+                Text(
+                  'すべて',
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: !unreadOnly
+                        ? theme.colorScheme.primary
+                        : theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                  ),
                 ),
               ],
-            ],
+            ),
           ),
+          child: const SizedBox.shrink(),
+        ),
+        FTabEntry(
+          label: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  Icons.mark_chat_unread_outlined,
+                  size: 16,
+                  color: unreadOnly
+                      ? theme.colorScheme.primary
+                      : theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                ),
+                const SizedBox(width: 6),
+                Text(
+                  '未読のみ',
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: unreadOnly
+                        ? theme.colorScheme.primary
+                        : theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                  ),
+                ),
+                if (unreadCount > 0) ...[
+                  const SizedBox(width: 6),
+                  _CountBadge(
+                    count: unreadCount,
+                    color: unreadOnly
+                        ? theme.colorScheme.primary
+                        : theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                  ),
+                ],
+              ],
+            ),
+          ),
+          child: const SizedBox.shrink(),
         ),
       ],
-      showSelectedIcon: false,
-      style: ButtonStyle(
-        padding: MaterialStateProperty.all(
-          const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-        ),
-      ),
-      selected: {unreadOnly},
-      onSelectionChanged: (selection) {
-        if (selection.isEmpty) return;
-        onChanged(selection.first);
-      },
     );
   }
 }

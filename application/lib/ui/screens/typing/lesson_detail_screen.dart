@@ -1,4 +1,5 @@
 import 'package:chaletta/features/lessons/data/models/lesson_models.dart';
+import 'package:chaletta/ui/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
@@ -66,8 +67,12 @@ class LessonDetailScreen extends ConsumerWidget {
                   width: double.infinity,
                   child: FilledButton.icon(
                     style: FilledButton.styleFrom(
-                      backgroundColor: Theme.of(context).colorScheme.primary,
-                      foregroundColor: Theme.of(context).colorScheme.onPrimary,
+              backgroundColor: AppColors.primary,
+              foregroundColor: Colors.white,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
                     ),
                     icon: const Icon(Icons.play_arrow),
                     onPressed: isLocked
