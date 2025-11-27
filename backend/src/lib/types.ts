@@ -264,3 +264,75 @@ export interface WordbookStatsResponse {
   averageSuccessRate: number;
   totalReviewCount: number;
 }
+
+// ランキングゲーム関連の型定義
+export type RankingGameDifficulty = "beginner" | "intermediate" | "advanced";
+export type RankingPeriod = "weekly" | "monthly";
+
+export interface RankingGameResultRecord {
+  id: string;
+  userId: string;
+  difficulty: RankingGameDifficulty;
+  score: number;
+  correctCount: number;
+  maxCombo: number;
+  totalBonusTime: number;
+  avgInputSpeed: number;
+  characterLevel: number;
+  playedAt: ISODateTime;
+}
+
+export interface RankingGameResultResponse extends RankingGameResultRecord {
+  ranking: {
+    position: number;
+    previousPosition: number | null;
+    totalParticipants: number;
+    isNewBest: boolean;
+  };
+  achievements: string[];
+}
+
+export interface RankingEntry {
+  position: number;
+  user: UserSummary;
+  score: number;
+  characterLevel: number;
+  playCount: number;
+  maxCombo: number;
+}
+
+export interface RankingDataResponse {
+  period: {
+    start: ISODateTime;
+    end: ISODateTime;
+  };
+  rankings: RankingEntry[];
+  myRanking: {
+    position: number;
+    score: number;
+    characterLevel: number;
+  } | null;
+  totalParticipants: number;
+}
+
+export interface RankingGameUserStats {
+  totalPlays: number;
+  bestScore: {
+    all: number;
+    beginner: number;
+    intermediate: number;
+    advanced: number;
+  };
+  monthlyRanking: {
+    all: number | null;
+    beginner: number | null;
+    intermediate: number | null;
+    advanced: number | null;
+  };
+  achievements: {
+    maxCombo: number;
+    maxCharacterLevel: number;
+    totalBonusTimeEarned: number;
+  };
+  recentResults: RankingGameResultRecord[];
+}

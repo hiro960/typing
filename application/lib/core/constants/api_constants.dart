@@ -135,4 +135,18 @@ class ApiConstants {
   /// 分析ダッシュボード取得
   /// GET /api/analysis/dashboard
   static const String analysisDashboard = '/api/analysis/dashboard';
+
+  // ==================== Ranking Game関連 ====================
+
+  /// ランキングゲーム結果送信
+  /// POST /api/ranking-game/results
+  static const String rankingGameResults = '/api/ranking-game/results';
+
+  /// ランキング取得
+  /// GET /api/ranking-game/ranking
+  static const String rankingGameRanking = '/api/ranking-game/ranking';
+
+  /// 自分の統計取得
+  /// GET /api/ranking-game/my-stats
+  static const String rankingGameMyStats = '/api/ranking-game/my-stats';
 }

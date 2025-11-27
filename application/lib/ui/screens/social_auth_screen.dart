@@ -124,7 +124,7 @@ class _SocialAuthScreenState extends ConsumerState<SocialAuthScreen> {
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      'Auth0の認証ページへ移動し、好きなプロバイダーで認証を行います。',
+                      '認証ページへ移動し、SNSで認証を行います。',
                       style: theme.textTheme.bodySmall?.copyWith(
                         color: theme.colorScheme.onSurface.withValues(
                           alpha: 0.7,

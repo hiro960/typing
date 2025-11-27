@@ -94,6 +94,8 @@ model User {
   reports                 Report[]        @relation("Reporter")
   blockingUsers           Block[]         @relation("Blocking")
   blockedByUsers          Block[]         @relation("BlockedBy")
+  rankingGameResults      RankingGameResult[]
+  bestRankingScore        Int             @default(0)
 
   @@index([username])
   @@index([email])
@@ -310,4 +312,32 @@ model Wordbook {
   @@index([category])
   @@index([status])
   @@map("wordbooks")
+}
+
+// ランキングゲーム関連
+enum RankingGameDifficulty {
+  beginner
+  intermediate
+  advanced
+}
+
+model RankingGameResult {
+  id              String                @id @default(cuid())
+  userId          String
+  difficulty      RankingGameDifficulty
+  score           Int
+  correctCount    Int
+  maxCombo        Int
+  totalBonusTime  Int                   // 秒単位
+  avgInputSpeed   Float
+  characterLevel  Int
+  playedAt        DateTime              @default(now())
+
+  user            User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([difficulty])
+  @@index([score])
+  @@index([playedAt])
+  @@index([difficulty, playedAt, score])
 }

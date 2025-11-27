@@ -5,6 +5,8 @@ import {
   Lesson as PrismaLesson,
   LessonCompletion as PrismaLessonCompletion,
   Wordbook as PrismaWordbook,
+  RankingGameResult as PrismaRankingGameResult,
+  RankingGameDifficulty as PrismaRankingGameDifficulty,
 } from "@prisma/client";
 import prisma from "@/lib/prisma";
 import { sendPushNotification } from "@/lib/push";
@@ -35,6 +37,13 @@ import {
   UserSummary,
   Visibility,
   WordbookEntry,
+  RankingGameDifficulty,
+  RankingPeriod,
+  RankingGameResultRecord,
+  RankingGameResultResponse,
+  RankingEntry,
+  RankingDataResponse,
+  RankingGameUserStats,
 } from "@/lib/types";
 
 const defaultSettings: UserSettings = {
@@ -1516,4 +1525,491 @@ export function toWordbookEntry(word: PrismaWordbook): WordbookEntry {
     createdAt: word.createdAt,
     updatedAt: word.updatedAt,
   };
+}
+
+// =====================================
+// ランキングゲーム関連
+// =====================================
+
+type RankingGameResultWithUser = PrismaRankingGameResult & {
+  user: User;
+};
+
+function toRankingGameResultRecord(
+  result: PrismaRankingGameResult
+): RankingGameResultRecord {
+  return {
+    id: result.id,
+    userId: result.userId,
+    difficulty: result.difficulty as RankingGameDifficulty,
+    score: result.score,
+    correctCount: result.correctCount,
+    maxCombo: result.maxCombo,
+    totalBonusTime: result.totalBonusTime,
+    avgInputSpeed: result.avgInputSpeed,
+    characterLevel: result.characterLevel,
+    playedAt: result.playedAt,
+  };
+}
+
+function getPeriodRange(period: RankingPeriod): { start: Date; end: Date } {
+  // JST (UTC+9) でのリセットを行う
+  const JST_OFFSET = 9 * 60 * 60 * 1000; // 9時間をミリ秒で
+  const nowUTC = new Date();
+  const nowJST = new Date(nowUTC.getTime() + JST_OFFSET);
+
+  let start: Date;
+  let end: Date;
+
+  if (period === "monthly") {
+    // JST月初 00:00 から月末 23:59:59.999
+    const jstYear = nowJST.getUTCFullYear();
+    const jstMonth = nowJST.getUTCMonth();
+
+    // JST月初00:00をUTCに変換
+    start = new Date(Date.UTC(jstYear, jstMonth, 1, 0, 0, 0, 0) - JST_OFFSET);
+    // JST月末23:59:59.999をUTCに変換
+    const lastDay = new Date(Date.UTC(jstYear, jstMonth + 1, 0)).getUTCDate();
+    end = new Date(Date.UTC(jstYear, jstMonth, lastDay, 23, 59, 59, 999) - JST_OFFSET);
+  } else {
+    // 週の始まり（JST月曜日 00:00）から終わり（JST日曜日 23:59:59.999）
+    const jstDay = nowJST.getUTCDay();
+    const diff = jstDay === 0 ? 6 : jstDay - 1; // 月曜日を0とする
+
+    const jstMonday = new Date(nowJST);
+    jstMonday.setUTCDate(nowJST.getUTCDate() - diff);
+    jstMonday.setUTCHours(0, 0, 0, 0);
+
+    const jstSunday = new Date(jstMonday);
+    jstSunday.setUTCDate(jstMonday.getUTCDate() + 6);
+    jstSunday.setUTCHours(23, 59, 59, 999);
+
+    // JST時刻をUTCに変換
+    start = new Date(jstMonday.getTime() - JST_OFFSET);
+    end = new Date(jstSunday.getTime() - JST_OFFSET);
+  }
+
+  return { start, end };
+}
+
+export async function createRankingGameResult(params: {
+  userId: string;
+  difficulty: RankingGameDifficulty;
+  score: number;
+  correctCount: number;
+  maxCombo: number;
+  totalBonusTime: number;
+  avgInputSpeed: number;
+  characterLevel: number;
+}): Promise<RankingGameResultResponse> {
+  const user = await prisma.user.findUnique({ where: { id: params.userId } });
+  if (!user) {
+    throw ERROR.NOT_FOUND("User not found");
+  }
+
+  const { start, end } = getPeriodRange("monthly");
+
+  // 結果を保存する前に、現在の順位を取得（previousPositionとして使用）
+  const previousPosition = await calculateRankingPosition(
+    params.userId,
+    params.difficulty,
+    start,
+    end
+  );
+
+  // 以前のベストスコアと最大コンボを取得
+  const previousBest = await prisma.rankingGameResult.findFirst({
+    where: { userId: params.userId, difficulty: params.difficulty },
+    orderBy: { score: "desc" },
+    select: { score: true },
+  });
+
+  const previousMaxCombo = await prisma.rankingGameResult.findFirst({
+    where: { userId: params.userId },
+    orderBy: { maxCombo: "desc" },
+    select: { maxCombo: true },
+  });
+
+  const previousMaxCharacterLevel = await prisma.rankingGameResult.findFirst({
+    where: { userId: params.userId },
+    orderBy: { characterLevel: "desc" },
+    select: { characterLevel: true },
+  });
+
+  const isNewBest = !previousBest || params.score > previousBest.score;
+  const isNewMaxCombo = !previousMaxCombo || params.maxCombo > previousMaxCombo.maxCombo;
+  const isNewMaxCharacterLevel = !previousMaxCharacterLevel || params.characterLevel > previousMaxCharacterLevel.characterLevel;
+
+  // 結果を保存
+  const result = await prisma.$transaction(async (tx) => {
+    const created = await tx.rankingGameResult.create({
+      data: {
+        userId: params.userId,
+        difficulty: params.difficulty,
+        score: params.score,
+        correctCount: params.correctCount,
+        maxCombo: params.maxCombo,
+        totalBonusTime: params.totalBonusTime,
+        avgInputSpeed: params.avgInputSpeed,
+        characterLevel: params.characterLevel,
+      },
+    });
+
+    // ユーザーのベストスコアを更新
+    if (isNewBest && params.score > user.bestRankingScore) {
+      await tx.user.update({
+        where: { id: params.userId },
+        data: { bestRankingScore: params.score },
+      });
+    }
+
+    return created;
+  });
+
+  // 新しい順位を計算
+  const newPosition = await calculateRankingPosition(
+    params.userId,
+    params.difficulty,
+    start,
+    end
+  );
+
+  const totalParticipants = await prisma.rankingGameResult.groupBy({
+    by: ["userId"],
+    where: {
+      difficulty: params.difficulty,
+      playedAt: { gte: start, lte: end },
+    },
+  }).then((groups) => groups.length);
+
+  // 実績を構築
+  const achievements: string[] = [];
+  if (isNewBest) {
+    achievements.push("new_best_score");
+  }
+  if (isNewMaxCombo) {
+    achievements.push("new_max_combo");
+  }
+  if (isNewMaxCharacterLevel) {
+    achievements.push("new_character_level");
+  }
+  if (newPosition === 1) {
+    achievements.push("rank_1st");
+  } else if (newPosition <= 3) {
+    achievements.push("rank_top3");
+  } else if (newPosition <= 10) {
+    achievements.push("rank_top10");
+  }
+  if (previousPosition > newPosition) {
+    achievements.push("rank_up");
+  }
+
+  return {
+    ...toRankingGameResultRecord(result),
+    ranking: {
+      position: newPosition,
+      previousPosition: previousPosition > totalParticipants ? null : previousPosition,
+      totalParticipants,
+      isNewBest,
+    },
+    achievements,
+  };
+}
+
+async function calculateRankingPosition(
+  userId: string,
+  difficulty: RankingGameDifficulty | "all",
+  start: Date,
+  end: Date
+): Promise<number> {
+  // 同点時は先に達成した方が上位というルールで順位を計算
+  const result = await prisma.$queryRaw<Array<{ position: bigint }>>`
+    WITH UserBestScores AS (
+      SELECT
+        r."userId",
+        r.score,
+        r."playedAt",
+        ROW_NUMBER() OVER (PARTITION BY r."userId" ORDER BY r.score DESC, r."playedAt" ASC) as rn
+      FROM "RankingGameResult" r
+      WHERE r."playedAt" >= ${start}
+        AND r."playedAt" <= ${end}
+        ${difficulty !== "all" ? Prisma.sql`AND r.difficulty = ${difficulty}::"RankingGameDifficulty"` : Prisma.empty}
+    ),
+    RankedUsers AS (
+      SELECT
+        "userId",
+        score,
+        "playedAt",
+        ROW_NUMBER() OVER (ORDER BY score DESC, "playedAt" ASC) as position
+      FROM UserBestScores
+      WHERE rn = 1
+    )
+    SELECT position FROM RankedUsers WHERE "userId" = ${userId}
+  `;
+
+  if (result.length === 0) {
+    // ユーザーがランキングにいない場合、総参加者数+1を返す
+    const totalCount = await prisma.rankingGameResult.groupBy({
+      by: ["userId"],
+      where: {
+        playedAt: { gte: start, lte: end },
+        ...(difficulty !== "all" ? { difficulty: difficulty as PrismaRankingGameDifficulty } : {}),
+      },
+    });
+    return totalCount.length + 1;
+  }
+
+  return Number(result[0].position);
+}
+
+export async function getRankingGameRanking(params: {
+  difficulty: RankingGameDifficulty | "all";
+  period: RankingPeriod;
+  limit?: number;
+  followingOnly?: boolean;
+  viewerId?: string;
+}): Promise<RankingDataResponse> {
+  const { start, end } = getPeriodRange(params.period);
+  const limit = Math.min(Math.max(params.limit ?? 50, 1), 100);
+
+  const difficultyFilter =
+    params.difficulty === "all"
+      ? {}
+      : { difficulty: params.difficulty as PrismaRankingGameDifficulty };
+
+  // フォロー中のユーザーのみの場合
+  let userIdFilter: { userId?: { in: string[] } } = {};
+  if (params.followingOnly && params.viewerId) {
+    const following = await prisma.follow.findMany({
+      where: { followerId: params.viewerId },
+      select: { followingId: true },
+    });
+    const followingIds = following.map((f) => f.followingId);
+    followingIds.push(params.viewerId); // 自分も含める
+    userIdFilter = { userId: { in: followingIds } };
+  }
+
+  // 各ユーザーのベストスコア記録を取得（同点時は先に達成した方が上位）
+  // まず全ユーザーのベストスコアを取得
+  const allBestScores = await prisma.$queryRaw<Array<{
+    userId: string;
+    score: number;
+    maxCombo: number;
+    characterLevel: number;
+    playedAt: Date;
+    playCount: bigint;
+  }>>`
+    WITH UserBestScores AS (
+      SELECT
+        r."userId",
+        r.score,
+        r."maxCombo",
+        r."characterLevel",
+        r."playedAt",
+        ROW_NUMBER() OVER (PARTITION BY r."userId" ORDER BY r.score DESC, r."playedAt" ASC) as rn
+      FROM "RankingGameResult" r
+      WHERE r."playedAt" >= ${start}
+        AND r."playedAt" <= ${end}
+        ${params.difficulty !== "all" ? Prisma.sql`AND r.difficulty = ${params.difficulty}::"RankingGameDifficulty"` : Prisma.empty}
+        ${params.followingOnly && userIdFilter.userId ? Prisma.sql`AND r."userId" = ANY(${userIdFilter.userId.in})` : Prisma.empty}
+    ),
+    UserPlayCounts AS (
+      SELECT "userId", COUNT(*) as "playCount"
+      FROM "RankingGameResult"
+      WHERE "playedAt" >= ${start}
+        AND "playedAt" <= ${end}
+        ${params.difficulty !== "all" ? Prisma.sql`AND difficulty = ${params.difficulty}::"RankingGameDifficulty"` : Prisma.empty}
+      GROUP BY "userId"
+    )
+    SELECT
+      ubs."userId",
+      ubs.score,
+      ubs."maxCombo",
+      ubs."characterLevel",
+      ubs."playedAt",
+      COALESCE(upc."playCount", 0) as "playCount"
+    FROM UserBestScores ubs
+    LEFT JOIN UserPlayCounts upc ON ubs."userId" = upc."userId"
+    WHERE ubs.rn = 1
+    ORDER BY ubs.score DESC, ubs."playedAt" ASC
+    LIMIT ${limit}
+  `;
+
+  // ユーザー情報を取得
+  const userIds = allBestScores.map((item) => item.userId);
+  const users = await prisma.user.findMany({
+    where: { id: { in: userIds } },
+  });
+  const userMap = new Map(users.map((u) => [u.id, u]));
+
+  // ランキングエントリを作成
+  const rankings: RankingEntry[] = allBestScores.map((item, index) => {
+    const user = userMap.get(item.userId);
+    return {
+      position: index + 1,
+      user: user ? toUserSummary(user) : {
+        id: item.userId,
+        username: "unknown",
+        displayName: "Unknown",
+        profileImageUrl: null,
+        type: "NORMAL" as const,
+        followersCount: 0,
+        followingCount: 0,
+        postsCount: 0,
+        settings: null,
+      },
+      score: item.score,
+      characterLevel: item.characterLevel,
+      playCount: Number(item.playCount),
+      maxCombo: item.maxCombo,
+    };
+  });
+
+  // 自分のランキング
+  let myRanking: RankingDataResponse["myRanking"] = null;
+  if (params.viewerId) {
+    const myPosition = await calculateRankingPosition(
+      params.viewerId,
+      params.difficulty,
+      start,
+      end
+    );
+    const myBest = await prisma.rankingGameResult.findFirst({
+      where: {
+        userId: params.viewerId,
+        ...difficultyFilter,
+        playedAt: { gte: start, lte: end },
+      },
+      orderBy: { score: "desc" },
+    });
+    if (myBest) {
+      myRanking = {
+        position: myPosition,
+        score: myBest.score,
+        characterLevel: myBest.characterLevel,
+      };
+    }
+  }
+
+  // 総参加者数
+  const totalParticipants = await prisma.rankingGameResult.groupBy({
+    by: ["userId"],
+    where: {
+      ...difficultyFilter,
+      playedAt: { gte: start, lte: end },
+    },
+  }).then((groups) => groups.length);
+
+  return {
+    period: { start, end },
+    rankings,
+    myRanking,
+    totalParticipants,
+  };
+}
+
+export async function getRankingGameUserStats(
+  userId: string
+): Promise<RankingGameUserStats> {
+  // 全プレイ回数
+  const totalPlays = await prisma.rankingGameResult.count({
+    where: { userId },
+  });
+
+  // 難易度別ベストスコア
+  const bestScores = await prisma.rankingGameResult.groupBy({
+    by: ["difficulty"],
+    where: { userId },
+    _max: { score: true },
+  });
+
+  const bestScoreMap = new Map(
+    bestScores.map((item) => [item.difficulty, item._max.score ?? 0])
+  );
+
+  const bestScore = {
+    all: Math.max(
+      bestScoreMap.get("beginner") ?? 0,
+      bestScoreMap.get("intermediate") ?? 0,
+      bestScoreMap.get("advanced") ?? 0
+    ),
+    beginner: bestScoreMap.get("beginner") ?? 0,
+    intermediate: bestScoreMap.get("intermediate") ?? 0,
+    advanced: bestScoreMap.get("advanced") ?? 0,
+  };
+
+  // 月間ランキング
+  const { start, end } = getPeriodRange("monthly");
+  const monthlyRanking: RankingGameUserStats["monthlyRanking"] = {
+    all: null,
+    beginner: null,
+    intermediate: null,
+    advanced: null,
+  };
+
+  // 各難易度のランキングを計算
+  const difficulties: (RankingGameDifficulty | "all")[] = [
+    "all",
+    "beginner",
+    "intermediate",
+    "advanced",
+  ];
+  for (const diff of difficulties) {
+    const hasResult = await prisma.rankingGameResult.findFirst({
+      where: {
+        userId,
+        ...(diff === "all" ? {} : { difficulty: diff as PrismaRankingGameDifficulty }),
+        playedAt: { gte: start, lte: end },
+      },
+    });
+    if (hasResult) {
+      monthlyRanking[diff] = await calculateRankingPosition(
+        userId,
+        diff,
+        start,
+        end
+      );
+    }
+  }
+
+  // 実績
+  const achievements = await prisma.rankingGameResult.aggregate({
+    where: { userId },
+    _max: { maxCombo: true, characterLevel: true },
+    _sum: { totalBonusTime: true },
+  });
+
+  // 最近の結果
+  const recentResults = await prisma.rankingGameResult.findMany({
+    where: { userId },
+    orderBy: { playedAt: "desc" },
+    take: 10,
+  });
+
+  return {
+    totalPlays,
+    bestScore,
+    monthlyRanking,
+    achievements: {
+      maxCombo: achievements._max.maxCombo ?? 0,
+      maxCharacterLevel: achievements._max.characterLevel ?? 0,
+      totalBonusTimeEarned: achievements._sum.totalBonusTime ?? 0,
+    },
+    recentResults: recentResults.map(toRankingGameResultRecord),
+  };
+}
+
+export async function getUserBestRankingScore(
+  userId: string,
+  difficulty?: RankingGameDifficulty
+): Promise<number> {
+  const result = await prisma.rankingGameResult.findFirst({
+    where: {
+      userId,
+      ...(difficulty ? { difficulty } : {}),
+    },
+    orderBy: { score: "desc" },
+    select: { score: true },
+  });
+  return result?.score ?? 0;
 }

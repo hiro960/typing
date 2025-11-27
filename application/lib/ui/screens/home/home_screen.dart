@@ -20,6 +20,7 @@ import '../typing/lesson_detail_screen.dart';
 import '../ai_teacher_screen.dart';
 import '../writing/topic_list_screen.dart';
 import '../../widgets/ai_gradient_button.dart';
+import '../../../features/ranking_game/presentation/widgets/ranking_game_section.dart';
 
 part 'home_progress_hero.dart';
 part 'home_stat_highlights.dart';
@@ -52,6 +53,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final user = ref.watch(currentUserProvider);
     final displayName = user?.displayName ?? 'Guest';
     final isPremiumUser = user?.isPremiumUser ?? false;
+    final theme = Theme.of(context);
 
     return homeStateAsync.when(
       data: (state) {
@@ -90,13 +92,31 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         maxWpm: user?.maxWPM ?? 0,
                       ),
                       const SizedBox(height: AppSpacing.xxl),
-                      const Text('タイピング練習'),
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.keyboard,
+                            color: Color.fromARGB(255, 75, 105, 242),
+                            size: 24,
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            'タイピング練習',
+                            style: theme.textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+
                       _LevelAccordions(
                         controller: _typingAccordionController,
                         catalog: state.catalog,
                         progress: state.progress,
                         onLessonTap: _onLessonTap,
                       ),
+                      const SizedBox(height: AppSpacing.xl),
+                      const RankingGameSection(),
                       const SizedBox(height: AppSpacing.xl),
                       Padding(
                         padding: const EdgeInsets.symmetric(
@@ -110,9 +130,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                 if (!isPremiumUser) {
                                   Navigator.of(context).push(
                                     MaterialPageRoute<void>(
-                                      builder: (_) => const PremiumFeatureGateScreen(
-                                        focusFeature: 'AI先生',
-                                      ),
+                                      builder: (_) =>
+                                          const PremiumFeatureGateScreen(
+                                            focusFeature: 'AI先生',
+                                          ),
                                     ),
                                   );
                                   return;

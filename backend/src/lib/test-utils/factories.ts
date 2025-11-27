@@ -34,6 +34,7 @@ export function createMockUser(overrides?: Partial<User>): User {
     lastLoginAt: new Date('2024-01-01T00:00:00Z'),
     isActive: true,
     isBanned: false,
+    bestRankingScore: 0,
     ...overrides,
   };
 }
