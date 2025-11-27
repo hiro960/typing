@@ -62,7 +62,7 @@ final class RankingGameSessionProvider
 }
 
 String _$rankingGameSessionHash() =>
-    r'a67bb839c76e76fd95e50b6bce16c60b92cb1f76';
+    r'b2087e10d0af4983c4c7ce03e31f506362c472ff';
 
 /// ゲームセッションプロバイダー
 

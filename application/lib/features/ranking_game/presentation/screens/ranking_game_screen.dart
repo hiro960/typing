@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,6 +11,8 @@ import 'package:chaletta/features/ranking_game/presentation/widgets/combo_meter_
 import 'package:chaletta/features/ranking_game/presentation/widgets/pixel_character_widget.dart';
 import 'package:chaletta/features/ranking_game/presentation/screens/ranking_game_result_screen.dart';
 import 'package:chaletta/ui/widgets/typing_keyboard.dart';
+import 'package:chaletta/ui/app_theme.dart';
+import 'package:chaletta/features/typing/domain/providers/typing_settings_provider.dart';
 
 /// ランキングゲーム画面
 class RankingGameScreen extends ConsumerStatefulWidget {
@@ -88,6 +92,9 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
     final sessionState = ref.watch(
       rankingGameSessionProvider(widget.difficulty),
     );
+    final settingsAsync = ref.watch(typingSettingsProvider);
+    final hapticsEnabled = settingsAsync.valueOrNull?.hapticsEnabled ?? true;
+    final theme = Theme.of(context);
 
     // ゲーム終了時に結果画面へ遷移
     ref.listen<RankingGameSessionState>(
@@ -104,17 +111,17 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
       autofocus: true,
       onKeyEvent: _onKeyEvent,
       child: Scaffold(
-        backgroundColor: const Color(0xFF1A1A2E),
+        backgroundColor: theme.scaffoldBackgroundColor,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: IconButton(
-            icon: const Icon(Icons.arrow_back, color: Colors.white),
+            icon: Icon(Icons.arrow_back, color: theme.colorScheme.onSurface),
             onPressed: () => Navigator.of(context).pop(),
           ),
           title: Text(
             '${_getDifficultyLabel(widget.difficulty)}モード',
-            style: const TextStyle(color: Colors.white),
+            style: TextStyle(color: theme.colorScheme.onSurface),
           ),
           actions: [
             // タイマー
@@ -123,8 +130,8 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
               margin: const EdgeInsets.only(right: 16),
               decoration: BoxDecoration(
                 color: sessionState.remainingTimeMs < 10000
-                    ? Colors.red.withOpacity(0.3)
-                    : Colors.white.withOpacity(0.1),
+                    ? AppColors.error.withOpacity(0.3)
+                    : theme.colorScheme.onSurface.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
@@ -133,8 +140,8 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
                   Icon(
                     Icons.timer,
                     color: sessionState.remainingTimeMs < 10000
-                        ? Colors.red
-                        : Colors.white,
+                        ? AppColors.error
+                        : theme.colorScheme.onSurface,
                     size: 20,
                   ),
                   const SizedBox(width: 4),
@@ -144,8 +151,8 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: sessionState.remainingTimeMs < 10000
-                          ? Colors.red
-                          : Colors.white,
+                          ? AppColors.error
+                          : theme.colorScheme.onSurface,
                     ),
                   ),
                 ],
@@ -163,6 +170,7 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
   }
 
   Widget _buildStartScreen() {
+    final theme = Theme.of(context);
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -171,16 +179,19 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
           const SizedBox(height: 32),
           Text(
             '${_getDifficultyLabel(widget.difficulty)}モード',
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: theme.colorScheme.onSurface,
             ),
           ),
           const SizedBox(height: 16),
           Text(
             _getTimeLimit(),
-            style: TextStyle(fontSize: 18, color: Colors.grey[400]),
+            style: TextStyle(
+              fontSize: 18,
+              color: theme.colorScheme.onSurface.withOpacity(0.6),
+            ),
           ),
           const SizedBox(height: 48),
           Padding(
@@ -195,17 +206,18 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
   String _getTimeLimit() {
     switch (widget.difficulty) {
       case 'beginner':
-        return '制限時間: 60秒';
+        return '制限時間 60秒';
       case 'intermediate':
-        return '制限時間: 90秒';
+        return '制限時間 90秒';
       case 'advanced':
-        return '制限時間: 120秒';
+        return '制限時間 120秒';
       default:
         return '';
     }
   }
 
   Widget _buildGameContent(RankingGameSessionState state) {
+    final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -222,18 +234,18 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
                 icon: Icons.stars,
                 label: 'スコア',
                 value: state.score.toString(),
-                color: const Color(0xFFFFD700),
+                color: AppColors.warning,
               ),
               const SizedBox(width: 24),
               _buildStatChip(
                 icon: Icons.local_fire_department,
                 label: 'コンボ',
                 value: state.currentCombo.toString(),
-                color: const Color(0xFFFF5722),
+                color: AppColors.accentEnd,
               ),
             ],
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 14),
 
           // キャラクター
           Expanded(
@@ -241,7 +253,7 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
             child: Center(
               child: ScoreBasedCharacterWidget(
                 score: state.score,
-                showName: true,
+                showName: false,
               ),
             ),
           ),
@@ -250,47 +262,58 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
           Expanded(
             flex: 3,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 if (state.currentWord != null) ...[
-                  // 出題文
-                  Text(
-                    state.currentWord!.word,
-                    style: const TextStyle(
-                      fontSize: 36,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
                   // 意味
                   Text(
                     state.currentWord!.meaning,
-                    style: TextStyle(fontSize: 18, color: Colors.grey[400]),
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: theme.colorScheme.onSurface.withOpacity(0.6),
+                    ),
                   ),
-                  const SizedBox(height: 24),
-                  // 入力中の文字
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 24,
-                      vertical: 16,
+                  const SizedBox(height: 8),
+                  // 出題文
+                  Text(
+                    state.currentWord!.word,
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: theme.colorScheme.onSurface,
                     ),
-                    margin: const EdgeInsets.symmetric(horizontal: 32),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(
-                        color: _getInputBorderColor(state),
-                        width: 2,
+                  ),
+                  const SizedBox(height: 18),
+                  // 入力中の文字（ミス時は横揺れ）
+                  _ShakeContainer(
+                    key: state.lastInputResult == InputResultType.mistake &&
+                            state.lastInputTime != null
+                        ? ValueKey(state.lastInputTime)
+                        : null,
+                    shouldShake:
+                        state.lastInputResult == InputResultType.mistake,
+                    child: Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 24,
+                        vertical: 16,
                       ),
-                    ),
-                    child: Text(
-                      state.inputBuffer.isEmpty ? '　' : state.inputBuffer,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 28,
-                        color: _getInputTextColor(state),
+                      margin: const EdgeInsets.symmetric(horizontal: 32),
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.onSurface.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: _getInputBorderColor(state),
+                          width: 2,
+                        ),
+                      ),
+                      child: Text(
+                        state.inputBuffer.isEmpty ? '　' : state.inputBuffer,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 28,
+                          color: _getInputTextColor(state),
+                        ),
                       ),
                     ),
                   ),
@@ -319,12 +342,16 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
                       .deleteLastCharacter();
                 },
                 onSpace: () {
-                  // スペースは韓国語入力では使わないが、必要な場合は処理
+                  ref
+                      .read(
+                        rankingGameSessionProvider(widget.difficulty).notifier,
+                      )
+                      .processInput(' ');
                 },
                 onEnter: () {
                   // Enterも特に処理不要
                 },
-                enableHaptics: true,
+                enableHaptics: hapticsEnabled,
               ),
             ),
         ],
@@ -339,7 +366,7 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
     required Color color,
   }) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       decoration: BoxDecoration(
         color: color.withOpacity(0.2),
         borderRadius: BorderRadius.circular(20),
@@ -372,19 +399,27 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
   }
 
   Color _getInputBorderColor(RankingGameSessionState state) {
-    if (state.inputBuffer.isEmpty) return Colors.grey;
-    if (state.currentWord?.word.startsWith(state.inputBuffer) ?? false) {
-      return const Color(0xFF4CAF50);
+    // 最後の入力結果に基づいて色を決定
+    switch (state.lastInputResult) {
+      case InputResultType.correct:
+        return AppColors.success;
+      case InputResultType.mistake:
+        return AppColors.error;
+      case InputResultType.none:
+        return Theme.of(context).colorScheme.onSurface.withOpacity(0.3);
     }
-    return Colors.red;
   }
 
   Color _getInputTextColor(RankingGameSessionState state) {
-    if (state.inputBuffer.isEmpty) return Colors.grey;
-    if (state.currentWord?.word.startsWith(state.inputBuffer) ?? false) {
-      return const Color(0xFF4CAF50);
+    // 最後の入力結果に基づいて色を決定
+    switch (state.lastInputResult) {
+      case InputResultType.correct:
+        return AppColors.success;
+      case InputResultType.mistake:
+        return AppColors.error;
+      case InputResultType.none:
+        return Theme.of(context).colorScheme.onSurface.withOpacity(0.5);
     }
-    return Colors.red;
   }
 
   void _navigateToResult(RankingGameSessionState state) {
@@ -404,6 +439,38 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
           characterLevel: state.characterLevel,
         ),
       ),
+    );
+  }
+}
+
+/// ミス時に横揺れするコンテナ
+class _ShakeContainer extends StatelessWidget {
+  const _ShakeContainer({
+    super.key,
+    required this.shouldShake,
+    required this.child,
+  });
+
+  final bool shouldShake;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    if (!shouldShake) {
+      return child;
+    }
+
+    return TweenAnimationBuilder<double>(
+      duration: const Duration(milliseconds: 420),
+      tween: Tween<double>(begin: 0, end: 1),
+      builder: (context, value, child) {
+        final offset = math.sin(value * math.pi * 5) * 8;
+        return Transform.translate(
+          offset: Offset(offset, 0),
+          child: child,
+        );
+      },
+      child: child,
     );
   }
 }

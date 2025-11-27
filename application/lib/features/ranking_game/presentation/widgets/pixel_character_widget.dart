@@ -259,7 +259,7 @@ class ScoreBasedCharacterWidget extends StatefulWidget {
     super.key,
     required this.score,
     this.isAnimating = true,
-    this.pixelSize = 3.0,
+    this.pixelSize = 2.0,
     this.showName = true,
   });
 

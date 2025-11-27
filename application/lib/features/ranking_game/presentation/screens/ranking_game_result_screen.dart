@@ -1,11 +1,16 @@
+import 'dart:developer' as developer;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:chaletta/core/exceptions/app_exception.dart';
 import 'package:chaletta/features/ranking_game/data/models/ranking_game_models.dart';
 import 'package:chaletta/features/ranking_game/domain/providers/ranking_game_providers.dart';
 import 'package:chaletta/features/ranking_game/presentation/widgets/pixel_character_widget.dart';
 import 'package:chaletta/features/ranking_game/presentation/screens/ranking_leaderboard_screen.dart';
+import 'package:chaletta/features/ranking_game/presentation/screens/ranking_game_screen.dart';
+import 'package:chaletta/ui/app_theme.dart';
 
 /// ランキングゲーム結果画面
 class RankingGameResultScreen extends ConsumerStatefulWidget {
@@ -36,17 +41,21 @@ class RankingGameResultScreen extends ConsumerStatefulWidget {
 class _RankingGameResultScreenState
     extends ConsumerState<RankingGameResultScreen> {
   bool _isSubmitting = false;
-  bool _isSubmitted = false;
   String? _errorMessage;
   RankingGameResultResponse? _resultResponse;
 
   @override
   void initState() {
     super.initState();
-    _submitResult();
+    // ウィジェットツリー構築完了後にProviderを変更するため、addPostFrameCallbackを使用
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _submitResult();
+    });
   }
 
   Future<void> _submitResult() async {
+    if (!mounted) return;
+
     setState(() {
       _isSubmitting = true;
       _errorMessage = null;
@@ -63,16 +72,34 @@ class _RankingGameResultScreenState
             characterLevel: widget.characterLevel,
           );
 
+      if (!mounted) return;
+
       setState(() {
         _isSubmitting = false;
-        _isSubmitted = true;
         _resultResponse = response;
+        // responseがnullの場合はオフライン保存されたことを示す
+        if (response == null) {
+          _errorMessage = 'オフラインで保存しました。次回接続時に送信されます。';
+        }
       });
-    } catch (e) {
+    } catch (e, stackTrace) {
+      // オンラインエラー（サーバーエラー、認証エラーなど）
+      developer.log(
+        'ゲーム結果送信エラー',
+        name: 'RankingGameResultScreen',
+        error: e,
+        stackTrace: stackTrace,
+      );
+
+      if (!mounted) return;
+
       setState(() {
         _isSubmitting = false;
-        _errorMessage = 'オフラインで保存しました。次回接続時に送信されます。';
-        _isSubmitted = true;
+        if (e is AppException) {
+          _errorMessage = e.message;
+        } else {
+          _errorMessage = 'エラーが発生しました。時間をおいて再試行してください。';
+        }
       });
     }
   }
@@ -118,128 +145,59 @@ $newBestText
 
   @override
   Widget build(BuildContext context) {
+    // autoDisposeプロバイダーを維持するためにwatchする
+    // これにより、画面がアクティブな間はプロバイダーが破棄されない
+    ref.watch(gameResultSubmitterProvider);
+
+    final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: const Color(0xFF1A1A2E),
+      backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.close, color: Colors.white),
+          icon: Icon(Icons.close, color: theme.colorScheme.onSurface),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: const Text(
+        title: Text(
           'ゲーム結果',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: theme.colorScheme.onSurface),
         ),
         actions: [
           // シェアボタン
           IconButton(
-            icon: const Icon(Icons.share, color: Colors.white),
+            icon: Icon(Icons.share, color: theme.colorScheme.onSurface),
             onPressed: _shareResult,
           ),
         ],
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(24.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
           child: Column(
             children: [
-              // キャラクター表示
-              ScoreBasedCharacterWidget(
-                score: widget.score,
-                showName: true,
-              ),
-              const SizedBox(height: 24),
+              // ヒーローセクション（キャラクター + スコア + 難易度）
+              _buildHeroSection(),
+              const SizedBox(height: 16),
 
-              // 難易度バッジ
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
-                ),
-                decoration: BoxDecoration(
-                  color: _getDifficultyColor().withOpacity(0.2),
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(
-                    color: _getDifficultyColor(),
-                    width: 1,
-                  ),
-                ),
-                child: Text(
-                  '${_getDifficultyLabel(widget.difficulty)}モード',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                    color: _getDifficultyColor(),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 24),
-
-              // スコア表示
-              Text(
-                'スコア',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey[400],
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                '${widget.score}',
-                style: const TextStyle(
-                  fontSize: 64,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFFFFD700),
-                ),
-              ),
-
-              // ベスト更新表示
-              if (_resultResponse?.ranking.isNewBest == true)
-                Container(
-                  margin: const EdgeInsets.only(top: 8),
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [Color(0xFFFFD700), Color(0xFFFF8C00)],
-                    ),
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: const Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(Icons.celebration, color: Colors.white, size: 16),
-                      SizedBox(width: 4),
-                      Text(
-                        '自己ベスト更新!',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              const SizedBox(height: 24),
-
-              // ランキング情報
+              // ランキング情報（コンパクト）
               if (_isSubmitting)
-                const Padding(
-                  padding: EdgeInsets.all(16.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 12),
                   child: CircularProgressIndicator(
-                    color: Color(0xFF4CAF50),
+                    color: theme.colorScheme.primary,
+                    strokeWidth: 2,
                   ),
                 )
               else if (_resultResponse != null)
-                _buildRankingInfo()
+                _buildCompactRankingInfo()
               else if (_errorMessage != null)
                 _buildOfflineMessage(),
 
-              const SizedBox(height: 24),
+              const SizedBox(height: 16),
 
-              // 詳細統計
-              _buildStatsGrid(),
+              // 詳細統計（コンパクト横並び）
+              _buildCompactStatsRow(),
               const SizedBox(height: 24),
 
               // アクションボタン
@@ -251,90 +209,291 @@ $newBestText
     );
   }
 
-  Widget _buildRankingInfo() {
+  Widget _buildHeroSection() {
+    final theme = Theme.of(context);
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: _getDifficultyColor().withOpacity(0.2),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: _getDifficultyColor().withOpacity(0.3),
+        ),
+      ),
+      child: Row(
+        children: [
+          // キャラクター（左側）
+          ScoreBasedCharacterWidget(
+            score: widget.score,
+            showName: true,
+            pixelSize: 2.5,
+          ),
+          const SizedBox(width: 16),
+          // スコアと難易度（右側）
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // 難易度バッジ
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 4,
+                  ),
+                  decoration: BoxDecoration(
+                    color: _getDifficultyColor().withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Text(
+                    _getDifficultyLabel(widget.difficulty),
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      color: _getDifficultyColor(),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                // スコア
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: [
+                    Text(
+                      '${widget.score}',
+                      style: const TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.warning,
+                        height: 1,
+                      ),
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      'pt',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: theme.colorScheme.onSurface.withOpacity(0.6),
+                      ),
+                    ),
+                  ],
+                ),
+                // ベスト更新表示
+                if (_resultResponse?.ranking.isNewBest == true)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 4,
+                      ),
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          colors: [Color(0xFFFFD700), Color(0xFFFF8C00)],
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: const Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.celebration, color: Colors.white, size: 14),
+                          SizedBox(width: 4),
+                          Text(
+                            '自己ベスト!',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCompactRankingInfo() {
+    final theme = Theme.of(context);
     final ranking = _resultResponse!.ranking;
     final positionChange = ranking.previousPosition != null
         ? ranking.previousPosition! - ranking.position
         : null;
 
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            const Color(0xFF4CAF50).withOpacity(0.2),
-            const Color(0xFF2196F3).withOpacity(0.1),
-          ],
-        ),
-        borderRadius: BorderRadius.circular(16),
+        color: AppColors.success.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: const Color(0xFF4CAF50).withOpacity(0.3),
+          color: AppColors.success.withOpacity(0.3),
         ),
       ),
-      child: Column(
+      child: Row(
         children: [
-          const Text(
-            '今月のランキング',
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.white70,
+          // ランキングアイコンと順位
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: AppColors.success.withOpacity(0.2),
+              shape: BoxShape.circle,
+            ),
+            child: const Icon(
+              Icons.emoji_events,
+              color: AppColors.success,
+              size: 20,
             ),
           ),
-          const SizedBox(height: 8),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.baseline,
-            textBaseline: TextBaseline.alphabetic,
-            children: [
-              Text(
-                '${ranking.position}',
-                style: const TextStyle(
-                  fontSize: 48,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+          const SizedBox(width: 12),
+          // 順位情報
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '今月のランキング',
+                  style: TextStyle(
+                    fontSize: 11,
+                    color: theme.colorScheme.onSurface.withOpacity(0.6),
+                  ),
                 ),
-              ),
-              const Text(
-                '位',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white70,
+                const SizedBox(height: 2),
+                Row(
+                  children: [
+                    Text(
+                      '${ranking.position}位',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: theme.colorScheme.onSurface,
+                      ),
+                    ),
+                    Text(
+                      ' / ${ranking.totalParticipants}人中',
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: theme.colorScheme.onSurface.withOpacity(0.6),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-              const SizedBox(width: 8),
-              Text(
-                '/ ${ranking.totalParticipants}人中',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey[400],
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
-          // 順位変動表示
+          // 順位変動
           if (positionChange != null && positionChange != 0)
-            Padding(
-              padding: const EdgeInsets.only(top: 8),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              decoration: BoxDecoration(
+                color: positionChange > 0
+                    ? AppColors.success.withOpacity(0.2)
+                    : AppColors.error.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(8),
+              ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(
                     positionChange > 0 ? Icons.arrow_upward : Icons.arrow_downward,
-                    color: positionChange > 0 ? const Color(0xFF4CAF50) : Colors.red,
-                    size: 20,
+                    color: positionChange > 0 ? AppColors.success : AppColors.error,
+                    size: 14,
                   ),
-                  const SizedBox(width: 4),
+                  const SizedBox(width: 2),
                   Text(
-                    positionChange > 0 ? '$positionChange位UP!' : '${positionChange.abs()}位DOWN',
+                    '${positionChange.abs()}',
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 12,
                       fontWeight: FontWeight.bold,
-                      color: positionChange > 0 ? const Color(0xFF4CAF50) : Colors.red,
+                      color: positionChange > 0 ? AppColors.success : AppColors.error,
                     ),
                   ),
                 ],
               ),
             ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCompactStatsRow() {
+    return Row(
+      children: [
+        Expanded(
+          child: _buildCompactStatItem(
+            icon: Icons.check_circle_outline,
+            value: '${widget.correctCount}',
+            label: '正解',
+            color: AppColors.success,
+          ),
+        ),
+        Expanded(
+          child: _buildCompactStatItem(
+            icon: Icons.local_fire_department,
+            value: '${widget.maxCombo}',
+            label: 'コンボ',
+            color: AppColors.accentEnd,
+          ),
+        ),
+        Expanded(
+          child: _buildCompactStatItem(
+            icon: Icons.timer_outlined,
+            value: '+${widget.totalBonusTime}s',
+            label: 'ボーナス',
+            color: AppColors.primary,
+          ),
+        ),
+        Expanded(
+          child: _buildCompactStatItem(
+            icon: Icons.speed,
+            value: '${widget.avgInputSpeed.toStringAsFixed(0)}',
+            label: '文字/分',
+            color: AppColors.secondary,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildCompactStatItem({
+    required IconData icon,
+    required String value,
+    required String label,
+    required Color color,
+  }) {
+    final theme = Theme.of(context);
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 4),
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      decoration: BoxDecoration(
+        color: color.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, color: color, size: 20),
+          const SizedBox(height: 4),
+          Text(
+            value,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: color,
+            ),
+          ),
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 10,
+              color: theme.colorScheme.onSurface.withOpacity(0.6),
+            ),
+          ),
         ],
       ),
     );
@@ -370,134 +529,47 @@ $newBestText
   }
 
   Color _getDifficultyColor() {
+    // _LevelAccordionsと同じ色合いを使用
     switch (widget.difficulty) {
       case 'beginner':
-        return const Color(0xFF4CAF50);
+        return AppColors.primaryBright;
       case 'intermediate':
-        return const Color(0xFFFFEB3B);
+        return AppColors.secondary;
       case 'advanced':
-        return const Color(0xFFFF5722);
+        return AppColors.accentEnd;
       default:
-        return Colors.grey;
+        return AppColors.mutedForeground;
     }
   }
 
-  Widget _buildStatsGrid() {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: _buildStatItem(
-                  icon: Icons.check_circle,
-                  label: '正解数',
-                  value: '${widget.correctCount}問',
-                  color: const Color(0xFF4CAF50),
-                ),
-              ),
-              Expanded(
-                child: _buildStatItem(
-                  icon: Icons.local_fire_department,
-                  label: '最大コンボ',
-                  value: '${widget.maxCombo}',
-                  color: const Color(0xFFFF5722),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 16),
-          Row(
-            children: [
-              Expanded(
-                child: _buildStatItem(
-                  icon: Icons.timer,
-                  label: 'ボーナス時間',
-                  value: '+${widget.totalBonusTime}秒',
-                  color: const Color(0xFF2196F3),
-                ),
-              ),
-              Expanded(
-                child: _buildStatItem(
-                  icon: Icons.speed,
-                  label: '平均入力速度',
-                  value: '${widget.avgInputSpeed.toStringAsFixed(1)}文字/分',
-                  color: const Color(0xFF9C27B0),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildStatItem({
-    required IconData icon,
-    required String label,
-    required String value,
-    required Color color,
-  }) {
-    return Column(
-      children: [
-        Icon(icon, color: color, size: 28),
-        const SizedBox(height: 8),
-        Text(
-          label,
-          style: TextStyle(
-            fontSize: 12,
-            color: Colors.grey[400],
-          ),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          value,
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: color,
-          ),
-        ),
-      ],
-    );
-  }
-
   Widget _buildActionButtons() {
+    final theme = Theme.of(context);
     return Column(
       children: [
-        // シェアボタン
-        SizedBox(
-          width: double.infinity,
-          child: FButton(
-            onPress: _shareResult,
-            child: const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.share, size: 18),
-                SizedBox(width: 8),
-                Text('結果をシェア'),
-              ],
-            ),
-          ),
-        ),
-        const SizedBox(height: 12),
-
-        // もう一度プレイ
+        // もう一度プレイ（主要アクション）
         SizedBox(
           width: double.infinity,
           child: FButton(
             onPress: () {
-              Navigator.of(context).pop();
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute<void>(
+                  builder: (_) => RankingGameScreen(
+                    difficulty: widget.difficulty,
+                  ),
+                ),
+              );
             },
-            child: const Text('もう一度プレイ'),
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.refresh, size: 18),
+                SizedBox(width: 8),
+                Text('もう一度プレイ'),
+              ],
+            ),
           ),
         ),
-        const SizedBox(height: 12),
+        const SizedBox(height: 10),
 
         // ランキングを見る
         SizedBox(
@@ -513,22 +585,28 @@ $newBestText
                 ),
               );
             },
-            child: const Text('ランキングを見る'),
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.leaderboard_outlined, size: 18),
+                SizedBox(width: 8),
+                Text('ランキングを見る'),
+              ],
+            ),
           ),
         ),
-        const SizedBox(height: 12),
+        const SizedBox(height: 8),
 
         // ホームに戻る
-        FButton(
-          style: FButtonStyle.ghost(),
-          onPress: () {
+        TextButton(
+          onPressed: () {
             Navigator.of(context).popUntil((route) => route.isFirst);
           },
           child: Text(
             'ホームに戻る',
             style: TextStyle(
-              fontSize: 14,
-              color: Colors.grey[400],
+              fontSize: 13,
+              color: theme.colorScheme.onSurface.withOpacity(0.5),
             ),
           ),
         ),

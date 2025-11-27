@@ -1,4 +1,5 @@
 import 'package:chaletta/ui/widgets/premium_feature_gate.dart';
+import 'package:chaletta/ui/widgets/section_title_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
@@ -92,23 +93,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         maxWpm: user?.maxWPM ?? 0,
                       ),
                       const SizedBox(height: AppSpacing.xxl),
-                      Row(
-                        children: [
-                          const Icon(
-                            Icons.keyboard,
-                            color: Color.fromARGB(255, 75, 105, 242),
-                            size: 24,
-                          ),
-                          const SizedBox(width: 8),
-                          Text(
-                            'タイピング練習',
-                            style: theme.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-
+                      SectionTitleText(iconData: Icons.keyboard, text: 'タイピング練習', color: Color.fromARGB(255, 75, 105, 242)),
                       _LevelAccordions(
                         controller: _typingAccordionController,
                         catalog: state.catalog,
@@ -117,6 +102,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       ),
                       const SizedBox(height: AppSpacing.xl),
                       const RankingGameSection(),
+                      const SizedBox(height: AppSpacing.xxl),
+                      SectionTitleText(iconData: Icons.edit, text: '書き取り練習', color: Color.fromARGB(255, 75, 105, 242)),
+                      _WritingPatternAccordions(
+                        controller: _writingAccordionController,
+                      ),
                       const SizedBox(height: AppSpacing.xl),
                       Padding(
                         padding: const EdgeInsets.symmetric(
@@ -148,11 +138,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                             ),
                           ],
                         ),
-                      ),
-                      const SizedBox(height: AppSpacing.xxl),
-                      const Text('書き取り練習'),
-                      _WritingPatternAccordions(
-                        controller: _writingAccordionController,
                       ),
                     ],
                   ),

@@ -1,6 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:chaletta/core/utils/logger.dart';
+import 'package:chaletta/core/exceptions/app_exception.dart';
 import 'package:chaletta/features/auth/domain/providers/auth_providers.dart';
 import 'package:chaletta/features/ranking_game/data/repositories/ranking_game_repository.dart';
 import 'package:chaletta/features/ranking_game/data/services/word_loader_service.dart';
@@ -60,32 +61,64 @@ class GameResultSubmitter extends _$GameResultSubmitter {
         characterLevel: characterLevel,
       );
 
+      // 非同期処理後にプロバイダーが破棄されていないかチェック
+      if (!ref.mounted) {
+        AppLogger.warning(
+          'Provider was disposed after API call succeeded. Result: $result',
+          tag: 'GameResultSubmitter',
+        );
+        // プロバイダーが破棄されていても結果は返す（stateは更新しない）
+        return result;
+      }
+
       state = AsyncData(result);
       return result;
     } catch (e) {
-      AppLogger.error(
-        'Failed to submit result, saving to offline queue',
-        tag: 'GameResultSubmitter',
-        error: e,
-      );
+      // ネットワークエラーまたはタイムアウトの場合のみオフラインキューに保存
+      final isOfflineError = e is ApiException &&
+          (e.code == 'NETWORK_ERROR' || e.code == 'TIMEOUT');
 
-      // オフラインキューに保存
-      final offlineQueue = ref.read(offlineQueueServiceProvider);
-      final pendingResult = PendingGameResult(
-        id: const Uuid().v4(),
-        difficulty: difficulty,
-        score: score,
-        correctCount: correctCount,
-        maxCombo: maxCombo,
-        totalBonusTime: totalBonusTime,
-        avgInputSpeed: avgInputSpeed,
-        characterLevel: characterLevel,
-        playedAt: DateTime.now(),
-      );
-      await offlineQueue.enqueue(pendingResult);
+      if (isOfflineError) {
+        AppLogger.error(
+          'Network error, saving to offline queue',
+          tag: 'GameResultSubmitter',
+          error: e,
+        );
 
-      state = AsyncError(e, StackTrace.current);
-      return null;
+        // オフラインキューに保存
+        final offlineQueue = ref.read(offlineQueueServiceProvider);
+        final pendingResult = PendingGameResult(
+          id: const Uuid().v4(),
+          difficulty: difficulty,
+          score: score,
+          correctCount: correctCount,
+          maxCombo: maxCombo,
+          totalBonusTime: totalBonusTime,
+          avgInputSpeed: avgInputSpeed,
+          characterLevel: characterLevel,
+          playedAt: DateTime.now(),
+        );
+        await offlineQueue.enqueue(pendingResult);
+
+        // 非同期処理後にプロバイダーが破棄されていないかチェック
+        if (!ref.mounted) return null;
+
+        state = AsyncError(e, StackTrace.current);
+        return null; // オフライン保存を示す
+      } else {
+        // オンラインエラー（サーバーエラー、認証エラーなど）は再スロー
+        AppLogger.error(
+          'Failed to submit result',
+          tag: 'GameResultSubmitter',
+          error: e,
+        );
+
+        // 非同期処理後にプロバイダーが破棄されていないかチェック
+        if (!ref.mounted) rethrow;
+
+        state = AsyncError(e, StackTrace.current);
+        rethrow;
+      }
     }
   }
 

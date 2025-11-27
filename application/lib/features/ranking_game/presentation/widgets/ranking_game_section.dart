@@ -1,9 +1,10 @@
+import 'package:chaletta/ui/widgets/section_title_text.dart';
+import 'package:chaletta/ui/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:chaletta/features/ranking_game/domain/providers/ranking_providers.dart';
 import 'package:chaletta/features/ranking_game/presentation/screens/ranking_game_screen.dart';
 import 'package:chaletta/features/ranking_game/presentation/screens/ranking_leaderboard_screen.dart';
-import 'package:chaletta/features/ranking_game/presentation/widgets/pixel_character_widget.dart';
 
 /// ホーム画面用ランキングゲームセクション
 class RankingGameSection extends ConsumerWidget {
@@ -22,22 +23,7 @@ class RankingGameSection extends ConsumerWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              children: [
-                const Icon(
-                  Icons.sports_esports,
-                  color: Color(0xFF4CAF50),
-                  size: 24,
-                ),
-                const SizedBox(width: 8),
-                Text(
-                  'ランキングゲーム',
-                  style: theme.textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
+            SectionTitleText(iconData: Icons.sports_esports, text: 'ランキングゲーム', color: AppColors.primary),
             TextButton(
               onPressed: () {
                 Navigator.of(context).push(
@@ -46,10 +32,10 @@ class RankingGameSection extends ConsumerWidget {
                   ),
                 );
               },
-              child: const Text(
+              child: Text(
                 'ランキング →',
                 style: TextStyle(
-                  color: Color(0xFF4CAF50),
+                  color: theme.colorScheme.primary,
                   fontSize: 14,
                 ),
               ),
@@ -93,12 +79,6 @@ class RankingGameSection extends ConsumerWidget {
       ),
       child: Row(
         children: [
-          ScoreBasedCharacterWidget(
-            score: bestScore,
-            pixelSize: 1.5,
-            showName: false,
-          ),
-          const SizedBox(width: 12),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -131,14 +111,15 @@ class RankingGameSection extends ConsumerWidget {
   }
 
   Widget _buildDifficultyCards(BuildContext context, bool isDark) {
+    // _LevelAccordionsと同じ色合いを使用
     return Column(
       children: [
         _DifficultyCard(
           difficulty: 'beginner',
           label: '初級',
           description: '基本的な単語 / 制限時間 60秒',
-          color: const Color(0xFF4CAF50),
-          icon: Icons.star_border,
+          color: AppColors.primaryBright,
+          icon: Icons.bolt,
           isDark: isDark,
         ),
         const SizedBox(height: 8),
@@ -146,8 +127,8 @@ class RankingGameSection extends ConsumerWidget {
           difficulty: 'intermediate',
           label: '中級',
           description: '日常会話レベル / 制限時間 90秒',
-          color: const Color(0xFFFFEB3B),
-          icon: Icons.star_half,
+          color: AppColors.secondary,
+          icon: Icons.trending_up,
           isDark: isDark,
         ),
         const SizedBox(height: 8),
@@ -155,7 +136,7 @@ class RankingGameSection extends ConsumerWidget {
           difficulty: 'advanced',
           label: '高級',
           description: '上級表現 / 制限時間 120秒',
-          color: const Color(0xFFFF5722),
+          color: AppColors.accentEnd,
           icon: Icons.star,
           isDark: isDark,
         ),

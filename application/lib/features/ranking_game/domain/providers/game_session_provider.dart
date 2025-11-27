@@ -120,6 +120,8 @@ class RankingGameSession extends _$RankingGameSession {
       currentPosition: newPosition,
       inputBuffer: _composer.text,
       comboMeter: newComboMeter,
+      lastInputResult: InputResultType.correct,
+      lastInputTime: DateTime.now(),
     );
 
     // ボーナス時間チェック
@@ -162,14 +164,12 @@ class RankingGameSession extends _$RankingGameSession {
 
   /// ミス時の処理
   void _onMistake() {
-    // コンポーザーをリセット
-    _composer.reset();
-
+    // コンボのみリセット（入力バッファと位置は維持）
     state = state.copyWith(
       currentCombo: 0,
-      inputBuffer: '',
-      currentPosition: 0,
       comboMeter: state.comboMeter.onMistake(),
+      lastInputResult: InputResultType.mistake,
+      lastInputTime: DateTime.now(),
     );
   }
 

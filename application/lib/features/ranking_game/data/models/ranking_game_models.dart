@@ -194,6 +194,13 @@ abstract class RankingGameUserStats with _$RankingGameUserStats {
       _$RankingGameUserStatsFromJson(json);
 }
 
+/// 入力結果の種類
+enum InputResultType {
+  none,
+  correct,
+  mistake,
+}
+
 /// コンボメーター状態
 @freezed
 abstract class ComboMeterState with _$ComboMeterState {
@@ -286,6 +293,8 @@ abstract class RankingGameSessionState with _$RankingGameSessionState {
     @Default(0) int totalBonusTime,
     @Default(0) int wordIndex,
     DateTime? startTime,
+    @Default(InputResultType.none) InputResultType lastInputResult,
+    DateTime? lastInputTime, // アニメーション用のタイムスタンプ
   }) = _RankingGameSessionState;
 
   /// 初期状態を作成

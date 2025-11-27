@@ -296,7 +296,14 @@ class HangulComposer {
     }
 
     if (_final == null) {
-      _final = char;
+      // 終声として有効な子音かチェック（ㅃ, ㄸ, ㅉは終声として使えない）
+      if (_finals.contains(char)) {
+        _final = char;
+      } else {
+        // 終声として使えない子音は新しい音節の初声として扱う
+        _commitCurrent();
+        _initial = char;
+      }
       return;
     }
 
