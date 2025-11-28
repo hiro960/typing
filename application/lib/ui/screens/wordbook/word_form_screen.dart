@@ -229,64 +229,25 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
               ),
             ),
           ),
-          AnimatedSize(
-            duration: const Duration(milliseconds: 200),
-            curve: Curves.easeOut,
-            child: SafeArea(
-              child: ColoredBox(
-                color: Theme.of(context).colorScheme.surface,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 10,
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border(
-                          top: BorderSide(
-                            color: Theme.of(context).colorScheme.outlineVariant,
-                            width: 1,
-                          ),
-                        ),
-                      ),
-                      child: Row(
-                        children: [
-                          FButton.icon(
-                            style: FButtonStyle.ghost(),
-                            onPress: _useCustomKeyboard
-                                ? _switchToDefaultKeyboard
-                                : _switchToCustomKeyboard,
-                            child: const Icon(Icons.keyboard, size: 18),
-                          ),
-                          const Spacer(),
-                          if (_showCustomKeyboard ||
-                              _wordFocusNode.hasFocus ||
-                              _meaningFocusNode.hasFocus ||
-                              _exampleFocusNode.hasFocus)
-                            FButton(
-                              style: FButtonStyle.ghost(),
-                              onPress: _closeKeyboard,
-                              child: const Text('閉じる'),
-                            ),
-                        ],
-                      ),
-                    ),
-                    if (_useCustomKeyboard && _showCustomKeyboard)
-                      TypingKeyboard(
-                        onTextInput: _handleComposerInput,
-                        onBackspace: _handleComposerBackspace,
-                        onSpace: _handleComposerSpace,
-                        onEnter: _handleComposerEnter,
-                        enableHaptics: true,
-                        enableSound: false,
-                      ),
-                  ],
-                ),
+          if (_showCustomKeyboard || _wordFocusNode.hasFocus || _meaningFocusNode.hasFocus || _exampleFocusNode.hasFocus)
+            SafeArea(
+              top: false,
+              left: false,
+              right: false,
+              child: TypingKeyboard(
+                onTextInput: _handleComposerInput,
+                onBackspace: _handleComposerBackspace,
+                onSpace: _handleComposerSpace,
+                onEnter: _handleComposerEnter,
+                enableHaptics: true,
+                enableSound: false,
+                showToolbar: true,
+                showKeys: _useCustomKeyboard && _showCustomKeyboard,
+                onClose: _closeKeyboard,
+                onSwitchToDefaultKeyboard: _switchToDefaultKeyboard,
+                onSwitchToCustomKeyboard: _switchToCustomKeyboard,
               ),
             ),
-          ),
         ],
       ),
     );

@@ -10,7 +10,7 @@
       "description": "少子化問題",
       "patternId": "cause_effect",
       "entries": [
-        { "id": "cause_social_001", "level": "template", "jpText": "...の原因は", "koText": "...의 원인은" },
+        { "id": "cause_social_001", "level": "template", "jpText": "の原因は", "koText": "의 원인은" },
         { "id": "cause_social_002", "level": "template", "jpText": "これにより...という結果が生じた", "koText": "이로 인해 ...라는 결과가 발생했다." },
         { "id": "cause_social_003", "level": "template", "jpText": "その結果", "koText": "그 결과" },
         { "id": "cause_social_004", "level": "template", "jpText": "第一の原因は...である", "koText": "첫 번째 원인은 ...이다." },

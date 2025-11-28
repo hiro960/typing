@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer' as developer;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
@@ -205,19 +206,34 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
     final trimmedInput = input.trim();
     final trimmedCorrect = correct.trim();
 
+    // デバッグ: 入力と正解の比較
+    developer.log('=== Answer Check ===');
+    developer.log('Input: "$trimmedInput"');
+    developer.log('Correct: "$trimmedCorrect"');
+    developer.log('Exact match: ${trimmedInput == trimmedCorrect}');
+    developer.log('Input codeUnits: ${trimmedInput.codeUnits}');
+    developer.log('Correct codeUnits: ${trimmedCorrect.codeUnits}');
+
     if (trimmedInput == trimmedCorrect) return true;
 
     final pattern = _buildFlexibleAnswerPattern(trimmedCorrect);
-    return RegExp('^$pattern\$').hasMatch(trimmedInput);
+    developer.log('Pattern: $pattern');
+    final regexMatch = RegExp('^$pattern\$').hasMatch(trimmedInput);
+    developer.log('Regex match: $regexMatch');
+
+    return regexMatch;
   }
 
   String _buildFlexibleAnswerPattern(String correct) {
     var pattern = RegExp.escape(correct);
+    // 注意: RegExp.escape は / をエスケープしないので、キーもエスケープなしで指定
     const replacements = <String, String>{
-      '이\\/가': '(?:이/가|이|가)',
-      '가\\/이': '(?:가/이|가|이)',
-      '와\\/과': '(?:와/과|와|과)',
-      '과\\/와': '(?:과/와|과|와)',
+      '이/가': '(?:이/가|이|가)',
+      '가/이': '(?:가/이|가|이)',
+      '와/과': '(?:와/과|와|과)',
+      '과/와': '(?:과/와|과|와)',
+      '을/를': '(?:을/를|을|를)',
+      '를/을': '(?:를/을|를|을)',
     };
 
     replacements.forEach((key, value) {
@@ -468,6 +484,8 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
           ],
           _buildInputField(),
           const SizedBox(height: AppSpacing.md),
+          _buildShowAnswerButton(),
+          const SizedBox(height: AppSpacing.md),
           if (_state!.lastResult != null) _buildFeedback(),
         ],
       ),
@@ -563,6 +581,27 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
                 fontWeight: isEmpty ? FontWeight.normal : FontWeight.bold,
               ),
           textAlign: TextAlign.center,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildShowAnswerButton() {
+    return Align(
+      alignment: Alignment.centerRight,
+      child: TextButton.icon(
+        onPressed: () {
+          setState(() {
+            _state = _state!.copyWith(showAnswer: !_state!.showAnswer);
+          });
+        },
+        icon: Icon(
+          _state!.showAnswer ? Icons.visibility : Icons.visibility_off,
+          size: 18,
+        ),
+        label: Text(_state!.showAnswer ? 'ヒントを隠す' : 'ヒントを見る'),
+        style: TextButton.styleFrom(
+          foregroundColor: Theme.of(context).colorScheme.primary,
         ),
       ),
     );

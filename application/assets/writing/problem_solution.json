@@ -10,9 +10,9 @@
       "description": "運動不足の改善",
       "patternId": "problem_solution",
       "entries": [
-        { "id": "problem_health_001", "level": "template", "jpText": "...という問題がある", "koText": "...라는 문제가 있다." },
+        { "id": "problem_health_001", "level": "template", "jpText": "という問題がある", "koText": "라는 문제가 있다." },
         { "id": "problem_health_002", "level": "template", "jpText": "これを解決するために", "koText": "이를 해결하기 위해" },
-        { "id": "problem_health_003", "level": "template", "jpText": "...する必要がある", "koText": "...할 필요가 있다." },
+        { "id": "problem_health_003", "level": "template", "jpText": "する必要がある", "koText": "할 필요가 있다." },
         { "id": "problem_health_004", "level": "template", "jpText": "第一に習慣を見直す", "koText": "첫째, 습관을 되돌아본다." },
         { "id": "problem_health_005", "level": "template", "jpText": "具体策として毎日30分歩く", "koText": "구체적 대안으로 매일 30분 걷는다." },
         { "id": "problem_health_basic_001", "level": "basic", "jpText": "習慣", "koText": "습관" },

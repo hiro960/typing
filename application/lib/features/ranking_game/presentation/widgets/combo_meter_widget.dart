@@ -6,65 +6,127 @@ class ComboMeterWidget extends StatelessWidget {
   const ComboMeterWidget({
     super.key,
     required this.state,
-    this.height = 24.0,
+    this.barHeight = 16.0,
   });
 
   final ComboMeterState state;
-  final double height;
+  final double barHeight;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // メーターバー
-        Container(
-          height: height,
-          decoration: BoxDecoration(
-            color: const Color(0xFF2D2D2D),
-            borderRadius: BorderRadius.circular(height / 2),
-          ),
-          child: Stack(
+        // キー数表示（上部）
+        Padding(
+          padding: const EdgeInsets.only(bottom: 6),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // プログレスバー
-              FractionallySizedBox(
-                widthFactor: _calculateTotalProgress(),
-                child: Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: _getGradientColors(),
+              Row(
+                children: [
+                  const Icon(
+                    Icons.bolt,
+                    size: 16,
+                    color: Color(0xFFFFD700),
+                  ),
+                  const SizedBox(width: 4),
+                  Text(
+                    '${state.currentKeys}',
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
-                    borderRadius: BorderRadius.circular(height / 2),
+                  ),
+                  Text(
+                    ' / ${ComboMeterState.milestones.last} keys',
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.grey[500],
+                    ),
+                  ),
+                ],
+              ),
+              if (state.totalBonusTime > 0)
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF4CAF50).withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: const Color(0xFF4CAF50).withOpacity(0.5),
+                      width: 1,
+                    ),
+                  ),
+                  child: Text(
+                    '+${state.totalBonusTime}秒',
+                    style: const TextStyle(
+                      fontSize: 12,
+                      color: Color(0xFF4CAF50),
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-              ),
-              // マイルストーンマーカー
-              ..._buildMilestoneMarkers(context),
             ],
           ),
         ),
-        const SizedBox(height: 8),
-        // キー数表示
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              '${state.currentKeys} / ${ComboMeterState.milestones.last} keys',
-              style: TextStyle(
-                fontSize: 12,
-                color: Colors.grey[400],
-              ),
-            ),
-            if (state.totalBonusTime > 0)
-              Text(
-                '+${state.totalBonusTime}秒',
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: Color(0xFF4CAF50),
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-          ],
+        // メーターバー + マイルストーンラベル
+        SizedBox(
+          height: barHeight + 28,
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final totalWidth = constraints.maxWidth;
+              return Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  // バー背景
+                  Positioned(
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      height: barHeight,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF1A1A1A),
+                        borderRadius: BorderRadius.circular(barHeight / 2),
+                        border: Border.all(
+                          color: const Color(0xFF3D3D3D),
+                          width: 1,
+                        ),
+                      ),
+                    ),
+                  ),
+                  // プログレスバー
+                  Positioned(
+                    top: 0,
+                    left: 0,
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      curve: Curves.easeOut,
+                      width: totalWidth * _calculateTotalProgress(),
+                      height: barHeight,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: _getGradientColors(),
+                        ),
+                        borderRadius: BorderRadius.circular(barHeight / 2),
+                        boxShadow: [
+                          BoxShadow(
+                            color: _getGradientColors().first.withOpacity(0.4),
+                            blurRadius: 8,
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  // マイルストーンマーカーとラベル
+                  ..._buildMilestoneMarkersWithLabels(totalWidth),
+                ],
+              );
+            },
+          ),
         ),
       ],
     );
@@ -72,7 +134,7 @@ class ComboMeterWidget extends StatelessWidget {
 
   double _calculateTotalProgress() {
     final totalKeys = ComboMeterState.milestones.last;
-    return state.currentKeys / totalKeys;
+    return (state.currentKeys / totalKeys).clamp(0.0, 1.0);
   }
 
   List<Color> _getGradientColors() {
@@ -90,7 +152,7 @@ class ComboMeterWidget extends StatelessWidget {
     }
   }
 
-  List<Widget> _buildMilestoneMarkers(BuildContext context) {
+  List<Widget> _buildMilestoneMarkersWithLabels(double totalWidth) {
     final markers = <Widget>[];
     final totalKeys = ComboMeterState.milestones.last;
 
@@ -98,30 +160,62 @@ class ComboMeterWidget extends StatelessWidget {
       final milestone = ComboMeterState.milestones[i];
       final position = milestone / totalKeys;
       final isReached = state.currentKeys >= milestone;
-      final bonusText = '+${ComboMeterState.bonusSeconds[i]}秒';
+      final bonusSeconds = ComboMeterState.bonusSeconds[i];
+      final xPos = totalWidth * position;
 
+      // マイルストーンマーカー（縦線 + ラベル）
       markers.add(
         Positioned(
-          left: 0,
-          right: 0,
-          child: FractionallySizedBox(
-            alignment: Alignment.centerLeft,
-            widthFactor: position,
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  // マイルストーンライン
-                  Container(
-                    width: 2,
-                    height: height,
-                    color: isReached
-                        ? Colors.white.withOpacity(0.8)
-                        : Colors.grey.withOpacity(0.5),
+          left: xPos,
+          top: 0,
+          child: FractionalTranslation(
+            translation: const Offset(-0.5, 0),
+            child: Column(
+              children: [
+                // 縦線
+                Container(
+                  width: 2,
+                  height: barHeight,
+                  decoration: BoxDecoration(
+                    color: isReached ? Colors.white : Colors.grey[600],
+                    borderRadius: BorderRadius.circular(1),
+                    boxShadow: isReached
+                        ? [
+                            BoxShadow(
+                              color: Colors.white.withOpacity(0.5),
+                              blurRadius: 4,
+                            ),
+                          ]
+                        : null,
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 2),
+                // ボーナスラベル
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+                  decoration: BoxDecoration(
+                    color: isReached
+                        ? const Color(0xFF4CAF50)
+                        : const Color(0xFF2D2D2D),
+                    borderRadius: BorderRadius.circular(4),
+                    border: Border.all(
+                      color: isReached
+                          ? const Color(0xFF4CAF50)
+                          : Colors.grey[700]!,
+                      width: 1,
+                    ),
+                  ),
+                  child: Text(
+                    '+$bonusSeconds秒',
+                    style: TextStyle(
+                      fontSize: 9,
+                      fontWeight: FontWeight.bold,
+                      color: isReached ? Colors.white : Colors.grey[500],
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),

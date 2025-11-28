@@ -10,9 +10,9 @@
       "description": "都市生活と田舎生活",
       "patternId": "comparison",
       "entries": [
-        { "id": "comparison_life_001", "level": "template", "jpText": "...に比べて", "koText": "...에 비해" },
+        { "id": "comparison_life_001", "level": "template", "jpText": "に比べて", "koText": "에 비해" },
         { "id": "comparison_life_002", "level": "template", "jpText": "一方", "koText": "반면" },
-        { "id": "comparison_life_003", "level": "template", "jpText": "...の長所は", "koText": "...의 장점은" },
+        { "id": "comparison_life_003", "level": "template", "jpText": "の長所は", "koText": "의 장점은" },
         { "id": "comparison_life_004", "level": "template", "jpText": "短所は", "koText": "단점은" },
         { "id": "comparison_life_005", "level": "template", "jpText": "まとめると", "koText": "정리하자면" },
         { "id": "comparison_life_basic_001", "level": "basic", "jpText": "長所", "koText": "장점" },

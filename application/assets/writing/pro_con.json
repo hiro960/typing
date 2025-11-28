@@ -10,8 +10,8 @@
       "description": "AI技術の発展",
       "patternId": "pro_con",
       "entries": [
-        { "id": "procon_tech_001", "level": "template", "jpText": "...に賛成する", "koText": "...에 찬성한다." },
-        { "id": "procon_tech_002", "level": "template", "jpText": "...という意見もあるが", "koText": "...라는 의견도 있지만" },
+        { "id": "procon_tech_001", "level": "template", "jpText": "に賛成する", "koText": "에 찬성한다." },
+        { "id": "procon_tech_002", "level": "template", "jpText": "という意見もあるが", "koText": "라는 의견도 있지만" },
         { "id": "procon_tech_003", "level": "template", "jpText": "それにもかかわらず", "koText": "그럼에도 불구하고" },
         { "id": "procon_tech_004", "level": "template", "jpText": "私は...に反対する", "koText": "나는 ...에 반대한다." },
         { "id": "procon_tech_005", "level": "template", "jpText": "利点もあるが欠点が大きい", "koText": "장점도 있지만 단점이 크다." },

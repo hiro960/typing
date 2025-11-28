@@ -19,6 +19,11 @@ class TypingKeyboard extends StatefulWidget {
     this.nextKeyLabel,
     this.enableSound = false,
     this.enableHaptics = true,
+    this.showToolbar = false,
+    this.showKeys = true,
+    this.onClose,
+    this.onSwitchToDefaultKeyboard,
+    this.onSwitchToCustomKeyboard,
   });
 
   final void Function(String value) onTextInput;
@@ -30,6 +35,16 @@ class TypingKeyboard extends StatefulWidget {
   final String? nextKeyLabel;
   final bool enableSound;
   final bool enableHaptics;
+  /// ツールバー（閉じる・キーボード切り替え）を表示するか
+  final bool showToolbar;
+  /// キーボード本体を表示するか（falseの場合はツールバーのみ表示）
+  final bool showKeys;
+  /// 閉じるボタンが押された時のコールバック
+  final VoidCallback? onClose;
+  /// デフォルトキーボードへの切り替えボタンが押された時のコールバック
+  final VoidCallback? onSwitchToDefaultKeyboard;
+  /// カスタムキーボードへの切り替えボタンが押された時のコールバック
+  final VoidCallback? onSwitchToCustomKeyboard;
 
   @override
   State<TypingKeyboard> createState() => _TypingKeyboardState();
@@ -69,48 +84,147 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
     final rows = _currentMode == _KeyboardMode.hangul ? _hangulRows : _symbolRows;
+    final screenWidth = MediaQuery.of(context).size.width;
 
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-      decoration: BoxDecoration(
-        color: colors.surface,
-        borderRadius: const BorderRadius.all(Radius.circular(6),),
-        border: Border.all(color: colors.primary.withValues(alpha: 0.08)),
-      ),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              if (widget.nextKeyLabel != null)
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const SizedBox(width: 6),
-                    const Icon(Icons.lightbulb_outline, size: 16),
-                    const SizedBox(width: 6),
-                    Text(
-                      widget.nextKeyLabel!,
-                      style: theme.textTheme.bodyMedium,
-                    ),
-                  ],
+    // 親のpaddingを無視して画面幅いっぱいに広げる
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // 親の制約から横方向のオフセットを計算
+        final horizontalOffset = (screenWidth - constraints.maxWidth) / 2;
+
+        return Transform.translate(
+          offset: Offset(-horizontalOffset, 0),
+          child: SizedBox(
+            width: screenWidth,
+            child: Container(
+              decoration: BoxDecoration(
+                color: colors.surface,
+                border: Border(
+                  top: BorderSide(color: colors.primary.withValues(alpha: 0.08)),
                 ),
-            ],
-          ),
-          const SizedBox(height: 12),
-          for (final row in rows) ...[
-            _KeyboardRow(
-              keys: row,
-              isShiftActive: _shiftActive,
-              currentMode: _currentMode,
-              highlightShift: widget.highlightShift,
-              highlightedKeys: widget.highlightedKeys,
-              onKeyTap: _handleKeyTap,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // ツールバー（オプション）- 横幅いっぱいに広がる
+                  if (widget.showToolbar)
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      decoration: BoxDecoration(
+                        color: colors.surfaceContainerHighest.withValues(alpha: 0.5),
+                        border: widget.showKeys
+                            ? Border(
+                                bottom: BorderSide(
+                                  color: colors.outlineVariant.withValues(alpha: 0.3),
+                                ),
+                              )
+                            : null,
+                      ),
+                      child: Row(
+                        children: [
+                          // キーボード切り替えボタン
+                          if (widget.showKeys && widget.onSwitchToDefaultKeyboard != null)
+                            GestureDetector(
+                              onTap: widget.onSwitchToDefaultKeyboard,
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 10,
+                                ),
+                                child: Icon(
+                                  Icons.keyboard_alt_outlined,
+                                  size: 22,
+                                  color: colors.onSurface.withValues(alpha: 0.7),
+                                ),
+                              ),
+                            ),
+                          if (!widget.showKeys && widget.onSwitchToCustomKeyboard != null)
+                            GestureDetector(
+                              onTap: widget.onSwitchToCustomKeyboard,
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 10,
+                                ),
+                                child: Icon(
+                                  Icons.keyboard_outlined,
+                                  size: 22,
+                                  color: colors.primary,
+                                ),
+                              ),
+                            ),
+                          const Spacer(),
+                          // 閉じるボタン
+                          if (widget.onClose != null)
+                            GestureDetector(
+                              onTap: widget.onClose,
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                  vertical: 10,
+                                ),
+                                child: Text(
+                                  '閉じる',
+                                  style: theme.textTheme.bodyMedium?.copyWith(
+                                    color: colors.primary,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
+                  // キーボード本体（パディング付き）- showKeysがtrueの場合のみ表示
+                  if (widget.showKeys)
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(4, 10, 4, 0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          // ヒント表示
+                          Row(
+                            children: [
+                              if (widget.nextKeyLabel != null)
+                                Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    const SizedBox(width: 6),
+                                    const Icon(Icons.lightbulb_outline, size: 16),
+                                    const SizedBox(width: 6),
+                                    Text(
+                                      widget.nextKeyLabel!,
+                                      style: theme.textTheme.bodyMedium,
+                                    ),
+                                  ],
+                                ),
+                            ],
+                          ),
+                          if (widget.nextKeyLabel != null)
+                            const SizedBox(height: 8)
+                          else
+                            const SizedBox(height: 4),
+                          for (final row in rows) ...[
+                            _KeyboardRow(
+                              keys: row,
+                              isShiftActive: _shiftActive,
+                              currentMode: _currentMode,
+                              highlightShift: widget.highlightShift,
+                              highlightedKeys: widget.highlightedKeys,
+                              onKeyTap: _handleKeyTap,
+                            ),
+                            const SizedBox(height: 10),
+                          ],
+                        ],
+                      ),
+                    ),
+                ],
+              ),
             ),
-            const SizedBox(height: 10),
-          ],
-        ],
-      ),
+          ),
+        );
+      },
     );
   }
 

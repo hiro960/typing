@@ -493,103 +493,88 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
             curve: Curves.easeOut,
             child: SafeArea(
               top: false,
-              child: ColoredBox(
-                color: Theme.of(context).colorScheme.surface,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(
-                        AppPadding.homePage.left,
-                        AppSpacing.sm,
-                        AppPadding.homePage.right,
-                        AppSpacing.sm,
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: ModernTextInput(
-                              controller: _commentController,
-                              focusNode: _commentFocusNode,
-                              placeholder: 'コメントを入力',
-                              minLines: 1,
-                              maxLines: 4,
-                              enabled: !_isSubmitting,
-                              readOnly: _useCustomKeyboard,
-                              showCursor: true,
-                              keyboardType: _useCustomKeyboard
-                                  ? TextInputType.none
-                                  : TextInputType.multiline,
-                              onTap: _useCustomKeyboard
-                                  ? () {
-                                      _composer
-                                          .loadFromText(_commentController.text);
-                                      _applyComposerText();
-                                    }
-                                  : null,
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-                          _isSubmitting
-                              ? const SizedBox(
-                                  width: 24,
-                                  height: 24,
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 2,
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  final screenWidth = MediaQuery.of(context).size.width;
+                  final horizontalOffset =
+                      (screenWidth - constraints.maxWidth) / 2;
+
+                  return Transform.translate(
+                    offset: Offset(-horizontalOffset, 0),
+                    child: SizedBox(
+                      width: screenWidth,
+                      child: ColoredBox(
+                        color: Theme.of(context).colorScheme.surface,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 12,
+                                vertical: AppSpacing.sm,
+                              ),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                    child: ModernTextInput(
+                                      controller: _commentController,
+                                      focusNode: _commentFocusNode,
+                                      placeholder: 'コメントを入力',
+                                      minLines: 1,
+                                      maxLines: 4,
+                                      enabled: !_isSubmitting,
+                                      readOnly: _useCustomKeyboard,
+                                      showCursor: true,
+                                      keyboardType: _useCustomKeyboard
+                                          ? TextInputType.none
+                                          : TextInputType.multiline,
+                                      onTap: _useCustomKeyboard
+                                          ? () {
+                                              _composer.loadFromText(
+                                                  _commentController.text);
+                                              _applyComposerText();
+                                            }
+                                          : null,
+                                    ),
                                   ),
-                                )
-                              : FButton.icon(
-                                  style: FButtonStyle.ghost(),
-                                  onPress: _addComment,
-                                  child: const Icon(Icons.send),
-                                ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 10,
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border(
-                          top: BorderSide(
-                            color: Theme.of(context).colorScheme.outlineVariant,
-                            width: 1,
-                          ),
+                                  const SizedBox(width: 12),
+                                  _isSubmitting
+                                      ? const SizedBox(
+                                          width: 24,
+                                          height: 24,
+                                          child: CircularProgressIndicator(
+                                            strokeWidth: 2,
+                                          ),
+                                        )
+                                      : FButton.icon(
+                                          style: FButtonStyle.ghost(),
+                                          onPress: _addComment,
+                                          child: const Icon(Icons.send),
+                                        ),
+                                ],
+                              ),
+                            ),
+                            if (_showCustomKeyboard || _commentFocusNode.hasFocus)
+                              TypingKeyboard(
+                                onTextInput: _onKeyboardTextInput,
+                                onBackspace: _onKeyboardBackspace,
+                                onSpace: _onKeyboardSpace,
+                                onEnter: _onKeyboardEnter,
+                                enableHaptics: true,
+                                enableSound: false,
+                                showToolbar: true,
+                                showKeys: _useCustomKeyboard && _showCustomKeyboard,
+                                onClose: _closeKeyboard,
+                                onSwitchToDefaultKeyboard: _switchToDefaultKeyboard,
+                                onSwitchToCustomKeyboard: _switchToCustomKeyboard,
+                              ),
+                          ],
                         ),
                       ),
-                      child: Row(
-                        children: [
-                          FButton.icon(
-                            style: FButtonStyle.ghost(),
-                            onPress: _useCustomKeyboard
-                                ? _switchToDefaultKeyboard
-                                : _switchToCustomKeyboard,
-                            child: const Icon(Icons.keyboard, size: 18),
-                          ),
-                          const Spacer(),
-                          if (_showCustomKeyboard || _commentFocusNode.hasFocus)
-                            FButton(
-                              style: FButtonStyle.ghost(),
-                              onPress: _closeKeyboard,
-                              child: const Text('閉じる'),
-                            ),
-                        ],
-                      ),
                     ),
-                    if (_useCustomKeyboard && _showCustomKeyboard)
-                      TypingKeyboard(
-                        onTextInput: _onKeyboardTextInput,
-                        onBackspace: _onKeyboardBackspace,
-                        onSpace: _onKeyboardSpace,
-                        onEnter: _onKeyboardEnter,
-                        enableHaptics: true,
-                        enableSound: false,
-                      ),
-                  ],
-                ),
+                  );
+                },
               ),
             ),
           ),

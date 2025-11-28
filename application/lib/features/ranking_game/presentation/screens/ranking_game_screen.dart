@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 import 'package:chaletta/features/ranking_game/data/models/ranking_game_models.dart';
 import 'package:chaletta/features/ranking_game/domain/providers/game_session_provider.dart';
-import 'package:chaletta/features/ranking_game/domain/providers/ranking_game_providers.dart';
 import 'package:chaletta/features/ranking_game/presentation/widgets/combo_meter_widget.dart';
 import 'package:chaletta/features/ranking_game/presentation/widgets/pixel_character_widget.dart';
 import 'package:chaletta/features/ranking_game/presentation/screens/ranking_game_result_screen.dart';
@@ -93,7 +92,7 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
       rankingGameSessionProvider(widget.difficulty),
     );
     final settingsAsync = ref.watch(typingSettingsProvider);
-    final hapticsEnabled = settingsAsync.valueOrNull?.hapticsEnabled ?? true;
+    final settings = settingsAsync.value;
     final theme = Theme.of(context);
 
     // ゲーム終了時に結果画面へ遷移
@@ -162,7 +161,7 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
         ),
         body: SafeArea(
           child: _isStarted
-              ? _buildGameContent(sessionState)
+              ? _buildGameContent(sessionState, settings?.hapticsEnabled ?? true)
               : _buildStartScreen(),
         ),
       ),
@@ -216,7 +215,7 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
     }
   }
 
-  Widget _buildGameContent(RankingGameSessionState state) {
+  Widget _buildGameContent(RankingGameSessionState state, bool hapticsEnabled) {
     final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.all(16.0),

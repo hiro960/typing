@@ -110,29 +110,32 @@ class _SocialAuthScreenState extends ConsumerState<SocialAuthScreen> {
               ),
             ),
             const SizedBox(height: 16),
-            FCard.raw(
-              child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  children: [
-                    const Icon(Icons.security_outlined, size: 48),
-                    const SizedBox(height: 12),
-                    Text(
-                      '毎日の学習を1タップで開始',
-                      style: theme.textTheme.titleLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      '認証ページへ移動し、SNSで認証を行います。',
-                      style: theme.textTheme.bodySmall?.copyWith(
-                        color: theme.colorScheme.onSurface.withValues(
-                          alpha: 0.7,
-                        ),
+            SizedBox(
+              width: double.infinity,
+              child: FCard.raw(
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    children: [
+                      const Icon(Icons.security_outlined, size: 48),
+                      const SizedBox(height: 12),
+                      Text(
+                        '毎日の学習を1タップで開始',
+                        style: theme.textTheme.titleLarge,
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
+                      const SizedBox(height: 8),
+                      Text(
+                        '認証ページへ移動し、SNSで認証を行います。',
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: theme.colorScheme.onSurface.withValues(
+                            alpha: 0.7,
+                          ),
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
