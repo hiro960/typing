@@ -12,6 +12,7 @@ abstract class DiaryUserSummary with _$DiaryUserSummary {
     required String username,
     required String displayName,
     String? profileImageUrl,
+    @Default('NORMAL') String type,
   }) = _DiaryUserSummary;
 
   factory DiaryUserSummary.fromJson(Map<String, dynamic> json) =>

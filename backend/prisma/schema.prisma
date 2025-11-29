@@ -80,6 +80,13 @@ model User {
   isActive                Boolean   @default(true)
   isBanned                Boolean   @default(false)
 
+  // サブスクリプション管理
+  subscriptionExpiresAt     DateTime? // 有効期限
+  subscriptionPlatform      String?   // "ios" | "android"
+  subscriptionProductId     String?   // 商品ID
+  originalTransactionId     String?   // Apple: originalTransactionId, Google: purchaseToken（再検証に必要）
+  subscriptionAutoRenewing  Boolean   @default(true) // 自動更新ON/OFF
+
   posts                   Post[]
   comments                Comment[]
   likes                   Like[]

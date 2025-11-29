@@ -12,6 +12,7 @@ _DiaryUserSummary _$DiaryUserSummaryFromJson(Map<String, dynamic> json) =>
       username: json['username'] as String,
       displayName: json['displayName'] as String,
       profileImageUrl: json['profileImageUrl'] as String?,
+      type: json['type'] as String? ?? 'NORMAL',
     );
 
 Map<String, dynamic> _$DiaryUserSummaryToJson(_DiaryUserSummary instance) =>
@@ -20,6 +21,7 @@ Map<String, dynamic> _$DiaryUserSummaryToJson(_DiaryUserSummary instance) =>
       'username': instance.username,
       'displayName': instance.displayName,
       'profileImageUrl': instance.profileImageUrl,
+      'type': instance.type,
     };
 
 _DiaryQuotedPost _$DiaryQuotedPostFromJson(Map<String, dynamic> json) =>

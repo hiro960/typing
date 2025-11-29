@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../features/diary/data/models/diary_post.dart';
 import '../screens/profile/profile_screen.dart';
 import 'user_avatar.dart';
+import 'verified_badge.dart';
 
 class DiaryPostCard extends StatelessWidget {
   const DiaryPostCard({
@@ -80,9 +81,11 @@ class DiaryPostCard extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                post.user.displayName,
+                              UserNameWithBadge(
+                                displayName: post.user.displayName,
+                                userType: post.user.type,
                                 style: theme.textTheme.titleMedium,
+                                badgeSize: VerifiedBadgeSize.medium,
                               ),
                               Text(
                                 subtitle,
@@ -473,9 +476,11 @@ class DiaryQuotedPostCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        quotedPost.user.displayName,
+                      UserNameWithBadge(
+                        displayName: quotedPost.user.displayName,
+                        userType: quotedPost.user.type,
                         style: theme.textTheme.titleSmall,
+                        badgeSize: VerifiedBadgeSize.small,
                       ),
                       if (subtitle.isNotEmpty)
                         Text(

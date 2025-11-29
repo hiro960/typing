@@ -6,6 +6,7 @@ import '../../../features/auth/data/models/user_model.dart';
 import '../../../features/profile/domain/providers/profile_providers.dart';
 import '../../utils/toast_helper.dart';
 import '../../widgets/user_avatar.dart';
+import '../../widgets/verified_badge.dart';
 
 class ProfileHero extends StatelessWidget {
   const ProfileHero({
@@ -61,12 +62,15 @@ class ProfileHero extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            profile.displayName,
+                          UserNameWithBadge(
+                            displayName: profile.displayName,
+                            userType: profile.type,
                             style: theme.textTheme.headlineSmall?.copyWith(
                               color: foreground,
                               fontWeight: FontWeight.bold,
                             ),
+                            badgeSize: VerifiedBadgeSize.large,
+                            spacing: 8,
                           ),
                           const SizedBox(height: 4),
                           Text(

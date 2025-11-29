@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$DiaryUserSummary {
 
- String get id; String get username; String get displayName; String? get profileImageUrl;
+ String get id; String get username; String get displayName; String? get profileImageUrl; String get type;
 /// Create a copy of DiaryUserSummary
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $DiaryUserSummaryCopyWith<DiaryUserSummary> get copyWith => _$DiaryUserSummaryCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DiaryUserSummary&&(identical(other.id, id) || other.id == id)&&(identical(other.username, username) || other.username == username)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.profileImageUrl, profileImageUrl) || other.profileImageUrl == profileImageUrl));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DiaryUserSummary&&(identical(other.id, id) || other.id == id)&&(identical(other.username, username) || other.username == username)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.profileImageUrl, profileImageUrl) || other.profileImageUrl == profileImageUrl)&&(identical(other.type, type) || other.type == type));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,username,displayName,profileImageUrl);
+int get hashCode => Object.hash(runtimeType,id,username,displayName,profileImageUrl,type);
 
 @override
 String toString() {
-  return 'DiaryUserSummary(id: $id, username: $username, displayName: $displayName, profileImageUrl: $profileImageUrl)';
+  return 'DiaryUserSummary(id: $id, username: $username, displayName: $displayName, profileImageUrl: $profileImageUrl, type: $type)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $DiaryUserSummaryCopyWith<$Res>  {
   factory $DiaryUserSummaryCopyWith(DiaryUserSummary value, $Res Function(DiaryUserSummary) _then) = _$DiaryUserSummaryCopyWithImpl;
 @useResult
 $Res call({
- String id, String username, String displayName, String? profileImageUrl
+ String id, String username, String displayName, String? profileImageUrl, String type
 });
 
 
@@ -65,13 +65,14 @@ class _$DiaryUserSummaryCopyWithImpl<$Res>
 
 /// Create a copy of DiaryUserSummary
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? username = null,Object? displayName = null,Object? profileImageUrl = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? username = null,Object? displayName = null,Object? profileImageUrl = freezed,Object? type = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,username: null == username ? _self.username : username // ignore: cast_nullable_to_non_nullable
 as String,displayName: null == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
 as String,profileImageUrl: freezed == profileImageUrl ? _self.profileImageUrl : profileImageUrl // ignore: cast_nullable_to_non_nullable
-as String?,
+as String?,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 
@@ -156,10 +157,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String username,  String displayName,  String? profileImageUrl)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String username,  String displayName,  String? profileImageUrl,  String type)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _DiaryUserSummary() when $default != null:
-return $default(_that.id,_that.username,_that.displayName,_that.profileImageUrl);case _:
+return $default(_that.id,_that.username,_that.displayName,_that.profileImageUrl,_that.type);case _:
   return orElse();
 
 }
@@ -177,10 +178,10 @@ return $default(_that.id,_that.username,_that.displayName,_that.profileImageUrl)
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String username,  String displayName,  String? profileImageUrl)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String username,  String displayName,  String? profileImageUrl,  String type)  $default,) {final _that = this;
 switch (_that) {
 case _DiaryUserSummary():
-return $default(_that.id,_that.username,_that.displayName,_that.profileImageUrl);case _:
+return $default(_that.id,_that.username,_that.displayName,_that.profileImageUrl,_that.type);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -197,10 +198,10 @@ return $default(_that.id,_that.username,_that.displayName,_that.profileImageUrl)
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String username,  String displayName,  String? profileImageUrl)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String username,  String displayName,  String? profileImageUrl,  String type)?  $default,) {final _that = this;
 switch (_that) {
 case _DiaryUserSummary() when $default != null:
-return $default(_that.id,_that.username,_that.displayName,_that.profileImageUrl);case _:
+return $default(_that.id,_that.username,_that.displayName,_that.profileImageUrl,_that.type);case _:
   return null;
 
 }
@@ -212,13 +213,14 @@ return $default(_that.id,_that.username,_that.displayName,_that.profileImageUrl)
 @JsonSerializable()
 
 class _DiaryUserSummary implements DiaryUserSummary {
-  const _DiaryUserSummary({required this.id, required this.username, required this.displayName, this.profileImageUrl});
+  const _DiaryUserSummary({required this.id, required this.username, required this.displayName, this.profileImageUrl, this.type = 'NORMAL'});
   factory _DiaryUserSummary.fromJson(Map<String, dynamic> json) => _$DiaryUserSummaryFromJson(json);
 
 @override final  String id;
 @override final  String username;
 @override final  String displayName;
 @override final  String? profileImageUrl;
+@override@JsonKey() final  String type;
 
 /// Create a copy of DiaryUserSummary
 /// with the given fields replaced by the non-null parameter values.
@@ -233,16 +235,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DiaryUserSummary&&(identical(other.id, id) || other.id == id)&&(identical(other.username, username) || other.username == username)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.profileImageUrl, profileImageUrl) || other.profileImageUrl == profileImageUrl));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DiaryUserSummary&&(identical(other.id, id) || other.id == id)&&(identical(other.username, username) || other.username == username)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.profileImageUrl, profileImageUrl) || other.profileImageUrl == profileImageUrl)&&(identical(other.type, type) || other.type == type));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,username,displayName,profileImageUrl);
+int get hashCode => Object.hash(runtimeType,id,username,displayName,profileImageUrl,type);
 
 @override
 String toString() {
-  return 'DiaryUserSummary(id: $id, username: $username, displayName: $displayName, profileImageUrl: $profileImageUrl)';
+  return 'DiaryUserSummary(id: $id, username: $username, displayName: $displayName, profileImageUrl: $profileImageUrl, type: $type)';
 }
 
 
@@ -253,7 +255,7 @@ abstract mixin class _$DiaryUserSummaryCopyWith<$Res> implements $DiaryUserSumma
   factory _$DiaryUserSummaryCopyWith(_DiaryUserSummary value, $Res Function(_DiaryUserSummary) _then) = __$DiaryUserSummaryCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String username, String displayName, String? profileImageUrl
+ String id, String username, String displayName, String? profileImageUrl, String type
 });
 
 
@@ -270,13 +272,14 @@ class __$DiaryUserSummaryCopyWithImpl<$Res>
 
 /// Create a copy of DiaryUserSummary
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? username = null,Object? displayName = null,Object? profileImageUrl = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? username = null,Object? displayName = null,Object? profileImageUrl = freezed,Object? type = null,}) {
   return _then(_DiaryUserSummary(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,username: null == username ? _self.username : username // ignore: cast_nullable_to_non_nullable
 as String,displayName: null == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
 as String,profileImageUrl: freezed == profileImageUrl ? _self.profileImageUrl : profileImageUrl // ignore: cast_nullable_to_non_nullable
-as String?,
+as String?,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 

@@ -208,7 +208,7 @@ final class GameResultSubmitterProvider
 }
 
 String _$gameResultSubmitterHash() =>
-    r'f234a4119cd11a10d610a10da28a77f476d811bc';
+    r'0dec0d50cd4b5b5514e46eee0794355006514ee6';
 
 /// ゲーム結果送信プロバイダー（オフライン対応）
 

@@ -204,7 +204,37 @@ function toUserDetail(user: User): UserDetail {
 
 export async function findUserById(userId: string): Promise<UserDetail | null> {
   const user = await prisma.user.findUnique({ where: { id: userId } });
-  return user ? toUserDetail(user) : null;
+  if (!user) return null;
+
+  // PREMIUMユーザーで期限切れの場合、バックグラウンドでチェック
+  // ここでは即座にダウングレードせず、Cronに任せる（パフォーマンス考慮）
+  // ただし、期限切れから24時間以上経過している場合は即座にダウングレード
+  if (
+    user.type === "PREMIUM" &&
+    user.subscriptionExpiresAt &&
+    user.subscriptionExpiresAt < new Date()
+  ) {
+    const expiredHours =
+      (Date.now() - user.subscriptionExpiresAt.getTime()) / (1000 * 60 * 60);
+
+    if (expiredHours > 24) {
+      // 24時間以上経過している場合は即座にダウングレード
+      // （Webhookが失敗し、Cronも実行されていない場合の保険）
+      console.log(
+        `[store] User ${userId} subscription expired ${expiredHours.toFixed(1)}h ago, downgrading`
+      );
+      const updated = await prisma.user.update({
+        where: { id: userId },
+        data: {
+          type: "NORMAL",
+          subscriptionAutoRenewing: false,
+        },
+      });
+      return toUserDetail(updated);
+    }
+  }
+
+  return toUserDetail(user);
 }
 
 /**

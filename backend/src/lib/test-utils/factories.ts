@@ -35,6 +35,12 @@ export function createMockUser(overrides?: Partial<User>): User {
     isActive: true,
     isBanned: false,
     bestRankingScore: 0,
+    // サブスクリプション関連
+    subscriptionExpiresAt: null,
+    subscriptionPlatform: null,
+    subscriptionProductId: null,
+    originalTransactionId: null,
+    subscriptionAutoRenewing: true,
     ...overrides,
   };
 }
