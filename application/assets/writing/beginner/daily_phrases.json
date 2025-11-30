@@ -1,0 +1,167 @@
+{
+  "topicId": "daily_phrases",
+  "entries": [
+    {
+      "id": "daily_life_146",
+      "level": "beginner",
+      "jpText": "はい",
+      "koText": "네"
+    },
+    {
+      "id": "daily_life_147",
+      "level": "beginner",
+      "jpText": "いいえ",
+      "koText": "아니요"
+    },
+    {
+      "id": "daily_life_148",
+      "level": "beginner",
+      "jpText": "はい（丁寧）",
+      "koText": "예"
+    },
+    {
+      "id": "daily_life_149",
+      "level": "beginner",
+      "jpText": "大丈夫です",
+      "koText": "괜찮아요"
+    },
+    {
+      "id": "daily_life_150",
+      "level": "beginner",
+      "jpText": "申し訳ございません",
+      "koText": "죄송합니다"
+    },
+    {
+      "id": "daily_life_151",
+      "level": "beginner",
+      "jpText": "ごめんなさい",
+      "koText": "미안해요"
+    },
+    {
+      "id": "daily_life_152",
+      "level": "beginner",
+      "jpText": "失礼します",
+      "koText": "실례합니다"
+    },
+    {
+      "id": "daily_life_153",
+      "level": "beginner",
+      "jpText": "少々お待ちください",
+      "koText": "잠시만요"
+    },
+    {
+      "id": "daily_life_154",
+      "level": "beginner",
+      "jpText": "いらっしゃいませ",
+      "koText": "어서 오세요"
+    },
+    {
+      "id": "daily_life_155",
+      "level": "beginner",
+      "jpText": "おめでとうございます",
+      "koText": "축하해요"
+    },
+    {
+      "id": "daily_life_156",
+      "level": "beginner",
+      "jpText": "頑張ってください",
+      "koText": "힘내세요"
+    },
+    {
+      "id": "daily_life_157",
+      "level": "beginner",
+      "jpText": "ファイト",
+      "koText": "화이팅"
+    },
+    {
+      "id": "daily_life_158",
+      "level": "beginner",
+      "jpText": "本当ですか？",
+      "koText": "정말요?"
+    },
+    {
+      "id": "daily_life_159",
+      "level": "beginner",
+      "jpText": "そうですか？",
+      "koText": "그래요?"
+    },
+    {
+      "id": "daily_life_160",
+      "level": "beginner",
+      "jpText": "もちろんです",
+      "koText": "물론이에요"
+    },
+    {
+      "id": "daily_life_161",
+      "level": "beginner",
+      "jpText": "たぶん",
+      "koText": "아마"
+    },
+    {
+      "id": "daily_life_162",
+      "level": "beginner",
+      "jpText": "もしかして",
+      "koText": "혹시"
+    },
+    {
+      "id": "daily_life_163",
+      "level": "beginner",
+      "jpText": "やはり",
+      "koText": "역시"
+    },
+    {
+      "id": "daily_life_164",
+      "level": "beginner",
+      "jpText": "むしろ",
+      "koText": "오히려"
+    },
+    {
+      "id": "daily_life_165",
+      "level": "beginner",
+      "jpText": "とにかく",
+      "koText": "아무튼"
+    },
+    {
+      "id": "daily_life_166",
+      "level": "beginner",
+      "jpText": "ところが",
+      "koText": "그런데요"
+    },
+    {
+      "id": "daily_life_167",
+      "level": "beginner",
+      "jpText": "よかったです",
+      "koText": "다행이에요"
+    },
+    {
+      "id": "daily_life_168",
+      "level": "beginner",
+      "jpText": "どうしましょう",
+      "koText": "어떡해요"
+    },
+    {
+      "id": "daily_life_169",
+      "level": "beginner",
+      "jpText": "わかりました",
+      "koText": "알겠어요"
+    },
+    {
+      "id": "daily_life_170",
+      "level": "beginner",
+      "jpText": "わかりません",
+      "koText": "모르겠어요"
+    },
+    {
+      "id": "daily_life_171",
+      "level": "beginner",
+      "jpText": "さあ・そうですね",
+      "koText": "글쎄요"
+    },
+    {
+      "id": "daily_life_172",
+      "level": "beginner",
+      "jpText": "お願い",
+      "koText": "제발"
+    }
+  ]
+}

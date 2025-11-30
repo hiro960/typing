@@ -1,0 +1,725 @@
+{
+  "topicId": "daily_basics",
+  "entries": [
+    {
+      "id": "daily_life_001",
+      "level": "beginner",
+      "jpText": "順番",
+      "koText": "차례"
+    },
+    {
+      "id": "daily_life_002",
+      "level": "beginner",
+      "jpText": "順序",
+      "koText": "순서"
+    },
+    {
+      "id": "daily_life_003",
+      "level": "beginner",
+      "jpText": "番号",
+      "koText": "번호"
+    },
+    {
+      "id": "daily_life_004",
+      "level": "beginner",
+      "jpText": "リスト",
+      "koText": "목록"
+    },
+    {
+      "id": "daily_life_005",
+      "level": "beginner",
+      "jpText": "状況",
+      "koText": "상황"
+    },
+    {
+      "id": "daily_life_006",
+      "level": "beginner",
+      "jpText": "文化",
+      "koText": "문화"
+    },
+    {
+      "id": "daily_life_007",
+      "level": "beginner",
+      "jpText": "伝統",
+      "koText": "전통"
+    },
+    {
+      "id": "daily_life_008",
+      "level": "beginner",
+      "jpText": "歴史",
+      "koText": "역사"
+    },
+    {
+      "id": "daily_life_009",
+      "level": "beginner",
+      "jpText": "村",
+      "koText": "마을"
+    },
+    {
+      "id": "daily_life_010",
+      "level": "beginner",
+      "jpText": "社会",
+      "koText": "사회"
+    },
+    {
+      "id": "daily_life_011",
+      "level": "beginner",
+      "jpText": "経済",
+      "koText": "경제"
+    },
+    {
+      "id": "daily_life_012",
+      "level": "beginner",
+      "jpText": "政治",
+      "koText": "정치"
+    },
+    {
+      "id": "daily_life_013",
+      "level": "beginner",
+      "jpText": "法律",
+      "koText": "법"
+    },
+    {
+      "id": "daily_life_014",
+      "level": "beginner",
+      "jpText": "規定",
+      "koText": "규정"
+    },
+    {
+      "id": "daily_life_015",
+      "level": "beginner",
+      "jpText": "原則",
+      "koText": "원칙"
+    },
+    {
+      "id": "daily_life_016",
+      "level": "beginner",
+      "jpText": "基準",
+      "koText": "기준"
+    },
+    {
+      "id": "daily_life_017",
+      "level": "beginner",
+      "jpText": "条件",
+      "koText": "조건"
+    },
+    {
+      "id": "daily_life_018",
+      "level": "beginner",
+      "jpText": "資格",
+      "koText": "자격"
+    },
+    {
+      "id": "daily_life_019",
+      "level": "beginner",
+      "jpText": "能力",
+      "koText": "능력"
+    },
+    {
+      "id": "daily_life_020",
+      "level": "beginner",
+      "jpText": "才能",
+      "koText": "재능"
+    },
+    {
+      "id": "daily_life_021",
+      "level": "beginner",
+      "jpText": "努力",
+      "koText": "노력"
+    },
+    {
+      "id": "daily_life_022",
+      "level": "beginner",
+      "jpText": "練習",
+      "koText": "연습"
+    },
+    {
+      "id": "daily_life_023",
+      "level": "beginner",
+      "jpText": "訓練",
+      "koText": "훈련"
+    },
+    {
+      "id": "daily_life_024",
+      "level": "beginner",
+      "jpText": "教育",
+      "koText": "교육"
+    },
+    {
+      "id": "daily_life_025",
+      "level": "beginner",
+      "jpText": "知識",
+      "koText": "지식"
+    },
+    {
+      "id": "daily_life_026",
+      "level": "beginner",
+      "jpText": "資料",
+      "koText": "자료"
+    },
+    {
+      "id": "daily_life_027",
+      "level": "beginner",
+      "jpText": "内容",
+      "koText": "내용"
+    },
+    {
+      "id": "daily_life_028",
+      "level": "beginner",
+      "jpText": "主題",
+      "koText": "주제"
+    },
+    {
+      "id": "daily_life_029",
+      "level": "beginner",
+      "jpText": "題目",
+      "koText": "제목"
+    },
+    {
+      "id": "daily_life_030",
+      "level": "beginner",
+      "jpText": "名札",
+      "koText": "이름표"
+    },
+    {
+      "id": "daily_life_031",
+      "level": "beginner",
+      "jpText": "表示",
+      "koText": "표시"
+    },
+    {
+      "id": "daily_life_032",
+      "level": "beginner",
+      "jpText": "記号",
+      "koText": "기호"
+    },
+    {
+      "id": "daily_life_033",
+      "level": "beginner",
+      "jpText": "翻訳",
+      "koText": "번역"
+    },
+    {
+      "id": "daily_life_034",
+      "level": "beginner",
+      "jpText": "通訳",
+      "koText": "통역"
+    },
+    {
+      "id": "daily_life_035",
+      "level": "beginner",
+      "jpText": "説明",
+      "koText": "설명"
+    },
+    {
+      "id": "daily_life_036",
+      "level": "beginner",
+      "jpText": "対話",
+      "koText": "대화"
+    },
+    {
+      "id": "daily_life_037",
+      "level": "beginner",
+      "jpText": "討論",
+      "koText": "토론"
+    },
+    {
+      "id": "daily_life_038",
+      "level": "beginner",
+      "jpText": "会議",
+      "koText": "회의"
+    },
+    {
+      "id": "daily_life_039",
+      "level": "beginner",
+      "jpText": "集まり",
+      "koText": "모임"
+    },
+    {
+      "id": "daily_life_040",
+      "level": "beginner",
+      "jpText": "約束場所",
+      "koText": "약속장소"
+    },
+    {
+      "id": "daily_life_041",
+      "level": "beginner",
+      "jpText": "紹介",
+      "koText": "소개"
+    },
+    {
+      "id": "daily_life_042",
+      "level": "beginner",
+      "jpText": "招待",
+      "koText": "초대"
+    },
+    {
+      "id": "daily_life_043",
+      "level": "beginner",
+      "jpText": "歓迎",
+      "koText": "환영"
+    },
+    {
+      "id": "daily_life_044",
+      "level": "beginner",
+      "jpText": "挨拶",
+      "koText": "인사"
+    },
+    {
+      "id": "daily_life_045",
+      "level": "beginner",
+      "jpText": "礼儀",
+      "koText": "예의"
+    },
+    {
+      "id": "daily_life_046",
+      "level": "beginner",
+      "jpText": "親切",
+      "koText": "친절"
+    },
+    {
+      "id": "daily_life_047",
+      "level": "beginner",
+      "jpText": "助け",
+      "koText": "도움"
+    },
+    {
+      "id": "daily_life_048",
+      "level": "beginner",
+      "jpText": "誰",
+      "koText": "누구"
+    },
+    {
+      "id": "daily_life_049",
+      "level": "beginner",
+      "jpText": "何",
+      "koText": "뭐"
+    },
+    {
+      "id": "daily_life_050",
+      "level": "beginner",
+      "jpText": "どう・どのように",
+      "koText": "어떻게"
+    },
+    {
+      "id": "daily_life_051",
+      "level": "beginner",
+      "jpText": "なぜ",
+      "koText": "왜"
+    },
+    {
+      "id": "daily_life_052",
+      "level": "beginner",
+      "jpText": "どの",
+      "koText": "어느"
+    },
+    {
+      "id": "daily_life_053",
+      "level": "beginner",
+      "jpText": "何の・どんな",
+      "koText": "무슨"
+    },
+    {
+      "id": "daily_life_054",
+      "level": "beginner",
+      "jpText": "これ",
+      "koText": "이거"
+    },
+    {
+      "id": "daily_life_055",
+      "level": "beginner",
+      "jpText": "それ",
+      "koText": "그거"
+    },
+    {
+      "id": "daily_life_056",
+      "level": "beginner",
+      "jpText": "あれ",
+      "koText": "저거"
+    },
+    {
+      "id": "daily_life_057",
+      "level": "beginner",
+      "jpText": "このように",
+      "koText": "이렇게"
+    },
+    {
+      "id": "daily_life_058",
+      "level": "beginner",
+      "jpText": "そのように",
+      "koText": "그렇게"
+    },
+    {
+      "id": "daily_life_059",
+      "level": "beginner",
+      "jpText": "あのように",
+      "koText": "저렇게"
+    },
+    {
+      "id": "daily_life_060",
+      "level": "beginner",
+      "jpText": "このような",
+      "koText": "이런"
+    },
+    {
+      "id": "daily_life_061",
+      "level": "beginner",
+      "jpText": "そのような",
+      "koText": "그런"
+    },
+    {
+      "id": "daily_life_062",
+      "level": "beginner",
+      "jpText": "あのような",
+      "koText": "저런"
+    },
+    {
+      "id": "daily_life_063",
+      "level": "beginner",
+      "jpText": "男",
+      "koText": "남자"
+    },
+    {
+      "id": "daily_life_064",
+      "level": "beginner",
+      "jpText": "女",
+      "koText": "여자"
+    },
+    {
+      "id": "daily_life_065",
+      "level": "beginner",
+      "jpText": "大人",
+      "koText": "어른"
+    },
+    {
+      "id": "daily_life_066",
+      "level": "beginner",
+      "jpText": "人々",
+      "koText": "사람들"
+    },
+    {
+      "id": "daily_life_067",
+      "level": "beginner",
+      "jpText": "みんな・すべて",
+      "koText": "모두"
+    },
+    {
+      "id": "daily_life_068",
+      "level": "beginner",
+      "jpText": "すべて・みんな",
+      "koText": "다"
+    },
+    {
+      "id": "daily_life_069",
+      "level": "beginner",
+      "jpText": "一緒に",
+      "koText": "같이"
+    },
+    {
+      "id": "daily_life_070",
+      "level": "beginner",
+      "jpText": "共に",
+      "koText": "함께"
+    },
+    {
+      "id": "daily_life_071",
+      "level": "beginner",
+      "jpText": "とても",
+      "koText": "아주"
+    },
+    {
+      "id": "daily_life_072",
+      "level": "beginner",
+      "jpText": "非常に",
+      "koText": "매우"
+    },
+    {
+      "id": "daily_life_073",
+      "level": "beginner",
+      "jpText": "あまりにも",
+      "koText": "너무"
+    },
+    {
+      "id": "daily_life_074",
+      "level": "beginner",
+      "jpText": "よく・上手に",
+      "koText": "잘"
+    },
+    {
+      "id": "daily_life_075",
+      "level": "beginner",
+      "jpText": "できない",
+      "koText": "못"
+    },
+    {
+      "id": "daily_life_076",
+      "level": "beginner",
+      "jpText": "〜ない",
+      "koText": "안"
+    },
+    {
+      "id": "daily_life_077",
+      "level": "beginner",
+      "jpText": "よく・頻繁に",
+      "koText": "자주"
+    },
+    {
+      "id": "daily_life_078",
+      "level": "beginner",
+      "jpText": "それなら",
+      "koText": "그러면"
+    },
+    {
+      "id": "daily_life_079",
+      "level": "beginner",
+      "jpText": "写真",
+      "koText": "사진"
+    },
+    {
+      "id": "daily_life_080",
+      "level": "beginner",
+      "jpText": "絵",
+      "koText": "그림"
+    },
+    {
+      "id": "daily_life_081",
+      "level": "beginner",
+      "jpText": "歌",
+      "koText": "노래"
+    },
+    {
+      "id": "daily_life_082",
+      "level": "beginner",
+      "jpText": "踊り",
+      "koText": "춤"
+    },
+    {
+      "id": "daily_life_083",
+      "level": "beginner",
+      "jpText": "音",
+      "koText": "소리"
+    },
+    {
+      "id": "daily_life_084",
+      "level": "beginner",
+      "jpText": "言葉",
+      "koText": "말"
+    },
+    {
+      "id": "daily_life_085",
+      "level": "beginner",
+      "jpText": "話",
+      "koText": "이야기"
+    },
+    {
+      "id": "daily_life_086",
+      "level": "beginner",
+      "jpText": "ニュース",
+      "koText": "뉴스"
+    },
+    {
+      "id": "daily_life_087",
+      "level": "beginner",
+      "jpText": "情報",
+      "koText": "정보"
+    },
+    {
+      "id": "daily_life_088",
+      "level": "beginner",
+      "jpText": "電気",
+      "koText": "전기"
+    },
+    {
+      "id": "daily_life_089",
+      "level": "beginner",
+      "jpText": "ガス",
+      "koText": "가스"
+    },
+    {
+      "id": "daily_life_090",
+      "level": "beginner",
+      "jpText": "水道",
+      "koText": "수도"
+    },
+    {
+      "id": "daily_life_091",
+      "level": "beginner",
+      "jpText": "ゴミ",
+      "koText": "쓰레기"
+    },
+    {
+      "id": "daily_life_092",
+      "level": "beginner",
+      "jpText": "掃除",
+      "koText": "청소"
+    },
+    {
+      "id": "daily_life_093",
+      "level": "beginner",
+      "jpText": "洗濯",
+      "koText": "빨래"
+    },
+    {
+      "id": "daily_life_094",
+      "level": "beginner",
+      "jpText": "料理",
+      "koText": "요리"
+    },
+    {
+      "id": "daily_life_095",
+      "level": "beginner",
+      "jpText": "材料",
+      "koText": "재료"
+    },
+    {
+      "id": "daily_life_096",
+      "level": "beginner",
+      "jpText": "味",
+      "koText": "맛"
+    },
+    {
+      "id": "daily_life_097",
+      "level": "beginner",
+      "jpText": "匂い",
+      "koText": "냄새"
+    },
+    {
+      "id": "daily_life_098",
+      "level": "beginner",
+      "jpText": "形",
+      "koText": "모양"
+    },
+    {
+      "id": "daily_life_099",
+      "level": "beginner",
+      "jpText": "大きさ",
+      "koText": "크기"
+    },
+    {
+      "id": "daily_life_100",
+      "level": "beginner",
+      "jpText": "重さ",
+      "koText": "무게"
+    },
+    {
+      "id": "daily_life_101",
+      "level": "beginner",
+      "jpText": "長さ",
+      "koText": "길이"
+    },
+    {
+      "id": "daily_life_102",
+      "level": "beginner",
+      "jpText": "高さ",
+      "koText": "높이"
+    },
+    {
+      "id": "daily_life_103",
+      "level": "beginner",
+      "jpText": "広さ",
+      "koText": "넓이"
+    },
+    {
+      "id": "daily_life_104",
+      "level": "beginner",
+      "jpText": "方法",
+      "koText": "방법"
+    },
+    {
+      "id": "daily_life_105",
+      "level": "beginner",
+      "jpText": "規則",
+      "koText": "규칙"
+    },
+    {
+      "id": "daily_life_106",
+      "level": "beginner",
+      "jpText": "習慣",
+      "koText": "습관"
+    },
+    {
+      "id": "daily_life_107",
+      "level": "beginner",
+      "jpText": "癖",
+      "koText": "버릇"
+    },
+    {
+      "id": "daily_life_108",
+      "level": "beginner",
+      "jpText": "ミス",
+      "koText": "실수"
+    },
+    {
+      "id": "daily_life_109",
+      "level": "beginner",
+      "jpText": "成功",
+      "koText": "성공"
+    },
+    {
+      "id": "daily_life_110",
+      "level": "beginner",
+      "jpText": "失敗",
+      "koText": "실패"
+    },
+    {
+      "id": "daily_life_111",
+      "level": "beginner",
+      "jpText": "機会",
+      "koText": "기회"
+    },
+    {
+      "id": "daily_life_112",
+      "level": "beginner",
+      "jpText": "経験",
+      "koText": "경험"
+    },
+    {
+      "id": "daily_life_113",
+      "level": "beginner",
+      "jpText": "思い出",
+      "koText": "추억"
+    },
+    {
+      "id": "daily_life_114",
+      "level": "beginner",
+      "jpText": "未来",
+      "koText": "미래"
+    },
+    {
+      "id": "daily_life_115",
+      "level": "beginner",
+      "jpText": "過去",
+      "koText": "과거"
+    },
+    {
+      "id": "daily_life_116",
+      "level": "beginner",
+      "jpText": "現在",
+      "koText": "현재"
+    },
+    {
+      "id": "daily_life_117",
+      "level": "beginner",
+      "jpText": "始まり",
+      "koText": "시작"
+    },
+    {
+      "id": "daily_life_118",
+      "level": "beginner",
+      "jpText": "終わり",
+      "koText": "끝"
+    },
+    {
+      "id": "daily_life_119",
+      "level": "beginner",
+      "jpText": "中間",
+      "koText": "중간"
+    },
+    {
+      "id": "daily_life_120",
+      "level": "beginner",
+      "jpText": "最後",
+      "koText": "마지막"
+    }
+  ]
+}

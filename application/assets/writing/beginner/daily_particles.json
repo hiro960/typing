@@ -1,0 +1,179 @@
+{
+  "topicId": "daily_particles",
+  "entries": [
+    {
+      "id": "daily_life_335",
+      "level": "beginner",
+      "jpText": "は（子音の後）",
+      "koText": "은"
+    },
+    {
+      "id": "daily_life_336",
+      "level": "beginner",
+      "jpText": "は（母音の後）",
+      "koText": "는"
+    },
+    {
+      "id": "daily_life_337",
+      "level": "beginner",
+      "jpText": "が（子音の後）",
+      "koText": "이"
+    },
+    {
+      "id": "daily_life_338",
+      "level": "beginner",
+      "jpText": "が（母音の後）",
+      "koText": "가"
+    },
+    {
+      "id": "daily_life_339",
+      "level": "beginner",
+      "jpText": "を（子音の後）",
+      "koText": "을"
+    },
+    {
+      "id": "daily_life_340",
+      "level": "beginner",
+      "jpText": "を（母音の後）",
+      "koText": "를"
+    },
+    {
+      "id": "daily_life_341",
+      "level": "beginner",
+      "jpText": "に・で（場所）",
+      "koText": "에"
+    },
+    {
+      "id": "daily_life_342",
+      "level": "beginner",
+      "jpText": "で（動作場所）",
+      "koText": "에서"
+    },
+    {
+      "id": "daily_life_343",
+      "level": "beginner",
+      "jpText": "と（子音の後）",
+      "koText": "과"
+    },
+    {
+      "id": "daily_life_344",
+      "level": "beginner",
+      "jpText": "と（母音の後）",
+      "koText": "와"
+    },
+    {
+      "id": "daily_life_345",
+      "level": "beginner",
+      "jpText": "と（口語）",
+      "koText": "하고"
+    },
+    {
+      "id": "daily_life_346",
+      "level": "beginner",
+      "jpText": "と（口語）",
+      "koText": "이랑"
+    },
+    {
+      "id": "daily_life_347",
+      "level": "beginner",
+      "jpText": "と（口語・母音後）",
+      "koText": "랑"
+    },
+    {
+      "id": "daily_life_348",
+      "level": "beginner",
+      "jpText": "に（人）",
+      "koText": "에게"
+    },
+    {
+      "id": "daily_life_349",
+      "level": "beginner",
+      "jpText": "に（人・口語）",
+      "koText": "한테"
+    },
+    {
+      "id": "daily_life_350",
+      "level": "beginner",
+      "jpText": "から（人）",
+      "koText": "에게서"
+    },
+    {
+      "id": "daily_life_351",
+      "level": "beginner",
+      "jpText": "から（人・口語）",
+      "koText": "한테서"
+    },
+    {
+      "id": "daily_life_352",
+      "level": "beginner",
+      "jpText": "に（敬語）",
+      "koText": "께"
+    },
+    {
+      "id": "daily_life_353",
+      "level": "beginner",
+      "jpText": "が（敬語）",
+      "koText": "께서"
+    },
+    {
+      "id": "daily_life_354",
+      "level": "beginner",
+      "jpText": "の",
+      "koText": "의"
+    },
+    {
+      "id": "daily_life_355",
+      "level": "beginner",
+      "jpText": "も",
+      "koText": "도"
+    },
+    {
+      "id": "daily_life_356",
+      "level": "beginner",
+      "jpText": "だけ",
+      "koText": "만"
+    },
+    {
+      "id": "daily_life_357",
+      "level": "beginner",
+      "jpText": "まで",
+      "koText": "까지"
+    },
+    {
+      "id": "daily_life_358",
+      "level": "beginner",
+      "jpText": "から",
+      "koText": "부터"
+    },
+    {
+      "id": "daily_life_359",
+      "level": "beginner",
+      "jpText": "より",
+      "koText": "보다"
+    },
+    {
+      "id": "daily_life_362",
+      "level": "beginner",
+      "jpText": "ごとに",
+      "koText": "마다"
+    },
+    {
+      "id": "daily_life_363",
+      "level": "beginner",
+      "jpText": "ずつ",
+      "koText": "씩"
+    },
+    {
+      "id": "daily_life_364",
+      "level": "beginner",
+      "jpText": "も・くらい",
+      "koText": "이나"
+    },
+    {
+      "id": "daily_life_365",
+      "level": "beginner",
+      "jpText": "も・くらい",
+      "koText": "나"
+    }
+  ]
+}

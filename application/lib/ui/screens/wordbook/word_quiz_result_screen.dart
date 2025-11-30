@@ -1,6 +1,7 @@
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:forui/forui.dart';
 
 import '../../../features/wordbook/data/models/word_model.dart';
 import '../../../features/wordbook/domain/providers/word_quiz_controller.dart';
@@ -49,16 +50,23 @@ class _WordQuizResultScreenState extends ConsumerState<WordQuizResultScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
+    final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
     final knownCount = widget.results
         .where((result) => result.status == WordQuizAnswerStatus.known)
         .length;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('クイズ結果'),
+    return FScaffold(
+      header: FHeader.nested(
+        title: Text(
+          'クイズ結果',
+          style: theme.textTheme.titleLarge,
+        ),
+        prefixes: [
+          FHeaderAction.back(onPress: () => Navigator.of(context).pop()),
+        ],
       ),
-      body: Stack(
+      child: Stack(
         children: [
           Column(
             children: [
@@ -69,12 +77,12 @@ class _WordQuizResultScreenState extends ConsumerState<WordQuizResultScreen> {
                   children: [
                     Text(
                       widget.completedAllCards ? 'お疲れさまでした！' : '途中結果',
-                      style: Theme.of(context).textTheme.headlineSmall,
+                      style: theme.textTheme.headlineSmall,
                     ),
                     const SizedBox(height: 4),
                     Text(
                       '正解: $knownCount / ${widget.sourceWords.length}',
-                      style: Theme.of(context).textTheme.bodyLarge,
+                      style: theme.textTheme.bodyLarge,
                     ),
                   ],
                 ),
@@ -105,20 +113,17 @@ class _WordQuizResultScreenState extends ConsumerState<WordQuizResultScreen> {
                 padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
                 child: Column(
                   children: [
-                    SizedBox(
-                      width: double.infinity,
-                      child: FilledButton(
-                        onPressed: () => widget.onReplay(context),
-                        child: const Text('もう一度クイズをする'),
-                      ),
+                    FButton(
+                      mainAxisSize: MainAxisSize.max,
+                      onPress: () => widget.onReplay(context),
+                      child: const Text('もう一度クイズをする'),
                     ),
                     const SizedBox(height: 12),
-                    SizedBox(
-                      width: double.infinity,
-                      child: OutlinedButton(
-                        onPressed: () => Navigator.of(context).pop(),
-                        child: const Text('単語帳に戻る'),
-                      ),
+                    FButton(
+                      mainAxisSize: MainAxisSize.max,
+                      style: FButtonStyle.outline(),
+                      onPress: () => Navigator.of(context).pop(),
+                      child: const Text('単語帳に戻る'),
                     ),
                   ],
                 ),
@@ -189,13 +194,13 @@ class _ResultCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
+    final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
     final isKnown = result.status == WordQuizAnswerStatus.known;
     final statusColor = isKnown ? scheme.primary : scheme.error;
     final mastered = currentStatus == WordStatus.MASTERED;
 
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+    return FCard.raw(
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -203,38 +208,84 @@ class _ResultCard extends StatelessWidget {
           children: [
             Text(
               result.word.word,
-              style: Theme.of(context).textTheme.titleLarge,
+              style: theme.textTheme.titleLarge,
             ),
             const SizedBox(height: 4),
             Text(
               result.word.meaning,
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: scheme.onSurfaceVariant,
-                  ),
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: scheme.onSurfaceVariant,
+              ),
             ),
             const SizedBox(height: 12),
             Row(
               children: [
-                Chip(
-                  label: Text(result.status.label),
-                  backgroundColor: statusColor.withValues(alpha: 0.15),
-                  labelStyle: TextStyle(color: statusColor),
+                _StatusBadge(
+                  label: result.status.label,
+                  color: statusColor,
+                  filled: true,
                 ),
-                const SizedBox(width: 12),
-                Chip(
-                  label: Text(currentStatus.label),
+                const SizedBox(width: 8),
+                _StatusBadge(
+                  label: currentStatus.label,
+                  color: _wordStatusColor(currentStatus, scheme),
+                  filled: false,
                 ),
               ],
             ),
             const SizedBox(height: 12),
-            SizedBox(
-              width: double.infinity,
-              child: OutlinedButton(
-                onPressed: isUpdating ? null : onToggleMaster,
-                child: Text(mastered ? '復習中に戻す' : '覚えた'),
-              ),
+            FButton(
+              mainAxisSize: MainAxisSize.max,
+              style: FButtonStyle.outline(),
+              onPress: isUpdating ? null : onToggleMaster,
+              child: Text(mastered ? '復習中に戻す' : '覚えた'),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Color _wordStatusColor(WordStatus status, ColorScheme scheme) {
+    switch (status) {
+      case WordStatus.MASTERED:
+        return scheme.tertiary;
+      case WordStatus.REVIEWING:
+        return scheme.primary;
+      case WordStatus.NEEDS_REVIEW:
+        return scheme.error;
+    }
+  }
+}
+
+class _StatusBadge extends StatelessWidget {
+  const _StatusBadge({
+    required this.label,
+    required this.color,
+    required this.filled,
+  });
+
+  final String label;
+  final Color color;
+  final bool filled;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      decoration: BoxDecoration(
+        color: filled ? color.withValues(alpha: 0.15) : Colors.transparent,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(
+          color: color.withValues(alpha: filled ? 0.3 : 0.5),
+        ),
+      ),
+      child: Text(
+        label,
+        style: theme.textTheme.labelMedium?.copyWith(
+          color: color,
+          fontWeight: FontWeight.w600,
         ),
       ),
     );

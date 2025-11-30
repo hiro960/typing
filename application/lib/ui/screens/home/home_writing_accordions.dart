@@ -5,13 +5,13 @@ class _WritingPatternAccordions extends ConsumerWidget {
     required this.controller,
     required this.title,
     required this.subtitle,
-    required this.isHobbySection,
+    required this.lane,
   });
 
   final FAccordionController controller;
   final String title;
   final String subtitle;
-  final bool isHobbySection;
+  final WritingLane lane;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -27,9 +27,7 @@ class _WritingPatternAccordions extends ConsumerWidget {
         child: Text('エラーが発生しました: $error'),
       ),
       data: (patterns) {
-        final filtered = patterns
-            .where((p) => p.id.startsWith('hobby_') == isHobbySection)
-            .toList();
+        final filtered = patterns.where((p) => p.lane == lane).toList();
 
         if (filtered.isEmpty) {
           return const Padding(
@@ -47,8 +45,9 @@ class _WritingPatternAccordions extends ConsumerWidget {
                 children: [
                   CircleAvatar(
                     radius: 18,
-                    backgroundColor:
-                        AppColors.accentStart.withValues(alpha: 0.18),
+                    backgroundColor: AppColors.accentStart.withValues(
+                      alpha: 0.18,
+                    ),
                     child: const Icon(
                       Icons.edit_note,
                       color: AppColors.accentStart,
@@ -63,13 +62,12 @@ class _WritingPatternAccordions extends ConsumerWidget {
                         Text(title),
                         Text(
                           subtitle,
-                          style:
-                              Theme.of(context).textTheme.bodySmall?.copyWith(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .onSurface
-                                        .withValues(alpha: 0.6),
-                                  ),
+                          style: Theme.of(context).textTheme.bodySmall
+                              ?.copyWith(
+                                color: Theme.of(
+                                  context,
+                                ).colorScheme.onSurface.withValues(alpha: 0.6),
+                              ),
                         ),
                       ],
                     ),
@@ -97,18 +95,13 @@ class _WritingPatternAccordions extends ConsumerWidget {
 
   void _navigateToTopicList(BuildContext context, WritingPattern pattern) {
     Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (_) => TopicListScreen(pattern: pattern),
-      ),
+      MaterialPageRoute(builder: (_) => TopicListScreen(pattern: pattern)),
     );
   }
 }
 
 class _PatternTile extends StatelessWidget {
-  const _PatternTile({
-    required this.pattern,
-    required this.onTap,
-  });
+  const _PatternTile({required this.pattern, required this.onTap});
 
   final WritingPattern pattern;
   final VoidCallback onTap;

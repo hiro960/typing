@@ -568,7 +568,7 @@ as List<WritingEntry>,
 /// @nodoc
 mixin _$WritingPattern {
 
- String get id; String get name; String get description; String get icon; List<WritingTopic> get topics;
+ String get id; String get name; String get description; String get icon; List<WritingTopic> get topics;@JsonKey(includeFromJson: false, includeToJson: false) WritingLane get lane;
 /// Create a copy of WritingPattern
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -581,16 +581,16 @@ $WritingPatternCopyWith<WritingPattern> get copyWith => _$WritingPatternCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is WritingPattern&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.icon, icon) || other.icon == icon)&&const DeepCollectionEquality().equals(other.topics, topics));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WritingPattern&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.icon, icon) || other.icon == icon)&&const DeepCollectionEquality().equals(other.topics, topics)&&(identical(other.lane, lane) || other.lane == lane));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,description,icon,const DeepCollectionEquality().hash(topics));
+int get hashCode => Object.hash(runtimeType,id,name,description,icon,const DeepCollectionEquality().hash(topics),lane);
 
 @override
 String toString() {
-  return 'WritingPattern(id: $id, name: $name, description: $description, icon: $icon, topics: $topics)';
+  return 'WritingPattern(id: $id, name: $name, description: $description, icon: $icon, topics: $topics, lane: $lane)';
 }
 
 
@@ -601,7 +601,7 @@ abstract mixin class $WritingPatternCopyWith<$Res>  {
   factory $WritingPatternCopyWith(WritingPattern value, $Res Function(WritingPattern) _then) = _$WritingPatternCopyWithImpl;
 @useResult
 $Res call({
- String id, String name, String description, String icon, List<WritingTopic> topics
+ String id, String name, String description, String icon, List<WritingTopic> topics,@JsonKey(includeFromJson: false, includeToJson: false) WritingLane lane
 });
 
 
@@ -618,14 +618,15 @@ class _$WritingPatternCopyWithImpl<$Res>
 
 /// Create a copy of WritingPattern
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? description = null,Object? icon = null,Object? topics = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? description = null,Object? icon = null,Object? topics = null,Object? lane = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,icon: null == icon ? _self.icon : icon // ignore: cast_nullable_to_non_nullable
 as String,topics: null == topics ? _self.topics : topics // ignore: cast_nullable_to_non_nullable
-as List<WritingTopic>,
+as List<WritingTopic>,lane: null == lane ? _self.lane : lane // ignore: cast_nullable_to_non_nullable
+as WritingLane,
   ));
 }
 
@@ -710,10 +711,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String description,  String icon,  List<WritingTopic> topics)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String description,  String icon,  List<WritingTopic> topics, @JsonKey(includeFromJson: false, includeToJson: false)  WritingLane lane)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _WritingPattern() when $default != null:
-return $default(_that.id,_that.name,_that.description,_that.icon,_that.topics);case _:
+return $default(_that.id,_that.name,_that.description,_that.icon,_that.topics,_that.lane);case _:
   return orElse();
 
 }
@@ -731,10 +732,10 @@ return $default(_that.id,_that.name,_that.description,_that.icon,_that.topics);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String description,  String icon,  List<WritingTopic> topics)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String description,  String icon,  List<WritingTopic> topics, @JsonKey(includeFromJson: false, includeToJson: false)  WritingLane lane)  $default,) {final _that = this;
 switch (_that) {
 case _WritingPattern():
-return $default(_that.id,_that.name,_that.description,_that.icon,_that.topics);case _:
+return $default(_that.id,_that.name,_that.description,_that.icon,_that.topics,_that.lane);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -751,10 +752,10 @@ return $default(_that.id,_that.name,_that.description,_that.icon,_that.topics);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String description,  String icon,  List<WritingTopic> topics)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String description,  String icon,  List<WritingTopic> topics, @JsonKey(includeFromJson: false, includeToJson: false)  WritingLane lane)?  $default,) {final _that = this;
 switch (_that) {
 case _WritingPattern() when $default != null:
-return $default(_that.id,_that.name,_that.description,_that.icon,_that.topics);case _:
+return $default(_that.id,_that.name,_that.description,_that.icon,_that.topics,_that.lane);case _:
   return null;
 
 }
@@ -766,7 +767,7 @@ return $default(_that.id,_that.name,_that.description,_that.icon,_that.topics);c
 @JsonSerializable()
 
 class _WritingPattern implements WritingPattern {
-  const _WritingPattern({required this.id, required this.name, required this.description, required this.icon, required final  List<WritingTopic> topics}): _topics = topics;
+  const _WritingPattern({required this.id, required this.name, required this.description, required this.icon, required final  List<WritingTopic> topics, @JsonKey(includeFromJson: false, includeToJson: false) this.lane = WritingLane.topik}): _topics = topics;
   factory _WritingPattern.fromJson(Map<String, dynamic> json) => _$WritingPatternFromJson(json);
 
 @override final  String id;
@@ -780,6 +781,7 @@ class _WritingPattern implements WritingPattern {
   return EqualUnmodifiableListView(_topics);
 }
 
+@override@JsonKey(includeFromJson: false, includeToJson: false) final  WritingLane lane;
 
 /// Create a copy of WritingPattern
 /// with the given fields replaced by the non-null parameter values.
@@ -794,16 +796,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WritingPattern&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.icon, icon) || other.icon == icon)&&const DeepCollectionEquality().equals(other._topics, _topics));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WritingPattern&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.icon, icon) || other.icon == icon)&&const DeepCollectionEquality().equals(other._topics, _topics)&&(identical(other.lane, lane) || other.lane == lane));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,description,icon,const DeepCollectionEquality().hash(_topics));
+int get hashCode => Object.hash(runtimeType,id,name,description,icon,const DeepCollectionEquality().hash(_topics),lane);
 
 @override
 String toString() {
-  return 'WritingPattern(id: $id, name: $name, description: $description, icon: $icon, topics: $topics)';
+  return 'WritingPattern(id: $id, name: $name, description: $description, icon: $icon, topics: $topics, lane: $lane)';
 }
 
 
@@ -814,7 +816,7 @@ abstract mixin class _$WritingPatternCopyWith<$Res> implements $WritingPatternCo
   factory _$WritingPatternCopyWith(_WritingPattern value, $Res Function(_WritingPattern) _then) = __$WritingPatternCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String name, String description, String icon, List<WritingTopic> topics
+ String id, String name, String description, String icon, List<WritingTopic> topics,@JsonKey(includeFromJson: false, includeToJson: false) WritingLane lane
 });
 
 
@@ -831,14 +833,15 @@ class __$WritingPatternCopyWithImpl<$Res>
 
 /// Create a copy of WritingPattern
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? description = null,Object? icon = null,Object? topics = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? description = null,Object? icon = null,Object? topics = null,Object? lane = null,}) {
   return _then(_WritingPattern(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,icon: null == icon ? _self.icon : icon // ignore: cast_nullable_to_non_nullable
 as String,topics: null == topics ? _self._topics : topics // ignore: cast_nullable_to_non_nullable
-as List<WritingTopic>,
+as List<WritingTopic>,lane: null == lane ? _self.lane : lane // ignore: cast_nullable_to_non_nullable
+as WritingLane,
   ));
 }
 

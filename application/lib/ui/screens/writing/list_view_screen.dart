@@ -6,6 +6,7 @@ import '../../../features/writing/data/models/writing_models.dart';
 import '../../../features/writing/domain/providers/writing_providers.dart';
 import '../../app_spacing.dart';
 import '../../widgets/app_page_scaffold.dart';
+import '../wordbook/word_form_screen.dart';
 
 /// 一覧確認画面
 class ListViewScreen extends ConsumerWidget {
@@ -21,19 +22,15 @@ class ListViewScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final topicAsync = ref.watch(
-      writingTopicProvider((
-        patternId: patternId,
-        topicId: topicId,
-      )),
+      writingTopicProvider((patternId: patternId, topicId: topicId)),
     );
 
     return topicAsync.when(
       loading: () => const AppPageScaffold(
         child: Center(child: CircularProgressIndicator()),
       ),
-      error: (error, stack) => AppPageScaffold(
-        child: Center(child: Text('エラーが発生しました: $error')),
-      ),
+      error: (error, stack) =>
+          AppPageScaffold(child: Center(child: Text('エラーが発生しました: $error'))),
       data: (topic) {
         if (topic == null) {
           return const AppPageScaffold(
@@ -57,8 +54,8 @@ class ListViewScreen extends ConsumerWidget {
             Text(
               '一覧確認',
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                  ),
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
             ),
           ],
         ),
@@ -75,29 +72,24 @@ class ListViewScreen extends ConsumerWidget {
               child: Text(
                 topic.description,
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    ),
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
               ),
             ),
           ),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
             sliver: SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (context, index) {
-                  final entry = topic.entries[index];
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: AppSpacing.md),
-                    child: _EntryCard(entry: entry),
-                  );
-                },
-                childCount: topic.entries.length,
-              ),
+              delegate: SliverChildBuilderDelegate((context, index) {
+                final entry = topic.entries[index];
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: AppSpacing.md),
+                  child: _EntryCard(entry: entry),
+                );
+              }, childCount: topic.entries.length),
             ),
           ),
-          const SliverToBoxAdapter(
-            child: SizedBox(height: AppSpacing.xl),
-          ),
+          const SliverToBoxAdapter(child: SizedBox(height: AppSpacing.xl)),
         ],
       ),
     );
@@ -126,17 +118,33 @@ class _EntryCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _buildLevelBadge(context, entry.level),
-                if (isSentence) ...[
-                  const SizedBox(width: AppSpacing.xs),
-                  Text(
-                    '(参照のみ)',
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      color: theme.colorScheme.onSurfaceVariant,
-                    ),
+                Expanded(
+                  child: Row(
+                    children: [
+                      _buildLevelBadge(context, entry.level),
+                      if (isSentence) ...[
+                        const SizedBox(width: AppSpacing.xs),
+                        Text(
+                          '(参照のみ)',
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.colorScheme.onSurfaceVariant,
+                          ),
+                        ),
+                      ],
+                    ],
                   ),
-                ],
+                ),
+                IconButton.filledTonal(
+                  onPressed: () => _openWordForm(context),
+                  icon: const Icon(Icons.bookmark_add_outlined, size: 18),
+                  style: IconButton.styleFrom(
+                    backgroundColor: theme.colorScheme.secondaryContainer,
+                    foregroundColor: theme.colorScheme.onSecondaryContainer,
+                    minimumSize: const Size(24, 24),
+                  ),
+                ),
               ],
             ),
             const SizedBox(height: AppSpacing.sm),
@@ -199,9 +207,7 @@ class _EntryCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: color.withOpacity(0.1),
         borderRadius: BorderRadius.circular(4),
-        border: Border.all(
-          color: color.withOpacity(0.3),
-        ),
+        border: Border.all(color: color.withOpacity(0.3)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -209,16 +215,24 @@ class _EntryCard extends StatelessWidget {
           Text(
             label,
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: color,
-                  fontWeight: FontWeight.bold,
-                ),
+              color: color,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(height: AppSpacing.xs),
-          Text(
-            text,
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
+          Text(text, style: Theme.of(context).textTheme.bodyLarge),
         ],
+      ),
+    );
+  }
+
+  Future<void> _openWordForm(BuildContext context) async {
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => WordFormScreen(
+          initialWord: entry.koText,
+          initialMeaning: entry.jpText,
+        ),
       ),
     );
   }

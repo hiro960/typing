@@ -1,0 +1,125 @@
+{
+  "topicId": "daily_home",
+  "entries": [
+    {
+      "id": "daily_life_252",
+      "level": "beginner",
+      "jpText": "家",
+      "koText": "집"
+    },
+    {
+      "id": "daily_life_253",
+      "level": "beginner",
+      "jpText": "部屋",
+      "koText": "방"
+    },
+    {
+      "id": "daily_life_254",
+      "level": "beginner",
+      "jpText": "ドア",
+      "koText": "문"
+    },
+    {
+      "id": "daily_life_255",
+      "level": "beginner",
+      "jpText": "窓",
+      "koText": "창문"
+    },
+    {
+      "id": "daily_life_256",
+      "level": "beginner",
+      "jpText": "椅子",
+      "koText": "의자"
+    },
+    {
+      "id": "daily_life_257",
+      "level": "beginner",
+      "jpText": "机",
+      "koText": "책상"
+    },
+    {
+      "id": "daily_life_258",
+      "level": "beginner",
+      "jpText": "ベッド",
+      "koText": "침대"
+    },
+    {
+      "id": "daily_life_259",
+      "level": "beginner",
+      "jpText": "トイレ",
+      "koText": "화장실"
+    },
+    {
+      "id": "daily_life_260",
+      "level": "beginner",
+      "jpText": "台所",
+      "koText": "부엌"
+    },
+    {
+      "id": "daily_life_261",
+      "level": "beginner",
+      "jpText": "リビング",
+      "koText": "거실"
+    },
+    {
+      "id": "daily_life_262",
+      "level": "beginner",
+      "jpText": "時計",
+      "koText": "시계"
+    },
+    {
+      "id": "daily_life_263",
+      "level": "beginner",
+      "jpText": "電話",
+      "koText": "전화"
+    },
+    {
+      "id": "daily_life_264",
+      "level": "beginner",
+      "jpText": "コンピューター",
+      "koText": "컴퓨터"
+    },
+    {
+      "id": "daily_life_265",
+      "level": "beginner",
+      "jpText": "傘",
+      "koText": "우산"
+    },
+    {
+      "id": "daily_life_266",
+      "level": "beginner",
+      "jpText": "靴",
+      "koText": "신발"
+    },
+    {
+      "id": "daily_life_267",
+      "level": "beginner",
+      "jpText": "服",
+      "koText": "옷"
+    },
+    {
+      "id": "daily_life_268",
+      "level": "beginner",
+      "jpText": "帽子",
+      "koText": "모자"
+    },
+    {
+      "id": "daily_life_269",
+      "level": "beginner",
+      "jpText": "メガネ",
+      "koText": "안경"
+    },
+    {
+      "id": "daily_life_270",
+      "level": "beginner",
+      "jpText": "財布",
+      "koText": "지갑"
+    },
+    {
+      "id": "daily_life_271",
+      "level": "beginner",
+      "jpText": "鍵",
+      "koText": "열쇠"
+    }
+  ]
+}

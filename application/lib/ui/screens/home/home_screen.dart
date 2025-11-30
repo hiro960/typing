@@ -40,12 +40,14 @@ class HomeScreen extends ConsumerStatefulWidget {
 class _HomeScreenState extends ConsumerState<HomeScreen> {
   final _typingAccordionController = FAccordionController(max: 1);
   final _writingAccordionController = FAccordionController(max: 1);
+  final _beginnerWritingAccordionController = FAccordionController(max: 1);
   final _hobbyWritingAccordionController = FAccordionController(max: 1);
 
   @override
   void dispose() {
     _typingAccordionController.dispose();
     _writingAccordionController.dispose();
+    _beginnerWritingAccordionController.dispose();
     _hobbyWritingAccordionController.dispose();
     super.dispose();
   }
@@ -95,7 +97,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         maxWpm: user?.maxWPM ?? 0,
                       ),
                       const SizedBox(height: AppSpacing.xxl),
-                      const SectionTitle(iconData: Icons.keyboard, text: 'タイピング練習'),
+                      const SectionTitle(
+                        iconData: Icons.keyboard,
+                        text: 'タイピング練習',
+                      ),
                       _LevelAccordions(
                         controller: _typingAccordionController,
                         catalog: state.catalog,
@@ -106,18 +111,25 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       const RankingGameSection(),
                       const SizedBox(height: AppSpacing.xxl),
                       const SectionTitle(iconData: Icons.edit, text: '書き取り練習'),
+                      const SizedBox(height: AppSpacing.md),
                       _WritingPatternAccordions(
-                        controller: _writingAccordionController,
-                        title: 'TOPIK対策',
-                        subtitle: 'タイピングで覚える論述パターン',
-                        isHobbySection: false,
+                        controller: _beginnerWritingAccordionController,
+                        title: '単語',
+                        subtitle: 'カテゴリ別の基本単語をタイピング練習',
+                        lane: WritingLane.beginner,
                       ),
                       const SizedBox(height: AppSpacing.md),
                       _WritingPatternAccordions(
                         controller: _hobbyWritingAccordionController,
                         title: '趣味対策',
                         subtitle: 'SNSや韓ドラ、推しなど気軽に書ける題材',
-                        isHobbySection: true,
+                        lane: WritingLane.hobby,
+                      ),
+                      _WritingPatternAccordions(
+                        controller: _writingAccordionController,
+                        title: 'TOPIK対策',
+                        subtitle: 'タイピングで覚える論述パターン',
+                        lane: WritingLane.topik,
                       ),
                       const SizedBox(height: AppSpacing.xl),
                       Padding(

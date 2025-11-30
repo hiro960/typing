@@ -152,11 +152,23 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
             ),
         ],
       ),
-      child: ListView(
-        padding: AppPadding.profilePage,
-        children: [
-          const SizedBox(height: AppSpacing.md),
-          ProfileHero(
+      child: RefreshIndicator(
+        onRefresh: () async {
+          ref.invalidate(userProfileProvider(profile.id));
+          ref.invalidate(userStatsProvider(profile.id));
+          if (_selectedTabIndex == 0) {
+            ref.invalidate(userPostsProvider(profile.id));
+          } else if (_selectedTabIndex == 1) {
+            ref.invalidate(userFollowersProvider(profile.id));
+          } else {
+            ref.invalidate(userFollowingProvider(profile.id));
+          }
+        },
+        child: ListView(
+          padding: AppPadding.profilePage,
+          children: [
+            const SizedBox(height: AppSpacing.md),
+            ProfileHero(
             profile: profile,
             theme: theme,
             isOwner: isOwner,
@@ -306,6 +318,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
           else
             _buildFollowingList(context, profile.id),
         ],
+        ),
       ),
     );
   }

@@ -1,0 +1,125 @@
+{
+  "topicId": "daily_connectives",
+  "entries": [
+    {
+      "id": "daily_life_201",
+      "level": "beginner",
+      "jpText": "どうりで",
+      "koText": "어쩐지"
+    },
+    {
+      "id": "daily_life_202",
+      "level": "beginner",
+      "jpText": "なんとなく",
+      "koText": "왠지"
+    },
+    {
+      "id": "daily_life_203",
+      "level": "beginner",
+      "jpText": "その上",
+      "koText": "게다가"
+    },
+    {
+      "id": "daily_life_204",
+      "level": "beginner",
+      "jpText": "したがって",
+      "koText": "따라서"
+    },
+    {
+      "id": "daily_life_205",
+      "level": "beginner",
+      "jpText": "もし",
+      "koText": "만약"
+    },
+    {
+      "id": "daily_life_206",
+      "level": "beginner",
+      "jpText": "そうしてこそ",
+      "koText": "그래야"
+    },
+    {
+      "id": "daily_life_207",
+      "level": "beginner",
+      "jpText": "どうせ",
+      "koText": "어차피"
+    },
+    {
+      "id": "daily_life_208",
+      "level": "beginner",
+      "jpText": "いっそ",
+      "koText": "차라리"
+    },
+    {
+      "id": "daily_life_209",
+      "level": "beginner",
+      "jpText": "一方",
+      "koText": "한편"
+    },
+    {
+      "id": "daily_life_210",
+      "level": "beginner",
+      "jpText": "つまり",
+      "koText": "즉"
+    },
+    {
+      "id": "daily_life_211",
+      "level": "beginner",
+      "jpText": "例えば",
+      "koText": "예를 들어"
+    },
+    {
+      "id": "daily_life_212",
+      "level": "beginner",
+      "jpText": "特に",
+      "koText": "특히"
+    },
+    {
+      "id": "daily_life_213",
+      "level": "beginner",
+      "jpText": "さらには",
+      "koText": "심지어"
+    },
+    {
+      "id": "daily_life_214",
+      "level": "beginner",
+      "jpText": "ただ・だけ",
+      "koText": "오직"
+    },
+    {
+      "id": "daily_life_215",
+      "level": "beginner",
+      "jpText": "ただ・単に",
+      "koText": "단지"
+    },
+    {
+      "id": "daily_life_218",
+      "level": "beginner",
+      "jpText": "だんだん",
+      "koText": "점점"
+    },
+    {
+      "id": "daily_life_219",
+      "level": "beginner",
+      "jpText": "次第に",
+      "koText": "점차"
+    },
+    {
+      "id": "daily_life_220",
+      "level": "beginner",
+      "jpText": "さらに",
+      "koText": "더욱"
+    },
+    {
+      "id": "daily_life_237",
+      "level": "beginner",
+      "jpText": "また・再び",
+      "koText": "다시"
+    },
+    {
+      "id": "daily_life_238",
+      "level": "beginner",
+      "jpText": "また",
+      "koText": "또"
+    }
+  ]
+}

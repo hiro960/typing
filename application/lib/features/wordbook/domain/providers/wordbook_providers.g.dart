@@ -356,3 +356,51 @@ abstract class _$WordAudioService extends $AsyncNotifier<void> {
     element.handleValue(ref, null);
   }
 }
+
+@ProviderFor(WordbookViewModeNotifier)
+const wordbookViewModeProvider = WordbookViewModeNotifierProvider._();
+
+final class WordbookViewModeNotifierProvider
+    extends $AsyncNotifierProvider<WordbookViewModeNotifier, WordbookViewMode> {
+  const WordbookViewModeNotifierProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'wordbookViewModeProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$wordbookViewModeNotifierHash();
+
+  @$internal
+  @override
+  WordbookViewModeNotifier create() => WordbookViewModeNotifier();
+}
+
+String _$wordbookViewModeNotifierHash() =>
+    r'6f4f3d161326212d3881ce787e8191cf4fdf1a2f';
+
+abstract class _$WordbookViewModeNotifier
+    extends $AsyncNotifier<WordbookViewMode> {
+  FutureOr<WordbookViewMode> build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref =
+        this.ref as $Ref<AsyncValue<WordbookViewMode>, WordbookViewMode>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<AsyncValue<WordbookViewMode>, WordbookViewMode>,
+              AsyncValue<WordbookViewMode>,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
+}

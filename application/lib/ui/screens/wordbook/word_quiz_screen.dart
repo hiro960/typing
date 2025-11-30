@@ -47,7 +47,11 @@ class _WordQuizScreenState extends ConsumerState<WordQuizScreen> {
       child: FScaffold(
         header: FHeader.nested(
           prefixes: [
-            FHeaderAction.back(onPress: _handleBackPressed),
+            FButton(
+              style: FButtonStyle.ghost(),
+              onPress: _handleBackPressed,
+              child: const Text('中断'),
+            ),
           ],
           title: const SizedBox.shrink(),
           suffixes: [

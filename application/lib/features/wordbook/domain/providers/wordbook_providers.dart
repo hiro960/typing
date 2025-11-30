@@ -19,6 +19,12 @@ part 'wordbook_providers.g.dart';
 
 const _uuid = Uuid();
 
+/// 単語帳の表示モード
+enum WordbookViewMode {
+  card,
+  list,
+}
+
 @riverpod
 WordbookRepository wordbookRepository(Ref ref) {
   final apiClient = ref.watch(apiClientServiceProvider);
@@ -719,5 +725,40 @@ class WordAudioService extends _$WordAudioService {
     }
 
     _initialized = true;
+  }
+}
+
+@Riverpod(keepAlive: true)
+class WordbookViewModeNotifier extends _$WordbookViewModeNotifier {
+  static const _cacheKey = 'wordbook_view_mode_v1';
+
+  @override
+  FutureOr<WordbookViewMode> build() async {
+    final prefs = await SharedPreferences.getInstance();
+    final value = prefs.getString(_cacheKey);
+    if (value == null) return WordbookViewMode.card;
+    return WordbookViewMode.values.firstWhere(
+      (mode) => mode.name == value,
+      orElse: () => WordbookViewMode.card,
+    );
+  }
+
+  Future<void> toggle() async {
+    final current = state.value ?? WordbookViewMode.card;
+    final next = current == WordbookViewMode.card
+        ? WordbookViewMode.list
+        : WordbookViewMode.card;
+    state = AsyncData(next);
+    await _save(next);
+  }
+
+  Future<void> setMode(WordbookViewMode mode) async {
+    state = AsyncData(mode);
+    await _save(mode);
+  }
+
+  Future<void> _save(WordbookViewMode mode) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_cacheKey, mode.name);
   }
 }

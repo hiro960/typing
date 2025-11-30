@@ -34,31 +34,40 @@ class _WordDetailScreenState extends ConsumerState<WordDetailScreen> {
       }
     }
 
+    final theme = Theme.of(context);
+
     if (selected == null) {
-      return Scaffold(
-        appBar: AppBar(title: const Text('単語詳細')),
-        body: const Center(child: Text('単語が見つかりませんでした。')),
+      return FScaffold(
+        header: FHeader.nested(
+          title: Text('単語詳細', style: theme.textTheme.titleLarge),
+          prefixes: [
+            FHeaderAction.back(onPress: () => Navigator.of(context).pop()),
+          ],
+        ),
+        child: const Center(child: Text('単語が見つかりませんでした。')),
       );
     }
 
     final word = selected;
-    final theme = Theme.of(context);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(word.word),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.edit),
-            onPressed: () => _openForm(context, word),
+    return FScaffold(
+      header: FHeader.nested(
+        title: Text(word.word, style: theme.textTheme.titleLarge),
+        prefixes: [
+          FHeaderAction.back(onPress: () => Navigator.of(context).pop()),
+        ],
+        suffixes: [
+          FHeaderAction(
+            icon: const Icon(Icons.edit_outlined),
+            onPress: () => _openForm(context, word),
           ),
-          IconButton(
-            icon: const Icon(Icons.delete),
-            onPressed: () => _confirmDelete(context, word),
+          FHeaderAction(
+            icon: const Icon(Icons.delete_outline),
+            onPress: () => _confirmDelete(context, word),
           ),
         ],
       ),
-      body: ListView(
+      child: ListView(
         padding: EdgeInsets.all(AppSpacing.xl - 4),
         children: [
           _StatusHeader(
@@ -105,23 +114,6 @@ class _WordDetailScreenState extends ConsumerState<WordDetailScreen> {
           const SizedBox(height: AppSpacing.sm),
           Text(word.example ?? '例文が登録されていません。'),
           const SizedBox(height: AppSpacing.xl),
-          Text(
-            'タグ',
-            style: theme.textTheme.titleSmall,
-          ),
-          const SizedBox(height: AppSpacing.sm),
-          if (word.tags.isEmpty)
-            const Text('タグなし')
-          else
-            Wrap(
-              spacing: AppSpacing.sm,
-              children: [
-                for (final tag in word.tags)
-                  Chip(
-                    label: Text(tag),
-                  ),
-              ],
-            ),
           const SizedBox(height: 24),
           _MetadataRow(
             label: '復習回数',
@@ -287,10 +279,10 @@ class _StatusHeader extends StatelessWidget {
             ],
           ),
           const Spacer(),
-          IconButton(
-            icon: const Icon(Icons.volume_up_outlined),
-            tooltip: '音声再生',
-            onPressed: onSpeak,
+          FButton.icon(
+            style: FButtonStyle.ghost(),
+            onPress: onSpeak,
+            child: const Icon(Icons.volume_up_outlined),
           ),
         ],
       ),

@@ -31,6 +31,8 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
         searchQuery: '',
       ),
     );
+    final viewMode =
+        ref.watch(wordbookViewModeProvider).value ?? WordbookViewMode.card;
 
     final reviewableWords = (asyncWords.value ?? [])
         .where((word) => word.status != WordStatus.MASTERED)
@@ -55,6 +57,16 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
           ],
         ),
         suffixes: [
+          FHeaderAction(
+            icon: Icon(
+              viewMode == WordbookViewMode.card
+                  ? Icons.view_list_outlined
+                  : Icons.grid_view_outlined,
+            ),
+            onPress: () {
+              ref.read(wordbookViewModeProvider.notifier).toggle();
+            },
+          ),
           FHeaderAction(
             icon: Badge(
               isLabelVisible: canStartQuiz,
@@ -130,30 +142,50 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
               onRefresh: () => ref.read(wordbookProvider.notifier).refresh(),
               child: filteredWords.isEmpty
                   ? _EmptyState(onAdd: _openForm)
-                  : GridView.builder(
-                padding: EdgeInsets.fromLTRB(
-                  AppPadding.homePage.left,
-                  0,
-                  AppPadding.homePage.right,
-                  AppSpacing.xl,
-                ),
-                      physics: const AlwaysScrollableScrollPhysics(),
-                      itemCount: filteredWords.length,
-                      gridDelegate:
-                          const SliverGridDelegateWithMaxCrossAxisExtent(
-                        maxCrossAxisExtent: 260,
-                        mainAxisSpacing: 16,
-                        crossAxisSpacing: 16,
-                        childAspectRatio: 0.95,
-                      ),
-                      itemBuilder: (context, index) {
-                        final word = filteredWords[index];
-                        return _WordCard(
-                          word: word,
-                          onTap: () => _openDetail(word.id),
-                        );
-                      },
-                    ),
+                  : viewMode == WordbookViewMode.card
+                      ? GridView.builder(
+                          padding: EdgeInsets.fromLTRB(
+                            AppPadding.homePage.left,
+                            0,
+                            AppPadding.homePage.right,
+                            AppSpacing.xl,
+                          ),
+                          physics: const AlwaysScrollableScrollPhysics(),
+                          itemCount: filteredWords.length,
+                          gridDelegate:
+                              const SliverGridDelegateWithMaxCrossAxisExtent(
+                            maxCrossAxisExtent: 260,
+                            mainAxisSpacing: 16,
+                            crossAxisSpacing: 16,
+                            childAspectRatio: 0.95,
+                          ),
+                          itemBuilder: (context, index) {
+                            final word = filteredWords[index];
+                            return _WordCard(
+                              word: word,
+                              onTap: () => _openDetail(word.id),
+                            );
+                          },
+                        )
+                      : ListView.separated(
+                          padding: EdgeInsets.fromLTRB(
+                            AppPadding.homePage.left,
+                            0,
+                            AppPadding.homePage.right,
+                            AppSpacing.xl,
+                          ),
+                          physics: const AlwaysScrollableScrollPhysics(),
+                          itemCount: filteredWords.length,
+                          separatorBuilder: (_, __) =>
+                              const SizedBox(height: 8),
+                          itemBuilder: (context, index) {
+                            final word = filteredWords[index];
+                            return _WordListTile(
+                              word: word,
+                              onTap: () => _openDetail(word.id),
+                            );
+                          },
+                        ),
             ),
           ),
         ],
@@ -387,6 +419,73 @@ class _StatusFilterChip extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _WordListTile extends ConsumerWidget {
+  const _WordListTile({required this.word, required this.onTap});
+
+  final Word word;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = Theme.of(context);
+    return GestureDetector(
+      onTap: onTap,
+      child: FCard.raw(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          child: Row(
+            children: [
+              Container(
+                width: 10,
+                height: 10,
+                decoration: BoxDecoration(
+                  color: _statusColor(word.status, theme),
+                  shape: BoxShape.circle,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      word.word,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      word.meaning,
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 8),
+              FButton.icon(
+                style: FButtonStyle.ghost(),
+                onPress: () async {
+                  await ref
+                      .read(wordAudioServiceProvider.notifier)
+                      .speak(word.word);
+                },
+                child: const Icon(Icons.volume_up_outlined, size: 18),
+              ),
+            ],
+          ),
         ),
       ),
     );

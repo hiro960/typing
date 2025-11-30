@@ -10,9 +10,16 @@ import '../../utils/toast_helper.dart';
 import '../../widgets/typing_keyboard.dart';
 
 class WordFormScreen extends ConsumerStatefulWidget {
-  const WordFormScreen({super.key, this.word});
+  const WordFormScreen({
+    super.key,
+    this.word,
+    this.initialWord,
+    this.initialMeaning,
+  });
 
   final Word? word;
+  final String? initialWord;
+  final String? initialMeaning;
 
   bool get isEditing => word != null;
 
@@ -41,8 +48,10 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
   void initState() {
     super.initState();
     final initial = widget.word;
-    _wordController = TextEditingController(text: initial?.word ?? '');
-    _meaningController = TextEditingController(text: initial?.meaning ?? '');
+    final initialWord = initial?.word ?? widget.initialWord ?? '';
+    final initialMeaning = initial?.meaning ?? widget.initialMeaning ?? '';
+    _wordController = TextEditingController(text: initialWord);
+    _meaningController = TextEditingController(text: initialMeaning);
     _exampleController = TextEditingController(text: initial?.example ?? '');
     _tagsController =
         TextEditingController(text: initial?.tags.join(' ') ?? '');
@@ -208,21 +217,10 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
                       },
                     ),
                     const SizedBox(height: 12),
-                    TextFormField(
-                      controller: _tagsController,
-                      decoration: const InputDecoration(
-                        labelText: 'タグ（スペース区切りで最大10件）',
-                        helperText: '#挨拶 #日常 のように入力してください',
-                      ),
-                      onTap: _closeKeyboard,
-                    ),
-                    const SizedBox(height: 24),
-                    SizedBox(
-                      width: double.infinity,
-                      child: FilledButton(
-                        onPressed: _submitting ? null : _save,
-                        child: Text(widget.isEditing ? '更新する' : '保存する'),
-                      ),
+                    FButton(
+                      mainAxisSize: MainAxisSize.max,
+                      onPress: _submitting ? null : _save,
+                      child: Text(widget.isEditing ? '更新する' : '保存する'),
                     ),
                   ],
                 ),
@@ -256,16 +254,6 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
   Future<void> _save() async {
     if (!_formKey.currentState!.validate()) return;
 
-    final tags = _parseTags(_tagsController.text);
-    if (tags.length > 10) {
-      ToastHelper.showError(context, 'タグは最大10個までです。');
-      return;
-    }
-    if (tags.any((tag) => tag.length > 20)) {
-      ToastHelper.showError(context, 'タグは20文字以内で入力してください。');
-      return;
-    }
-
     setState(() {
       _submitting = true;
     });
@@ -281,7 +269,7 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
                   : _exampleController.text.trim(),
               category: _category,
               status: _status,
-              tags: tags,
+              tags: [],
             );
       } else {
         await ref.read(wordbookProvider.notifier).addWord(
@@ -292,7 +280,7 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
                   : _exampleController.text.trim(),
               category: _category,
               status: _status,
-              tags: tags,
+              tags: [],
             );
       }
 

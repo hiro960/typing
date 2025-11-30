@@ -20,6 +20,9 @@ enum WritingMode {
   list, // 一覧確認
 }
 
+/// 書き取りのレーン種別
+enum WritingLane { topik, beginner, hobby }
+
 /// 書き取りエントリ（日本語と韓国語のペア）
 @freezed
 abstract class WritingEntry with _$WritingEntry {
@@ -58,6 +61,9 @@ abstract class WritingPattern with _$WritingPattern {
     required String description,
     required String icon,
     required List<WritingTopic> topics,
+    @Default(WritingLane.topik)
+    @JsonKey(includeFromJson: false, includeToJson: false)
+    WritingLane lane,
   }) = _WritingPattern;
 
   factory WritingPattern.fromJson(Map<String, dynamic> json) =>

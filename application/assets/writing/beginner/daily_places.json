@@ -1,0 +1,299 @@
+{
+  "topicId": "daily_places",
+  "entries": [
+    {
+      "id": "daily_life_384",
+      "level": "beginner",
+      "jpText": "ここ",
+      "koText": "여기"
+    },
+    {
+      "id": "daily_life_385",
+      "level": "beginner",
+      "jpText": "そこ",
+      "koText": "거기"
+    },
+    {
+      "id": "daily_life_386",
+      "level": "beginner",
+      "jpText": "あそこ",
+      "koText": "저기"
+    },
+    {
+      "id": "daily_life_387",
+      "level": "beginner",
+      "jpText": "どこ",
+      "koText": "어디"
+    },
+    {
+      "id": "daily_life_388",
+      "level": "beginner",
+      "jpText": "上",
+      "koText": "위"
+    },
+    {
+      "id": "daily_life_389",
+      "level": "beginner",
+      "jpText": "下",
+      "koText": "아래"
+    },
+    {
+      "id": "daily_life_390",
+      "level": "beginner",
+      "jpText": "前",
+      "koText": "앞"
+    },
+    {
+      "id": "daily_life_391",
+      "level": "beginner",
+      "jpText": "後ろ",
+      "koText": "뒤"
+    },
+    {
+      "id": "daily_life_392",
+      "level": "beginner",
+      "jpText": "横",
+      "koText": "옆"
+    },
+    {
+      "id": "daily_life_393",
+      "level": "beginner",
+      "jpText": "中",
+      "koText": "안"
+    },
+    {
+      "id": "daily_life_394",
+      "level": "beginner",
+      "jpText": "外",
+      "koText": "밖"
+    },
+    {
+      "id": "daily_life_395",
+      "level": "beginner",
+      "jpText": "間",
+      "koText": "사이"
+    },
+    {
+      "id": "daily_life_396",
+      "level": "beginner",
+      "jpText": "真ん中",
+      "koText": "가운데"
+    },
+    {
+      "id": "daily_life_397",
+      "level": "beginner",
+      "jpText": "右側",
+      "koText": "오른쪽"
+    },
+    {
+      "id": "daily_life_398",
+      "level": "beginner",
+      "jpText": "左側",
+      "koText": "왼쪽"
+    },
+    {
+      "id": "daily_life_399",
+      "level": "beginner",
+      "jpText": "東",
+      "koText": "동쪽"
+    },
+    {
+      "id": "daily_life_400",
+      "level": "beginner",
+      "jpText": "西",
+      "koText": "서쪽"
+    },
+    {
+      "id": "daily_life_401",
+      "level": "beginner",
+      "jpText": "南",
+      "koText": "남쪽"
+    },
+    {
+      "id": "daily_life_402",
+      "level": "beginner",
+      "jpText": "北",
+      "koText": "북쪽"
+    },
+    {
+      "id": "daily_life_403",
+      "level": "beginner",
+      "jpText": "近く",
+      "koText": "근처"
+    },
+    {
+      "id": "daily_life_404",
+      "level": "beginner",
+      "jpText": "遠く",
+      "koText": "멀리"
+    },
+    {
+      "id": "daily_life_405",
+      "level": "beginner",
+      "jpText": "近くに",
+      "koText": "가까이"
+    },
+    {
+      "id": "daily_life_406",
+      "level": "beginner",
+      "jpText": "場所",
+      "koText": "곳"
+    },
+    {
+      "id": "daily_life_407",
+      "level": "beginner",
+      "jpText": "地域",
+      "koText": "지역"
+    },
+    {
+      "id": "daily_life_408",
+      "level": "beginner",
+      "jpText": "町内",
+      "koText": "동네"
+    },
+    {
+      "id": "daily_life_409",
+      "level": "beginner",
+      "jpText": "市内",
+      "koText": "시내"
+    },
+    {
+      "id": "daily_life_410",
+      "level": "beginner",
+      "jpText": "市外",
+      "koText": "시외"
+    },
+    {
+      "id": "daily_life_411",
+      "level": "beginner",
+      "jpText": "都市",
+      "koText": "도시"
+    },
+    {
+      "id": "daily_life_412",
+      "level": "beginner",
+      "jpText": "田舎",
+      "koText": "시골"
+    },
+    {
+      "id": "daily_life_413",
+      "level": "beginner",
+      "jpText": "国",
+      "koText": "나라"
+    },
+    {
+      "id": "daily_life_414",
+      "level": "beginner",
+      "jpText": "外国",
+      "koText": "외국"
+    },
+    {
+      "id": "daily_life_415",
+      "level": "beginner",
+      "jpText": "世界",
+      "koText": "세계"
+    },
+    {
+      "id": "daily_life_416",
+      "level": "beginner",
+      "jpText": "宇宙",
+      "koText": "우주"
+    },
+    {
+      "id": "daily_life_417",
+      "level": "beginner",
+      "jpText": "地球",
+      "koText": "지구"
+    },
+    {
+      "id": "daily_life_418",
+      "level": "beginner",
+      "jpText": "空",
+      "koText": "하늘"
+    },
+    {
+      "id": "daily_life_419",
+      "level": "beginner",
+      "jpText": "地面",
+      "koText": "땅"
+    },
+    {
+      "id": "daily_life_420",
+      "level": "beginner",
+      "jpText": "海",
+      "koText": "바다"
+    },
+    {
+      "id": "daily_life_421",
+      "level": "beginner",
+      "jpText": "山",
+      "koText": "산"
+    },
+    {
+      "id": "daily_life_422",
+      "level": "beginner",
+      "jpText": "川",
+      "koText": "강"
+    },
+    {
+      "id": "daily_life_423",
+      "level": "beginner",
+      "jpText": "湖",
+      "koText": "호수"
+    },
+    {
+      "id": "daily_life_424",
+      "level": "beginner",
+      "jpText": "公園",
+      "koText": "공원"
+    },
+    {
+      "id": "daily_life_425",
+      "level": "beginner",
+      "jpText": "道",
+      "koText": "길"
+    },
+    {
+      "id": "daily_life_426",
+      "level": "beginner",
+      "jpText": "道路",
+      "koText": "도로"
+    },
+    {
+      "id": "daily_life_427",
+      "level": "beginner",
+      "jpText": "通り",
+      "koText": "거리"
+    },
+    {
+      "id": "daily_life_428",
+      "level": "beginner",
+      "jpText": "路地",
+      "koText": "골목"
+    },
+    {
+      "id": "daily_life_429",
+      "level": "beginner",
+      "jpText": "橋",
+      "koText": "다리"
+    },
+    {
+      "id": "daily_life_430",
+      "level": "beginner",
+      "jpText": "建物",
+      "koText": "건물"
+    },
+    {
+      "id": "daily_life_431",
+      "level": "beginner",
+      "jpText": "アパート",
+      "koText": "아파트"
+    },
+    {
+      "id": "daily_life_432",
+      "level": "beginner",
+      "jpText": "ビル",
+      "koText": "빌딩"
+    }
+  ]
+}
