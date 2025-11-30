@@ -1,0 +1,281 @@
+{
+  "topicId": "family",
+  "entries": [
+    {
+      "id": "family_001",
+      "level": "beginner",
+      "jpText": "家族",
+      "koText": "가족"
+    },
+    {
+      "id": "family_002",
+      "level": "beginner",
+      "jpText": "お母さん",
+      "koText": "엄마"
+    },
+    {
+      "id": "family_003",
+      "level": "beginner",
+      "jpText": "お父さん",
+      "koText": "아빠"
+    },
+    {
+      "id": "family_004",
+      "level": "beginner",
+      "jpText": "母",
+      "koText": "어머니"
+    },
+    {
+      "id": "family_005",
+      "level": "beginner",
+      "jpText": "父",
+      "koText": "아버지"
+    },
+    {
+      "id": "family_006",
+      "level": "beginner",
+      "jpText": "両親",
+      "koText": "부모님"
+    },
+    {
+      "id": "family_007",
+      "level": "beginner",
+      "jpText": "おばあさん",
+      "koText": "할머니"
+    },
+    {
+      "id": "family_008",
+      "level": "beginner",
+      "jpText": "おじいさん",
+      "koText": "할아버지"
+    },
+    {
+      "id": "family_009",
+      "level": "beginner",
+      "jpText": "兄（男性が使う）",
+      "koText": "형"
+    },
+    {
+      "id": "family_010",
+      "level": "beginner",
+      "jpText": "兄（女性が使う）",
+      "koText": "오빠"
+    },
+    {
+      "id": "family_011",
+      "level": "beginner",
+      "jpText": "姉（男性が使う）",
+      "koText": "누나"
+    },
+    {
+      "id": "family_012",
+      "level": "beginner",
+      "jpText": "姉（女性が使う）",
+      "koText": "언니"
+    },
+    {
+      "id": "family_013",
+      "level": "beginner",
+      "jpText": "弟・妹",
+      "koText": "동생"
+    },
+    {
+      "id": "family_014",
+      "level": "beginner",
+      "jpText": "弟",
+      "koText": "남동생"
+    },
+    {
+      "id": "family_015",
+      "level": "beginner",
+      "jpText": "妹",
+      "koText": "여동생"
+    },
+    {
+      "id": "family_016",
+      "level": "beginner",
+      "jpText": "息子",
+      "koText": "아들"
+    },
+    {
+      "id": "family_017",
+      "level": "beginner",
+      "jpText": "娘",
+      "koText": "딸"
+    },
+    {
+      "id": "family_018",
+      "level": "beginner",
+      "jpText": "子供",
+      "koText": "아이"
+    },
+    {
+      "id": "family_019",
+      "level": "beginner",
+      "jpText": "赤ちゃん",
+      "koText": "아기"
+    },
+    {
+      "id": "family_020",
+      "level": "beginner",
+      "jpText": "夫",
+      "koText": "남편"
+    },
+    {
+      "id": "family_021",
+      "level": "beginner",
+      "jpText": "妻",
+      "koText": "아내"
+    },
+    {
+      "id": "family_022",
+      "level": "beginner",
+      "jpText": "夫婦",
+      "koText": "부부"
+    },
+    {
+      "id": "family_023",
+      "level": "beginner",
+      "jpText": "結婚",
+      "koText": "결혼"
+    },
+    {
+      "id": "family_024",
+      "level": "beginner",
+      "jpText": "離婚",
+      "koText": "이혼"
+    },
+    {
+      "id": "family_025",
+      "level": "beginner",
+      "jpText": "おじさん",
+      "koText": "삼촌"
+    },
+    {
+      "id": "family_026",
+      "level": "beginner",
+      "jpText": "おばさん（母の姉妹）",
+      "koText": "이모"
+    },
+    {
+      "id": "family_027",
+      "level": "beginner",
+      "jpText": "おばさん（父の姉妹）",
+      "koText": "고모"
+    },
+    {
+      "id": "family_028",
+      "level": "beginner",
+      "jpText": "いとこ",
+      "koText": "사촌"
+    },
+    {
+      "id": "family_029",
+      "level": "beginner",
+      "jpText": "甥・姪",
+      "koText": "조카"
+    },
+    {
+      "id": "family_030",
+      "level": "beginner",
+      "jpText": "孫（男）",
+      "koText": "손자"
+    },
+    {
+      "id": "family_031",
+      "level": "beginner",
+      "jpText": "孫（女）",
+      "koText": "손녀"
+    },
+    {
+      "id": "family_032",
+      "level": "beginner",
+      "jpText": "親戚",
+      "koText": "친척"
+    },
+    {
+      "id": "family_033",
+      "level": "beginner",
+      "jpText": "兄弟",
+      "koText": "형제"
+    },
+    {
+      "id": "family_034",
+      "level": "beginner",
+      "jpText": "姉妹",
+      "koText": "자매"
+    },
+    {
+      "id": "family_035",
+      "level": "beginner",
+      "jpText": "兄妹・姉弟",
+      "koText": "남매"
+    },
+    {
+      "id": "family_036",
+      "level": "beginner",
+      "jpText": "長男",
+      "koText": "장남"
+    },
+    {
+      "id": "family_037",
+      "level": "beginner",
+      "jpText": "長女",
+      "koText": "장녀"
+    },
+    {
+      "id": "family_038",
+      "level": "beginner",
+      "jpText": "末っ子",
+      "koText": "막내"
+    },
+    {
+      "id": "family_039",
+      "level": "beginner",
+      "jpText": "一人息子",
+      "koText": "외동아들"
+    },
+    {
+      "id": "family_040",
+      "level": "beginner",
+      "jpText": "一人娘",
+      "koText": "외동딸"
+    },
+    {
+      "id": "family_041",
+      "level": "beginner",
+      "jpText": "姑",
+      "koText": "시어머니"
+    },
+    {
+      "id": "family_042",
+      "level": "beginner",
+      "jpText": "舅",
+      "koText": "시아버지"
+    },
+    {
+      "id": "family_043",
+      "level": "beginner",
+      "jpText": "嫁",
+      "koText": "며느리"
+    },
+    {
+      "id": "family_044",
+      "level": "beginner",
+      "jpText": "婿",
+      "koText": "사위"
+    },
+    {
+      "id": "family_045",
+      "level": "beginner",
+      "jpText": "祖父母",
+      "koText": "조부모"
+    },
+    {
+      "id": "family_046",
+      "level": "beginner",
+      "jpText": "双子",
+      "koText": "쌍둥이"
+    }
+  ]
+}

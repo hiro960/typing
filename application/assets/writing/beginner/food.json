@@ -1,0 +1,287 @@
+{
+  "topicId": "food",
+  "entries": [
+    {
+      "id": "food_001",
+      "level": "beginner",
+      "jpText": "ご飯",
+      "koText": "밥"
+    },
+    {
+      "id": "food_002",
+      "level": "beginner",
+      "jpText": "水",
+      "koText": "물"
+    },
+    {
+      "id": "food_003",
+      "level": "beginner",
+      "jpText": "パン",
+      "koText": "빵"
+    },
+    {
+      "id": "food_004",
+      "level": "beginner",
+      "jpText": "牛乳",
+      "koText": "우유"
+    },
+    {
+      "id": "food_005",
+      "level": "beginner",
+      "jpText": "コーヒー",
+      "koText": "커피"
+    },
+    {
+      "id": "food_006",
+      "level": "beginner",
+      "jpText": "お茶",
+      "koText": "차"
+    },
+    {
+      "id": "food_007",
+      "level": "beginner",
+      "jpText": "果物",
+      "koText": "과일"
+    },
+    {
+      "id": "food_008",
+      "level": "beginner",
+      "jpText": "りんご",
+      "koText": "사과"
+    },
+    {
+      "id": "food_009",
+      "level": "beginner",
+      "jpText": "梨",
+      "koText": "배"
+    },
+    {
+      "id": "food_010",
+      "level": "beginner",
+      "jpText": "いちご",
+      "koText": "딸기"
+    },
+    {
+      "id": "food_011",
+      "level": "beginner",
+      "jpText": "バナナ",
+      "koText": "바나나"
+    },
+    {
+      "id": "food_012",
+      "level": "beginner",
+      "jpText": "ぶどう",
+      "koText": "포도"
+    },
+    {
+      "id": "food_013",
+      "level": "beginner",
+      "jpText": "スイカ",
+      "koText": "수박"
+    },
+    {
+      "id": "food_014",
+      "level": "beginner",
+      "jpText": "野菜",
+      "koText": "야채"
+    },
+    {
+      "id": "food_015",
+      "level": "beginner",
+      "jpText": "キムチ",
+      "koText": "김치"
+    },
+    {
+      "id": "food_016",
+      "level": "beginner",
+      "jpText": "肉",
+      "koText": "고기"
+    },
+    {
+      "id": "food_017",
+      "level": "beginner",
+      "jpText": "豚肉",
+      "koText": "돼지고기"
+    },
+    {
+      "id": "food_018",
+      "level": "beginner",
+      "jpText": "牛肉",
+      "koText": "소고기"
+    },
+    {
+      "id": "food_019",
+      "level": "beginner",
+      "jpText": "鶏肉",
+      "koText": "닭고기"
+    },
+    {
+      "id": "food_020",
+      "level": "beginner",
+      "jpText": "魚",
+      "koText": "생선"
+    },
+    {
+      "id": "food_021",
+      "level": "beginner",
+      "jpText": "卵",
+      "koText": "계란"
+    },
+    {
+      "id": "food_022",
+      "level": "beginner",
+      "jpText": "スープ",
+      "koText": "국"
+    },
+    {
+      "id": "food_023",
+      "level": "beginner",
+      "jpText": "チゲ",
+      "koText": "찌개"
+    },
+    {
+      "id": "food_024",
+      "level": "beginner",
+      "jpText": "ラーメン",
+      "koText": "라면"
+    },
+    {
+      "id": "food_025",
+      "level": "beginner",
+      "jpText": "餅",
+      "koText": "떡"
+    },
+    {
+      "id": "food_026",
+      "level": "beginner",
+      "jpText": "お菓子",
+      "koText": "과자"
+    },
+    {
+      "id": "food_027",
+      "level": "beginner",
+      "jpText": "アイスクリーム",
+      "koText": "아이스크림"
+    },
+    {
+      "id": "food_028",
+      "level": "beginner",
+      "jpText": "チョコレート",
+      "koText": "초콜릿"
+    },
+    {
+      "id": "food_029",
+      "level": "beginner",
+      "jpText": "飴",
+      "koText": "사탕"
+    },
+    {
+      "id": "food_030",
+      "level": "beginner",
+      "jpText": "食べ物",
+      "koText": "음식"
+    },
+    {
+      "id": "food_031",
+      "level": "beginner",
+      "jpText": "おかず",
+      "koText": "반찬"
+    },
+    {
+      "id": "food_032",
+      "level": "beginner",
+      "jpText": "おやつ",
+      "koText": "간식"
+    },
+    {
+      "id": "food_033",
+      "level": "beginner",
+      "jpText": "朝ご飯",
+      "koText": "아침밥"
+    },
+    {
+      "id": "food_034",
+      "level": "beginner",
+      "jpText": "昼ご飯",
+      "koText": "점심밥"
+    },
+    {
+      "id": "food_035",
+      "level": "beginner",
+      "jpText": "夕ご飯",
+      "koText": "저녁밥"
+    },
+    {
+      "id": "food_036",
+      "level": "beginner",
+      "jpText": "おいしい",
+      "koText": "맛있다"
+    },
+    {
+      "id": "food_037",
+      "level": "beginner",
+      "jpText": "まずい",
+      "koText": "맛없다"
+    },
+    {
+      "id": "food_038",
+      "level": "beginner",
+      "jpText": "甘い",
+      "koText": "달다"
+    },
+    {
+      "id": "food_039",
+      "level": "beginner",
+      "jpText": "しょっぱい",
+      "koText": "짜다"
+    },
+    {
+      "id": "food_040",
+      "level": "beginner",
+      "jpText": "辛い",
+      "koText": "맵다"
+    },
+    {
+      "id": "food_041",
+      "level": "beginner",
+      "jpText": "薄味だ",
+      "koText": "싱겁다"
+    },
+    {
+      "id": "food_042",
+      "level": "beginner",
+      "jpText": "酸っぱい",
+      "koText": "시다"
+    },
+    {
+      "id": "food_043",
+      "level": "beginner",
+      "jpText": "食べる",
+      "koText": "먹다"
+    },
+    {
+      "id": "food_044",
+      "level": "beginner",
+      "jpText": "飲む",
+      "koText": "마시다"
+    },
+    {
+      "id": "food_045",
+      "level": "beginner",
+      "jpText": "塩",
+      "koText": "소금"
+    },
+    {
+      "id": "food_046",
+      "level": "beginner",
+      "jpText": "砂糖",
+      "koText": "설탕"
+    },
+    {
+      "id": "food_047",
+      "level": "beginner",
+      "jpText": "醤油",
+      "koText": "간장"
+    }
+  ]
+}

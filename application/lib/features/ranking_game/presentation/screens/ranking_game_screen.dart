@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,6 +7,7 @@ import 'package:chaletta/features/ranking_game/domain/providers/game_session_pro
 import 'package:chaletta/features/ranking_game/presentation/widgets/combo_meter_widget.dart';
 import 'package:chaletta/features/ranking_game/presentation/widgets/pixel_character_widget.dart';
 import 'package:chaletta/features/ranking_game/presentation/screens/ranking_game_result_screen.dart';
+import 'package:chaletta/ui/widgets/typing/input_feedback_widget.dart';
 import 'package:chaletta/ui/widgets/typing_keyboard.dart';
 import 'package:chaletta/ui/app_theme.dart';
 import 'package:chaletta/features/typing/domain/providers/typing_settings_provider.dart';
@@ -284,7 +283,7 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
                   ),
                   const SizedBox(height: 18),
                   // 入力中の文字（ミス時は横揺れ）
-                  _ShakeContainer(
+                  ShakeContainer(
                     key: state.lastInputResult == InputResultType.mistake &&
                             state.lastInputTime != null
                         ? ValueKey(state.lastInputTime)
@@ -438,38 +437,6 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
           characterLevel: state.characterLevel,
         ),
       ),
-    );
-  }
-}
-
-/// ミス時に横揺れするコンテナ
-class _ShakeContainer extends StatelessWidget {
-  const _ShakeContainer({
-    super.key,
-    required this.shouldShake,
-    required this.child,
-  });
-
-  final bool shouldShake;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    if (!shouldShake) {
-      return child;
-    }
-
-    return TweenAnimationBuilder<double>(
-      duration: const Duration(milliseconds: 420),
-      tween: Tween<double>(begin: 0, end: 1),
-      builder: (context, value, child) {
-        final offset = math.sin(value * math.pi * 5) * 8;
-        return Transform.translate(
-          offset: Offset(offset, 0),
-          child: child,
-        );
-      },
-      child: child,
     );
   }
 }

@@ -1,0 +1,119 @@
+{
+  "topicId": "color",
+  "entries": [
+    {
+      "id": "color_001",
+      "level": "beginner",
+      "jpText": "色",
+      "koText": "색"
+    },
+    {
+      "id": "color_002",
+      "level": "beginner",
+      "jpText": "赤色",
+      "koText": "빨간색"
+    },
+    {
+      "id": "color_003",
+      "level": "beginner",
+      "jpText": "青色",
+      "koText": "파란색"
+    },
+    {
+      "id": "color_004",
+      "level": "beginner",
+      "jpText": "黄色",
+      "koText": "노란색"
+    },
+    {
+      "id": "color_005",
+      "level": "beginner",
+      "jpText": "緑色",
+      "koText": "초록색"
+    },
+    {
+      "id": "color_006",
+      "level": "beginner",
+      "jpText": "黒色",
+      "koText": "검은색"
+    },
+    {
+      "id": "color_007",
+      "level": "beginner",
+      "jpText": "白色",
+      "koText": "흰색"
+    },
+    {
+      "id": "color_008",
+      "level": "beginner",
+      "jpText": "灰色",
+      "koText": "회색"
+    },
+    {
+      "id": "color_009",
+      "level": "beginner",
+      "jpText": "茶色",
+      "koText": "갈색"
+    },
+    {
+      "id": "color_010",
+      "level": "beginner",
+      "jpText": "ピンク色",
+      "koText": "분홍색"
+    },
+    {
+      "id": "color_011",
+      "level": "beginner",
+      "jpText": "オレンジ色",
+      "koText": "주황색"
+    },
+    {
+      "id": "color_012",
+      "level": "beginner",
+      "jpText": "紫色",
+      "koText": "보라색"
+    },
+    {
+      "id": "color_013",
+      "level": "beginner",
+      "jpText": "水色",
+      "koText": "하늘색"
+    },
+    {
+      "id": "color_014",
+      "level": "beginner",
+      "jpText": "黄緑色",
+      "koText": "연두색"
+    },
+    {
+      "id": "color_015",
+      "level": "beginner",
+      "jpText": "紺色",
+      "koText": "남색"
+    },
+    {
+      "id": "color_016",
+      "level": "beginner",
+      "jpText": "金色",
+      "koText": "금색"
+    },
+    {
+      "id": "color_017",
+      "level": "beginner",
+      "jpText": "銀色",
+      "koText": "은색"
+    },
+    {
+      "id": "color_018",
+      "level": "beginner",
+      "jpText": "ベージュ色",
+      "koText": "베이지색"
+    },
+    {
+      "id": "color_019",
+      "level": "beginner",
+      "jpText": "クリーム色",
+      "koText": "크림색"
+    }
+  ]
+}

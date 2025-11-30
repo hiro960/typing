@@ -1,4 +1,4 @@
-import 'package:chaletta/ui/widgets/section_title_text.dart';
+import 'package:chaletta/ui/widgets/section_title.dart';
 import 'package:chaletta/ui/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -23,7 +23,7 @@ class RankingGameSection extends ConsumerWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SectionTitleText(iconData: Icons.sports_esports, text: 'ランキングゲーム', color: AppColors.primary),
+            SectionTitle(iconData: Icons.sports_esports, text: 'ランキングゲーム', color: AppColors.primary),
             TextButton(
               onPressed: () {
                 Navigator.of(context).push(

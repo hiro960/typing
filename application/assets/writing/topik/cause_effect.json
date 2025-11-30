@@ -15,13 +15,17 @@
         { "id": "cause_social_003", "level": "template", "jpText": "その結果", "koText": "그 결과" },
         { "id": "cause_social_004", "level": "template", "jpText": "第一の原因は...である", "koText": "첫 번째 원인은 ...이다." },
         { "id": "cause_social_005", "level": "template", "jpText": "結果として...が起きた", "koText": "결과적으로 ...이/가 일어났다." },
+        { "id": "cause_social_009", "level": "template", "jpText": "根本原因は〜にある", "koText": "근본 원인은 ...에 있다." },
+        { "id": "cause_social_010", "level": "template", "jpText": "結果として〜せざるを得ない", "koText": "결과적으로 ...할 수밖에 없다." },
         { "id": "cause_social_basic_001", "level": "basic", "jpText": "原因", "koText": "원인" },
         { "id": "cause_social_basic_002", "level": "basic", "jpText": "結果", "koText": "결과" },
         { "id": "cause_social_basic_003", "level": "basic", "jpText": "影響", "koText": "영향" },
         { "id": "cause_social_006", "level": "advanced", "jpText": "深刻化する", "koText": "심각해지다" },
         { "id": "cause_social_007", "level": "advanced", "jpText": "悪化する", "koText": "악화되다" },
         { "id": "cause_social_008", "level": "advanced", "jpText": "連鎖的に広がる", "koText": "연쇄적으로 퍼지다" },
-        { "id": "cause_social_sentence_001", "level": "sentence", "jpText": "少子化問題が深刻化している。", "koText": "저출산 문제가 심각해지고 있다." }
+        { "id": "cause_social_011", "level": "advanced", "jpText": "社会全体に波及する", "koText": "사회 전체로 파급되다" },
+        { "id": "cause_social_sentence_001", "level": "sentence", "jpText": "少子化問題が深刻化している。", "koText": "저출산 문제가 심각해지고 있다." },
+        { "id": "cause_social_sentence_002", "level": "sentence", "jpText": "育児費用の高さが根本原因で、これにより出生を先送りし、結果として人口構造全体に影響が及んでいる。", "koText": "육아 비용의 높음이 근본 원인으로, 이로 인해 출산을 미루게 되고 결과적으로 인구 구조 전체에 영향이 미치고 있다." }
       ]
     },
     {
@@ -35,13 +39,16 @@
         { "id": "cause_sleep_003", "level": "template", "jpText": "結果として成績が下がる", "koText": "결과적으로 성적이 낮아진다." },
         { "id": "cause_sleep_004", "level": "template", "jpText": "第一に睡眠時間が不足している", "koText": "첫째, 수면 시간이 부족하다." },
         { "id": "cause_sleep_005", "level": "template", "jpText": "第二に学習効率が落ちる", "koText": "둘째, 학습 효율이 떨어진다." },
+        { "id": "cause_sleep_006", "level": "template", "jpText": "学業以外にも健康に影響する", "koText": "학업 외에도 건강에 영향을 미친다" },
         { "id": "cause_sleep_basic_001", "level": "basic", "jpText": "睡眠不足", "koText": "수면 부족" },
         { "id": "cause_sleep_basic_002", "level": "basic", "jpText": "集中力", "koText": "집중력" },
         { "id": "cause_sleep_basic_003", "level": "basic", "jpText": "成績", "koText": "성적" },
         { "id": "cause_sleep_adv_001", "level": "advanced", "jpText": "記憶力が低下する", "koText": "기억력이 저하된다" },
         { "id": "cause_sleep_adv_002", "level": "advanced", "jpText": "学習効率が落ちる", "koText": "학습 효율이 떨어지다" },
         { "id": "cause_sleep_adv_003", "level": "advanced", "jpText": "慢性的になる", "koText": "만성화되다" },
-        { "id": "cause_sleep_sentence_001", "level": "sentence", "jpText": "睡眠不足が続くと成績が下がる。", "koText": "수면 부족이 계속되면 성적이 떨어진다." }
+        { "id": "cause_sleep_adv_004", "level": "advanced", "jpText": "免疫力が下がる", "koText": "면역력이 낮아지다" },
+        { "id": "cause_sleep_sentence_001", "level": "sentence", "jpText": "睡眠不足が続くと成績が下がる。", "koText": "수면 부족이 계속되면 성적이 떨어진다." },
+        { "id": "cause_sleep_sentence_002", "level": "sentence", "jpText": "睡眠不足が長期化すると集中力と記憶力が落ち、成績だけでなく免疫力も低下する。", "koText": "수면 부족이 장기화되면 집중력과 기억력이 떨어지고 성적뿐 아니라 면역력도 낮아진다." }
       ]
     },
     {
@@ -55,13 +62,17 @@
         { "id": "cause_climate_003", "level": "template", "jpText": "その結果被害が拡大している", "koText": "그 결과 피해가 확대되고 있다." },
         { "id": "cause_climate_004", "level": "template", "jpText": "第一の要因は温室効果ガスの増加", "koText": "첫 번째 요인은 온실가스 증가이다." },
         { "id": "cause_climate_005", "level": "template", "jpText": "適応策を急ぐ必要がある", "koText": "적응책을 서둘러야 한다." },
+        { "id": "cause_climate_006", "level": "template", "jpText": "長期的要因と短期的要因が重なっている", "koText": "장기적 요인과 단기적 요인이 겹쳐 있다" },
+        { "id": "cause_climate_007", "level": "template", "jpText": "このため適応策が必要だ", "koText": "이 때문에 적응책이 필요하다" },
         { "id": "cause_climate_basic_001", "level": "basic", "jpText": "気候変動", "koText": "기후 변화" },
         { "id": "cause_climate_basic_002", "level": "basic", "jpText": "豪雨", "koText": "폭우" },
         { "id": "cause_climate_basic_003", "level": "basic", "jpText": "干ばつ", "koText": "가뭄" },
         { "id": "cause_climate_adv_001", "level": "advanced", "jpText": "頻度が高まる", "koText": "빈도가 높아지다" },
         { "id": "cause_climate_adv_002", "level": "advanced", "jpText": "被害が拡大する", "koText": "피해가 확대되다" },
         { "id": "cause_climate_adv_003", "level": "advanced", "jpText": "適応策を急ぐ", "koText": "적응책을 서두르다" },
-        { "id": "cause_climate_sentence_001", "level": "sentence", "jpText": "気候変動で極端な災害の頻度が高まっている。", "koText": "기후 변화로 극단적 재해의 빈도가 높아지고 있다." }
+        { "id": "cause_climate_adv_004", "level": "advanced", "jpText": "被害を最小化する", "koText": "피해를 최소화하다" },
+        { "id": "cause_climate_sentence_001", "level": "sentence", "jpText": "気候変動で極端な災害の頻度が高まっている。", "koText": "기후 변화로 극단적 재해의 빈도가 높아지고 있다." },
+        { "id": "cause_climate_sentence_002", "level": "sentence", "jpText": "温室効果ガスの増加で気温が上がり、豪雨と干ばつが交互に起きて被害が拡大しているため、早急な適応策が必要だ。", "koText": "온실가스 증가로 기온이 오르면서 폭우와 가뭄이 번갈아 발생해 피해가 확대되고 있어 서둘러 적응책이 필요하다." }
       ]
     }
   ]

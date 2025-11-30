@@ -1,0 +1,51 @@
+{
+  "id": "common_connectors",
+  "name": "共通接続・論述表現",
+  "description": "TOPIK作文で使う流れ・譲歩・根拠・引用",
+  "icon": "sync_alt",
+  "topics": [
+    {
+      "id": "connectors_flow",
+      "name": "文章の流れ",
+      "description": "序論・転換・結論を示す",
+      "patternId": "common_connectors",
+      "entries": [
+        { "id": "conn_flow_001", "level": "template", "jpText": "まず", "koText": "우선" },
+        { "id": "conn_flow_001b", "level": "template", "jpText": "次に", "koText": "다음으로" },
+        { "id": "conn_flow_001c", "level": "template", "jpText": "最後に", "koText": "마지막으로" },
+        { "id": "conn_flow_002", "level": "template", "jpText": "結論から述べると", "koText": "결론부터 말하면" },
+        { "id": "conn_flow_003a", "level": "template", "jpText": "一方で", "koText": "한편" },
+        { "id": "conn_flow_003b", "level": "template", "jpText": "それにもかかわらず", "koText": "그럼에도 불구하고" },
+        { "id": "conn_flow_004a", "level": "template", "jpText": "要するに", "koText": "요컨대" },
+        { "id": "conn_flow_004b", "level": "template", "jpText": "まとめると", "koText": "정리하자면" },
+        { "id": "conn_flow_005", "level": "template", "jpText": "最後に強調したいのは", "koText": "마지막으로 강조하고 싶은 것은" },
+        { "id": "conn_flow_006", "level": "basic", "jpText": "前提", "koText": "전제" },
+        { "id": "conn_flow_007", "level": "basic", "jpText": "逆接", "koText": "역접" },
+        { "id": "conn_flow_008", "level": "basic", "jpText": "結論", "koText": "결론" },
+        { "id": "conn_flow_009", "level": "advanced", "jpText": "譲歩しつつ主張する", "koText": "양보하면서 주장하다" },
+        { "id": "conn_flow_010", "level": "advanced", "jpText": "段落を転換する", "koText": "단락을 전환하다" },
+        { "id": "conn_flow_sentence_001", "level": "sentence", "jpText": "結論から述べると、私は公共交通の無料化に賛成だが、財源確保が前提だ。", "koText": "결론부터 말하면 나는 대중교통 무료화에 찬성하지만 재원 확보가 전제다." }
+      ]
+    },
+    {
+      "id": "connectors_evidence",
+      "name": "根拠・引用・推測",
+      "description": "データ引用・推測・原因提示",
+      "patternId": "common_connectors",
+      "entries": [
+        { "id": "conn_ev_001", "level": "template", "jpText": "資料によると", "koText": "자료에 따르면" },
+        { "id": "conn_ev_001b", "level": "template", "jpText": "調査結果では", "koText": "조사 결과에 따르면" },
+        { "id": "conn_ev_002", "level": "template", "jpText": "〜と考えられる", "koText": "…다고 여겨진다" },
+        { "id": "conn_ev_002b", "level": "template", "jpText": "〜とみられる", "koText": "…으로 보인다" },
+        { "id": "conn_ev_003", "level": "template", "jpText": "その根拠は二つある", "koText": "그 근거는 두 가지다" },
+        { "id": "conn_ev_004", "level": "template", "jpText": "数値で示すと", "koText": "수치로 보여 주면" },
+        { "id": "conn_ev_005", "level": "template", "jpText": "〜の結果、〜せざるを得なくなった", "koText": "…의 결과, …할 수밖에 없게 되었다" },
+        { "id": "conn_ev_006", "level": "basic", "jpText": "統計", "koText": "통계" },
+        { "id": "conn_ev_007", "level": "basic", "jpText": "根拠", "koText": "근거" },
+        { "id": "conn_ev_008", "level": "advanced", "jpText": "実効性を検証する", "koText": "실효성을 검증하다" },
+        { "id": "conn_ev_009", "level": "advanced", "jpText": "信頼性の高いデータ", "koText": "신뢰도가 높은 데이터" },
+        { "id": "conn_ev_sentence_001", "level": "sentence", "jpText": "資料によると高齢化率は上昇しており、その根拠は国勢調査の統計にある。", "koText": "자료에 따르면 고령화율은 상승하고 있으며 그 근거는 인구총조사 통계에 있다." }
+      ]
+    }
+  ]
+}

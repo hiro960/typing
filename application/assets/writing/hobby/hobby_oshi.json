@@ -1,0 +1,44 @@
+{
+  "id": "hobby_oshi",
+  "name": "推し",
+  "description": "推し活トークで盛り上がる表現",
+  "icon": "push_pin",
+  "topics": [
+    {
+      "id": "hobby_oshi_intro",
+      "name": "推し紹介",
+      "description": "推しの魅力を語る定番フレーズ",
+      "patternId": "hobby_oshi",
+      "entries": [
+        { "id": "hobby_oshi_intro_template_001", "level": "template", "jpText": "私の推しは〜です。", "koText": "내 최애는 ~입니다." },
+        { "id": "hobby_oshi_intro_template_002", "level": "template", "jpText": "ここが尊いポイント。", "koText": "여기가 존귀한 포인트야." },
+        { "id": "hobby_oshi_intro_template_003", "level": "template", "jpText": "沼に落ちたきっかけは〜。", "koText": "덕질에 빠진 계기는 ~였다." },
+        { "id": "hobby_oshi_intro_basic_001", "level": "basic", "jpText": "ビジュアル", "koText": "비주얼" },
+        { "id": "hobby_oshi_intro_basic_002", "level": "basic", "jpText": "歌声", "koText": "음색" },
+        { "id": "hobby_oshi_intro_basic_003", "level": "basic", "jpText": "グッズ", "koText": "굿즈" },
+        { "id": "hobby_oshi_intro_adv_001", "level": "advanced", "jpText": "ギャップが刺さる", "koText": "갭이 찌른다" },
+        { "id": "hobby_oshi_intro_adv_002", "level": "advanced", "jpText": "人柄が滲み出る", "koText": "인성이 묻어나다" },
+        { "id": "hobby_oshi_intro_sentence_001", "level": "sentence", "jpText": "ステージを見た瞬間に心を奪われた。", "koText": "무대를 보는 순간 마음을 빼앗겼다." },
+        { "id": "hobby_oshi_intro_sentence_002", "level": "sentence", "jpText": "同担歓迎です！", "koText": "동덕 환영이에요!" }
+      ]
+    },
+    {
+      "id": "hobby_oshi_report",
+      "name": "現場レポ",
+      "description": "ライブやイベントの感想を共有",
+      "patternId": "hobby_oshi",
+      "entries": [
+        { "id": "hobby_oshi_report_template_001", "level": "template", "jpText": "声出しOKで一体感がすごかった。", "koText": "함성 가능이라 응원전이 대단했다." },
+        { "id": "hobby_oshi_report_template_002", "level": "template", "jpText": "セトリが神だった。", "koText": "세트리스트가 신이었어." },
+        { "id": "hobby_oshi_report_template_003", "level": "template", "jpText": "余韻でまだ帰れない。", "koText": "여운 때문에 아직 못 돌아가겠다." },
+        { "id": "hobby_oshi_report_basic_001", "level": "basic", "jpText": "ペンライト", "koText": "응원봉" },
+        { "id": "hobby_oshi_report_basic_002", "level": "basic", "jpText": "掛け声", "koText": "구호" },
+        { "id": "hobby_oshi_report_basic_003", "level": "basic", "jpText": "座席", "koText": "좌석" },
+        { "id": "hobby_oshi_report_adv_001", "level": "advanced", "jpText": "チケ運が良かった", "koText": "티켓 운이 좋았다" },
+        { "id": "hobby_oshi_report_adv_002", "level": "advanced", "jpText": "生歌が安定していた", "koText": "라이브가 안정적이었다" },
+        { "id": "hobby_oshi_report_sentence_001", "level": "sentence", "jpText": "隣の席の人とも仲良くなれた。", "koText": "옆자리 분과도 친해졌다." },
+        { "id": "hobby_oshi_report_sentence_002", "level": "sentence", "jpText": "公式から写真が上がったので保存した。", "koText": "공식에서 사진이 올라와서 저장했다." }
+      ]
+    }
+  ]
+}

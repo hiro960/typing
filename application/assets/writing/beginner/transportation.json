@@ -1,0 +1,245 @@
+{
+  "topicId": "transportation",
+  "entries": [
+    {
+      "id": "transportation_001",
+      "level": "beginner",
+      "jpText": "車",
+      "koText": "차"
+    },
+    {
+      "id": "transportation_002",
+      "level": "beginner",
+      "jpText": "自動車",
+      "koText": "자동차"
+    },
+    {
+      "id": "transportation_003",
+      "level": "beginner",
+      "jpText": "バス",
+      "koText": "버스"
+    },
+    {
+      "id": "transportation_004",
+      "level": "beginner",
+      "jpText": "タクシー",
+      "koText": "택시"
+    },
+    {
+      "id": "transportation_005",
+      "level": "beginner",
+      "jpText": "地下鉄",
+      "koText": "지하철"
+    },
+    {
+      "id": "transportation_006",
+      "level": "beginner",
+      "jpText": "汽車",
+      "koText": "기차"
+    },
+    {
+      "id": "transportation_007",
+      "level": "beginner",
+      "jpText": "飛行機",
+      "koText": "비행기"
+    },
+    {
+      "id": "transportation_008",
+      "level": "beginner",
+      "jpText": "船",
+      "koText": "배"
+    },
+    {
+      "id": "transportation_009",
+      "level": "beginner",
+      "jpText": "自転車",
+      "koText": "자전거"
+    },
+    {
+      "id": "transportation_010",
+      "level": "beginner",
+      "jpText": "バイク",
+      "koText": "오토바이"
+    },
+    {
+      "id": "transportation_011",
+      "level": "beginner",
+      "jpText": "駅",
+      "koText": "역"
+    },
+    {
+      "id": "transportation_012",
+      "level": "beginner",
+      "jpText": "停留所",
+      "koText": "정류장"
+    },
+    {
+      "id": "transportation_013",
+      "level": "beginner",
+      "jpText": "空港",
+      "koText": "공항"
+    },
+    {
+      "id": "transportation_014",
+      "level": "beginner",
+      "jpText": "港",
+      "koText": "항구"
+    },
+    {
+      "id": "transportation_015",
+      "level": "beginner",
+      "jpText": "ターミナル",
+      "koText": "터미널"
+    },
+    {
+      "id": "transportation_016",
+      "level": "beginner",
+      "jpText": "切符",
+      "koText": "표"
+    },
+    {
+      "id": "transportation_017",
+      "level": "beginner",
+      "jpText": "料金",
+      "koText": "요금"
+    },
+    {
+      "id": "transportation_018",
+      "level": "beginner",
+      "jpText": "運転",
+      "koText": "운전"
+    },
+    {
+      "id": "transportation_019",
+      "level": "beginner",
+      "jpText": "運転手",
+      "koText": "운전사"
+    },
+    {
+      "id": "transportation_020",
+      "level": "beginner",
+      "jpText": "乗客",
+      "koText": "승객"
+    },
+    {
+      "id": "transportation_021",
+      "level": "beginner",
+      "jpText": "交通",
+      "koText": "교통"
+    },
+    {
+      "id": "transportation_022",
+      "level": "beginner",
+      "jpText": "信号",
+      "koText": "신호등"
+    },
+    {
+      "id": "transportation_023",
+      "level": "beginner",
+      "jpText": "横断歩道",
+      "koText": "횡단보도"
+    },
+    {
+      "id": "transportation_024",
+      "level": "beginner",
+      "jpText": "到着",
+      "koText": "도착"
+    },
+    {
+      "id": "transportation_025",
+      "level": "beginner",
+      "jpText": "出発",
+      "koText": "출발"
+    },
+    {
+      "id": "transportation_026",
+      "level": "beginner",
+      "jpText": "時刻表",
+      "koText": "시간표"
+    },
+    {
+      "id": "transportation_027",
+      "level": "beginner",
+      "jpText": "乗る",
+      "koText": "타다"
+    },
+    {
+      "id": "transportation_028",
+      "level": "beginner",
+      "jpText": "降りる",
+      "koText": "내리다"
+    },
+    {
+      "id": "transportation_029",
+      "level": "beginner",
+      "jpText": "運転する",
+      "koText": "운전하다"
+    },
+    {
+      "id": "transportation_030",
+      "level": "beginner",
+      "jpText": "駐車する",
+      "koText": "주차하다"
+    },
+    {
+      "id": "transportation_031",
+      "level": "beginner",
+      "jpText": "遅れる",
+      "koText": "늦다"
+    },
+    {
+      "id": "transportation_032",
+      "level": "beginner",
+      "jpText": "近い",
+      "koText": "가깝다"
+    },
+    {
+      "id": "transportation_033",
+      "level": "beginner",
+      "jpText": "遠い",
+      "koText": "멀다"
+    },
+    {
+      "id": "transportation_034",
+      "level": "beginner",
+      "jpText": "不便だ",
+      "koText": "불편하다"
+    },
+    {
+      "id": "transportation_035",
+      "level": "beginner",
+      "jpText": "安全だ",
+      "koText": "안전하다"
+    },
+    {
+      "id": "transportation_036",
+      "level": "beginner",
+      "jpText": "危険だ",
+      "koText": "위험하다"
+    },
+    {
+      "id": "transportation_037",
+      "level": "beginner",
+      "jpText": "単純だ",
+      "koText": "단순하다"
+    },
+    {
+      "id": "transportation_038",
+      "level": "beginner",
+      "jpText": "乗り換える",
+      "koText": "환승하다"
+    },
+    {
+      "id": "transportation_039",
+      "level": "beginner",
+      "jpText": "改札口",
+      "koText": "개찰구"
+    },
+    {
+      "id": "transportation_040",
+      "level": "beginner",
+      "jpText": "切符売り場",
+      "koText": "매표소"
+    }
+  ]
+}

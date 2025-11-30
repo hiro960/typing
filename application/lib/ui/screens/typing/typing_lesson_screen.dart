@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
@@ -15,7 +13,9 @@ import '../../../features/typing/domain/providers/typing_session_provider.dart';
 import '../../../features/typing/domain/providers/typing_stats_provider.dart';
 import '../../../features/typing/domain/providers/typing_settings_provider.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
-import '../../utils/snackbar_helper.dart';
+import '../../widgets/typing/input_feedback_widget.dart';
+import '../../widgets/typing/typing_progress_bar.dart';
+import '../../widgets/typing/typing_prompt_card.dart';
 import '../../widgets/typing_keyboard.dart';
 import 'typing_completion_screen.dart';
 
@@ -241,7 +241,6 @@ class _LessonView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final currentSection = session
         .lesson
         .content
@@ -249,7 +248,6 @@ class _LessonView extends StatelessWidget {
     final currentItem = currentSection.items[session.currentItemIndex];
     final totalItems = _totalItems(session.lesson);
     final completedItems = _completedItems(session);
-    final progress = totalItems == 0 ? 0.0 : completedItems / totalItems;
     final timerLabel = _formatTimer(session.elapsedMs);
     final nextKey = _nextKey(session, currentItem);
     final showHints = settings.hintsEnabled;
@@ -284,37 +282,14 @@ class _LessonView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
+                    TypingProgressBar(
+                      current: completedItems + 1,
+                      total: totalItems,
+                      elapsedLabel: timerLabel,
+                      showPercentage: true,
+                      showDivider: false,
+                      progressBarHeight: 6,
                       padding: const EdgeInsets.fromLTRB(20, 12, 20, 16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          LinearProgressIndicator(
-                            value: progress.clamp(0, 1),
-                            minHeight: 6,
-                          ),
-                          const SizedBox(height: 8),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  '進捗 ${(progress * 100).round()}% (${completedItems + 1}/$totalItems)',
-                                  style: theme.textTheme.bodyMedium?.copyWith(
-                                    color:
-                                        theme.colorScheme.onSurface.withValues(
-                                      alpha: 0.7,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(width: 12),
-                              Text(timerLabel,
-                                  style: theme.textTheme.titleMedium),
-                            ],
-                          ),
-                        ],
-                      ),
                     ),
                     const SizedBox(height: 16),
                     Padding(
@@ -323,10 +298,15 @@ class _LessonView extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: _PromptCard(
-                        item: currentItem,
-                        sectionType: currentSection.type,
-                        session: session,
+                      child: TypingPromptCard(
+                        targetText: currentItem.text,
+                        subText: currentItem.meaning,
+                        completedCharCount: TypingPromptCard.calculateCompletedCharCount(
+                          currentItem.text,
+                          session.currentPosition,
+                        ),
+                        fontSize: _getFontSize(currentSection.type),
+                        showCharacterProgress: true,
                       ),
                     ),
                   ],
@@ -410,116 +390,16 @@ class _LessonView extends StatelessWidget {
     }
     return key == ' ' ? '次は スペース' : '次は $key';
   }
-}
 
-class _PromptCard extends StatelessWidget {
-  const _PromptCard({
-    required this.item,
-    required this.sectionType,
-    required this.session,
-  });
-
-  final LessonItem item;
-  final LessonSectionType sectionType;
-  final TypingSessionState session;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colors = theme.colorScheme;
-    final targetChars = item.text.characters.toList();
-
-    // 字母レベルの進捗から完成した文字数を計算
-    final completedCharCount = _calculateCompletedCharCount(
-      item.text,
-      session.currentPosition,
-    );
-
-    final bool isCharacterDrill =
-        sectionType == LessonSectionType.characterDrill;
-    final bool isSentence =
-        sectionType == LessonSectionType.sentencePractice;
-    final textStyle = (isCharacterDrill
-            ? theme.textTheme.displayLarge
-            : theme.textTheme.displaySmall)
-        ?.copyWith(
-      fontSize: isCharacterDrill ? 56 : (isSentence ? 36 : null),
-    );
-
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(28),
-        gradient: LinearGradient(
-          colors: [
-            colors.surfaceContainerHighest.withValues(alpha: 0.2),
-            colors.surface.withValues(alpha: 0.05),
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        border: Border.all(color: colors.primary.withValues(alpha: 0.12)),
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 40,
-            offset: const Offset(0, 20),
-            color: colors.primary.withValues(alpha: 0.08),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const SizedBox(height: 8),
-          RichText(
-            text: TextSpan(
-              children: [
-                for (int i = 0; i < targetChars.length; i++)
-                  TextSpan(
-                    text: targetChars[i],
-                    style: textStyle?.copyWith(
-                      // 正解済みの文字数に基づいて色付け
-                      color: i < completedCharCount
-                          ? colors.primary
-                          : colors.onSurface,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-              ],
-            ),
-          ),
-          if ((item.meaning ?? '').isNotEmpty) ...[
-            const SizedBox(height: 8),
-            Text(
-              item.meaning!,
-              style: theme.textTheme.titleMedium?.copyWith(
-                color: colors.onSurfaceVariant,
-              ),
-            ),
-          ],
-        ],
-      ),
-    );
-  }
-
-  /// 字母レベルの進捗から完成した文字数を計算
-  int _calculateCompletedCharCount(String targetText, int currentPosition) {
-    final targetChars = targetText.characters.toList();
-    int jamoCount = 0;
-
-    for (int i = 0; i < targetChars.length; i++) {
-      final jamos = HangulComposer.decomposeSyllable(targetChars[i]);
-      jamoCount += jamos.length;
-
-      // 現在の位置がこの文字の字母範囲内の場合、この文字は未完成
-      if (currentPosition < jamoCount) {
-        return i;
-      }
+  static double _getFontSize(LessonSectionType sectionType) {
+    switch (sectionType) {
+      case LessonSectionType.characterDrill:
+        return 56;
+      case LessonSectionType.sentencePractice:
+        return 36;
+      default:
+        return 24;
     }
-
-    // すべての文字が完成
-    return targetChars.length;
   }
 }
 
@@ -537,69 +417,14 @@ class _InputFeedback extends StatelessWidget {
         child: record == null
             ? const SizedBox.shrink()
             : record!.isCorrect
-                ? _PulseFeedback(
+                ? PulseFeedback(
                     key: ValueKey('correct_${record!.timestamp.microsecondsSinceEpoch}'),
                     label: '正解！',
                   )
-                : _ShakeFeedback(
+                : ShakeFeedback(
                     key: ValueKey('wrong_${record!.timestamp.microsecondsSinceEpoch}'),
                     label: 'ミス',
                   ),
-      ),
-    );
-  }
-}
-
-class _PulseFeedback extends StatelessWidget {
-  const _PulseFeedback({super.key, required this.label});
-
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return TweenAnimationBuilder<double>(
-      duration: const Duration(milliseconds: 400),
-      tween: Tween<double>(begin: 0.8, end: 1),
-      curve: Curves.elasticOut,
-      builder: (context, value, child) {
-        return Transform.scale(scale: value, child: child);
-      },
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Icon(Icons.check_circle, color: Colors.green, size: 20),
-          const SizedBox(width: 6),
-          Text(label),
-        ],
-      ),
-    );
-  }
-}
-
-class _ShakeFeedback extends StatelessWidget {
-  const _ShakeFeedback({super.key, required this.label});
-
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return TweenAnimationBuilder<double>(
-      duration: const Duration(milliseconds: 420),
-      tween: Tween<double>(begin: 0, end: 1),
-      builder: (context, value, child) {
-        final offset = math.sin(value * math.pi * 5) * 6;
-        return Transform.translate(
-          offset: Offset(offset, 0),
-          child: child,
-        );
-      },
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Icon(Icons.close_rounded, color: Colors.red, size: 20),
-          const SizedBox(width: 6),
-          Text(label),
-        ],
       ),
     );
   }

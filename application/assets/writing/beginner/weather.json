@@ -1,0 +1,191 @@
+{
+  "topicId": "weather",
+  "entries": [
+    {
+      "id": "weather_001",
+      "level": "beginner",
+      "jpText": "天気",
+      "koText": "날씨"
+    },
+    {
+      "id": "weather_002",
+      "level": "beginner",
+      "jpText": "雨",
+      "koText": "비"
+    },
+    {
+      "id": "weather_003",
+      "level": "beginner",
+      "jpText": "雪",
+      "koText": "눈"
+    },
+    {
+      "id": "weather_004",
+      "level": "beginner",
+      "jpText": "風",
+      "koText": "바람"
+    },
+    {
+      "id": "weather_005",
+      "level": "beginner",
+      "jpText": "雲",
+      "koText": "구름"
+    },
+    {
+      "id": "weather_006",
+      "level": "beginner",
+      "jpText": "太陽",
+      "koText": "해"
+    },
+    {
+      "id": "weather_007",
+      "level": "beginner",
+      "jpText": "星",
+      "koText": "별"
+    },
+    {
+      "id": "weather_008",
+      "level": "beginner",
+      "jpText": "日光",
+      "koText": "햇빛"
+    },
+    {
+      "id": "weather_009",
+      "level": "beginner",
+      "jpText": "日陰",
+      "koText": "그늘"
+    },
+    {
+      "id": "weather_010",
+      "level": "beginner",
+      "jpText": "暑さ",
+      "koText": "더위"
+    },
+    {
+      "id": "weather_011",
+      "level": "beginner",
+      "jpText": "寒さ",
+      "koText": "추위"
+    },
+    {
+      "id": "weather_012",
+      "level": "beginner",
+      "jpText": "霧",
+      "koText": "안개"
+    },
+    {
+      "id": "weather_013",
+      "level": "beginner",
+      "jpText": "露",
+      "koText": "이슬"
+    },
+    {
+      "id": "weather_014",
+      "level": "beginner",
+      "jpText": "霜",
+      "koText": "서리"
+    },
+    {
+      "id": "weather_015",
+      "level": "beginner",
+      "jpText": "虹",
+      "koText": "무지개"
+    },
+    {
+      "id": "weather_016",
+      "level": "beginner",
+      "jpText": "雷",
+      "koText": "천둥"
+    },
+    {
+      "id": "weather_017",
+      "level": "beginner",
+      "jpText": "稲妻",
+      "koText": "번개"
+    },
+    {
+      "id": "weather_018",
+      "level": "beginner",
+      "jpText": "台風",
+      "koText": "태풍"
+    },
+    {
+      "id": "weather_019",
+      "level": "beginner",
+      "jpText": "雨が降る",
+      "koText": "비오다"
+    },
+    {
+      "id": "weather_020",
+      "level": "beginner",
+      "jpText": "雪が降る",
+      "koText": "눈오다"
+    },
+    {
+      "id": "weather_021",
+      "level": "beginner",
+      "jpText": "晴れる",
+      "koText": "맑다"
+    },
+    {
+      "id": "weather_022",
+      "level": "beginner",
+      "jpText": "曇る",
+      "koText": "흐리다"
+    },
+    {
+      "id": "weather_023",
+      "level": "beginner",
+      "jpText": "暑い",
+      "koText": "덥다"
+    },
+    {
+      "id": "weather_024",
+      "level": "beginner",
+      "jpText": "寒い",
+      "koText": "춥다"
+    },
+    {
+      "id": "weather_025",
+      "level": "beginner",
+      "jpText": "暖かい",
+      "koText": "따뜻하다"
+    },
+    {
+      "id": "weather_026",
+      "level": "beginner",
+      "jpText": "涼しい",
+      "koText": "시원하다"
+    },
+    {
+      "id": "weather_027",
+      "level": "beginner",
+      "jpText": "冷たい",
+      "koText": "차갑다"
+    },
+    {
+      "id": "weather_028",
+      "level": "beginner",
+      "jpText": "湿っている",
+      "koText": "습하다"
+    },
+    {
+      "id": "weather_029",
+      "level": "beginner",
+      "jpText": "乾燥している",
+      "koText": "건조하다"
+    },
+    {
+      "id": "weather_030",
+      "level": "beginner",
+      "jpText": "気温",
+      "koText": "기온"
+    },
+    {
+      "id": "weather_031",
+      "level": "beginner",
+      "jpText": "湿度",
+      "koText": "습도"
+    }
+  ]
+}

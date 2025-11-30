@@ -1,0 +1,227 @@
+{
+  "topicId": "education",
+  "entries": [
+    {
+      "id": "education_001",
+      "level": "beginner",
+      "jpText": "学校",
+      "koText": "학교"
+    },
+    {
+      "id": "education_002",
+      "level": "beginner",
+      "jpText": "教室",
+      "koText": "교실"
+    },
+    {
+      "id": "education_003",
+      "level": "beginner",
+      "jpText": "授業",
+      "koText": "수업"
+    },
+    {
+      "id": "education_004",
+      "level": "beginner",
+      "jpText": "勉強",
+      "koText": "공부"
+    },
+    {
+      "id": "education_005",
+      "level": "beginner",
+      "jpText": "本",
+      "koText": "책"
+    },
+    {
+      "id": "education_006",
+      "level": "beginner",
+      "jpText": "ノート",
+      "koText": "노트"
+    },
+    {
+      "id": "education_007",
+      "level": "beginner",
+      "jpText": "鉛筆",
+      "koText": "연필"
+    },
+    {
+      "id": "education_008",
+      "level": "beginner",
+      "jpText": "ペン",
+      "koText": "펜"
+    },
+    {
+      "id": "education_009",
+      "level": "beginner",
+      "jpText": "消しゴム",
+      "koText": "지우개"
+    },
+    {
+      "id": "education_010",
+      "level": "beginner",
+      "jpText": "カバン",
+      "koText": "가방"
+    },
+    {
+      "id": "education_011",
+      "level": "beginner",
+      "jpText": "宿題",
+      "koText": "숙제"
+    },
+    {
+      "id": "education_012",
+      "level": "beginner",
+      "jpText": "試験",
+      "koText": "시험"
+    },
+    {
+      "id": "education_013",
+      "level": "beginner",
+      "jpText": "質問",
+      "koText": "질문"
+    },
+    {
+      "id": "education_014",
+      "level": "beginner",
+      "jpText": "答え",
+      "koText": "대답"
+    },
+    {
+      "id": "education_015",
+      "level": "beginner",
+      "jpText": "答案",
+      "koText": "답"
+    },
+    {
+      "id": "education_016",
+      "level": "beginner",
+      "jpText": "点数",
+      "koText": "점수"
+    },
+    {
+      "id": "education_017",
+      "level": "beginner",
+      "jpText": "成績",
+      "koText": "성적"
+    },
+    {
+      "id": "education_018",
+      "level": "beginner",
+      "jpText": "卒業",
+      "koText": "졸업"
+    },
+    {
+      "id": "education_019",
+      "level": "beginner",
+      "jpText": "入学",
+      "koText": "입학"
+    },
+    {
+      "id": "education_020",
+      "level": "beginner",
+      "jpText": "幼稚園",
+      "koText": "유치원"
+    },
+    {
+      "id": "education_021",
+      "level": "beginner",
+      "jpText": "小学校",
+      "koText": "초등학교"
+    },
+    {
+      "id": "education_022",
+      "level": "beginner",
+      "jpText": "中学校",
+      "koText": "중학교"
+    },
+    {
+      "id": "education_023",
+      "level": "beginner",
+      "jpText": "高校",
+      "koText": "고등학교"
+    },
+    {
+      "id": "education_024",
+      "level": "beginner",
+      "jpText": "大学",
+      "koText": "대학교"
+    },
+    {
+      "id": "education_025",
+      "level": "beginner",
+      "jpText": "学年",
+      "koText": "학년"
+    },
+    {
+      "id": "education_026",
+      "level": "beginner",
+      "jpText": "クラス",
+      "koText": "반"
+    },
+    {
+      "id": "education_027",
+      "level": "beginner",
+      "jpText": "友達",
+      "koText": "친구"
+    },
+    {
+      "id": "education_028",
+      "level": "beginner",
+      "jpText": "話す",
+      "koText": "말하다"
+    },
+    {
+      "id": "education_029",
+      "level": "beginner",
+      "jpText": "理解する",
+      "koText": "이해하다"
+    },
+    {
+      "id": "education_030",
+      "level": "beginner",
+      "jpText": "覚える",
+      "koText": "기억하다"
+    },
+    {
+      "id": "education_031",
+      "level": "beginner",
+      "jpText": "忘れる",
+      "koText": "잊다"
+    },
+    {
+      "id": "education_032",
+      "level": "beginner",
+      "jpText": "練習する",
+      "koText": "연습하다"
+    },
+    {
+      "id": "education_033",
+      "level": "beginner",
+      "jpText": "努力する",
+      "koText": "노력하다"
+    },
+    {
+      "id": "education_034",
+      "level": "beginner",
+      "jpText": "成功する",
+      "koText": "성공하다"
+    },
+    {
+      "id": "education_035",
+      "level": "beginner",
+      "jpText": "失敗する",
+      "koText": "실패하다"
+    },
+    {
+      "id": "education_036",
+      "level": "beginner",
+      "jpText": "先生",
+      "koText": "선생님"
+    },
+    {
+      "id": "education_037",
+      "level": "beginner",
+      "jpText": "学生",
+      "koText": "학생"
+    }
+  ]
+}

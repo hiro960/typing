@@ -1,0 +1,257 @@
+{
+  "topicId": "number",
+  "entries": [
+    {
+      "id": "number_001",
+      "level": "beginner",
+      "jpText": "ゼロ",
+      "koText": "영"
+    },
+    {
+      "id": "number_002",
+      "level": "beginner",
+      "jpText": "一",
+      "koText": "일"
+    },
+    {
+      "id": "number_003",
+      "level": "beginner",
+      "jpText": "二",
+      "koText": "이"
+    },
+    {
+      "id": "number_004",
+      "level": "beginner",
+      "jpText": "三",
+      "koText": "삼"
+    },
+    {
+      "id": "number_005",
+      "level": "beginner",
+      "jpText": "四",
+      "koText": "사"
+    },
+    {
+      "id": "number_006",
+      "level": "beginner",
+      "jpText": "五",
+      "koText": "오"
+    },
+    {
+      "id": "number_007",
+      "level": "beginner",
+      "jpText": "六",
+      "koText": "육"
+    },
+    {
+      "id": "number_008",
+      "level": "beginner",
+      "jpText": "七",
+      "koText": "칠"
+    },
+    {
+      "id": "number_009",
+      "level": "beginner",
+      "jpText": "八",
+      "koText": "팔"
+    },
+    {
+      "id": "number_010",
+      "level": "beginner",
+      "jpText": "九",
+      "koText": "구"
+    },
+    {
+      "id": "number_011",
+      "level": "beginner",
+      "jpText": "十",
+      "koText": "십"
+    },
+    {
+      "id": "number_012",
+      "level": "beginner",
+      "jpText": "百",
+      "koText": "백"
+    },
+    {
+      "id": "number_013",
+      "level": "beginner",
+      "jpText": "千",
+      "koText": "천"
+    },
+    {
+      "id": "number_014",
+      "level": "beginner",
+      "jpText": "万",
+      "koText": "만"
+    },
+    {
+      "id": "number_015",
+      "level": "beginner",
+      "jpText": "一つ",
+      "koText": "하나"
+    },
+    {
+      "id": "number_016",
+      "level": "beginner",
+      "jpText": "二つ",
+      "koText": "둘"
+    },
+    {
+      "id": "number_017",
+      "level": "beginner",
+      "jpText": "三つ",
+      "koText": "셋"
+    },
+    {
+      "id": "number_018",
+      "level": "beginner",
+      "jpText": "四つ",
+      "koText": "넷"
+    },
+    {
+      "id": "number_019",
+      "level": "beginner",
+      "jpText": "五つ",
+      "koText": "다섯"
+    },
+    {
+      "id": "number_020",
+      "level": "beginner",
+      "jpText": "六つ",
+      "koText": "여섯"
+    },
+    {
+      "id": "number_021",
+      "level": "beginner",
+      "jpText": "七つ",
+      "koText": "일곱"
+    },
+    {
+      "id": "number_022",
+      "level": "beginner",
+      "jpText": "八つ",
+      "koText": "여덟"
+    },
+    {
+      "id": "number_023",
+      "level": "beginner",
+      "jpText": "九つ",
+      "koText": "아홉"
+    },
+    {
+      "id": "number_024",
+      "level": "beginner",
+      "jpText": "十",
+      "koText": "열"
+    },
+    {
+      "id": "number_025",
+      "level": "beginner",
+      "jpText": "二十",
+      "koText": "스물"
+    },
+    {
+      "id": "number_026",
+      "level": "beginner",
+      "jpText": "三十",
+      "koText": "서른"
+    },
+    {
+      "id": "number_027",
+      "level": "beginner",
+      "jpText": "四十",
+      "koText": "마흔"
+    },
+    {
+      "id": "number_028",
+      "level": "beginner",
+      "jpText": "五十",
+      "koText": "쉰"
+    },
+    {
+      "id": "number_029",
+      "level": "beginner",
+      "jpText": "六十",
+      "koText": "예순"
+    },
+    {
+      "id": "number_030",
+      "level": "beginner",
+      "jpText": "七十",
+      "koText": "일흔"
+    },
+    {
+      "id": "number_031",
+      "level": "beginner",
+      "jpText": "八十",
+      "koText": "여든"
+    },
+    {
+      "id": "number_032",
+      "level": "beginner",
+      "jpText": "九十",
+      "koText": "아흔"
+    },
+    {
+      "id": "number_033",
+      "level": "beginner",
+      "jpText": "六十",
+      "koText": "육십"
+    },
+    {
+      "id": "number_034",
+      "level": "beginner",
+      "jpText": "七十",
+      "koText": "칠십"
+    },
+    {
+      "id": "number_035",
+      "level": "beginner",
+      "jpText": "八十",
+      "koText": "팔십"
+    },
+    {
+      "id": "number_036",
+      "level": "beginner",
+      "jpText": "九十",
+      "koText": "구십"
+    },
+    {
+      "id": "number_037",
+      "level": "beginner",
+      "jpText": "百万",
+      "koText": "백만"
+    },
+    {
+      "id": "number_038",
+      "level": "beginner",
+      "jpText": "十万",
+      "koText": "십만"
+    },
+    {
+      "id": "number_039",
+      "level": "beginner",
+      "jpText": "億",
+      "koText": "억"
+    },
+    {
+      "id": "number_040",
+      "level": "beginner",
+      "jpText": "いくつ",
+      "koText": "몇 개"
+    },
+    {
+      "id": "number_041",
+      "level": "beginner",
+      "jpText": "何番",
+      "koText": "몇 번"
+    },
+    {
+      "id": "number_042",
+      "level": "beginner",
+      "jpText": "半分",
+      "koText": "절반"
+    }
+  ]
+}

@@ -15,13 +15,17 @@
         { "id": "opinion_edu_003", "level": "template", "jpText": "したがって...すべきである", "koText": "따라서 ...해야 한다." },
         { "id": "opinion_edu_004", "level": "template", "jpText": "まず結論を述べる", "koText": "우선 결론을 말하고자 한다." },
         { "id": "opinion_edu_005", "level": "template", "jpText": "理由は二つある", "koText": "이유는 두 가지다." },
+        { "id": "opinion_edu_010", "level": "template", "jpText": "〜という批判もあるが", "koText": "…라는 비판도 있으나" },
+        { "id": "opinion_edu_011", "level": "template", "jpText": "それにもかかわらず意義がある", "koText": "그럼에도 불구하고 의의가 있다" },
         { "id": "opinion_edu_basic_001", "level": "basic", "jpText": "意見", "koText": "의견" },
         { "id": "opinion_edu_basic_002", "level": "basic", "jpText": "根拠", "koText": "근거" },
         { "id": "opinion_edu_basic_003", "level": "basic", "jpText": "具体例", "koText": "구체적 예" },
         { "id": "opinion_edu_006", "level": "advanced", "jpText": "効果的な", "koText": "효과적인" },
         { "id": "opinion_edu_007", "level": "advanced", "jpText": "必須的な", "koText": "필수적인" },
         { "id": "opinion_edu_008", "level": "advanced", "jpText": "合理的だ", "koText": "합리적이다" },
-        { "id": "opinion_edu_sentence_001", "level": "sentence", "jpText": "オンライン教育は効果的な学習方法である。", "koText": "온라인 교육은 효과적인 학습 방법이다." }
+        { "id": "opinion_edu_009", "level": "advanced", "jpText": "根拠を挙げれば", "koText": "근거를 들자면" },
+        { "id": "opinion_edu_sentence_001", "level": "sentence", "jpText": "オンライン教育は効果的な学習方法である。", "koText": "온라인 교육은 효과적인 학습 방법이다." },
+        { "id": "opinion_edu_sentence_002", "level": "sentence", "jpText": "オンライン教育は柔軟性と効率性で優れるが、対面交流不足という限界があり、補助的に活用すべきだ。", "koText": "온라인 교육은 유연성과 효율성에서 뛰어나지만 대면 교류 부족이라는 한계가 있어 보조적으로 활용해야 한다." }
       ]
     },
     {
@@ -35,13 +39,15 @@
         { "id": "opinion_remote_003", "level": "template", "jpText": "第一に時間を節約できる", "koText": "첫째, 시간을 절약할 수 있다." },
         { "id": "opinion_remote_004", "level": "template", "jpText": "第二にワークライフバランスが改善する", "koText": "둘째, 워라밸이 개선된다." },
         { "id": "opinion_remote_005", "level": "template", "jpText": "したがって企業は柔軟な制度を導入すべきだ", "koText": "따라서 기업은 유연한 제도를 도입해야 한다." },
+        { "id": "opinion_remote_006", "level": "template", "jpText": "しかし孤立感を感じやすい", "koText": "그러나 고립감을 느끼기 쉽다" },
         { "id": "opinion_remote_basic_001", "level": "basic", "jpText": "在宅勤務", "koText": "재택근무" },
         { "id": "opinion_remote_basic_002", "level": "basic", "jpText": "通勤時間", "koText": "통근 시간" },
         { "id": "opinion_remote_basic_003", "level": "basic", "jpText": "柔軟性", "koText": "유연성" },
         { "id": "opinion_remote_adv_001", "level": "advanced", "jpText": "生産性が向上する", "koText": "생산성이 향상된다" },
         { "id": "opinion_remote_adv_002", "level": "advanced", "jpText": "集中しやすい", "koText": "집중하기 쉽다" },
         { "id": "opinion_remote_adv_003", "level": "advanced", "jpText": "孤立感を感じる", "koText": "고립감을 느끼다" },
-        { "id": "opinion_remote_sentence_001", "level": "sentence", "jpText": "リモートワークは通勤時間を減らし、生産性を高める。", "koText": "원격 근무는 통근 시간을 줄이고 생산성을 높인다." }
+        { "id": "opinion_remote_sentence_001", "level": "sentence", "jpText": "リモートワークは通勤時間を減らし、生産性を高める。", "koText": "원격 근무는 통근 시간을 줄이고 생산성을 높인다." },
+        { "id": "opinion_remote_sentence_002", "level": "sentence", "jpText": "時間を節約し生産性は上がるが、孤立感とコミュニケーション不足を補う仕組みが必要だ。", "koText": "시간을 절약해 생산성은 오르지만 고립감과 소통 부족을 보완할 장치가 필요하다." }
       ]
     },
     {
@@ -55,13 +61,16 @@
         { "id": "opinion_transit_003", "level": "template", "jpText": "財源は税で賄える", "koText": "재원은 세금으로 충당할 수 있다." },
         { "id": "opinion_transit_004", "level": "template", "jpText": "短期的には混雑が増える可能性がある", "koText": "단기적으로는 혼잡이 늘 수 있다." },
         { "id": "opinion_transit_005", "level": "template", "jpText": "それでも長期的効果が大きい", "koText": "그래도 장기적 효과가 크다." },
+        { "id": "opinion_transit_006", "level": "template", "jpText": "長期的な観点では", "koText": "장기적 관점에서는" },
+        { "id": "opinion_transit_007", "level": "template", "jpText": "データを見ると", "koText": "자료를 보면" },
         { "id": "opinion_transit_basic_001", "level": "basic", "jpText": "運賃", "koText": "요금" },
         { "id": "opinion_transit_basic_002", "level": "basic", "jpText": "財源", "koText": "재원" },
         { "id": "opinion_transit_basic_003", "level": "basic", "jpText": "混雑", "koText": "혼잡" },
         { "id": "opinion_transit_adv_001", "level": "advanced", "jpText": "交通弱者", "koText": "교통 약자" },
         { "id": "opinion_transit_adv_002", "level": "advanced", "jpText": "環境負荷を減らす", "koText": "환경 부담을 줄이다" },
         { "id": "opinion_transit_adv_003", "level": "advanced", "jpText": "政策効果を検証する", "koText": "정책 효과를 검증하다" },
-        { "id": "opinion_transit_sentence_001", "level": "sentence", "jpText": "無料化は利用者を増やし、車依存を減らすだろう。", "koText": "무료화는 이용자를 늘리고 자동차 의존을 줄일 것이다." }
+        { "id": "opinion_transit_sentence_001", "level": "sentence", "jpText": "無料化は利用者を増やし、車依存を減らすだろう。", "koText": "무료화는 이용자를 늘리고 자동차 의존을 줄일 것이다." },
+        { "id": "opinion_transit_sentence_002", "level": "sentence", "jpText": "データを見ると長期的な環境負荷減少が大きく、短期の混雑を管理すれば政策効果が大きい。", "koText": "자료를 보면 장기적인 환경 부담 감소가 크며 단기 혼잡만 관리하면 정책 효과가 크다." }
       ]
     }
   ]

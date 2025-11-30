@@ -10,6 +10,10 @@ import '../../../features/writing/domain/providers/writing_providers.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
 import '../../app_spacing.dart';
 import '../../widgets/app_page_scaffold.dart';
+import '../../widgets/typing/input_feedback_widget.dart';
+import '../../widgets/typing/level_badge.dart';
+import '../../widgets/typing/typing_progress_bar.dart';
+import '../../widgets/typing/typing_prompt_card.dart';
 import '../../widgets/typing_keyboard.dart';
 import 'writing_completion_screen.dart';
 
@@ -422,38 +426,12 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
   Widget _buildProgressBar() {
     final answered = _state!.results.length;
     final total = _state!.entries.length;
-    final progress = total == 0 ? 0.0 : answered.clamp(0, total) / total;
     final elapsedLabel = _formatElapsed(_state!.elapsedSeconds);
 
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.lg,
-            vertical: AppSpacing.sm,
-          ),
-          child: Row(
-            children: [
-              Text(
-                '$answered / $total',
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-              const SizedBox(width: AppSpacing.sm),
-              Expanded(
-                child: LinearProgressIndicator(value: progress, minHeight: 8),
-              ),
-              const SizedBox(width: AppSpacing.sm),
-              Text(
-                elapsedLabel,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
-                ),
-              ),
-            ],
-          ),
-        ),
-        const Divider(height: 1),
-      ],
+    return TypingProgressBar(
+      current: answered,
+      total: total,
+      elapsedLabel: elapsedLabel,
     );
   }
 
@@ -474,114 +452,20 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          _buildLevelBadge(currentEntry.level),
+          LevelBadge.fromEntryLevel(currentEntry.level),
           const SizedBox(height: AppSpacing.md),
-          _buildJapaneseText(currentEntry.jpText),
+          TypingPromptCard(
+            targetText: currentEntry.jpText,
+            subText: _state!.showAnswer ? currentEntry.koText : null,
+            fontSize: 22,
+          ),
           const SizedBox(height: AppSpacing.xl),
-          if (_state!.showAnswer) ...[
-            _buildAnswerText(currentEntry.koText),
-            const SizedBox(height: AppSpacing.md),
-          ],
-          _buildInputField(),
+          TypingInputCard(inputText: _composer.text),
           const SizedBox(height: AppSpacing.md),
           _buildShowAnswerButton(),
           const SizedBox(height: AppSpacing.md),
           if (_state!.lastResult != null) _buildFeedback(),
         ],
-      ),
-    );
-  }
-
-  Widget _buildLevelBadge(EntryLevel level) {
-    final (label, color) = switch (level) {
-      EntryLevel.template => ('テンプレート', Colors.blue),
-      EntryLevel.basic => ('基礎', Colors.green),
-      EntryLevel.advanced => ('高級', Colors.orange),
-      EntryLevel.sentence => ('例文', Colors.grey),
-    };
-
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: Container(
-        padding: const EdgeInsets.symmetric(
-          horizontal: AppSpacing.sm,
-          vertical: AppSpacing.xs,
-        ),
-        decoration: BoxDecoration(
-          color: color.withOpacity(0.2),
-          borderRadius: BorderRadius.circular(4),
-        ),
-        child: Text(
-          label,
-          style: TextStyle(
-            color: color,
-            fontSize: 12,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildJapaneseText(String text) {
-    return Container(
-      padding: const EdgeInsets.all(AppSpacing.lg),
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surfaceContainerHighest,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Text(
-        text,
-        style: Theme.of(context).textTheme.headlineSmall,
-        textAlign: TextAlign.center,
-      ),
-    );
-  }
-
-  Widget _buildAnswerText(String text) {
-    return Container(
-      padding: const EdgeInsets.all(AppSpacing.md),
-      decoration: BoxDecoration(
-        color: Colors.blue.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Colors.blue.withOpacity(0.3)),
-      ),
-      child: Text(
-        text,
-        style: Theme.of(
-          context,
-        ).textTheme.bodyLarge?.copyWith(color: Colors.blue.shade700),
-        textAlign: TextAlign.center,
-      ),
-    );
-  }
-
-  Widget _buildInputField() {
-    final userText = _composer.text;
-    final isEmpty = userText.isEmpty;
-
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(AppSpacing.xl),
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surfaceContainerHighest,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: Theme.of(context).colorScheme.primary.withOpacity(0.3),
-          width: 2,
-        ),
-      ),
-      child: Center(
-        child: Text(
-          isEmpty ? '下のキーボードで入力してください' : userText,
-          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                color: isEmpty
-                    ? Theme.of(context).colorScheme.onSurfaceVariant
-                    : Theme.of(context).colorScheme.onSurface,
-                fontWeight: isEmpty ? FontWeight.normal : FontWeight.bold,
-              ),
-          textAlign: TextAlign.center,
-        ),
       ),
     );
   }
@@ -615,52 +499,72 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
     final isLast = _state!.currentIndex >= _state!.entries.length - 1;
     final buttonLabel = isLast ? '完了' : '次へ';
 
+    final feedbackContainer = Container(
+      padding: const EdgeInsets.all(AppSpacing.md),
+      decoration: BoxDecoration(
+        color: color.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: color),
+      ),
+      child: Row(
+        children: [
+          Icon(icon, color: color, size: 32),
+          const SizedBox(width: AppSpacing.sm),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  text,
+                  style: TextStyle(
+                    color: color,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
+                if (!isCorrect) ...[
+                  const SizedBox(height: AppSpacing.xs),
+                  Text(
+                    '正解: ${_state!.currentEntry!.koText}',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  const SizedBox(height: AppSpacing.xs),
+                  Text(
+                    'あなたの回答: ${_composer.text.trim()}',
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+
+    // アニメーション付きのフィードバック表示
+    final animatedFeedback = isCorrect
+        ? TweenAnimationBuilder<double>(
+            key: ValueKey('correct_${_state!.results.length}'),
+            duration: const Duration(milliseconds: 400),
+            tween: Tween<double>(begin: 0.8, end: 1),
+            curve: Curves.elasticOut,
+            builder: (context, value, child) {
+              return Transform.scale(scale: value, child: child);
+            },
+            child: feedbackContainer,
+          )
+        : ShakeContainer(
+            key: ValueKey('wrong_${_state!.results.length}'),
+            shouldShake: true,
+            child: feedbackContainer,
+          );
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Container(
-          padding: const EdgeInsets.all(AppSpacing.md),
-          decoration: BoxDecoration(
-            color: color.withOpacity(0.1),
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: color),
-          ),
-          child: Row(
-            children: [
-              Icon(icon, color: color, size: 32),
-              const SizedBox(width: AppSpacing.sm),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      text,
-                      style: TextStyle(
-                        color: color,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
-                    ),
-                    if (!isCorrect) ...[
-                      const SizedBox(height: AppSpacing.xs),
-                      Text(
-                        '正解: ${_state!.currentEntry!.koText}',
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                      const SizedBox(height: AppSpacing.xs),
-                      Text(
-                        'あなたの回答: ${_composer.text.trim()}',
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: Theme.of(context).colorScheme.onSurfaceVariant,
-                        ),
-                      ),
-                    ],
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
+        animatedFeedback,
         const SizedBox(height: AppSpacing.md),
         FButton(
           style: FButtonStyle.primary(),

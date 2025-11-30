@@ -3,9 +3,15 @@ part of 'home_screen.dart';
 class _WritingPatternAccordions extends ConsumerWidget {
   const _WritingPatternAccordions({
     required this.controller,
+    required this.title,
+    required this.subtitle,
+    required this.isHobbySection,
   });
 
   final FAccordionController controller;
+  final String title;
+  final String subtitle;
+  final bool isHobbySection;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -20,58 +26,72 @@ class _WritingPatternAccordions extends ConsumerWidget {
         padding: const EdgeInsets.all(AppSpacing.lg),
         child: Text('エラーが発生しました: $error'),
       ),
-      data: (patterns) => FAccordion(
-        controller: controller,
-        children: [
-          FAccordionItem(
-            initiallyExpanded: false,
-            title: Row(
-              children: [
-                CircleAvatar(
-                  radius: 18,
-                  backgroundColor:
-                      AppColors.accentStart.withValues(alpha: 0.18),
-                  child: const Icon(
-                    Icons.edit_note,
-                    color: AppColors.accentStart,
-                    size: 18,
+      data: (patterns) {
+        final filtered = patterns
+            .where((p) => p.id.startsWith('hobby_') == isHobbySection)
+            .toList();
+
+        if (filtered.isEmpty) {
+          return const Padding(
+            padding: EdgeInsets.all(AppSpacing.lg),
+            child: Text('データがありません'),
+          );
+        }
+
+        return FAccordion(
+          controller: controller,
+          children: [
+            FAccordionItem(
+              initiallyExpanded: false,
+              title: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 18,
+                    backgroundColor:
+                        AppColors.accentStart.withValues(alpha: 0.18),
+                    child: const Icon(
+                      Icons.edit_note,
+                      color: AppColors.accentStart,
+                      size: 18,
+                    ),
                   ),
-                ),
-                const SizedBox(width: AppSpacing.md),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('TOPIK対策'),
-                      Text(
-                        'タイピングで覚える論述パターン',
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: Theme.of(context)
-                              .colorScheme
-                              .onSurface
-                              .withValues(alpha: 0.6),
+                  const SizedBox(width: AppSpacing.md),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(title),
+                        Text(
+                          subtitle,
+                          style:
+                              Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSurface
+                                        .withValues(alpha: 0.6),
+                                  ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                Text('全${patterns.length}件'),
-              ],
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                for (final pattern in patterns) ...[
-                  _PatternTile(
-                    pattern: pattern,
-                    onTap: () => _navigateToTopicList(context, pattern),
-                  ),
+                  Text('全${filtered.length}件'),
                 ],
-              ],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  for (final pattern in filtered) ...[
+                    _PatternTile(
+                      pattern: pattern,
+                      onTap: () => _navigateToTopicList(context, pattern),
+                    ),
+                  ],
+                ],
+              ),
             ),
-          ),
-        ],
-      ),
+          ],
+        );
+      },
     );
   }
 

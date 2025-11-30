@@ -1,5 +1,5 @@
 import 'package:chaletta/ui/widgets/premium_feature_gate.dart';
-import 'package:chaletta/ui/widgets/section_title_text.dart';
+import 'package:chaletta/ui/widgets/section_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
@@ -40,11 +40,13 @@ class HomeScreen extends ConsumerStatefulWidget {
 class _HomeScreenState extends ConsumerState<HomeScreen> {
   final _typingAccordionController = FAccordionController(max: 1);
   final _writingAccordionController = FAccordionController(max: 1);
+  final _hobbyWritingAccordionController = FAccordionController(max: 1);
 
   @override
   void dispose() {
     _typingAccordionController.dispose();
     _writingAccordionController.dispose();
+    _hobbyWritingAccordionController.dispose();
     super.dispose();
   }
 
@@ -93,7 +95,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         maxWpm: user?.maxWPM ?? 0,
                       ),
                       const SizedBox(height: AppSpacing.xxl),
-                      SectionTitleText(iconData: Icons.keyboard, text: 'タイピング練習', color: Color.fromARGB(255, 75, 105, 242)),
+                      const SectionTitle(iconData: Icons.keyboard, text: 'タイピング練習'),
                       _LevelAccordions(
                         controller: _typingAccordionController,
                         catalog: state.catalog,
@@ -103,9 +105,19 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       const SizedBox(height: AppSpacing.xl),
                       const RankingGameSection(),
                       const SizedBox(height: AppSpacing.xxl),
-                      SectionTitleText(iconData: Icons.edit, text: '書き取り練習', color: Color.fromARGB(255, 75, 105, 242)),
+                      const SectionTitle(iconData: Icons.edit, text: '書き取り練習'),
                       _WritingPatternAccordions(
                         controller: _writingAccordionController,
+                        title: 'TOPIK対策',
+                        subtitle: 'タイピングで覚える論述パターン',
+                        isHobbySection: false,
+                      ),
+                      const SizedBox(height: AppSpacing.md),
+                      _WritingPatternAccordions(
+                        controller: _hobbyWritingAccordionController,
+                        title: '趣味対策',
+                        subtitle: 'SNSや韓ドラ、推しなど気軽に書ける題材',
+                        isHobbySection: true,
                       ),
                       const SizedBox(height: AppSpacing.xl),
                       Padding(

@@ -1,0 +1,143 @@
+{
+  "topicId": "greeting",
+  "entries": [
+    {
+      "id": "greeting_001",
+      "level": "beginner",
+      "jpText": "こんにちは（親しい間柄）",
+      "koText": "안녕"
+    },
+    {
+      "id": "greeting_002",
+      "level": "beginner",
+      "jpText": "こんにちは（最も丁寧）",
+      "koText": "안녕하십니까"
+    },
+    {
+      "id": "greeting_003",
+      "level": "beginner",
+      "jpText": "お会いできて嬉しいです",
+      "koText": "반갑습니다"
+    },
+    {
+      "id": "greeting_004",
+      "level": "beginner",
+      "jpText": "初めまして",
+      "koText": "처음 뵙겠습니다"
+    },
+    {
+      "id": "greeting_005",
+      "level": "beginner",
+      "jpText": "よろしくお願いします",
+      "koText": "잘 부탁드립니다"
+    },
+    {
+      "id": "greeting_006",
+      "level": "beginner",
+      "jpText": "すみません",
+      "koText": "미안합니다"
+    },
+    {
+      "id": "greeting_007",
+      "level": "beginner",
+      "jpText": "さようなら（見送る側）",
+      "koText": "안녕히 가세요"
+    },
+    {
+      "id": "greeting_008",
+      "level": "beginner",
+      "jpText": "さようなら（去る側）",
+      "koText": "안녕히 계세요"
+    },
+    {
+      "id": "greeting_009",
+      "level": "beginner",
+      "jpText": "また会いましょう",
+      "koText": "또 만나요"
+    },
+    {
+      "id": "greeting_010",
+      "level": "beginner",
+      "jpText": "バイバイ（親しい間柄）",
+      "koText": "잘 가"
+    },
+    {
+      "id": "greeting_011",
+      "level": "beginner",
+      "jpText": "じゃあね（親しい間柄）",
+      "koText": "잘 있어"
+    },
+    {
+      "id": "greeting_012",
+      "level": "beginner",
+      "jpText": "歓迎します",
+      "koText": "환영합니다"
+    },
+    {
+      "id": "greeting_013",
+      "level": "beginner",
+      "jpText": "あけましておめでとうございます",
+      "koText": "새해 복 많이 받으세요"
+    },
+    {
+      "id": "greeting_014",
+      "level": "beginner",
+      "jpText": "誕生日おめでとう",
+      "koText": "생일 축하해요"
+    },
+    {
+      "id": "greeting_015",
+      "level": "beginner",
+      "jpText": "いただきます",
+      "koText": "잘 먹겠습니다"
+    },
+    {
+      "id": "greeting_016",
+      "level": "beginner",
+      "jpText": "ごちそうさまでした",
+      "koText": "잘 먹었습니다"
+    },
+    {
+      "id": "greeting_017",
+      "level": "beginner",
+      "jpText": "おやすみ（親しい間柄）",
+      "koText": "잘 자"
+    },
+    {
+      "id": "greeting_018",
+      "level": "beginner",
+      "jpText": "おやすみなさい",
+      "koText": "안녕히 주무세요"
+    },
+    {
+      "id": "greeting_019",
+      "level": "beginner",
+      "jpText": "おはようございます",
+      "koText": "좋은 아침이에요"
+    },
+    {
+      "id": "greeting_020",
+      "level": "beginner",
+      "jpText": "お疲れ様でした",
+      "koText": "수고하셨습니다"
+    },
+    {
+      "id": "greeting_021",
+      "level": "beginner",
+      "jpText": "ありがとう",
+      "koText": "감사합니다"
+    },
+    {
+      "id": "greeting_022",
+      "level": "beginner",
+      "jpText": "お久しぶりです",
+      "koText": "오랜만이에요"
+    },
+    {
+      "id": "greeting_023",
+      "level": "beginner",
+      "jpText": "いらっしゃいませ",
+      "koText": "어서 오세요"
+    }
+  ]
+}

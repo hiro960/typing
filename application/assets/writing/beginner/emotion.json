@@ -1,0 +1,173 @@
+{
+  "topicId": "emotion",
+  "entries": [
+    {
+      "id": "emotion_001",
+      "level": "beginner",
+      "jpText": "気分",
+      "koText": "기분"
+    },
+    {
+      "id": "emotion_002",
+      "level": "beginner",
+      "jpText": "愛",
+      "koText": "사랑"
+    },
+    {
+      "id": "emotion_003",
+      "level": "beginner",
+      "jpText": "幸福",
+      "koText": "행복"
+    },
+    {
+      "id": "emotion_004",
+      "level": "beginner",
+      "jpText": "怒り",
+      "koText": "화"
+    },
+    {
+      "id": "emotion_005",
+      "level": "beginner",
+      "jpText": "恐れ",
+      "koText": "두려움"
+    },
+    {
+      "id": "emotion_006",
+      "level": "beginner",
+      "jpText": "心配",
+      "koText": "걱정"
+    },
+    {
+      "id": "emotion_007",
+      "level": "beginner",
+      "jpText": "希望",
+      "koText": "희망"
+    },
+    {
+      "id": "emotion_008",
+      "level": "beginner",
+      "jpText": "夢",
+      "koText": "꿈"
+    },
+    {
+      "id": "emotion_009",
+      "level": "beginner",
+      "jpText": "感じ",
+      "koText": "느낌"
+    },
+    {
+      "id": "emotion_010",
+      "level": "beginner",
+      "jpText": "感情",
+      "koText": "감정"
+    },
+    {
+      "id": "emotion_011",
+      "level": "beginner",
+      "jpText": "笑い",
+      "koText": "웃음"
+    },
+    {
+      "id": "emotion_012",
+      "level": "beginner",
+      "jpText": "涙",
+      "koText": "눈물"
+    },
+    {
+      "id": "emotion_013",
+      "level": "beginner",
+      "jpText": "好きだ",
+      "koText": "좋아하다"
+    },
+    {
+      "id": "emotion_014",
+      "level": "beginner",
+      "jpText": "嫌いだ",
+      "koText": "싫어하다"
+    },
+    {
+      "id": "emotion_015",
+      "level": "beginner",
+      "jpText": "愛する",
+      "koText": "사랑하다"
+    },
+    {
+      "id": "emotion_016",
+      "level": "beginner",
+      "jpText": "憎む",
+      "koText": "미워하다"
+    },
+    {
+      "id": "emotion_017",
+      "level": "beginner",
+      "jpText": "嬉しい",
+      "koText": "기쁘다"
+    },
+    {
+      "id": "emotion_018",
+      "level": "beginner",
+      "jpText": "悲しい",
+      "koText": "슬프다"
+    },
+    {
+      "id": "emotion_019",
+      "level": "beginner",
+      "jpText": "幸せだ",
+      "koText": "행복하다"
+    },
+    {
+      "id": "emotion_020",
+      "level": "beginner",
+      "jpText": "怒る",
+      "koText": "화나다"
+    },
+    {
+      "id": "emotion_021",
+      "level": "beginner",
+      "jpText": "怖い",
+      "koText": "무섭다"
+    },
+    {
+      "id": "emotion_022",
+      "level": "beginner",
+      "jpText": "恐ろしい",
+      "koText": "두렵다"
+    },
+    {
+      "id": "emotion_023",
+      "level": "beginner",
+      "jpText": "寂しい",
+      "koText": "외롭다"
+    },
+    {
+      "id": "emotion_024",
+      "level": "beginner",
+      "jpText": "楽しい",
+      "koText": "즐겁다"
+    },
+    {
+      "id": "emotion_025",
+      "level": "beginner",
+      "jpText": "退屈だ",
+      "koText": "지루하다"
+    },
+    {
+      "id": "emotion_026",
+      "level": "beginner",
+      "jpText": "驚く",
+      "koText": "놀라다"
+    },
+    {
+      "id": "emotion_027",
+      "level": "beginner",
+      "jpText": "安心する",
+      "koText": "안심하다"
+    },
+    {
+      "id": "emotion_028",
+      "level": "beginner",
+      "jpText": "緊張する",
+      "koText": "긴장하다"
+    }
+  ]
+}

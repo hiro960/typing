@@ -48,17 +48,15 @@ class VerifiedBadge extends StatelessWidget {
 
     return Tooltip(
       message: isOfficial ? '公式アカウント' : 'Proメンバー',
-      child: Container(
+      child: SizedBox(
         width: containerSize,
         height: containerSize,
-        decoration: BoxDecoration(
-          color: backgroundColor,
-          shape: BoxShape.circle,
-        ),
-        child: Icon(
-          Icons.verified,
-          size: iconSize,
-          color: badgeColor,
+        child: Center(
+          child: Icon(
+            Icons.verified,
+            size: iconSize,
+            color: badgeColor,
+          ),
         ),
       ),
     );
@@ -68,13 +66,13 @@ class VerifiedBadge extends StatelessWidget {
 /// バッジのサイズ設定
 enum VerifiedBadgeSize {
   /// 小さいサイズ（リスト内やコンパクトな表示用）
-  small(iconSize: 14, containerSize: 16),
+  small(iconSize: 14, containerSize: 14),
 
   /// 中サイズ（投稿カード等の通常表示用）
-  medium(iconSize: 18, containerSize: 20),
+  medium(iconSize: 18, containerSize: 18),
 
   /// 大きいサイズ（プロフィール画面用）
-  large(iconSize: 24, containerSize: 28);
+  large(iconSize: 24, containerSize: 24);
 
   const VerifiedBadgeSize({
     required this.iconSize,
@@ -104,8 +102,16 @@ class UserNameWithBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // バッジを上にずらすオフセット（サイズに応じて調整）
+    final verticalOffset = switch (badgeSize) {
+      VerifiedBadgeSize.small => -2.0,
+      VerifiedBadgeSize.medium => -3.0,
+      VerifiedBadgeSize.large => -4.0,
+    };
+
     return Row(
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Flexible(
           child: Text(
@@ -116,7 +122,10 @@ class UserNameWithBadge extends StatelessWidget {
         ),
         if (VerifiedBadge.shouldShowBadge(userType)) ...[
           SizedBox(width: spacing),
-          VerifiedBadge(userType: userType, size: badgeSize),
+          Transform.translate(
+            offset: Offset(0, verticalOffset),
+            child: VerifiedBadge(userType: userType, size: badgeSize),
+          ),
         ],
       ],
     );

@@ -1,0 +1,131 @@
+{
+  "topicId": "shopping",
+  "entries": [
+    {
+      "id": "shopping_001",
+      "level": "beginner",
+      "jpText": "店",
+      "koText": "가게"
+    },
+    {
+      "id": "shopping_002",
+      "level": "beginner",
+      "jpText": "市場",
+      "koText": "시장"
+    },
+    {
+      "id": "shopping_003",
+      "level": "beginner",
+      "jpText": "デパート",
+      "koText": "백화점"
+    },
+    {
+      "id": "shopping_004",
+      "level": "beginner",
+      "jpText": "スーパー",
+      "koText": "마트"
+    },
+    {
+      "id": "shopping_005",
+      "level": "beginner",
+      "jpText": "コンビニ",
+      "koText": "편의점"
+    },
+    {
+      "id": "shopping_006",
+      "level": "beginner",
+      "jpText": "ショッピング",
+      "koText": "쇼핑"
+    },
+    {
+      "id": "shopping_007",
+      "level": "beginner",
+      "jpText": "品物",
+      "koText": "물건"
+    },
+    {
+      "id": "shopping_008",
+      "level": "beginner",
+      "jpText": "値段",
+      "koText": "값"
+    },
+    {
+      "id": "shopping_009",
+      "level": "beginner",
+      "jpText": "価格",
+      "koText": "가격"
+    },
+    {
+      "id": "shopping_010",
+      "level": "beginner",
+      "jpText": "現金",
+      "koText": "현금"
+    },
+    {
+      "id": "shopping_011",
+      "level": "beginner",
+      "jpText": "カード",
+      "koText": "카드"
+    },
+    {
+      "id": "shopping_012",
+      "level": "beginner",
+      "jpText": "領収書",
+      "koText": "영수증"
+    },
+    {
+      "id": "shopping_013",
+      "level": "beginner",
+      "jpText": "割引",
+      "koText": "할인"
+    },
+    {
+      "id": "shopping_014",
+      "level": "beginner",
+      "jpText": "セール",
+      "koText": "세일"
+    },
+    {
+      "id": "shopping_015",
+      "level": "beginner",
+      "jpText": "計算",
+      "koText": "계산"
+    },
+    {
+      "id": "shopping_016",
+      "level": "beginner",
+      "jpText": "おつり",
+      "koText": "거스름돈"
+    },
+    {
+      "id": "shopping_017",
+      "level": "beginner",
+      "jpText": "包装",
+      "koText": "포장"
+    },
+    {
+      "id": "shopping_018",
+      "level": "beginner",
+      "jpText": "袋",
+      "koText": "봉투"
+    },
+    {
+      "id": "shopping_019",
+      "level": "beginner",
+      "jpText": "サイズ",
+      "koText": "사이즈"
+    },
+    {
+      "id": "shopping_020",
+      "level": "beginner",
+      "jpText": "試着する",
+      "koText": "입어 보다"
+    },
+    {
+      "id": "shopping_021",
+      "level": "beginner",
+      "jpText": "交換する",
+      "koText": "교환하다"
+    }
+  ]
+}

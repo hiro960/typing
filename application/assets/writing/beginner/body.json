@@ -1,0 +1,185 @@
+{
+  "topicId": "body",
+  "entries": [
+    {
+      "id": "body_001",
+      "level": "beginner",
+      "jpText": "頭",
+      "koText": "머리"
+    },
+    {
+      "id": "body_002",
+      "level": "beginner",
+      "jpText": "顔",
+      "koText": "얼굴"
+    },
+    {
+      "id": "body_003",
+      "level": "beginner",
+      "jpText": "目",
+      "koText": "눈"
+    },
+    {
+      "id": "body_004",
+      "level": "beginner",
+      "jpText": "鼻",
+      "koText": "코"
+    },
+    {
+      "id": "body_005",
+      "level": "beginner",
+      "jpText": "口",
+      "koText": "입"
+    },
+    {
+      "id": "body_006",
+      "level": "beginner",
+      "jpText": "耳",
+      "koText": "귀"
+    },
+    {
+      "id": "body_007",
+      "level": "beginner",
+      "jpText": "歯",
+      "koText": "이"
+    },
+    {
+      "id": "body_008",
+      "level": "beginner",
+      "jpText": "舌",
+      "koText": "혀"
+    },
+    {
+      "id": "body_009",
+      "level": "beginner",
+      "jpText": "首",
+      "koText": "목"
+    },
+    {
+      "id": "body_010",
+      "level": "beginner",
+      "jpText": "肩",
+      "koText": "어깨"
+    },
+    {
+      "id": "body_011",
+      "level": "beginner",
+      "jpText": "腕",
+      "koText": "팔"
+    },
+    {
+      "id": "body_012",
+      "level": "beginner",
+      "jpText": "手",
+      "koText": "손"
+    },
+    {
+      "id": "body_013",
+      "level": "beginner",
+      "jpText": "指",
+      "koText": "손가락"
+    },
+    {
+      "id": "body_014",
+      "level": "beginner",
+      "jpText": "胸",
+      "koText": "가슴"
+    },
+    {
+      "id": "body_015",
+      "level": "beginner",
+      "jpText": "お腹",
+      "koText": "배"
+    },
+    {
+      "id": "body_016",
+      "level": "beginner",
+      "jpText": "背中",
+      "koText": "등"
+    },
+    {
+      "id": "body_017",
+      "level": "beginner",
+      "jpText": "腰",
+      "koText": "허리"
+    },
+    {
+      "id": "body_018",
+      "level": "beginner",
+      "jpText": "お尻",
+      "koText": "엉덩이"
+    },
+    {
+      "id": "body_019",
+      "level": "beginner",
+      "jpText": "脚",
+      "koText": "다리"
+    },
+    {
+      "id": "body_020",
+      "level": "beginner",
+      "jpText": "膝",
+      "koText": "무릎"
+    },
+    {
+      "id": "body_021",
+      "level": "beginner",
+      "jpText": "足",
+      "koText": "발"
+    },
+    {
+      "id": "body_022",
+      "level": "beginner",
+      "jpText": "足の指",
+      "koText": "발가락"
+    },
+    {
+      "id": "body_023",
+      "level": "beginner",
+      "jpText": "皮膚",
+      "koText": "피부"
+    },
+    {
+      "id": "body_024",
+      "level": "beginner",
+      "jpText": "血",
+      "koText": "피"
+    },
+    {
+      "id": "body_025",
+      "level": "beginner",
+      "jpText": "骨",
+      "koText": "뼈"
+    },
+    {
+      "id": "body_026",
+      "level": "beginner",
+      "jpText": "筋肉",
+      "koText": "근육"
+    },
+    {
+      "id": "body_027",
+      "level": "beginner",
+      "jpText": "心臓",
+      "koText": "심장"
+    },
+    {
+      "id": "body_028",
+      "level": "beginner",
+      "jpText": "髪の毛",
+      "koText": "머리카락"
+    },
+    {
+      "id": "body_029",
+      "level": "beginner",
+      "jpText": "喉",
+      "koText": "목"
+    },
+    {
+      "id": "body_030",
+      "level": "beginner",
+      "jpText": "胃",
+      "koText": "위"
+    }
+  ]
+}

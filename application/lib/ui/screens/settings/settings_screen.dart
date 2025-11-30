@@ -136,7 +136,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final theme = FTheme.of(context);
     final currentUser = ref.watch(currentUserProvider);
     final blockedAsync = ref.watch(blockedAccountsProvider);
     final blockedCount = blockedAsync.value?.length;
@@ -191,8 +191,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     loading: () => '件数を読み込み中...',
                     error: (_, __) => '件数の取得に失敗しました',
                   ),
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                  style: theme.typography.sm.copyWith(
+                    color: theme.colors.mutedForeground,
                   ),
                 ),
                 suffix: Row(
@@ -205,13 +205,13 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                           vertical: 4,
                         ),
                         decoration: BoxDecoration(
-                          color: theme.colorScheme.primary.withValues(alpha: 0.08),
+                          color: theme.colors.primary.withValues(alpha: 0.08),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Text(
                           '$blockedCount件',
-                          style: theme.textTheme.labelMedium?.copyWith(
-                            color: theme.colorScheme.primary,
+                          style: theme.typography.xs.copyWith(
+                            color: theme.colors.primary,
                           ),
                         ),
                       ),
@@ -281,7 +281,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       },
                     ),
                     Divider(
-                      color: theme.colorScheme.onSurface.withValues(alpha: 0.1),
+                      color: theme.colors.border,
                     ),
                     _SwitchTile(
                       icon: Icons.lightbulb_outline,
@@ -334,8 +334,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 title: const Text('フィードバックを送る'),
                 subtitle: Text(
                   '改善点や不具合の報告はこちらから',
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                  style: theme.typography.sm.copyWith(
+                    color: theme.colors.mutedForeground,
                   ),
                 ),
                 onPress: _showFeedbackSheet,
@@ -347,7 +347,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('アカウント操作', style: theme.textTheme.titleMedium),
+              Text('アカウント操作', style: theme.typography.base.copyWith(fontWeight: FontWeight.bold)),
               const SizedBox(height: 8),
               Padding(
                 padding: const EdgeInsets.symmetric(
@@ -361,9 +361,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       title: const Text('ログアウト'),
                       subtitle: Text(
                         '他のアカウントでログインする場合はこちら',
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurface
-                              .withValues(alpha: 0.6),
+                        style: theme.typography.sm.copyWith(
+                          color: theme.colors.mutedForeground,
                         ),
                       ),
                       onPress: _isLoggingOut ? null : _handleLogout,
@@ -376,21 +375,21 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                           : const Icon(Icons.chevron_right),
                     ),
                     Divider(
-                      color: theme.colorScheme.error.withValues(alpha: 0.4),
+                      color: theme.colors.destructive.withValues(alpha: 0.4),
                     ),
                     FTile(
                       prefix: Icon(
                         Icons.delete_forever_outlined,
-                        color: theme.colorScheme.error,
+                        color: theme.colors.destructive,
                       ),
                       title: Text(
                         'アカウントを削除',
-                        style: TextStyle(color: theme.colorScheme.error),
+                        style: TextStyle(color: theme.colors.destructive),
                       ),
                       subtitle: Text(
                         '投稿・学習記録をすべて削除します',
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.error.withValues(alpha: 0.8),
+                        style: theme.typography.sm.copyWith(
+                          color: theme.colors.destructive.withValues(alpha: 0.8),
                         ),
                       ),
                       onPress: _isLoggingOut ? null : _handleDeleteAccount,
@@ -637,11 +636,11 @@ class _SettingsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final theme = FTheme.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: theme.textTheme.titleMedium),
+        Text(title, style: theme.typography.base.copyWith(fontWeight: FontWeight.bold)),
         const SizedBox(height: 8),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 2),
@@ -651,7 +650,7 @@ class _SettingsSection extends StatelessWidget {
                 children[i],
                 if (withDividers && i != children.length - 1)
                   Divider(
-                    color: theme.colorScheme.onSurface.withValues(alpha: 0.08),
+                    color: theme.colors.border,
                   ),
               ],
             ],
@@ -683,9 +682,9 @@ class _SwitchTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final theme = FTheme.of(context);
     final subtitleColor =
-        theme.colorScheme.onSurface.withValues(alpha: 0.6);
+        theme.colors.mutedForeground;
     return Opacity(
       opacity: isBusy ? 0.85 : 1,
       child: FTile(
@@ -696,7 +695,7 @@ class _SwitchTile extends StatelessWidget {
           children: [
             Text(
               subtitle,
-              style: theme.textTheme.bodySmall?.copyWith(
+              style: theme.typography.sm.copyWith(
                 color: subtitleColor,
               ),
             ),
@@ -705,8 +704,8 @@ class _SwitchTile extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 4),
                 child: Text(
                   statusText ?? '保存中...',
-                  style: theme.textTheme.labelSmall?.copyWith(
-                    color: theme.colorScheme.primary,
+                  style: theme.typography.xs.copyWith(
+                    color: theme.colors.primary,
                   ),
                 ),
               ),
@@ -756,7 +755,7 @@ class _ProfileHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final theme = FTheme.of(context);
     return FCard.raw(
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -766,10 +765,11 @@ class _ProfileHeader extends StatelessWidget {
               displayName: displayName,
               imageUrl: profileImageUrl,
               radius: 28,
-              backgroundColor: theme.colorScheme.primaryContainer,
-              foregroundColor: theme.colorScheme.onPrimaryContainer,
-              textStyle: theme.textTheme.titleMedium?.copyWith(
-                color: theme.colorScheme.onPrimaryContainer,
+              backgroundColor: theme.colors.primary,
+              foregroundColor: theme.colors.primaryForeground,
+              textStyle: theme.typography.lg.copyWith(
+                color: theme.colors.primaryForeground,
+                fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(width: 12),
@@ -779,7 +779,7 @@ class _ProfileHeader extends StatelessWidget {
                 children: [
                   Text(
                     displayName,
-                    style: theme.textTheme.titleMedium,
+                    style: theme.typography.lg.copyWith(fontWeight: FontWeight.bold),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -788,9 +788,8 @@ class _ProfileHeader extends StatelessWidget {
                     children: [
                       Text(
                         username,
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurface
-                              .withValues(alpha: 0.6),
+                        style: theme.typography.sm.copyWith(
+                          color: theme.colors.mutedForeground,
                         ),
                       ),
                       const SizedBox(width: 4),

@@ -15,13 +15,18 @@
         { "id": "problem_health_003", "level": "template", "jpText": "する必要がある", "koText": "할 필요가 있다." },
         { "id": "problem_health_004", "level": "template", "jpText": "第一に習慣を見直す", "koText": "첫째, 습관을 되돌아본다." },
         { "id": "problem_health_005", "level": "template", "jpText": "具体策として毎日30分歩く", "koText": "구체적 대안으로 매일 30분 걷는다." },
+        { "id": "problem_health_010", "level": "template", "jpText": "短期的には", "koText": "단기적으로는" },
+        { "id": "problem_health_010b", "level": "template", "jpText": "長期的には", "koText": "장기적으로는" },
+        { "id": "problem_health_011", "level": "template", "jpText": "実現可能な計画を立てる", "koText": "실행 가능한 계획을 세우다" },
         { "id": "problem_health_basic_001", "level": "basic", "jpText": "習慣", "koText": "습관" },
         { "id": "problem_health_basic_002", "level": "basic", "jpText": "食生活", "koText": "식생활" },
         { "id": "problem_health_basic_003", "level": "basic", "jpText": "運動", "koText": "운동" },
         { "id": "problem_health_006", "level": "advanced", "jpText": "改善する", "koText": "개선하다" },
         { "id": "problem_health_007", "level": "advanced", "jpText": "実践する", "koText": "실천하다" },
         { "id": "problem_health_008", "level": "advanced", "jpText": "継続する", "koText": "지속하다" },
-        { "id": "problem_health_sentence_001", "level": "sentence", "jpText": "運動不足を改善する必要がある。", "koText": "운동 부족을 개선할 필요가 있다." }
+        { "id": "problem_health_009", "level": "advanced", "jpText": "習慣化する", "koText": "습관화하다" },
+        { "id": "problem_health_sentence_001", "level": "sentence", "jpText": "運動不足を改善する必要がある。", "koText": "운동 부족을 개선할 필요가 있다." },
+        { "id": "problem_health_sentence_002", "level": "sentence", "jpText": "短期的には毎日30分歩き、長期的には食生活と睡眠を整えて運動を習慣化する計画が必要だ。", "koText": "단기적으로는 매일 30분 걷고, 장기적으로는 식생활과 수면을 정비해 운동을 습관화하는 계획이 필요하다." }
       ]
     },
     {
@@ -35,13 +40,17 @@
         { "id": "problem_waste_003", "level": "template", "jpText": "解決策としてインセンティブを導入する", "koText": "해결책으로 인센티브를 도입한다." },
         { "id": "problem_waste_004", "level": "template", "jpText": "短期的には教育を強化する", "koText": "단기적으로는 교육을 강화한다." },
         { "id": "problem_waste_005", "level": "template", "jpText": "長期的には循環型社会を作る", "koText": "장기적으로는 순환형 사회를 만든다." },
+        { "id": "problem_waste_006", "level": "template", "jpText": "実効性を高めるため", "koText": "실효성을 높이기 위해" },
+        { "id": "problem_waste_007", "level": "template", "jpText": "段階的に導入する", "koText": "단계적으로 도입한다" },
         { "id": "problem_waste_basic_001", "level": "basic", "jpText": "分別", "koText": "분리수거" },
         { "id": "problem_waste_basic_002", "level": "basic", "jpText": "リサイクル", "koText": "재활용" },
         { "id": "problem_waste_basic_003", "level": "basic", "jpText": "資源", "koText": "자원" },
         { "id": "problem_waste_adv_001", "level": "advanced", "jpText": "インセンティブを与える", "koText": "인센티브를 제공하다" },
         { "id": "problem_waste_adv_002", "level": "advanced", "jpText": "再利用を促進する", "koText": "재이용을 촉진하다" },
         { "id": "problem_waste_adv_003", "level": "advanced", "jpText": "循環型社会", "koText": "순환형 사회" },
-        { "id": "problem_waste_sentence_001", "level": "sentence", "jpText": "分別とインセンティブでごみ問題を減らせる。", "koText": "분리수거와 인센티브로 쓰레기 문제를 줄일 수 있다." }
+        { "id": "problem_waste_adv_004", "level": "advanced", "jpText": "排出量を減らす", "koText": "배출량을 줄이다" },
+        { "id": "problem_waste_sentence_001", "level": "sentence", "jpText": "分別とインセンティブでごみ問題を減らせる。", "koText": "분리수거와 인센티브로 쓰레기 문제를 줄일 수 있다." },
+        { "id": "problem_waste_sentence_002", "level": "sentence", "jpText": "短期的には分別教育とインセンティブで実効性を高め、長期的には段階的に循環型社会を作り排出量を減らすべきだ。", "koText": "단기적으로는 분리수거 교육과 인센티브로 실효성을 높이고, 장기적으로는 단계적으로 순환형 사회를 만들어 배출량을 줄여야 한다." }
       ]
     },
     {
@@ -55,13 +64,17 @@
         { "id": "problem_cyber_003", "level": "template", "jpText": "解決策として通報システムを整える", "koText": "해결책으로 신고 시스템을 갖춘다." },
         { "id": "problem_cyber_004", "level": "template", "jpText": "教育と罰則を並行して進める", "koText": "교육과 처벌을 병행한다." },
         { "id": "problem_cyber_005", "level": "template", "jpText": "サポート窓口を常設する", "koText": "지원 창구를 상설한다." },
+        { "id": "problem_cyber_006", "level": "template", "jpText": "被害が見えにくいという問題", "koText": "피해가 드러나기 어렵다는 문제" },
+        { "id": "problem_cyber_007", "level": "template", "jpText": "長期的にはリテラシー教育が必要だ", "koText": "장기적으로는 리터러시 교육이 필요하다" },
         { "id": "problem_cyber_basic_001", "level": "basic", "jpText": "匿名性", "koText": "익명성" },
         { "id": "problem_cyber_basic_002", "level": "basic", "jpText": "通報", "koText": "신고" },
         { "id": "problem_cyber_basic_003", "level": "basic", "jpText": "被害者", "koText": "피해자" },
         { "id": "problem_cyber_adv_001", "level": "advanced", "jpText": "監視を強化する", "koText": "감시를 강화하다" },
         { "id": "problem_cyber_adv_002", "level": "advanced", "jpText": "予防教育", "koText": "예방 교육" },
         { "id": "problem_cyber_adv_003", "level": "advanced", "jpText": "サポートを提供する", "koText": "지원을 제공하다" },
-        { "id": "problem_cyber_sentence_001", "level": "sentence", "jpText": "通報と教育を強化すればネットいじめを減らせる。", "koText": "신고와 교육을 강화하면 사이버 괴롭힘을 줄일 수 있다." }
+        { "id": "problem_cyber_adv_004", "level": "advanced", "jpText": "常時モニタリング体制を整える", "koText": "상시 모니터링 체계를 갖추다" },
+        { "id": "problem_cyber_sentence_001", "level": "sentence", "jpText": "通報と教育を強化すればネットいじめを減らせる。", "koText": "신고와 교육을 강화하면 사이버 괴롭힘을 줄일 수 있다." },
+        { "id": "problem_cyber_sentence_002", "level": "sentence", "jpText": "匿名性のため被害が見えにくいので、通報と監視を強化し、長期的にはリテラシー教育で予防すべきだ。", "koText": "익명성 때문에 피해가 드러나기 어려우므로 신고와 감시를 강화하고, 장기적으로는 리터러시 교육으로 예방해야 한다." }
       ]
     }
   ]

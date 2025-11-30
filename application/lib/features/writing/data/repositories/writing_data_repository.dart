@@ -14,6 +14,9 @@ class WritingDataRepository {
     'assets/writing/comparison.json',
     'assets/writing/proposal.json',
     'assets/writing/example.json',
+    'assets/writing/hobby_sns.json',
+    'assets/writing/hobby_kdrama.json',
+    'assets/writing/hobby_oshi.json',
   ];
 
   /// 全パターンを取得

@@ -1,0 +1,161 @@
+{
+  "topicId": "travel",
+  "entries": [
+    {
+      "id": "travel_001",
+      "level": "beginner",
+      "jpText": "旅行",
+      "koText": "여행"
+    },
+    {
+      "id": "travel_002",
+      "level": "beginner",
+      "jpText": "観光",
+      "koText": "관광"
+    },
+    {
+      "id": "travel_003",
+      "level": "beginner",
+      "jpText": "ホテル",
+      "koText": "호텔"
+    },
+    {
+      "id": "travel_004",
+      "level": "beginner",
+      "jpText": "予約",
+      "koText": "예약"
+    },
+    {
+      "id": "travel_005",
+      "level": "beginner",
+      "jpText": "パスポート",
+      "koText": "여권"
+    },
+    {
+      "id": "travel_006",
+      "level": "beginner",
+      "jpText": "ビザ",
+      "koText": "비자"
+    },
+    {
+      "id": "travel_007",
+      "level": "beginner",
+      "jpText": "ガイド",
+      "koText": "가이드"
+    },
+    {
+      "id": "travel_008",
+      "level": "beginner",
+      "jpText": "地図",
+      "koText": "지도"
+    },
+    {
+      "id": "travel_009",
+      "level": "beginner",
+      "jpText": "観光地",
+      "koText": "관광지"
+    },
+    {
+      "id": "travel_010",
+      "level": "beginner",
+      "jpText": "記念品",
+      "koText": "기념품"
+    },
+    {
+      "id": "travel_011",
+      "level": "beginner",
+      "jpText": "荷物",
+      "koText": "짐"
+    },
+    {
+      "id": "travel_012",
+      "level": "beginner",
+      "jpText": "休暇",
+      "koText": "휴가"
+    },
+    {
+      "id": "travel_013",
+      "level": "beginner",
+      "jpText": "出国",
+      "koText": "출국"
+    },
+    {
+      "id": "travel_014",
+      "level": "beginner",
+      "jpText": "入国",
+      "koText": "입국"
+    },
+    {
+      "id": "travel_015",
+      "level": "beginner",
+      "jpText": "両替",
+      "koText": "환전"
+    },
+    {
+      "id": "travel_016",
+      "level": "beginner",
+      "jpText": "チップ",
+      "koText": "팁"
+    },
+    {
+      "id": "travel_017",
+      "level": "beginner",
+      "jpText": "予算",
+      "koText": "예산"
+    },
+    {
+      "id": "travel_018",
+      "level": "beginner",
+      "jpText": "計画",
+      "koText": "계획"
+    },
+    {
+      "id": "travel_019",
+      "level": "beginner",
+      "jpText": "準備",
+      "koText": "준비"
+    },
+    {
+      "id": "travel_020",
+      "level": "beginner",
+      "jpText": "案内",
+      "koText": "안내"
+    },
+    {
+      "id": "travel_021",
+      "level": "beginner",
+      "jpText": "見物",
+      "koText": "구경"
+    },
+    {
+      "id": "travel_022",
+      "level": "beginner",
+      "jpText": "体験",
+      "koText": "체험"
+    },
+    {
+      "id": "travel_023",
+      "level": "beginner",
+      "jpText": "宿所",
+      "koText": "숙소"
+    },
+    {
+      "id": "travel_024",
+      "level": "beginner",
+      "jpText": "チェックインする",
+      "koText": "체크인하다"
+    },
+    {
+      "id": "travel_025",
+      "level": "beginner",
+      "jpText": "チェックアウトする",
+      "koText": "체크아웃하다"
+    },
+    {
+      "id": "travel_026",
+      "level": "beginner",
+      "jpText": "観光案内所",
+      "koText": "관광안내소"
+    }
+  ]
+}

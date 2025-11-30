@@ -1,0 +1,119 @@
+{
+  "topicId": "health",
+  "entries": [
+    {
+      "id": "health_001",
+      "level": "beginner",
+      "jpText": "病気",
+      "koText": "병"
+    },
+    {
+      "id": "health_002",
+      "level": "beginner",
+      "jpText": "風邪",
+      "koText": "감기"
+    },
+    {
+      "id": "health_003",
+      "level": "beginner",
+      "jpText": "熱",
+      "koText": "열"
+    },
+    {
+      "id": "health_004",
+      "level": "beginner",
+      "jpText": "咳",
+      "koText": "기침"
+    },
+    {
+      "id": "health_005",
+      "level": "beginner",
+      "jpText": "薬",
+      "koText": "약"
+    },
+    {
+      "id": "health_006",
+      "level": "beginner",
+      "jpText": "病院",
+      "koText": "병원"
+    },
+    {
+      "id": "health_007",
+      "level": "beginner",
+      "jpText": "患者",
+      "koText": "환자"
+    },
+    {
+      "id": "health_008",
+      "level": "beginner",
+      "jpText": "治療",
+      "koText": "치료"
+    },
+    {
+      "id": "health_009",
+      "level": "beginner",
+      "jpText": "手術",
+      "koText": "수술"
+    },
+    {
+      "id": "health_010",
+      "level": "beginner",
+      "jpText": "注射",
+      "koText": "주사"
+    },
+    {
+      "id": "health_011",
+      "level": "beginner",
+      "jpText": "痛い",
+      "koText": "아프다"
+    },
+    {
+      "id": "health_012",
+      "level": "beginner",
+      "jpText": "健康だ",
+      "koText": "건강하다"
+    },
+    {
+      "id": "health_013",
+      "level": "beginner",
+      "jpText": "疲れる",
+      "koText": "피곤하다"
+    },
+    {
+      "id": "health_014",
+      "level": "beginner",
+      "jpText": "眠い",
+      "koText": "졸리다"
+    },
+    {
+      "id": "health_015",
+      "level": "beginner",
+      "jpText": "お腹が空く",
+      "koText": "배고프다"
+    },
+    {
+      "id": "health_016",
+      "level": "beginner",
+      "jpText": "喉が渇く",
+      "koText": "목마르다"
+    },
+    {
+      "id": "health_017",
+      "level": "beginner",
+      "jpText": "頭痛",
+      "koText": "두통"
+    },
+    {
+      "id": "health_018",
+      "level": "beginner",
+      "jpText": "けがをする",
+      "koText": "다치다"
+    },
+    {
+      "id": "health_019",
+      "level": "beginner",
+      "jpText": "薬局",
+      "koText": "약국"
+    }
+  ]
+}

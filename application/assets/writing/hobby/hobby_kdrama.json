@@ -1,0 +1,44 @@
+{
+  "id": "hobby_kdrama",
+  "name": "韓ドラ",
+  "description": "韓国ドラマトークの定番フレーズ",
+  "icon": "description",
+  "topics": [
+    {
+      "id": "hobby_kdrama_impression",
+      "name": "感想を語る",
+      "description": "作品の感想や余韻を共有",
+      "patternId": "hobby_kdrama",
+      "entries": [
+        { "id": "hobby_kdrama_impression_template_001", "level": "template", "jpText": "一気見してしまった。", "koText": "정주행해 버렸다." },
+        { "id": "hobby_kdrama_impression_template_002", "level": "template", "jpText": "胸が締め付けられた。", "koText": "가슴이 조여왔다." },
+        { "id": "hobby_kdrama_impression_template_003", "level": "template", "jpText": "余韻が抜けない。", "koText": "여운이 가시지 않는다." },
+        { "id": "hobby_kdrama_impression_basic_001", "level": "basic", "jpText": "主演", "koText": "주연" },
+        { "id": "hobby_kdrama_impression_basic_002", "level": "basic", "jpText": "脚本", "koText": "각본" },
+        { "id": "hobby_kdrama_impression_basic_003", "level": "basic", "jpText": "名台詞", "koText": "명대사" },
+        { "id": "hobby_kdrama_impression_adv_001", "level": "advanced", "jpText": "伏線が回収された", "koText": "복선이 회수되었다" },
+        { "id": "hobby_kdrama_impression_adv_002", "level": "advanced", "jpText": "演出が洗練されている", "koText": "연출이 세련되다" },
+        { "id": "hobby_kdrama_impression_sentence_001", "level": "sentence", "jpText": "このセリフで泣いてしまった。", "koText": "이 대사에 울고 말았다." },
+        { "id": "hobby_kdrama_impression_sentence_002", "level": "sentence", "jpText": "サントラも頭から離れない。", "koText": "OST도 머릿속을 맴돈다." }
+      ]
+    },
+    {
+      "id": "hobby_kdrama_recommend",
+      "name": "おすすめするとき",
+      "description": "友達に作品を紹介する表現",
+      "patternId": "hobby_kdrama",
+      "entries": [
+        { "id": "hobby_kdrama_recommend_template_001", "level": "template", "jpText": "テンポが良くて飽きない。", "koText": "템포가 좋아서 질리지 않는다." },
+        { "id": "hobby_kdrama_recommend_template_002", "level": "template", "jpText": "二話まで見ればハマるよ。", "koText": "2화까지 보면 빠질 거야." },
+        { "id": "hobby_kdrama_recommend_template_003", "level": "template", "jpText": "キャラクターが魅力的だ。", "koText": "캐릭터가 매력적이다." },
+        { "id": "hobby_kdrama_recommend_basic_001", "level": "basic", "jpText": "時代劇", "koText": "사극" },
+        { "id": "hobby_kdrama_recommend_basic_002", "level": "basic", "jpText": "恋愛もの", "koText": "로맨스물" },
+        { "id": "hobby_kdrama_recommend_basic_003", "level": "basic", "jpText": "考察する", "koText": "해석하다" },
+        { "id": "hobby_kdrama_recommend_adv_001", "level": "advanced", "jpText": "セリフ回しが秀逸", "koText": "대사 운용이 뛰어나다" },
+        { "id": "hobby_kdrama_recommend_adv_002", "level": "advanced", "jpText": "映像美が際立つ", "koText": "영상미가 돋보인다" },
+        { "id": "hobby_kdrama_recommend_sentence_001", "level": "sentence", "jpText": "字幕なしでも理解しやすかった。", "koText": "자막 없이도 이해하기 쉬웠다." },
+        { "id": "hobby_kdrama_recommend_sentence_002", "level": "sentence", "jpText": "寝不足になるので週末に見てね。", "koText": "잠이 모자랄 수 있으니 주말에 봐." }
+      ]
+    }
+  ]
+}

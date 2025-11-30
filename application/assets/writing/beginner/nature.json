@@ -1,0 +1,125 @@
+{
+  "topicId": "nature",
+  "entries": [
+    {
+      "id": "nature_001",
+      "level": "beginner",
+      "jpText": "木",
+      "koText": "나무"
+    },
+    {
+      "id": "nature_002",
+      "level": "beginner",
+      "jpText": "花",
+      "koText": "꽃"
+    },
+    {
+      "id": "nature_003",
+      "level": "beginner",
+      "jpText": "葉",
+      "koText": "잎"
+    },
+    {
+      "id": "nature_004",
+      "level": "beginner",
+      "jpText": "草",
+      "koText": "풀"
+    },
+    {
+      "id": "nature_005",
+      "level": "beginner",
+      "jpText": "種",
+      "koText": "씨앗"
+    },
+    {
+      "id": "nature_006",
+      "level": "beginner",
+      "jpText": "根",
+      "koText": "뿌리"
+    },
+    {
+      "id": "nature_007",
+      "level": "beginner",
+      "jpText": "茎",
+      "koText": "줄기"
+    },
+    {
+      "id": "nature_008",
+      "level": "beginner",
+      "jpText": "枝",
+      "koText": "가지"
+    },
+    {
+      "id": "nature_009",
+      "level": "beginner",
+      "jpText": "実",
+      "koText": "열매"
+    },
+    {
+      "id": "nature_010",
+      "level": "beginner",
+      "jpText": "森",
+      "koText": "숲"
+    },
+    {
+      "id": "nature_011",
+      "level": "beginner",
+      "jpText": "野原",
+      "koText": "들"
+    },
+    {
+      "id": "nature_012",
+      "level": "beginner",
+      "jpText": "土",
+      "koText": "흙"
+    },
+    {
+      "id": "nature_013",
+      "level": "beginner",
+      "jpText": "石",
+      "koText": "돌"
+    },
+    {
+      "id": "nature_014",
+      "level": "beginner",
+      "jpText": "砂",
+      "koText": "모래"
+    },
+    {
+      "id": "nature_015",
+      "level": "beginner",
+      "jpText": "火",
+      "koText": "불"
+    },
+    {
+      "id": "nature_016",
+      "level": "beginner",
+      "jpText": "空気",
+      "koText": "공기"
+    },
+    {
+      "id": "nature_017",
+      "level": "beginner",
+      "jpText": "自然",
+      "koText": "자연"
+    },
+    {
+      "id": "nature_018",
+      "level": "beginner",
+      "jpText": "山",
+      "koText": "산"
+    },
+    {
+      "id": "nature_019",
+      "level": "beginner",
+      "jpText": "川",
+      "koText": "강"
+    },
+    {
+      "id": "nature_020",
+      "level": "beginner",
+      "jpText": "海",
+      "koText": "바다"
+    }
+  ]
+}

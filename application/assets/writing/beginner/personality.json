@@ -1,0 +1,107 @@
+{
+  "topicId": "personality",
+  "entries": [
+    {
+      "id": "personality_001",
+      "level": "beginner",
+      "jpText": "性格",
+      "koText": "성격"
+    },
+    {
+      "id": "personality_002",
+      "level": "beginner",
+      "jpText": "親切だ",
+      "koText": "친절하다"
+    },
+    {
+      "id": "personality_003",
+      "level": "beginner",
+      "jpText": "優しい",
+      "koText": "착하다"
+    },
+    {
+      "id": "personality_004",
+      "level": "beginner",
+      "jpText": "勤勉だ",
+      "koText": "부지런하다"
+    },
+    {
+      "id": "personality_005",
+      "level": "beginner",
+      "jpText": "怠け者だ",
+      "koText": "게으르다"
+    },
+    {
+      "id": "personality_006",
+      "level": "beginner",
+      "jpText": "賢い",
+      "koText": "똑똑하다"
+    },
+    {
+      "id": "personality_007",
+      "level": "beginner",
+      "jpText": "愚かだ",
+      "koText": "어리석다"
+    },
+    {
+      "id": "personality_008",
+      "level": "beginner",
+      "jpText": "勇敢だ",
+      "koText": "용감하다"
+    },
+    {
+      "id": "personality_009",
+      "level": "beginner",
+      "jpText": "臆病だ",
+      "koText": "겁많다"
+    },
+    {
+      "id": "personality_010",
+      "level": "beginner",
+      "jpText": "活発だ",
+      "koText": "활발하다"
+    },
+    {
+      "id": "personality_011",
+      "level": "beginner",
+      "jpText": "静かだ",
+      "koText": "조용하다"
+    },
+    {
+      "id": "personality_012",
+      "level": "beginner",
+      "jpText": "正直だ",
+      "koText": "정직하다"
+    },
+    {
+      "id": "personality_013",
+      "level": "beginner",
+      "jpText": "嘘をつく",
+      "koText": "거짓말하다"
+    },
+    {
+      "id": "personality_014",
+      "level": "beginner",
+      "jpText": "礼儀正しい",
+      "koText": "예의바르다"
+    },
+    {
+      "id": "personality_015",
+      "level": "beginner",
+      "jpText": "無礼だ",
+      "koText": "무례하다"
+    },
+    {
+      "id": "personality_016",
+      "level": "beginner",
+      "jpText": "外向的だ",
+      "koText": "외향적이다"
+    },
+    {
+      "id": "personality_017",
+      "level": "beginner",
+      "jpText": "内向的だ",
+      "koText": "내향적이다"
+    }
+  ]
+}

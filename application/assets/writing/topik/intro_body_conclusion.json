@@ -15,13 +15,17 @@
         { "id": "intro_culture_003", "level": "template", "jpText": "本論では二点述べる", "koText": "본론에서는 두 가지를 말하겠다." },
         { "id": "intro_culture_004", "level": "template", "jpText": "続いて", "koText": "이어" },
         { "id": "intro_culture_005", "level": "template", "jpText": "結論として", "koText": "결론적으로" },
+        { "id": "intro_culture_010", "level": "template", "jpText": "背景を簡単に述べると", "koText": "배경을 간단히 말하면" },
+        { "id": "intro_culture_011", "level": "template", "jpText": "二点に分けて説明する", "koText": "두 가지로 나누어 설명한다" },
         { "id": "intro_culture_basic_001", "level": "basic", "jpText": "文化", "koText": "문화" },
         { "id": "intro_culture_basic_002", "level": "basic", "jpText": "伝統", "koText": "전통" },
         { "id": "intro_culture_basic_003", "level": "basic", "jpText": "価値", "koText": "가치" },
         { "id": "intro_culture_006", "level": "advanced", "jpText": "保存する", "koText": "보존하다" },
         { "id": "intro_culture_007", "level": "advanced", "jpText": "継承する", "koText": "계승하다" },
         { "id": "intro_culture_008", "level": "advanced", "jpText": "多様性を尊重する", "koText": "다양성을 존중하다" },
-        { "id": "intro_culture_sentence_001", "level": "sentence", "jpText": "伝統文化を保存し継承することが重要である。", "koText": "전통 문화를 보존하고 계승하는 것이 중요하다." }
+        { "id": "intro_culture_009", "level": "advanced", "jpText": "均衡をとりながら発展させる", "koText": "균형을 맞추며 발전시키다" },
+        { "id": "intro_culture_sentence_001", "level": "sentence", "jpText": "伝統文化を保存し継承することが重要である。", "koText": "전통 문화를 보존하고 계승하는 것이 중요하다." },
+        { "id": "intro_culture_sentence_002", "level": "sentence", "jpText": "背景を簡単に述べたうえで、保存と活用の二点を示し、伝統と現代の均衡をとりながら発展させるべきだ。", "koText": "배경을 간단히 말한 뒤 보존과 활용 두 가지를 제시하고, 전통과 현대의 균형을 맞추며 발전시켜야 한다." }
       ]
     },
     {
@@ -35,13 +39,17 @@
         { "id": "intro_regional_003", "level": "template", "jpText": "次に解決策を二つ述べる", "koText": "다음으로 해결책 두 가지를 말한다." },
         { "id": "intro_regional_004", "level": "template", "jpText": "最後に期待される効果をまとめる", "koText": "마지막으로 기대 효과를 정리한다." },
         { "id": "intro_regional_005", "level": "template", "jpText": "結論として地域投資が必要だ", "koText": "결론적으로 지역 투자가 필요하다." },
+        { "id": "intro_regional_006", "level": "template", "jpText": "統計を引用すると", "koText": "통계를 인용하면" },
+        { "id": "intro_regional_007", "level": "template", "jpText": "短期策と長期策に分ける", "koText": "단기책과 장기책으로 나눈다" },
         { "id": "intro_regional_basic_001", "level": "basic", "jpText": "地方", "koText": "지방" },
         { "id": "intro_regional_basic_002", "level": "basic", "jpText": "人口流出", "koText": "인구 유출" },
         { "id": "intro_regional_basic_003", "level": "basic", "jpText": "観光", "koText": "관광" },
         { "id": "intro_regional_adv_001", "level": "advanced", "jpText": "持続可能な発展", "koText": "지속 가능한 발전" },
         { "id": "intro_regional_adv_002", "level": "advanced", "jpText": "雇用を創出する", "koText": "고용을 창출하다" },
         { "id": "intro_regional_adv_003", "level": "advanced", "jpText": "インフラを整備する", "koText": "인프라를 정비하다" },
-        { "id": "intro_regional_sentence_001", "level": "sentence", "jpText": "地方活性化には雇用とインフラ整備が不可欠だ。", "koText": "지방 활성화에는 고용과 인프라 정비가 필수적이다." }
+        { "id": "intro_regional_adv_004", "level": "advanced", "jpText": "人口流出を抑える", "koText": "인구 유출을 막다" },
+        { "id": "intro_regional_sentence_001", "level": "sentence", "jpText": "地方活性化には雇用とインフラ整備が不可欠だ。", "koText": "지방 활성화에는 고용과 인프라 정비가 필수적이다." },
+        { "id": "intro_regional_sentence_002", "level": "sentence", "jpText": "統計を引用して現状を示し、短期策と長期策に分けて雇用創出とインフラ整備を述べることで人口流出を抑えたい。", "koText": "통계를 인용해 현황을 제시하고, 단기책과 장기책으로 나눠 고용 창출과 인프라 정비를 말함으로써 인구 유출을 막고자 한다." }
       ]
     },
     {
@@ -55,13 +63,17 @@
         { "id": "intro_ai_003", "level": "template", "jpText": "次に規制の方向性を述べる", "koText": "다음으로 규제 방향을 말한다." },
         { "id": "intro_ai_004", "level": "template", "jpText": "最後に結論をまとめる", "koText": "마지막으로 결론을 정리한다." },
         { "id": "intro_ai_005", "level": "template", "jpText": "結論として透明性が鍵だ", "koText": "결론적으로 투명성이 핵심이다." },
+        { "id": "intro_ai_006", "level": "template", "jpText": "利点とリスクを並べる", "koText": "장점과 리스크를 병렬로 제시하다" },
+        { "id": "intro_ai_007", "level": "template", "jpText": "透明性と責任を強調する", "koText": "투명성과 책임을 강조하다" },
         { "id": "intro_ai_basic_001", "level": "basic", "jpText": "規制", "koText": "규제" },
         { "id": "intro_ai_basic_002", "level": "basic", "jpText": "透明性", "koText": "투명성" },
         { "id": "intro_ai_basic_003", "level": "basic", "jpText": "責任", "koText": "책임" },
         { "id": "intro_ai_adv_001", "level": "advanced", "jpText": "倫理指針", "koText": "윤리지침" },
         { "id": "intro_ai_adv_002", "level": "advanced", "jpText": "アルゴリズムの偏り", "koText": "알고리즘의 편향" },
         { "id": "intro_ai_adv_003", "level": "advanced", "jpText": "説明責任を果たす", "koText": "설명 책임을 다하다" },
-        { "id": "intro_ai_sentence_001", "level": "sentence", "jpText": "AIには透明性と説明責任を確保する規制が必要だ。", "koText": "AI에는 투명성과 설명 책임을 확보하는 규제가 필요하다." }
+        { "id": "intro_ai_adv_004", "level": "advanced", "jpText": "技術発展と安全の均衡をとる", "koText": "기술 발전과 안전의 균형을 맞추다" },
+        { "id": "intro_ai_sentence_001", "level": "sentence", "jpText": "AIには透明性と説明責任を確保する規制が必要だ。", "koText": "AI에는 투명성과 설명 책임을 확보하는 규제가 필요하다." },
+        { "id": "intro_ai_sentence_002", "level": "sentence", "jpText": "利点とリスクを並べたうえで、透明性と説明責任を確保し技術発展との均衡をとる規制が求められる。", "koText": "장점과 리스크를 병렬로 제시한 뒤 투명성과 설명 책임을 확보하고 기술 발전과의 균형을 맞추는 규제가 요구된다." }
       ]
     }
   ]

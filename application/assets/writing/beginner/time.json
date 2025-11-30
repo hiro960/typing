@@ -1,0 +1,431 @@
+{
+  "topicId": "time",
+  "entries": [
+    {
+      "id": "time_001",
+      "level": "beginner",
+      "jpText": "月曜日",
+      "koText": "월요일"
+    },
+    {
+      "id": "time_002",
+      "level": "beginner",
+      "jpText": "火曜日",
+      "koText": "화요일"
+    },
+    {
+      "id": "time_003",
+      "level": "beginner",
+      "jpText": "水曜日",
+      "koText": "수요일"
+    },
+    {
+      "id": "time_004",
+      "level": "beginner",
+      "jpText": "木曜日",
+      "koText": "목요일"
+    },
+    {
+      "id": "time_005",
+      "level": "beginner",
+      "jpText": "金曜日",
+      "koText": "금요일"
+    },
+    {
+      "id": "time_006",
+      "level": "beginner",
+      "jpText": "土曜日",
+      "koText": "토요일"
+    },
+    {
+      "id": "time_007",
+      "level": "beginner",
+      "jpText": "日曜日",
+      "koText": "일요일"
+    },
+    {
+      "id": "time_008",
+      "level": "beginner",
+      "jpText": "週",
+      "koText": "주"
+    },
+    {
+      "id": "time_009",
+      "level": "beginner",
+      "jpText": "週末",
+      "koText": "주말"
+    },
+    {
+      "id": "time_010",
+      "level": "beginner",
+      "jpText": "月",
+      "koText": "월"
+    },
+    {
+      "id": "time_011",
+      "level": "beginner",
+      "jpText": "1月",
+      "koText": "일월"
+    },
+    {
+      "id": "time_012",
+      "level": "beginner",
+      "jpText": "2月",
+      "koText": "이월"
+    },
+    {
+      "id": "time_013",
+      "level": "beginner",
+      "jpText": "3月",
+      "koText": "삼월"
+    },
+    {
+      "id": "time_014",
+      "level": "beginner",
+      "jpText": "4月",
+      "koText": "사월"
+    },
+    {
+      "id": "time_015",
+      "level": "beginner",
+      "jpText": "5月",
+      "koText": "오월"
+    },
+    {
+      "id": "time_016",
+      "level": "beginner",
+      "jpText": "6月",
+      "koText": "유월"
+    },
+    {
+      "id": "time_017",
+      "level": "beginner",
+      "jpText": "7月",
+      "koText": "칠월"
+    },
+    {
+      "id": "time_018",
+      "level": "beginner",
+      "jpText": "8月",
+      "koText": "팔월"
+    },
+    {
+      "id": "time_019",
+      "level": "beginner",
+      "jpText": "9月",
+      "koText": "구월"
+    },
+    {
+      "id": "time_020",
+      "level": "beginner",
+      "jpText": "10月",
+      "koText": "시월"
+    },
+    {
+      "id": "time_021",
+      "level": "beginner",
+      "jpText": "11月",
+      "koText": "십일월"
+    },
+    {
+      "id": "time_022",
+      "level": "beginner",
+      "jpText": "12月",
+      "koText": "십이월"
+    },
+    {
+      "id": "time_023",
+      "level": "beginner",
+      "jpText": "年",
+      "koText": "년"
+    },
+    {
+      "id": "time_024",
+      "level": "beginner",
+      "jpText": "季節",
+      "koText": "계절"
+    },
+    {
+      "id": "time_025",
+      "level": "beginner",
+      "jpText": "春",
+      "koText": "봄"
+    },
+    {
+      "id": "time_026",
+      "level": "beginner",
+      "jpText": "夏",
+      "koText": "여름"
+    },
+    {
+      "id": "time_027",
+      "level": "beginner",
+      "jpText": "秋",
+      "koText": "가을"
+    },
+    {
+      "id": "time_028",
+      "level": "beginner",
+      "jpText": "冬",
+      "koText": "겨울"
+    },
+    {
+      "id": "time_029",
+      "level": "beginner",
+      "jpText": "分",
+      "koText": "분"
+    },
+    {
+      "id": "time_030",
+      "level": "beginner",
+      "jpText": "秒",
+      "koText": "초"
+    },
+    {
+      "id": "time_031",
+      "level": "beginner",
+      "jpText": "半",
+      "koText": "반"
+    },
+    {
+      "id": "time_032",
+      "level": "beginner",
+      "jpText": "ちょうど",
+      "koText": "정각"
+    },
+    {
+      "id": "time_033",
+      "level": "beginner",
+      "jpText": "明け方",
+      "koText": "새벽"
+    },
+    {
+      "id": "time_034",
+      "level": "beginner",
+      "jpText": "正午",
+      "koText": "정오"
+    },
+    {
+      "id": "time_035",
+      "level": "beginner",
+      "jpText": "真夜中",
+      "koText": "자정"
+    },
+    {
+      "id": "time_036",
+      "level": "beginner",
+      "jpText": "おととい",
+      "koText": "그저께"
+    },
+    {
+      "id": "time_037",
+      "level": "beginner",
+      "jpText": "あさって",
+      "koText": "모레"
+    },
+    {
+      "id": "time_038",
+      "level": "beginner",
+      "jpText": "後で",
+      "koText": "이따가"
+    },
+    {
+      "id": "time_039",
+      "level": "beginner",
+      "jpText": "後で",
+      "koText": "나중에"
+    },
+    {
+      "id": "time_040",
+      "level": "beginner",
+      "jpText": "今",
+      "koText": "지금"
+    },
+    {
+      "id": "time_041",
+      "level": "beginner",
+      "jpText": "たった今",
+      "koText": "방금"
+    },
+    {
+      "id": "time_042",
+      "level": "beginner",
+      "jpText": "さっき",
+      "koText": "아까"
+    },
+    {
+      "id": "time_043",
+      "level": "beginner",
+      "jpText": "もう",
+      "koText": "벌써"
+    },
+    {
+      "id": "time_044",
+      "level": "beginner",
+      "jpText": "まだ",
+      "koText": "아직"
+    },
+    {
+      "id": "time_045",
+      "level": "beginner",
+      "jpText": "いつ",
+      "koText": "언제"
+    },
+    {
+      "id": "time_046",
+      "level": "beginner",
+      "jpText": "いつも",
+      "koText": "언제나"
+    },
+    {
+      "id": "time_047",
+      "level": "beginner",
+      "jpText": "時",
+      "koText": "때"
+    },
+    {
+      "id": "time_048",
+      "level": "beginner",
+      "jpText": "間",
+      "koText": "동안"
+    },
+    {
+      "id": "time_049",
+      "level": "beginner",
+      "jpText": "初めて",
+      "koText": "처음"
+    },
+    {
+      "id": "time_050",
+      "level": "beginner",
+      "jpText": "前",
+      "koText": "전"
+    },
+    {
+      "id": "time_051",
+      "level": "beginner",
+      "jpText": "後",
+      "koText": "후"
+    },
+    {
+      "id": "time_052",
+      "level": "beginner",
+      "jpText": "平日",
+      "koText": "평일"
+    },
+    {
+      "id": "time_053",
+      "level": "beginner",
+      "jpText": "休日",
+      "koText": "휴일"
+    },
+    {
+      "id": "time_054",
+      "level": "beginner",
+      "jpText": "日",
+      "koText": "날"
+    },
+    {
+      "id": "time_055",
+      "level": "beginner",
+      "jpText": "日付",
+      "koText": "날짜"
+    },
+    {
+      "id": "time_056",
+      "level": "beginner",
+      "jpText": "毎年",
+      "koText": "매년"
+    },
+    {
+      "id": "time_057",
+      "level": "beginner",
+      "jpText": "毎月",
+      "koText": "매달"
+    },
+    {
+      "id": "time_058",
+      "level": "beginner",
+      "jpText": "毎週",
+      "koText": "매주"
+    },
+    {
+      "id": "time_059",
+      "level": "beginner",
+      "jpText": "時々",
+      "koText": "가끔씩"
+    },
+    {
+      "id": "time_060",
+      "level": "beginner",
+      "jpText": "早い",
+      "koText": "이른"
+    },
+    {
+      "id": "time_061",
+      "level": "beginner",
+      "jpText": "遅い",
+      "koText": "늦은"
+    },
+    {
+      "id": "time_062",
+      "level": "beginner",
+      "jpText": "長い間",
+      "koText": "오래"
+    },
+    {
+      "id": "time_063",
+      "level": "beginner",
+      "jpText": "ちょっと",
+      "koText": "잠깐"
+    },
+    {
+      "id": "time_064",
+      "level": "beginner",
+      "jpText": "どのくらい",
+      "koText": "얼마나"
+    },
+    {
+      "id": "time_065",
+      "level": "beginner",
+      "jpText": "今日",
+      "koText": "오늘"
+    },
+    {
+      "id": "time_066",
+      "level": "beginner",
+      "jpText": "昨日",
+      "koText": "어제"
+    },
+    {
+      "id": "time_067",
+      "level": "beginner",
+      "jpText": "明日",
+      "koText": "내일"
+    },
+    {
+      "id": "time_068",
+      "level": "beginner",
+      "jpText": "毎日",
+      "koText": "매일"
+    },
+    {
+      "id": "time_069",
+      "level": "beginner",
+      "jpText": "午前",
+      "koText": "오전"
+    },
+    {
+      "id": "time_070",
+      "level": "beginner",
+      "jpText": "午後",
+      "koText": "오후"
+    },
+    {
+      "id": "time_071",
+      "level": "beginner",
+      "jpText": "夜",
+      "koText": "밤"
+    }
+  ]
+}

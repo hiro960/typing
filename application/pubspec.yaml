@@ -129,7 +129,9 @@ flutter:
   assets:
     - .env
     - assets/lessons/
-    - assets/writing/
+    - assets/writing/topik/
+    - assets/writing/beginner/
+    - assets/writing/hobby/
     - assets/ranking_game/words/
 
   # An image asset can refer to one or more resolution-specific "variants", see
