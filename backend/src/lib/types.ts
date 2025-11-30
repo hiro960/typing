@@ -51,7 +51,7 @@ export interface UserSummary {
 
 export interface UserDetail extends Omit<UserSummary, "settings"> {
   auth0UserId: string;
-  email: string;
+  email: string | null;
   bio?: string | null;
   totalLessonsCompleted: number;
   maxWPM: number;
