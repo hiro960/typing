@@ -23,7 +23,21 @@ export default function Privacy() {
                         </section>
 
                         <section>
-                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第3条（個人情報を収集・利用する目的）</h2>
+                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第3条（ソーシャルログインによる情報取得）</h2>
+                            <p style={{ lineHeight: "1.8", color: "var(--muted-foreground)" }}>
+                                当社は、ユーザーがソーシャルログイン機能（Google、Apple、Xなどの外部サービスを利用したログイン）を使用して本サービスに登録・ログインする場合、当該外部サービスから以下の情報を取得することがあります。<br />
+                                <br />
+                                1. メールアドレス<br />
+                                2. 氏名または表示名<br />
+                                3. プロフィール画像<br />
+                                4. 外部サービスにおけるユーザーID<br />
+                                <br />
+                                これらの情報は、本サービスにおけるアカウントの作成・認証、およびユーザー体験の向上のために使用されます。当社は、認証サービスとしてAuth0を利用しており、ユーザーの認証情報はAuth0のセキュリティ基準に従って安全に管理されます。
+                            </p>
+                        </section>
+
+                        <section>
+                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第4条（個人情報を収集・利用する目的）</h2>
                             <p style={{ lineHeight: "1.8", color: "var(--muted-foreground)" }}>
                                 当社が個人情報を収集・利用する目的は、以下のとおりです。<br />
                                 1. 当社サービスの提供・運営のため<br />
@@ -37,28 +51,28 @@ export default function Privacy() {
                         </section>
 
                         <section>
-                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第4条（利用目的の変更）</h2>
+                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第5条（利用目的の変更）</h2>
                             <p style={{ lineHeight: "1.8", color: "var(--muted-foreground)" }}>
                                 当社は、利用目的が変更前と関連性を有すると合理的に認められる場合に限り、個人情報の利用目的を変更するものとします。
                             </p>
                         </section>
 
                         <section>
-                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第5条（個人情報の第三者提供）</h2>
+                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第6条（個人情報の第三者提供）</h2>
                             <p style={{ lineHeight: "1.8", color: "var(--muted-foreground)" }}>
                                 当社は、次に掲げる場合を除いて、あらかじめユーザーの同意を得ることなく、第三者に個人情報を提供することはありません。ただし、個人情報保護法その他の法令で認められる場合を除きます。
                             </p>
                         </section>
 
                         <section>
-                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第6条（個人情報の開示）</h2>
+                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第7条（個人情報の開示）</h2>
                             <p style={{ lineHeight: "1.8", color: "var(--muted-foreground)" }}>
                                 当社は、本人から個人情報の開示を求められたときは、本人に対し、遅滞なくこれを開示します。
                             </p>
                         </section>
 
                         <section>
-                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第7条（お問い合わせ窓口）</h2>
+                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第8条（お問い合わせ窓口）</h2>
                             <p style={{ lineHeight: "1.8", color: "var(--muted-foreground)" }}>
                                 本ポリシーに関するお問い合わせは、下記の窓口までお願いいたします。<br />
                                 <br />

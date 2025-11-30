@@ -18,19 +18,29 @@ export default function Terms() {
                         <section>
                             <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第2条（利用登録）</h2>
                             <p style={{ lineHeight: "1.8", color: "var(--muted-foreground)" }}>
-                                登録希望者が当社の定める方法によって利用登録を申請し、当社がこれを承認することによって、利用登録が完了するものとします。
+                                登録希望者が当社の定める方法によって利用登録を申請し、当社がこれを承認することによって、利用登録が完了するものとします。利用登録は、メールアドレスによる登録、またはソーシャルログイン（Google、Apple、Xなどの外部サービスを利用した登録）により行うことができます。
                             </p>
                         </section>
 
                         <section>
-                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第3条（ユーザーIDおよびパスワードの管理）</h2>
+                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第3条（ソーシャルログイン）</h2>
+                            <p style={{ lineHeight: "1.8", color: "var(--muted-foreground)" }}>
+                                1. ユーザーは、Google、Apple、Xなどの外部サービス（以下「外部サービス」といいます）のアカウントを使用して本サービスに登録・ログインすることができます。<br />
+                                2. ソーシャルログインを利用する場合、ユーザーは当該外部サービスの利用規約およびプライバシーポリシーに同意したものとみなされます。<br />
+                                3. 外部サービスの利用に関して生じた問題については、ユーザーと当該外部サービス提供者との間で解決するものとし、当社は一切の責任を負いません。<br />
+                                4. 外部サービスの仕様変更、サービス停止等により、ソーシャルログイン機能が利用できなくなる場合があります。
+                            </p>
+                        </section>
+
+                        <section>
+                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第4条（ユーザーIDおよびパスワードの管理）</h2>
                             <p style={{ lineHeight: "1.8", color: "var(--muted-foreground)" }}>
                                 ユーザーは、自己の責任において、本サービスのユーザーIDおよびパスワードを適切に管理するものとします。
                             </p>
                         </section>
 
                         <section>
-                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第4条（禁止事項）</h2>
+                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第5条（禁止事項）</h2>
                             <p style={{ lineHeight: "1.8", color: "var(--muted-foreground)" }}>
                                 ユーザーは、本サービスの利用にあたり、以下の行為をしてはなりません。<br />
                                 1. 法令または公序良俗に違反する行為<br />
@@ -42,7 +52,7 @@ export default function Terms() {
                         </section>
 
                         <section>
-                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第5条（本サービスの提供の停止等）</h2>
+                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第6条（本サービスの提供の停止等）</h2>
                             <p style={{ lineHeight: "1.8", color: "var(--muted-foreground)" }}>
                                 当社は、以下のいずれかの事由があると判断した場合、ユーザーに事前に通知することなく本サービスの全部または一部の提供を停止または中断することができるものとします。<br />
                                 1. 本サービスにかかるコンピュータシステムの保守点検または更新を行う場合<br />
@@ -53,21 +63,21 @@ export default function Terms() {
                         </section>
 
                         <section>
-                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第6条（免責事項）</h2>
+                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第7条（免責事項）</h2>
                             <p style={{ lineHeight: "1.8", color: "var(--muted-foreground)" }}>
                                 当社の債務不履行責任は、当社の故意または重過失によらない場合には免責されるものとします。
                             </p>
                         </section>
 
                         <section>
-                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第7条（サービス内容の変更等）</h2>
+                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第8条（サービス内容の変更等）</h2>
                             <p style={{ lineHeight: "1.8", color: "var(--muted-foreground)" }}>
                                 当社は、ユーザーに通知することなく、本サービスの内容を変更しまたは本サービスの提供を中止することができるものとし、これによってユーザーに生じた損害について一切の責任を負いません。
                             </p>
                         </section>
 
                         <section>
-                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第8条（利用規約の変更）</h2>
+                            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>第9条（利用規約の変更）</h2>
                             <p style={{ lineHeight: "1.8", color: "var(--muted-foreground)" }}>
                                 当社は、必要と判断した場合には、ユーザーに通知することなくいつでも本規約を変更することができるものとします。
                             </p>

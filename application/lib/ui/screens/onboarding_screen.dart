@@ -77,7 +77,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Midnight Typing',
+                            'チャレッタ',
                             style: theme.textTheme.titleMedium,
                           ),
                           const SizedBox(height: 3),
