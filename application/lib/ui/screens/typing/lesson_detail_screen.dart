@@ -124,21 +124,24 @@ class _OverviewCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('レッスン概要', style: theme.textTheme.titleLarge),
-            const SizedBox(height: 8),
-            Text(
-              lesson.description ?? 'このレッスンで韓国語の入力を練習します。',
-              style: theme.textTheme.bodyMedium,
-            ),
-            const SizedBox(height: 16),
-            Text('完了率: $completionRate%'),
-          ],
+    return SizedBox(
+      width: double.infinity,
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('レッスン概要', style: theme.textTheme.titleLarge),
+              const SizedBox(height: 8),
+              Text(
+                lesson.description ?? 'このレッスンで韓国語の入力を練習します。',
+                style: theme.textTheme.bodyMedium,
+              ),
+              const SizedBox(height: 16),
+              Text('完了率: $completionRate%'),
+            ],
+          ),
         ),
       ),
     );

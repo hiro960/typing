@@ -232,28 +232,31 @@ class _WeakCharactersCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('弱点文字', style: theme.textTheme.titleLarge),
-            const SizedBox(height: 12),
-            if (weakCharacters.isEmpty)
-              const Text('全ての文字を完璧に入力できました 🎉')
-            else
-              Wrap(
-                spacing: 12,
-                children: weakCharacters
-                    .map(
-                      (char) => Chip(
-                        label: Text(char, style: theme.textTheme.titleLarge),
-                      ),
-                    )
-                    .toList(),
-              ),
-          ],
+    return SizedBox(
+      width: double.infinity,
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('弱点文字', style: theme.textTheme.titleLarge),
+              const SizedBox(height: 12),
+              if (weakCharacters.isEmpty)
+                const Text('全ての文字を完璧に入力できました 🎉')
+              else
+                Wrap(
+                  spacing: 12,
+                  children: weakCharacters
+                      .map(
+                        (char) => Chip(
+                          label: Text(char, style: theme.textTheme.titleLarge),
+                        ),
+                      )
+                      .toList(),
+                ),
+            ],
+          ),
         ),
       ),
     );

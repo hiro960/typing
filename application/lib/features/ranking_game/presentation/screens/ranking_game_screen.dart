@@ -298,7 +298,9 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
                       ),
                       margin: const EdgeInsets.symmetric(horizontal: 32),
                       decoration: BoxDecoration(
-                        color: theme.colorScheme.onSurface.withOpacity(0.1),
+                        color: theme.brightness == Brightness.light
+                            ? theme.colorScheme.onSurface.withOpacity(0.18)
+                            : theme.colorScheme.onSurface.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(
                           color: _getInputBorderColor(state),
@@ -409,10 +411,12 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
   }
 
   Color _getInputTextColor(RankingGameSessionState state) {
+    final isLight = Theme.of(context).brightness == Brightness.light;
     // 最後の入力結果に基づいて色を決定
     switch (state.lastInputResult) {
       case InputResultType.correct:
-        return AppColors.success;
+        // ライトモードでは暗めの緑色を使用
+        return isLight ? const Color(0xFF16A34A) : AppColors.success;
       case InputResultType.mistake:
         return AppColors.error;
       case InputResultType.none:
