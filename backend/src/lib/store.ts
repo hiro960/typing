@@ -395,7 +395,65 @@ async function isPostBookmarkedByUser(postId: string, userId?: string) {
   return !!bookmark;
 }
 
+/**
+ * 複数の投稿に対するいいね・ブックマーク状態を一括取得（N+1問題解消）
+ */
+export async function batchGetPostInteractions(
+  postIds: string[],
+  viewerId?: string
+): Promise<Map<string, { liked: boolean; bookmarked: boolean }>> {
+  if (!viewerId || postIds.length === 0) {
+    return new Map(postIds.map((id) => [id, { liked: false, bookmarked: false }]));
+  }
 
+  const [likes, bookmarks] = await Promise.all([
+    prisma.like.findMany({
+      where: { postId: { in: postIds }, userId: viewerId },
+      select: { postId: true },
+    }),
+    prisma.bookmark.findMany({
+      where: { postId: { in: postIds }, userId: viewerId },
+      select: { postId: true },
+    }),
+  ]);
+
+  const likedSet = new Set(likes.map((l) => l.postId));
+  const bookmarkedSet = new Set(bookmarks.map((b) => b.postId));
+
+  return new Map(
+    postIds.map((id) => [
+      id,
+      { liked: likedSet.has(id), bookmarked: bookmarkedSet.has(id) },
+    ])
+  );
+}
+
+/**
+ * 複数ユーザーに対するブロック状態を一括取得（N+1問題解消）
+ */
+export async function batchCheckBlocks(
+  userIds: string[],
+  viewerId?: string
+): Promise<Set<string>> {
+  if (!viewerId || userIds.length === 0) return new Set();
+
+  const blocks = await prisma.block.findMany({
+    where: {
+      OR: [
+        { blockerId: { in: userIds }, blockedId: viewerId },
+        { blockerId: viewerId, blockedId: { in: userIds } },
+      ],
+    },
+    select: { blockerId: true, blockedId: true },
+  });
+
+  const blockedUserIds = new Set<string>();
+  blocks.forEach((block) => {
+    blockedUserIds.add(block.blockerId === viewerId ? block.blockedId : block.blockerId);
+  });
+
+  return blockedUserIds;
+}
 
 async function resolveQuotedPost(
   post: PostWithOptionalUser
@@ -469,6 +527,53 @@ export async function toPostResponse(
     bookmarked,
     quotedPost,
   };
+}
+
+/**
+ * 複数の投稿を効率的にPostResponseに変換（バッチ処理版・N+1問題解消）
+ */
+export async function toPostResponseBatch(
+  posts: PostWithOptionalUser[],
+  viewerId?: string
+): Promise<PostResponse[]> {
+  if (posts.length === 0) return [];
+
+  const postIds = posts.map((p) => p.id);
+
+  // 一括でいいね・ブックマーク状態を取得（2クエリのみ）
+  const interactions = await batchGetPostInteractions(postIds, viewerId);
+
+  // 各投稿をレスポンスに変換
+  return Promise.all(
+    posts.map(async (post) => {
+      const author =
+        post.user ?? (await prisma.user.findUnique({ where: { id: post.userId } })) ?? null;
+      const userSummary = author
+        ? toUserSummary(author)
+        : {
+            id: post.userId,
+            username: "unknown",
+            displayName: "Unknown",
+            profileImageUrl: null,
+            type: "NORMAL" as const,
+            followersCount: 0,
+            followingCount: 0,
+            postsCount: 0,
+            settings: null,
+          };
+
+      const interaction = interactions.get(post.id) ?? { liked: false, bookmarked: false };
+      const quotedPost = await resolveQuotedPost(post);
+
+      return {
+        ...toPostRecord(post),
+        user: userSummary,
+        liked: interaction.liked,
+        bookmarked: interaction.bookmarked,
+        quotedPost,
+      };
+    })
+  );
 }
 
 export function getPostById(postId: string) {

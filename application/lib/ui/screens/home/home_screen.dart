@@ -1,5 +1,6 @@
 import 'package:chaletta/ui/widgets/premium_feature_gate.dart';
 import 'package:chaletta/ui/widgets/section_title.dart';
+import 'package:chaletta/ui/widgets/shimmer_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
@@ -90,11 +91,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _ProgressHero(stats: state.stats),
+                      _ProgressHero(
+                        stats: state.stats,
+                        isLoading: state.isStatsLoading,
+                      ),
                       const SizedBox(height: AppSpacing.lg),
                       _StatHighlights(
                         stats: state.stats,
                         maxWpm: user?.maxWPM ?? 0,
+                        isLoading: state.isStatsLoading,
                       ),
                       const SizedBox(height: AppSpacing.xxl),
                       const SectionTitle(

@@ -1,8 +1,9 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 import { requireAuthUser } from "@/lib/auth";
 import { listNotificationsForUser } from "@/lib/store";
 import { handleRouteError } from "@/lib/errors";
 import { parseLimit } from "@/lib/pagination";
+import { jsonResponse, CACHE_STRATEGIES } from "@/lib/response";
 
 export async function GET(request: NextRequest) {
   try {
@@ -16,7 +17,7 @@ export async function GET(request: NextRequest) {
       unreadOnly,
       limit,
     });
-    return NextResponse.json(result);
+    return jsonResponse(result, { cache: CACHE_STRATEGIES.notifications });
   } catch (error) {
     return handleRouteError(error);
   }

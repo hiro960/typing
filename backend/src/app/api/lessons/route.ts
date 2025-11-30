@@ -1,9 +1,10 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 import { requireAuthUser } from "@/lib/auth";
 import { handleRouteError, ERROR } from "@/lib/errors";
 import { listLessons } from "@/lib/store";
 import { LearningLevel } from "@/lib/types";
 import { paginateArray, parseLimit } from "@/lib/pagination";
+import { jsonResponse, CACHE_STRATEGIES } from "@/lib/response";
 
 const LEVELS: LearningLevel[] = ["beginner", "intermediate", "advanced"];
 
@@ -41,10 +42,10 @@ export async function GET(request: NextRequest) {
       getCursor: (lesson) => lesson.id,
     });
 
-    return NextResponse.json({
-      data: paginated.data,
-      pageInfo: paginated.pageInfo,
-    });
+    return jsonResponse(
+      { data: paginated.data, pageInfo: paginated.pageInfo },
+      { cache: CACHE_STRATEGIES.lessons }
+    );
   } catch (error) {
     return handleRouteError(error);
   }

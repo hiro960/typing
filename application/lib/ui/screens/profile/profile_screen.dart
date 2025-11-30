@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:chaletta/ui/widgets/premium_feature_gate.dart';
+import 'package:chaletta/ui/widgets/shimmer_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
@@ -87,7 +88,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         ref,
         currentUser?.id,
       ),
-      loading: () => const Center(child: CircularProgressIndicator()),
+      loading: () => const _ProfileSkeletonScreen(),
       error: (error, _) => Center(
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -549,5 +550,130 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
     // UI側で明示的に隠すなら、isFollowing情報が必要。
     
     return true; // 一旦すべて表示（API側でデータが空なら--になる）
+  }
+}
+
+class _ProfileSkeletonScreen extends StatelessWidget {
+  const _ProfileSkeletonScreen();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final baseColor = theme.colorScheme.onSurface.withValues(alpha: 0.06);
+
+    return AppPageScaffold(
+      header: FHeader.nested(
+        titleAlignment: AlignmentDirectional.centerStart,
+        prefixes: [
+          if (Navigator.of(context).canPop())
+            FHeaderAction.back(
+              onPress: () => Navigator.of(context).maybePop(),
+            ),
+        ],
+        title: Row(
+          children: [
+            Icon(
+              Icons.person_outline,
+              size: 22,
+              color: theme.colorScheme.onSurface,
+            ),
+            const SizedBox(width: 8),
+            Text('プロフィール', style: theme.textTheme.headlineSmall),
+          ],
+        ),
+      ),
+      child: ShimmerLoading(
+        child: ListView(
+          padding: AppPadding.profilePage,
+          children: [
+            const SizedBox(height: AppSpacing.md),
+            // プロフィールヘッダースケルトン
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // アバター
+                Container(
+                  width: 80,
+                  height: 80,
+                  decoration: BoxDecoration(
+                    color: baseColor,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                // ユーザー情報
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: 120,
+                        height: 24,
+                        decoration: BoxDecoration(
+                          color: baseColor,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Container(
+                        width: 80,
+                        height: 16,
+                        decoration: BoxDecoration(
+                          color: baseColor,
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Container(
+                        width: 160,
+                        height: 14,
+                        decoration: BoxDecoration(
+                          color: baseColor,
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: AppSpacing.xxl + AppSpacing.lg),
+            // サマリーチップスケルトン
+            Row(
+              children: List.generate(
+                3,
+                (index) => Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(right: index < 2 ? 8 : 0),
+                    child: Container(
+                      height: 32,
+                      decoration: BoxDecoration(
+                        color: baseColor,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: AppSpacing.lg),
+            // 統計カードスケルトン
+            const StatSkeletonRow(),
+            const SizedBox(height: AppSpacing.lg),
+            // タブスケルトン
+            Container(
+              height: 44,
+              decoration: BoxDecoration(
+                color: baseColor,
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            const SizedBox(height: AppSpacing.md),
+            // 投稿リストスケルトン
+            const PostSkeletonList(),
+          ],
+        ),
+      ),
+    );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:forui/forui.dart';
 
+import '../../widgets/shimmer_loading.dart';
+
 class ProfileStatCard extends StatelessWidget {
   const ProfileStatCard({
     super.key,
@@ -74,29 +76,31 @@ class StatSkeleton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FCard.raw(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 20,
-              width: 60,
-              decoration: BoxDecoration(
-                color: color,
-                borderRadius: BorderRadius.circular(8),
+      child: ShimmerLoading(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 20,
+                width: 60,
+                decoration: BoxDecoration(
+                  color: color,
+                  borderRadius: BorderRadius.circular(8),
+                ),
               ),
-            ),
-            const SizedBox(height: 8),
-            Container(
-              height: 12,
-              width: 80,
-              decoration: BoxDecoration(
-                color: color,
-                borderRadius: BorderRadius.circular(6),
+              const SizedBox(height: 8),
+              Container(
+                height: 12,
+                width: 80,
+                decoration: BoxDecoration(
+                  color: color,
+                  borderRadius: BorderRadius.circular(6),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

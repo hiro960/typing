@@ -586,8 +586,14 @@ class DiaryNotificationsState {
 class DiaryNotificationsController extends _$DiaryNotificationsController {
   DiaryRepository get _repository => ref.watch(diaryRepositoryProvider);
 
+  bool _disposed = false;
+
   @override
-  DiaryNotificationsState build() => const DiaryNotificationsState();
+  DiaryNotificationsState build() {
+    _disposed = false;
+    ref.onDispose(() => _disposed = true);
+    return const DiaryNotificationsState();
+  }
 
   Future<void> loadInitial() async {
     if (state.isLoading) return;
@@ -596,6 +602,7 @@ class DiaryNotificationsController extends _$DiaryNotificationsController {
       final page = await _repository.fetchNotifications(
         unreadOnly: state.unreadOnly,
       );
+      if (_disposed) return;
       state = state.copyWith(
         notifications: page.notifications,
         nextCursor: page.nextCursor,
@@ -603,6 +610,7 @@ class DiaryNotificationsController extends _$DiaryNotificationsController {
         isLoading: false,
       );
     } catch (error) {
+      if (_disposed) return;
       state = state.copyWith(
         isLoading: false,
         errorMessage: error.toString(),
@@ -619,6 +627,7 @@ class DiaryNotificationsController extends _$DiaryNotificationsController {
         cursor: state.nextCursor,
         unreadOnly: state.unreadOnly,
       );
+      if (_disposed) return;
       state = state.copyWith(
         notifications: [...state.notifications, ...page.notifications],
         nextCursor: page.nextCursor,
@@ -626,6 +635,7 @@ class DiaryNotificationsController extends _$DiaryNotificationsController {
         isLoadingMore: false,
       );
     } catch (error) {
+      if (_disposed) return;
       state = state.copyWith(
         isLoadingMore: false,
         errorMessage: error.toString(),
@@ -656,6 +666,7 @@ class DiaryNotificationsController extends _$DiaryNotificationsController {
   Future<void> markAsRead(String notificationId) async {
     try {
       await _repository.markNotificationRead(notificationId);
+      if (_disposed) return;
       state = state.copyWith(
         notifications: state.notifications
             .map(
@@ -683,6 +694,7 @@ class DiaryNotificationsController extends _$DiaryNotificationsController {
   Future<void> markAllRead() async {
     try {
       await _repository.markAllNotificationsRead();
+      if (_disposed) return;
       state = state.copyWith(
         notifications: state.notifications
             .map(

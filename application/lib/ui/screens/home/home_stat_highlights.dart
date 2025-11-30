@@ -4,10 +4,12 @@ class _StatHighlights extends StatelessWidget {
   const _StatHighlights({
     required this.stats,
     required this.maxWpm,
+    this.isLoading = false,
   });
 
   final LessonStatsSummary stats;
   final double maxWpm;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +34,8 @@ class _StatHighlights extends StatelessWidget {
       ),
     ];
     final theme = Theme.of(context);
+    final baseColor = theme.colorScheme.onSurface.withValues(alpha: 0.06);
+
     return Row(
       children: [
         for (int i = 0; i < tiles.length; i++) ...[
@@ -46,10 +50,22 @@ class _StatHighlights extends StatelessWidget {
                     children: [
                       Icon(tiles[i].icon, color: theme.colorScheme.primary),
                       const SizedBox(height: AppSpacing.md),
-                      Text(
-                        tiles[i].value,
-                        style: theme.textTheme.headlineSmall,
-                      ),
+                      if (isLoading)
+                        ShimmerLoading(
+                          child: Container(
+                            width: 48,
+                            height: 28,
+                            decoration: BoxDecoration(
+                              color: baseColor,
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                        )
+                      else
+                        Text(
+                          tiles[i].value,
+                          style: theme.textTheme.headlineSmall,
+                        ),
                       const SizedBox(height: AppSpacing.xs),
                       Text(
                         tiles[i].label,

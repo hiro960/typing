@@ -137,6 +137,8 @@ model Post {
   @@index([userId])
   @@index([quotedPostId])
   @@index([createdAt])
+  @@index([visibility])
+  @@index([visibility, createdAt])
 }
 
 model Comment {
@@ -215,6 +217,7 @@ model Notification {
   @@unique([userId, actorId, type, postId, commentId])
   @@index([userId, isRead])
   @@index([createdAt])
+  @@index([userId, isRead, createdAt])
 }
 
 model Report {
@@ -244,6 +247,7 @@ model Block {
 
   @@unique([blockerId, blockedId])
   @@index([blockerId])
+  @@index([blockedId])
 }
 
 model Follow {

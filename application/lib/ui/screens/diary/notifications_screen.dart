@@ -5,6 +5,7 @@ import 'package:forui/forui.dart';
 import '../../../features/diary/data/models/diary_notification.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../widgets/app_page_scaffold.dart';
+import '../../widgets/shimmer_loading.dart';
 import '../../widgets/user_avatar.dart';
 import 'post_detail_screen.dart';
 
@@ -479,50 +480,51 @@ class _NotificationSkeletonList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final baseColor =
-        theme.colorScheme.onSurface.withValues(alpha: 0.06);
+    final baseColor = theme.colorScheme.onSurface.withValues(alpha: 0.06);
     return ListView.separated(
       physics: const AlwaysScrollableScrollPhysics(),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       itemCount: 6,
       separatorBuilder: (_, __) => const SizedBox(height: 12),
       itemBuilder: (_, __) {
-        return Row(
-          children: [
-            Container(
-              width: 44,
-              height: 44,
-              decoration: BoxDecoration(
-                color: baseColor,
-                shape: BoxShape.circle,
+        return ShimmerLoading(
+          child: Row(
+            children: [
+              Container(
+                width: 44,
+                height: 44,
+                decoration: BoxDecoration(
+                  color: baseColor,
+                  shape: BoxShape.circle,
+                ),
               ),
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _SkeletonBlock(
-                    widthFactor: 0.85,
-                    height: 14,
-                    color: baseColor,
-                  ),
-                  const SizedBox(height: 8),
-                  _SkeletonBlock(
-                    widthFactor: 0.65,
-                    height: 12,
-                    color: baseColor,
-                  ),
-                  const SizedBox(height: 6),
-                  _SkeletonBlock(
-                    widthFactor: 0.4,
-                    height: 12,
-                    color: baseColor,
-                  ),
-                ],
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _SkeletonBlock(
+                      widthFactor: 0.85,
+                      height: 14,
+                      color: baseColor,
+                    ),
+                    const SizedBox(height: 8),
+                    _SkeletonBlock(
+                      widthFactor: 0.65,
+                      height: 12,
+                      color: baseColor,
+                    ),
+                    const SizedBox(height: 6),
+                    _SkeletonBlock(
+                      widthFactor: 0.4,
+                      height: 12,
+                      color: baseColor,
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         );
       },
     );

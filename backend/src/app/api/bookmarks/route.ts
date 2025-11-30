@@ -1,9 +1,10 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 import { requireAuthUser } from "@/lib/auth";
-import { canViewPost, toPostResponse } from "@/lib/store";
+import { canViewPost, toPostResponseBatch } from "@/lib/store";
 import prisma from "@/lib/prisma";
 import { handleRouteError } from "@/lib/errors";
 import { parseLimit } from "@/lib/pagination";
+import { jsonResponse, CACHE_STRATEGIES } from "@/lib/response";
 
 export async function GET(request: NextRequest) {
   try {
@@ -42,18 +43,20 @@ export async function GET(request: NextRequest) {
     const hasNextPage = visible.length > limit;
     const nodes = hasNextPage ? visible.slice(0, limit) : visible;
     const nextCursor = hasNextPage ? nodes[nodes.length - 1]?.id ?? null : null;
-    const data = await Promise.all(
-      nodes.map((bookmark) => toPostResponse(bookmark.post, user.id))
-    );
+    const posts = nodes.map((bookmark) => bookmark.post);
+    const data = await toPostResponseBatch(posts, user.id);
 
-    return NextResponse.json({
-      data,
-      pageInfo: {
-        nextCursor,
-        hasNextPage,
-        count: nodes.length,
+    return jsonResponse(
+      {
+        data,
+        pageInfo: {
+          nextCursor,
+          hasNextPage,
+          count: nodes.length,
+        },
       },
-    });
+      { cache: CACHE_STRATEGIES.bookmarks }
+    );
   } catch (error) {
     return handleRouteError(error);
   }

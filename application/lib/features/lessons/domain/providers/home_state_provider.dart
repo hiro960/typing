@@ -9,15 +9,22 @@ import 'lesson_providers.dart';
 class HomeState {
   const HomeState({
     required this.catalog,
-    required this.stats,
+    required this.statsAsync,
     required this.progress,
     required this.focusLesson,
   });
 
   final Map<LessonLevel, List<lesson_index.LessonMeta>> catalog;
-  final LessonStatsSummary stats;
+  final AsyncValue<LessonStatsSummary> statsAsync;
   final Map<String, LessonProgress> progress;
   final lesson_index.LessonMeta? focusLesson;
+
+  /// 統計データ（ローディング中はデフォルト値）
+  LessonStatsSummary get stats =>
+      statsAsync.hasValue ? statsAsync.value! : const LessonStatsSummary();
+
+  /// 統計がローディング中かどうか
+  bool get isStatsLoading => statsAsync.isLoading;
 }
 
 final homeStateProvider =
@@ -26,18 +33,15 @@ final homeStateProvider =
   final statsAsync = ref.watch(lessonStatsProvider(level: null));
   final progressAsync = ref.watch(lessonProgressControllerProvider);
 
+  // カタログのエラーは致命的
   if (catalogAsync.hasError) {
     return AsyncError(
       catalogAsync.error!,
       catalogAsync.stackTrace ?? StackTrace.current,
     );
   }
-  if (statsAsync.hasError) {
-    return AsyncError(
-      statsAsync.error!,
-      statsAsync.stackTrace ?? StackTrace.current,
-    );
-  }
+
+  // 進捗のエラーは致命的
   if (progressAsync.hasError) {
     return AsyncError(
       progressAsync.error!,
@@ -45,21 +49,20 @@ final homeStateProvider =
     );
   }
 
-  if (catalogAsync.isLoading ||
-      statsAsync.isLoading ||
-      progressAsync.isLoading) {
+  // カタログと進捗がロード中の場合のみローディング状態を返す
+  // 統計はローディング中でも画面表示を開始する
+  if (catalogAsync.isLoading || progressAsync.isLoading) {
     return const AsyncLoading();
   }
 
   final catalog = catalogAsync.value ?? const {};
-  final stats = statsAsync.value ?? const LessonStatsSummary();
   final progress = progressAsync.value ?? const <String, LessonProgress>{};
   final focusLesson = _findNextLesson(catalog, progress);
 
   return AsyncData(
     HomeState(
       catalog: catalog,
-      stats: stats,
+      statsAsync: statsAsync,
       progress: progress,
       focusLesson: focusLesson,
     ),

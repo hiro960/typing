@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { handleRouteError, ERROR } from "@/lib/errors";
-import { toPostResponse, findUserById, canViewPost } from "@/lib/store";
+import { toPostResponseBatch, findUserById, canViewPost } from "@/lib/store";
 import { paginateArray, parseLimit } from "@/lib/pagination";
 import { requireAuthUser } from "@/lib/auth";
 import prisma from "@/lib/prisma";
@@ -64,9 +64,7 @@ export async function GET(
     });
 
     return NextResponse.json({
-      data: await Promise.all(
-        paginated.data.map((post) => toPostResponse(post, viewerId))
-      ),
+      data: await toPostResponseBatch(paginated.data, viewerId),
       pageInfo: paginated.pageInfo,
     });
   } catch (error) {

@@ -4,7 +4,7 @@ import prisma from "@/lib/prisma";
 import { requireAuthUser } from "@/lib/auth";
 import { handleRouteError, ERROR } from "@/lib/errors";
 import { parseLimit, paginateArray } from "@/lib/pagination";
-import { canViewPost, toPostResponse, toUserSummary } from "@/lib/store";
+import { canViewPost, toPostResponseBatch, toUserSummary, batchCheckBlocks } from "@/lib/store";
 import { PaginatedResult, PostResponse, UserSummary } from "@/lib/types";
 
 function normalizeQuery(value: string) {
@@ -64,9 +64,7 @@ async function searchPosts(
   const hasNextPage = visible.length > limit;
   const nodes = hasNextPage ? visible.slice(0, limit) : visible;
   const nextCursor = hasNextPage ? nodes[nodes.length - 1]?.id ?? null : null;
-  const data = await Promise.all(
-    nodes.map((post) => toPostResponse(post, viewerId))
-  );
+  const data = await toPostResponseBatch(nodes, viewerId);
 
   return {
     data,
@@ -97,17 +95,13 @@ async function searchUsers(
     ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
   });
 
+  // バッチでブロック状態を一括取得（N+1問題解消）
+  const userIds = results.map((u) => u.id);
+  const blockedUserIds = await batchCheckBlocks(userIds, viewerId);
+
   const visible: UserSummary[] = [];
   for (const candidate of results) {
-    if (await prisma.block.findFirst({
-      where: {
-        OR: [
-          { blockerId: candidate.id, blockedId: viewerId },
-          { blockerId: viewerId ?? "", blockedId: candidate.id },
-        ],
-      },
-      select: { id: true },
-    })) {
+    if (blockedUserIds.has(candidate.id)) {
       continue;
     }
     visible.push(toUserSummary(candidate));

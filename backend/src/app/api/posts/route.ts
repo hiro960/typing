@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { handleRouteError, ERROR } from "@/lib/errors";
-import { toPostResponse, createPost, isFollowingUser } from "@/lib/store";
+import { toPostResponse, toPostResponseBatch, createPost, isFollowingUser } from "@/lib/store";
 import { getAuthUser, requireAuthUser } from "@/lib/auth";
 import { Visibility } from "@/lib/types";
 import prisma from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
 import { ratelimit } from "@/lib/ratelimit";
+import { jsonResponse, CACHE_STRATEGIES } from "@/lib/response";
 
 const VISIBILITIES: Visibility[] = ["public", "followers", "private"];
 type FeedBucket = "recommended" | "following" | "latest";
@@ -133,16 +134,19 @@ export async function GET(request: NextRequest) {
     const nodes = hasNextPage ? visible.slice(0, limit) : visible;
     const nextCursor = hasNextPage ? nodes[nodes.length - 1]?.id ?? null : null;
 
-    const data = await Promise.all(nodes.map((post) => toPostResponse(post, viewerId)));
+    const data = await toPostResponseBatch(nodes, viewerId);
 
-    return NextResponse.json({
-      data,
-      pageInfo: {
-        nextCursor,
-        hasNextPage,
-        count: nodes.length,
+    return jsonResponse(
+      {
+        data,
+        pageInfo: {
+          nextCursor,
+          hasNextPage,
+          count: nodes.length,
+        },
       },
-    });
+      { cache: CACHE_STRATEGIES.posts }
+    );
   } catch (error) {
     return handleRouteError(error);
   }

@@ -1,8 +1,11 @@
-import { NextResponse } from "next/server";
+import { jsonResponse, CACHE_STRATEGIES } from "@/lib/response";
 
 export async function GET() {
-  return NextResponse.json({
-    status: "ok",
-    timestamp: new Date().toISOString(),
-  });
+  return jsonResponse(
+    {
+      status: "ok",
+      timestamp: new Date().toISOString(),
+    },
+    { cache: CACHE_STRATEGIES.health }
+  );
 }

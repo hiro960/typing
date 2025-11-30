@@ -12,6 +12,7 @@ import '../../utils/toast_helper.dart';
 import '../../widgets/diary_post_card.dart';
 import '../../widgets/app_page_scaffold.dart';
 import '../../widgets/sheet_content.dart';
+import '../../widgets/shimmer_loading.dart';
 import '../../app_spacing.dart';
 import 'drafts_screen.dart';
 import 'post_create_screen.dart';
@@ -274,31 +275,89 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
                 child: Builder(
                   builder: (context) {
                     if (feedState.isLoading && feedState.posts.isEmpty) {
-                      return const Center(child: CircularProgressIndicator());
+                      return const _DiaryPostSkeletonList();
                     }
                     if (feedState.errorMessage != null &&
                         feedState.posts.isEmpty) {
-                      return Center(
-                        child: Text(feedState.errorMessage!),
+                      return ListView(
+                        physics: const AlwaysScrollableScrollPhysics(),
+                        children: [
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.4,
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.error_outline,
+                                    size: 48,
+                                    color: theme.colorScheme.error,
+                                  ),
+                                  const SizedBox(height: 16),
+                                  Text(
+                                    feedState.errorMessage!,
+                                    style: theme.textTheme.bodyMedium,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    '下に引っ張って再読み込み',
+                                    style: theme.textTheme.bodySmall?.copyWith(
+                                      color: theme.colorScheme.onSurface
+                                          .withValues(alpha: 0.5),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
                       );
                     }
                     if (feedState.posts.isEmpty) {
-                      return Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(AppSpacing.xxl),
-                          child: Text(
-                            _selectedFeed == DiaryFeedType.following
-                                ? 'フォロー中のユーザーはいません'
-                                : '投稿がありません',
-                            style: theme.textTheme.bodyMedium?.copyWith(
-                              color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+                      return ListView(
+                        physics: const AlwaysScrollableScrollPhysics(),
+                        children: [
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.4,
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.article_outlined,
+                                    size: 48,
+                                    color: theme.colorScheme.onSurface
+                                        .withValues(alpha: 0.5),
+                                  ),
+                                  const SizedBox(height: 16),
+                                  Text(
+                                    _selectedFeed == DiaryFeedType.following
+                                        ? 'フォロー中のユーザーはいません'
+                                        : '投稿がありません',
+                                    style: theme.textTheme.bodyMedium?.copyWith(
+                                      color: theme.colorScheme.onSurface
+                                          .withValues(alpha: 0.5),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    '下に引っ張って再読み込み',
+                                    style: theme.textTheme.bodySmall?.copyWith(
+                                      color: theme.colorScheme.onSurface
+                                          .withValues(alpha: 0.3),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       );
                     }
                     return ListView.builder(
                       controller: _scrollController,
+                      physics: const AlwaysScrollableScrollPhysics(),
                       padding: const EdgeInsets.only(
                         top: 12,
                         bottom: 120,
@@ -335,6 +394,145 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _DiaryPostSkeletonList extends StatelessWidget {
+  const _DiaryPostSkeletonList();
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      physics: const AlwaysScrollableScrollPhysics(),
+      padding: const EdgeInsets.only(top: 12, bottom: 120),
+      itemCount: 4,
+      itemBuilder: (_, __) => const _DiaryPostSkeleton(),
+    );
+  }
+}
+
+class _DiaryPostSkeleton extends StatelessWidget {
+  const _DiaryPostSkeleton();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final baseColor = theme.colorScheme.onSurface.withValues(alpha: 0.06);
+
+    return Card(
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      child: ShimmerLoading(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // ヘッダー (アバター + ユーザー名)
+              Row(
+                children: [
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: baseColor,
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: 100,
+                          height: 16,
+                          decoration: BoxDecoration(
+                            color: baseColor,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        const SizedBox(height: 6),
+                        Container(
+                          width: 140,
+                          height: 12,
+                          decoration: BoxDecoration(
+                            color: baseColor,
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              // コンテンツ行
+              Container(
+                width: double.infinity,
+                height: 14,
+                decoration: BoxDecoration(
+                  color: baseColor,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+              const SizedBox(height: 8),
+              Container(
+                width: double.infinity,
+                height: 14,
+                decoration: BoxDecoration(
+                  color: baseColor,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+              const SizedBox(height: 8),
+              FractionallySizedBox(
+                widthFactor: 0.6,
+                alignment: Alignment.centerLeft,
+                child: Container(
+                  height: 14,
+                  decoration: BoxDecoration(
+                    color: baseColor,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+              // アクションボタン行
+              Row(
+                children: [
+                  Container(
+                    width: 60,
+                    height: 24,
+                    decoration: BoxDecoration(
+                      color: baseColor,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Container(
+                    width: 60,
+                    height: 24,
+                    decoration: BoxDecoration(
+                      color: baseColor,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  const Spacer(),
+                  Container(
+                    width: 24,
+                    height: 24,
+                    decoration: BoxDecoration(
+                      color: baseColor,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
