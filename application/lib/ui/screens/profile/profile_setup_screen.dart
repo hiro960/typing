@@ -352,7 +352,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
           const SizedBox(height: 12),
           Text(
             '表示名とユーザー名はタイムラインやフォローリストに表示されます。'
-            'ユーザー名は重複不可で、変更は30日に1回だけです。',
+            'ユーザー名は重複不可で、変更はできません。',
             style: theme.textTheme.bodySmall?.copyWith(
               color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
             ),
