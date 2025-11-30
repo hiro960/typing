@@ -63,6 +63,7 @@ class Auth0Service {
         },
         parameters: {
           'ui_locales': 'ja', // OpenID Connect仕様: 日本語UIを要求
+          'prompt': 'login', // 常にログイン画面を表示（セッションキャッシュを無視）
         },
       );
 
@@ -100,14 +101,24 @@ class Auth0Service {
   }
 
   /// ログアウト
+  /// Auth0のWebセッションを終了し、次回ログイン時にソーシャルメディア選択を表示
   Future<void> logout() async {
     try {
       AppLogger.auth('Starting Auth0 logout');
 
-      await _auth0
-          .webAuthentication()
-          .logout(useHTTPS: true);
+      final webAuth = _auth0.webAuthentication();
+      final useHttps = !kIsWeb && (Platform.isIOS || Platform.isMacOS);
 
+      final redirectUrl = Platform.isAndroid
+          ? 'app.koreantyping.chaletta://${EnvConfig.auth0Domain}/android/app.koreantyping.chaletta/callback'
+          : null;
+
+      await webAuth.logout(
+        useHTTPS: useHttps,
+        returnTo: redirectUrl,
+      );
+
+      AppLogger.auth('Auth0 logout completed');
     } on WebAuthenticationException catch (e) {
       AppLogger.error(
         'Auth0 logout failed',

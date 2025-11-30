@@ -62,7 +62,7 @@ model User {
   auth0UserId             String    @unique
   username                String    @unique
   displayName             String
-  email                   String    @unique
+  email                   String?   @unique // Twitter等emailを提供しないプロバイダー対応
   profileImageUrl         String?
   bio                     String?
   type                    UserType  @default(NORMAL)

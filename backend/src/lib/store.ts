@@ -272,7 +272,7 @@ export async function createUserFromAuth0(params: {
   auth0UserId: string;
   username: string;
   displayName: string;
-  email: string;
+  email?: string; // Twitter等ではemailがない場合がある
   bio?: string;
   profileImageUrl?: string;
 }): Promise<UserDetail> {
@@ -292,12 +292,14 @@ export async function createUserFromAuth0(params: {
     throw ERROR.CONFLICT("Username already taken");
   }
 
-  // emailの重複チェック
-  const existingEmail = await prisma.user.findUnique({
-    where: { email: params.email },
-  });
-  if (existingEmail) {
-    throw ERROR.CONFLICT("Email already registered");
+  // emailの重複チェック（emailがある場合のみ）
+  if (params.email) {
+    const existingEmail = await prisma.user.findUnique({
+      where: { email: params.email },
+    });
+    if (existingEmail) {
+      throw ERROR.CONFLICT("Email already registered");
+    }
   }
 
   // ユーザー作成
@@ -306,7 +308,7 @@ export async function createUserFromAuth0(params: {
       auth0UserId: params.auth0UserId,
       username: params.username,
       displayName: params.displayName,
-      email: params.email,
+      email: params.email ?? null,
       bio: params.bio ?? null,
       profileImageUrl: params.profileImageUrl ?? null,
       settings: serializeSettings(cloneDefaultSettings()),

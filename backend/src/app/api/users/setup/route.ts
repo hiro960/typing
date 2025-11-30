@@ -16,19 +16,14 @@ export async function POST(request: NextRequest) {
     console.log("[USER_SETUP] Auth0 payload received:", { sub: payload.sub, email: payload.email });
 
     const auth0UserId = payload.sub as string;
-    const email = payload.email as string;
+    const email = payload.email as string | undefined; // Twitter等ではemailがない場合がある
 
     if (!auth0UserId) {
       console.error("[USER_SETUP] Missing sub claim in token");
       throw ERROR.UNAUTHORIZED("Invalid token: missing sub claim");
     }
 
-    if (!email) {
-      console.error("[USER_SETUP] Missing email claim in token");
-      throw ERROR.UNAUTHORIZED("Invalid token: missing email claim");
-    }
-
-    console.log("[USER_SETUP] Token validated, auth0UserId:", auth0UserId);
+    console.log("[USER_SETUP] Token validated, auth0UserId:", auth0UserId, "email:", email ?? "(not provided)");
 
     // リクエストボディのパース
     const body = await request.json();

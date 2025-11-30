@@ -52,8 +52,8 @@ class AuthRepository {
   }
 
   /// ログアウト処理（ローカルのみ）
-  /// Auth0のログアウトはスキップし、ローカルのトークンとクレデンシャルのみを削除
-  /// これにより、ブラウザを開く確認ダイアログが表示されなくなります
+  /// ローカルのトークンとクレデンシャルを削除
+  /// 次回ログイン時は prompt=login により必ずソーシャルメディア選択画面が表示される
   Future<void> logout() async {
     try {
       AppLogger.auth('Starting logout flow (local only)');
@@ -64,12 +64,7 @@ class AuthRepository {
       // 2. Auth0のクレデンシャルもクリア
       await _auth0Service.clearCredentials();
 
-      // 注意: Auth0側のセッションは残り続けますが、
-      // ローカルにトークンがないため、再度ログインが必要になります
-      // 次回ログイン時は、Auth0側のセッションが残っていれば
-      // ブラウザで自動的にログインされる可能性があります
-
-      AppLogger.auth('Logout flow completed (local only)');
+      AppLogger.auth('Logout flow completed');
     } catch (e) {
       AppLogger.error('Logout flow failed', tag: 'AuthRepository', error: e);
       rethrow;
