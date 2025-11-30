@@ -1,11 +1,17 @@
 import 'dart:async';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../features/auth/domain/providers/auth_providers.dart';
+import '../../../features/auth/data/models/user_status_response.dart';
+import '../../../features/profile/domain/providers/profile_providers.dart';
 import '../../../core/exceptions/app_exception.dart';
 import '../../../core/utils/logger.dart';
+import '../../utils/snackbar_helper.dart';
 
 class ProfileSetupScreen extends ConsumerStatefulWidget {
   const ProfileSetupScreen({super.key});
@@ -18,11 +24,13 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
   final _displayNameController = TextEditingController();
   final _usernameController = TextEditingController();
   final _bioController = TextEditingController();
+  final _imagePicker = ImagePicker();
 
   bool _isLoading = false;
   bool _isCheckingUsername = false;
   String? _usernameError;
   Timer? _debounceTimer;
+  File? _selectedImage;
 
   @override
   void dispose() {
@@ -92,6 +100,26 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
     });
   }
 
+  /// 画像を選択
+  Future<void> _pickImage() async {
+    try {
+      final picked = await _imagePicker.pickImage(
+        source: ImageSource.gallery,
+        imageQuality: 90,
+        maxWidth: 2048,
+      );
+      if (picked == null) return;
+      setState(() {
+        _selectedImage = File(picked.path);
+      });
+    } catch (error) {
+      AppLogger.error('Failed to pick image', tag: 'ProfileSetup', error: error);
+      if (mounted) {
+        SnackBarHelper.showError(context, error);
+      }
+    }
+  }
+
   /// プロフィール設定を完了
   Future<void> _completeSetup() async {
     if (_isLoading || !_canSubmit) return;
@@ -105,13 +133,34 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
     });
 
     try {
-      // ユーザー登録API呼び出し
-      await ref.read(authStateProvider.notifier).setupUser(
-            username: username,
-            displayName: displayName,
-            bio: bio.isNotEmpty ? bio : null,
-          );
+      // 1. ユーザー登録（画像なしで）
+      AppLogger.info('Registering user...', tag: 'ProfileSetup');
+      final request = UserSetupRequest(
+        username: username,
+        displayName: displayName,
+        bio: bio.isNotEmpty ? bio : null,
+      );
+      final authRepository = ref.read(authRepositoryProvider);
+      var user = await authRepository.setupUser(request);
+      AppLogger.auth('User registered successfully: ${user.id}');
 
+      // 2. 画像が選択されている場合は登録後にアップロード
+      if (_selectedImage != null) {
+        AppLogger.info('Uploading profile image...', tag: 'ProfileSetup');
+        final profileRepository = ref.read(profileRepositoryProvider);
+        final imageUrl = await profileRepository.uploadProfileImage(_selectedImage!);
+        AppLogger.info('Profile image uploaded: $imageUrl', tag: 'ProfileSetup');
+
+        // 3. プロフィール画像を更新
+        user = await profileRepository.updateProfileImage(
+          userId: user.id,
+          profileImageUrl: imageUrl,
+        );
+        AppLogger.info('Profile image updated', tag: 'ProfileSetup');
+      }
+
+      // 4. 認証状態を更新（これでホーム画面に遷移）
+      ref.read(authStateProvider.notifier).updateUser(user);
       AppLogger.auth('User setup completed successfully');
 
       // 成功した場合、AppShellが自動的にホーム画面に遷移する
@@ -210,20 +259,31 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
                       backgroundColor: theme.colorScheme.primary.withValues(
                         alpha: 0.2,
                       ),
-                      child: Icon(Icons.person, size: 48, color: Colors.white),
+                      backgroundImage: _selectedImage != null
+                          ? FileImage(_selectedImage!)
+                          : null,
+                      child: _selectedImage == null
+                          ? Icon(Icons.person, size: 48, color: Colors.white)
+                          : null,
                     ),
-                    Material(
-                      color: Colors.transparent,
-                      child: InkWell(
-                        onTap: () {},
-                        borderRadius: BorderRadius.circular(20),
-                        child: Container(
-                          padding: const EdgeInsets.all(6),
-                          decoration: BoxDecoration(
-                            color: theme.colorScheme.primary,
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(Icons.camera_alt, size: 18),
+                    GestureDetector(
+                      onTap: _pickImage,
+                      child: Container(
+                        padding: const EdgeInsets.all(6),
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.surface,
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withValues(alpha: 0.18),
+                              blurRadius: 4,
+                            ),
+                          ],
+                        ),
+                        child: Icon(
+                          Icons.edit,
+                          size: 16,
+                          color: theme.colorScheme.primary,
                         ),
                       ),
                     ),
@@ -231,7 +291,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'プロフィール画像を選択',
+                  _selectedImage != null ? 'タップで変更' : 'プロフィール画像を選択',
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                   ),
