@@ -18,6 +18,7 @@ import '../../../features/ranking_game/domain/providers/ranking_providers.dart';
 import '../../app_theme.dart';
 import '../../app_spacing.dart';
 import '../../utils/snackbar_helper.dart';
+import '../../utils/toast_helper.dart';
 import '../../widgets/app_page_scaffold.dart';
 import '../typing/lesson_detail_screen.dart';
 import '../ai_teacher_screen.dart';
@@ -47,6 +48,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   final _beginnerWritingAccordionController = FAccordionController(max: 1);
   final _hobbyWritingAccordionController = FAccordionController(max: 1);
 
+  /// ネットワークエラーのトースト表示済みフラグ（重複表示防止）
+  bool _hasShownNetworkError = false;
+
   @override
   void dispose() {
     _typingAccordionController.dispose();
@@ -70,134 +74,172 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final user = ref.watch(currentUserProvider);
     final displayName = user?.displayName ?? 'Guest';
     final isPremiumUser = user?.isPremiumUser ?? false;
-    final theme = Theme.of(context);
 
     return homeStateAsync.when(
       data: (state) {
-        return AppPageScaffold(
-          childPad: false,
-          header: FHeader(
-            title: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  '안녕하세요, $displayName',
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ),
-              ],
-            ),
-            suffixes: [
-              FHeaderAction(
-                icon: const Icon(Icons.settings_outlined),
-                onPress: widget.onOpenSettings,
-              ),
-            ],
-          ),
-          child: RefreshIndicator(
-            onRefresh: _refresh,
-            child: CustomScrollView(
-              physics: const AlwaysScrollableScrollPhysics(
-                parent: BouncingScrollPhysics(),
-              ),
-              slivers: [
-                SliverPadding(
-                  padding: AppPadding.homePage,
-                  sliver: SliverToBoxAdapter(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _ProgressHero(
-                          stats: state.stats,
-                          isLoading: state.isStatsLoading,
-                        ),
-                        const SizedBox(height: AppSpacing.lg),
-                        _StatHighlights(
-                          stats: state.stats,
-                          maxWpm: user?.maxWPM ?? 0,
-                          isLoading: state.isStatsLoading,
-                        ),
-                        const SizedBox(height: AppSpacing.xxl),
-                        const SectionTitle(
-                          iconData: Icons.keyboard,
-                          text: 'タイピング練習',
-                        ),
-                        _LevelAccordions(
-                          controller: _typingAccordionController,
-                          catalog: state.catalog,
-                          progress: state.progress,
-                          onLessonTap: _onLessonTap,
-                        ),
-                        const SizedBox(height: AppSpacing.xl),
-                        const RankingGameSection(),
-                        const SizedBox(height: AppSpacing.xxl),
-                        const SectionTitle(iconData: Icons.edit, text: '書き取り練習'),
-                        const SizedBox(height: AppSpacing.md),
-                        _WritingPatternAccordions(
-                          controller: _beginnerWritingAccordionController,
-                          title: '単語',
-                          subtitle: 'カテゴリ別の基本単語をタイピング練習',
-                          lane: WritingLane.beginner,
-                        ),
-                        const SizedBox(height: AppSpacing.md),
-                        _WritingPatternAccordions(
-                          controller: _hobbyWritingAccordionController,
-                          title: '趣味対策',
-                          subtitle: 'SNSや韓ドラ、推しなど気軽に書ける題材',
-                          lane: WritingLane.hobby,
-                        ),
-                        _WritingPatternAccordions(
-                          controller: _writingAccordionController,
-                          title: 'TOPIK対策',
-                          subtitle: 'タイピングで覚える論述パターン',
-                          lane: WritingLane.topik,
-                        ),
-                        const SizedBox(height: AppSpacing.xl),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: AppSpacing.lg,
-                          ),
-                          child: Column(
-                            children: [
-                              AiGradientButton(
-                                label: 'AI先生に聞く',
-                                onTap: () {
-                                  if (!isPremiumUser) {
-                                    Navigator.of(context).push(
-                                      MaterialPageRoute<void>(
-                                        builder: (_) =>
-                                            const PremiumFeatureGateScreen(
-                                              focusFeature: 'AI先生',
-                                            ),
-                                      ),
-                                    );
-                                    return;
-                                  }
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          const AiTeacherScreen(),
-                                    ),
-                                  );
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: AppSpacing.xl),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+        // データ取得成功時はエラーフラグをリセット
+        _hasShownNetworkError = false;
+        return _buildHomeContent(
+          state: state,
+          displayName: displayName,
+          isPremiumUser: isPremiumUser,
+          maxWpm: user?.maxWPM ?? 0,
         );
       },
       loading: () => AppPageScaffold(
         child: const Center(child: CircularProgressIndicator()),
       ),
-      error: (error, _) =>
-          AppPageScaffold(child: Center(child: Text(error.toString()))),
+      error: (error, _) {
+        // ネットワークエラー時にFToastを表示（重複表示防止）
+        if (!_hasShownNetworkError) {
+          _hasShownNetworkError = true;
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (mounted) {
+              ToastHelper.show(context, 'ネットワークに接続できませんでした');
+            }
+          });
+        }
+        // 空のデータでホーム画面を表示（プルダウンで再試行可能）
+        final emptyState = HomeState(
+          catalog: const {},
+          statsAsync: const AsyncValue.data(LessonStatsSummary()),
+          progress: const {},
+          focusLesson: null,
+        );
+        return _buildHomeContent(
+          state: emptyState,
+          displayName: displayName,
+          isPremiumUser: isPremiumUser,
+          maxWpm: 0,
+        );
+      },
+    );
+  }
+
+  /// ホーム画面のコンテンツを構築
+  Widget _buildHomeContent({
+    required HomeState state,
+    required String displayName,
+    required bool isPremiumUser,
+    required double maxWpm,
+  }) {
+    return AppPageScaffold(
+      childPad: false,
+      header: FHeader(
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              '안녕하세요, $displayName',
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
+          ],
+        ),
+        suffixes: [
+          FHeaderAction(
+            icon: const Icon(Icons.settings_outlined),
+            onPress: widget.onOpenSettings,
+          ),
+        ],
+      ),
+      child: RefreshIndicator(
+        onRefresh: _refresh,
+        child: CustomScrollView(
+          physics: const AlwaysScrollableScrollPhysics(
+            parent: BouncingScrollPhysics(),
+          ),
+          slivers: [
+            SliverPadding(
+              padding: AppPadding.homePage,
+              sliver: SliverToBoxAdapter(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _ProgressHero(
+                      stats: state.stats,
+                      isLoading: state.isStatsLoading,
+                    ),
+                    const SizedBox(height: AppSpacing.lg),
+                    _StatHighlights(
+                      stats: state.stats,
+                      maxWpm: maxWpm,
+                      isLoading: state.isStatsLoading,
+                    ),
+                    const SizedBox(height: AppSpacing.xxl),
+                    const SectionTitle(
+                      iconData: Icons.keyboard,
+                      text: 'タイピング練習',
+                    ),
+                    _LevelAccordions(
+                      controller: _typingAccordionController,
+                      catalog: state.catalog,
+                      progress: state.progress,
+                      onLessonTap: _onLessonTap,
+                    ),
+                    const SizedBox(height: AppSpacing.xl),
+                    const RankingGameSection(),
+                    const SizedBox(height: AppSpacing.xxl),
+                    const SectionTitle(iconData: Icons.edit, text: '書き取り練習'),
+                    const SizedBox(height: AppSpacing.md),
+                    _WritingPatternAccordions(
+                      controller: _beginnerWritingAccordionController,
+                      title: '単語',
+                      subtitle: 'カテゴリ別の基本単語をタイピング練習',
+                      lane: WritingLane.beginner,
+                    ),
+                    const SizedBox(height: AppSpacing.md),
+                    _WritingPatternAccordions(
+                      controller: _hobbyWritingAccordionController,
+                      title: '趣味対策',
+                      subtitle: 'SNSや韓ドラ、推しなど気軽に書ける題材',
+                      lane: WritingLane.hobby,
+                    ),
+                    _WritingPatternAccordions(
+                      controller: _writingAccordionController,
+                      title: 'TOPIK対策',
+                      subtitle: 'タイピングで覚える論述パターン',
+                      lane: WritingLane.topik,
+                    ),
+                    const SizedBox(height: AppSpacing.xl),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: AppSpacing.lg,
+                      ),
+                      child: Column(
+                        children: [
+                          AiGradientButton(
+                            label: 'AI先生に聞く',
+                            onTap: () {
+                              if (!isPremiumUser) {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute<void>(
+                                    builder: (_) =>
+                                        const PremiumFeatureGateScreen(
+                                          focusFeature: 'AI先生',
+                                        ),
+                                  ),
+                                );
+                                return;
+                              }
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const AiTeacherScreen(),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: AppSpacing.xl),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
