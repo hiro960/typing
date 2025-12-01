@@ -53,6 +53,9 @@ class _RankingLeaderboardScreenState
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
     final rankingAsync = ref.watch(
       rankingDataProvider(
         difficulty: _selectedDifficulty,
@@ -62,23 +65,23 @@ class _RankingLeaderboardScreenState
     );
 
     return Scaffold(
-      backgroundColor: const Color(0xFF1A1A2E),
+      backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          icon: Icon(Icons.arrow_back, color: colorScheme.onSurface),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: const Text(
+        title: Text(
           'ランキング',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: colorScheme.onSurface),
         ),
         bottom: TabBar(
           controller: _tabController,
-          indicatorColor: const Color(0xFF4CAF50),
-          labelColor: Colors.white,
-          unselectedLabelColor: Colors.grey,
+          indicatorColor: colorScheme.primary,
+          labelColor: colorScheme.onSurface,
+          unselectedLabelColor: colorScheme.onSurface.withOpacity(0.5),
           tabs: const [
             Tab(text: '月間'),
             Tab(text: '週間'),
@@ -93,10 +96,10 @@ class _RankingLeaderboardScreenState
           // ランキングリスト
           Expanded(
             child: rankingAsync.when(
-              data: (data) => _buildRankingList(data),
-              loading: () => const Center(
+              data: (data) => _buildRankingList(context, data),
+              loading: () => Center(
                 child: CircularProgressIndicator(
-                  color: Color(0xFF4CAF50),
+                  color: colorScheme.primary,
                 ),
               ),
               error: (error, _) => Center(
@@ -106,13 +109,13 @@ class _RankingLeaderboardScreenState
                     Icon(
                       Icons.error_outline,
                       size: 48,
-                      color: Colors.grey[600],
+                      color: colorScheme.onSurface.withOpacity(0.5),
                     ),
                     const SizedBox(height: 16),
                     Text(
                       'ランキングの取得に失敗しました',
                       style: TextStyle(
-                        color: Colors.grey[400],
+                        color: colorScheme.onSurface.withOpacity(0.6),
                       ),
                     ),
                     const SizedBox(height: 16),
@@ -137,6 +140,9 @@ class _RankingLeaderboardScreenState
   }
 
   Widget _buildFilterArea() {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
     return Container(
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -159,10 +165,12 @@ class _RankingLeaderboardScreenState
                         });
                       }
                     },
-                    selectedColor: const Color(0xFF4CAF50),
-                    backgroundColor: Colors.white.withOpacity(0.1),
+                    selectedColor: colorScheme.primary,
+                    backgroundColor: colorScheme.surface,
                     labelStyle: TextStyle(
-                      color: isSelected ? Colors.white : Colors.grey[400],
+                      color: isSelected
+                          ? colorScheme.onPrimary
+                          : colorScheme.onSurface.withOpacity(0.6),
                     ),
                   ),
                 );
@@ -182,13 +190,15 @@ class _RankingLeaderboardScreenState
                     _followingOnly = selected;
                   });
                 },
-                selectedColor: const Color(0xFF4CAF50).withOpacity(0.3),
-                backgroundColor: Colors.white.withOpacity(0.1),
+                selectedColor: colorScheme.primary.withOpacity(0.3),
+                backgroundColor: colorScheme.surface,
                 labelStyle: TextStyle(
-                  color: _followingOnly ? Colors.white : Colors.grey[400],
+                  color: _followingOnly
+                      ? colorScheme.onPrimary
+                      : colorScheme.onSurface.withOpacity(0.6),
                   fontSize: 12,
                 ),
-                checkmarkColor: Colors.white,
+                checkmarkColor: colorScheme.onPrimary,
               ),
             ],
           ),
@@ -197,7 +207,10 @@ class _RankingLeaderboardScreenState
     );
   }
 
-  Widget _buildRankingList(RankingDataResponse data) {
+  Widget _buildRankingList(BuildContext context, RankingDataResponse data) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
     if (data.rankings.isEmpty) {
       return Center(
         child: Column(
@@ -206,13 +219,13 @@ class _RankingLeaderboardScreenState
             Icon(
               Icons.leaderboard_outlined,
               size: 64,
-              color: Colors.grey[600],
+              color: colorScheme.onSurface.withOpacity(0.4),
             ),
             const SizedBox(height: 16),
             Text(
               'まだランキングデータがありません',
               style: TextStyle(
-                color: Colors.grey[400],
+                color: colorScheme.onSurface.withOpacity(0.6),
                 fontSize: 16,
               ),
             ),
@@ -220,7 +233,7 @@ class _RankingLeaderboardScreenState
             Text(
               'ゲームをプレイしてランキングに参加しましょう！',
               style: TextStyle(
-                color: Colors.grey[600],
+                color: colorScheme.onSurface.withOpacity(0.4),
                 fontSize: 14,
               ),
             ),
@@ -240,31 +253,34 @@ class _RankingLeaderboardScreenState
                 followingOnly: _followingOnly,
               ));
             },
-            color: const Color(0xFF4CAF50),
+            color: colorScheme.primary,
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               itemCount: data.rankings.length,
               itemBuilder: (context, index) {
                 final entry = data.rankings[index];
-                return _buildRankingEntry(entry, index);
+                return _buildRankingEntry(context, entry, index);
               },
             ),
           ),
         ),
         // 自分のランキング固定表示
-        if (data.myRanking != null) _buildMyRankingRow(data.myRanking!),
+        if (data.myRanking != null) _buildMyRankingRow(context, data.myRanking!),
       ],
     );
   }
 
-  Widget _buildMyRankingRow(MyRankingInfo myRanking) {
+  Widget _buildMyRankingRow(BuildContext context, MyRankingInfo myRanking) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: const Color(0xFF4CAF50).withOpacity(0.15),
+        color: colorScheme.primary.withOpacity(0.15),
         border: Border(
           top: BorderSide(
-            color: const Color(0xFF4CAF50).withOpacity(0.3),
+            color: colorScheme.primary.withOpacity(0.3),
             width: 1,
           ),
         ),
@@ -274,10 +290,10 @@ class _RankingLeaderboardScreenState
         child: Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: const Color(0xFF4CAF50).withOpacity(0.1),
+            color: colorScheme.primary.withOpacity(0.1),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: const Color(0xFF4CAF50).withOpacity(0.3),
+              color: colorScheme.primary.withOpacity(0.3),
             ),
           ),
           child: Row(
@@ -288,10 +304,10 @@ class _RankingLeaderboardScreenState
                 child: Text(
                   '${myRanking.position}',
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF4CAF50),
+                    color: colorScheme.primary,
                   ),
                 ),
               ),
@@ -313,19 +329,19 @@ class _RankingLeaderboardScreenState
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'あなた',
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF4CAF50),
+                        color: colorScheme.primary,
                       ),
                     ),
                     Text(
                       'Lv.${myRanking.characterLevel}',
                       style: TextStyle(
                         fontSize: 12,
-                        color: Colors.grey[500],
+                        color: colorScheme.onSurface.withOpacity(0.5),
                       ),
                     ),
                   ],
@@ -335,10 +351,10 @@ class _RankingLeaderboardScreenState
               // スコア
               Text(
                 '${myRanking.score}',
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF4CAF50),
+                  color: colorScheme.primary,
                 ),
               ),
             ],
@@ -348,7 +364,10 @@ class _RankingLeaderboardScreenState
     );
   }
 
-  Widget _buildRankingEntry(RankingEntry entry, int index) {
+  Widget _buildRankingEntry(
+      BuildContext context, RankingEntry entry, int index) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
     final rank = index + 1;
     final isTopThree = rank <= 3;
 
@@ -358,7 +377,7 @@ class _RankingLeaderboardScreenState
       decoration: BoxDecoration(
         color: isTopThree
             ? _getRankColor(rank).withOpacity(0.1)
-            : Colors.white.withOpacity(0.05),
+            : colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
         border: isTopThree
             ? Border.all(
@@ -380,7 +399,7 @@ class _RankingLeaderboardScreenState
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Colors.grey[400],
+                      color: colorScheme.onSurface.withOpacity(0.6),
                     ),
                   ),
           ),
@@ -404,10 +423,10 @@ class _RankingLeaderboardScreenState
               children: [
                 Text(
                   entry.user.displayName,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: colorScheme.onSurface,
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -415,7 +434,7 @@ class _RankingLeaderboardScreenState
                   '@${entry.user.username}',
                   style: TextStyle(
                     fontSize: 12,
-                    color: Colors.grey[500],
+                    color: colorScheme.onSurface.withOpacity(0.5),
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -432,14 +451,14 @@ class _RankingLeaderboardScreenState
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: isTopThree ? _getRankColor(rank) : Colors.white,
+                  color: isTopThree ? _getRankColor(rank) : colorScheme.onSurface,
                 ),
               ),
               Text(
                 'コンボ: ${entry.maxCombo}',
                 style: TextStyle(
                   fontSize: 10,
-                  color: Colors.grey[500],
+                  color: colorScheme.onSurface.withOpacity(0.5),
                 ),
               ),
             ],

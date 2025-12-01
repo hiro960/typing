@@ -1,17 +1,17 @@
 /// ランキングゲーム用ドット絵キャラクターデータ
 ///
-/// たまごっち風の進化システム:
-/// 0: たまご (Egg) - 0点〜
-/// 1: ベビー (Baby) - 100点〜
-/// 2: こども (Child) - 250点〜
-/// 3: ヤング (Young) - 450点〜
-/// 4: アダルト (Adult) - 700点〜
-/// 5: エンジェル (Angel) - 1,000点〜
+/// トッポギ進化システム:
+/// 0: 生トック (Raw Tteok) - 0点〜
+/// 1: 茹でトック (Boiled Tteok) - 100点〜
+/// 2: ソースがけ (Sauced Tteok) - 250点〜
+/// 3: トッポギ (Tteokbokki) - 450点〜
+/// 4: チーズトッポギ (Cheese Tteokbokki) - 700点〜
+/// 5: 王様トッポギ (King Tteokbokki) - 1,000点〜
 ///
-/// 32×32 ドット絵、サンプル画像参考のかわいいデザイン
+/// 32×32 ドット絵、かわいい癒し系デザイン
 library;
 
-/// カラーパレット（サンプル画像参考）
+/// カラーパレット
 class PixelColors {
   PixelColors._();
 
@@ -20,34 +20,35 @@ class PixelColors {
 
   // 輪郭・目
   static const int K = 0xFF000000; // 黒（輪郭）
-  static const int D = 0xFF1A1A2E; // 濃紺（目の色）
   static const int W = 0xFFFFFFFF; // 白（ハイライト）
 
-  // 顔・肌
-  static const int Y = 0xFFFFF9C4; // 薄い黄色（顔）
-  static const int y = 0xFFFFEB3B; // 黄色（顔のメイン）
+  // トック（餅）の色
+  static const int M = 0xFFFFF8E7; // 餅クリーム色（メイン）
+  static const int m = 0xFFFFEED4; // 餅の影
+
+  // ソース（赤）
+  static const int R = 0xFFE53935; // 赤ソース
+  static const int r = 0xFFB71C1C; // 濃い赤
+  static const int O = 0xFFFF7043; // オレンジ赤（ハイライト）
+
+  // ほっぺ
   static const int C = 0xFFFFCDD2; // ピンク（ほっぺ）
 
-  // 耳・羽（水色系）
-  static const int B = 0xFF81D4FA; // 水色（メイン）
-  static const int b = 0xFF4FC3F7; // 濃い水色
-  static const int L = 0xFFB3E5FC; // 薄い水色
+  // チーズ
+  static const int Y = 0xFFFFD54F; // チーズ黄色
+  static const int y = 0xFFFFCA28; // 濃いチーズ
 
-  // 体（白・水色ストライプ）
-  static const int S = 0xFFE3F2FD; // 薄い青白
-  static const int s = 0xFFBBDEFB; // ストライプ用水色
+  // 王冠
+  static const int G = 0xFFFFD700; // 金色
+  static const int g = 0xFFDAA520; // 濃い金色
 
-  // 葉っぱ・装飾
-  static const int G = 0xFF81C784; // 緑
-  static const int g = 0xFF4CAF50; // 濃い緑
+  // 宝石（王冠用）
+  static const int J = 0xFFE91E63; // ルビー
+  static const int B = 0xFF2196F3; // サファイア
 
-  // たまご
-  static const int E = 0xFFFFFDE7; // たまごクリーム
-  static const int e = 0xFFFFF8E1; // たまご影
-
-  // 光輪（天使用）
-  static const int H = 0xFFFFD54F; // 金色
-  static const int h = 0xFFFFCA28; // 濃い金色
+  // マント
+  static const int P = 0xFF7B1FA2; // 紫（マント）
+  static const int p = 0xFF4A148C; // 濃い紫（マント影）
 }
 
 /// ドット絵キャラクターデータ（32×32）
@@ -57,22 +58,21 @@ class PixelCharacters {
   // エイリアス
   static const int T = PixelColors.T;
   static const int K = PixelColors.K;
-  static const int D = PixelColors.D;
   static const int W = PixelColors.W;
+  static const int M = PixelColors.M;
+  static const int m = PixelColors.m;
+  static const int R = PixelColors.R;
+  static const int r = PixelColors.r;
+  static const int O = PixelColors.O;
+  static const int C = PixelColors.C;
   static const int Y = PixelColors.Y;
   static const int y = PixelColors.y;
-  static const int C = PixelColors.C;
-  static const int B = PixelColors.B;
-  static const int b = PixelColors.b;
-  static const int L = PixelColors.L;
-  static const int S = PixelColors.S;
-  static const int s = PixelColors.s;
   static const int G = PixelColors.G;
   static const int g = PixelColors.g;
-  static const int E = PixelColors.E;
-  static const int e = PixelColors.e;
-  static const int H = PixelColors.H;
-  static const int h = PixelColors.h;
+  static const int J = PixelColors.J;
+  static const int B = PixelColors.B;
+  static const int P = PixelColors.P;
+  static const int p = PixelColors.p;
 
   /// ピクセルサイズ（32×32）
   static const int pixelGridSize = 32;
@@ -80,20 +80,17 @@ class PixelCharacters {
   /// 進化レベルからキャラクターデータを取得
   static List<List<int>> getCharacter(int level) {
     return switch (level) {
-      0 => egg,
-      1 => baby,
-      2 => child,
-      3 => young,
-      4 => adult,
-      5 => angel,
-      _ => egg,
+      0 => rawTteok,
+      1 => boiledTteok,
+      2 => saucedTteok,
+      3 => tteokbokki,
+      4 => cheeseTteokbokki,
+      5 => kingTteokbokki,
+      _ => rawTteok,
     };
   }
 
   /// 進化閾値（難易度別）
-  /// 初級: 基準
-  /// 中級: 2倍
-  /// 上級: 3倍
   static const Map<String, List<int>> evolutionThresholdsByDifficulty = {
     'beginner': [0, 100, 250, 450, 700, 1000],
     'intermediate': [0, 200, 500, 900, 1400, 2000],
@@ -115,166 +112,88 @@ class PixelCharacters {
   /// キャラクター名
   static String getCharacterName(int level) {
     return switch (level) {
-      0 => 'たまご',
-      1 => 'ベビー',
-      2 => 'こども',
-      3 => 'ヤング',
-      4 => 'アダルト',
-      5 => 'エンジェル',
-      _ => 'たまご',
+      0 => '生トック',
+      1 => '茹でトック',
+      2 => 'ソースがけ',
+      3 => 'トッポギ',
+      4 => 'チーズトッポギ',
+      5 => '王様トッポギ',
+      _ => '生トック',
     };
   }
 
   // ═══════════════════════════════════════════════════════════════════════════
-  // Stage 0: たまご (Egg)
-  // シンプルな白いたまご、少し模様入り
+  // Stage 0: 生トック (Raw Tteok)
+  // シンプルな縦長の白い餅、点の目、手足なし
   // ═══════════════════════════════════════════════════════════════════════════
-  static const List<List<int>> egg = [
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
+  static const List<List<int>> rawTteok = [
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, K, K, K, K, K, K, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, K, K, E, E, E, E, E, E, K, K, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, K, E, E, E, E, E, E, E, E, E, E, K, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, K, E, E, W, W, E, E, E, E, E, E, E, E, K, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, E, E, W, W, W, E, E, E, E, E, E, E, E, E, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, E, E, W, W, E, E, E, E, E, E, E, E, E, E, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, E, E, E, E, E, E, E, E, E, E, E, E, E, E, E, E, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, E, E, E, E, E, E, E, E, E, E, E, E, E, E, E, E, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, E, E, E, E, E, B, B, E, E, E, E, E, E, E, E, E, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, E, E, E, E, B, B, B, B, E, E, E, E, E, E, E, E, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, E, E, E, E, E, B, B, E, E, E, E, E, E, E, E, E, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, E, E, E, E, E, E, E, E, E, E, E, E, E, E, E, E, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, E, E, E, E, E, E, E, E, E, E, E, E, E, E, E, E, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, E, E, E, E, E, E, E, E, E, E, E, E, E, E, E, E, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, E, E, E, E, E, E, E, E, E, E, E, E, E, E, E, E, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, E, E, E, E, E, E, E, E, E, E, E, E, E, E, E, E, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, E, E, E, E, E, E, E, E, E, E, E, E, E, E, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, E, E, E, E, E, E, E, E, E, E, E, E, E, E, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, K, E, E, E, E, E, E, E, E, E, E, E, E, K, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, K, E, E, E, E, E, E, E, E, E, E, K, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, K, K, e, e, e, e, e, e, K, K, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, K, K, K, K, K, K, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-  ];
-
-  // ═══════════════════════════════════════════════════════════════════════════
-  // Stage 1: ベビー (Baby)
-  // 孵化直後、丸い体に大きな目、小さな耳の芽
-  // ═══════════════════════════════════════════════════════════════════════════
-  static const List<List<int>> baby = [
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, K, K, K, K, K, K, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, K, K, y, y, y, y, y, y, K, K, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, K, y, y, y, y, y, y, y, y, y, y, K, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, K, y, y, y, y, y, y, y, y, y, y, y, y, K, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, y, y, y, y, y, y, y, y, y, y, y, y, y, y, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, y, y, K, K, K, K, y, y, K, K, K, K, y, y, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, K, D, D, D, D, K, K, D, D, D, D, K, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, K, D, D, D, D, K, K, D, D, D, D, K, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, K, D, D, W, W, K, K, D, D, W, W, K, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, K, D, D, W, W, K, K, D, D, W, W, K, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, y, K, K, K, K, y, y, K, K, K, K, y, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, y, y, y, y, y, y, y, y, y, y, y, y, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, C, C, y, y, y, y, y, y, y, y, y, y, C, C, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, C, C, y, y, y, K, K, K, K, y, y, y, C, C, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, y, y, y, y, y, K, K, y, y, y, y, y, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, y, y, y, y, y, y, y, y, y, y, y, y, y, y, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, y, y, y, y, y, y, y, y, y, y, y, y, y, y, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, K, y, y, y, y, y, y, y, y, y, y, y, y, K, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, K, y, y, y, y, y, y, y, y, y, y, K, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, K, K, y, y, y, y, y, y, K, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, W, W, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, W, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, K, M, M, K, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, m, m, M, M, M, M, m, m, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, K, m, m, m, m, m, m, K, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, K, K, K, K, K, K, T, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
   ];
 
   // ═══════════════════════════════════════════════════════════════════════════
-  // Stage 2: こども (Child)
-  // 小さな耳が生え、体に模様、手足の芽
+  // Stage 1: 茹でトック (Boiled Tteok)
+  // ぷっくり縦長餅、点目、ほっぺ、口、手足なし
   // ═══════════════════════════════════════════════════════════════════════════
-  static const List<List<int>> child = [
+  static const List<List<int>> boiledTteok = [
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, B, B, T, T, T, T, B, B, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, B, B, B, B, T, T, B, B, B, B, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, B, B, K, K, K, K, B, B, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, K, K, y, y, y, y, y, y, K, K, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, K, y, y, y, y, y, y, y, y, y, y, K, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, K, y, y, y, y, y, y, y, y, y, y, y, y, K, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, y, y, y, y, y, y, y, y, y, y, y, y, y, y, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, y, y, K, K, K, K, y, y, K, K, K, K, y, y, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, K, D, D, D, D, K, K, D, D, D, D, K, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, K, D, D, D, D, K, K, D, D, D, D, K, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, K, D, D, W, W, K, K, D, D, W, W, K, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, K, D, D, W, W, K, K, D, D, W, W, K, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, y, K, K, K, K, y, y, K, K, K, K, y, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, y, y, y, y, y, y, y, y, y, y, y, y, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, C, C, y, y, y, y, y, y, y, y, y, y, C, C, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, C, C, y, y, y, K, K, K, K, y, y, y, C, C, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, B, K, y, y, y, y, y, y, y, K, K, y, y, y, y, y, y, y, K, B, T, T, T, T, T, T],
-    [T, T, T, T, T, T, B, T, K, S, S, S, S, S, S, S, S, S, S, S, S, S, S, K, T, B, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, s, s, S, S, s, s, S, S, s, s, S, S, s, s, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, S, S, s, s, S, S, s, s, S, S, s, s, S, S, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, s, s, S, S, s, s, S, S, s, s, S, S, s, s, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, K, S, S, s, s, S, S, s, s, S, S, s, K, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, K, K, K, K, K, K, K, K, K, K, K, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-  ];
-
-  // ═══════════════════════════════════════════════════════════════════════════
-  // Stage 3: ヤング (Young)
-  // 耳が大きくなり、葉っぱ装飾、小さな羽の芽
-  // ═══════════════════════════════════════════════════════════════════════════
-  static const List<List<int>> young = [
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, G, G, G, G, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, B, B, T, g, G, G, g, T, B, B, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, B, B, B, B, T, G, G, T, B, B, B, B, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, B, B, K, K, K, K, K, K, B, B, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, K, K, y, y, y, y, y, y, y, y, K, K, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, K, y, y, y, y, y, y, y, y, y, y, y, y, K, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, y, y, y, y, y, y, y, y, y, y, y, y, y, y, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, y, y, K, K, K, K, y, y, K, K, K, K, y, y, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, K, D, D, D, D, K, K, D, D, D, D, K, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, K, D, D, D, D, K, K, D, D, D, D, K, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, K, D, D, W, W, K, K, D, D, W, W, K, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, K, D, D, W, W, K, K, D, D, W, W, K, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, y, K, K, K, K, y, y, K, K, K, K, y, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, y, y, y, y, y, y, y, y, y, y, y, y, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, C, C, y, y, y, y, y, y, y, y, y, y, C, C, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, C, C, y, y, y, K, K, K, K, y, y, y, C, C, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, B, K, y, y, y, y, y, y, y, K, K, y, y, y, y, y, y, y, K, B, T, T, T, T, T, T],
-    [T, T, T, T, T, B, B, T, K, S, S, S, S, S, S, S, S, S, S, S, S, S, S, K, T, B, B, T, T, T, T, T],
-    [T, T, T, T, T, T, B, T, K, s, s, S, S, s, s, S, S, s, s, S, S, s, s, K, T, B, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, S, S, s, s, S, S, s, s, S, S, s, s, S, S, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, s, s, S, S, s, s, S, S, s, s, S, S, s, s, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, S, S, s, s, S, S, s, s, S, S, s, s, S, S, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, K, s, s, S, S, s, s, S, S, s, s, S, K, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, K, K, K, K, K, K, K, K, K, K, K, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, T, K, K, K, K, K, K, T, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, W, W, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, W, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, K, M, M, K, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, C, M, M, M, M, C, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, C, M, K, K, M, C, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, m, m, M, M, M, M, m, m, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, K, m, m, m, m, m, m, K, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, T, K, K, K, K, K, K, T, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
@@ -282,38 +201,38 @@ class PixelCharacters {
   ];
 
   // ═══════════════════════════════════════════════════════════════════════════
-  // Stage 4: アダルト (Adult)
-  // 立派な耳、2枚の羽、完全な体
+  // Stage 2: ソースがけ (Sauced Tteok)
+  // ソース付き、小さな手の芽
   // ═══════════════════════════════════════════════════════════════════════════
-  static const List<List<int>> adult = [
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, G, G, G, G, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, B, B, T, g, G, G, g, T, B, B, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, B, b, B, B, T, G, G, T, B, B, b, B, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, B, b, b, B, K, K, K, K, K, K, B, b, b, B, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, B, B, K, y, y, y, y, y, y, K, B, B, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, K, K, y, y, y, y, y, y, y, y, y, y, K, K, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, y, y, y, y, y, y, y, y, y, y, y, y, y, y, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, y, y, K, K, K, K, y, y, K, K, K, K, y, y, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, K, D, D, D, D, K, K, D, D, D, D, K, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, K, D, D, D, D, K, K, D, D, D, D, K, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, K, D, D, W, W, K, K, D, D, W, W, K, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, K, D, D, W, W, K, K, D, D, W, W, K, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, y, K, K, K, K, y, y, K, K, K, K, y, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, y, y, y, y, y, y, y, y, y, y, y, y, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, C, C, y, y, y, y, y, y, y, y, y, y, C, C, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, B, B, K, y, C, C, y, y, y, K, K, K, K, y, y, y, C, C, y, K, B, B, T, T, T, T, T],
-    [T, T, T, T, B, b, B, K, y, y, y, y, y, y, y, K, K, y, y, y, y, y, y, y, K, B, b, B, T, T, T, T],
-    [T, T, T, T, B, B, T, T, K, S, S, S, S, S, S, S, S, S, S, S, S, S, S, K, T, T, B, B, T, T, T, T],
-    [T, T, T, T, T, B, T, T, K, s, s, S, S, s, s, S, S, s, s, S, S, s, s, K, T, T, B, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, S, S, s, s, S, S, s, s, S, S, s, s, S, S, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, s, s, S, S, s, s, S, S, s, s, S, S, s, s, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, S, S, s, s, S, S, s, s, S, S, s, s, S, S, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, K, s, s, S, S, s, s, S, S, s, s, S, K, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, K, K, K, K, K, K, K, K, K, K, K, T, T, T, T, T, T, T, T, T, T, T],
+  static const List<List<int>> saucedTteok = [
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, T, K, K, K, K, K, K, T, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, W, W, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, W, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, K, M, M, K, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, C, M, M, M, M, C, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, C, M, K, K, M, C, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, K, K, M, M, M, M, M, M, M, M, K, K, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, K, M, K, M, M, M, M, M, M, K, M, K, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, K, M, M, M, M, M, M, K, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, O, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, r, r, R, R, R, R, r, r, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, K, r, r, r, r, r, r, K, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, T, K, K, K, K, K, K, T, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
@@ -321,40 +240,118 @@ class PixelCharacters {
   ];
 
   // ═══════════════════════════════════════════════════════════════════════════
-  // Stage 5: エンジェル (Angel)
-  // 4枚の羽、光輪、完全体
+  // Stage 3: トッポギ (Tteokbokki)
+  // ソースたっぷり、小さな手
   // ═══════════════════════════════════════════════════════════════════════════
-  static const List<List<int>> angel = [
-    [T, T, T, T, T, T, T, T, T, T, T, T, T, H, H, H, H, H, H, T, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, H, h, T, T, T, T, h, H, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, T, H, T, G, G, G, G, T, H, T, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, T, B, B, T, g, G, G, g, T, B, B, T, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, B, b, B, B, T, G, G, T, B, B, b, B, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, B, b, b, B, K, K, K, K, K, K, B, b, b, B, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, B, B, K, y, y, y, y, y, y, K, B, B, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, K, K, y, y, y, y, y, y, y, y, y, y, K, K, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, y, y, y, y, y, y, y, y, y, y, y, y, y, y, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, K, K, K, K, y, y, y, y, K, K, K, K, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, K, D, D, D, D, K, y, y, K, D, D, D, D, K, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, K, D, D, D, D, K, y, y, K, D, D, D, D, K, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, K, D, D, W, W, K, y, y, K, D, D, W, W, K, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, K, y, y, K, K, K, K, y, y, y, y, K, K, K, K, y, y, K, T, T, T, T, T, T, T],
-    [T, T, T, T, B, B, T, K, y, y, y, y, y, y, y, y, y, y, y, y, y, y, y, y, K, T, B, B, T, T, T, T],
-    [T, T, T, B, b, B, T, K, C, C, y, y, y, y, y, y, y, y, y, y, y, y, C, C, K, T, B, b, B, T, T, T],
-    [T, T, B, b, b, B, B, K, C, C, y, y, y, K, K, K, K, K, K, y, y, y, C, C, K, B, B, b, b, B, T, T],
-    [T, T, B, B, B, T, T, K, y, y, y, y, y, y, y, K, K, y, y, y, y, y, y, y, K, T, T, B, B, B, T, T],
-    [T, T, T, B, T, T, T, T, K, S, S, S, S, S, S, S, S, S, S, S, S, S, S, K, T, T, T, B, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, s, s, S, S, s, s, S, S, s, s, S, S, s, s, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, S, S, s, s, S, S, s, s, S, S, s, s, S, S, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, s, s, S, S, s, s, S, S, s, s, S, S, s, s, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, K, S, S, s, s, S, S, s, s, S, S, s, s, S, S, K, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, K, s, s, S, S, s, s, S, S, s, s, S, K, T, T, T, T, T, T, T, T, T, T],
-    [T, T, T, T, T, T, T, T, T, T, K, K, K, K, K, K, K, K, K, K, K, T, T, T, T, T, T, T, T, T, T, T],
+  static const List<List<int>> tteokbokki = [
+    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, T, K, K, K, K, K, K, T, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, O, O, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, K, M, M, K, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, C, M, M, M, M, C, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, C, M, K, K, M, C, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, K, K, M, M, M, M, M, M, M, M, K, K, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, K, M, M, K, M, M, M, M, M, M, K, M, M, K, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, K, K, K, R, R, R, R, R, R, K, K, K, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, O, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, r, r, R, R, R, R, r, r, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, K, r, r, r, r, r, r, K, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, T, K, K, K, K, K, K, T, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
+  ];
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Stage 4: チーズトッポギ (Cheese Tteokbokki)
+  // チーズ付き、しっかりした手と足
+  // ═══════════════════════════════════════════════════════════════════════════
+  static const List<List<int>> cheeseTteokbokki = [
+    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, Y, Y, Y, Y, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, T, Y, Y, Y, Y, Y, Y, T, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, T, K, K, Y, Y, K, K, T, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, O, O, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, K, M, M, K, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, C, M, M, M, M, C, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, C, M, K, K, M, C, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, K, K, K, M, M, M, M, M, M, M, M, K, K, K, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, K, M, M, M, K, M, M, M, M, M, M, K, M, M, M, K, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, K, K, K, K, R, R, R, R, R, R, K, K, K, K, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, O, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, r, r, R, R, R, R, r, r, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, K, r, r, r, r, r, r, K, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, T, K, K, K, K, K, K, T, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, T, K, K, T, T, K, K, T, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, K, R, R, K, K, R, R, K, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, K, K, K, T, T, K, K, K, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
+  ];
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Stage 5: 王様トッポギ (King Tteokbokki)
+  // 王冠付き、立派な手足
+  // ═══════════════════════════════════════════════════════════════════════════
+  static const List<List<int>> kingTteokbokki = [
+    [T, T, T, T, T, T, T, T, T, T, T, G, T, T, T, G, T, T, T, G, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, G, G, T, G, G, G, T, G, G, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, G, G, G, G, J, G, G, G, G, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, G, G, G, G, G, G, G, G, G, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, K, K, K, K, K, K, K, K, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, O, O, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, K, M, M, K, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, C, M, M, M, M, C, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, C, M, K, K, M, C, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, M, M, M, M, M, M, M, M, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, K, K, K, K, M, M, M, M, M, M, M, M, K, K, K, K, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, K, M, M, M, M, K, M, M, M, M, M, M, K, M, M, M, M, K, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, K, K, K, K, K, R, R, R, R, R, R, K, K, K, K, K, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, O, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, R, R, R, R, R, R, R, R, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, K, r, r, R, R, R, R, r, r, K, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, K, r, r, r, r, r, r, K, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, T, K, K, K, K, K, K, T, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, T, K, K, T, T, K, K, T, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, K, R, R, K, K, R, R, K, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, K, R, R, K, K, R, R, K, T, T, T, T, T, T, T, T, T, T, T, T],
+    [T, T, T, T, T, T, T, T, T, T, T, T, K, K, K, T, T, K, K, K, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
     [T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T],
   ];

@@ -24,6 +24,8 @@ import '../ai_teacher_screen.dart';
 import '../writing/topic_list_screen.dart';
 import '../../widgets/ai_gradient_button.dart';
 import '../../../features/ranking_game/presentation/widgets/ranking_game_section.dart';
+import '../../../features/ranking_game/presentation/widgets/pixel_character_widget.dart';
+import '../../../features/ranking_game/data/pixel_characters.dart';
 
 part 'home_progress_hero.dart';
 part 'home_stat_highlights.dart';
@@ -181,6 +183,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                             ],
                           ),
                         ),
+                        const SizedBox(height: AppSpacing.xl),
                       ],
                     ),
                   ),
