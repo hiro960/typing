@@ -83,4 +83,20 @@ class RankingGameRepository {
       throw ApiClientService.handleDioException(error);
     }
   }
+
+  /// 自分の統計を取得（軽量版・ホーム画面用）
+  /// bestScoreのみを高速に取得
+  Future<RankingGameStatsSummary> getMyStatsSummary() async {
+    try {
+      final response = await _apiClient.dio.get(
+        ApiConstants.rankingGameMyStatsSummary,
+      );
+
+      return RankingGameStatsSummary.fromJson(
+        response.data as Map<String, dynamic>,
+      );
+    } on DioException catch (error) {
+      throw ApiClientService.handleDioException(error);
+    }
+  }
 }

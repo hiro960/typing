@@ -1,14 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../../core/providers/shared_preferences_provider.dart';
 import '../../data/models/writing_models.dart';
 import '../../data/repositories/writing_data_repository.dart';
 import '../../data/repositories/writing_storage_repository.dart';
-
-/// SharedPreferencesプロバイダ
-final sharedPreferencesProvider = FutureProvider<SharedPreferences>((ref) async {
-  return await SharedPreferences.getInstance();
-});
 
 /// WritingDataRepositoryプロバイダ
 final writingDataRepositoryProvider = Provider<WritingDataRepository>((ref) {

@@ -20,11 +20,19 @@ Future<RankingDataResponse> rankingData(
   );
 }
 
-/// 自分の統計プロバイダー
+/// 自分の統計プロバイダー（詳細版・ランキング画面用）
 @riverpod
 Future<RankingGameUserStats> myRankingStats(Ref ref) async {
   final repository = ref.watch(rankingGameRepositoryProvider);
   return repository.getMyStats();
+}
+
+/// 自分の統計プロバイダー（軽量版・ホーム画面用）
+/// bestScoreのみを高速に取得
+@riverpod
+Future<RankingGameStatsSummary> myRankingStatsSummary(Ref ref) async {
+  final repository = ref.watch(rankingGameRepositoryProvider);
+  return repository.getMyStatsSummary();
 }
 
 /// 難易度別ベストスコアプロバイダー

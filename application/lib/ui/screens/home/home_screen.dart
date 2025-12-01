@@ -14,6 +14,7 @@ import '../../../features/lessons/data/models/lesson_progress.dart';
 import '../../../features/lessons/domain/providers/home_state_provider.dart';
 import '../../../features/writing/data/models/writing_models.dart';
 import '../../../features/writing/domain/providers/writing_providers.dart';
+import '../../../features/ranking_game/domain/providers/ranking_providers.dart';
 import '../../app_theme.dart';
 import '../../app_spacing.dart';
 import '../../utils/snackbar_helper.dart';
@@ -53,6 +54,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     super.dispose();
   }
 
+  /// Pull-to-refresh でデータを再取得
+  Future<void> _refresh() async {
+    // 各プロバイダーを invalidate して再取得
+    ref.invalidate(homeStateProvider);
+    // ランキング統計も再取得
+    ref.invalidate(myRankingStatsSummaryProvider);
+  }
+
   @override
   Widget build(BuildContext context) {
     final homeStateAsync = ref.watch(homeStateProvider);
@@ -82,97 +91,102 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               ),
             ],
           ),
-          child: CustomScrollView(
-            physics: const BouncingScrollPhysics(),
-            slivers: [
-              SliverPadding(
-                padding: AppPadding.homePage,
-                sliver: SliverToBoxAdapter(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _ProgressHero(
-                        stats: state.stats,
-                        isLoading: state.isStatsLoading,
-                      ),
-                      const SizedBox(height: AppSpacing.lg),
-                      _StatHighlights(
-                        stats: state.stats,
-                        maxWpm: user?.maxWPM ?? 0,
-                        isLoading: state.isStatsLoading,
-                      ),
-                      const SizedBox(height: AppSpacing.xxl),
-                      const SectionTitle(
-                        iconData: Icons.keyboard,
-                        text: 'タイピング練習',
-                      ),
-                      _LevelAccordions(
-                        controller: _typingAccordionController,
-                        catalog: state.catalog,
-                        progress: state.progress,
-                        onLessonTap: _onLessonTap,
-                      ),
-                      const SizedBox(height: AppSpacing.xl),
-                      const RankingGameSection(),
-                      const SizedBox(height: AppSpacing.xxl),
-                      const SectionTitle(iconData: Icons.edit, text: '書き取り練習'),
-                      const SizedBox(height: AppSpacing.md),
-                      _WritingPatternAccordions(
-                        controller: _beginnerWritingAccordionController,
-                        title: '単語',
-                        subtitle: 'カテゴリ別の基本単語をタイピング練習',
-                        lane: WritingLane.beginner,
-                      ),
-                      const SizedBox(height: AppSpacing.md),
-                      _WritingPatternAccordions(
-                        controller: _hobbyWritingAccordionController,
-                        title: '趣味対策',
-                        subtitle: 'SNSや韓ドラ、推しなど気軽に書ける題材',
-                        lane: WritingLane.hobby,
-                      ),
-                      _WritingPatternAccordions(
-                        controller: _writingAccordionController,
-                        title: 'TOPIK対策',
-                        subtitle: 'タイピングで覚える論述パターン',
-                        lane: WritingLane.topik,
-                      ),
-                      const SizedBox(height: AppSpacing.xl),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: AppSpacing.lg,
+          child: RefreshIndicator(
+            onRefresh: _refresh,
+            child: CustomScrollView(
+              physics: const AlwaysScrollableScrollPhysics(
+                parent: BouncingScrollPhysics(),
+              ),
+              slivers: [
+                SliverPadding(
+                  padding: AppPadding.homePage,
+                  sliver: SliverToBoxAdapter(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _ProgressHero(
+                          stats: state.stats,
+                          isLoading: state.isStatsLoading,
                         ),
-                        child: Column(
-                          children: [
-                            AiGradientButton(
-                              label: 'AI先生に聞く',
-                              onTap: () {
-                                if (!isPremiumUser) {
+                        const SizedBox(height: AppSpacing.lg),
+                        _StatHighlights(
+                          stats: state.stats,
+                          maxWpm: user?.maxWPM ?? 0,
+                          isLoading: state.isStatsLoading,
+                        ),
+                        const SizedBox(height: AppSpacing.xxl),
+                        const SectionTitle(
+                          iconData: Icons.keyboard,
+                          text: 'タイピング練習',
+                        ),
+                        _LevelAccordions(
+                          controller: _typingAccordionController,
+                          catalog: state.catalog,
+                          progress: state.progress,
+                          onLessonTap: _onLessonTap,
+                        ),
+                        const SizedBox(height: AppSpacing.xl),
+                        const RankingGameSection(),
+                        const SizedBox(height: AppSpacing.xxl),
+                        const SectionTitle(iconData: Icons.edit, text: '書き取り練習'),
+                        const SizedBox(height: AppSpacing.md),
+                        _WritingPatternAccordions(
+                          controller: _beginnerWritingAccordionController,
+                          title: '単語',
+                          subtitle: 'カテゴリ別の基本単語をタイピング練習',
+                          lane: WritingLane.beginner,
+                        ),
+                        const SizedBox(height: AppSpacing.md),
+                        _WritingPatternAccordions(
+                          controller: _hobbyWritingAccordionController,
+                          title: '趣味対策',
+                          subtitle: 'SNSや韓ドラ、推しなど気軽に書ける題材',
+                          lane: WritingLane.hobby,
+                        ),
+                        _WritingPatternAccordions(
+                          controller: _writingAccordionController,
+                          title: 'TOPIK対策',
+                          subtitle: 'タイピングで覚える論述パターン',
+                          lane: WritingLane.topik,
+                        ),
+                        const SizedBox(height: AppSpacing.xl),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: AppSpacing.lg,
+                          ),
+                          child: Column(
+                            children: [
+                              AiGradientButton(
+                                label: 'AI先生に聞く',
+                                onTap: () {
+                                  if (!isPremiumUser) {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute<void>(
+                                        builder: (_) =>
+                                            const PremiumFeatureGateScreen(
+                                              focusFeature: 'AI先生',
+                                            ),
+                                      ),
+                                    );
+                                    return;
+                                  }
                                   Navigator.of(context).push(
-                                    MaterialPageRoute<void>(
-                                      builder: (_) =>
-                                          const PremiumFeatureGateScreen(
-                                            focusFeature: 'AI先生',
-                                          ),
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const AiTeacherScreen(),
                                     ),
                                   );
-                                  return;
-                                }
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const AiTeacherScreen(),
-                                  ),
-                                );
-                              },
-                            ),
-                          ],
+                                },
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },

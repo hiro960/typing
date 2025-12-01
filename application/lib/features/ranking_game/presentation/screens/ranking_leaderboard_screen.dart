@@ -297,14 +297,13 @@ class _RankingLeaderboardScreenState
               ),
               const SizedBox(width: 12),
 
-              // キャラクター
+              // キャラクター（サーバーから返されたcharacterLevelを使用）
               SizedBox(
                 width: 40,
                 height: 40,
-                child: ScoreBasedCharacterWidget(
-                  score: myRanking.score,
+                child: PixelCharacterWidget(
+                  evolutionLevel: myRanking.characterLevel,
                   pixelSize: 1.25,
-                  showName: false,
                 ),
               ),
               const SizedBox(width: 12),
@@ -387,14 +386,13 @@ class _RankingLeaderboardScreenState
           ),
           const SizedBox(width: 12),
 
-          // キャラクター
+          // キャラクター（サーバーから返されたcharacterLevelを使用）
           SizedBox(
             width: 40,
             height: 40,
-            child: ScoreBasedCharacterWidget(
-              score: entry.score,
+            child: PixelCharacterWidget(
+              evolutionLevel: entry.characterLevel,
               pixelSize: 1.25,
-              showName: false,
             ),
           ),
           const SizedBox(width: 12),

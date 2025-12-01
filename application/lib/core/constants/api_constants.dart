@@ -149,4 +149,9 @@ class ApiConstants {
   /// 自分の統計取得
   /// GET /api/ranking-game/my-stats
   static const String rankingGameMyStats = '/api/ranking-game/my-stats';
+
+  /// 自分の統計取得（軽量版・ホーム画面用）
+  /// GET /api/ranking-game/my-stats/summary
+  static const String rankingGameMyStatsSummary =
+      '/api/ranking-game/my-stats/summary';
 }

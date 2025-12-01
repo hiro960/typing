@@ -245,6 +245,18 @@ Map<String, dynamic> _$RankingGameUserStatsToJson(
   'recentResults': instance.recentResults,
 };
 
+_RankingGameStatsSummary _$RankingGameStatsSummaryFromJson(
+  Map<String, dynamic> json,
+) => _RankingGameStatsSummary(
+  bestScore: BestScoreByDifficulty.fromJson(
+    json['bestScore'] as Map<String, dynamic>,
+  ),
+);
+
+Map<String, dynamic> _$RankingGameStatsSummaryToJson(
+  _RankingGameStatsSummary instance,
+) => <String, dynamic>{'bestScore': instance.bestScore};
+
 _WordDataFile _$WordDataFileFromJson(Map<String, dynamic> json) =>
     _WordDataFile(
       version: json['version'] as String,

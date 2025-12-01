@@ -116,12 +116,12 @@ final class RankingDataFamily extends $Family
   String toString() => r'rankingDataProvider';
 }
 
-/// 自分の統計プロバイダー
+/// 自分の統計プロバイダー（詳細版・ランキング画面用）
 
 @ProviderFor(myRankingStats)
 const myRankingStatsProvider = MyRankingStatsProvider._();
 
-/// 自分の統計プロバイダー
+/// 自分の統計プロバイダー（詳細版・ランキング画面用）
 
 final class MyRankingStatsProvider
     extends
@@ -133,7 +133,7 @@ final class MyRankingStatsProvider
     with
         $FutureModifier<RankingGameUserStats>,
         $FutureProvider<RankingGameUserStats> {
-  /// 自分の統計プロバイダー
+  /// 自分の統計プロバイダー（詳細版・ランキング画面用）
   const MyRankingStatsProvider._()
     : super(
         from: null,
@@ -161,6 +161,56 @@ final class MyRankingStatsProvider
 }
 
 String _$myRankingStatsHash() => r'01b96297da6cfd450c940c9bd45820833942584a';
+
+/// 自分の統計プロバイダー（軽量版・ホーム画面用）
+/// bestScoreのみを高速に取得
+
+@ProviderFor(myRankingStatsSummary)
+const myRankingStatsSummaryProvider = MyRankingStatsSummaryProvider._();
+
+/// 自分の統計プロバイダー（軽量版・ホーム画面用）
+/// bestScoreのみを高速に取得
+
+final class MyRankingStatsSummaryProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<RankingGameStatsSummary>,
+          RankingGameStatsSummary,
+          FutureOr<RankingGameStatsSummary>
+        >
+    with
+        $FutureModifier<RankingGameStatsSummary>,
+        $FutureProvider<RankingGameStatsSummary> {
+  /// 自分の統計プロバイダー（軽量版・ホーム画面用）
+  /// bestScoreのみを高速に取得
+  const MyRankingStatsSummaryProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'myRankingStatsSummaryProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$myRankingStatsSummaryHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<RankingGameStatsSummary> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<RankingGameStatsSummary> create(Ref ref) {
+    return myRankingStatsSummary(ref);
+  }
+}
+
+String _$myRankingStatsSummaryHash() =>
+    r'3cbdf473a1f58f1f015a2459bd7a51736076e4c1';
 
 /// 難易度別ベストスコアプロバイダー
 

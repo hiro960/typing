@@ -194,6 +194,17 @@ abstract class RankingGameUserStats with _$RankingGameUserStats {
       _$RankingGameUserStatsFromJson(json);
 }
 
+/// ユーザー統計レスポンス（軽量版・ホーム画面用）
+@freezed
+abstract class RankingGameStatsSummary with _$RankingGameStatsSummary {
+  const factory RankingGameStatsSummary({
+    required BestScoreByDifficulty bestScore,
+  }) = _RankingGameStatsSummary;
+
+  factory RankingGameStatsSummary.fromJson(Map<String, dynamic> json) =>
+      _$RankingGameStatsSummaryFromJson(json);
+}
+
 /// 入力結果の種類
 enum InputResultType {
   none,

@@ -173,7 +173,7 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const ScoreBasedCharacterWidget(score: 0),
+          ScoreBasedCharacterWidget(score: 0, difficulty: widget.difficulty),
           const SizedBox(height: 32),
           Text(
             '${_getDifficultyLabel(widget.difficulty)}モード',

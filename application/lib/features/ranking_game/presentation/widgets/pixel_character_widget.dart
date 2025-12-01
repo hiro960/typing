@@ -246,6 +246,9 @@ class ScoreBasedCharacterWidget extends StatefulWidget {
   /// 現在のスコア
   final int score;
 
+  /// 難易度（'beginner', 'intermediate', 'advanced'）
+  final String difficulty;
+
   /// アニメーションを有効にするか
   final bool isAnimating;
 
@@ -258,6 +261,7 @@ class ScoreBasedCharacterWidget extends StatefulWidget {
   const ScoreBasedCharacterWidget({
     super.key,
     required this.score,
+    this.difficulty = 'beginner',
     this.isAnimating = true,
     this.pixelSize = 2.0,
     this.showName = true,
@@ -275,14 +279,20 @@ class _ScoreBasedCharacterWidgetState extends State<ScoreBasedCharacterWidget> {
   @override
   void initState() {
     super.initState();
-    _previousLevel = PixelCharacters.getEvolutionLevel(widget.score);
+    _previousLevel = PixelCharacters.getEvolutionLevel(
+      widget.score,
+      difficulty: widget.difficulty,
+    );
   }
 
   @override
   void didUpdateWidget(ScoreBasedCharacterWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
 
-    final newLevel = PixelCharacters.getEvolutionLevel(widget.score);
+    final newLevel = PixelCharacters.getEvolutionLevel(
+      widget.score,
+      difficulty: widget.difficulty,
+    );
     if (newLevel > _previousLevel) {
       // 進化した！
       setState(() {
@@ -301,7 +311,10 @@ class _ScoreBasedCharacterWidgetState extends State<ScoreBasedCharacterWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final level = PixelCharacters.getEvolutionLevel(widget.score);
+    final level = PixelCharacters.getEvolutionLevel(
+      widget.score,
+      difficulty: widget.difficulty,
+    );
 
     return Column(
       mainAxisSize: MainAxisSize.min,

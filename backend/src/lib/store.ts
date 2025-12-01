@@ -1272,6 +1272,26 @@ export async function isFollowingUser(followerId: string, followingId: string) {
   return !!follow;
 }
 
+/**
+ * 複数ユーザーに対するフォロー状態を一括取得（N+1問題解消）
+ */
+export async function batchCheckFollowing(
+  followerId: string,
+  followingIds: string[]
+): Promise<Set<string>> {
+  if (followingIds.length === 0) return new Set();
+
+  const follows = await prisma.follow.findMany({
+    where: {
+      followerId,
+      followingId: { in: followingIds },
+    },
+    select: { followingId: true },
+  });
+
+  return new Set(follows.map((f) => f.followingId));
+}
+
 export async function createBlock(blockerId: string, blockedId: string) {
   if (blockerId === blockedId) {
     throw ERROR.INVALID_INPUT("You cannot block yourself");
@@ -2133,6 +2153,36 @@ export async function getRankingGameUserStats(
       totalBonusTimeEarned: achievements._sum.totalBonusTime ?? 0,
     },
     recentResults: recentResults.map(toRankingGameResultRecord),
+  };
+}
+
+/**
+ * ホーム画面用軽量版統計取得（bestScoreのみ、1クエリで完結）
+ */
+export async function getRankingGameUserStatsSummary(
+  userId: string
+): Promise<{ bestScore: { all: number; beginner: number; intermediate: number; advanced: number } }> {
+  const bestScores = await prisma.rankingGameResult.groupBy({
+    by: ["difficulty"],
+    where: { userId },
+    _max: { score: true },
+  });
+
+  const bestScoreMap = new Map(
+    bestScores.map((item) => [item.difficulty, item._max.score ?? 0])
+  );
+
+  return {
+    bestScore: {
+      all: Math.max(
+        bestScoreMap.get("beginner") ?? 0,
+        bestScoreMap.get("intermediate") ?? 0,
+        bestScoreMap.get("advanced") ?? 0
+      ),
+      beginner: bestScoreMap.get("beginner") ?? 0,
+      intermediate: bestScoreMap.get("intermediate") ?? 0,
+      advanced: bestScoreMap.get("advanced") ?? 0,
+    },
   };
 }
 

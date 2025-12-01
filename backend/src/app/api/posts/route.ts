@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { handleRouteError, ERROR } from "@/lib/errors";
-import { toPostResponse, toPostResponseBatch, createPost, isFollowingUser } from "@/lib/store";
+import { toPostResponse, toPostResponseBatch, createPost, batchCheckFollowing, batchCheckBlocks } from "@/lib/store";
 import { getAuthUser, requireAuthUser } from "@/lib/auth";
 import { Visibility } from "@/lib/types";
 import prisma from "@/lib/prisma";
@@ -121,11 +121,20 @@ export async function GET(request: NextRequest) {
         ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
       })) ?? [];
 
-    const followCache = new Map<string, boolean>();
-    const blockCache = new Map<string, boolean>();
+    // N+1解消: 投稿作者のIDを収集し、一括でblock/follow判定を取得
+    const authorIds = [...new Set(posts.map((p) => p.userId))];
+
+    const [blockedSet, followingSet] = viewerId
+      ? await Promise.all([
+          batchCheckBlocks(authorIds, viewerId),
+          batchCheckFollowing(viewerId, authorIds),
+        ])
+      : [new Set<string>(), new Set<string>()];
+
+    // 可視性判定（ループ内クエリなし）
     const visible: typeof posts = [];
     for (const post of posts) {
-      if (await canAccessPost(post, viewerId, followCache, blockCache)) {
+      if (canAccessPostSync(post, viewerId, blockedSet, followingSet)) {
         visible.push(post);
       }
     }
@@ -152,58 +161,29 @@ export async function GET(request: NextRequest) {
   }
 }
 
-async function canAccessPost(
+/**
+ * 投稿の可視性を同期的に判定（事前取得したSetを使用、クエリなし）
+ */
+function canAccessPostSync(
   post: Prisma.PostGetPayload<{ include: { user: true; quotedPost: { include: { user: true } } } }>,
-  viewerId?: string,
-  followCache?: Map<string, boolean>,
-  blockCache?: Map<string, boolean>
-) {
-  if (await isBlockedFromViewer(post.userId, viewerId, blockCache)) {
+  viewerId: string | undefined,
+  blockedSet: Set<string>,
+  followingSet: Set<string>
+): boolean {
+  // ブロック判定
+  if (viewerId && blockedSet.has(post.userId)) {
     return false;
   }
+
   if (post.visibility === "public") return true;
   if (!viewerId) return false;
   if (post.userId === viewerId) return true;
-  if (post.visibility === "followers") {
-    if (!followCache) {
-      return isFollowingUser(viewerId, post.userId);
-    }
-    if (!followCache.has(post.userId)) {
-      followCache.set(post.userId, await isFollowingUser(viewerId, post.userId));
-    }
-    return followCache.get(post.userId) ?? false;
-  }
-  return false;
-}
 
-async function isBlockedFromViewer(
-  authorId: string,
-  viewerId?: string,
-  cache?: Map<string, boolean>
-) {
-  if (!viewerId) {
-    return false;
+  if (post.visibility === "followers") {
+    return followingSet.has(post.userId);
   }
-  if (authorId === viewerId) {
-    return false;
-  }
-  const key = `${authorId}:${viewerId}`;
-  if (cache?.has(key)) {
-    return cache.get(key) ?? false;
-  }
-  const blocked = await prisma.block.findFirst({
-    where: {
-      OR: [
-        { blockerId: authorId, blockedId: viewerId },
-        { blockerId: viewerId, blockedId: authorId },
-      ],
-    },
-    select: { id: true },
-  });
-  if (cache) {
-    cache.set(key, !!blocked);
-  }
-  return !!blocked;
+
+  return false;
 }
 
 function normalizeHashtag(tag: string): string | null {

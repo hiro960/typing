@@ -12,7 +12,8 @@ class RankingGameSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final statsAsync = ref.watch(myRankingStatsProvider);
+    // 軽量版プロバイダーを使用（bestScoreのみ、1クエリで高速）
+    final statsAsync = ref.watch(myRankingStatsSummaryProvider);
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
 

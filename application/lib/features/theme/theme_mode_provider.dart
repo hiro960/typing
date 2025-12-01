@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../core/providers/shared_preferences_provider.dart';
+
 class ThemeModeController extends AsyncNotifier<ThemeMode> {
   static const _prefsKey = 'theme_mode';
   SharedPreferences? _prefs;
 
   Future<SharedPreferences> get _preferences async {
-    _prefs ??= await SharedPreferences.getInstance();
+    // 共通プロバイダーから取得（main.dartで事前初期化済み）
+    _prefs ??= await ref.read(sharedPreferencesProvider.future);
     return _prefs!;
   }
 

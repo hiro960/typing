@@ -17,7 +17,6 @@ import '../../utils/snackbar_helper.dart';
 import '../../utils/toast_helper.dart';
 import '../../widgets/app_page_scaffold.dart';
 import '../../widgets/user_avatar.dart';
-import '../../widgets/sheet_content.dart';
 import '../../app_spacing.dart';
 
 class SettingsScreen extends ConsumerStatefulWidget {

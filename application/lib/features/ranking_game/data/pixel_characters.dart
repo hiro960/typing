@@ -90,13 +90,24 @@ class PixelCharacters {
     };
   }
 
-  /// 進化閾値
+  /// 進化閾値（難易度別）
+  /// 初級: 基準
+  /// 中級: 2倍
+  /// 上級: 3倍
+  static const Map<String, List<int>> evolutionThresholdsByDifficulty = {
+    'beginner': [0, 100, 250, 450, 700, 1000],
+    'intermediate': [0, 200, 500, 900, 1400, 2000],
+    'advanced': [0, 300, 750, 1350, 2100, 3000],
+  };
+
+  /// 後方互換性のための閾値（初級と同じ）
   static const List<int> evolutionThresholds = [0, 100, 250, 450, 700, 1000];
 
-  /// スコアから進化レベルを計算
-  static int getEvolutionLevel(int score) {
-    for (int i = evolutionThresholds.length - 1; i >= 0; i--) {
-      if (score >= evolutionThresholds[i]) return i;
+  /// スコアから進化レベルを計算（難易度別）
+  static int getEvolutionLevel(int score, {String difficulty = 'beginner'}) {
+    final thresholds = evolutionThresholdsByDifficulty[difficulty] ?? evolutionThresholds;
+    for (int i = thresholds.length - 1; i >= 0; i--) {
+      if (score >= thresholds[i]) return i;
     }
     return 0;
   }

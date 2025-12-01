@@ -43,8 +43,13 @@ class Auth0Service {
 
       // Use HTTPS callback URL on iOS 17.4+ / macOS 14.4+
       // For Android, use custom scheme
+      // Note: HTTPS callback requires Associated Domains which only works on:
+      //   - Physical devices with Release builds (TestFlight/App Store)
+      //   - Does NOT work on simulators or Debug builds
       final webAuth = _auth0.webAuthentication();
-      final useHttps = !kIsWeb && (Platform.isIOS || Platform.isMacOS);
+      final useHttps = !kIsWeb &&
+          (Platform.isIOS || Platform.isMacOS) &&
+          !EnvConfig.isDevelopment; // 開発環境ではカスタムスキームを使用
 
       final redirectUrl = Platform.isAndroid
           ? 'app.koreantyping.chaletta://${EnvConfig.auth0Domain}/android/app.koreantyping.chaletta/callback'
@@ -107,7 +112,9 @@ class Auth0Service {
       AppLogger.auth('Starting Auth0 logout');
 
       final webAuth = _auth0.webAuthentication();
-      final useHttps = !kIsWeb && (Platform.isIOS || Platform.isMacOS);
+      final useHttps = !kIsWeb &&
+          (Platform.isIOS || Platform.isMacOS) &&
+          !EnvConfig.isDevelopment;
 
       final redirectUrl = Platform.isAndroid
           ? 'app.koreantyping.chaletta://${EnvConfig.auth0Domain}/android/app.koreantyping.chaletta/callback'

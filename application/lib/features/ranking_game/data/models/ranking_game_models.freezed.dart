@@ -3452,6 +3452,287 @@ $RankingGameAchievementsCopyWith<$Res> get achievements {
 }
 }
 
+
+/// @nodoc
+mixin _$RankingGameStatsSummary {
+
+ BestScoreByDifficulty get bestScore;
+/// Create a copy of RankingGameStatsSummary
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$RankingGameStatsSummaryCopyWith<RankingGameStatsSummary> get copyWith => _$RankingGameStatsSummaryCopyWithImpl<RankingGameStatsSummary>(this as RankingGameStatsSummary, _$identity);
+
+  /// Serializes this RankingGameStatsSummary to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RankingGameStatsSummary&&(identical(other.bestScore, bestScore) || other.bestScore == bestScore));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,bestScore);
+
+@override
+String toString() {
+  return 'RankingGameStatsSummary(bestScore: $bestScore)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $RankingGameStatsSummaryCopyWith<$Res>  {
+  factory $RankingGameStatsSummaryCopyWith(RankingGameStatsSummary value, $Res Function(RankingGameStatsSummary) _then) = _$RankingGameStatsSummaryCopyWithImpl;
+@useResult
+$Res call({
+ BestScoreByDifficulty bestScore
+});
+
+
+$BestScoreByDifficultyCopyWith<$Res> get bestScore;
+
+}
+/// @nodoc
+class _$RankingGameStatsSummaryCopyWithImpl<$Res>
+    implements $RankingGameStatsSummaryCopyWith<$Res> {
+  _$RankingGameStatsSummaryCopyWithImpl(this._self, this._then);
+
+  final RankingGameStatsSummary _self;
+  final $Res Function(RankingGameStatsSummary) _then;
+
+/// Create a copy of RankingGameStatsSummary
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? bestScore = null,}) {
+  return _then(_self.copyWith(
+bestScore: null == bestScore ? _self.bestScore : bestScore // ignore: cast_nullable_to_non_nullable
+as BestScoreByDifficulty,
+  ));
+}
+/// Create a copy of RankingGameStatsSummary
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$BestScoreByDifficultyCopyWith<$Res> get bestScore {
+  
+  return $BestScoreByDifficultyCopyWith<$Res>(_self.bestScore, (value) {
+    return _then(_self.copyWith(bestScore: value));
+  });
+}
+}
+
+
+/// Adds pattern-matching-related methods to [RankingGameStatsSummary].
+extension RankingGameStatsSummaryPatterns on RankingGameStatsSummary {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _RankingGameStatsSummary value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _RankingGameStatsSummary() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _RankingGameStatsSummary value)  $default,){
+final _that = this;
+switch (_that) {
+case _RankingGameStatsSummary():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _RankingGameStatsSummary value)?  $default,){
+final _that = this;
+switch (_that) {
+case _RankingGameStatsSummary() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( BestScoreByDifficulty bestScore)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _RankingGameStatsSummary() when $default != null:
+return $default(_that.bestScore);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( BestScoreByDifficulty bestScore)  $default,) {final _that = this;
+switch (_that) {
+case _RankingGameStatsSummary():
+return $default(_that.bestScore);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( BestScoreByDifficulty bestScore)?  $default,) {final _that = this;
+switch (_that) {
+case _RankingGameStatsSummary() when $default != null:
+return $default(_that.bestScore);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _RankingGameStatsSummary implements RankingGameStatsSummary {
+  const _RankingGameStatsSummary({required this.bestScore});
+  factory _RankingGameStatsSummary.fromJson(Map<String, dynamic> json) => _$RankingGameStatsSummaryFromJson(json);
+
+@override final  BestScoreByDifficulty bestScore;
+
+/// Create a copy of RankingGameStatsSummary
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$RankingGameStatsSummaryCopyWith<_RankingGameStatsSummary> get copyWith => __$RankingGameStatsSummaryCopyWithImpl<_RankingGameStatsSummary>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$RankingGameStatsSummaryToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RankingGameStatsSummary&&(identical(other.bestScore, bestScore) || other.bestScore == bestScore));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,bestScore);
+
+@override
+String toString() {
+  return 'RankingGameStatsSummary(bestScore: $bestScore)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$RankingGameStatsSummaryCopyWith<$Res> implements $RankingGameStatsSummaryCopyWith<$Res> {
+  factory _$RankingGameStatsSummaryCopyWith(_RankingGameStatsSummary value, $Res Function(_RankingGameStatsSummary) _then) = __$RankingGameStatsSummaryCopyWithImpl;
+@override @useResult
+$Res call({
+ BestScoreByDifficulty bestScore
+});
+
+
+@override $BestScoreByDifficultyCopyWith<$Res> get bestScore;
+
+}
+/// @nodoc
+class __$RankingGameStatsSummaryCopyWithImpl<$Res>
+    implements _$RankingGameStatsSummaryCopyWith<$Res> {
+  __$RankingGameStatsSummaryCopyWithImpl(this._self, this._then);
+
+  final _RankingGameStatsSummary _self;
+  final $Res Function(_RankingGameStatsSummary) _then;
+
+/// Create a copy of RankingGameStatsSummary
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? bestScore = null,}) {
+  return _then(_RankingGameStatsSummary(
+bestScore: null == bestScore ? _self.bestScore : bestScore // ignore: cast_nullable_to_non_nullable
+as BestScoreByDifficulty,
+  ));
+}
+
+/// Create a copy of RankingGameStatsSummary
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$BestScoreByDifficultyCopyWith<$Res> get bestScore {
+  
+  return $BestScoreByDifficultyCopyWith<$Res>(_self.bestScore, (value) {
+    return _then(_self.copyWith(bestScore: value));
+  });
+}
+}
+
 /// @nodoc
 mixin _$ComboMeterState {
 

@@ -225,6 +225,7 @@ $newBestText
           // キャラクター（左側）
           ScoreBasedCharacterWidget(
             score: widget.score,
+            difficulty: widget.difficulty,
             showName: true,
             pixelSize: 2.5,
           ),

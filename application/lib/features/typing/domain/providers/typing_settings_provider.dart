@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../../core/providers/shared_preferences_provider.dart';
 import '../../data/models/typing_settings.dart';
 
 extension _AsyncValueTypings<T> on AsyncValue<T> {
@@ -18,7 +19,8 @@ class TypingSettingsController extends AsyncNotifier<TypingSettings> {
   SharedPreferences? _prefs;
 
   Future<SharedPreferences> get _preferences async {
-    _prefs ??= await SharedPreferences.getInstance();
+    // 共通プロバイダーから取得（main.dartで事前初期化済み）
+    _prefs ??= await ref.read(sharedPreferencesProvider.future);
     return _prefs!;
   }
 

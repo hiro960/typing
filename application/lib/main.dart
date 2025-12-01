@@ -2,15 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:forui/forui.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'ui/app_theme.dart';
 import 'ui/shell/app_shell.dart';
 import 'core/config/env_config.dart';
 import 'core/utils/logger.dart';
+import 'core/providers/shared_preferences_provider.dart';
 import 'features/theme/theme_mode_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // SharedPreferencesを事前に初期化（起動時間短縮）
+  late final SharedPreferences prefs;
 
   try {
     // 環境変数を読み込み
@@ -20,6 +25,10 @@ Future<void> main() async {
     // 環境変数の検証
     EnvConfig.validate();
     AppLogger.info('Environment variables validated');
+
+    // SharedPreferencesを1回だけ初期化
+    prefs = await SharedPreferences.getInstance();
+    AppLogger.info('SharedPreferences initialized');
   } catch (e, stackTrace) {
     AppLogger.error(
       'Failed to load environment variables',
@@ -31,12 +40,18 @@ Future<void> main() async {
       runApp(ErrorApp(error: e.toString()));
       return;
     }
+    // SharedPreferencesが初期化されていない場合はここで初期化
+    prefs = await SharedPreferences.getInstance();
   }
 
   runApp(
     // RiverpodのProviderScopeでアプリ全体をラップ
-    const ProviderScope(
-      child: TypingApp(),
+    ProviderScope(
+      overrides: [
+        // 事前初期化したSharedPreferencesを注入
+        sharedPreferencesProvider.overrideWith((ref) async => prefs),
+      ],
+      child: const TypingApp(),
     ),
   );
 }
