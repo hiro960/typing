@@ -21,9 +21,6 @@ export function createMockUser(overrides?: Partial<User>): User {
     profileImageUrl: null,
     bio: null,
     type: 'NORMAL',
-    totalLessonsCompleted: 0,
-    maxWPM: 0,
-    maxAccuracy: 0,
     followersCount: 0,
     followingCount: 0,
     postsCount: 0,
@@ -34,7 +31,6 @@ export function createMockUser(overrides?: Partial<User>): User {
     lastLoginAt: new Date('2024-01-01T00:00:00Z'),
     isActive: true,
     isBanned: false,
-    bestRankingScore: 0,
     // サブスクリプション関連
     subscriptionExpiresAt: null,
     subscriptionPlatform: null,

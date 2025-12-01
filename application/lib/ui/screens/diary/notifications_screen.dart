@@ -45,8 +45,9 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
     final state = ref.watch(diaryNotificationsControllerProvider);
 
     final theme = Theme.of(context);
-    final unreadCount =
-        state.notifications.where((notification) => !notification.isRead).length;
+    final unreadCount = state.notifications
+        .where((notification) => !notification.isRead)
+        .length;
     return AppPageScaffold(
       header: FHeader(
         title: Row(
@@ -67,9 +68,7 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
                 ? null
                 : () {
                     ref
-                        .read(
-                          diaryNotificationsControllerProvider.notifier,
-                        )
+                        .read(diaryNotificationsControllerProvider.notifier)
                         .markAllRead();
                   },
           ),
@@ -115,9 +114,7 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
                           notification.metrics.pixels >=
                               notification.metrics.maxScrollExtent - 100) {
                         ref
-                            .read(
-                              diaryNotificationsControllerProvider.notifier,
-                            )
+                            .read(diaryNotificationsControllerProvider.notifier)
                             .loadMore();
                       }
                       return false;
@@ -216,11 +213,7 @@ class _NotificationTile extends StatelessWidget {
                 ),
         ),
         subtitle: subtitle.isNotEmpty
-            ? Text(
-                subtitle,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              )
+            ? Text(subtitle, maxLines: 2, overflow: TextOverflow.ellipsis)
             : null,
         suffix: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -367,9 +360,9 @@ class _CountBadge extends StatelessWidget {
         child: Text(
           '$count',
           style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                color: color,
-                fontWeight: FontWeight.bold,
-              ),
+            color: color,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
@@ -387,36 +380,39 @@ class _EmptyState extends StatelessWidget {
     return ListView(
       physics: const AlwaysScrollableScrollPhysics(),
       children: [
-        const SizedBox(height: 120),
-        Center(
-          child: Icon(
-            Icons.notifications_off_outlined,
-            size: 64,
-            color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 80),
+          child: Column(
+            children: [
+              Center(
+                child: Icon(
+                  Icons.notifications_off_outlined,
+                  size: 64,
+                  color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                ),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                '通知はありません',
+                textAlign: TextAlign.center,
+                style: theme.textTheme.titleMedium,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                '新しいコメントやリアクションが届くとここに表示されます。',
+                textAlign: TextAlign.center,
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+                ),
+              ),
+              const SizedBox(height: 16),
+              Center(
+                child: FButton(onPress: onReload, child: const Text('再読み込み')),
+              ),
+              const SizedBox(height: 80),
+            ],
           ),
         ),
-        const SizedBox(height: 16),
-        Text(
-          '通知はありません',
-          textAlign: TextAlign.center,
-          style: theme.textTheme.titleMedium,
-        ),
-        const SizedBox(height: 8),
-        Text(
-          '新しいコメントやリアクションが届くとここに表示されます。',
-          textAlign: TextAlign.center,
-          style: theme.textTheme.bodySmall?.copyWith(
-            color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
-          ),
-        ),
-        const SizedBox(height: 16),
-        Center(
-          child: FButton(
-            onPress: onReload,
-            child: const Text('再読み込み'),
-          ),
-        ),
-        const SizedBox(height: 80),
       ],
     );
   }
@@ -463,10 +459,7 @@ class _ErrorView extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         Center(
-          child: FButton(
-            onPress: onRetry,
-            child: const Text('再試行'),
-          ),
+          child: FButton(onPress: onRetry, child: const Text('再試行')),
         ),
         const SizedBox(height: 80),
       ],

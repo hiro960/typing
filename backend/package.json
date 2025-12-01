@@ -13,7 +13,8 @@
     "test:verbose": "jest --verbose",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
-    "prisma:seed": "ts-node prisma/seed.ts"
+    "prisma:seed": "ts-node prisma/seed.ts",
+    "prisma:migrate-activity-log": "ts-node prisma/migrate-activity-log.ts"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"

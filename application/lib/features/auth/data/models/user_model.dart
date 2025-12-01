@@ -34,15 +34,6 @@ class UserModel {
   /// 投稿数
   final int postsCount;
 
-  /// 完了したレッスン数
-  final int totalLessonsCompleted;
-
-  /// 最高WPM
-  final double maxWPM;
-
-  /// 最高正確度
-  final double maxAccuracy;
-
   /// 最終ログイン日時
   final DateTime? lastLoginAt;
 
@@ -75,9 +66,6 @@ class UserModel {
     required this.followersCount,
     required this.followingCount,
     required this.postsCount,
-    required this.totalLessonsCompleted,
-    required this.maxWPM,
-    required this.maxAccuracy,
     this.lastLoginAt,
     required this.createdAt,
     this.updatedAt,
@@ -101,9 +89,6 @@ class UserModel {
       followersCount: json['followersCount'] as int? ?? 0,
       followingCount: json['followingCount'] as int? ?? 0,
       postsCount: json['postsCount'] as int? ?? 0,
-      totalLessonsCompleted: json['totalLessonsCompleted'] as int? ?? 0,
-      maxWPM: (json['maxWPM'] as num?)?.toDouble() ?? 0.0,
-      maxAccuracy: (json['maxAccuracy'] as num?)?.toDouble() ?? 0.0,
       lastLoginAt: json['lastLoginAt'] != null
           ? DateTime.parse(json['lastLoginAt'] as String)
           : null,
@@ -136,9 +121,6 @@ class UserModel {
       'followersCount': followersCount,
       'followingCount': followingCount,
       'postsCount': postsCount,
-      'totalLessonsCompleted': totalLessonsCompleted,
-      'maxWPM': maxWPM,
-      'maxAccuracy': maxAccuracy,
       'lastLoginAt': lastLoginAt?.toIso8601String(),
       'createdAt': createdAt.toIso8601String(),
       'updatedAt': updatedAt?.toIso8601String(),
@@ -162,9 +144,6 @@ class UserModel {
     int? followersCount,
     int? followingCount,
     int? postsCount,
-    int? totalLessonsCompleted,
-    double? maxWPM,
-    double? maxAccuracy,
     DateTime? lastLoginAt,
     DateTime? createdAt,
     DateTime? updatedAt,
@@ -185,9 +164,6 @@ class UserModel {
       followersCount: followersCount ?? this.followersCount,
       followingCount: followingCount ?? this.followingCount,
       postsCount: postsCount ?? this.postsCount,
-      totalLessonsCompleted: totalLessonsCompleted ?? this.totalLessonsCompleted,
-      maxWPM: maxWPM ?? this.maxWPM,
-      maxAccuracy: maxAccuracy ?? this.maxAccuracy,
       lastLoginAt: lastLoginAt ?? this.lastLoginAt,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,

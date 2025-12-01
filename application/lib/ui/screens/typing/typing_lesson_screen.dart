@@ -6,6 +6,7 @@ import '../../../core/exceptions/app_exception.dart';
 import '../../../core/utils/logger.dart';
 import '../../../features/lessons/data/models/lesson_models.dart';
 import '../../../features/lessons/domain/providers/lesson_progress_providers.dart';
+import '../../../features/stats/domain/providers/integrated_stats_providers.dart';
 import '../../../features/typing/data/models/typing_models.dart';
 import '../../../features/typing/data/models/typing_settings.dart';
 import '../../../features/typing/domain/providers/typing_providers.dart';
@@ -213,6 +214,9 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen>
           wpm: stats.wpm,
           accuracy: stats.accuracy,
         );
+
+    // 統計プロバイダーを無効化して次回ホーム画面表示時に再取得
+    ref.invalidate(integratedStatsProvider);
   }
 
 

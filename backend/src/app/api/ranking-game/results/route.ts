@@ -28,6 +28,9 @@ export async function POST(request: NextRequest) {
       totalBonusTime,
       avgInputSpeed,
       characterLevel,
+      timeSpent,
+      accuracy,
+      mistakeCharacters,
     } = body;
 
     // バリデーション
@@ -75,6 +78,27 @@ export async function POST(request: NextRequest) {
       });
     }
 
+    // timeSpent バリデーション（オプション）
+    if (timeSpent !== undefined && (typeof timeSpent !== "number" || timeSpent < 0)) {
+      throw ERROR.INVALID_INPUT("timeSpent must be a non-negative number", {
+        field: "timeSpent",
+      });
+    }
+
+    // accuracy バリデーション（オプション）
+    if (accuracy !== undefined && (typeof accuracy !== "number" || accuracy < 0 || accuracy > 1)) {
+      throw ERROR.INVALID_INPUT("accuracy must be between 0 and 1", {
+        field: "accuracy",
+      });
+    }
+
+    // mistakeCharacters バリデーション（オプション）
+    if (mistakeCharacters !== undefined && typeof mistakeCharacters !== "object") {
+      throw ERROR.INVALID_INPUT("mistakeCharacters must be an object", {
+        field: "mistakeCharacters",
+      });
+    }
+
     const result = await createRankingGameResult({
       userId: user.id,
       difficulty,
@@ -84,6 +108,9 @@ export async function POST(request: NextRequest) {
       totalBonusTime,
       avgInputSpeed,
       characterLevel,
+      timeSpent,
+      accuracy,
+      mistakeCharacters,
     });
 
     return NextResponse.json(result, { status: 201 });

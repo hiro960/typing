@@ -6,7 +6,8 @@
       "WebFetch(domain:forui.dev)",
       "Bash(cat:*)",
       "Bash(npm run prisma:seed:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(dart run build_runner build:*)"
     ],
     "deny": [],
     "ask": []

@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { handleRouteError } from "@/lib/errors";
 import { requireAuthUser } from "@/lib/auth";
 import prisma from "@/lib/prisma";
-import { Prisma } from "@prisma/client";
 
 export async function GET(request: NextRequest) {
     try {
@@ -21,30 +20,34 @@ export async function GET(request: NextRequest) {
             dateFrom = new Date(now.setMonth(now.getMonth() - 6));
         }
 
-        // Fetch completions (include timeSpent for practice time stats)
-        const completions = await prisma.lessonCompletion.findMany({
+        // ActivityLogから統合データを取得（レッスン + ランキングゲーム）
+        const activities = await prisma.activityLog.findMany({
             where: {
                 userId: user.id,
                 ...(dateFrom ? { completedAt: { gte: dateFrom } } : {}),
             },
             orderBy: { completedAt: "asc" },
             select: {
+                activityType: true,
                 wpm: true,
                 accuracy: true,
-                mistakeCharacters: true,
+                metadata: true,
                 completedAt: true,
                 timeSpent: true,
             },
         });
 
-        // 1. Weak Keys
+        // 1. Weak Keys（metadataからmistakeCharactersを抽出）
         const mistakeCounts: Record<string, number> = {};
-        completions.forEach((c) => {
-            if (c.mistakeCharacters && typeof c.mistakeCharacters === "object") {
-                const mistakes = c.mistakeCharacters as Record<string, number>;
-                Object.entries(mistakes).forEach(([key, count]) => {
-                    mistakeCounts[key] = (mistakeCounts[key] || 0) + count;
-                });
+        activities.forEach((a) => {
+            if (a.metadata && typeof a.metadata === "object") {
+                const meta = a.metadata as Record<string, unknown>;
+                if (meta.mistakeCharacters && typeof meta.mistakeCharacters === "object") {
+                    const mistakes = meta.mistakeCharacters as Record<string, number>;
+                    Object.entries(mistakes).forEach(([key, count]) => {
+                        mistakeCounts[key] = (mistakeCounts[key] || 0) + count;
+                    });
+                }
             }
         });
 
@@ -53,20 +56,22 @@ export async function GET(request: NextRequest) {
             .sort((a, b) => b.count - a.count)
             .slice(0, 5); // Top 5
 
-        // 2. Growth Trends (Daily Average)
+        // 2. Growth Trends (Daily Average) - WPMがあるアクティビティのみ
         const trendsMap: Record<
             string,
             { totalWpm: number; totalAcc: number; count: number }
         > = {};
 
-        completions.forEach((c) => {
-            const dateKey = c.completedAt.toISOString().split("T")[0];
-            if (!trendsMap[dateKey]) {
-                trendsMap[dateKey] = { totalWpm: 0, totalAcc: 0, count: 0 };
+        activities.forEach((a) => {
+            if (a.wpm !== null && a.accuracy !== null) {
+                const dateKey = a.completedAt.toISOString().split("T")[0];
+                if (!trendsMap[dateKey]) {
+                    trendsMap[dateKey] = { totalWpm: 0, totalAcc: 0, count: 0 };
+                }
+                trendsMap[dateKey].totalWpm += a.wpm;
+                trendsMap[dateKey].totalAcc += a.accuracy;
+                trendsMap[dateKey].count += 1;
             }
-            trendsMap[dateKey].totalWpm += c.wpm;
-            trendsMap[dateKey].totalAcc += c.accuracy;
-            trendsMap[dateKey].count += 1;
         });
 
         const trends = Object.entries(trendsMap)
@@ -82,8 +87,8 @@ export async function GET(request: NextRequest) {
         const byHour = new Array(24).fill(0);
         const byDayOfWeek = new Array(7).fill(0); // 0: Sun, 6: Sat
 
-        completions.forEach((c) => {
-            const date = new Date(c.completedAt);
+        activities.forEach((a) => {
+            const date = new Date(a.completedAt);
             const hour = date.getHours();
             const day = date.getDay();
 
@@ -91,20 +96,32 @@ export async function GET(request: NextRequest) {
             byDayOfWeek[day]++;
         });
 
-        // 4. Practice Time Statistics
-        const totalTimeMs = completions.reduce((sum, c) => sum + c.timeSpent, 0);
-        const sessionCount = completions.length;
+        // 4. Practice Time Statistics（レッスン + ランキングゲーム統合）
+        const totalTimeMs = activities.reduce((sum, a) => sum + a.timeSpent, 0);
+        const sessionCount = activities.length;
         const averageTimeMs = sessionCount > 0 ? Math.round(totalTimeMs / sessionCount) : 0;
 
-        // Daily practice time for chart
-        const dailyTimeMap: Record<string, number> = {};
-        completions.forEach((c) => {
-            const dateKey = c.completedAt.toISOString().split("T")[0];
-            dailyTimeMap[dateKey] = (dailyTimeMap[dateKey] || 0) + c.timeSpent;
+        // Daily practice time for chart（アクティビティタイプ別に分類）
+        const dailyTimeMap: Record<string, { lesson: number; rankingGame: number }> = {};
+        activities.forEach((a) => {
+            const dateKey = a.completedAt.toISOString().split("T")[0];
+            if (!dailyTimeMap[dateKey]) {
+                dailyTimeMap[dateKey] = { lesson: 0, rankingGame: 0 };
+            }
+            if (a.activityType === "lesson") {
+                dailyTimeMap[dateKey].lesson += a.timeSpent;
+            } else {
+                dailyTimeMap[dateKey].rankingGame += a.timeSpent;
+            }
         });
 
         const dailyPracticeTime = Object.entries(dailyTimeMap)
-            .map(([date, timeMs]) => ({ date, timeMs }))
+            .map(([date, times]) => ({
+                date,
+                timeMs: times.lesson + times.rankingGame,
+                lessonTimeMs: times.lesson,
+                rankingGameTimeMs: times.rankingGame,
+            }))
             .sort((a, b) => a.date.localeCompare(b.date));
 
         const practiceTime = {

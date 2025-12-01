@@ -2,33 +2,34 @@ part of 'home_screen.dart';
 
 class _StatHighlights extends StatelessWidget {
   const _StatHighlights({
-    required this.stats,
-    required this.maxWpm,
-    this.isLoading = false,
+    required this.integratedStatsAsync,
   });
 
-  final LessonStatsSummary stats;
-  final double maxWpm;
-  final bool isLoading;
+  final AsyncValue<IntegratedStats?> integratedStatsAsync;
 
   @override
   Widget build(BuildContext context) {
+    final isLoading = integratedStatsAsync.isLoading;
+    final stats = integratedStatsAsync.value;
+
     final tiles = [
       (
         label: '正解率',
-        value: '${(stats.accuracyAvg * 100).toStringAsFixed(1)}%',
+        value: stats != null
+            ? '${(stats.avgAccuracy * 100).toStringAsFixed(1)}%'
+            : '-',
         caption: '過去7日平均',
         icon: Icons.verified_outlined,
       ),
       (
         label: 'WPM',
-        value: maxWpm.toStringAsFixed(0),
+        value: stats != null ? stats.maxWpm.toStringAsFixed(0) : '-',
         caption: '最高記録',
         icon: Icons.speed,
       ),
       (
         label: '継続日数',
-        value: '${stats.streakDays}日',
+        value: stats != null ? '${stats.streakDays}日' : '-',
         caption: '連続記録',
         icon: Icons.local_fire_department_outlined,
       ),

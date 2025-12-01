@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:dio/dio.dart';
+import '../../../../core/exceptions/app_exception.dart';
 import '../../../auth/domain/providers/auth_providers.dart';
 import '../../data/models/blocked_account.dart';
 import '../../data/models/diary_comment.dart';
@@ -613,7 +614,7 @@ class DiaryNotificationsController extends _$DiaryNotificationsController {
       if (_disposed) return;
       state = state.copyWith(
         isLoading: false,
-        errorMessage: error.toString(),
+        errorMessage: error is AppException ? error.message : error.toString(),
       );
       rethrow;
     }
@@ -638,7 +639,7 @@ class DiaryNotificationsController extends _$DiaryNotificationsController {
       if (_disposed) return;
       state = state.copyWith(
         isLoadingMore: false,
-        errorMessage: error.toString(),
+        errorMessage: error is AppException ? error.message : error.toString(),
       );
       rethrow;
     }

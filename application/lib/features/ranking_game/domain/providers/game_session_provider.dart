@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:chaletta/features/ranking_game/data/models/ranking_game_models.dart';
+import 'package:chaletta/features/ranking_game/data/pixel_characters.dart';
 import 'package:chaletta/features/ranking_game/domain/providers/ranking_game_providers.dart';
 import 'package:chaletta/features/typing/domain/services/hangul_composer.dart';
 
@@ -88,8 +89,8 @@ class RankingGameSession extends _$RankingGameSession {
         _composer.input(input);
         _onCorrectJamo();
       } else {
-        // 不正解：ミスを記録
-        _onMistake();
+        // 不正解：ミスを記録（期待された字母を記録）
+        _onMistake(expectedJamo);
       }
     } else if (input == ' ' && expectedJamo == ' ') {
       // スペースの処理
@@ -101,7 +102,7 @@ class RankingGameSession extends _$RankingGameSession {
         _composer.input(input);
         _onCorrectJamo();
       } else {
-        _onMistake();
+        _onMistake(expectedJamo);
       }
     }
   }
@@ -122,6 +123,7 @@ class RankingGameSession extends _$RankingGameSession {
       comboMeter: newComboMeter,
       lastInputResult: InputResultType.correct,
       lastInputTime: DateTime.now(),
+      totalTypedJamos: state.totalTypedJamos + 1, // 正解字母数を更新
     );
 
     // ボーナス時間チェック
@@ -163,13 +165,19 @@ class RankingGameSession extends _$RankingGameSession {
   }
 
   /// ミス時の処理
-  void _onMistake() {
+  void _onMistake(String expectedJamo) {
+    // 苦手文字を記録
+    final newMistakeCharacters = Map<String, int>.from(state.mistakeCharacters);
+    newMistakeCharacters[expectedJamo] = (newMistakeCharacters[expectedJamo] ?? 0) + 1;
+
     // コンボのみリセット（入力バッファと位置は維持）
     state = state.copyWith(
       currentCombo: 0,
       comboMeter: state.comboMeter.onMistake(),
       lastInputResult: InputResultType.mistake,
       lastInputTime: DateTime.now(),
+      totalMistakes: state.totalMistakes + 1, // ミス数を更新
+      mistakeCharacters: newMistakeCharacters, // 苦手文字を記録
     );
   }
 
@@ -211,14 +219,9 @@ class RankingGameSession extends _$RankingGameSession {
     return ((baseScore + comboBonus) * multiplier).round();
   }
 
-  /// キャラクターレベル計算
+  /// キャラクターレベル計算（難易度別閾値を使用）
   int _calculateCharacterLevel(int score) {
-    // PixelCharacters.evolutionThresholdsと同じ閾値を使用
-    const thresholds = [0, 100, 250, 450, 700, 1000];
-    for (int i = thresholds.length - 1; i >= 0; i--) {
-      if (score >= thresholds[i]) return i;
-    }
-    return 0;
+    return PixelCharacters.getEvolutionLevel(score, difficulty: state.difficulty);
   }
 
   /// ゲーム終了

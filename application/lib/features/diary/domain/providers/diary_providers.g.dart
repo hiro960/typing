@@ -346,7 +346,7 @@ final class DiaryNotificationsControllerProvider
 }
 
 String _$diaryNotificationsControllerHash() =>
-    r'c058d257189c5a5daf389433a7e8d587fcbdcefb';
+    r'5ad02395fee5bc47673d9e96dcff4a25db3db78c';
 
 abstract class _$DiaryNotificationsController
     extends $Notifier<DiaryNotificationsState> {

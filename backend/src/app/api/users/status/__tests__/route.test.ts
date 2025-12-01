@@ -150,9 +150,6 @@ describe('GET /api/users/status', () => {
       const mockUser = createMockUser({
         auth0UserId: 'auth0|complete-user',
         bio: 'Test bio',
-        totalLessonsCompleted: 10,
-        maxWPM: 50,
-        maxAccuracy: 95.5,
       });
       prismaMock.user.findUnique.mockResolvedValue(mockUser);
 
@@ -163,9 +160,6 @@ describe('GET /api/users/status', () => {
       expect(response.status).toBe(200);
       expect(data.registered).toBe(true);
       expect(data.user.bio).toBe('Test bio');
-      expect(data.user.totalLessonsCompleted).toBe(10);
-      expect(data.user.maxWPM).toBe(50);
-      expect(data.user.maxAccuracy).toBe(95.5);
       expect(data.user.settings).toBeDefined();
       expect(data.user.settings.theme).toBe('auto');
     });

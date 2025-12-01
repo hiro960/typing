@@ -35,7 +35,7 @@ describe('POST /api/lessons/complete', () => {
       mockAuthUser(authUser);
 
       const mockLesson = createMockLesson({ id: 'lesson_1' });
-      const mockUser = createMockUser({ id: 'usr_123', maxWPM: 150, maxAccuracy: 0.9 });
+      const mockUser = createMockUser({ id: 'usr_123' });
       const mockCompletion = createMockLessonCompletion({
         lessonId: 'lesson_1',
         userId: 'usr_123',
@@ -46,7 +46,6 @@ describe('POST /api/lessons/complete', () => {
 
       prismaMock.lesson.findUnique.mockResolvedValue(mockLesson);
       prismaMock.user.findUnique.mockResolvedValue(mockUser);
-      prismaMock.user.update.mockResolvedValue(mockUser);
       prismaMock.lessonCompletion.create.mockResolvedValue(mockCompletion);
 
       const request = createAuthRequest('http://localhost:3000/api/lessons/complete', {
@@ -85,7 +84,7 @@ describe('POST /api/lessons/complete', () => {
       mockAuthUser(authUser);
 
       const mockLesson = createMockLesson({ id: 'lesson_1' });
-      const mockUser = createMockUser({ id: 'usr_123', maxWPM: 200, maxAccuracy: 0.95 });
+      const mockUser = createMockUser({ id: 'usr_123' });
       const mockCompletion = createMockLessonCompletion({
         lessonId: 'lesson_1',
         userId: 'usr_123',
@@ -96,7 +95,6 @@ describe('POST /api/lessons/complete', () => {
 
       prismaMock.lesson.findUnique.mockResolvedValue(mockLesson);
       prismaMock.user.findUnique.mockResolvedValue(mockUser);
-      prismaMock.user.update.mockResolvedValue(mockUser);
       prismaMock.lessonCompletion.create.mockResolvedValue(mockCompletion);
 
       const request = createAuthRequest('http://localhost:3000/api/lessons/complete', {
@@ -213,7 +211,7 @@ describe('POST /api/lessons/complete', () => {
       mockAuthUser(authUser);
 
       const mockLesson = createMockLesson({ id: 'lesson_1' });
-      const mockUser = createMockUser({ id: 'usr_123', maxWPM: 300 });
+      const mockUser = createMockUser({ id: 'usr_123' });
       const mockCompletion = createMockLessonCompletion({
         userId: 'usr_123',
         wpm: 500,
@@ -222,7 +220,6 @@ describe('POST /api/lessons/complete', () => {
 
       prismaMock.lesson.findUnique.mockResolvedValue(mockLesson);
       prismaMock.user.findUnique.mockResolvedValue(mockUser);
-      prismaMock.user.update.mockResolvedValue(mockUser);
       prismaMock.lessonCompletion.create.mockResolvedValue(mockCompletion);
 
       const request = createAuthRequest('http://localhost:3000/api/lessons/complete', {

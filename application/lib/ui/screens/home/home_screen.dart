@@ -15,6 +15,8 @@ import '../../../features/lessons/domain/providers/home_state_provider.dart';
 import '../../../features/writing/data/models/writing_models.dart';
 import '../../../features/writing/domain/providers/writing_providers.dart';
 import '../../../features/ranking_game/domain/providers/ranking_providers.dart';
+import '../../../features/stats/data/models/integrated_stats_model.dart';
+import '../../../features/stats/domain/providers/integrated_stats_providers.dart';
 import '../../app_theme.dart';
 import '../../app_spacing.dart';
 import '../../utils/snackbar_helper.dart';
@@ -66,6 +68,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     ref.invalidate(homeStateProvider);
     // ランキング統計も再取得
     ref.invalidate(myRankingStatsSummaryProvider);
+    // 統合統計も再取得
+    ref.invalidate(integratedStatsProvider);
   }
 
   @override
@@ -74,6 +78,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final user = ref.watch(currentUserProvider);
     final displayName = user?.displayName ?? 'Guest';
     final isPremiumUser = user?.isPremiumUser ?? false;
+    final integratedStatsAsync = ref.watch(integratedStatsProvider);
 
     return homeStateAsync.when(
       data: (state) {
@@ -83,7 +88,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           state: state,
           displayName: displayName,
           isPremiumUser: isPremiumUser,
-          maxWpm: user?.maxWPM ?? 0,
+          integratedStatsAsync: integratedStatsAsync,
         );
       },
       loading: () => AppPageScaffold(
@@ -110,7 +115,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           state: emptyState,
           displayName: displayName,
           isPremiumUser: isPremiumUser,
-          maxWpm: 0,
+          integratedStatsAsync: const AsyncValue.data(null),
         );
       },
     );
@@ -121,7 +126,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     required HomeState state,
     required String displayName,
     required bool isPremiumUser,
-    required double maxWpm,
+    required AsyncValue<IntegratedStats?> integratedStatsAsync,
   }) {
     return AppPageScaffold(
       childPad: false,
@@ -156,14 +161,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _ProgressHero(
-                      stats: state.stats,
-                      isLoading: state.isStatsLoading,
+                      integratedStatsAsync: integratedStatsAsync,
                     ),
                     const SizedBox(height: AppSpacing.lg),
                     _StatHighlights(
-                      stats: state.stats,
-                      maxWpm: maxWpm,
-                      isLoading: state.isStatsLoading,
+                      integratedStatsAsync: integratedStatsAsync,
                     ),
                     const SizedBox(height: AppSpacing.xxl),
                     const SectionTitle(
@@ -187,7 +189,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       subtitle: 'カテゴリ別の基本単語をタイピング練習',
                       lane: WritingLane.beginner,
                     ),
-                    const SizedBox(height: AppSpacing.md),
                     _WritingPatternAccordions(
                       controller: _hobbyWritingAccordionController,
                       title: '趣味対策',

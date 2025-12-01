@@ -10,6 +10,7 @@ import 'package:chaletta/features/ranking_game/domain/providers/ranking_game_pro
 import 'package:chaletta/features/ranking_game/presentation/widgets/pixel_character_widget.dart';
 import 'package:chaletta/features/ranking_game/presentation/screens/ranking_leaderboard_screen.dart';
 import 'package:chaletta/features/ranking_game/presentation/screens/ranking_game_screen.dart';
+import 'package:chaletta/features/stats/domain/providers/integrated_stats_providers.dart';
 import 'package:chaletta/ui/app_theme.dart';
 
 /// ランキングゲーム結果画面
@@ -23,6 +24,9 @@ class RankingGameResultScreen extends ConsumerStatefulWidget {
     required this.totalBonusTime,
     required this.avgInputSpeed,
     required this.characterLevel,
+    this.timeSpent,
+    this.accuracy,
+    this.mistakeCharacters,
   });
 
   final String difficulty;
@@ -32,6 +36,9 @@ class RankingGameResultScreen extends ConsumerStatefulWidget {
   final int totalBonusTime;
   final double avgInputSpeed;
   final int characterLevel;
+  final int? timeSpent;
+  final double? accuracy;
+  final Map<String, int>? mistakeCharacters;
 
   @override
   ConsumerState<RankingGameResultScreen> createState() =>
@@ -70,9 +77,15 @@ class _RankingGameResultScreenState
             totalBonusTime: widget.totalBonusTime,
             avgInputSpeed: widget.avgInputSpeed,
             characterLevel: widget.characterLevel,
+            timeSpent: widget.timeSpent,
+            accuracy: widget.accuracy,
+            mistakeCharacters: widget.mistakeCharacters,
           );
 
       if (!mounted) return;
+
+      // 統計プロバイダーを無効化して次回ホーム画面表示時に再取得
+      ref.invalidate(integratedStatsProvider);
 
       setState(() {
         _isSubmitting = false;

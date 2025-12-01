@@ -306,6 +306,9 @@ abstract class RankingGameSessionState with _$RankingGameSessionState {
     DateTime? startTime,
     @Default(InputResultType.none) InputResultType lastInputResult,
     DateTime? lastInputTime, // アニメーション用のタイムスタンプ
+    @Default(0) int totalTypedJamos, // 正解した字母数（統計用）
+    @Default(0) int totalMistakes, // ミス数（正解率計算用）
+    @Default(<String, int>{}) Map<String, int> mistakeCharacters, // 苦手文字統計
   }) = _RankingGameSessionState;
 
   /// 初期状態を作成
@@ -340,6 +343,19 @@ abstract class RankingGameSessionState with _$RankingGameSessionState {
     if (elapsedSeconds < 1) return 0;
     // 正解した総文字数を計算する必要があるが、ここでは概算
     return correctCount * 3 * 60 / elapsedSeconds; // 1単語あたり平均3文字と仮定
+  }
+
+  /// 正解率（0.0〜1.0）
+  double get accuracy {
+    final totalInput = totalTypedJamos + totalMistakes;
+    if (totalInput == 0) return 0.0;
+    return totalTypedJamos / totalInput;
+  }
+
+  /// 総プレイ時間（ミリ秒）
+  int get totalPlayTimeMs {
+    if (startTime == null) return 0;
+    return DateTime.now().difference(startTime!).inMilliseconds;
   }
 }
 

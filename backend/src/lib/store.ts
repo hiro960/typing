@@ -7,6 +7,8 @@ import {
   Wordbook as PrismaWordbook,
   RankingGameResult as PrismaRankingGameResult,
   RankingGameDifficulty as PrismaRankingGameDifficulty,
+  ActivityLog as PrismaActivityLog,
+  ActivityType as PrismaActivityType,
 } from "@prisma/client";
 import prisma from "@/lib/prisma";
 import { sendPushNotification } from "@/lib/push";
@@ -44,6 +46,8 @@ import {
   RankingEntry,
   RankingDataResponse,
   RankingGameUserStats,
+  ActivityType,
+  IntegratedStats,
 } from "@/lib/types";
 
 const defaultSettings: UserSettings = {
@@ -190,9 +194,6 @@ function toUserDetail(user: User): UserDetail {
     auth0UserId: user.auth0UserId,
     email: user.email,
     bio: user.bio,
-    totalLessonsCompleted: user.totalLessonsCompleted,
-    maxWPM: user.maxWPM,
-    maxAccuracy: user.maxAccuracy,
     lastLoginAt: user.lastLoginAt ?? null,
     createdAt: user.createdAt,
     updatedAt: user.updatedAt,
@@ -1449,16 +1450,19 @@ export async function recordLessonCompletion(params: {
     },
   });
 
-  if (user) {
-    await prisma.user.update({
-      where: { id: params.userId },
-      data: {
-        totalLessonsCompleted: { increment: 1 },
-        maxWPM: params.wpm > user.maxWPM ? params.wpm : user.maxWPM,
-        maxAccuracy: params.accuracy > user.maxAccuracy ? params.accuracy : user.maxAccuracy,
-      },
-    });
-  }
+  // ActivityLogに記録
+  await recordActivity({
+    userId: params.userId,
+    activityType: "lesson",
+    timeSpent: params.timeSpent,
+    wpm: params.wpm,
+    accuracy: params.accuracy,
+    metadata: {
+      lessonId: params.lessonId,
+      mode: params.mode,
+      mistakeCharacters: params.mistakeCharacters,
+    },
+  });
 
   return completion;
 }
@@ -1758,6 +1762,9 @@ export async function createRankingGameResult(params: {
   totalBonusTime: number;
   avgInputSpeed: number;
   characterLevel: number;
+  timeSpent?: number;
+  accuracy?: number;
+  mistakeCharacters?: Record<string, number>;
 }): Promise<RankingGameResultResponse> {
   const user = await prisma.user.findUnique({ where: { id: params.userId } });
   if (!user) {
@@ -1809,19 +1816,29 @@ export async function createRankingGameResult(params: {
         totalBonusTime: params.totalBonusTime,
         avgInputSpeed: params.avgInputSpeed,
         characterLevel: params.characterLevel,
+        timeSpent: params.timeSpent ?? null,
+        accuracy: params.accuracy ?? null,
       },
     });
 
-    // ユーザーのベストスコアを更新
-    if (isNewBest && params.score > user.bestRankingScore) {
-      await tx.user.update({
-        where: { id: params.userId },
-        data: { bestRankingScore: params.score },
-      });
-    }
-
     return created;
   });
+
+  // ActivityLogに記録（timeSpentが指定されている場合）
+  if (params.timeSpent) {
+    await recordActivity({
+      userId: params.userId,
+      activityType: "ranking_game",
+      timeSpent: params.timeSpent,
+      wpm: params.avgInputSpeed,
+      accuracy: params.accuracy,
+      metadata: {
+        difficulty: params.difficulty,
+        score: params.score,
+        mistakeCharacters: params.mistakeCharacters,
+      },
+    });
+  }
 
   // 新しい順位を計算
   const newPosition = await calculateRankingPosition(
@@ -2199,4 +2216,219 @@ export async function getUserBestRankingScore(
     select: { score: true },
   });
   return result?.score ?? 0;
+}
+
+// =====================================
+// ActivityLog関連
+// =====================================
+
+/**
+ * アクティビティを記録
+ */
+export async function recordActivity(data: {
+  userId: string;
+  activityType: ActivityType;
+  timeSpent: number;
+  wpm?: number;
+  accuracy?: number;
+  metadata?: Record<string, unknown>;
+}): Promise<PrismaActivityLog> {
+  return prisma.activityLog.create({
+    data: {
+      userId: data.userId,
+      activityType: data.activityType as PrismaActivityType,
+      timeSpent: data.timeSpent,
+      wpm: data.wpm ?? null,
+      accuracy: data.accuracy ?? null,
+      metadata: data.metadata ? (data.metadata as Prisma.InputJsonValue) : Prisma.JsonNull,
+    },
+  });
+}
+
+/**
+ * 日付文字列配列からストリークを計算
+ */
+function calculateStreakFromDates(sortedDates: string[]): number {
+  if (sortedDates.length === 0) return 0;
+
+  // 降順にソートされた日付から連続日数を計算
+  let streak = 0;
+  let previousDate: Date | null = null;
+
+  for (const dateStr of sortedDates) {
+    const date = new Date(dateStr);
+    if (!previousDate) {
+      streak = 1;
+      previousDate = date;
+      continue;
+    }
+
+    const expected = new Date(previousDate);
+    expected.setDate(expected.getDate() - 1);
+    if (date.toISOString().substring(0, 10) === expected.toISOString().substring(0, 10)) {
+      streak += 1;
+      previousDate = date;
+    } else {
+      break;
+    }
+  }
+
+  return streak;
+}
+
+/**
+ * 統合ストリーク計算（レッスン + ランキングゲーム）
+ */
+export async function calculateIntegratedStreak(userId: string): Promise<number> {
+  const activities = await prisma.activityLog.findMany({
+    where: { userId },
+    select: { completedAt: true },
+    orderBy: { completedAt: "desc" },
+  });
+
+  // 日付でグループ化してストリーク計算
+  const uniqueDates = [...new Set(
+    activities.map(a => a.completedAt.toISOString().split("T")[0])
+  )].sort().reverse();
+
+  return calculateStreakFromDates(uniqueDates);
+}
+
+/**
+ * 統合統計取得
+ */
+export async function getIntegratedStats(
+  userId: string,
+  range: "weekly" | "monthly" | "all"
+): Promise<IntegratedStats> {
+  const days = range === "weekly" ? 7 : range === "monthly" ? 30 : undefined;
+  const since = days ? new Date(Date.now() - days * 24 * 60 * 60 * 1000) : undefined;
+
+  const activities = await prisma.activityLog.findMany({
+    where: {
+      userId,
+      ...(since ? { completedAt: { gte: since } } : {}),
+    },
+    orderBy: { completedAt: "asc" },
+  });
+
+  // 空の場合のデフォルト値
+  if (activities.length === 0) {
+    return {
+      totalTimeSpent: 0,
+      streakDays: 0,
+      maxWpm: 0,
+      avgWpm: 0,
+      maxAccuracy: 0,
+      avgAccuracy: 0,
+      activeDays: 0,
+      breakdown: {
+        lesson: { count: 0, timeSpent: 0, avgAccuracy: 0 },
+        rankingGame: { count: 0, timeSpent: 0, avgAccuracy: 0 },
+      },
+      dailyTrend: [],
+    };
+  }
+
+  // 合計時間
+  const totalTimeSpent = activities.reduce((sum, a) => sum + a.timeSpent, 0);
+
+  // WPM統計
+  const wpmActivities = activities.filter(a => a.wpm !== null);
+  const maxWpm = wpmActivities.length > 0
+    ? Math.max(...wpmActivities.map(a => a.wpm!))
+    : 0;
+  const avgWpm = wpmActivities.length > 0
+    ? wpmActivities.reduce((sum, a) => sum + a.wpm!, 0) / wpmActivities.length
+    : 0;
+
+  // 正確率統計
+  const accuracyActivities = activities.filter(a => a.accuracy !== null);
+  const maxAccuracy = accuracyActivities.length > 0
+    ? Math.max(...accuracyActivities.map(a => a.accuracy!))
+    : 0;
+  const avgAccuracy = accuracyActivities.length > 0
+    ? accuracyActivities.reduce((sum, a) => sum + a.accuracy!, 0) / accuracyActivities.length
+    : 0;
+
+  // アクティブ日数
+  const uniqueDates = new Set(
+    activities.map(a => a.completedAt.toISOString().split("T")[0])
+  );
+  const activeDays = uniqueDates.size;
+
+  // ストリーク
+  const streakDays = await calculateIntegratedStreak(userId);
+
+  // アクティビティタイプ別集計
+  const lessonActivities = activities.filter(a => a.activityType === "lesson");
+  const rankingGameActivities = activities.filter(a => a.activityType === "ranking_game");
+
+  const lessonAccuracies = lessonActivities.filter(a => a.accuracy !== null);
+  const rankingGameAccuracies = rankingGameActivities.filter(a => a.accuracy !== null);
+
+  const breakdown = {
+    lesson: {
+      count: lessonActivities.length,
+      timeSpent: lessonActivities.reduce((sum, a) => sum + a.timeSpent, 0),
+      avgAccuracy: lessonAccuracies.length > 0
+        ? lessonAccuracies.reduce((sum, a) => sum + a.accuracy!, 0) / lessonAccuracies.length
+        : 0,
+    },
+    rankingGame: {
+      count: rankingGameActivities.length,
+      timeSpent: rankingGameActivities.reduce((sum, a) => sum + a.timeSpent, 0),
+      avgAccuracy: rankingGameAccuracies.length > 0
+        ? rankingGameAccuracies.reduce((sum, a) => sum + a.accuracy!, 0) / rankingGameAccuracies.length
+        : 0,
+    },
+  };
+
+  // 日別トレンド
+  const dailyMap = activities.reduce<
+    Record<string, { lessonTime: number; rankingGameTime: number; wpms: number[]; accuracies: number[] }>
+  >((acc, activity) => {
+    const date = activity.completedAt.toISOString().split("T")[0];
+    if (!acc[date]) {
+      acc[date] = { lessonTime: 0, rankingGameTime: 0, wpms: [], accuracies: [] };
+    }
+    if (activity.activityType === "lesson") {
+      acc[date].lessonTime += activity.timeSpent;
+    } else {
+      acc[date].rankingGameTime += activity.timeSpent;
+    }
+    if (activity.wpm !== null) {
+      acc[date].wpms.push(activity.wpm);
+    }
+    if (activity.accuracy !== null) {
+      acc[date].accuracies.push(activity.accuracy);
+    }
+    return acc;
+  }, {});
+
+  const dailyTrend = Object.entries(dailyMap)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([date, data]) => ({
+      date,
+      lessonTime: data.lessonTime,
+      rankingGameTime: data.rankingGameTime,
+      wpm: data.wpms.length > 0
+        ? data.wpms.reduce((sum, w) => sum + w, 0) / data.wpms.length
+        : null,
+      accuracy: data.accuracies.length > 0
+        ? data.accuracies.reduce((sum, a) => sum + a, 0) / data.accuracies.length
+        : null,
+    }));
+
+  return {
+    totalTimeSpent,
+    streakDays,
+    maxWpm,
+    avgWpm,
+    maxAccuracy,
+    avgAccuracy,
+    activeDays,
+    breakdown,
+    dailyTrend,
+  };
 }

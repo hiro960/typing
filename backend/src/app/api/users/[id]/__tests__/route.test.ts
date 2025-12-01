@@ -45,12 +45,10 @@ describe('GET /api/users/[id]', () => {
       });
     });
 
-    it('should return full user details including stats', async () => {
+    it('should return full user details', async () => {
       const mockUser = createMockUser({
         id: 'usr_456',
-        totalLessonsCompleted: 10,
-        maxWPM: 250,
-        maxAccuracy: 0.98,
+        bio: 'Test user bio',
       });
       prismaMock.user.findUnique.mockResolvedValue(mockUser);
 
@@ -59,9 +57,8 @@ describe('GET /api/users/[id]', () => {
       const data = await response.json();
 
       expect(response.status).toBe(200);
-      expect(data.totalLessonsCompleted).toBe(10);
-      expect(data.maxWPM).toBe(250);
-      expect(data.maxAccuracy).toBe(0.98);
+      expect(data.id).toBe('usr_456');
+      expect(data.bio).toBe('Test user bio');
     });
   });
 

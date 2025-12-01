@@ -112,6 +112,9 @@ class PendingGameResult {
     required this.avgInputSpeed,
     required this.characterLevel,
     required this.playedAt,
+    this.timeSpent,
+    this.accuracy,
+    this.mistakeCharacters,
   });
 
   final String id;
@@ -123,6 +126,9 @@ class PendingGameResult {
   final double avgInputSpeed;
   final int characterLevel;
   final DateTime playedAt;
+  final int? timeSpent;
+  final double? accuracy;
+  final Map<String, int>? mistakeCharacters;
 
   factory PendingGameResult.fromJson(Map<String, dynamic> json) {
     return PendingGameResult(
@@ -135,6 +141,15 @@ class PendingGameResult {
       avgInputSpeed: (json['avgInputSpeed'] as num).toDouble(),
       characterLevel: json['characterLevel'] as int,
       playedAt: DateTime.parse(json['playedAt'] as String),
+      timeSpent: json['timeSpent'] as int?,
+      accuracy: (json['accuracy'] as num?)?.toDouble(),
+      mistakeCharacters: json['mistakeCharacters'] != null
+          ? Map<String, int>.from(
+              (json['mistakeCharacters'] as Map<String, dynamic>).map(
+                (k, v) => MapEntry(k, v as int),
+              ),
+            )
+          : null,
     );
   }
 
@@ -149,6 +164,9 @@ class PendingGameResult {
       'avgInputSpeed': avgInputSpeed,
       'characterLevel': characterLevel,
       'playedAt': playedAt.toIso8601String(),
+      if (timeSpent != null) 'timeSpent': timeSpent,
+      if (accuracy != null) 'accuracy': accuracy,
+      if (mistakeCharacters != null) 'mistakeCharacters': mistakeCharacters,
     };
   }
 }

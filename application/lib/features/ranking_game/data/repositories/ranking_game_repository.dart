@@ -20,19 +20,35 @@ class RankingGameRepository {
     required int totalBonusTime,
     required double avgInputSpeed,
     required int characterLevel,
+    int? timeSpent,
+    double? accuracy,
+    Map<String, int>? mistakeCharacters,
   }) async {
     try {
+      final data = <String, dynamic>{
+        'difficulty': difficulty,
+        'score': score,
+        'correctCount': correctCount,
+        'maxCombo': maxCombo,
+        'totalBonusTime': totalBonusTime,
+        'avgInputSpeed': avgInputSpeed,
+        'characterLevel': characterLevel,
+      };
+
+      // オプションフィールドを追加
+      if (timeSpent != null) {
+        data['timeSpent'] = timeSpent;
+      }
+      if (accuracy != null) {
+        data['accuracy'] = accuracy;
+      }
+      if (mistakeCharacters != null && mistakeCharacters.isNotEmpty) {
+        data['mistakeCharacters'] = mistakeCharacters;
+      }
+
       final response = await _apiClient.dio.post(
         ApiConstants.rankingGameResults,
-        data: {
-          'difficulty': difficulty,
-          'score': score,
-          'correctCount': correctCount,
-          'maxCombo': maxCombo,
-          'totalBonusTime': totalBonusTime,
-          'avgInputSpeed': avgInputSpeed,
-          'characterLevel': characterLevel,
-        },
+        data: data,
       );
 
       return RankingGameResultResponse.fromJson(

@@ -53,9 +53,6 @@ export interface UserDetail extends Omit<UserSummary, "settings"> {
   auth0UserId: string;
   email: string | null;
   bio?: string | null;
-  totalLessonsCompleted: number;
-  maxWPM: number;
-  maxAccuracy: number;
   lastLoginAt?: ISODateTime | null;
   createdAt: ISODateTime;
   updatedAt: ISODateTime;
@@ -335,4 +332,47 @@ export interface RankingGameUserStats {
     totalBonusTimeEarned: number;
   };
   recentResults: RankingGameResultRecord[];
+}
+
+// 統合統計関連の型定義
+export type ActivityType = "lesson" | "ranking_game";
+
+export interface ActivityLogRecord {
+  id: string;
+  userId: string;
+  activityType: ActivityType;
+  timeSpent: number;
+  wpm: number | null;
+  accuracy: number | null;
+  metadata: Record<string, unknown> | null;
+  completedAt: ISODateTime;
+}
+
+export interface IntegratedStats {
+  totalTimeSpent: number;
+  streakDays: number;
+  maxWpm: number;
+  avgWpm: number;
+  maxAccuracy: number;
+  avgAccuracy: number;
+  activeDays: number;
+  breakdown: {
+    lesson: {
+      count: number;
+      timeSpent: number;
+      avgAccuracy: number;
+    };
+    rankingGame: {
+      count: number;
+      timeSpent: number;
+      avgAccuracy: number;
+    };
+  };
+  dailyTrend: Array<{
+    date: string;
+    lessonTime: number;
+    rankingGameTime: number;
+    wpm: number | null;
+    accuracy: number | null;
+  }>;
 }

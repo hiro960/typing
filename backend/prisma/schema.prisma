@@ -57,6 +57,11 @@ enum WordCategory {
   SENTENCES
 }
 
+enum ActivityType {
+  lesson
+  ranking_game
+}
+
 model User {
   id                      String    @id @default(cuid())
   auth0UserId             String    @unique
@@ -66,9 +71,6 @@ model User {
   profileImageUrl         String?
   bio                     String?
   type                    UserType  @default(NORMAL)
-  totalLessonsCompleted   Int       @default(0)
-  maxWPM                  Int       @default(0)
-  maxAccuracy             Float     @default(0)
   followersCount          Int       @default(0)
   followingCount          Int       @default(0)
   postsCount              Int       @default(0)
@@ -102,7 +104,7 @@ model User {
   blockingUsers           Block[]         @relation("Blocking")
   blockedByUsers          Block[]         @relation("BlockedBy")
   rankingGameResults      RankingGameResult[]
-  bestRankingScore        Int             @default(0)
+  activityLogs            ActivityLog[]
 
   @@index([username])
   @@index([email])
@@ -342,6 +344,8 @@ model RankingGameResult {
   totalBonusTime  Int                   // 秒単位
   avgInputSpeed   Float
   characterLevel  Int
+  timeSpent       Int?                  // プレイ時間（ミリ秒）
+  accuracy        Float?                // 正解率（0.0〜1.0）
   playedAt        DateTime              @default(now())
 
   user            User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -351,4 +355,21 @@ model RankingGameResult {
   @@index([score])
   @@index([playedAt])
   @@index([difficulty, playedAt, score])
+}
+
+model ActivityLog {
+  id           String       @id @default(cuid())
+  userId       String
+  activityType ActivityType
+  timeSpent    Int          // ミリ秒
+  wpm          Float?       // WPM（計算可能な場合）
+  accuracy     Float?       // 正確度（0.0〜1.0）
+  metadata     Json?        // 追加情報（lessonId, difficulty等）
+  completedAt  DateTime     @default(now())
+
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([userId, completedAt])
+  @@index([activityType])
 }

@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../core/exceptions/app_exception.dart';
 import '../../../features/auth/data/models/user_model.dart';
 import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/diary/data/models/diary_post.dart';
@@ -14,6 +15,7 @@ import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../../features/profile/data/models/user_stats_model.dart';
 import '../../../features/profile/domain/providers/profile_providers.dart';
 import '../../utils/snackbar_helper.dart';
+import '../../utils/toast_helper.dart';
 import '../../widgets/app_page_scaffold.dart';
 import '../../widgets/ai_gradient_button.dart';
 import '../../widgets/sheet_content.dart';
@@ -47,6 +49,9 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   final _imagePicker = ImagePicker();
   bool _isUpdatingAvatar = false;
 
+  /// ネットワークエラーのトースト表示済みフラグ（重複表示防止）
+  bool _hasShownNetworkError = false;
+
   void _openDetail(DiaryPost post) {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
@@ -67,27 +72,82 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
       return const Center(child: Text('ユーザー情報の取得に失敗しました'));
     }
 
+    // 自分のプロフィールかどうか
+    final isOwnProfile = widget.userId == null || widget.userId == currentUser?.id;
+
     // プロバイダーを監視
     final profileAsync = ref.watch(userProfileProvider(targetUserId));
     final statsAsync = ref.watch(userStatsProvider(targetUserId));
-    
+
     // タブに応じてデータを取得
     // 投稿タブの場合のみ投稿を取得
-    final postsAsync = _selectedTabIndex == 0 
+    final postsAsync = _selectedTabIndex == 0
         ? ref.watch(userPostsProvider(targetUserId))
         : const AsyncValue.data(<DiaryPost>[]);
 
-    // AsyncValue.whenで状態管理
+    // 自分のプロフィールの場合、ローカルデータを先に表示
+    if (isOwnProfile && currentUser != null) {
+      return profileAsync.when(
+        data: (profile) {
+          // データ取得成功時はエラーフラグをリセット
+          _hasShownNetworkError = false;
+          return _buildContent(
+            context,
+            theme,
+            profile,
+            statsAsync,
+            postsAsync,
+            ref,
+            currentUser.id,
+          );
+        },
+        loading: () => _buildContent(
+          context,
+          theme,
+          currentUser,
+          statsAsync,
+          postsAsync,
+          ref,
+          currentUser.id,
+        ),
+        error: (error, _) {
+          // ネットワークエラー時にトーストを表示（重複表示防止）
+          if (!_hasShownNetworkError) {
+            _hasShownNetworkError = true;
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              if (mounted) {
+                ToastHelper.show(context, 'ネットワークに接続できませんでした');
+              }
+            });
+          }
+          // ローカルデータで画面を表示（プルダウンで再試行可能）
+          return _buildContent(
+            context,
+            theme,
+            currentUser,
+            statsAsync,
+            postsAsync,
+            ref,
+            currentUser.id,
+          );
+        },
+      );
+    }
+
+    // 他人のプロフィールの場合は従来通り
     return profileAsync.when(
-      data: (profile) => _buildContent(
-        context,
-        theme,
-        profile,
-        statsAsync,
-        postsAsync,
-        ref,
-        currentUser?.id,
-      ),
+      data: (profile) {
+        _hasShownNetworkError = false;
+        return _buildContent(
+          context,
+          theme,
+          profile,
+          statsAsync,
+          postsAsync,
+          ref,
+          currentUser?.id,
+        );
+      },
       loading: () => const _ProfileSkeletonScreen(),
       error: (error, _) => Center(
         child: Padding(
@@ -103,7 +163,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               ),
               const SizedBox(height: 8),
               Text(
-                error.toString(),
+                error is AppException ? error.message : error.toString(),
                 style: theme.textTheme.bodySmall,
                 textAlign: TextAlign.center,
               ),

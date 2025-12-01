@@ -46,6 +46,9 @@ class GameResultSubmitter extends _$GameResultSubmitter {
     required int totalBonusTime,
     required double avgInputSpeed,
     required int characterLevel,
+    int? timeSpent,
+    double? accuracy,
+    Map<String, int>? mistakeCharacters,
   }) async {
     state = const AsyncLoading();
 
@@ -59,6 +62,9 @@ class GameResultSubmitter extends _$GameResultSubmitter {
         totalBonusTime: totalBonusTime,
         avgInputSpeed: avgInputSpeed,
         characterLevel: characterLevel,
+        timeSpent: timeSpent,
+        accuracy: accuracy,
+        mistakeCharacters: mistakeCharacters,
       );
 
       // 非同期処理後にプロバイダーが破棄されていないかチェック
@@ -97,6 +103,9 @@ class GameResultSubmitter extends _$GameResultSubmitter {
           avgInputSpeed: avgInputSpeed,
           characterLevel: characterLevel,
           playedAt: DateTime.now(),
+          timeSpent: timeSpent,
+          accuracy: accuracy,
+          mistakeCharacters: mistakeCharacters,
         );
         await offlineQueue.enqueue(pendingResult);
 
@@ -140,6 +149,9 @@ class GameResultSubmitter extends _$GameResultSubmitter {
           totalBonusTime: result.totalBonusTime,
           avgInputSpeed: result.avgInputSpeed,
           characterLevel: result.characterLevel,
+          timeSpent: result.timeSpent,
+          accuracy: result.accuracy,
+          mistakeCharacters: result.mistakeCharacters,
         );
 
         await offlineQueue.remove(result.id);

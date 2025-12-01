@@ -154,4 +154,10 @@ class ApiConstants {
   /// GET /api/ranking-game/my-stats/summary
   static const String rankingGameMyStatsSummary =
       '/api/ranking-game/my-stats/summary';
+
+  // ==================== Stats関連 ====================
+
+  /// 統合統計取得
+  /// GET /api/stats/integrated
+  static const String integratedStats = '/api/stats/integrated';
 }
