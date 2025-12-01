@@ -7,6 +7,8 @@ import 'package:forui/forui.dart';
 
 import '../../../features/auth/data/models/user_model.dart';
 import '../../../features/auth/domain/providers/auth_providers.dart';
+import '../../../features/exchange_rate/data/models/exchange_rate_model.dart';
+import '../../../features/exchange_rate/domain/providers/exchange_rate_providers.dart';
 import '../../../features/lessons/data/models/lesson_index.dart'
     as lesson_index;
 import '../../../features/lessons/data/models/lesson_models.dart';
@@ -27,13 +29,12 @@ import '../ai_teacher_screen.dart';
 import '../writing/topic_list_screen.dart';
 import '../../widgets/ai_gradient_button.dart';
 import '../../../features/ranking_game/presentation/widgets/ranking_game_section.dart';
-import '../../../features/ranking_game/presentation/widgets/pixel_character_widget.dart';
-import '../../../features/ranking_game/data/pixel_characters.dart';
 
 part 'home_progress_hero.dart';
 part 'home_stat_highlights.dart';
 part 'home_level_accordions.dart';
 part 'home_writing_accordions.dart';
+part 'home_exchange_rate.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key, required this.onOpenSettings});
@@ -70,6 +71,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     ref.invalidate(myRankingStatsSummaryProvider);
     // 統合統計も再取得
     ref.invalidate(integratedStatsProvider);
+    // 為替レートも再取得
+    ref.invalidate(exchangeRateProvider);
   }
 
   @override
@@ -160,17 +163,16 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _ProgressHero(
-                      integratedStatsAsync: integratedStatsAsync,
+                    const SectionTitle(
+                      iconData: Icons.currency_exchange,
+                      text: '為替レート',
                     ),
-                    const SizedBox(height: AppSpacing.lg),
-                    _StatHighlights(
-                      integratedStatsAsync: integratedStatsAsync,
-                    ),
-                    const SizedBox(height: AppSpacing.xxl),
+                    const SizedBox(height: AppSpacing.sm),
+                    const _ExchangeRateCard(),
+                    const SizedBox(height: AppSpacing.xl),
                     const SectionTitle(
                       iconData: Icons.keyboard,
-                      text: 'タイピング練習',
+                      text: 'タイピングレッスン',
                     ),
                     _LevelAccordions(
                       controller: _typingAccordionController,
@@ -179,6 +181,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       onLessonTap: _onLessonTap,
                     ),
                     const SizedBox(height: AppSpacing.xl),
+                    _ProgressHero(
+                      integratedStatsAsync: integratedStatsAsync,
+                    ),
+                    const SizedBox(height: AppSpacing.lg),
+                    _StatHighlights(
+                      integratedStatsAsync: integratedStatsAsync,
+                    ),
+                    const SizedBox(height: AppSpacing.xxl),
                     const RankingGameSection(),
                     const SizedBox(height: AppSpacing.xxl),
                     const SectionTitle(iconData: Icons.edit, text: '書き取り練習'),

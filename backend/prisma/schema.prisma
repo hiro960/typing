@@ -373,3 +373,15 @@ model ActivityLog {
   @@index([userId, completedAt])
   @@index([activityType])
 }
+
+// 為替レート
+model ExchangeRate {
+  id             String   @id @default(cuid())
+  baseCurrency   String   // 基準通貨 (例: JPY)
+  targetCurrency String   // 対象通貨 (例: KRW)
+  rate           Float    // レート（1基準通貨あたりの対象通貨）
+  fetchedAt      DateTime @default(now())
+
+  @@unique([baseCurrency, targetCurrency])
+  @@index([baseCurrency, targetCurrency])
+}

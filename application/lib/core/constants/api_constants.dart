@@ -160,4 +160,10 @@ class ApiConstants {
   /// 統合統計取得
   /// GET /api/stats/integrated
   static const String integratedStats = '/api/stats/integrated';
+
+  // ==================== ExchangeRate関連 ====================
+
+  /// 為替レート取得
+  /// GET /api/exchange-rate
+  static const String exchangeRate = '/api/exchange-rate';
 }

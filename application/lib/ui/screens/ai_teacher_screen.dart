@@ -279,7 +279,7 @@ class _AiTeacherScreenState extends ConsumerState<AiTeacherScreen> {
                   ModernTextInput(
                     controller: _resultController,
                     placeholder: '',
-                    minLines: 3,
+                    minLines: 10,
                     maxLines: 20,
                     enabled: false,
                   ),
