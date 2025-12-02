@@ -216,146 +216,154 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
 
   Widget _buildGameContent(RankingGameSessionState state, bool hapticsEnabled) {
     final theme = Theme.of(context);
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        children: [
-          // コンボメーター
-          ComboMeterWidget(state: state.comboMeter),
-          const SizedBox(height: 16),
-
-          // スコアとコンボ
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _buildStatChip(
-                icon: Icons.stars,
-                label: 'スコア',
-                value: state.score.toString(),
-                color: AppColors.warning,
-              ),
-              const SizedBox(width: 24),
-              _buildStatChip(
-                icon: Icons.local_fire_department,
-                label: 'コンボ',
-                value: state.currentCombo.toString(),
-                color: AppColors.accentEnd,
-              ),
-            ],
-          ),
-          const SizedBox(height: 14),
-
-          // キャラクター
-          Expanded(
-            flex: 2,
-            child: Center(
-              child: ScoreBasedCharacterWidget(
-                score: state.score,
-                showName: false,
-              ),
-            ),
-          ),
-
-          // 出題エリア
-          Expanded(
-            flex: 3,
+    return Column(
+      children: [
+        // キーボード以外のコンテンツ（パディング付き）
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                if (state.currentWord != null) ...[
-                  // 意味
-                  Text(
-                    state.currentWord!.meaning,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: theme.colorScheme.onSurface.withOpacity(0.6),
+                // コンボメーター
+                ComboMeterWidget(state: state.comboMeter),
+                const SizedBox(height: 16),
+
+                // スコアとコンボ
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _buildStatChip(
+                      icon: Icons.stars,
+                      label: 'スコア',
+                      value: state.score.toString(),
+                      color: AppColors.warning,
+                    ),
+                    const SizedBox(width: 24),
+                    _buildStatChip(
+                      icon: Icons.local_fire_department,
+                      label: 'コンボ',
+                      value: state.currentCombo.toString(),
+                      color: AppColors.accentEnd,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 14),
+
+                // キャラクター
+                Expanded(
+                  flex: 2,
+                  child: Center(
+                    child: ScoreBasedCharacterWidget(
+                      score: state.score,
+                      difficulty: widget.difficulty,
+                      showName: false,
                     ),
                   ),
-                  const SizedBox(height: 8),
-                  // 出題文
-                  Text(
-                    state.currentWord!.word,
-                    style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.onSurface,
-                    ),
-                  ),
-                  const SizedBox(height: 18),
-                  // 入力中の文字（ミス時は横揺れ）
-                  ShakeContainer(
-                    key: state.lastInputResult == InputResultType.mistake &&
-                            state.lastInputTime != null
-                        ? ValueKey(state.lastInputTime)
-                        : null,
-                    shouldShake:
-                        state.lastInputResult == InputResultType.mistake,
-                    child: Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 24,
-                        vertical: 16,
-                      ),
-                      margin: const EdgeInsets.symmetric(horizontal: 32),
-                      decoration: BoxDecoration(
-                        color: theme.brightness == Brightness.light
-                            ? theme.colorScheme.onSurface.withOpacity(0.18)
-                            : theme.colorScheme.onSurface.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(
-                          color: _getInputBorderColor(state),
-                          width: 2,
+                ),
+
+                // 出題エリア
+                Expanded(
+                  flex: 3,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      if (state.currentWord != null) ...[
+                        // 意味
+                        Text(
+                          state.currentWord!.meaning,
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: theme.colorScheme.onSurface.withOpacity(0.6),
+                          ),
                         ),
-                      ),
-                      child: Text(
-                        state.inputBuffer.isEmpty ? '　' : state.inputBuffer,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 28,
-                          color: _getInputTextColor(state),
+                        const SizedBox(height: 8),
+                        // 出題文
+                        Text(
+                          state.currentWord!.word,
+                          style: TextStyle(
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                            color: theme.colorScheme.onSurface,
+                          ),
                         ),
-                      ),
-                    ),
+                        const SizedBox(height: 18),
+                        // 入力中の文字（ミス時は横揺れ）
+                        ShakeContainer(
+                          key: state.lastInputResult == InputResultType.mistake &&
+                                  state.lastInputTime != null
+                              ? ValueKey(state.lastInputTime)
+                              : null,
+                          shouldShake:
+                              state.lastInputResult == InputResultType.mistake,
+                          child: Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 24,
+                              vertical: 16,
+                            ),
+                            margin: const EdgeInsets.symmetric(horizontal: 32),
+                            decoration: BoxDecoration(
+                              color: theme.brightness == Brightness.light
+                                  ? theme.colorScheme.onSurface.withOpacity(0.18)
+                                  : theme.colorScheme.onSurface.withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(
+                                color: _getInputBorderColor(state),
+                                width: 2,
+                              ),
+                            ),
+                            child: Text(
+                              state.inputBuffer.isEmpty ? '　' : state.inputBuffer,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 28,
+                                color: _getInputTextColor(state),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ],
                   ),
-                ],
+                ),
               ],
             ),
           ),
+        ),
 
-          // オンスクリーン韓国語キーボード
-          if (state.isPlaying)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: TypingKeyboard(
-                onTextInput: (value) {
-                  ref
-                      .read(
-                        rankingGameSessionProvider(widget.difficulty).notifier,
-                      )
-                      .processInput(value);
-                },
-                onBackspace: () {
-                  ref
-                      .read(
-                        rankingGameSessionProvider(widget.difficulty).notifier,
-                      )
-                      .deleteLastCharacter();
-                },
-                onSpace: () {
-                  ref
-                      .read(
-                        rankingGameSessionProvider(widget.difficulty).notifier,
-                      )
-                      .processInput(' ');
-                },
-                onEnter: () {
-                  // Enterも特に処理不要
-                },
-                enableHaptics: hapticsEnabled,
-              ),
+        // オンスクリーン韓国語キーボード（画面横幅いっぱい、SafeArea無視）
+        if (state.isPlaying)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: TypingKeyboard(
+              onTextInput: (value) {
+                ref
+                    .read(
+                      rankingGameSessionProvider(widget.difficulty).notifier,
+                    )
+                    .processInput(value);
+              },
+              onBackspace: () {
+                ref
+                    .read(
+                      rankingGameSessionProvider(widget.difficulty).notifier,
+                    )
+                    .deleteLastCharacter();
+              },
+              onSpace: () {
+                ref
+                    .read(
+                      rankingGameSessionProvider(widget.difficulty).notifier,
+                    )
+                    .processInput(' ');
+              },
+              onEnter: () {
+                // Enterも特に処理不要
+              },
+              enableHaptics: hapticsEnabled,
             ),
-        ],
-      ),
+          ),
+      ],
     );
   }
 

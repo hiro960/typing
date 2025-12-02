@@ -181,6 +181,7 @@ class _AiTeacherScreenState extends ConsumerState<AiTeacherScreen> {
 
     return AppPageScaffold(
       header: header,
+      childPad: false,
       child: Column(
         children: [
           Expanded(

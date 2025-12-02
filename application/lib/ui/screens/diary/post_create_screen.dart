@@ -400,6 +400,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
         : '残り$remaining文字';
 
     return FScaffold(
+      childPad: false,
       header: FHeader.nested(
         title: Text(
           _isEditing ? '投稿を編集' : '新規投稿',

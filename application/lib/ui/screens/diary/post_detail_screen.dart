@@ -408,6 +408,7 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
     final currentUser = ref.watch(currentUserProvider);
 
     return FScaffold(
+      childPad: false,
       header: FHeader.nested(
         title: const Text('投稿'),
         suffixes: [

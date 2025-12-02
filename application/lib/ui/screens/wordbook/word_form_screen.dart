@@ -103,6 +103,7 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return FScaffold(
+      childPad: false,
       header: FHeader.nested(
         title: Text(
           widget.isEditing ? '単語を編集' : '新しい単語/文章を追加',

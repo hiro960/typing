@@ -70,7 +70,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           ),
                           borderRadius: BorderRadius.circular(16),
                         ),
-                        child: const Icon(Icons.bolt, color: Colors.white),
+                        child: Icon(Icons.bolt, color: theme.colorScheme.primary),
                       ),
                       const SizedBox(width: 12),
                       Column(
@@ -162,15 +162,17 @@ class _OnboardingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     return FCard.raw(
       style: (style) => style.copyWith(
         decoration: style.decoration.copyWith(
-          gradient: const LinearGradient(
-            colors: [Color(0xFF111726), Color(0xFF0C1220)],
+          gradient: LinearGradient(
+            colors: isDark
+                ? [const Color(0xFF111726), const Color(0xFF0C1220)]
+                : [theme.colorScheme.surfaceContainerHighest, theme.colorScheme.surfaceContainer],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
-
           border: Border.all(
             color: theme.colorScheme.primary.withValues(alpha: 0.3),
           ),
@@ -189,7 +191,9 @@ class _OnboardingCard extends StatelessWidget {
               ),
               child: Text(
                 badge,
-                style: theme.textTheme.bodySmall?.copyWith(color: Colors.white),
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.primary,
+                ),
               ),
             ),
             const SizedBox(height: 24),

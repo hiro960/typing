@@ -264,6 +264,7 @@ class _LessonView extends StatelessWidget {
     final lastRecord = session.records.isEmpty ? null : session.records.last;
 
     return FScaffold(
+      childPad: false,
       header: FHeader.nested(
         prefixes: [
           FHeaderAction.back(onPress: () => Navigator.of(context).maybePop()),

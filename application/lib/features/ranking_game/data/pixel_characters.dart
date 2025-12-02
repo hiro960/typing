@@ -99,7 +99,7 @@ class PixelCharacters {
 
   /// 後方互換性のための閾値（初級と同じ）
   static const List<int> evolutionThresholds = [0, 100, 250, 450, 700, 1000];
-
+ //
   /// スコアから進化レベルを計算（難易度別）
   static int getEvolutionLevel(int score, {String difficulty = 'beginner'}) {
     final thresholds = evolutionThresholdsByDifficulty[difficulty] ?? evolutionThresholds;
