@@ -3,7 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 import 'package:characters/characters.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+import '../../../core/config/env_config.dart';
 import '../../../features/auth/data/models/user_model.dart';
 import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../settings/blocked_accounts_screen.dart';
@@ -322,6 +324,36 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           ),
           const SizedBox(height: AppSpacing.lg),
           _SettingsSection(
+            title: '法的情報',
+            children: [
+              FTile(
+                prefix: const Icon(Icons.description_outlined),
+                title: const Text('利用規約'),
+                subtitle: Text(
+                  'サービスのご利用条件',
+                  style: theme.typography.sm.copyWith(
+                    color: theme.colors.mutedForeground,
+                  ),
+                ),
+                onPress: () => _openUrl('${EnvConfig.apiBaseUrl}/terms'),
+                suffix: const Icon(Icons.open_in_new),
+              ),
+              FTile(
+                prefix: const Icon(Icons.privacy_tip_outlined),
+                title: const Text('プライバシーポリシー'),
+                subtitle: Text(
+                  '個人情報の取り扱いについて',
+                  style: theme.typography.sm.copyWith(
+                    color: theme.colors.mutedForeground,
+                  ),
+                ),
+                onPress: () => _openUrl('${EnvConfig.apiBaseUrl}/privacy'),
+                suffix: const Icon(Icons.open_in_new),
+              ),
+            ],
+          ),
+          const SizedBox(height: AppSpacing.lg),
+          _SettingsSection(
             title: 'サポート',
             children: [
               FTile(
@@ -524,6 +556,17 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
 
     if (newName != null) {
       ToastHelper.show(context, '表示名を「$newName」に更新しました');
+    }
+  }
+
+  Future<void> _openUrl(String url) async {
+    try {
+      final uri = Uri.parse(url);
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } catch (e) {
+      if (mounted) {
+        ToastHelper.showError(context, 'URLを開けませんでした');
+      }
     }
   }
 

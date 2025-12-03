@@ -59,7 +59,7 @@ export default function DataDeletion() {
                             <p style={{ lineHeight: "1.8", color: "var(--muted-foreground)" }}>
                                 データ削除に関してご不明な点がございましたら、下記までお問い合わせください。<br />
                                 <br />
-                                Eメールアドレス：support@example.com
+                                Eメールアドレス：support@chaletta.app
                             </p>
                         </section>
                     </div>

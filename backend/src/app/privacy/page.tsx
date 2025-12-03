@@ -76,7 +76,7 @@ export default function Privacy() {
                             <p style={{ lineHeight: "1.8", color: "var(--muted-foreground)" }}>
                                 本ポリシーに関するお問い合わせは、下記の窓口までお願いいたします。<br />
                                 <br />
-                                Eメールアドレス：support@example.com
+                                Eメールアドレス：support@chaletta.app
                             </p>
                         </section>
                     </div>
