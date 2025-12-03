@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:chaletta/core/constants/api_constants.dart';
-import 'package:chaletta/core/exceptions/app_exception.dart';
 import 'package:chaletta/features/auth/data/services/api_client_service.dart';
 import 'package:chaletta/features/ranking_game/data/models/ranking_game_models.dart';
 

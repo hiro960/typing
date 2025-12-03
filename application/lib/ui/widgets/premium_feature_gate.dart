@@ -3,7 +3,6 @@ import 'package:chaletta/features/paywall/domain/subscription_state.dart';
 import 'package:chaletta/ui/app_spacing.dart';
 import 'package:chaletta/ui/utils/snackbar_helper.dart';
 import 'package:chaletta/ui/widgets/app_page_scaffold.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

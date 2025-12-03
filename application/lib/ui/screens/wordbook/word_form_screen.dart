@@ -379,13 +379,4 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
     );
   }
 
-  List<String> _parseTags(String input) {
-    return input
-        .split(RegExp(r'\s+'))
-        .map((tag) => tag.trim())
-        .where((tag) => tag.isNotEmpty)
-        .map((tag) => tag.startsWith('#') ? tag : '#$tag')
-        .toSet()
-        .toList();
-  }
 }

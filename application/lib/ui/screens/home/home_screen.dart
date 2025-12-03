@@ -21,7 +21,6 @@ import '../../../features/stats/data/models/integrated_stats_model.dart';
 import '../../../features/stats/domain/providers/integrated_stats_providers.dart';
 import '../../app_theme.dart';
 import '../../app_spacing.dart';
-import '../../utils/snackbar_helper.dart';
 import '../../utils/toast_helper.dart';
 import '../../widgets/app_page_scaffold.dart';
 import '../typing/lesson_detail_screen.dart';
@@ -283,7 +282,4 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 
-  void _showCustomPracticeHint() {
-    SnackBarHelper.show(context, 'カスタム練習は近日公開予定です。');
-  }
 }

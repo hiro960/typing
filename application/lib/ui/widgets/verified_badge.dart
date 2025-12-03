@@ -42,10 +42,6 @@ class VerifiedBadge extends StatelessWidget {
         ? const Color(0xFFFFD700) // ゴールド
         : Colors.blue;
 
-    final backgroundColor = isOfficial
-        ? const Color(0xFFFFF8DC) // コーンシルク（薄い金色）
-        : Colors.blue.shade50;
-
     return Tooltip(
       message: isOfficial ? '公式アカウント' : 'Proメンバー',
       child: SizedBox(

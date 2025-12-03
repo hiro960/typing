@@ -72,13 +72,13 @@ class PronunciationGameSection extends ConsumerWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            AppColors.accentEnd.withOpacity(isDark ? 0.2 : 0.15),
-            AppColors.accentStart.withOpacity(isDark ? 0.1 : 0.08),
+            const Color(0xFFFFD700).withOpacity(isDark ? 0.2 : 0.15),
+            const Color(0xFFFF8C00).withOpacity(isDark ? 0.1 : 0.08),
           ],
         ),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: AppColors.accentEnd.withOpacity(0.3),
+          color: const Color(0xFFFFD700).withOpacity(0.3),
         ),
       ),
       child: Row(
@@ -95,18 +95,18 @@ class PronunciationGameSection extends ConsumerWidget {
                 ),
                 Text(
                   '$bestScore',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.accentEnd,
+                    color: Color(0xFFFFD700),
                   ),
                 ),
               ],
             ),
           ),
-          Icon(
+          const Icon(
             Icons.record_voice_over,
-            color: AppColors.accentEnd,
+            color: Color(0xFFFFD700),
             size: 32,
           ),
         ],

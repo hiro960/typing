@@ -28,7 +28,6 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final user = ref.watch(currentUserProvider);
     final isPremiumUser = user?.isPremiumUser ?? false;
 

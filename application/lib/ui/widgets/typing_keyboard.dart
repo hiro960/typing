@@ -88,7 +88,6 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
     final rows = _currentMode == _KeyboardMode.hangul
         ? _hangulRows
         : _symbolRows;
-    final screenWidth = MediaQuery.of(context).size.width;
 
     // 親のpaddingを無視して画面幅いっぱいに広げる
     return LayoutBuilder(

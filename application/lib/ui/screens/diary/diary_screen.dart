@@ -192,7 +192,6 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final timelineState = ref.watch(diaryTimelineControllerProvider);
     final feedState = timelineState.feed(_selectedFeed);
     final currentUser = ref.watch(currentUserProvider);

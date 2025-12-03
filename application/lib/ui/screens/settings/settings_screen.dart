@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
-import 'package:characters/characters.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/config/env_config.dart';
@@ -666,12 +665,10 @@ class _SettingsSection extends StatelessWidget {
   const _SettingsSection({
     required this.title,
     required this.children,
-    this.withDividers = true,
   });
 
   final String title;
   final List<Widget> children;
-  final bool withDividers;
 
   @override
   Widget build(BuildContext context) {
@@ -687,7 +684,7 @@ class _SettingsSection extends StatelessWidget {
             children: [
               for (int i = 0; i < children.length; i++) ...[
                 children[i],
-                if (withDividers && i != children.length - 1)
+                if (i != children.length - 1)
                   Divider(
                     color: theme.colors.border,
                   ),

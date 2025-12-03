@@ -5,7 +5,6 @@ import 'package:speech_to_text/speech_to_text.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:chaletta/core/utils/logger.dart';
 import 'package:chaletta/features/pronunciation_game/data/models/pronunciation_game_models.dart';
-import 'package:chaletta/features/ranking_game/data/services/word_loader_service.dart';
 import 'package:chaletta/features/ranking_game/data/models/ranking_game_models.dart';
 import 'package:chaletta/features/ranking_game/domain/providers/ranking_game_providers.dart';
 import 'package:chaletta/features/ranking_game/data/pixel_characters.dart';
@@ -21,14 +20,31 @@ class PronunciationGameSession extends _$PronunciationGameSession {
   bool _isListeningActive = false;
   DateTime? _lastRestartTime;
   bool _isProcessingResult = false; // 正解/不正解処理中フラグ
+  bool _isDisposed = false; // プロバイダーが破棄されたかどうか
 
   @override
   PronunciationGameSessionState build(String difficulty) {
+    _isDisposed = false; // 再ビルド時にリセット
     ref.onDispose(() {
+      _isDisposed = true; // 破棄フラグを設定
       _gameTimer?.cancel();
-      _stopListening();
+      // onDispose内ではstateを変更できないため、直接停止処理のみ行う
+      _disposeListening();
     });
     return PronunciationGameSessionState.initial(difficulty);
+  }
+
+  /// onDispose用のクリーンアップ（stateを変更しない）
+  void _disposeListening() {
+    _isListeningActive = false;
+    if (_speechToText != null) {
+      try {
+        _speechToText!.stop();
+        _speechToText!.cancel();
+      } catch (e) {
+        // onDispose時のエラーは無視
+      }
+    }
   }
 
   /// 利用可能な韓国語ロケールID
@@ -85,34 +101,67 @@ class PronunciationGameSession extends _$PronunciationGameSession {
     try {
       _speechInitialized = await _speechToText!.initialize(
         onError: (error) {
+          // プロバイダーが破棄されている場合は何もしない
+          if (_isDisposed) return;
+
           AppLogger.error(
-            'Speech recognition error: ${error.errorMsg}',
+            'Speech recognition error: ${error.errorMsg}, isListeningActive=$_isListeningActive',
             tag: 'PronunciationGameSession',
           );
+
+          // リスニングがアクティブだった場合のみ再開処理を行う
+          final wasListening = _isListeningActive;
+
+          // エラー発生時はフラグをリセット
+          _isListeningActive = false;
+
+          // リスニング中にエラーが発生した場合は再開
+          if (wasListening && !_isDisposed && state.isPlaying && !state.isFinished && !_isProcessingResult) {
+            AppLogger.info(
+              'Error occurred during listening, restarting after delay...',
+              tag: 'PronunciationGameSession',
+            );
+            // 少し待ってからリスニングを再開
+            Future.delayed(const Duration(milliseconds: 500), () {
+              if (!_isDisposed && state.isPlaying && !state.isFinished && !_isProcessingResult && !_isListeningActive) {
+                _startListening();
+              }
+            });
+          }
         },
         onStatus: (status) {
+          // プロバイダーが破棄されている場合は何もしない
+          if (_isDisposed) return;
+
           AppLogger.info(
-            'Speech recognition status: $status, isListening=${state.isListening}, isPlaying=${state.isPlaying}',
+            'Speech recognition status: $status, isListeningActive=$_isListeningActive',
             tag: 'PronunciationGameSession',
           );
           // 自動的にリスタートする処理（デバウンス付き）
-          // isListeningがtrueの場合のみ（実際にリスニングが開始されていた場合のみ）再開する
           if (status == 'notListening' &&
+              !_isDisposed &&
               state.isPlaying &&
               !state.isFinished &&
-              state.isListening &&
               !_isProcessingResult) {
-            final now = DateTime.now();
-            // 前回のリスタートから500ms以上経過している場合のみ再起動
-            if (_lastRestartTime == null ||
-                now.difference(_lastRestartTime!).inMilliseconds > 500) {
-              _lastRestartTime = now;
-              _restartListening();
-            } else {
-              AppLogger.info(
-                'Skipping restart: debounce period',
-                tag: 'PronunciationGameSession',
-              );
+            // isListeningActiveがtrueだった場合、またはstate.isListeningがtrueの場合に再開
+            if (_isListeningActive || state.isListening) {
+              _isListeningActive = false; // フラグをリセット
+              final now = DateTime.now();
+              // 前回のリスタートから500ms以上経過している場合のみ再起動
+              if (_lastRestartTime == null ||
+                  now.difference(_lastRestartTime!).inMilliseconds > 500) {
+                _lastRestartTime = now;
+                AppLogger.info(
+                  'Restarting listening due to notListening status',
+                  tag: 'PronunciationGameSession',
+                );
+                _restartListening();
+              } else {
+                AppLogger.info(
+                  'Skipping restart: debounce period',
+                  tag: 'PronunciationGameSession',
+                );
+              }
             }
           }
         },
@@ -238,10 +287,16 @@ class PronunciationGameSession extends _$PronunciationGameSession {
     state = state.copyWith(isListening: true, recognizedText: '');
 
     try {
+      // 既存のリスニングセッションをキャンセル
+      if (_speechToText!.isListening) {
+        await _speechToText!.stop();
+        await Future.delayed(const Duration(milliseconds: 100));
+      }
+
       // 検出した韓国語ロケール、なければko_KRを使用
       final localeId = _koreanLocaleId ?? 'ko_KR';
       AppLogger.info(
-        'Using locale: $localeId',
+        'Using locale: $localeId, speechToText.isListening=${_speechToText!.isListening}',
         tag: 'PronunciationGameSession',
       );
 
@@ -251,8 +306,8 @@ class PronunciationGameSession extends _$PronunciationGameSession {
         listenMode: ListenMode.dictation,
         cancelOnError: false,
         partialResults: true,
-        listenFor: const Duration(seconds: 5), // 最大5秒間リスニング
-        pauseFor: const Duration(milliseconds: 1500), // 1.5秒の無音で判定
+        listenFor: const Duration(seconds: 10), // 最大10秒間リスニング
+        pauseFor: const Duration(seconds: 2), // 2秒の無音で判定
       );
       AppLogger.info(
         'Speech listening started successfully with locale: $localeId',
@@ -266,6 +321,19 @@ class PronunciationGameSession extends _$PronunciationGameSession {
       );
       _isListeningActive = false;
       state = state.copyWith(isListening: false);
+
+      // エラー発生時はリトライ
+      if (state.isPlaying && !state.isFinished && !_isProcessingResult) {
+        AppLogger.info(
+          'Retrying listening after error...',
+          tag: 'PronunciationGameSession',
+        );
+        Future.delayed(const Duration(milliseconds: 500), () {
+          if (state.isPlaying && !state.isFinished && !_isProcessingResult && !_isListeningActive) {
+            _startListening();
+          }
+        });
+      }
     }
   }
 
@@ -377,8 +445,16 @@ class PronunciationGameSession extends _$PronunciationGameSession {
     // 空の認識結果は無視
     if (recognized.isEmpty) return;
 
+    // 正規化後の比較（メイン判定）
+    final normalizedMatch = recognizedNormalized == targetNormalized;
+
+    AppLogger.info(
+      'Normalized comparison: "$recognizedNormalized" == "$targetNormalized" => $normalizedMatch',
+      tag: 'PronunciationGameSession',
+    );
+
     // 完全一致の場合は即座に正解（正規化後も比較）
-    if (recognized == target || recognizedNormalized == targetNormalized) {
+    if (recognized == target || normalizedMatch) {
       AppLogger.info(
         'Exact match! Correct!',
         tag: 'PronunciationGameSession',
@@ -396,16 +472,22 @@ class PronunciationGameSession extends _$PronunciationGameSession {
     // 十分な長さの判定（70%以上、正規化後で比較）
     final lengthMatch = recognizedNormalized.length >= targetNormalized.length * 0.7;
 
+    AppLogger.info(
+      'Partial match check: containsMatch=$containsMatch, lengthMatch=$lengthMatch '
+      '(recognizedLen=${recognizedNormalized.length}, targetLen=${targetNormalized.length})',
+      tag: 'PronunciationGameSession',
+    );
+
     if (containsMatch && lengthMatch) {
       AppLogger.info(
-        'Partial match accepted: containsMatch=$containsMatch, lengthMatch=$lengthMatch',
+        'Partial match accepted!',
         tag: 'PronunciationGameSession',
       );
       _onWordCorrect();
     } else if (isFinal) {
       // 最終結果で不正解の場合
       AppLogger.info(
-        'Final result mismatch: Mistake!',
+        'Final result mismatch: Mistake! (containsMatch=$containsMatch, lengthMatch=$lengthMatch)',
         tag: 'PronunciationGameSession',
       );
       _onWordMistake();
