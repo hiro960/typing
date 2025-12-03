@@ -60,6 +60,7 @@ enum WordCategory {
 enum ActivityType {
   lesson
   ranking_game
+  pronunciation_game
 }
 
 model User {
@@ -104,6 +105,7 @@ model User {
   blockingUsers           Block[]         @relation("Blocking")
   blockedByUsers          Block[]         @relation("BlockedBy")
   rankingGameResults      RankingGameResult[]
+  pronunciationGameResults PronunciationGameResult[]
   activityLogs            ActivityLog[]
 
   @@index([username])
@@ -372,6 +374,29 @@ model ActivityLog {
   @@index([userId])
   @@index([userId, completedAt])
   @@index([activityType])
+}
+
+// 発音ゲーム関連
+model PronunciationGameResult {
+  id              String                @id @default(cuid())
+  userId          String
+  difficulty      RankingGameDifficulty
+  score           Int
+  correctCount    Int
+  maxCombo        Int
+  totalBonusTime  Int                   // 秒単位
+  characterLevel  Int
+  timeSpent       Int?                  // プレイ時間（ミリ秒）
+  accuracy        Float?                // 正解率（0.0〜1.0）
+  playedAt        DateTime              @default(now())
+
+  user            User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([difficulty])
+  @@index([score])
+  @@index([playedAt])
+  @@index([difficulty, playedAt, score])
 }
 
 // 為替レート

@@ -104,6 +104,7 @@ class PremiumFeatureGate extends StatelessWidget {
     final theme = Theme.of(context);
     return SafeArea(
       child: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

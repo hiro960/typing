@@ -334,8 +334,76 @@ export interface RankingGameUserStats {
   recentResults: RankingGameResultRecord[];
 }
 
+// 発音ゲーム関連の型定義
+export interface PronunciationGameResultRecord {
+  id: string;
+  userId: string;
+  difficulty: RankingGameDifficulty;
+  score: number;
+  correctCount: number;
+  maxCombo: number;
+  totalBonusTime: number;
+  characterLevel: number;
+  playedAt: ISODateTime;
+}
+
+export interface PronunciationGameResultResponse extends PronunciationGameResultRecord {
+  ranking: {
+    position: number;
+    previousPosition: number | null;
+    totalParticipants: number;
+    isNewBest: boolean;
+  };
+  achievements: string[];
+}
+
+export interface PronunciationRankingEntry {
+  position: number;
+  user: UserSummary;
+  score: number;
+  characterLevel: number;
+  playCount: number;
+  maxCombo: number;
+}
+
+export interface PronunciationRankingDataResponse {
+  period: {
+    start: ISODateTime;
+    end: ISODateTime;
+  };
+  rankings: PronunciationRankingEntry[];
+  myRanking: {
+    position: number;
+    score: number;
+    characterLevel: number;
+  } | null;
+  totalParticipants: number;
+}
+
+export interface PronunciationGameUserStats {
+  totalPlays: number;
+  bestScore: {
+    all: number;
+    beginner: number;
+    intermediate: number;
+    advanced: number;
+  };
+  monthlyRanking: {
+    all: number | null;
+    beginner: number | null;
+    intermediate: number | null;
+    advanced: number | null;
+  };
+  achievements: {
+    maxCombo: number;
+    maxCharacterLevel: number;
+    totalBonusTimeEarned: number;
+  };
+  recentResults: PronunciationGameResultRecord[];
+}
+
 // 統合統計関連の型定義
-export type ActivityType = "lesson" | "ranking_game";
+export type ActivityType = "lesson" | "ranking_game" | "pronunciation_game";
 
 export interface ActivityLogRecord {
   id: string;

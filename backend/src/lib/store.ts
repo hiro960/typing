@@ -6,6 +6,7 @@ import {
   LessonCompletion as PrismaLessonCompletion,
   Wordbook as PrismaWordbook,
   RankingGameResult as PrismaRankingGameResult,
+  PronunciationGameResult as PrismaPronunciationGameResult,
   RankingGameDifficulty as PrismaRankingGameDifficulty,
   ActivityLog as PrismaActivityLog,
   ActivityType as PrismaActivityType,
@@ -46,6 +47,11 @@ import {
   RankingEntry,
   RankingDataResponse,
   RankingGameUserStats,
+  PronunciationGameResultRecord,
+  PronunciationGameResultResponse,
+  PronunciationRankingEntry,
+  PronunciationRankingDataResponse,
+  PronunciationGameUserStats,
   ActivityType,
   IntegratedStats,
 } from "@/lib/types";
@@ -2430,5 +2436,430 @@ export async function getIntegratedStats(
     activeDays,
     breakdown,
     dailyTrend,
+  };
+}
+
+// =====================================
+// 発音ゲーム関連
+// =====================================
+
+function toPronunciationGameResultRecord(
+  result: PrismaPronunciationGameResult
+): PronunciationGameResultRecord {
+  return {
+    id: result.id,
+    userId: result.userId,
+    difficulty: result.difficulty as RankingGameDifficulty,
+    score: result.score,
+    correctCount: result.correctCount,
+    maxCombo: result.maxCombo,
+    totalBonusTime: result.totalBonusTime,
+    characterLevel: result.characterLevel,
+    playedAt: result.playedAt,
+  };
+}
+
+async function calculatePronunciationRankingPosition(
+  userId: string,
+  difficulty: RankingGameDifficulty | "all",
+  start: Date,
+  end: Date
+): Promise<number> {
+  const result = await prisma.$queryRaw<Array<{ position: bigint }>>`
+    WITH UserBestScores AS (
+      SELECT
+        r."userId",
+        r.score,
+        r."playedAt",
+        ROW_NUMBER() OVER (PARTITION BY r."userId" ORDER BY r.score DESC, r."playedAt" ASC) as rn
+      FROM "PronunciationGameResult" r
+      WHERE r."playedAt" >= ${start}
+        AND r."playedAt" <= ${end}
+        ${difficulty !== "all" ? Prisma.sql`AND r.difficulty = ${difficulty}::"RankingGameDifficulty"` : Prisma.empty}
+    ),
+    RankedUsers AS (
+      SELECT
+        "userId",
+        score,
+        "playedAt",
+        ROW_NUMBER() OVER (ORDER BY score DESC, "playedAt" ASC) as position
+      FROM UserBestScores
+      WHERE rn = 1
+    )
+    SELECT position FROM RankedUsers WHERE "userId" = ${userId}
+  `;
+
+  if (result.length === 0) {
+    const totalCount = await prisma.pronunciationGameResult.groupBy({
+      by: ["userId"],
+      where: {
+        playedAt: { gte: start, lte: end },
+        ...(difficulty !== "all" ? { difficulty: difficulty as PrismaRankingGameDifficulty } : {}),
+      },
+    });
+    return totalCount.length + 1;
+  }
+
+  return Number(result[0].position);
+}
+
+export async function createPronunciationGameResult(params: {
+  userId: string;
+  difficulty: RankingGameDifficulty;
+  score: number;
+  correctCount: number;
+  maxCombo: number;
+  totalBonusTime: number;
+  characterLevel: number;
+  timeSpent?: number;
+  accuracy?: number;
+}): Promise<PronunciationGameResultResponse> {
+  const user = await prisma.user.findUnique({ where: { id: params.userId } });
+  if (!user) {
+    throw ERROR.NOT_FOUND("User not found");
+  }
+
+  const { start, end } = getPeriodRange("monthly");
+
+  const previousPosition = await calculatePronunciationRankingPosition(
+    params.userId,
+    params.difficulty,
+    start,
+    end
+  );
+
+  const previousBest = await prisma.pronunciationGameResult.findFirst({
+    where: { userId: params.userId, difficulty: params.difficulty },
+    orderBy: { score: "desc" },
+    select: { score: true },
+  });
+
+  const previousMaxCombo = await prisma.pronunciationGameResult.findFirst({
+    where: { userId: params.userId },
+    orderBy: { maxCombo: "desc" },
+    select: { maxCombo: true },
+  });
+
+  const previousMaxCharacterLevel = await prisma.pronunciationGameResult.findFirst({
+    where: { userId: params.userId },
+    orderBy: { characterLevel: "desc" },
+    select: { characterLevel: true },
+  });
+
+  const isNewBest = !previousBest || params.score > previousBest.score;
+  const isNewMaxCombo = !previousMaxCombo || params.maxCombo > previousMaxCombo.maxCombo;
+  const isNewMaxCharacterLevel = !previousMaxCharacterLevel || params.characterLevel > previousMaxCharacterLevel.characterLevel;
+
+  const result = await prisma.pronunciationGameResult.create({
+    data: {
+      userId: params.userId,
+      difficulty: params.difficulty,
+      score: params.score,
+      correctCount: params.correctCount,
+      maxCombo: params.maxCombo,
+      totalBonusTime: params.totalBonusTime,
+      characterLevel: params.characterLevel,
+      timeSpent: params.timeSpent ?? null,
+      accuracy: params.accuracy ?? null,
+    },
+  });
+
+  if (params.timeSpent) {
+    await recordActivity({
+      userId: params.userId,
+      activityType: "pronunciation_game",
+      timeSpent: params.timeSpent,
+      accuracy: params.accuracy,
+      metadata: {
+        difficulty: params.difficulty,
+        score: params.score,
+      },
+    });
+  }
+
+  const newPosition = await calculatePronunciationRankingPosition(
+    params.userId,
+    params.difficulty,
+    start,
+    end
+  );
+
+  const totalParticipants = await prisma.pronunciationGameResult.groupBy({
+    by: ["userId"],
+    where: {
+      difficulty: params.difficulty,
+      playedAt: { gte: start, lte: end },
+    },
+  }).then((groups) => groups.length);
+
+  const achievements: string[] = [];
+  if (isNewBest) achievements.push("new_best_score");
+  if (isNewMaxCombo) achievements.push("new_max_combo");
+  if (isNewMaxCharacterLevel) achievements.push("new_character_level");
+  if (newPosition === 1) achievements.push("rank_1st");
+  else if (newPosition <= 3) achievements.push("rank_top3");
+  else if (newPosition <= 10) achievements.push("rank_top10");
+  if (previousPosition > newPosition) achievements.push("rank_up");
+
+  return {
+    ...toPronunciationGameResultRecord(result),
+    ranking: {
+      position: newPosition,
+      previousPosition: previousPosition > totalParticipants ? null : previousPosition,
+      totalParticipants,
+      isNewBest,
+    },
+    achievements,
+  };
+}
+
+export async function getPronunciationGameRanking(params: {
+  difficulty: RankingGameDifficulty | "all";
+  period: RankingPeriod;
+  limit?: number;
+  followingOnly?: boolean;
+  viewerId?: string;
+}): Promise<PronunciationRankingDataResponse> {
+  const { start, end } = getPeriodRange(params.period);
+  const limit = Math.min(Math.max(params.limit ?? 50, 1), 100);
+
+  const difficultyFilter =
+    params.difficulty === "all"
+      ? {}
+      : { difficulty: params.difficulty as PrismaRankingGameDifficulty };
+
+  let userIdFilter: { userId?: { in: string[] } } = {};
+  if (params.followingOnly && params.viewerId) {
+    const following = await prisma.follow.findMany({
+      where: { followerId: params.viewerId },
+      select: { followingId: true },
+    });
+    const followingIds = following.map((f) => f.followingId);
+    followingIds.push(params.viewerId);
+    userIdFilter = { userId: { in: followingIds } };
+  }
+
+  const allBestScores = await prisma.$queryRaw<Array<{
+    userId: string;
+    score: number;
+    maxCombo: number;
+    characterLevel: number;
+    playedAt: Date;
+    playCount: bigint;
+  }>>`
+    WITH UserBestScores AS (
+      SELECT
+        r."userId",
+        r.score,
+        r."maxCombo",
+        r."characterLevel",
+        r."playedAt",
+        ROW_NUMBER() OVER (PARTITION BY r."userId" ORDER BY r.score DESC, r."playedAt" ASC) as rn
+      FROM "PronunciationGameResult" r
+      WHERE r."playedAt" >= ${start}
+        AND r."playedAt" <= ${end}
+        ${params.difficulty !== "all" ? Prisma.sql`AND r.difficulty = ${params.difficulty}::"RankingGameDifficulty"` : Prisma.empty}
+        ${params.followingOnly && userIdFilter.userId ? Prisma.sql`AND r."userId" = ANY(${userIdFilter.userId.in})` : Prisma.empty}
+    ),
+    UserPlayCounts AS (
+      SELECT "userId", COUNT(*) as "playCount"
+      FROM "PronunciationGameResult"
+      WHERE "playedAt" >= ${start}
+        AND "playedAt" <= ${end}
+        ${params.difficulty !== "all" ? Prisma.sql`AND difficulty = ${params.difficulty}::"RankingGameDifficulty"` : Prisma.empty}
+      GROUP BY "userId"
+    )
+    SELECT
+      ubs."userId",
+      ubs.score,
+      ubs."maxCombo",
+      ubs."characterLevel",
+      ubs."playedAt",
+      COALESCE(upc."playCount", 0) as "playCount"
+    FROM UserBestScores ubs
+    LEFT JOIN UserPlayCounts upc ON ubs."userId" = upc."userId"
+    WHERE ubs.rn = 1
+    ORDER BY ubs.score DESC, ubs."playedAt" ASC
+    LIMIT ${limit}
+  `;
+
+  const userIds = allBestScores.map((item) => item.userId);
+  const users = await prisma.user.findMany({
+    where: { id: { in: userIds } },
+  });
+  const userMap = new Map(users.map((u) => [u.id, u]));
+
+  const rankings: PronunciationRankingEntry[] = allBestScores.map((item, index) => {
+    const user = userMap.get(item.userId);
+    return {
+      position: index + 1,
+      user: user ? toUserSummary(user) : {
+        id: item.userId,
+        username: "unknown",
+        displayName: "Unknown",
+        profileImageUrl: null,
+        type: "NORMAL" as const,
+        followersCount: 0,
+        followingCount: 0,
+        postsCount: 0,
+        settings: null,
+      },
+      score: item.score,
+      characterLevel: item.characterLevel,
+      playCount: Number(item.playCount),
+      maxCombo: item.maxCombo,
+    };
+  });
+
+  let myRanking: PronunciationRankingDataResponse["myRanking"] = null;
+  if (params.viewerId) {
+    const myPosition = await calculatePronunciationRankingPosition(
+      params.viewerId,
+      params.difficulty,
+      start,
+      end
+    );
+    const myBest = await prisma.pronunciationGameResult.findFirst({
+      where: {
+        userId: params.viewerId,
+        ...difficultyFilter,
+        playedAt: { gte: start, lte: end },
+      },
+      orderBy: { score: "desc" },
+    });
+    if (myBest) {
+      myRanking = {
+        position: myPosition,
+        score: myBest.score,
+        characterLevel: myBest.characterLevel,
+      };
+    }
+  }
+
+  const totalParticipants = await prisma.pronunciationGameResult.groupBy({
+    by: ["userId"],
+    where: {
+      ...difficultyFilter,
+      playedAt: { gte: start, lte: end },
+    },
+  }).then((groups) => groups.length);
+
+  return {
+    period: { start, end },
+    rankings,
+    myRanking,
+    totalParticipants,
+  };
+}
+
+export async function getPronunciationGameUserStats(
+  userId: string
+): Promise<PronunciationGameUserStats> {
+  const totalPlays = await prisma.pronunciationGameResult.count({
+    where: { userId },
+  });
+
+  const bestScores = await prisma.pronunciationGameResult.groupBy({
+    by: ["difficulty"],
+    where: { userId },
+    _max: { score: true },
+  });
+
+  const bestScoreMap = new Map(
+    bestScores.map((item) => [item.difficulty, item._max.score ?? 0])
+  );
+
+  const bestScore = {
+    all: Math.max(
+      bestScoreMap.get("beginner") ?? 0,
+      bestScoreMap.get("intermediate") ?? 0,
+      bestScoreMap.get("advanced") ?? 0
+    ),
+    beginner: bestScoreMap.get("beginner") ?? 0,
+    intermediate: bestScoreMap.get("intermediate") ?? 0,
+    advanced: bestScoreMap.get("advanced") ?? 0,
+  };
+
+  const { start, end } = getPeriodRange("monthly");
+  const monthlyRanking: PronunciationGameUserStats["monthlyRanking"] = {
+    all: null,
+    beginner: null,
+    intermediate: null,
+    advanced: null,
+  };
+
+  const difficulties: (RankingGameDifficulty | "all")[] = [
+    "all",
+    "beginner",
+    "intermediate",
+    "advanced",
+  ];
+  for (const diff of difficulties) {
+    const hasResult = await prisma.pronunciationGameResult.findFirst({
+      where: {
+        userId,
+        ...(diff === "all" ? {} : { difficulty: diff as PrismaRankingGameDifficulty }),
+        playedAt: { gte: start, lte: end },
+      },
+    });
+    if (hasResult) {
+      monthlyRanking[diff] = await calculatePronunciationRankingPosition(
+        userId,
+        diff,
+        start,
+        end
+      );
+    }
+  }
+
+  const achievements = await prisma.pronunciationGameResult.aggregate({
+    where: { userId },
+    _max: { maxCombo: true, characterLevel: true },
+    _sum: { totalBonusTime: true },
+  });
+
+  const recentResults = await prisma.pronunciationGameResult.findMany({
+    where: { userId },
+    orderBy: { playedAt: "desc" },
+    take: 10,
+  });
+
+  return {
+    totalPlays,
+    bestScore,
+    monthlyRanking,
+    achievements: {
+      maxCombo: achievements._max.maxCombo ?? 0,
+      maxCharacterLevel: achievements._max.characterLevel ?? 0,
+      totalBonusTimeEarned: achievements._sum.totalBonusTime ?? 0,
+    },
+    recentResults: recentResults.map(toPronunciationGameResultRecord),
+  };
+}
+
+export async function getPronunciationGameUserStatsSummary(
+  userId: string
+): Promise<{ bestScore: { all: number; beginner: number; intermediate: number; advanced: number } }> {
+  const bestScores = await prisma.pronunciationGameResult.groupBy({
+    by: ["difficulty"],
+    where: { userId },
+    _max: { score: true },
+  });
+
+  const bestScoreMap = new Map(
+    bestScores.map((item) => [item.difficulty, item._max.score ?? 0])
+  );
+
+  return {
+    bestScore: {
+      all: Math.max(
+        bestScoreMap.get("beginner") ?? 0,
+        bestScoreMap.get("intermediate") ?? 0,
+        bestScoreMap.get("advanced") ?? 0
+      ),
+      beginner: bestScoreMap.get("beginner") ?? 0,
+      intermediate: bestScoreMap.get("intermediate") ?? 0,
+      advanced: bestScoreMap.get("advanced") ?? 0,
+    },
   };
 }

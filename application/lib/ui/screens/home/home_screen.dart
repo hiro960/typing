@@ -29,6 +29,7 @@ import '../ai_teacher_screen.dart';
 import '../writing/topic_list_screen.dart';
 import '../../widgets/ai_gradient_button.dart';
 import '../../../features/ranking_game/presentation/widgets/ranking_game_section.dart';
+import '../../../features/pronunciation_game/presentation/widgets/pronunciation_game_section.dart';
 
 part 'home_progress_hero.dart';
 part 'home_stat_highlights.dart';
@@ -186,6 +187,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     ),
                     const SizedBox(height: AppSpacing.xxl),
                     const RankingGameSection(),
+                    const SizedBox(height: AppSpacing.xxl),
+                    const PronunciationGameSection(),
                     const SizedBox(height: AppSpacing.xxl),
                     const SectionTitle(iconData: Icons.edit, text: '書き取り練習'),
                     const SizedBox(height: AppSpacing.md),

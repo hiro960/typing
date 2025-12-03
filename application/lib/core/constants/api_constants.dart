@@ -155,6 +155,25 @@ class ApiConstants {
   static const String rankingGameMyStatsSummary =
       '/api/ranking-game/my-stats/summary';
 
+  // ==================== Pronunciation Game関連 ====================
+
+  /// 発音ゲーム結果送信
+  /// POST /api/pronunciation-game/results
+  static const String pronunciationGameResults = '/api/pronunciation-game/results';
+
+  /// 発音ゲームランキング取得
+  /// GET /api/pronunciation-game/ranking
+  static const String pronunciationGameRanking = '/api/pronunciation-game/ranking';
+
+  /// 発音ゲーム統計取得
+  /// GET /api/pronunciation-game/my-stats
+  static const String pronunciationGameMyStats = '/api/pronunciation-game/my-stats';
+
+  /// 発音ゲーム統計取得（軽量版・ホーム画面用）
+  /// GET /api/pronunciation-game/my-stats/summary
+  static const String pronunciationGameMyStatsSummary =
+      '/api/pronunciation-game/my-stats/summary';
+
   // ==================== Stats関連 ====================
 
   /// 統合統計取得
