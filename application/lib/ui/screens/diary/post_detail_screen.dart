@@ -10,6 +10,7 @@ import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
 import '../../utils/toast_helper.dart';
+import '../../widgets/app_page_scaffold.dart';
 import '../../widgets/diary_post_card.dart';
 import '../../widgets/user_avatar.dart';
 import '../../widgets/typing_keyboard.dart';
@@ -407,26 +408,22 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
     final commentsState = ref.watch(postCommentsControllerProvider(_post.id));
     final currentUser = ref.watch(currentUserProvider);
 
-    return FScaffold(
+    return AppPageScaffold(
+      title: '投稿',
+      showBackButton: true,
+      actions: [
+        FButton.icon(
+          style: FButtonStyle.ghost(),
+          onPress: _refreshPost,
+          child: const Icon(Icons.refresh),
+        ),
+        FButton.icon(
+          style: FButtonStyle.ghost(),
+          onPress: () => _showMenu(currentUser?.id == _post.user.id),
+          child: const Icon(Icons.more_vert),
+        ),
+      ],
       childPad: false,
-      header: FHeader.nested(
-        title: const Text('投稿'),
-        suffixes: [
-          FButton.icon(
-            style: FButtonStyle.ghost(),
-            onPress: _refreshPost,
-            child: const Icon(Icons.refresh),
-          ),
-          FButton.icon(
-            style: FButtonStyle.ghost(),
-            onPress: () => _showMenu(currentUser?.id == _post.user.id),
-            child: const Icon(Icons.more_vert),
-          ),
-        ],
-        prefixes: [
-          FHeaderAction.back(onPress: () => Navigator.of(context).maybePop()),
-        ],
-      ),
       child: Column(
         children: [
           Expanded(

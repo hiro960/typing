@@ -4,7 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
+import '../../widgets/app_page_scaffold.dart';
 import '../../widgets/diary_post_card.dart';
+import '../../widgets/page_state_views.dart';
 import '../../utils/toast_helper.dart';
 import 'post_create_screen.dart';
 import 'post_detail_screen.dart';
@@ -122,155 +124,60 @@ class _BookmarksScreenState extends ConsumerState<BookmarksScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final state = ref.watch(diaryBookmarksControllerProvider);
     final currentUser = ref.watch(currentUserProvider);
 
-    return Scaffold(
-      appBar: AppBar(
-        titleSpacing: 20,
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('🔖 ブックマーク', style: theme.textTheme.headlineSmall),
-            const SizedBox(height: 4),
-            Text(
-              '保存した投稿をまとめて確認',
-              style: theme.textTheme.bodySmall?.copyWith(
-                color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
-              ),
-            ),
-          ],
-        ),
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(1),
-          child: Container(
-            color: theme.colorScheme.outlineVariant,
-            height: 1,
-          ),
-        ),
-      ),
-      body: Column(
-        children: [
-          if (state.isLoading && state.posts.isNotEmpty)
-            const LinearProgressIndicator(minHeight: 2),
-          Expanded(
-            child: RefreshIndicator(
-              onRefresh: _refresh,
-              child: Builder(
-                builder: (context) {
-                  if (state.isLoading && state.posts.isEmpty) {
-                    return ListView(
-                      physics: const AlwaysScrollableScrollPhysics(),
-                      padding: const EdgeInsets.fromLTRB(20, 80, 20, 20),
-                      children: const [
-                        SizedBox(
-                          height: 160,
-                          child: Center(
-                            child: CircularProgressIndicator(),
-                          ),
-                        ),
-                      ],
-                    );
-                  }
-                  if (state.errorMessage != null &&
-                      state.posts.isEmpty) {
-                    return ListView(
-                      physics: const AlwaysScrollableScrollPhysics(),
-                      padding: const EdgeInsets.fromLTRB(20, 80, 20, 20),
-                      children: [
-                        _BookmarksEmptyState(
-                          icon: Icons.error_outline,
-                          title: '読み込みに失敗しました',
-                          message: state.errorMessage!,
-                          iconColor: theme.colorScheme.error,
-                        ),
-                      ],
-                    );
-                  }
-                  if (state.posts.isEmpty) {
-                    return ListView(
-                      physics: const AlwaysScrollableScrollPhysics(),
-                      padding: const EdgeInsets.fromLTRB(20, 80, 20, 20),
-                      children: const [
-                        _BookmarksEmptyState(
-                          icon: Icons.bookmark_border,
-                          title: 'ブックマークはありません',
-                          message: '気になる投稿にブックマークを付けるとここに表示されます。',
-                        ),
-                      ],
-                    );
-                  }
-                  return ListView.builder(
-                    controller: _scrollController,
-                    physics: const AlwaysScrollableScrollPhysics(),
-                    padding: const EdgeInsets.fromLTRB(20, 12, 20, 120),
-                    itemCount:
-                        state.posts.length + (state.isLoadingMore ? 1 : 0),
-                    itemBuilder: (context, index) {
-                      if (index >= state.posts.length) {
-                        return const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 16),
-                          child: Center(child: CircularProgressIndicator()),
-                        );
-                      }
-                      final post = state.posts[index];
-                      return DiaryPostCard(
-                        post: post,
-                        onTap: () => _openDetail(post),
-                        onToggleLike: () => _toggleLike(post),
-                        onToggleBookmark: () => _toggleBookmark(post),
-                        onComment: () => _openDetail(post),
-                        onQuote: () => _quotePost(post),
-                        onEdit: () => _editPost(post),
-                        currentUserId: currentUser?.id,
-                      );
-                    },
-                  );
-                },
-              ),
-            ),
-          ),
-        ],
+    return AppPageScaffold(
+      title: 'ブックマーク',
+      titleIcon: Icons.bookmark_outline,
+      showBackButton: true,
+      onRefresh: _refresh,
+      child: Builder(
+        builder: (context) {
+          if (state.isLoading && state.posts.isEmpty) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          if (state.errorMessage != null && state.posts.isEmpty) {
+            return PageErrorView(
+              message: state.errorMessage,
+              onRetry: _refresh,
+            );
+          }
+          if (state.posts.isEmpty) {
+            return const PageEmptyView(
+              icon: Icons.bookmark_border,
+              title: 'ブックマークはありません',
+              description: '気になる投稿にブックマークを付けるとここに表示されます。',
+            );
+          }
+          return ListView.builder(
+            controller: _scrollController,
+            physics: const AlwaysScrollableScrollPhysics(),
+            padding: const EdgeInsets.fromLTRB(20, 12, 20, 120),
+            itemCount: state.posts.length + (state.isLoadingMore ? 1 : 0),
+            itemBuilder: (context, index) {
+              if (index >= state.posts.length) {
+                return const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 16),
+                  child: Center(child: CircularProgressIndicator()),
+                );
+              }
+              final post = state.posts[index];
+              return DiaryPostCard(
+                post: post,
+                onTap: () => _openDetail(post),
+                onToggleLike: () => _toggleLike(post),
+                onToggleBookmark: () => _toggleBookmark(post),
+                onComment: () => _openDetail(post),
+                onQuote: () => _quotePost(post),
+                onEdit: () => _editPost(post),
+                currentUserId: currentUser?.id,
+              );
+            },
+          );
+        },
       ),
     );
   }
 }
 
-class _BookmarksEmptyState extends StatelessWidget {
-  const _BookmarksEmptyState({
-    required this.icon,
-    required this.title,
-    required this.message,
-    this.iconColor,
-  });
-
-  final IconData icon;
-  final String title;
-  final String message;
-  final Color? iconColor;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Column(
-      children: [
-        Icon(
-          icon,
-          size: 48,
-          color: iconColor ?? theme.colorScheme.primary,
-        ),
-        const SizedBox(height: 12),
-        Text(title, style: theme.textTheme.titleMedium),
-        const SizedBox(height: 4),
-        Text(
-          message,
-          style: theme.textTheme.bodySmall?.copyWith(
-            color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ],
-    );
-  }
-}

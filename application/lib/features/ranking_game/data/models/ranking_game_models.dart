@@ -227,7 +227,7 @@ abstract class ComboMeterState with _$ComboMeterState {
   static const List<int> milestones = [28, 59, 93, 129];
 
   /// 各マイルストーンでのボーナス秒数
-  static const List<int> bonusSeconds = [1, 1, 2, 3];
+  static const List<int> bonusSeconds = [2, 2, 5, 10];
 
   /// 現在の進捗率（0.0〜1.0）
   double get progress {

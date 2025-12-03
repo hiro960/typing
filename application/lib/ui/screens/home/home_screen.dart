@@ -95,6 +95,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         );
       },
       loading: () => AppPageScaffold(
+        title: '안녕하세요, $displayName',
+        actions: [
+          FHeaderAction(
+            icon: const Icon(Icons.settings_outlined),
+            onPress: widget.onOpenSettings,
+          ),
+        ],
         child: const Center(child: CircularProgressIndicator()),
       ),
       error: (error, _) {
@@ -132,24 +139,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     required AsyncValue<IntegratedStats?> integratedStatsAsync,
   }) {
     return AppPageScaffold(
-      childPad: false,
-      header: FHeader(
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              '안녕하세요, $displayName',
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
-          ],
+      title: '안녕하세요, $displayName',
+      actions: [
+        FHeaderAction(
+          icon: const Icon(Icons.settings_outlined),
+          onPress: widget.onOpenSettings,
         ),
-        suffixes: [
-          FHeaderAction(
-            icon: const Icon(Icons.settings_outlined),
-            onPress: widget.onOpenSettings,
-          ),
-        ],
-      ),
+      ],
       child: RefreshIndicator(
         onRefresh: _refresh,
         child: CustomScrollView(

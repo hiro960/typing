@@ -5,6 +5,7 @@ import 'package:forui/forui.dart';
 import '../../../features/diary/data/models/diary_notification.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../widgets/app_page_scaffold.dart';
+import '../../widgets/page_state_views.dart';
 import '../../widgets/shimmer_loading.dart';
 import '../../widgets/user_avatar.dart';
 import 'post_detail_screen.dart';
@@ -44,36 +45,25 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
   Widget build(BuildContext context) {
     final state = ref.watch(diaryNotificationsControllerProvider);
 
-    final theme = Theme.of(context);
     final unreadCount = state.notifications
         .where((notification) => !notification.isRead)
         .length;
+
     return AppPageScaffold(
-      header: FHeader(
-        title: Row(
-          children: [
-            Icon(
-              Icons.notifications_outlined,
-              size: 22,
-              color: theme.colorScheme.onSurface,
-            ),
-            const SizedBox(width: 8),
-            Text('通知', style: theme.textTheme.headlineSmall),
-          ],
+      title: '通知',
+      titleIcon: Icons.notifications_outlined,
+      actions: [
+        FHeaderAction(
+          icon: const Icon(Icons.mark_email_read_outlined),
+          onPress: state.notifications.isEmpty
+              ? null
+              : () {
+                  ref
+                      .read(diaryNotificationsControllerProvider.notifier)
+                      .markAllRead();
+                },
         ),
-        suffixes: [
-          FHeaderAction(
-            icon: const Icon(Icons.mark_email_read_outlined),
-            onPress: state.notifications.isEmpty
-                ? null
-                : () {
-                    ref
-                        .read(diaryNotificationsControllerProvider.notifier)
-                        .markAllRead();
-                  },
-          ),
-        ],
-      ),
+      ],
       child: Column(
         children: [
           Padding(
@@ -95,17 +85,23 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
               child: Builder(
                 builder: (context) {
                   if (state.isLoading && state.notifications.isEmpty) {
-                    return const _NotificationSkeletonList();
+                    return _NotificationSkeletonList();
                   }
                   if (state.errorMessage != null &&
                       state.notifications.isEmpty) {
-                    return _ErrorView(
-                      message: state.errorMessage!,
+                    return PageErrorView(
+                      message: state.errorMessage,
                       onRetry: _refresh,
                     );
                   }
                   if (state.notifications.isEmpty) {
-                    return _EmptyState(onReload: _refresh);
+                    return PageEmptyView(
+                      icon: Icons.notifications_off_outlined,
+                      title: '通知はありません',
+                      description: '新しいコメントやリアクションが届くとここに表示されます。',
+                      actionLabel: '再読み込み',
+                      onAction: _refresh,
+                    );
                   }
                   return NotificationListener<ScrollNotification>(
                     onNotification: (notification) {
@@ -132,11 +128,11 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
                           const SizedBox(height: 8),
                       itemBuilder: (context, index) {
                         if (index >= state.notifications.length) {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 16),
+                          return const Padding(
+                            padding: EdgeInsets.symmetric(vertical: 16),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
-                              children: const [
+                              children: [
                                 CircularProgressIndicator(),
                                 SizedBox(height: 8),
                                 Text('読み込み中...'),
@@ -369,183 +365,30 @@ class _CountBadge extends StatelessWidget {
   }
 }
 
-class _EmptyState extends StatelessWidget {
-  const _EmptyState({required this.onReload});
-
-  final VoidCallback onReload;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return ListView(
-      physics: const AlwaysScrollableScrollPhysics(),
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 80),
-          child: Column(
-            children: [
-              Center(
-                child: Icon(
-                  Icons.notifications_off_outlined,
-                  size: 64,
-                  color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
-                ),
-              ),
-              const SizedBox(height: 16),
-              Text(
-                '通知はありません',
-                textAlign: TextAlign.center,
-                style: theme.textTheme.titleMedium,
-              ),
-              const SizedBox(height: 8),
-              Text(
-                '新しいコメントやリアクションが届くとここに表示されます。',
-                textAlign: TextAlign.center,
-                style: theme.textTheme.bodySmall?.copyWith(
-                  color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
-                ),
-              ),
-              const SizedBox(height: 16),
-              Center(
-                child: FButton(onPress: onReload, child: const Text('再読み込み')),
-              ),
-              const SizedBox(height: 80),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _ErrorView extends StatelessWidget {
-  const _ErrorView({required this.message, required this.onRetry});
-
-  final String message;
-  final VoidCallback onRetry;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return ListView(
-      physics: const AlwaysScrollableScrollPhysics(),
-      children: [
-        const SizedBox(height: 120),
-        Center(
-          child: Icon(
-            Icons.error_outline,
-            size: 64,
-            color: theme.colorScheme.error,
-          ),
-        ),
-        const SizedBox(height: 16),
-        Text(
-          '読み込みに失敗しました',
-          textAlign: TextAlign.center,
-          style: theme.textTheme.titleMedium?.copyWith(
-            color: theme.colorScheme.error,
-          ),
-        ),
-        const SizedBox(height: 8),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Text(
-            message,
-            textAlign: TextAlign.center,
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
-            ),
-          ),
-        ),
-        const SizedBox(height: 16),
-        Center(
-          child: FButton(onPress: onRetry, child: const Text('再試行')),
-        ),
-        const SizedBox(height: 80),
-      ],
-    );
-  }
-}
-
 class _NotificationSkeletonList extends StatelessWidget {
-  const _NotificationSkeletonList();
-
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final baseColor = theme.colorScheme.onSurface.withValues(alpha: 0.06);
-    return ListView.separated(
-      physics: const AlwaysScrollableScrollPhysics(),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      itemCount: 6,
-      separatorBuilder: (_, __) => const SizedBox(height: 12),
-      itemBuilder: (_, __) {
-        return ShimmerLoading(
-          child: Row(
-            children: [
-              Container(
-                width: 44,
-                height: 44,
-                decoration: BoxDecoration(
-                  color: baseColor,
-                  shape: BoxShape.circle,
-                ),
+    return SkeletonListBuilder(
+      itemBuilder: (context, index) {
+        return Row(
+          children: [
+            const ShimmerCircle(size: 44),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  ShimmerBlock(widthFactor: 0.85, height: 14),
+                  SizedBox(height: 8),
+                  ShimmerBlock(widthFactor: 0.65, height: 12),
+                  SizedBox(height: 6),
+                  ShimmerBlock(widthFactor: 0.4, height: 12),
+                ],
               ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _SkeletonBlock(
-                      widthFactor: 0.85,
-                      height: 14,
-                      color: baseColor,
-                    ),
-                    const SizedBox(height: 8),
-                    _SkeletonBlock(
-                      widthFactor: 0.65,
-                      height: 12,
-                      color: baseColor,
-                    ),
-                    const SizedBox(height: 6),
-                    _SkeletonBlock(
-                      widthFactor: 0.4,
-                      height: 12,
-                      color: baseColor,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         );
       },
-    );
-  }
-}
-
-class _SkeletonBlock extends StatelessWidget {
-  const _SkeletonBlock({
-    required this.widthFactor,
-    required this.height,
-    required this.color,
-  });
-
-  final double widthFactor;
-  final double height;
-  final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    return FractionallySizedBox(
-      widthFactor: widthFactor,
-      child: Container(
-        height: height,
-        decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.circular(8),
-        ),
-      ),
     );
   }
 }

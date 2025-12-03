@@ -63,12 +63,8 @@ class _PremiumFeatureGateScreenState
     });
 
     return AppPageScaffold(
-      header: FHeader.nested(
-        title: const Text('プロプラン'),
-        prefixes: [
-          FHeaderAction.back(onPress: () => Navigator.of(context).maybePop()),
-        ],
-      ),
+      title: 'プロプラン',
+      showBackButton: true,
       child: PremiumFeatureGate(
         focusFeature: featureLabel,
         isLoading: subscriptionState.isLoading,

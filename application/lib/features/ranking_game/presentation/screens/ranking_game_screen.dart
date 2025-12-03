@@ -7,6 +7,7 @@ import 'package:chaletta/features/ranking_game/domain/providers/game_session_pro
 import 'package:chaletta/features/ranking_game/presentation/widgets/combo_meter_widget.dart';
 import 'package:chaletta/features/ranking_game/presentation/widgets/pixel_character_widget.dart';
 import 'package:chaletta/features/ranking_game/presentation/screens/ranking_game_result_screen.dart';
+import 'package:chaletta/ui/widgets/app_page_scaffold.dart';
 import 'package:chaletta/ui/widgets/typing/input_feedback_widget.dart';
 import 'package:chaletta/ui/widgets/typing_keyboard.dart';
 import 'package:chaletta/ui/app_theme.dart';
@@ -108,61 +109,49 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
       focusNode: _focusNode,
       autofocus: true,
       onKeyEvent: _onKeyEvent,
-      child: Scaffold(
-        backgroundColor: theme.scaffoldBackgroundColor,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: theme.colorScheme.onSurface),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-          title: Text(
-            '${_getDifficultyLabel(widget.difficulty)}モード',
-            style: TextStyle(color: theme.colorScheme.onSurface),
-          ),
-          actions: [
-            // タイマー
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              margin: const EdgeInsets.only(right: 16),
-              decoration: BoxDecoration(
-                color: sessionState.remainingTimeMs < 10000
-                    ? AppColors.error.withOpacity(0.3)
-                    : theme.colorScheme.onSurface.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Icons.timer,
+      child: AppPageScaffold(
+        title: '${_getDifficultyLabel(widget.difficulty)}モード',
+        showBackButton: true,
+        actions: [
+          // タイマー
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            margin: const EdgeInsets.only(right: 8),
+            decoration: BoxDecoration(
+              color: sessionState.remainingTimeMs < 10000
+                  ? AppColors.error.withOpacity(0.3)
+                  : theme.colorScheme.onSurface.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  Icons.timer,
+                  color: sessionState.remainingTimeMs < 10000
+                      ? AppColors.error
+                      : theme.colorScheme.onSurface,
+                  size: 20,
+                ),
+                const SizedBox(width: 4),
+                Text(
+                  _formatTime(sessionState.remainingTimeMs),
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
                     color: sessionState.remainingTimeMs < 10000
                         ? AppColors.error
                         : theme.colorScheme.onSurface,
-                    size: 20,
                   ),
-                  const SizedBox(width: 4),
-                  Text(
-                    _formatTime(sessionState.remainingTimeMs),
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: sessionState.remainingTimeMs < 10000
-                          ? AppColors.error
-                          : theme.colorScheme.onSurface,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
-        body: SafeArea(
-          child: _isStarted
-              ? _buildGameContent(sessionState, settings?.hapticsEnabled ?? true)
-              : _buildStartScreen(),
-        ),
+          ),
+        ],
+        safeBottom: true,
+        child: _isStarted
+            ? _buildGameContent(sessionState, settings?.hapticsEnabled ?? true)
+            : _buildStartScreen(),
       ),
     );
   }

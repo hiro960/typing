@@ -8,6 +8,7 @@ import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/data/models/diary_search.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
+import '../../widgets/app_page_scaffold.dart';
 import '../../widgets/diary_post_card.dart';
 import '../../widgets/typing_keyboard.dart';
 import '../../widgets/user_avatar.dart';
@@ -451,11 +452,11 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
     final tagsState = _stateFor<DiaryHashtagTrend>(_SearchTab.hashtags);
     final currentUser = ref.watch(currentUserProvider);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('検索'),
-      ),
-      body: Column(
+    return AppPageScaffold(
+      title: '検索',
+      showBackButton: true,
+      childPad: false,
+      child: Column(
         children: [
           Padding(
             padding: const EdgeInsets.all(16),

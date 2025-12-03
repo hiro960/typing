@@ -39,12 +39,8 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
     final dashboardAsync = ref.watch(analysisDashboardProvider(period: _period));
 
     return AppPageScaffold(
-      header: FHeader.nested(
-        title: const Text('詳細分析'),
-        prefixes: [
-          FHeaderAction.back(onPress: () => Navigator.of(context).pop()),
-        ],
-      ),
+      title: '詳細分析',
+      showBackButton: true,
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(AppSpacing.lg),
         child: Column(

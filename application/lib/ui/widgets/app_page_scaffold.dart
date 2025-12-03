@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:forui/forui.dart';
 
-/// Common wrapper around [FScaffold] that applies a consistent SafeArea.
+/// Common wrapper around [FScaffold] that applies a consistent SafeArea and FHeader.
 class AppPageScaffold extends StatelessWidget {
   const AppPageScaffold({
     super.key,
+    required this.title,
+    this.titleIcon,
+    this.actions,
+    this.showBackButton = false,
+    this.onBack,
+    this.onRefresh,
     this.scaffoldStyle,
     this.toasterStyle,
-    this.header,
-    this.childPad = true,
+    this.childPad = false,
     this.sidebar,
     this.footer,
     this.safeTop = false,
@@ -16,9 +21,27 @@ class AppPageScaffold extends StatelessWidget {
     required this.child,
   });
 
+  /// Page title (required)
+  final String title;
+
+  /// Icon displayed before the title (optional)
+  final IconData? titleIcon;
+
+  /// Header action buttons (optional)
+  /// Accepts any widgets, typically FHeaderAction but can also be FButton, Container, etc.
+  final List<Widget>? actions;
+
+  /// Show back button in header (optional)
+  final bool showBackButton;
+
+  /// Custom back button callback (optional, defaults to Navigator.maybePop)
+  final VoidCallback? onBack;
+
+  /// Pull-to-refresh callback (optional)
+  final Future<void> Function()? onRefresh;
+
   final FScaffoldStyle Function(FScaffoldStyle style)? scaffoldStyle;
   final FToasterStyle Function(FToasterStyle style)? toasterStyle;
-  final Widget? header;
   final bool childPad;
   final Widget child;
   final Widget? sidebar;
@@ -28,6 +51,54 @@ class AppPageScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    // Build title widget
+    Widget titleWidget;
+    if (titleIcon != null) {
+      titleWidget = Row(
+        children: [
+          Icon(
+            titleIcon,
+            size: 22,
+            color: theme.colorScheme.onSurface,
+          ),
+          const SizedBox(width: 8),
+          Text(title, style: theme.textTheme.headlineSmall),
+        ],
+      );
+    } else {
+      titleWidget = Text(title, style: theme.textTheme.headlineSmall);
+    }
+
+    // Build header
+    final Widget header;
+    if (showBackButton && Navigator.of(context).canPop()) {
+      header = FHeader.nested(
+        title: titleWidget,
+        prefixes: [
+          FHeaderAction.back(
+            onPress: onBack ?? () => Navigator.of(context).maybePop(),
+          ),
+        ],
+        suffixes: actions ?? [],
+      );
+    } else {
+      header = FHeader(
+        title: titleWidget,
+        suffixes: actions ?? [],
+      );
+    }
+
+    // Build child with optional RefreshIndicator
+    Widget content = child;
+    if (onRefresh != null) {
+      content = RefreshIndicator(
+        onRefresh: onRefresh!,
+        child: child,
+      );
+    }
+
     return FScaffold(
       scaffoldStyle: scaffoldStyle,
       toasterStyle: toasterStyle,
@@ -38,7 +109,7 @@ class AppPageScaffold extends StatelessWidget {
       child: SafeArea(
         top: safeTop,
         bottom: safeBottom,
-        child: child,
+        child: content,
       ),
     );
   }

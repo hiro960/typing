@@ -6,6 +6,7 @@ import '../../../features/wordbook/data/models/word_model.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
 import '../../app_spacing.dart';
 import '../../utils/toast_helper.dart';
+import '../../widgets/app_page_scaffold.dart';
 import 'word_form_screen.dart';
 
 class WordDetailScreen extends ConsumerStatefulWidget {
@@ -37,36 +38,28 @@ class _WordDetailScreenState extends ConsumerState<WordDetailScreen> {
     final theme = Theme.of(context);
 
     if (selected == null) {
-      return FScaffold(
-        header: FHeader.nested(
-          title: Text('単語詳細', style: theme.textTheme.titleLarge),
-          prefixes: [
-            FHeaderAction.back(onPress: () => Navigator.of(context).pop()),
-          ],
-        ),
-        child: const Center(child: Text('単語が見つかりませんでした。')),
+      return const AppPageScaffold(
+        title: '単語詳細',
+        showBackButton: true,
+        child: Center(child: Text('単語が見つかりませんでした。')),
       );
     }
 
     final word = selected;
 
-    return FScaffold(
-      header: FHeader.nested(
-        title: Text(word.word, style: theme.textTheme.titleLarge),
-        prefixes: [
-          FHeaderAction.back(onPress: () => Navigator.of(context).pop()),
-        ],
-        suffixes: [
-          FHeaderAction(
-            icon: const Icon(Icons.edit_outlined),
-            onPress: () => _openForm(context, word),
-          ),
-          FHeaderAction(
-            icon: const Icon(Icons.delete_outline),
-            onPress: () => _confirmDelete(context, word),
-          ),
-        ],
-      ),
+    return AppPageScaffold(
+      title: word.word,
+      showBackButton: true,
+      actions: [
+        FHeaderAction(
+          icon: const Icon(Icons.edit_outlined),
+          onPress: () => _openForm(context, word),
+        ),
+        FHeaderAction(
+          icon: const Icon(Icons.delete_outline),
+          onPress: () => _confirmDelete(context, word),
+        ),
+      ],
       child: ListView(
         padding: EdgeInsets.all(AppSpacing.xl - 4),
         children: [

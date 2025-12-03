@@ -27,13 +27,20 @@ class ListViewScreen extends ConsumerWidget {
 
     return topicAsync.when(
       loading: () => const AppPageScaffold(
+        title: '一覧確認',
+        showBackButton: true,
         child: Center(child: CircularProgressIndicator()),
       ),
-      error: (error, stack) =>
-          AppPageScaffold(child: Center(child: Text('エラーが発生しました: $error'))),
+      error: (error, stack) => AppPageScaffold(
+        title: '一覧確認',
+        showBackButton: true,
+        child: Center(child: Text('エラーが発生しました: $error')),
+      ),
       data: (topic) {
         if (topic == null) {
           return const AppPageScaffold(
+            title: '一覧確認',
+            showBackButton: true,
             child: Center(child: Text('トピックが見つかりません')),
           );
         }
@@ -45,24 +52,9 @@ class ListViewScreen extends ConsumerWidget {
 
   Widget _buildContent(BuildContext context, WritingTopic topic) {
     return AppPageScaffold(
+      title: topic.name,
+      showBackButton: true,
       childPad: false,
-      header: FHeader.nested(
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(topic.name),
-            Text(
-              '一覧確認',
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
-            ),
-          ],
-        ),
-        prefixes: [
-          FHeaderAction.back(onPress: () => Navigator.of(context).pop()),
-        ],
-      ),
       child: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [

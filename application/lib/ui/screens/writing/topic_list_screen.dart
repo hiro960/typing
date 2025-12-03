@@ -20,22 +20,10 @@ class TopicListScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return AppPageScaffold(
+      title: pattern.name,
+      titleIcon: pattern.getIconData(),
+      showBackButton: true,
       childPad: false,
-      header: FHeader.nested(
-        title: Row(
-          children: [
-            Icon(
-              pattern.getIconData(),
-              size: 24,
-            ),
-            const SizedBox(width: 8),
-            Text(pattern.name),
-          ],
-        ),
-        prefixes: [
-          FHeaderAction.back(onPress: () => Navigator.of(context).pop()),
-        ],
-      ),
       child: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [

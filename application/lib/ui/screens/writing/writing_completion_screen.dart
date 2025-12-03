@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
 import '../../../features/writing/data/models/writing_models.dart';
+import '../../widgets/app_page_scaffold.dart';
 import 'typing_practice_screen.dart';
 
 /// 書き取り練習完了画面
@@ -54,7 +55,11 @@ class _WritingCompletionScreenState
     final totalCount = widget.completion.results.length;
     final accuracy = totalCount == 0 ? 0.0 : correctCount / totalCount;
 
-    return FScaffold(
+    return AppPageScaffold(
+      title: '練習完了',
+      showBackButton: true,
+      onBack: () => Navigator.of(context).popUntil((route) => route.isFirst),
+      safeBottom: true,
       child: Stack(
         children: [
           Align(
@@ -72,48 +77,46 @@ class _WritingCompletionScreenState
               ),
             ),
           ),
-          SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Center(
-                    child: Column(
-                      children: [
-                        Text('🎉 完了！ 🎉',
-                            style: theme.textTheme.headlineMedium),
-                        const SizedBox(height: 8),
-                        Text(
-                          widget.patternName,
-                          style: theme.textTheme.titleLarge,
-                          textAlign: TextAlign.center,
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Column(
+                    children: [
+                      Text('🎉 完了！ 🎉',
+                          style: theme.textTheme.headlineMedium),
+                      const SizedBox(height: 8),
+                      Text(
+                        widget.patternName,
+                        style: theme.textTheme.titleLarge,
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        widget.topicName,
+                        style: theme.textTheme.titleMedium?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant,
                         ),
-                        const SizedBox(height: 4),
-                        Text(
-                          widget.topicName,
-                          style: theme.textTheme.titleMedium?.copyWith(
-                            color: theme.colorScheme.onSurfaceVariant,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
-                  const SizedBox(height: 24),
-                  _ResultCard(
-                    correctCount: correctCount,
-                    totalCount: totalCount,
-                    accuracy: accuracy,
-                    timeSpent: widget.completion.timeSpent,
-                  ),
-                  const Spacer(),
-                  _ActionButtons(
-                    patternId: widget.patternId,
-                    topicId: widget.topicId,
-                  ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 24),
+                _ResultCard(
+                  correctCount: correctCount,
+                  totalCount: totalCount,
+                  accuracy: accuracy,
+                  timeSpent: widget.completion.timeSpent,
+                ),
+                const Spacer(),
+                _ActionButtons(
+                  patternId: widget.patternId,
+                  topicId: widget.topicId,
+                ),
+              ],
             ),
           ),
         ],

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:chaletta/features/ranking_game/data/models/ranking_game_models.dart';
 import 'package:chaletta/features/ranking_game/domain/providers/ranking_providers.dart';
 import 'package:chaletta/features/ranking_game/presentation/widgets/pixel_character_widget.dart';
+import 'package:chaletta/ui/widgets/app_page_scaffold.dart';
 
 /// ランキング画面
 class RankingLeaderboardScreen extends ConsumerStatefulWidget {
@@ -64,35 +65,24 @@ class _RankingLeaderboardScreenState
       ),
     );
 
-    return Scaffold(
-      backgroundColor: theme.scaffoldBackgroundColor,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: colorScheme.onSurface),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        title: Text(
-          'ランキング',
-          style: TextStyle(color: colorScheme.onSurface),
-        ),
-        bottom: TabBar(
-          controller: _tabController,
-          indicatorColor: colorScheme.primary,
-          labelColor: colorScheme.onSurface,
-          unselectedLabelColor: colorScheme.onSurface.withOpacity(0.5),
-          tabs: const [
-            Tab(text: '月間'),
-            Tab(text: '週間'),
-          ],
-        ),
-      ),
-      body: Column(
+    return AppPageScaffold(
+      title: 'ランキング',
+      showBackButton: true,
+      childPad: false,
+      child: Column(
         children: [
+          TabBar(
+            controller: _tabController,
+            indicatorColor: colorScheme.primary,
+            labelColor: colorScheme.onSurface,
+            unselectedLabelColor: colorScheme.onSurface.withValues(alpha: 0.5),
+            tabs: const [
+              Tab(text: '月間'),
+              Tab(text: '週間'),
+            ],
+          ),
           // フィルターエリア
           _buildFilterArea(),
-
           // ランキングリスト
           Expanded(
             child: rankingAsync.when(
@@ -109,13 +99,13 @@ class _RankingLeaderboardScreenState
                     Icon(
                       Icons.error_outline,
                       size: 48,
-                      color: colorScheme.onSurface.withOpacity(0.5),
+                      color: colorScheme.onSurface.withValues(alpha: 0.5),
                     ),
                     const SizedBox(height: 16),
                     Text(
                       'ランキングの取得に失敗しました',
                       style: TextStyle(
-                        color: colorScheme.onSurface.withOpacity(0.6),
+                        color: colorScheme.onSurface.withValues(alpha: 0.6),
                       ),
                     ),
                     const SizedBox(height: 16),

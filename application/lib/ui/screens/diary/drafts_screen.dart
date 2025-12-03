@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-
 import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
-import '../../../features/diary/data/repositories/diary_repository.dart'; // Add this line
+import '../../../features/diary/data/repositories/diary_repository.dart';
+import '../../widgets/app_page_scaffold.dart';
 import '../../widgets/diary_post_card.dart';
+import '../../widgets/page_state_views.dart';
 import 'post_create_screen.dart';
 
 class DraftsScreen extends ConsumerStatefulWidget {
@@ -57,35 +58,24 @@ class _DraftsScreenState extends ConsumerState<DraftsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('下書き'),
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(1),
-          child: Container(
-            color: theme.colorScheme.outlineVariant,
-            height: 1,
-          ),
-        ),
-      ),
-      body: _buildBody(),
-    );
-  }
-
-  Widget _buildBody() {
     final currentUser = ref.watch(currentUserProvider);
 
-    if (_isLoading) {
-      return const Center(child: CircularProgressIndicator());
-    }
-    if (_error != null) {
-      return Center(child: Text('エラーが発生しました: $_error'));
-    }
-    if (_drafts.isEmpty) {
-      return const Center(child: Text('下書きはありません'));
-    }
-    return ListView.builder(
+    return AppPageScaffold(
+      title: '下書き',
+      showBackButton: true,
+      child: _isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : _error != null
+              ? PageErrorView(
+                  message: _error,
+                  onRetry: _loadDrafts,
+                )
+              : _drafts.isEmpty
+                  ? const PageEmptyView(
+                      icon: Icons.edit_document,
+                      title: '下書きはありません',
+                    )
+                  : ListView.builder(
       controller: _scrollController,
       padding: const EdgeInsets.fromLTRB(20, 12, 20, 12),
       itemCount: _drafts.length,
@@ -103,6 +93,7 @@ class _DraftsScreenState extends ConsumerState<DraftsScreen> {
           currentUserId: currentUser?.id,
         );
       },
+    ),
     );
   }
 

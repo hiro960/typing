@@ -142,12 +142,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     final displayName = currentUser?.displayName ?? '未設定';
     final username = currentUser?.username != null ? '@${currentUser!.username}' : '--';
     return AppPageScaffold(
-      header: FHeader.nested(
-        prefixes: [
-          FHeaderAction.back(onPress: () => Navigator.of(context).maybePop()),
-        ],
-        title: const Text('設定'),
-      ),
+      title: '設定',
+      showBackButton: true,
       child: ListView(
         padding: AppPadding.settingsPage,
         children: [

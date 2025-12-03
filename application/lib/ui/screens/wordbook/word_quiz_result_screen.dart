@@ -6,6 +6,7 @@ import 'package:forui/forui.dart';
 import '../../../features/wordbook/data/models/word_model.dart';
 import '../../../features/wordbook/domain/providers/word_quiz_controller.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
+import '../../widgets/app_page_scaffold.dart';
 
 class WordQuizResultScreen extends ConsumerStatefulWidget {
   const WordQuizResultScreen({
@@ -56,16 +57,9 @@ class _WordQuizResultScreenState extends ConsumerState<WordQuizResultScreen> {
         .where((result) => result.status == WordQuizAnswerStatus.known)
         .length;
 
-    return FScaffold(
-      header: FHeader.nested(
-        title: Text(
-          'クイズ結果',
-          style: theme.textTheme.titleLarge,
-        ),
-        prefixes: [
-          FHeaderAction.back(onPress: () => Navigator.of(context).pop()),
-        ],
-      ),
+    return AppPageScaffold(
+      title: 'クイズ結果',
+      showBackButton: true,
       child: Stack(
         children: [
           Column(

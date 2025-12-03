@@ -168,19 +168,14 @@ class _AiTeacherScreenState extends ConsumerState<AiTeacherScreen> {
     final theme = Theme.of(context);
     final user = ref.watch(currentUserProvider);
     final isPremiumUser = user?.isPremiumUser ?? false;
-    final header = FHeader.nested(
-      title: const Text('AI先生に聞く'),
-      prefixes: [
-        FHeaderAction.back(onPress: () => Navigator.of(context).pop()),
-      ],
-    );
 
     if (!isPremiumUser) {
       return const PremiumFeatureGateScreen(focusFeature: 'AI先生');
     }
 
     return AppPageScaffold(
-      header: header,
+      title: 'AI先生に聞く',
+      showBackButton: true,
       childPad: false,
       child: Column(
         children: [

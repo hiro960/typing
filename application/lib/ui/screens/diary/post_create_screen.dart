@@ -18,6 +18,7 @@ import '../../widgets/diary_post_card.dart';
 import '../../widgets/typing_keyboard.dart';
 import '../../widgets/ai_gradient_button.dart';
 import '../../widgets/modern_text_input.dart';
+import '../../widgets/app_page_scaffold.dart';
 import '../../app_spacing.dart';
 import '../../widgets/premium_feature_gate.dart';
 import '../../widgets/sheet_content.dart';
@@ -399,40 +400,34 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
         ? '${remaining.abs()}文字オーバー'
         : '残り$remaining文字';
 
-    return FScaffold(
-      childPad: false,
-      header: FHeader.nested(
-        title: Text(
-          _isEditing ? '投稿を編集' : '新規投稿',
-          style: theme.textTheme.headlineSmall,
-        ),
-        suffixes: [
-          Padding(
-            padding: const EdgeInsets.only(right: AppSpacing.lg),
-            child: Text(
-              remainingLabel,
-              style: theme.textTheme.bodySmall?.copyWith(
-                color: isOverLimit
-                    ? theme.colorScheme.error
-                    : theme.colorScheme.secondary,
-              ),
+    return AppPageScaffold(
+      title: _isEditing ? '投稿を編集' : '新規投稿',
+      showBackButton: true,
+      onBack: () => Navigator.of(context).maybePop(),
+      actions: [
+        Padding(
+          padding: const EdgeInsets.only(right: AppSpacing.lg),
+          child: Text(
+            remainingLabel,
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: isOverLimit
+                  ? theme.colorScheme.error
+                  : theme.colorScheme.secondary,
             ),
           ),
-          FButton(
-            onPress: _isSubmitting ? null : _submit,
-            child: _isSubmitting
-                ? const SizedBox(
-                    width: 18,
-                    height: 18,
-                    child: CircularProgressIndicator(strokeWidth: 2),
-                  )
-                : Text(_isEditing ? '更新' : '投稿'),
-          ),
-        ],
-        prefixes: [
-          FHeaderAction.x(onPress: () => Navigator.of(context).maybePop()),
-        ],
-      ),
+        ),
+        FButton(
+          onPress: _isSubmitting ? null : _submit,
+          child: _isSubmitting
+              ? const SizedBox(
+                  width: 18,
+                  height: 18,
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                )
+              : Text(_isEditing ? '更新' : '投稿'),
+        ),
+      ],
+      childPad: false,
       child: Column(
         children: [
           Expanded(

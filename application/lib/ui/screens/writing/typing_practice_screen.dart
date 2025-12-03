@@ -346,6 +346,8 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
   Widget build(BuildContext context) {
     if (_state == null) {
       return const AppPageScaffold(
+        title: 'タイピング練習',
+        showBackButton: true,
         child: Center(child: CircularProgressIndicator()),
       );
     }
@@ -359,13 +361,20 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
 
     return topicAsync.when(
       loading: () => const AppPageScaffold(
+        title: 'タイピング練習',
+        showBackButton: true,
         child: Center(child: CircularProgressIndicator()),
       ),
-      error: (error, stack) =>
-          AppPageScaffold(child: Center(child: Text('エラーが発生しました: $error'))),
+      error: (error, stack) => AppPageScaffold(
+        title: 'タイピング練習',
+        showBackButton: true,
+        child: Center(child: Text('エラーが発生しました: $error')),
+      ),
       data: (topic) {
         if (topic == null) {
           return const AppPageScaffold(
+            title: 'タイピング練習',
+            showBackButton: true,
             child: Center(child: Text('トピックが見つかりません')),
           );
         }
@@ -377,28 +386,21 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
 
   Widget _buildContent(BuildContext context, WritingTopic topic) {
     return AppPageScaffold(
-      childPad: false,
-      header: FHeader.nested(
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [Text(topic.name)],
-        ),
-        prefixes: [
-          FHeaderAction.back(onPress: () => Navigator.of(context).pop()),
-        ],
-        suffixes: [
-          FHeaderAction(
-            icon: Icon(
-              _state!.showAnswer ? Icons.visibility : Icons.visibility_off,
-            ),
-            onPress: () {
-              setState(() {
-                _state = _state!.copyWith(showAnswer: !_state!.showAnswer);
-              });
-            },
+      title: topic.name,
+      showBackButton: true,
+      actions: [
+        FHeaderAction(
+          icon: Icon(
+            _state!.showAnswer ? Icons.visibility : Icons.visibility_off,
           ),
-        ],
-      ),
+          onPress: () {
+            setState(() {
+              _state = _state!.copyWith(showAnswer: !_state!.showAnswer);
+            });
+          },
+        ),
+      ],
+      childPad: false,
       child: Column(
         children: [
           _buildProgressBar(),

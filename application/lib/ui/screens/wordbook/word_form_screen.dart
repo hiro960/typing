@@ -7,6 +7,7 @@ import '../../../features/wordbook/data/models/word_model.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
 import '../../utils/toast_helper.dart';
+import '../../widgets/app_page_scaffold.dart';
 import '../../widgets/typing_keyboard.dart';
 
 class WordFormScreen extends ConsumerStatefulWidget {
@@ -101,20 +102,10 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return FScaffold(
+    return AppPageScaffold(
+      title: widget.isEditing ? '単語を編集' : '新しい単語/文章を追加',
+      showBackButton: true,
       childPad: false,
-      header: FHeader.nested(
-        title: Text(
-          widget.isEditing ? '単語を編集' : '新しい単語/文章を追加',
-          style: theme.textTheme.titleLarge,
-        ),
-        prefixes: [
-          FHeaderAction.back(
-            onPress: () => Navigator.of(context).maybePop(),
-          ),
-        ],
-      ),
       child: Column(
         children: [
           Expanded(

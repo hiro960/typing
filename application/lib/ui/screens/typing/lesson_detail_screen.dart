@@ -9,6 +9,8 @@ import '../../../features/lessons/data/models/lesson_index.dart'
 import '../../../features/lessons/data/models/lesson_progress.dart';
 import '../../../features/lessons/domain/providers/lesson_progress_providers.dart';
 import '../../../features/lessons/domain/providers/lesson_providers.dart';
+import '../../widgets/app_page_scaffold.dart';
+import '../../widgets/page_state_views.dart';
 import 'typing_lesson_screen.dart';
 
 class LessonDetailScreen extends ConsumerWidget {
@@ -34,17 +36,11 @@ class LessonDetailScreen extends ConsumerWidget {
           levelLessons,
           progressAsync.value ?? const {},
         );
-        return FScaffold(
-          header: FHeader.nested(
-            prefixes: [
-              FHeaderAction.back(
-                onPress: () => Navigator.of(context).maybePop(),
-              ),
-            ],
-            title: Text(lesson.title),
-          ),
-          child: SafeArea(
-            child: SingleChildScrollView(
+        return AppPageScaffold(
+          title: lesson.title,
+          showBackButton: true,
+          safeBottom: true,
+          child: SingleChildScrollView(
               padding: const EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,13 +86,22 @@ class LessonDetailScreen extends ConsumerWidget {
                 ),
                 ],
               ),
-            ),
-          ),
+          )
         );
       },
-      loading: () =>
-          const Scaffold(body: Center(child: CircularProgressIndicator())),
-      error: (error, _) => _ErrorView(message: error.toString()),
+      loading: () => const AppPageScaffold(
+        title: 'レッスン詳細',
+        showBackButton: true,
+        child: Center(child: CircularProgressIndicator()),
+      ),
+      error: (error, _) => AppPageScaffold(
+        title: 'レッスン詳細',
+        showBackButton: true,
+        child: PageErrorView(
+          message: error.toString(),
+          onRetry: () => ref.invalidate(lessonDetailProvider(lessonId)),
+        ),
+      ),
     );
   }
 }
@@ -268,29 +273,3 @@ class _StatChip extends StatelessWidget {
   }
 }
 
-class _ErrorView extends StatelessWidget {
-  const _ErrorView({required this.message});
-
-  final String message;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Icon(Icons.error_outline, size: 48),
-            const SizedBox(height: 12),
-            Text(message, textAlign: TextAlign.center),
-            const SizedBox(height: 12),
-            FilledButton(
-              onPressed: () => Navigator.of(context).maybePop(),
-              child: const Text('戻る'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}

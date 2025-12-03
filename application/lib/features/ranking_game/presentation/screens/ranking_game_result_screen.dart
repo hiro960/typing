@@ -12,6 +12,7 @@ import 'package:chaletta/features/ranking_game/presentation/screens/ranking_lead
 import 'package:chaletta/features/ranking_game/presentation/screens/ranking_game_screen.dart';
 import 'package:chaletta/features/stats/domain/providers/integrated_stats_providers.dart';
 import 'package:chaletta/ui/app_theme.dart';
+import 'package:chaletta/ui/widgets/app_page_scaffold.dart';
 
 /// ランキングゲーム結果画面
 class RankingGameResultScreen extends ConsumerStatefulWidget {
@@ -138,7 +139,7 @@ class _RankingGameResultScreenState
     final newBestText = _resultResponse?.ranking.isNewBest == true ? '🎉 自己ベスト更新!' : '';
 
     final shareText = '''
-🎮 韓国語タイピングゲーム結果
+🎮 タイピングゲーム結果
 
 📊 スコア: ${widget.score}点
 🏆 $diffLabel モード
@@ -150,7 +151,7 @@ $newBestText
 ⏱️ ボーナス時間: +${widget.totalBonusTime}秒
 ⌨️ 入力速度: ${widget.avgInputSpeed.toStringAsFixed(1)}文字/分
 
-#韓国語学習 #タイピングゲーム
+#韓国語学習 #チャレッタ
 ''';
 
     Share.share(shareText.trim());
@@ -163,60 +164,48 @@ $newBestText
     ref.watch(gameResultSubmitterProvider);
 
     final theme = Theme.of(context);
-    return Scaffold(
-      backgroundColor: theme.scaffoldBackgroundColor,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.close, color: theme.colorScheme.onSurface),
-          onPressed: () => Navigator.of(context).pop(),
+    return AppPageScaffold(
+      title: 'ゲーム結果',
+      showBackButton: true,
+      onBack: () => Navigator.of(context).pop(),
+      actions: [
+        FHeaderAction(
+          icon: const Icon(Icons.share),
+          onPress: _shareResult,
         ),
-        title: Text(
-          'ゲーム結果',
-          style: TextStyle(color: theme.colorScheme.onSurface),
-        ),
-        actions: [
-          // シェアボタン
-          IconButton(
-            icon: Icon(Icons.share, color: theme.colorScheme.onSurface),
-            onPressed: _shareResult,
-          ),
-        ],
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-          child: Column(
-            children: [
-              // ヒーローセクション（キャラクター + スコア + 難易度）
-              _buildHeroSection(),
-              const SizedBox(height: 16),
+      ],
+      safeBottom: true,
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        child: Column(
+          children: [
+            // ヒーローセクション（キャラクター + スコア + 難易度）
+            _buildHeroSection(),
+            const SizedBox(height: 16),
 
-              // ランキング情報（コンパクト）
-              if (_isSubmitting)
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  child: CircularProgressIndicator(
-                    color: theme.colorScheme.primary,
-                    strokeWidth: 2,
-                  ),
-                )
-              else if (_resultResponse != null)
-                _buildCompactRankingInfo()
-              else if (_errorMessage != null)
-                _buildOfflineMessage(),
+            // ランキング情報（コンパクト）
+            if (_isSubmitting)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                child: CircularProgressIndicator(
+                  color: theme.colorScheme.primary,
+                  strokeWidth: 2,
+                ),
+              )
+            else if (_resultResponse != null)
+              _buildCompactRankingInfo()
+            else if (_errorMessage != null)
+              _buildOfflineMessage(),
 
-              const SizedBox(height: 16),
+            const SizedBox(height: 16),
 
-              // 詳細統計（コンパクト横並び）
-              _buildCompactStatsRow(),
-              const SizedBox(height: 24),
+            // 詳細統計（コンパクト横並び）
+            _buildCompactStatsRow(),
+            const SizedBox(height: 24),
 
-              // アクションボタン
-              _buildActionButtons(),
-            ],
-          ),
+            // アクションボタン
+            _buildActionButtons(),
+          ],
         ),
       ),
     );

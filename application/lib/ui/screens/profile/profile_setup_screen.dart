@@ -12,6 +12,7 @@ import '../../../features/profile/domain/providers/profile_providers.dart';
 import '../../../core/exceptions/app_exception.dart';
 import '../../../core/utils/logger.dart';
 import '../../utils/snackbar_helper.dart';
+import '../../widgets/app_page_scaffold.dart';
 
 class ProfileSetupScreen extends ConsumerStatefulWidget {
   const ProfileSetupScreen({super.key});
@@ -238,13 +239,9 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return FScaffold(
-      header: FHeader.nested(
-        prefixes: [
-          FHeaderAction.back(onPress: () => Navigator.of(context).maybePop()),
-        ],
-        title: const Text('プロフィールの設定'),
-      ),
+    return AppPageScaffold(
+      title: 'プロフィールの設定',
+      showBackButton: true,
       child: ListView(
         padding: const EdgeInsets.fromLTRB(20, 12, 20, 24),
         children: [

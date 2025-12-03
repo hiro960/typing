@@ -5,6 +5,7 @@ import 'package:forui/forui.dart';
 import '../../features/auth/domain/providers/auth_providers.dart';
 import '../../core/exceptions/app_exception.dart';
 import '../../core/utils/logger.dart';
+import '../widgets/app_page_scaffold.dart';
 
 class SocialAuthScreen extends ConsumerStatefulWidget {
   const SocialAuthScreen({super.key});
@@ -94,10 +95,9 @@ class _SocialAuthScreenState extends ConsumerState<SocialAuthScreen> {
       (label: 'Google / Apple / X で続ける', icon: Icons.login),
     ];
 
-    return FScaffold(
-      header: FHeader.nested(
-        title: const Text('ログイン / 新規登録'),
-      ),
+    return AppPageScaffold(
+      title: 'ログイン / 新規登録',
+      showBackButton: true,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(20, 12, 20, 24),
         child: Column(

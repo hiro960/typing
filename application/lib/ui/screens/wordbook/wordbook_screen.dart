@@ -5,6 +5,7 @@ import 'package:forui/forui.dart';
 import '../../../features/wordbook/data/models/word_model.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
 import '../../widgets/app_page_scaffold.dart';
+import '../../widgets/page_state_views.dart';
 import '../../app_spacing.dart';
 import 'word_detail_screen.dart';
 import 'word_form_screen.dart';
@@ -43,44 +44,32 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
     final theme = Theme.of(context);
 
     return AppPageScaffold(
-      childPad: false,
-      header: FHeader(
-        title: Row(
-          children: [
-            Icon(
-              Icons.book_outlined,
-              size: 22,
-              color: theme.colorScheme.onSurface,
-            ),
-            const SizedBox(width: 8),
-            Text('単語帳', style: theme.textTheme.headlineSmall),
-          ],
+      title: '単語帳',
+      titleIcon: Icons.book_outlined,
+      actions: [
+        FHeaderAction(
+          icon: Icon(
+            viewMode == WordbookViewMode.card
+                ? Icons.view_list_outlined
+                : Icons.grid_view_outlined,
+          ),
+          onPress: () {
+            ref.read(wordbookViewModeProvider.notifier).toggle();
+          },
         ),
-        suffixes: [
-          FHeaderAction(
-            icon: Icon(
-              viewMode == WordbookViewMode.card
-                  ? Icons.view_list_outlined
-                  : Icons.grid_view_outlined,
-            ),
-            onPress: () {
-              ref.read(wordbookViewModeProvider.notifier).toggle();
-            },
+        FHeaderAction(
+          icon: Badge(
+            isLabelVisible: canStartQuiz,
+            label: Text('${reviewableWords.length}'),
+            child: const Icon(Icons.quiz_outlined),
           ),
-          FHeaderAction(
-            icon: Badge(
-              isLabelVisible: canStartQuiz,
-              label: Text('${reviewableWords.length}'),
-              child: const Icon(Icons.quiz_outlined),
-            ),
-            onPress: canStartQuiz ? () => _startQuiz(reviewableWords) : null,
-          ),
-          FHeaderAction(
-            icon: const Icon(Icons.add),
-            onPress: () => _openForm(),
-          ),
-        ],
-      ),
+          onPress: canStartQuiz ? () => _startQuiz(reviewableWords) : null,
+        ),
+        FHeaderAction(
+          icon: const Icon(Icons.add),
+          onPress: () => _openForm(),
+        ),
+      ],
       child: Column(
         children: [
           if (isLoading) const LinearProgressIndicator(minHeight: 2),
@@ -141,7 +130,13 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
             child: RefreshIndicator(
               onRefresh: () => ref.read(wordbookProvider.notifier).refresh(),
               child: filteredWords.isEmpty
-                  ? _EmptyState(onAdd: _openForm)
+                  ? PageEmptyView(
+                      icon: Icons.book_outlined,
+                      title: 'まだ単語/文章がありません',
+                      description: '覚えたい単語/文章を追加して、マイ単語帳を作りましょう。',
+                      actionLabel: '単語/文章を追加',
+                      onAction: _openForm,
+                    )
                   : viewMode == WordbookViewMode.card
                       ? GridView.builder(
                           padding: EdgeInsets.fromLTRB(
@@ -317,55 +312,6 @@ Color _statusColor(WordStatus status, ThemeData theme) {
       return theme.colorScheme.primary;
     case WordStatus.NEEDS_REVIEW:
       return theme.colorScheme.tertiary;
-  }
-}
-
-class _EmptyState extends StatelessWidget {
-  const _EmptyState({required this.onAdd});
-
-  final VoidCallback onAdd;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return ListView(
-      physics: const AlwaysScrollableScrollPhysics(),
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 80),
-          child: Column(
-            children: [
-              Icon(
-                Icons.book_outlined,
-                size: 64,
-                color: theme.colorScheme.primary.withValues(alpha: 0.35),
-              ),
-              const SizedBox(height: 16),
-              Text(
-                'まだ単語/文章がありません',
-                style: theme.textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 8),
-              Text(
-                '覚えたい単語/文章を追加して、マイ単語帳を作りましょう。',
-                textAlign: TextAlign.center,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
-                ),
-              ),
-              const SizedBox(height: 16),
-              FButton(
-                onPress: onAdd,
-                child: const Text('単語/文章を追加'),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
   }
 }
 

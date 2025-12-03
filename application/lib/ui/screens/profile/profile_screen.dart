@@ -17,6 +17,7 @@ import '../../../features/profile/domain/providers/profile_providers.dart';
 import '../../utils/snackbar_helper.dart';
 import '../../utils/toast_helper.dart';
 import '../../widgets/app_page_scaffold.dart';
+import '../../widgets/page_state_views.dart';
 import '../../widgets/ai_gradient_button.dart';
 import '../../widgets/sheet_content.dart';
 import '../../app_spacing.dart';
@@ -148,27 +149,14 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
           currentUser?.id,
         );
       },
-      loading: () => const _ProfileSkeletonScreen(),
-      error: (error, _) => Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(Icons.error_outline, size: 48, color: Colors.red),
-              const SizedBox(height: 16),
-              Text(
-                'プロフィールの取得に失敗しました',
-                style: theme.textTheme.titleMedium,
-              ),
-              const SizedBox(height: 8),
-              Text(
-                error is AppException ? error.message : error.toString(),
-                style: theme.textTheme.bodySmall,
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
+      loading: () => _ProfileSkeletonScreen(onOpenSettings: widget.onOpenSettings),
+      error: (error, _) => AppPageScaffold(
+        title: 'プロフィール',
+        titleIcon: Icons.person_outline,
+        showBackButton: true,
+        child: PageErrorView(
+          message: error is AppException ? error.message : error.toString(),
+          onRetry: () => ref.invalidate(userProfileProvider(targetUserId)),
         ),
       ),
     );
@@ -186,33 +174,16 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
     final isOwner = currentUserId == profile.id;
     final isPremiumUser = profile.isPremiumUser;
     return AppPageScaffold(
-      header: FHeader.nested(
-        titleAlignment: AlignmentDirectional.centerStart,
-        prefixes: [
-          if (Navigator.of(context).canPop())
-            FHeaderAction.back(
-              onPress: () => Navigator.of(context).maybePop(),
-            ),
-        ],
-        title: Row(
-          children: [
-            Icon(
-              Icons.person_outline,
-              size: 22,
-              color: theme.colorScheme.onSurface,
-            ),
-            const SizedBox(width: 8),
-            Text('プロフィール', style: theme.textTheme.headlineSmall),
-          ],
-        ),
-        suffixes: [
-          if (isOwner)
-            FHeaderAction(
-              icon: const Icon(Icons.settings_outlined),
-              onPress: widget.onOpenSettings,
-            ),
-        ],
-      ),
+      title: 'プロフィール',
+      titleIcon: Icons.person_outline,
+      showBackButton: true,
+      actions: [
+        if (isOwner)
+          FHeaderAction(
+            icon: const Icon(Icons.settings_outlined),
+            onPress: widget.onOpenSettings,
+          ),
+      ],
       child: RefreshIndicator(
         onRefresh: () async {
           ref.invalidate(userProfileProvider(profile.id));
@@ -614,122 +585,61 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
 }
 
 class _ProfileSkeletonScreen extends StatelessWidget {
-  const _ProfileSkeletonScreen();
+  const _ProfileSkeletonScreen({required this.onOpenSettings});
+
+  final VoidCallback onOpenSettings;
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final baseColor = theme.colorScheme.onSurface.withValues(alpha: 0.06);
-
     return AppPageScaffold(
-      header: FHeader.nested(
-        titleAlignment: AlignmentDirectional.centerStart,
-        prefixes: [
-          if (Navigator.of(context).canPop())
-            FHeaderAction.back(
-              onPress: () => Navigator.of(context).maybePop(),
-            ),
-        ],
-        title: Row(
-          children: [
-            Icon(
-              Icons.person_outline,
-              size: 22,
-              color: theme.colorScheme.onSurface,
-            ),
-            const SizedBox(width: 8),
-            Text('プロフィール', style: theme.textTheme.headlineSmall),
-          ],
+      title: 'プロフィール',
+      titleIcon: Icons.person_outline,
+      showBackButton: true,
+      actions: [
+        FHeaderAction(
+          icon: const Icon(Icons.settings_outlined),
+          onPress: onOpenSettings,
         ),
-      ),
+      ],
       child: ShimmerLoading(
         child: ListView(
           padding: AppPadding.profilePage,
           children: [
             const SizedBox(height: AppSpacing.md),
-            // プロフィールヘッダースケルトン
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // アバター
-                Container(
-                  width: 80,
-                  height: 80,
-                  decoration: BoxDecoration(
-                    color: baseColor,
-                    shape: BoxShape.circle,
-                  ),
-                ),
-                const SizedBox(width: 16),
-                // ユーザー情報
+              children: const [
+                ShimmerCircle(size: 80),
+                SizedBox(width: 16),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        width: 120,
-                        height: 24,
-                        decoration: BoxDecoration(
-                          color: baseColor,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      Container(
-                        width: 80,
-                        height: 16,
-                        decoration: BoxDecoration(
-                          color: baseColor,
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      Container(
-                        width: 160,
-                        height: 14,
-                        decoration: BoxDecoration(
-                          color: baseColor,
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                      ),
+                      ShimmerBlock(width: 120, height: 24),
+                      SizedBox(height: 8),
+                      ShimmerBlock(width: 80, height: 16),
+                      SizedBox(height: 8),
+                      ShimmerBlock(width: 160, height: 14),
                     ],
                   ),
                 ),
               ],
             ),
             const SizedBox(height: AppSpacing.xxl + AppSpacing.lg),
-            // サマリーチップスケルトン
             Row(
-              children: List.generate(
-                3,
-                (index) => Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.only(right: index < 2 ? 8 : 0),
-                    child: Container(
-                      height: 32,
-                      decoration: BoxDecoration(
-                        color: baseColor,
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              children: const [
+                Expanded(child: ShimmerBlock(height: 32)),
+                SizedBox(width: 8),
+                Expanded(child: ShimmerBlock(height: 32)),
+                SizedBox(width: 8),
+                Expanded(child: ShimmerBlock(height: 32)),
+              ],
             ),
             const SizedBox(height: AppSpacing.lg),
-            // 統計カードスケルトン
             const StatSkeletonRow(),
             const SizedBox(height: AppSpacing.lg),
-            // タブスケルトン
-            Container(
-              height: 44,
-              decoration: BoxDecoration(
-                color: baseColor,
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
+            const ShimmerBlock(height: 44),
             const SizedBox(height: AppSpacing.md),
-            // 投稿リストスケルトン
             const PostSkeletonList(),
           ],
         ),

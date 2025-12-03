@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 
 import '../../app_theme.dart';
+import '../../widgets/app_page_scaffold.dart';
 import '../../../features/lessons/data/models/lesson_index.dart'
     as lesson_index;
 import '../../../features/lessons/data/models/lesson_models.dart';
@@ -58,7 +59,11 @@ class _TypingCompletionScreenState
       orElse: () => null,
     );
 
-    return FScaffold(
+    return AppPageScaffold(
+      title: 'レッスン完了',
+      showBackButton: true,
+      onBack: () => Navigator.of(context).popUntil((route) => route.isFirst),
+      safeBottom: true,
       child: Stack(
         children: [
           Align(
@@ -76,37 +81,35 @@ class _TypingCompletionScreenState
               ),
             ),
           ),
-          SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Center(
-                    child: Column(
-                      children: [
-                        Text('🎉 完了！ 🎉',
-                            style: theme.textTheme.headlineMedium),
-                        const SizedBox(height: 8),
-                        Text(
-                          widget.lesson.title,
-                          style: theme.textTheme.titleLarge,
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Column(
+                    children: [
+                      Text('🎉 完了！ 🎉',
+                          style: theme.textTheme.headlineMedium),
+                      const SizedBox(height: 8),
+                      Text(
+                        widget.lesson.title,
+                        style: theme.textTheme.titleLarge,
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
-                  const SizedBox(height: 24),
-                  _ResultCard(stats: widget.stats),
-                  const SizedBox(height: 16),
-                  _WeakCharactersCard(weakCharacters: weakCharacters),
-                  const Spacer(),
-                  _ActionButtons(
-                    lessonId: widget.lessonId,
-                    nextLessonId: nextLessonId,
-                  ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 24),
+                _ResultCard(stats: widget.stats),
+                const SizedBox(height: 16),
+                _WeakCharactersCard(weakCharacters: weakCharacters),
+                const Spacer(),
+                _ActionButtons(
+                  lessonId: widget.lessonId,
+                  nextLessonId: nextLessonId,
+                ),
+              ],
             ),
           ),
         ],

@@ -14,6 +14,8 @@ import '../../../features/typing/domain/providers/typing_session_provider.dart';
 import '../../../features/typing/domain/providers/typing_stats_provider.dart';
 import '../../../features/typing/domain/providers/typing_settings_provider.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
+import '../../widgets/app_page_scaffold.dart';
+import '../../widgets/page_state_views.dart';
 import '../../widgets/typing/input_feedback_widget.dart';
 import '../../widgets/typing/typing_progress_bar.dart';
 import '../../widgets/typing/typing_prompt_card.dart';
@@ -92,9 +94,19 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen>
         onOpenSettings: _openSettings,
         settings: settings,
       ),
-      loading: () =>
-          const Scaffold(body: Center(child: CircularProgressIndicator())),
-      error: (error, _) => _ErrorScaffold(error: error.toString()),
+      loading: () => const AppPageScaffold(
+        title: 'レッスン',
+        showBackButton: true,
+        child: Center(child: CircularProgressIndicator()),
+      ),
+      error: (error, _) => AppPageScaffold(
+        title: 'レッスン',
+        showBackButton: true,
+        child: PageErrorView(
+          message: error.toString(),
+          onRetry: () => ref.invalidate(typingSessionProvider(widget.lessonId)),
+        ),
+      ),
     );
   }
 
@@ -263,20 +275,18 @@ class _LessonView extends StatelessWidget {
         : const <String>{};
     final lastRecord = session.records.isEmpty ? null : session.records.last;
 
-    return FScaffold(
+    return AppPageScaffold(
+      title: session.lesson.title,
+      showBackButton: true,
+      actions: [
+        FHeaderAction(
+          icon: const Icon(Icons.settings_outlined),
+          onPress: onOpenSettings,
+        ),
+      ],
       childPad: false,
-      header: FHeader.nested(
-        prefixes: [
-          FHeaderAction.back(onPress: () => Navigator.of(context).maybePop()),
-        ],
-        title: Text(session.lesson.title),
-        suffixes: [
-          FHeaderAction(
-            icon: const Icon(Icons.settings_outlined),
-            onPress: onOpenSettings,
-          ),
-        ],
-      ),
+      safeTop: false,
+      safeBottom: false,
       child: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -495,32 +505,3 @@ class _TypingSettingsSheet extends ConsumerWidget {
   }
 }
 
-class _ErrorScaffold extends StatelessWidget {
-  const _ErrorScaffold({required this.error});
-
-  final String error;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Icon(Icons.error_outline, size: 48),
-              const SizedBox(height: 12),
-              Text(error, textAlign: TextAlign.center),
-              const SizedBox(height: 12),
-              FButton(
-                onPress: () => Navigator.of(context).maybePop(),
-                child: const Text('戻る'),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
