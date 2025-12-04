@@ -3,10 +3,12 @@ description: "韓国語タイピングと文章作成を楽しく学べる学習
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
-#  【チャレッタとは】
-#   韓国語のタイピングスキルと文章作成能力を、ゲーム感覚で楽しく身につけられる学習アプリです。
-#   初心者から上級者まで、あなたのレベルに合わせたレッスンで着実にスキルアップできます。
+  
+#   【チャレッタ】
+#    韓国語の学習を、もっと楽しく、効果的に。
+# 
+#    タイピング練習からTOPIK対策まで。
+#    あなたの韓国語学習をサポートするオールインワンアプリ。
 
 #   【こんな方におすすめ】
 #   ・韓国語の入力に慣れたい方
@@ -54,7 +56,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.1.0+4
+version: 1.1.1+5
 
 environment:
   sdk: ^3.9.2
