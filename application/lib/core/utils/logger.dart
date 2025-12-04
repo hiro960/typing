@@ -29,11 +29,13 @@ class AppLogger {
 
   /// 警告ログ出力
   static void warning(String message, {String? tag}) {
-    developer.log(
-      message,
-      name: tag ?? 'WARNING',
-      level: 900,
-    );
+    if (kDebugMode) {
+      developer.log(
+        message,
+        name: tag ?? 'WARNING',
+        level: 900,
+      );
+    }
   }
 
   /// エラーログ出力
@@ -43,13 +45,15 @@ class AppLogger {
     Object? error,
     StackTrace? stackTrace,
   }) {
-    developer.log(
-      message,
-      name: tag ?? 'ERROR',
-      error: error,
-      stackTrace: stackTrace,
-      level: 1000,
-    );
+    if (kDebugMode) {
+      developer.log(
+        message,
+        name: tag ?? 'ERROR',
+        error: error,
+        stackTrace: stackTrace,
+        level: 1000,
+      );
+    }
   }
 
   /// APIリクエストログ

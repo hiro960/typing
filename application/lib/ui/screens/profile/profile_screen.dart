@@ -560,15 +560,6 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
     if (currentUserId == profile.id) return true;
     
     // 公開設定を確認
-    // TODO: UserModelにprofileVisibilityフィールドが必要
-    // 現状のUserModel定義にはないため、API側で制御されていると仮定するか、
-    // settings.profileVisibility を参照する必要がある。
-    // ここでは一旦、フォロワーのみ公開の場合は非表示にするロジックを入れるべきだが、
-    // フォロー状態(isFollowing)がUserModelに含まれていないため、
-    // 実装するにはUserModelの拡張が必要。
-    // 今回は指摘事項「プロフィール公開範囲のUI制御」への対応として、
-    // profile.settings.profileVisibility をチェックする形にする。
-    
     final visibility = profile.settings.profileVisibility;
     if (visibility == 'public') return true;
     
