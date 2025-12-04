@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer' as developer;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
@@ -210,22 +209,10 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
     final trimmedInput = input.trim();
     final trimmedCorrect = correct.trim();
 
-    // デバッグ: 入力と正解の比較
-    developer.log('=== Answer Check ===');
-    developer.log('Input: "$trimmedInput"');
-    developer.log('Correct: "$trimmedCorrect"');
-    developer.log('Exact match: ${trimmedInput == trimmedCorrect}');
-    developer.log('Input codeUnits: ${trimmedInput.codeUnits}');
-    developer.log('Correct codeUnits: ${trimmedCorrect.codeUnits}');
-
     if (trimmedInput == trimmedCorrect) return true;
 
     final pattern = _buildFlexibleAnswerPattern(trimmedCorrect);
-    developer.log('Pattern: $pattern');
-    final regexMatch = RegExp('^$pattern\$').hasMatch(trimmedInput);
-    developer.log('Regex match: $regexMatch');
-
-    return regexMatch;
+    return RegExp('^$pattern\$').hasMatch(trimmedInput);
   }
 
   String _buildFlexibleAnswerPattern(String correct) {

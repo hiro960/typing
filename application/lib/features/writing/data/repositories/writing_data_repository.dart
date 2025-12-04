@@ -100,8 +100,8 @@ class WritingDataRepository {
     try {
       final manifestJson = await rootBundle.loadString(_assetManifestPath);
       return jsonDecode(manifestJson) as Map<String, dynamic>;
-    } catch (e) {
-      print('AssetManifest.json load failed: $e');
+    } catch (_) {
+      // AssetManifest.jsonの読み込み失敗時はフォールバック
     }
 
     try {
@@ -112,9 +112,8 @@ class WritingDataRepository {
               )
               as Map<Object?, Object?>?;
       return decoded?.map((key, value) => MapEntry(key as String, value));
-    } catch (e) {
+    } catch (_) {
       // 一部環境でAssetManifestが見つからない場合があるため、フォールバックする
-      print('AssetManifest.bin load failed: $e');
     }
 
     return null;
@@ -183,8 +182,8 @@ class WritingDataRepository {
         final jsonData = jsonDecode(jsonString) as Map<String, dynamic>;
         final pattern = WritingPattern.fromJson(jsonData).copyWith(lane: lane);
         patterns.add(pattern);
-      } catch (e) {
-        print('Error loading pattern from $file: $e');
+      } catch (_) {
+        // パターン読み込み失敗時はスキップ
       }
     }
 
@@ -225,8 +224,8 @@ class WritingDataRepository {
             entries: entries,
           ),
         );
-      } catch (e) {
-        print('Error loading beginner topic from $file: $e');
+      } catch (_) {
+        // 初級トピック読み込み失敗時はスキップ
       }
     }
 

@@ -1,4 +1,3 @@
-import 'dart:developer' as developer;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -229,7 +228,6 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
   }
 
   void _handleKeyTap(String label) {
-    developer.log('Key tapped: $label');
     switch (label) {
       case '⇧':
         setState(() => _shiftActive = !_shiftActive);

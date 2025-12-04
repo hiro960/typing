@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -30,10 +29,8 @@ class PushNotificationService {
         _ref.read(diaryRepositoryProvider).updatePushToken(token);
       });
       _initialized = true;
-    } catch (error) {
-      if (kDebugMode) {
-        print('Push notification init failed: $error');
-      }
+    } catch (_) {
+      // エラー時は初期化失敗として処理
     }
   }
 

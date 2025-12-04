@@ -1,5 +1,3 @@
-import 'dart:developer' as developer;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
@@ -96,15 +94,7 @@ class _RankingGameResultScreenState
           _errorMessage = 'オフラインで保存しました。次回接続時に送信されます。';
         }
       });
-    } catch (e, stackTrace) {
-      // オンラインエラー（サーバーエラー、認証エラーなど）
-      developer.log(
-        'ゲーム結果送信エラー',
-        name: 'RankingGameResultScreen',
-        error: e,
-        stackTrace: stackTrace,
-      );
-
+    } catch (e) {
       if (!mounted) return;
 
       setState(() {

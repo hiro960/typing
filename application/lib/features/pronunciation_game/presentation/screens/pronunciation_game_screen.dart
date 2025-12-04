@@ -23,11 +23,63 @@ class _PronunciationGameScreenState
     extends ConsumerState<PronunciationGameScreen> {
   bool _isStarted = false;
 
-  void _startGame() async {
-    setState(() => _isStarted = true);
-    await ref
-        .read(pronunciationGameSessionProvider(widget.difficulty).notifier)
-        .startGame();
+  @override
+  void dispose() {
+    // 画面破棄時にプロバイダーをリセットして、音声認識リソースをクリーンアップ
+    // dispose前にリセットを呼ぶことで、refが有効な間に処理を完了
+    ref.read(pronunciationGameSessionProvider(widget.difficulty).notifier).reset();
+    super.dispose();
+  }
+
+  bool _isStarting = false;
+
+  Future<void> _startGame() async {
+    // 重複起動を防止
+    if (_isStarting) return;
+    _isStarting = true;
+
+    try {
+      final success = await ref
+          .read(pronunciationGameSessionProvider(widget.difficulty).notifier)
+          .startGame();
+
+      if (!mounted) return;
+
+      if (success) {
+        setState(() => _isStarted = true);
+      } else {
+        // 初期化に失敗した場合はダイアログを表示
+        _showInitializationErrorDialog();
+      }
+    } finally {
+      _isStarting = false;
+    }
+  }
+
+  void _showInitializationErrorDialog() {
+    showDialog<void>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('音声認識の初期化に失敗'),
+        content: const Text(
+          'マイクの権限を確認してください。\n'
+          '設定アプリから、このアプリにマイクのアクセスを許可する必要があります。',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('閉じる'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              _startGame(); // 再試行
+            },
+            child: const Text('再試行'),
+          ),
+        ],
+      ),
+    );
   }
 
   String _getDifficultyLabel(String difficulty) {
@@ -298,20 +350,21 @@ class _PronunciationGameScreenState
         state.lastInputResult == PronunciationInputResultType.mistake;
 
     // ステータスラベルを決定
+    // ゲームプレイ中は常に「発音してください」を表示（チカチカ防止）
     String statusLabel;
     if (isCorrect) {
       statusLabel = '正解！';
     } else if (isMistake) {
       statusLabel = 'もう一度';
-    } else if (state.isListening) {
-      statusLabel = '発音してください';
     } else if (state.recognizedText.isNotEmpty) {
       statusLabel = '認識中...';
     } else {
-      statusLabel = ''; // 音声を受け付けていない場合は表示しない
+      // ゲームプレイ中は isListening に関係なく常に表示
+      statusLabel = '発音してください';
     }
 
     // 表示テキストを決定
+    // ゲームプレイ中は常にマイクアイコンを表示（チカチカ防止）
     String displayText;
     if (state.recognizedText.isNotEmpty) {
       displayText = state.recognizedText;
@@ -319,10 +372,9 @@ class _PronunciationGameScreenState
       displayText = '✓';
     } else if (isMistake) {
       displayText = '✗';
-    } else if (state.isListening) {
-      displayText = '🎤';
     } else {
-      displayText = '...';
+      // ゲームプレイ中は isListening に関係なくマイクを表示
+      displayText = '🎤';
     }
 
     return AnimatedContainer(
@@ -351,8 +403,11 @@ class _PronunciationGameScreenState
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              if (state.isListening && !isCorrect && !isMistake)
-                Container(
+              // 録音中インジケーター（赤い点）- isListening の時のみ表示
+              AnimatedOpacity(
+                opacity: state.isListening && !isCorrect && !isMistake ? 1.0 : 0.0,
+                duration: const Duration(milliseconds: 200),
+                child: Container(
                   width: 8,
                   height: 8,
                   margin: const EdgeInsets.only(right: 8),
@@ -361,6 +416,7 @@ class _PronunciationGameScreenState
                     shape: BoxShape.circle,
                   ),
                 ),
+              ),
               if (isCorrect)
                 const Padding(
                   padding: EdgeInsets.only(right: 4),
@@ -450,38 +506,46 @@ class _PronunciationGameScreenState
               ),
             ),
             const SizedBox(width: 24),
-            // マイクインジケーター
-            AnimatedContainer(
-              duration: const Duration(milliseconds: 300),
-              width: 72,
-              height: 72,
-              decoration: BoxDecoration(
-                color: state.isListening
-                    ? AppColors.accentEnd.withOpacity(0.2)
-                    : theme.colorScheme.primary.withOpacity(0.1),
-                shape: BoxShape.circle,
-                border: Border.all(
+            // マイクインジケーター（タップで音声認識を再起動）
+            GestureDetector(
+              onTap: () {
+                ref
+                    .read(pronunciationGameSessionProvider(widget.difficulty)
+                        .notifier)
+                    .restartSpeechRecognition();
+              },
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                width: 72,
+                height: 72,
+                decoration: BoxDecoration(
+                  color: state.isListening
+                      ? AppColors.accentEnd.withOpacity(0.2)
+                      : theme.colorScheme.primary.withOpacity(0.1),
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: state.isListening
+                        ? AppColors.accentEnd
+                        : theme.colorScheme.primary,
+                    width: 3,
+                  ),
+                  boxShadow: state.isListening
+                      ? [
+                          BoxShadow(
+                            color: AppColors.accentEnd.withOpacity(0.4),
+                            blurRadius: 16,
+                            spreadRadius: 4,
+                          ),
+                        ]
+                      : null,
+                ),
+                child: Icon(
+                  state.isListening ? Icons.mic : Icons.mic_none,
+                  size: 36,
                   color: state.isListening
                       ? AppColors.accentEnd
                       : theme.colorScheme.primary,
-                  width: 3,
                 ),
-                boxShadow: state.isListening
-                    ? [
-                        BoxShadow(
-                          color: AppColors.accentEnd.withOpacity(0.4),
-                          blurRadius: 16,
-                          spreadRadius: 4,
-                        ),
-                      ]
-                    : null,
-              ),
-              child: Icon(
-                state.isListening ? Icons.mic : Icons.mic_none,
-                size: 36,
-                color: state.isListening
-                    ? AppColors.accentEnd
-                    : theme.colorScheme.primary,
               ),
             ),
           ],

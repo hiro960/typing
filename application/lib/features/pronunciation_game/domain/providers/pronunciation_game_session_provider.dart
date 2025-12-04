@@ -11,6 +11,49 @@ import 'package:chaletta/features/ranking_game/data/pixel_characters.dart';
 
 part 'pronunciation_game_session_provider.g.dart';
 
+/// iOS音声認識セッションの待機時間定数
+/// iOSの音声認識エンジンはセッション間で十分なクリーンアップ時間が必要
+class _SpeechTimingConstants {
+  _SpeechTimingConstants._();
+
+  /// スケジュールされた再起動前の基本待機時間
+  static const Duration baseRestartDelay = Duration(milliseconds: 1000);
+
+  /// 再起動処理中のiOSセッションクリーンアップ待機時間
+  static const Duration restartCleanupDelay = Duration(milliseconds: 1000);
+
+  /// 正解/不正解/スキップ後の再開前待機時間
+  static const Duration resultProcessingDelay = Duration(milliseconds: 800);
+
+  /// 手動再起動時のセッションクリーンアップ待機時間
+  static const Duration manualRestartDelay = Duration(milliseconds: 1000);
+
+  /// listen()呼び出し前の既存セッション停止後の待機時間
+  static const Duration preListenStopDelay = Duration(milliseconds: 300);
+
+  /// リスニング開始後のフラグ解除前待機時間
+  static const Duration postListenSettleDelay = Duration(milliseconds: 300);
+
+  /// 音声認識の最大リスニング時間（iOSの内部タイムアウトより短く設定）
+  static const Duration listenForDuration = Duration(seconds: 30);
+
+  /// 無音検出までの待機時間
+  /// 重要: iOSの内部タイムアウト（約2秒）より長く設定しても効果がない場合がある
+  static const Duration pauseForDuration = Duration(seconds: 10);
+
+  /// 自動再起動の最大連続回数（この回数を超えると自動再起動を停止）
+  static const int maxConsecutiveRestarts = 3;
+
+  /// 連続エラー時のバックオフ係数（エラー回数 × この値 の追加待機時間）
+  static const Duration backoffIncrement = Duration(milliseconds: 800);
+
+  /// 再起動リクエストのデバウンス時間（この時間内の重複リクエストは無視）
+  static const Duration restartDebounceTime = Duration(milliseconds: 500);
+
+  /// No speech detected エラーの連続回数上限（この回数を超えると手動再起動を要求）
+  static const int maxNoSpeechErrors = 2;
+}
+
 /// 発音ゲームセッションプロバイダー
 @riverpod
 class PronunciationGameSession extends _$PronunciationGameSession {
@@ -18,14 +61,66 @@ class PronunciationGameSession extends _$PronunciationGameSession {
   SpeechToText? _speechToText;
   bool _speechInitialized = false;
   bool _isListeningActive = false;
-  DateTime? _lastRestartTime;
+  bool _isRestartingListening = false; // 再起動処理の排他制御フラグ
   bool _isProcessingResult = false; // 正解/不正解処理中フラグ
   bool _isDisposed = false; // プロバイダーが破棄されたかどうか
+  int _sessionId = 0; // 現在のゲームセッションID（古いコールバックを無視するため）
+
+  // 内部状態追跡用
+  DateTime? _lastListeningStartTime;
+  DateTime? _lastListeningStopTime;
+  DateTime? _lastErrorTime;
+  DateTime? _lastStatusChangeTime;
+  int _restartCount = 0;
+  int _errorCount = 0;
+  String? _lastStatus;
+  String? _lastErrorMsg;
+
+  // 連続再起動制御用
+  int _consecutiveRestartCount = 0; // 成功なしでの連続再起動回数
+  DateTime? _lastSuccessfulRecognition; // 最後に認識が成功した時刻
+  DateTime? _lastRestartScheduleTime; // 最後に再起動がスケジュールされた時刻（デバウンス用）
+  int _noSpeechErrorCount = 0; // "No speech detected" エラーの連続回数
 
   @override
   PronunciationGameSessionState build(String difficulty) {
-    _isDisposed = false; // 再ビルド時にリセット
+    AppLogger.info(
+      'build() called for difficulty=$difficulty, previous sessionId=$_sessionId',
+      tag: 'PronunciationGameSession',
+    );
+
+    // 再ビルド時に全てのインスタンス変数をリセット
+    // Riverpod の Notifier は再構築時にインスタンス変数をリセットしないため、明示的にリセットが必要
+    _gameTimer?.cancel();
+    _gameTimer = null;
+    _speechToText = null;
+    _speechInitialized = false;
+    _isListeningActive = false;
+    _isRestartingListening = false;
+    _isProcessingResult = false;
+    _isDisposed = false;
+    _sessionId = 0;
+    _koreanLocaleId = null;
+
+    // 内部状態のリセット
+    _lastListeningStartTime = null;
+    _lastListeningStopTime = null;
+    _lastErrorTime = null;
+    _lastStatusChangeTime = null;
+    _restartCount = 0;
+    _errorCount = 0;
+    _lastStatus = null;
+    _lastErrorMsg = null;
+    _consecutiveRestartCount = 0;
+    _lastSuccessfulRecognition = null;
+    _lastRestartScheduleTime = null;
+    _noSpeechErrorCount = 0;
+
     ref.onDispose(() {
+      AppLogger.info(
+        'onDispose called for difficulty=$difficulty',
+        tag: 'PronunciationGameSession',
+      );
       _isDisposed = true; // 破棄フラグを設定
       _gameTimer?.cancel();
       // onDispose内ではstateを変更できないため、直接停止処理のみ行う
@@ -37,6 +132,7 @@ class PronunciationGameSession extends _$PronunciationGameSession {
   /// onDispose用のクリーンアップ（stateを変更しない）
   void _disposeListening() {
     _isListeningActive = false;
+    _isRestartingListening = false;
     if (_speechToText != null) {
       try {
         _speechToText!.stop();
@@ -80,8 +176,8 @@ class PronunciationGameSession extends _$PronunciationGameSession {
     // 全てのフラグをリセット
     _speechInitialized = false;
     _isListeningActive = false;
+    _isRestartingListening = false;
     _isProcessingResult = false;
-    _lastRestartTime = null;
     _koreanLocaleId = null;
 
     // 状態をリセット
@@ -95,7 +191,18 @@ class PronunciationGameSession extends _$PronunciationGameSession {
 
   /// 音声認識を初期化
   Future<bool> initializeSpeech() async {
-    if (_speechInitialized) return true;
+    AppLogger.info(
+      'initializeSpeech called: initialized=$_speechInitialized, sessionId=$_sessionId',
+      tag: 'PronunciationGameSession',
+    );
+
+    if (_speechInitialized) {
+      AppLogger.info(
+        'Speech already initialized, skipping',
+        tag: 'PronunciationGameSession',
+      );
+      return true;
+    }
 
     _speechToText = SpeechToText();
     try {
@@ -104,65 +211,105 @@ class PronunciationGameSession extends _$PronunciationGameSession {
           // プロバイダーが破棄されている場合は何もしない
           if (_isDisposed) return;
 
-          AppLogger.error(
-            'Speech recognition error: ${error.errorMsg}, isListeningActive=$_isListeningActive',
-            tag: 'PronunciationGameSession',
-          );
+          // エラー追跡
+          _errorCount++;
+          final now = DateTime.now();
+          _lastErrorTime = now;
+          _lastErrorMsg = error.errorMsg;
 
-          // リスニングがアクティブだった場合のみ再開処理を行う
-          final wasListening = _isListeningActive;
+          // 「No speech detected」は通常のセッション終了なので、特別に処理
+          final isNoSpeechError = error.errorMsg.contains('no_speech') ||
+              error.errorMsg.contains('error_no_match') ||
+              error.errorMsg.contains('No speech');
 
-          // エラー発生時はフラグをリセット
-          _isListeningActive = false;
-
-          // リスニング中にエラーが発生した場合は再開
-          if (wasListening && !_isDisposed && state.isPlaying && !state.isFinished && !_isProcessingResult) {
+          if (isNoSpeechError) {
+            _noSpeechErrorCount++;
             AppLogger.info(
-              'Error occurred during listening, restarting after delay...',
+              'Speech session ended: no speech detected (count=$_noSpeechErrorCount/${_SpeechTimingConstants.maxNoSpeechErrors})',
               tag: 'PronunciationGameSession',
             );
-            // 少し待ってからリスニングを再開
-            Future.delayed(const Duration(milliseconds: 500), () {
-              if (!_isDisposed && state.isPlaying && !state.isFinished && !_isProcessingResult && !_isListeningActive) {
-                _startListening();
-              }
-            });
+          } else {
+            // 他のエラーではNo speechカウントをリセット
+            _noSpeechErrorCount = 0;
+            AppLogger.warning(
+              'Speech error: ${error.errorMsg} (permanent=${error.permanent})',
+              tag: 'PronunciationGameSession',
+            );
+          }
+
+          // エラー発生時はフラグをリセット
+          final wasStateListening = state.isListening;
+          _isListeningActive = false;
+          _lastListeningStopTime = now;
+
+          // state.isListening も必ず false に戻す
+          if (wasStateListening) {
+            state = state.copyWith(isListening: false);
+          }
+
+          // No speech detectedが連続で発生した場合は自動再起動を停止
+          if (isNoSpeechError && _noSpeechErrorCount >= _SpeechTimingConstants.maxNoSpeechErrors) {
+            AppLogger.warning(
+              'Too many consecutive no-speech errors. Waiting for user action.',
+              tag: 'PronunciationGameSession',
+            );
+            // 状態を更新してユーザーにマイクボタンをタップするよう促す
+            return;
+          }
+
+          // permanent=true のエラー（権限なしなど）は再起動しない
+          final shouldRestart = !error.permanent &&
+              !_isDisposed &&
+              state.isPlaying &&
+              !state.isFinished &&
+              !_isProcessingResult;
+
+          if (shouldRestart) {
+            _scheduleListeningRestart();
+          } else if (error.permanent) {
+            // permanent エラーの場合はゲームを停止
+            AppLogger.error(
+              'PERMANENT ERROR - stopping game: ${error.errorMsg}',
+              tag: 'PronunciationGameSession',
+            );
+            _endGame();
           }
         },
         onStatus: (status) {
           // プロバイダーが破棄されている場合は何もしない
           if (_isDisposed) return;
 
-          AppLogger.info(
-            'Speech recognition status: $status, isListeningActive=$_isListeningActive',
-            tag: 'PronunciationGameSession',
-          );
-          // 自動的にリスタートする処理（デバウンス付き）
-          if (status == 'notListening' &&
-              !_isDisposed &&
-              state.isPlaying &&
-              !state.isFinished &&
-              !_isProcessingResult) {
-            // isListeningActiveがtrueだった場合、またはstate.isListeningがtrueの場合に再開
-            if (_isListeningActive || state.isListening) {
-              _isListeningActive = false; // フラグをリセット
-              final now = DateTime.now();
-              // 前回のリスタートから500ms以上経過している場合のみ再起動
-              if (_lastRestartTime == null ||
-                  now.difference(_lastRestartTime!).inMilliseconds > 500) {
-                _lastRestartTime = now;
-                AppLogger.info(
-                  'Restarting listening due to notListening status',
-                  tag: 'PronunciationGameSession',
-                );
-                _restartListening();
-              } else {
-                AppLogger.info(
-                  'Skipping restart: debounce period',
-                  tag: 'PronunciationGameSession',
-                );
-              }
+          // ステータス変更追跡
+          final now = DateTime.now();
+          final previousStatus = _lastStatus;
+          _lastStatusChangeTime = now;
+          _lastStatus = status;
+
+          // 重要なステータス変更のみログ出力
+          if (status != previousStatus) {
+            AppLogger.info(
+              'Speech status: $previousStatus -> $status',
+              tag: 'PronunciationGameSession',
+            );
+          }
+
+          // セッション終了を示すステータスでフラグを更新
+          // 注意: 再起動はonErrorコールバックでのみ行う（競合防止のため）
+          // onStatusでは状態の更新のみを行う
+          final isEndStatus = status == 'notListening' ||
+              status == 'done' ||
+              status == 'doneNoResult';
+
+          if (isEndStatus && (_isListeningActive || state.isListening)) {
+            _isListeningActive = false;
+            _lastListeningStopTime = now;
+            // state.isListeningはonErrorで既に更新されている可能性があるため、
+            // 必要な場合のみ更新
+            if (state.isListening) {
+              state = state.copyWith(isListening: false);
             }
+            // 注意: ここでは_scheduleListeningRestart()を呼ばない
+            // 再起動はonErrorコールバックで処理される
           }
         },
       );
@@ -205,7 +352,15 @@ class PronunciationGameSession extends _$PronunciationGameSession {
   }
 
   /// ゲームを開始
-  Future<void> startGame() async {
+  /// 戻り値: 成功した場合は true、初期化に失敗した場合は false
+  Future<bool> startGame() async {
+    // 新しいセッションIDを発行（古いコールバックを無効化するため）
+    _sessionId++;
+    AppLogger.info(
+      'Starting new game session: $_sessionId',
+      tag: 'PronunciationGameSession',
+    );
+
     // 前回のゲームセッションをクリーンアップ
     await _cleanupPreviousSession();
 
@@ -213,10 +368,10 @@ class PronunciationGameSession extends _$PronunciationGameSession {
     final initialized = await initializeSpeech();
     if (!initialized) {
       AppLogger.error(
-        'Failed to initialize speech recognition',
+        '❌ [startGame] Failed to initialize speech recognition - returning false',
         tag: 'PronunciationGameSession',
       );
-      return;
+      return false;
     }
 
     // 単語をロード（ランキングゲームと同じ単語を使用）
@@ -258,147 +413,259 @@ class PronunciationGameSession extends _$PronunciationGameSession {
 
     // 音声認識開始
     await _startListening();
+
+    AppLogger.info(
+      '✅ [startGame] Game started successfully',
+      tag: 'PronunciationGameSession',
+    );
+    return true;
   }
 
   /// 音声認識を開始
   Future<void> _startListening() async {
-    AppLogger.info(
-      'Starting listening: speechToText=$_speechToText, initialized=$_speechInitialized, active=$_isListeningActive',
-      tag: 'PronunciationGameSession',
-    );
-
     if (_speechToText == null || !_speechInitialized) {
       AppLogger.warning(
-        'Cannot start listening: speechToText or not initialized',
-        tag: 'PronunciationGameSession',
-      );
-      return;
-    }
-    if (_isListeningActive) {
-      AppLogger.info(
-        'Listening already active, skipping',
+        'Cannot start listening: speech not initialized',
         tag: 'PronunciationGameSession',
       );
       return;
     }
 
+    if (_isListeningActive) {
+      // 既にリスニング中の場合はスキップ
+      return;
+    }
+
+    final startTime = DateTime.now();
     _isListeningActive = true;
-    // リスニング開始時に認識テキストをクリア
-    state = state.copyWith(isListening: true, recognizedText: '');
+    _lastListeningStartTime = startTime;
+    // リスニング状態を更新（recognizedTextは保持 - 自動再起動時に認識結果を消さないため）
+    state = state.copyWith(isListening: true);
+
+    // 現在のセッションIDをキャプチャ（古いセッションからのコールバックを無視するため）
+    final currentSessionId = _sessionId;
 
     try {
       // 既存のリスニングセッションをキャンセル
       if (_speechToText!.isListening) {
         await _speechToText!.stop();
-        await Future.delayed(const Duration(milliseconds: 100));
+        await Future.delayed(_SpeechTimingConstants.preListenStopDelay);
       }
 
       // 検出した韓国語ロケール、なければko_KRを使用
       final localeId = _koreanLocaleId ?? 'ko_KR';
+
       AppLogger.info(
-        'Using locale: $localeId, speechToText.isListening=${_speechToText!.isListening}',
+        'Starting speech recognition (locale=$localeId)',
         tag: 'PronunciationGameSession',
       );
 
-      await _speechToText!.listen(
-        onResult: _onSpeechResult,
+      final started = await _speechToText!.listen(
+        onResult: (result) {
+          // セッションIDが一致する場合のみ処理
+          if (_sessionId == currentSessionId) {
+            _onSpeechResult(result);
+          }
+        },
         localeId: localeId,
         listenMode: ListenMode.dictation,
         cancelOnError: false,
         partialResults: true,
-        listenFor: const Duration(seconds: 10), // 最大10秒間リスニング
-        pauseFor: const Duration(seconds: 2), // 2秒の無音で判定
+        // タイミング定数を使用（iOSの内部タイムアウトと競合しないよう調整済み）
+        listenFor: _SpeechTimingConstants.listenForDuration,
+        pauseFor: _SpeechTimingConstants.pauseForDuration,
       );
+
+      // listen() の戻り値を確認
+      if (!started) {
+        AppLogger.warning(
+          'listen() returned false - scheduling retry',
+          tag: 'PronunciationGameSession',
+        );
+
+        _isListeningActive = false;
+        _lastListeningStopTime = DateTime.now();
+        state = state.copyWith(isListening: false);
+
+        if (state.isPlaying && !state.isFinished && !_isProcessingResult) {
+          _scheduleListeningRestart();
+        }
+        return;
+      }
+
       AppLogger.info(
-        'Speech listening started successfully with locale: $localeId',
+        'Speech recognition started successfully',
         tag: 'PronunciationGameSession',
       );
     } catch (e) {
       AppLogger.error(
-        'Failed to start listening',
+        'Failed to start listening: $e',
         tag: 'PronunciationGameSession',
         error: e,
       );
+
       _isListeningActive = false;
+      _lastListeningStopTime = DateTime.now();
       state = state.copyWith(isListening: false);
 
-      // エラー発生時はリトライ
       if (state.isPlaying && !state.isFinished && !_isProcessingResult) {
-        AppLogger.info(
-          'Retrying listening after error...',
-          tag: 'PronunciationGameSession',
-        );
-        Future.delayed(const Duration(milliseconds: 500), () {
-          if (state.isPlaying && !state.isFinished && !_isProcessingResult && !_isListeningActive) {
-            _startListening();
-          }
-        });
+        _scheduleListeningRestart();
       }
     }
   }
 
-  /// 音声認識を再開（停止してから開始）
-  Future<void> _restartListening() async {
+  /// 音声認識の再起動をスケジュール（排他制御・デバウンス・バックオフ・最大回数制限付き）
+  void _scheduleListeningRestart() {
+    final now = DateTime.now();
+
+    // デバウンス: 短期間に複数のリクエストが来た場合は無視
+    if (_lastRestartScheduleTime != null) {
+      final timeSinceLastSchedule = now.difference(_lastRestartScheduleTime!);
+      if (timeSinceLastSchedule < _SpeechTimingConstants.restartDebounceTime) {
+        AppLogger.info(
+          'Restart debounced (${timeSinceLastSchedule.inMilliseconds}ms since last schedule)',
+          tag: 'PronunciationGameSession',
+        );
+        return;
+      }
+    }
+
+    _restartCount++;
+    _consecutiveRestartCount++;
+    _lastRestartScheduleTime = now;
+
+    // 既に再起動処理中の場合はスキップ
+    if (_isRestartingListening) {
+      AppLogger.info(
+        'Restart already in progress, skipping',
+        tag: 'PronunciationGameSession',
+      );
+      return;
+    }
+
+    // 最大連続再起動回数を超えた場合は自動再起動を停止
+    if (_consecutiveRestartCount > _SpeechTimingConstants.maxConsecutiveRestarts) {
+      AppLogger.warning(
+        'Max consecutive restarts reached ($_consecutiveRestartCount). '
+        'Stopping auto-restart. User can tap mic to restart manually.',
+        tag: 'PronunciationGameSession',
+      );
+      // isListeningをfalseにしてUIに反映（マイクボタンが非アクティブ表示になる）
+      if (state.isListening) {
+        state = state.copyWith(isListening: false);
+      }
+      return;
+    }
+
+    _isRestartingListening = true;
+
+    // 指数バックオフ: 連続再起動が増えると待機時間を指数的に増やす
+    final backoffMultiplier = 1 << (_consecutiveRestartCount - 1); // 2^(count-1)
+    final backoffDelay = Duration(
+      milliseconds: _SpeechTimingConstants.baseRestartDelay.inMilliseconds +
+          (backoffMultiplier * _SpeechTimingConstants.backoffIncrement.inMilliseconds),
+    );
+
     AppLogger.info(
-      'Restarting listening: isPlaying=${state.isPlaying}, isFinished=${state.isFinished}',
+      'Scheduling restart #$_consecutiveRestartCount (delay: ${backoffDelay.inMilliseconds}ms)',
       tag: 'PronunciationGameSession',
     );
 
+    // バックオフ時間を待ってから再起動
+    Future.delayed(backoffDelay, () async {
+      if (_isDisposed || !state.isPlaying || state.isFinished || _isProcessingResult) {
+        _isRestartingListening = false;
+        return;
+      }
+
+      await _restartListening();
+    });
+  }
+
+  /// 音声認識を再開（停止してから開始）
+  Future<void> _restartListening() async {
     if (!state.isPlaying || state.isFinished) {
-      AppLogger.info(
-        'Skip restart: game not playing or finished',
-        tag: 'PronunciationGameSession',
-      );
+      _isRestartingListening = false;
       return;
     }
 
     // まず停止
     await _stopListening();
 
-    // 認識テキストはクリアしない（再開時に_startListeningでクリアされる）
+    // iOSセッションのクリーンアップを待つ
+    await Future.delayed(_SpeechTimingConstants.restartCleanupDelay);
 
-    // 少し待ってから再開
-    await Future.delayed(const Duration(milliseconds: 300));
-    if (!state.isPlaying || state.isFinished) return;
+    if (_isDisposed || !state.isPlaying || state.isFinished) {
+      _isRestartingListening = false;
+      return;
+    }
+
+    // _startListening を呼ぶ前に _isRestartingListening を false にして、
+    // 失敗時の再試行スケジュールがガードでブロックされないようにする
+    _isRestartingListening = false;
 
     await _startListening();
+
+    // リスニングが開始されたか確認し、失敗していれば再試行をスケジュール
+    if (!_isListeningActive && state.isPlaying && !state.isFinished && !_isProcessingResult) {
+      _scheduleListeningRestart();
+    }
   }
 
   /// 音声認識を停止
   Future<void> _stopListening() async {
+    final wasStateListening = state.isListening;
+    final wasSpeechListening = _speechToText?.isListening ?? false;
+
     _isListeningActive = false;
-    if (_speechToText != null && _speechToText!.isListening) {
-      await _speechToText!.stop();
+    _lastListeningStopTime = DateTime.now();
+
+    if (_speechToText != null) {
+      // stop() と cancel() の両方を呼んでセッションを完全にクリーンアップ
+      if (wasSpeechListening) {
+        try {
+          await _speechToText!.stop();
+        } catch (e) {
+          // 停止時のエラーは無視
+        }
+      }
+
+      // cancel() を呼んでiOSの内部セッションを確実に解放
+      try {
+        await _speechToText!.cancel();
+      } catch (e) {
+        // キャンセル時のエラーは無視
+      }
     }
-    if (state.isListening) {
+
+    if (wasStateListening) {
       state = state.copyWith(isListening: false);
     }
   }
 
   /// 音声認識結果を処理
   void _onSpeechResult(SpeechRecognitionResult result) {
-    AppLogger.info(
-      'Speech result received: "${result.recognizedWords}", final: ${result.finalResult}',
-      tag: 'PronunciationGameSession',
-    );
+    // プロバイダーが破棄されている場合は何もしない
+    if (_isDisposed) return;
 
-    if (!state.isPlaying || state.currentWord == null) {
-      AppLogger.info(
-        'Ignoring result: isPlaying=${state.isPlaying}, currentWord=${state.currentWord}',
-        tag: 'PronunciationGameSession',
-      );
-      return;
-    }
+    if (!state.isPlaying || state.currentWord == null) return;
 
     final recognizedText = result.recognizedWords;
 
+    // 結果がある場合のみログ出力し、全てのエラーカウントをリセット
+    if (recognizedText.isNotEmpty) {
+      AppLogger.info(
+        'Recognized: "$recognizedText" (final=${result.finalResult}, confidence=${result.confidence.toStringAsFixed(2)})',
+        tag: 'PronunciationGameSession',
+      );
+      // 音声認識が成功したので、全てのエラーカウントをリセット
+      _consecutiveRestartCount = 0;
+      _noSpeechErrorCount = 0;
+      _lastSuccessfulRecognition = DateTime.now();
+    }
+
     // 即座に状態を更新してUIに反映
     state = state.copyWith(recognizedText: recognizedText);
-
-    AppLogger.info(
-      'State updated with recognizedText: "$recognizedText"',
-      tag: 'PronunciationGameSession',
-    );
 
     // 認識されたテキストとターゲットを比較
     _checkRecognition(recognizedText, result.finalResult);
@@ -469,8 +736,8 @@ class PronunciationGameSession extends _$PronunciationGameSession {
         recognizedNormalized.contains(targetNormalized) ||
         (targetNormalized.contains(recognizedNormalized) && recognizedNormalized.length > 1);
 
-    // 十分な長さの判定（70%以上、正規化後で比較）
-    final lengthMatch = recognizedNormalized.length >= targetNormalized.length * 0.7;
+    // 十分な長さの判定（90%以上、正規化後で比較）
+    final lengthMatch = recognizedNormalized.length >= targetNormalized.length * 0.9;
 
     AppLogger.info(
       'Partial match check: containsMatch=$containsMatch, lengthMatch=$lengthMatch '
@@ -547,10 +814,19 @@ class PronunciationGameSession extends _$PronunciationGameSession {
         lastInputResult: PronunciationInputResultType.none, // 次の問題ではニュートラルに戻す
       );
 
-      // 少し待ってからリスニングを再開
-      await Future.delayed(const Duration(milliseconds: 200));
+      // リスニングを再開（再起動処理との競合を防ぐ）
       if (state.isPlaying && !state.isFinished) {
-        await _startListening();
+        _isRestartingListening = true; // 再起動処理をブロック
+        try {
+          // iOSセッションが安定するまで十分待つ
+          await Future.delayed(_SpeechTimingConstants.resultProcessingDelay);
+          if (_isDisposed || !state.isPlaying || state.isFinished) return;
+          await _startListening();
+          // リスニングが開始されるまで少し待ってからフラグを解除
+          await Future.delayed(_SpeechTimingConstants.postListenSettleDelay);
+        } finally {
+          _isRestartingListening = false;
+        }
       }
     } finally {
       _isProcessingResult = false;
@@ -587,13 +863,70 @@ class PronunciationGameSession extends _$PronunciationGameSession {
         lastInputResult: PronunciationInputResultType.none, // ニュートラルに戻す
       );
 
-      // 少し待ってからリスニングを再開
-      await Future.delayed(const Duration(milliseconds: 200));
+      // リスニングを再開（再起動処理との競合を防ぐ）
       if (state.isPlaying && !state.isFinished) {
-        await _startListening();
+        _isRestartingListening = true; // 再起動処理をブロック
+        try {
+          // iOSセッションが安定するまで十分待つ
+          await Future.delayed(_SpeechTimingConstants.resultProcessingDelay);
+          if (_isDisposed || !state.isPlaying || state.isFinished) return;
+          await _startListening();
+          // リスニングが開始されるまで少し待ってからフラグを解除
+          await Future.delayed(_SpeechTimingConstants.postListenSettleDelay);
+        } finally {
+          _isRestartingListening = false;
+        }
       }
     } finally {
       _isProcessingResult = false;
+    }
+  }
+
+  /// 音声認識を手動で再起動（マイクボタンタップ時）
+  Future<void> restartSpeechRecognition() async {
+    if (!state.isPlaying || state.isFinished) return;
+
+    // 既に再起動処理中の場合はスキップ
+    if (_isRestartingListening) return;
+
+    _isRestartingListening = true;
+
+    try {
+      AppLogger.info(
+        'Manual restart requested',
+        tag: 'PronunciationGameSession',
+      );
+
+      // 手動再起動なので全てのエラーカウントをリセット
+      _consecutiveRestartCount = 0;
+      _noSpeechErrorCount = 0;
+      _lastRestartScheduleTime = null;
+
+      // まず現在の音声認識を完全に停止
+      _isListeningActive = false;
+      _lastListeningStopTime = DateTime.now();
+
+      if (_speechToText != null) {
+        try {
+          await _speechToText!.stop();
+          await _speechToText!.cancel();
+        } catch (e) {
+          // 停止時のエラーは無視
+        }
+      }
+
+      // UIに停止状態を反映
+      state = state.copyWith(isListening: false, recognizedText: '');
+
+      // iOSセッションのクリーンアップを待つ
+      await Future.delayed(_SpeechTimingConstants.manualRestartDelay);
+
+      if (_isDisposed || !state.isPlaying || state.isFinished) return;
+
+      // 音声認識を再開
+      await _startListening();
+    } finally {
+      _isRestartingListening = false;
     }
   }
 
@@ -619,10 +952,19 @@ class PronunciationGameSession extends _$PronunciationGameSession {
       totalMistakes: state.totalMistakes + 1,
     );
 
-    // 少し待ってからリスニングを再開
-    await Future.delayed(const Duration(milliseconds: 300));
+    // リスニングを再開（再起動処理との競合を防ぐ）
     if (state.isPlaying && !state.isFinished) {
-      await _startListening();
+      _isRestartingListening = true; // 再起動処理をブロック
+      try {
+        // iOSセッションが安定するまで十分待つ
+        await Future.delayed(_SpeechTimingConstants.resultProcessingDelay);
+        if (_isDisposed || !state.isPlaying || state.isFinished) return;
+        await _startListening();
+        // リスニングが開始されるまで少し待ってからフラグを解除
+        await Future.delayed(_SpeechTimingConstants.postListenSettleDelay);
+      } finally {
+        _isRestartingListening = false;
+      }
     }
   }
 
@@ -672,10 +1014,33 @@ class PronunciationGameSession extends _$PronunciationGameSession {
 
   /// ゲームをリセット
   void reset() {
+    AppLogger.info(
+      'reset() called: sessionId=$_sessionId',
+      tag: 'PronunciationGameSession',
+    );
+
     _gameTimer?.cancel();
+    _gameTimer = null;
     _stopListening();
+
+    // 音声認識インスタンスを完全にクリーンアップ
+    if (_speechToText != null) {
+      try {
+        _speechToText!.cancel();
+      } catch (e) {
+        // リセット時のエラーは無視
+      }
+      _speechToText = null;
+    }
+
+    // 全てのフラグをリセット
+    _speechInitialized = false;
     _isListeningActive = false;
+    _isRestartingListening = false;
     _isProcessingResult = false;
+    _koreanLocaleId = null;
+    // sessionIdはリセットしない - 次のstartGame()でインクリメントされる
+
     state = PronunciationGameSessionState.initial(state.difficulty);
   }
 }

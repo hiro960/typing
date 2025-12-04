@@ -45,9 +45,6 @@ class SubscriptionRepository {
       final status = e.response?.statusCode;
       final body = e.response?.data;
       final message = 'verify failed status=$status body=$body error=$e';
-      // ログ用途
-      // ignore: avoid_print
-      print('[Billing] $message');
       throw Exception(message);
     }
   }

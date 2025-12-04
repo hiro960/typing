@@ -1,5 +1,3 @@
-import 'dart:developer' as developer;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
@@ -87,14 +85,7 @@ class _PronunciationGameResultScreenState
         _isSubmitting = false;
         _resultResponse = response;
       });
-    } catch (e, stackTrace) {
-      developer.log(
-        '発音ゲーム結果送信エラー',
-        name: 'PronunciationGameResultScreen',
-        error: e,
-        stackTrace: stackTrace,
-      );
-
+    } catch (e) {
       if (!mounted) return;
 
       setState(() {

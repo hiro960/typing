@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:developer' as developer;
-// import 'dart:math' as developer;
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -111,8 +109,6 @@ class TypingSession extends _$TypingSession {
     // null checkの後、String型の変数に代入
     final expectedJamo = expectedJamoNullable;
 
-    developer.log('Input: $char, Expected jamo: $expectedJamo, Position: ${current.currentPosition}');
-
     // 字母が入力された場合、即座に検証
     if (_jamos.contains(char)) {
       if (char == expectedJamo) {
@@ -169,7 +165,6 @@ class TypingSession extends _$TypingSession {
     String expectedJamo,
     HangulComposer composer,
   ) {
-    developer.log('Correct! Moving to next jamo');
 
     final updatedRecords = [...current.records];
     updatedRecords.add(
@@ -202,7 +197,6 @@ class TypingSession extends _$TypingSession {
     String expectedJamo,
     HangulComposer composer,
   ) {
-    developer.log('Mistake! Expected: $expectedJamo, Got: $inputChar');
 
     final updatedMistakes = Map<String, int>.from(current.mistakeHistory);
     updatedMistakes[inputChar] = (updatedMistakes[inputChar] ?? 0) + 1;

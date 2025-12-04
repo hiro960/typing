@@ -4,10 +4,8 @@ import 'package:chaletta/ui/app_spacing.dart';
 import 'package:chaletta/ui/utils/snackbar_helper.dart';
 import 'package:chaletta/ui/widgets/app_page_scaffold.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
-import 'package:in_app_purchase/in_app_purchase.dart';
 
 class PremiumFeatureGateScreen extends ConsumerStatefulWidget {
   const PremiumFeatureGateScreen({super.key, this.focusFeature});
@@ -191,19 +189,7 @@ class PremiumFeatureGate extends StatelessWidget {
 }
 
 void _logError(Object error) {
-  if (error is PlatformException) {
-    debugPrint(
-      '[IAP] PlatformException ${error.code}: ${error.message} details=${error.details}',
-    );
-    return;
-  }
-  if (error is IAPError) {
-    debugPrint(
-      '[IAP] ${error.code}: ${error.message} details=${error.details}',
-    );
-    return;
-  }
-  debugPrint('[IAP] error: $error');
+  // 本番環境ではログ出力を行わない
 }
 
 class _BenefitCard extends StatelessWidget {
