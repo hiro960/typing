@@ -121,6 +121,9 @@ class _RankingGameResultScreenState
     }
   }
 
+  /// シェアボタンのGlobalKeyを保持（iPadでのシェアポップオーバー表示位置用）
+  final GlobalKey _shareButtonKey = GlobalKey();
+
   void _shareResult() {
     final diffLabel = _getDifficultyLabel(widget.difficulty);
     final rankText = _resultResponse != null
@@ -144,7 +147,16 @@ $newBestText
 #韓国語学習 #チャレッタ
 ''';
 
-    Share.share(shareText.trim());
+    // iPadではシェアポップオーバーの表示位置を指定する必要がある
+    final box = _shareButtonKey.currentContext?.findRenderObject() as RenderBox?;
+    final sharePositionOrigin = box != null
+        ? box.localToGlobal(Offset.zero) & box.size
+        : null;
+
+    Share.share(
+      shareText.trim(),
+      sharePositionOrigin: sharePositionOrigin,
+    );
   }
 
   @override
@@ -160,6 +172,7 @@ $newBestText
       onBack: () => Navigator.of(context).pop(),
       actions: [
         FHeaderAction(
+          key: _shareButtonKey,
           icon: const Icon(Icons.share),
           onPress: _shareResult,
         ),

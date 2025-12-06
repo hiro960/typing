@@ -68,10 +68,8 @@ class Auth0Service {
         },
         parameters: {
           'ui_locales': 'ja', // OpenID Connect仕様: 日本語UIを要求
-          'prompt': 'login', // 常にログイン画面を表示（セッションキャッシュを無視）
         },
       );
-
 
       return AuthTokens(
         accessToken: credentials.accessToken,

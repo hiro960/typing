@@ -12,6 +12,7 @@ class AppPageScaffold extends StatelessWidget {
     this.onBack,
     this.onRefresh,
     this.scaffoldStyle,
+    this.headerStyle,
     this.toasterStyle,
     this.childPad = false,
     this.sidebar,
@@ -41,6 +42,10 @@ class AppPageScaffold extends StatelessWidget {
   final Future<void> Function()? onRefresh;
 
   final FScaffoldStyle Function(FScaffoldStyle style)? scaffoldStyle;
+
+  /// Header style customization (optional)
+  final FHeaderStyle Function(FHeaderStyle style)? headerStyle;
+
   final FToasterStyle Function(FToasterStyle style)? toasterStyle;
   final bool childPad;
   final Widget child;
@@ -76,6 +81,7 @@ class AppPageScaffold extends StatelessWidget {
     if (showBackButton && Navigator.of(context).canPop()) {
       header = FHeader.nested(
         title: titleWidget,
+        style: headerStyle,
         prefixes: [
           FHeaderAction.back(
             onPress: onBack ?? () => Navigator.of(context).maybePop(),
@@ -86,6 +92,7 @@ class AppPageScaffold extends StatelessWidget {
     } else {
       header = FHeader(
         title: titleWidget,
+        style: headerStyle,
         suffixes: actions ?? [],
       );
     }

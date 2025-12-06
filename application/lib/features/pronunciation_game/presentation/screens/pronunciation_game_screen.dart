@@ -22,16 +22,12 @@ class PronunciationGameScreen extends ConsumerStatefulWidget {
 class _PronunciationGameScreenState
     extends ConsumerState<PronunciationGameScreen> {
   bool _isStarted = false;
-
-  @override
-  void dispose() {
-    // 画面破棄時にプロバイダーをリセットして、音声認識リソースをクリーンアップ
-    // dispose前にリセットを呼ぶことで、refが有効な間に処理を完了
-    ref.read(pronunciationGameSessionProvider(widget.difficulty).notifier).reset();
-    super.dispose();
-  }
-
   bool _isStarting = false;
+
+  // Note: dispose時のリソースクリーンアップはプロバイダー側のref.onDisposeで行われる
+  // ウィジェットのdispose内でプロバイダーのstateを変更するとRiverpodの制約でエラーになるため、
+  // 画面側からはreset()を呼ばない。次回startGame()時に_cleanupPreviousSession()で
+  // 前回のセッションがクリーンアップされる。
 
   Future<void> _startGame() async {
     // 重複起動を防止
@@ -59,20 +55,42 @@ class _PronunciationGameScreenState
   void _showInitializationErrorDialog() {
     showDialog<void>(
       context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('音声認識の初期化に失敗'),
-        content: const Text(
-          'マイクの権限を確認してください。\n'
-          '設定アプリから、このアプリにマイクのアクセスを許可する必要があります。',
+      barrierDismissible: false,
+      builder: (dialogContext) => AlertDialog(
+        icon: const Icon(
+          Icons.mic_off,
+          color: AppColors.error,
+          size: 48,
+        ),
+        title: const Text('マイクが使用できません'),
+        content: const Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              '発音ゲームにはマイクの使用が必要です。',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 12),
+            Text(
+              '以下を確認してください：\n'
+              '• 設定アプリでマイクの権限を許可\n'
+              '• 他のアプリがマイクを使用していないか確認\n'
+              '• デバイスのマイクが正常に動作しているか確認',
+            ),
+          ],
         ),
         actions: [
           TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text('閉じる'),
+            onPressed: () {
+              Navigator.of(dialogContext).pop();
+              Navigator.of(context).pop(); // ゲーム画面から戻る
+            },
+            child: const Text('戻る'),
           ),
           TextButton(
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.of(dialogContext).pop();
               _startGame(); // 再試行
             },
             child: const Text('再試行'),
@@ -232,11 +250,11 @@ class _PronunciationGameScreenState
   String _getTimeLimit() {
     switch (widget.difficulty) {
       case 'beginner':
-        return '制限時間 60秒';
+        return '制限時間 30秒';
       case 'intermediate':
-        return '制限時間 90秒';
+        return '制限時間 45秒';
       case 'advanced':
-        return '制限時間 120秒';
+        return '制限時間 60秒';
       default:
         return '';
     }

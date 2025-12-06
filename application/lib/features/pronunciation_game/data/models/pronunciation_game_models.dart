@@ -242,13 +242,13 @@ abstract class PronunciationGameSessionState with _$PronunciationGameSessionStat
   static int _getInitialTime(String difficulty) {
     switch (difficulty) {
       case 'beginner':
-        return 60000; // 60秒
+        return 30000; // 30秒
       case 'intermediate':
-        return 90000; // 90秒
+        return 45000; // 45秒
       case 'advanced':
-        return 120000; // 120秒
+        return 60000; // 60秒
       default:
-        return 60000;
+        return 30000;
     }
   }
 

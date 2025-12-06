@@ -3,9 +3,11 @@ import 'package:chaletta/features/paywall/domain/subscription_state.dart';
 import 'package:chaletta/ui/app_spacing.dart';
 import 'package:chaletta/ui/utils/snackbar_helper.dart';
 import 'package:chaletta/ui/widgets/app_page_scaffold.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PremiumFeatureGateScreen extends ConsumerStatefulWidget {
   const PremiumFeatureGateScreen({super.key, this.focusFeature});
@@ -28,8 +30,7 @@ class _PremiumFeatureGateScreenState
 
     ref.listen<SubscriptionState>(subscriptionControllerProvider, (prev, next) {
       if (next.isSuccess) {
-        final message =
-            _isRestoring ? '購入情報を復元しました！' : 'プロプランにアップグレードしました！';
+        final message = _isRestoring ? '購入情報を復元しました！' : 'プロプランにアップグレードしました！';
         SnackBarHelper.showSuccess(context, message);
         Navigator.of(context).maybePop();
       } else if (next.hasError && next.error != null) {
@@ -99,90 +100,85 @@ class PremiumFeatureGate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return SafeArea(
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Center(
-              child: Icon(
-                Icons.workspace_premium_outlined,
-                size: 56,
-                color: theme.colorScheme.primary,
+    return SingleChildScrollView(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+      child: Column(
+        children: [
+          Icon(
+            Icons.workspace_premium_outlined,
+            size: 56,
+            color: theme.colorScheme.primary,
+          ),
+          const SizedBox(height: AppSpacing.md),
+          Text(
+            '$focusFeatureはプロプラン専用です',
+            style: theme.textTheme.titleLarge?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: AppSpacing.xs),
+          Text(
+            '月額¥600でアップグレードすると、AIサポートと詳細分析が使い放題になります。',
+            style: theme.textTheme.bodyMedium?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: AppSpacing.xxl),
+          _BenefitCard(
+            icon: Icons.chat_bubble_outline,
+            title: 'AI先生に質問ができる',
+            description: '韓国語の疑問をAIに聞けます。表現の幅をすぐに増やせます。',
+          ),
+          const SizedBox(height: AppSpacing.md),
+          _BenefitCard(
+            icon: Icons.auto_fix_high_outlined,
+            title: 'AI先生の添削',
+            description: '文法・表現のミスを指摘して、より自然な文章に整えます。',
+          ),
+          const SizedBox(height: AppSpacing.md),
+          _BenefitCard(
+            icon: Icons.analytics_outlined,
+            title: '詳細な学習分析レポート',
+            description: '苦手なキー・成長推移・学習習慣を可視化し、効率アップを後押し。',
+          ),
+          const SizedBox(height: AppSpacing.xxl),
+          SizedBox(
+            width: double.infinity,
+            child: FButton(
+              onPress: isLoading ? null : onSubscribe,
+              child: isLoading
+                  ? const SizedBox(
+                      width: 18,
+                      height: 18,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    )
+                  : const Text('月額¥600でアップグレード'),
+            ),
+          ),
+          const SizedBox(height: AppSpacing.md),
+          TextButton(
+            onPressed: () => Navigator.of(context).maybePop(),
+            child: const Text('後で考える'),
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          TextButton(
+            onPressed: isLoading ? null : onRestore,
+            child: Text(
+              '購入情報を復元',
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: theme.colorScheme.onSurfaceVariant,
+                decoration: TextDecoration.underline,
               ),
             ),
-            const SizedBox(height: AppSpacing.md),
-            Center(
-              child: Text(
-                '$focusFeatureはプロプラン専用です',
-                style: theme.textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            const SizedBox(height: AppSpacing.xs),
-            Center(
-              child: Text(
-                '月額¥600でアップグレードすると、AIサポートと詳細分析が使い放題になります。',
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            const SizedBox(height: AppSpacing.xxl),
-            _BenefitCard(
-              icon: Icons.chat_bubble_outline,
-              title: 'AI先生に質問ができる',
-              description: '韓国語の疑問をAIに聞けます。表現の幅をすぐに増やせます。',
-            ),
-            const SizedBox(height: AppSpacing.md),
-            _BenefitCard(
-              icon: Icons.auto_fix_high_outlined,
-              title: 'AI先生の添削',
-              description: '文法・表現のミスを指摘して、より自然な文章に整えます。',
-            ),
-            const SizedBox(height: AppSpacing.md),
-            _BenefitCard(
-              icon: Icons.analytics_outlined,
-              title: '詳細な学習分析レポート',
-              description: '苦手なキー・成長推移・学習習慣を可視化し、効率アップを後押し。',
-            ),
-            const SizedBox(height: AppSpacing.xxl),
-            Padding(
-              padding: const EdgeInsets.all(AppSpacing.lg),
-              child: FButton(
-                onPress: isLoading ? null : onSubscribe,
-                child: isLoading
-                    ? const SizedBox(
-                        width: 18,
-                        height: 18,
-                        child: CircularProgressIndicator(strokeWidth: 2),
-                      )
-                    : const Text('月額¥600でアップグレード'),
-              ),
-            ),
-            const SizedBox(height: AppSpacing.lg),
-            TextButton(
-              onPressed: () => Navigator.of(context).maybePop(),
-              child: const Text('後で考える'),
-            ),
-            const SizedBox(height: AppSpacing.sm),
-            TextButton(
-              onPressed: isLoading ? null : onRestore,
-              child: Text(
-                '購入情報を復元',
-                style: theme.textTheme.bodySmall?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant,
-                  decoration: TextDecoration.underline,
-                ),
-              ),
-            ),
-            const SizedBox(height: AppSpacing.lg),
-          ],
-        ),
+          ),
+          const SizedBox(height: AppSpacing.lg),
+          const Divider(),
+          const SizedBox(height: AppSpacing.md),
+          const _LegalTextSection(),
+          const SizedBox(height: AppSpacing.lg),
+        ],
       ),
     );
   }
@@ -246,6 +242,80 @@ class _BenefitCard extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class _LegalTextSection extends StatefulWidget {
+  const _LegalTextSection();
+
+  @override
+  State<_LegalTextSection> createState() => _LegalTextSectionState();
+}
+
+class _LegalTextSectionState extends State<_LegalTextSection> {
+  final _termsRecognizer = TapGestureRecognizer();
+  final _privacyRecognizer = TapGestureRecognizer();
+
+  @override
+  void dispose() {
+    _termsRecognizer.dispose();
+    _privacyRecognizer.dispose();
+    super.dispose();
+  }
+
+  Future<void> _openUrl(String url) async {
+    final uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final linkStyle = theme.textTheme.bodySmall?.copyWith(
+      color: theme.colorScheme.primary,
+      decoration: TextDecoration.underline,
+    );
+    final textStyle = theme.textTheme.bodySmall?.copyWith(
+      color: theme.colorScheme.onSurfaceVariant,
+      height: 1.5,
+    );
+
+    return Column(
+      children: [
+        RichText(
+          textAlign: TextAlign.center,
+          text: TextSpan(
+            style: textStyle,
+            children: [
+              const TextSpan(text: '購入すると、'),
+              TextSpan(
+                text: '利用規約',
+                style: linkStyle,
+                recognizer: _termsRecognizer
+                  ..onTap = () => _openUrl('https://chaletta.app/terms'),
+              ),
+              const TextSpan(text: 'および'),
+              TextSpan(
+                text: 'プライバシーポリシー',
+                style: linkStyle,
+                recognizer: _privacyRecognizer
+                  ..onTap = () => _openUrl('https://chaletta.app/privacy'),
+              ),
+              const TextSpan(text: 'に同意したことになります。'),
+            ],
+          ),
+        ),
+        const SizedBox(height: AppSpacing.xs),
+        Text(
+          'サブスクリプションは1ヶ月ごとに自動更新されます。\n'
+          'いつでもApp Storeの設定から解約できます。',
+          style: textStyle,
+          textAlign: TextAlign.center,
+        ),
+      ],
     );
   }
 }
