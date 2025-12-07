@@ -1,0 +1,134 @@
+{
+  "id": "grm_expression_002",
+  "title": "-(으)ㄹ 만하다",
+  "subtitle": "価値表現（〜する価値がある）",
+  "category": "expression",
+  "level": "intermediate",
+  "tags": ["価値"],
+  "content": {
+    "summary": "「〜するに値する」「〜する価値がある」を表す表現で、推薦や肯定的評価を伝えるときに使います。",
+    "formationRules": [
+      {
+        "condition": "パッチムなし/ㄹ",
+        "form": "V + ㄹ 만하다",
+        "example": "보다 → 볼 만하다"
+      },
+      {
+        "condition": "パッチムあり",
+        "form": "V + 을 만하다",
+        "example": "먹다 → 먹을 만하다"
+      },
+      {
+        "condition": "否定形",
+        "form": "V + ㄹ/을 만하지 않다",
+        "example": "가 볼 만하지 않아요."
+      },
+      {
+        "condition": "程度副詞との併用",
+        "form": "정말/꽤 + V(으)ㄹ 만하다",
+        "example": "정말 가 볼 만해요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "推薦・評価",
+        "description": "訪問・体験する価値があるとすすめるとき。",
+        "examples": [
+          {
+            "korean": "이 식당은 정말 먹을 만해요.",
+            "japanese": "この食堂は本当に食べる価値があります。"
+          },
+          {
+            "korean": "그 영화, 볼 만했어요.",
+            "japanese": "その映画、見る価値がありました。"
+          }
+        ]
+      },
+      {
+        "title": "挑戦する価値",
+        "description": "何かに挑戦する価値があると述べる。",
+        "examples": [
+          {
+            "korean": "한번 가 볼 만한 곳이에요.",
+            "japanese": "一度行ってみる価値のある場所です。"
+          }
+        ]
+      },
+      {
+        "title": "否定的評価",
+        "description": "大した価値がないと婉曲に述べる。",
+        "examples": [
+          {
+            "korean": "기다릴 만하지는 않아요.",
+            "japanese": "待つほどの価値はありません。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-아/어 볼 만하다 と -(으)ㄹ 만하다",
+      "description": "-아/어 보다 は「試す」、-(으)ㄹ 만하다 は価値評価。「試してみる価値がある」は 둘 다 결합 가능.",
+      "examples": [
+        {
+          "grammarA": "-(으)ㄹ 만하다",
+          "sentenceA": "이 책은 읽을 만해요.",
+          "meaningA": "この本は読む価値があります。",
+          "grammarB": "-아/어 보다",
+          "sentenceB": "이 책을 한 번 읽어 볼게요.",
+          "meaningB": "この本を一度読んでみます。"
+        }
+      ]
+    },
+    "tips": [
+      "価値を言うときは 평가 대상 + V(으)ㄹ 만하다 の語順が自然です。",
+      "否定を柔らかくしたいときは 만하지는 않다 を使うとやさしい響きになります。",
+      "過去経験なら -(으)ㄹ 만했다、未来推薦なら -(으)ㄹ 만할 거예요。"
+    ],
+    "relatedGrammar": ["grm_expression_001", "grm_expression_003", "grm_ending_018"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "이 영화는 볼 만____요.",
+      "answer": "해",
+      "hint": "価値がある＝(으)ㄹ 만하다。",
+      "explanation": "보다 → 볼 만하다 → 볼 만해요。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"기다릴 만하지는 ___\" の空欄に入るものは？",
+      "choices": ["않아요", "못해요", "없어요", "됐어요"],
+      "answerIndex": 0,
+      "explanation": "価値がないと婉曲に否定するなら 않아요 を用います。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「この食堂は本当に食べる価値があります」を韓国語で入力してください",
+      "answer": "이 식당은 정말 먹을 만해요",
+      "acceptableAnswers": [
+        "이 식당은 정말 먹을 만해요",
+        "이 식당은 정말 먹을 만합니다"
+      ],
+      "hint": "먹다 → 먹을 만하다。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "一度行ってみる価値のある場所です。",
+      "answer": "한번 가 볼 만한 곳이에요",
+      "acceptableAnswers": [
+        "한번 가 볼 만한 곳이에요",
+        "한 번 가 볼 만한 곳입니다"
+      ],
+      "explanation": "試行+価値を 함께 사용하면 가 볼 만하다。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

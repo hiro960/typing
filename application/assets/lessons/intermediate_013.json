@@ -12,92 +12,77 @@
         "items": [
           {
             "text": "좋다",
-            "meaning": "良い",
-            "pronunciation": "チョッタ",
+            "meaning": "良い"
             "hint": "ㅈ + ㅗ + ㅎ + ㄷ + ㅏ"
           },
           {
             "text": "나쁘다",
-            "meaning": "悪い",
-            "pronunciation": "ナップダ",
+            "meaning": "悪い"
             "hint": "ㄴ + ㅏ + ㅃ + ㅡ + ㄷ + ㅏ"
           },
           {
             "text": "크다",
-            "meaning": "大きい",
-            "pronunciation": "クダ",
+            "meaning": "大きい"
             "hint": "ㅋ + ㅡ + ㄷ + ㅏ"
           },
           {
             "text": "작다",
-            "meaning": "小さい",
-            "pronunciation": "チャクタ",
+            "meaning": "小さい"
             "hint": "ㅈ + ㅏ + ㄱ + ㄷ + ㅏ"
           },
           {
             "text": "많다",
-            "meaning": "多い",
-            "pronunciation": "マンタ",
+            "meaning": "多い"
             "hint": "ㅁ + ㅏ + ㄶ + ㄷ + ㅏ"
           },
           {
             "text": "적다",
-            "meaning": "少ない",
-            "pronunciation": "チョクタ",
+            "meaning": "少ない"
             "hint": "ㅈ + ㅓ + ㄱ + ㄷ + ㅏ"
           },
           {
             "text": "길다",
-            "meaning": "長い",
-            "pronunciation": "キルダ",
+            "meaning": "長い"
             "hint": "ㄱ + ㅣ + ㄹ + ㄷ + ㅏ"
           },
           {
             "text": "짧다",
-            "meaning": "短い",
-            "pronunciation": "ッチャルタ",
+            "meaning": "短い"
             "hint": "ㅉ + ㅏ + ㄼ + ㄷ + ㅏ"
           },
           {
             "text": "높다",
-            "meaning": "高い",
-            "pronunciation": "ノプタ",
+            "meaning": "高い"
             "hint": "ㄴ + ㅗ + ㅍ + ㄷ + ㅏ"
           },
           {
             "text": "낮다",
-            "meaning": "低い",
-            "pronunciation": "ナッタ",
+            "meaning": "低い"
             "hint": "ㄴ + ㅏ + ㅈ + ㄷ + ㅏ"
           },
           {
             "text": "넓다",
-            "meaning": "広い",
-            "pronunciation": "ノルタ",
+            "meaning": "広い"
             "hint": "ㄴ + ㅓ + ㄼ + ㄷ + ㅏ"
           },
           {
             "text": "좁다",
-            "meaning": "狭い",
-            "pronunciation": "チョプタ",
+            "meaning": "狭い"
             "hint": "ㅈ + ㅗ + ㅂ + ㄷ + ㅏ"
           },
           {
             "text": "무겁다",
-            "meaning": "重い",
-            "pronunciation": "ムゴプタ",
+            "meaning": "重い"
             "hint": "ㅁ + ㅜ + ㄱ + ㅓ + ㅂ + ㄷ + ㅏ"
           },
           {
             "text": "가볍다",
-            "meaning": "軽い",
-            "pronunciation": "カビョプタ",
+            "meaning": "軽い"
             "hint": "ㄱ + ㅏ + ㅂ + ㅕ + ㅂ + ㄷ + ㅏ"
           },
           {
             "text": "깨끗하다",
-            "meaning": "きれいだ",
-            "pronunciation": "ッケックタダ",
+            "meaning": "きれいだ"
             "hint": "ㄲ + ㅐ + ㄲ + ㅡ + ㅅ + ㅎ + ㅏ + ㄷ + ㅏ"
           }
         ]

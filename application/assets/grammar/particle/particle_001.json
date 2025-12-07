@@ -1,0 +1,152 @@
+{
+  "id": "grm_particle_001",
+  "title": "이/가",
+  "subtitle": "主格助詞（〜が）",
+  "category": "particle",
+  "level": "beginner",
+  "tags": ["主格", "基本"],
+  "content": {
+    "summary": "名詞の後について、その名詞が文の主語であることを示す助詞です。日本語の「が」に相当します。",
+    "formationRules": [
+      {
+        "condition": "パッチムあり",
+        "form": "이",
+        "example": "책이 (本が)"
+      },
+      {
+        "condition": "パッチムなし",
+        "form": "가",
+        "example": "사과가 (りんごが)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "主語を示す",
+        "description": "文の主語が何かを明確にします",
+        "examples": [
+          {
+            "korean": "사과가 맛있어요.",
+            "japanese": "りんごがおいしいです。"
+          },
+          {
+            "korean": "오빠가 왔어요.",
+            "japanese": "お兄さんが来ました。"
+          },
+          {
+            "korean": "책이 있어요.",
+            "japanese": "本があります。"
+          }
+        ]
+      },
+      {
+        "title": "強調・対比",
+        "description": "他のものと区別して強調する場合に使います",
+        "examples": [
+          {
+            "korean": "내가 할게요.",
+            "japanese": "私がやります。（私こそがやる）"
+          },
+          {
+            "korean": "누가 했어요?",
+            "japanese": "誰がやりましたか？"
+          }
+        ]
+      },
+      {
+        "title": "新しい情報の導入",
+        "description": "聞き手にとって新しい情報を伝える時に使います",
+        "examples": [
+          {
+            "korean": "비가 와요.",
+            "japanese": "雨が降っています。"
+          },
+          {
+            "korean": "친구가 왔어요.",
+            "japanese": "友達が来ました。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "은/는 との違い",
+      "description": "이/가は新情報や焦点を示し、은/는は旧情報や主題を示します。疑問詞（누구, 뭐 など）と使う場合は이/가を使います。",
+      "examples": [
+        {
+          "grammarA": "이/가",
+          "sentenceA": "누가 왔어요? - 철수가 왔어요.",
+          "meaningA": "誰が来ましたか？ - チョルスが来ました。（新情報・焦点）",
+          "grammarB": "은/는",
+          "sentenceB": "철수는 학생이에요.",
+          "meaningB": "チョルスは学生です。（主題）"
+        },
+        {
+          "grammarA": "이/가",
+          "sentenceA": "날씨가 좋아요.",
+          "meaningA": "天気がいいです。（今見て初めて気づいた）",
+          "grammarB": "은/는",
+          "sentenceB": "오늘은 날씨가 좋아요.",
+          "meaningB": "今日は天気がいいです。（今日という主題について）"
+        }
+      ]
+    },
+    "tips": [
+      "「私が」は「나가」ではなく「내가」になります（縮約形）",
+      "「誰が」は「누구가」ではなく「누가」になります",
+      "会話では「가」が省略されることがあります",
+      "疑問詞（누구, 뭐, 어디 など）と一緒に使う場合は必ず이/가を使います"
+    ],
+    "relatedGrammar": ["grm_particle_002", "grm_particle_003"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "사과___ 맛있어요.",
+      "answer": "가",
+      "hint": "「사과」にはパッチムがありません",
+      "explanation": "パッチムがない名詞の後には「가」を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "fill_blank",
+      "question": "책___ 있어요.",
+      "answer": "이",
+      "hint": "「책」にはパッチム「ㄱ」があります",
+      "explanation": "パッチムがある名詞の後には「이」を使います"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "次の中で正しい文章は?",
+      "choices": [
+        "나가 했어요.",
+        "내가 했어요.",
+        "나이 했어요.",
+        "내이 했어요."
+      ],
+      "answerIndex": 1,
+      "explanation": "「나 + 가」は縮約されて「내가」になります"
+    },
+    {
+      "id": "ex_004",
+      "type": "typing",
+      "question": "「本がある」を韓国語で入力してください",
+      "answer": "책이 있어요",
+      "acceptableAnswers": ["책이 있어요.", "책이 있어요", "책이있어요"],
+      "hint": "本 = 책、ある = 있어요"
+    },
+    {
+      "id": "ex_005",
+      "type": "choice",
+      "question": "「누구___왔어요?」の空欄に入る適切なものは？",
+      "choices": ["가", "는", "이", "을"],
+      "answerIndex": 0,
+      "explanation": "「누구」はパッチムがなく、疑問詞なので「가」を使います。また「누구가」は「누가」と縮約されます。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

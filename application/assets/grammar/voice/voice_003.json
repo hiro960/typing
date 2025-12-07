@@ -1,0 +1,146 @@
+{
+  "id": "grm_voice_003",
+  "title": "-리- 受身",
+  "subtitle": "듣다→들리다（聞こえる）",
+  "category": "voice",
+  "level": "intermediate",
+  "tags": [
+    "受身",
+    "接尾辞"
+  ],
+  "content": {
+    "summary": "感覚・伝達系の動詞に付き、聞こえる・伝わるなどを表す受身接尾辞です。",
+    "formationRules": [
+      {
+        "condition": "듣다",
+        "form": "들리다",
+        "example": "음악이 들리다"
+      },
+      {
+        "condition": "알다 (使役/受身)",
+        "form": "알려지다",
+        "example": "소식이 알려지다"
+      },
+      {
+        "condition": "울다→울리다(使役)",
+        "form": "사람을 울리다",
+        "example": "영화가 울리다"
+      },
+      {
+        "condition": "느끼다",
+        "form": "느껴지다",
+        "example": "기쁨이 느껴지다"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "感覚を表す",
+        "description": "音や気配が感じられること。",
+        "examples": [
+          {
+            "korean": "밖에서 음악이 들려요.",
+            "japanese": "外から音楽が聞こえます。"
+          },
+          {
+            "korean": "기쁨이 느껴졌어요.",
+            "japanese": "喜びが感じられました。"
+          }
+        ]
+      },
+      {
+        "title": "情報が伝わる",
+        "description": "噂・知らせが広がる。",
+        "examples": [
+          {
+            "korean": "그 소식이 금방 알려졌어요.",
+            "japanese": "その知らせがすぐ伝わりました。"
+          }
+        ]
+      },
+      {
+        "title": "感情を起こす(使役)",
+        "description": "울리다 で泣かせるなど。",
+        "examples": [
+          {
+            "korean": "감동적인 영화가 관객을 울렸어요.",
+            "japanese": "感動的な映画が観客を泣かせました。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-리- と -히/-이",
+      "description": "-리- は感覚・伝達系で限定、-히/-이 は一般的な受身化。",
+      "examples": [
+        {
+          "grammarA": "-리-",
+          "sentenceA": "음악이 들려요.",
+          "meaningA": "音楽が聞こえます。",
+          "grammarB": "-히-",
+          "sentenceB": "길이 막혔어요.",
+          "meaningB": "道が塞がりました。"
+        }
+      ]
+    },
+    "tips": [
+      "듣다→들리다, 알다→알려지다 をセットで覚える。",
+      "울리다 は使役なので文脈に注意。",
+      "能動形との意味差を確認しながら練習。"
+    ],
+    "relatedGrammar": [
+      "grm_voice_004",
+      "grm_voice_008",
+      "grm_voice_012"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "문이 ___ 있어요. (-히-/-이- などを入れてください)",
+      "answer": "닫혀",
+      "hint": "受身形の語尾を入れます。",
+      "explanation": "닫다 → 닫히다/닫혀요"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "‘먹다’の受身/使役形として正しいのは？",
+      "choices": [
+        "먹히다",
+        "먹기다",
+        "먹려다",
+        "먹어지다"
+      ],
+      "answerIndex": 0,
+      "explanation": "-히- を付けて 먹히다。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「子どもを座らせました」を韓国語で入力してください",
+      "answer": "아이를 앉혔어요",
+      "acceptableAnswers": [
+        "아이를 앉혔어요",
+        "아이를 앉게 했어요"
+      ],
+      "hint": "-히- 使役を使います。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "会議時間を皆に知らせました。",
+      "answer": "회의 시간을 모두에게 알렸어요",
+      "acceptableAnswers": [
+        "회의 시간을 모두에게 알렸어요",
+        "회의 시간을 모두에게 알리게 했어요"
+      ],
+      "explanation": "알리다 を使った使役/伝達。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

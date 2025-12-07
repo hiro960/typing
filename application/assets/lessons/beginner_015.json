@@ -12,32 +12,27 @@
         "items": [
           {
             "text": "ㅘ",
-            "meaning": "wa の音",
-            "pronunciation": "ワ",
+            "meaning": "wa の音"
             "hint": "「ワ」の音です"
           },
           {
             "text": "ㅝ",
-            "meaning": "wo の音",
-            "pronunciation": "ウォ",
+            "meaning": "wo の音"
             "hint": "「ウォ」の音です"
           },
           {
             "text": "ㅢ",
-            "meaning": "ui の音",
-            "pronunciation": "ウィ",
+            "meaning": "ui の音"
             "hint": "「ウィ」の音です"
           },
           {
             "text": "ㅚ",
-            "meaning": "oe の音",
-            "pronunciation": "ウェ",
+            "meaning": "oe の音"
             "hint": "「ウェ」の音です"
           },
           {
             "text": "ㅟ",
-            "meaning": "wi の音",
-            "pronunciation": "ウィ",
+            "meaning": "wi の音"
             "hint": "「ウィ」の音です"
           }
         ]
@@ -48,56 +43,47 @@
         "items": [
           {
             "text": "와",
-            "meaning": "と",
-            "pronunciation": "ワ",
+            "meaning": "と"
             "hint": "ㅇ + ㅘ"
           },
           {
             "text": "왜",
-            "meaning": "なぜ",
-            "pronunciation": "ウェ",
+            "meaning": "なぜ"
             "hint": "ㅇ + ㅙ"
           },
           {
             "text": "워",
-            "meaning": "～",
-            "pronunciation": "ウォ",
+            "meaning": "～"
             "hint": "ㅇ + ㅝ"
           },
           {
             "text": "의",
-            "meaning": "の",
-            "pronunciation": "ウィ",
+            "meaning": "の"
             "hint": "ㅇ + ㅢ"
           },
           {
             "text": "외국",
-            "meaning": "外国",
-            "pronunciation": "ウェグク",
+            "meaning": "外国"
             "hint": "ㅇ + ㅚ + ㄱ + ㅜ + ㄱ"
           },
           {
             "text": "왜냐하면",
-            "meaning": "なぜなら",
-            "pronunciation": "ウェニャハミョン",
+            "meaning": "なぜなら"
             "hint": "ㅇ + ㅙ + ㄴ + ㅑ + ㅎ + ㅏ + ㅁ + ㅕ + ㄴ"
           },
           {
             "text": "귀",
-            "meaning": "耳",
-            "pronunciation": "クィ",
+            "meaning": "耳"
             "hint": "ㄱ + ㅟ"
           },
           {
             "text": "취미",
-            "meaning": "趣味",
-            "pronunciation": "チュィミ",
+            "meaning": "趣味"
             "hint": "ㅊ + ㅟ + ㅁ + ㅣ"
           },
           {
             "text": "웨딩",
-            "meaning": "ウェディング",
-            "pronunciation": "ウェディン",
+            "meaning": "ウェディング"
             "hint": "ㅇ + ㅞ + ㄷ + ㅣ + ㅇ"
           }
         ]

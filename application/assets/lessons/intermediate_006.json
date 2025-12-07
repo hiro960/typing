@@ -12,92 +12,77 @@
         "items": [
           {
             "text": "물",
-            "meaning": "水",
-            "pronunciation": "ムル",
+            "meaning": "水"
             "hint": "ㅁ + ㅜ + ㄹ"
           },
           {
             "text": "차",
-            "meaning": "お茶",
-            "pronunciation": "チャ",
+            "meaning": "お茶"
             "hint": "ㅊ + ㅏ"
           },
           {
             "text": "커피",
-            "meaning": "コーヒー",
-            "pronunciation": "コピ",
+            "meaning": "コーヒー"
             "hint": "ㅋ + ㅓ + ㅍ + ㅣ"
           },
           {
             "text": "우유",
-            "meaning": "牛乳",
-            "pronunciation": "ウユ",
+            "meaning": "牛乳"
             "hint": "ㅇ + ㅜ + ㅇ + ㅠ"
           },
           {
             "text": "주스",
-            "meaning": "ジュース",
-            "pronunciation": "チュス",
+            "meaning": "ジュース"
             "hint": "ㅈ + ㅜ + ㅅ + ㅡ"
           },
           {
             "text": "술",
-            "meaning": "お酒",
-            "pronunciation": "スル",
+            "meaning": "お酒"
             "hint": "ㅅ + ㅜ + ㄹ"
           },
           {
             "text": "맥주",
-            "meaning": "ビール",
-            "pronunciation": "メクチュ",
+            "meaning": "ビール"
             "hint": "ㅁ + ㅐ + ㄱ + ㅈ + ㅜ"
           },
           {
             "text": "음료",
-            "meaning": "飲料",
-            "pronunciation": "ウムニョ",
+            "meaning": "飲料"
             "hint": "ㅇ + ㅡ + ㅁ + ㄴ + ㅛ"
           },
           {
             "text": "아침",
-            "meaning": "朝",
-            "pronunciation": "アチム",
+            "meaning": "朝"
             "hint": "ㅇ + ㅏ + ㅊ + ㅣ + ㅁ"
           },
           {
             "text": "점심",
-            "meaning": "昼",
-            "pronunciation": "チョムシム",
+            "meaning": "昼"
             "hint": "ㅈ + ㅓ + ㅁ + ㅅ + ㅣ + ㅁ"
           },
           {
             "text": "저녁",
-            "meaning": "夜",
-            "pronunciation": "チョニョク",
+            "meaning": "夜"
             "hint": "ㅈ + ㅓ + ㄴ + ㅕ + ㄱ"
           },
           {
             "text": "간식",
-            "meaning": "おやつ",
-            "pronunciation": "カンシク",
+            "meaning": "おやつ"
             "hint": "ㄱ + ㅏ + ㄴ + ㅅ + ㅣ + ㄱ"
           },
           {
             "text": "식사",
-            "meaning": "食事",
-            "pronunciation": "シクサ",
+            "meaning": "食事"
             "hint": "ㅅ + ㅣ + ㄱ + ㅅ + ㅏ"
           },
           {
             "text": "맛",
-            "meaning": "味",
-            "pronunciation": "マッ",
+            "meaning": "味"
             "hint": "ㅁ + ㅏ + ㅅ"
           },
           {
             "text": "요리",
-            "meaning": "料理",
-            "pronunciation": "ヨリ",
+            "meaning": "料理"
             "hint": "ㅇ + ㅛ + ㄹ + ㅣ"
           }
         ]

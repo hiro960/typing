@@ -1,0 +1,134 @@
+{
+  "id": "grm_expression_011",
+  "title": "-는 척하다",
+  "subtitle": "ふり表現（〜するふりをする）",
+  "category": "expression",
+  "level": "intermediate",
+  "tags": ["ふり"],
+  "content": {
+    "summary": "実際とは違う行動・状態を装うときに使う表現で、「〜するふりをする」に当たります。動詞の現在連体形に 척하다/체하다 を付けます。",
+    "formationRules": [
+      {
+        "condition": "基本形",
+        "form": "V + 는 척하다",
+        "example": "모르는 척하다 (知らないふりをする)"
+      },
+      {
+        "condition": "過去のふり",
+        "form": "V + (으)ㄴ 척하다",
+        "example": "들은 척했어요. (聞いたふりをしました)"
+      },
+      {
+        "condition": "체하다 の置換",
+        "form": "척하다 ↔ 체하다 (同義・若干古風)",
+        "example": "자는 체하다 (寝たふりをする)"
+      },
+      {
+        "condition": "名詞形表現",
+        "form": "N인 척하다",
+        "example": "학생인 척하다 (学生のふりをする)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "実際とは違う行動を装う",
+        "description": "見ていない・聞いていないなど、していないことを装います。",
+        "examples": [
+          {
+            "korean": "모르는 척했어요.",
+            "japanese": "知らないふりをしました。"
+          },
+          {
+            "korean": "못 들은 척하고 넘어갔어요.",
+            "japanese": "聞こえなかったふりをしてやり過ごしました。"
+          }
+        ]
+      },
+      {
+        "title": "感情を隠す",
+        "description": "本当の気持ちを隠して振る舞う。",
+        "examples": [
+          {
+            "korean": "괜찮은 척했지만 사실은 속상했어요.",
+            "japanese": "平気なふりをしたけれど、本当はつらかったです。"
+          }
+        ]
+      },
+      {
+        "title": "別の身分を装う",
+        "description": "学生・客など他の身分に見せかける。",
+        "examples": [
+          {
+            "korean": "학생인 척하고 할인받았어요.",
+            "japanese": "学生のふりをして割引を受けました。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-는 체하다 と -는 척하다",
+      "description": "ほぼ同義。체하다 はやや書き言葉/古風、척하다 は会話で一般的。",
+      "examples": [
+        {
+          "grammarA": "척하다",
+          "sentenceA": "모르는 척했어요.",
+          "meaningA": "知らないふりをしました。",
+          "grammarB": "체하다",
+          "sentenceB": "모르는 체했어요.",
+          "meaningB": "知らないふりをしました。"
+        }
+      ]
+    },
+    "tips": [
+      "過去のふりは -(으)ㄴ 척했다、進行中のふりは -는 척하고 있다 と表します。",
+      "名詞は N인 척하다 を用います。",
+      "装っていることを暗示するので、文脈で真実と違うことが分かる例を選びましょう。"
+    ],
+    "relatedGrammar": ["grm_expression_008", "grm_expression_012", "grm_ending_014"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "모르는 ___ 했어요.",
+      "answer": "척",
+      "hint": "「ふりをする」表現を入れます。",
+      "explanation": "모르는 척하다。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"들은 ___하고 넘어갔어요\" の空欄に入るものは？",
+      "choices": ["척", "체", "듯", "채"],
+      "answerIndex": 0,
+      "explanation": "聞こえたふり＝들은 척하다。체하다 も可だが一般形は 척。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「平気なふりをしたけれど本当はつらかったです」を韓国語で入力してください",
+      "answer": "괜찮은 척했지만 사실은 속상했어요",
+      "acceptableAnswers": [
+        "괜찮은 척했지만 사실은 속상했어요",
+        "괜찮은 체했지만 사실은 속상했어요"
+      ],
+      "hint": "척하다/체하다 どちらも可。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "学生のふりをして割引を受けました。",
+      "answer": "학생인 척하고 할인받았어요",
+      "acceptableAnswers": [
+        "학생인 척하고 할인받았어요",
+        "학생인 체하고 할인받았어요"
+      ],
+      "explanation": "名詞は N인 척하다/체하다 を使います。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

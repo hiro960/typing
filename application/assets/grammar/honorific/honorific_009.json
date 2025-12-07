@@ -1,0 +1,144 @@
+{
+  "id": "grm_honorific_009",
+  "title": "뵙다",
+  "subtitle": "보다の謙譲語（お目にかかる）",
+  "category": "honorific",
+  "level": "intermediate",
+  "tags": [
+    "謙譲",
+    "面会"
+  ],
+  "content": {
+    "summary": "目上の人に会うことをへりくだって表す表現で、「お目にかかる」に相当します。",
+    "formationRules": [
+      {
+        "condition": "基本形",
+        "form": "뵙다",
+        "example": "내일 뵙겠습니다."
+      },
+      {
+        "condition": "丁寧依頼",
+        "form": "뵈어요/뵙겠습니다",
+        "example": "다음 주에 뵙겠습니다."
+      },
+      {
+        "condition": "未来表現",
+        "form": "뵈러 가다/오다",
+        "example": "찾아뵙다 (訪ねてお目にかかる)"
+      },
+      {
+        "condition": "謙譲補助",
+        "form": "-께 뵙다",
+        "example": "선생님께 뵙겠습니다."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "面会の約束",
+        "description": "会う予定を丁寧に伝える。",
+        "examples": [
+          {
+            "korean": "내일 뵙겠습니다.",
+            "japanese": "明日お目にかかります。"
+          },
+          {
+            "korean": "곧 찾아뵐게요.",
+            "japanese": "すぐお伺いします。"
+          }
+        ]
+      },
+      {
+        "title": "訪問の謙譲表現",
+        "description": "訪ねて会うニュアンスで使います。",
+        "examples": [
+          {
+            "korean": "시간 되시면 찾아뵙고 싶습니다.",
+            "japanese": "お時間があればお伺いしたいです。"
+          }
+        ]
+      },
+      {
+        "title": "挨拶文",
+        "description": "メールや手紙の結びの挨拶でよく使います。",
+        "examples": [
+          {
+            "korean": "다음 기회에 꼭 뵙고 싶습니다.",
+            "japanese": "次の機会にぜひお目にかかりたいです。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "보다 と 뵙다",
+      "description": "보다 は中立、뵙다 は謙譲。目上に対しては必ず 뵙다 を使います。",
+      "examples": [
+        {
+          "grammarA": "뵙다",
+          "sentenceA": "선생님을 뵙겠습니다.",
+          "meaningA": "先生にお目にかかります。",
+          "grammarB": "보다",
+          "sentenceB": "친구를 봤어요.",
+          "meaningB": "友達に会いました。"
+        }
+      ]
+    },
+    "tips": [
+      "찾아뵙다/뵈러 가다 などと組み合わせると自然です。",
+      "初対面の挨拶で「初めてお目にかかります」は 처음 뵙겠습니다。",
+      "尊敬対象には 께 を付けます。"
+    ],
+    "relatedGrammar": [
+      "grm_honorific_008",
+      "grm_honorific_010",
+      "grm_quotation_005"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "내일 ___?",
+      "answer": "뵙다",
+      "hint": "適切な敬語表現を入れます。",
+      "explanation": "尊敬・謙譲の形を用います。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "敬語として正しいものを選んでください",
+      "choices": [
+        "뵙다",
+        "뵙다",
+        "뵙요",
+        "뵙습니다"
+      ],
+      "answerIndex": 0,
+      "explanation": "目上には敬語形を使います。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "例文を韓国語で入力してください",
+      "answer": "내일 뵙겠습니다",
+      "acceptableAnswers": [
+        "내일 뵙겠습니다"
+      ],
+      "hint": "基本例文をそのまま入力します。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "目上に丁寧に言い換えてください。",
+      "answer": "다음 주에 뵙겠습니다",
+      "acceptableAnswers": [
+        "다음 주에 뵙겠습니다"
+      ],
+      "explanation": "丁寧形を使った表現です。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "id": "grm_interjection_004",
+  "title": "저기요",
+  "subtitle": "呼びかけ詞（すみません）",
+  "category": "interjection",
+  "level": "beginner",
+  "tags": ["呼びかけ"],
+  "content": {
+    "summary": "道で人に声をかけるときや店員を呼ぶときに使う「すみません」。相手の注意を引く呼びかけです。",
+    "formationRules": [
+      {
+        "condition": "基本",
+        "form": "저기요",
+        "example": "저기요, 계산해 주세요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "注意を引く",
+        "description": "街中や店で相手に声をかける",
+        "examples": [
+          {
+            "korean": "저기요, 길 좀 물어볼게요.",
+            "japanese": "すみません、道を少しお聞きしてもいいですか。"
+          }
+        ]
+      },
+      {
+        "title": "店員を呼ぶ",
+        "description": "飲食店などで店員を呼ぶとき",
+        "examples": [
+          {
+            "korean": "저기요, 여기 주문이요!",
+            "japanese": "すみませーん、注文お願いします！"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "실례합니다との違い",
+      "description": "실례합니다はより丁寧な謝罪ニュアンス。日常の呼びかけは저기요が自然です。"
+    },
+    "tips": [
+      "声を上げ過ぎず柔らかく呼びましょう",
+      "混雑した場所では手を軽く挙げて合わせて使うと伝わりやすいです"
+    ],
+    "relatedGrammar": ["grm_interjection_001", "grm_interjection_005"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "___, 여기 좀 봐 주세요!",
+      "answer": "저기요",
+      "hint": "注意を引く呼びかけ",
+      "explanation": "相手の注意を引くときは저기요を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "店員を呼ぶときに自然なのは？",
+      "choices": ["저기요!", "안녕하세요!", "실례합니다!", "全部使えるが日常は1番"],
+      "answerIndex": 3,
+      "explanation": "場面により丁寧さを選びます"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「すみません、道を教えてください」を韓国語で入力してください",
+      "answer": "저기요, 길 좀 알려 주세요",
+      "acceptableAnswers": ["저기요, 길 좀 알려 주세요", "저기요 길 좀 알려 주세요"],
+      "hint": "道=길、教える=알려 주다"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "id": "grm_tense_005",
+  "title": "-고 있다",
+  "subtitle": "進行相（〜している）",
+  "category": "tense",
+  "level": "beginner",
+  "tags": ["進行"],
+  "content": {
+    "summary": "動作が進行中である相を示す表現です。進行中・継続中の状態を述べます。",
+    "formationRules": [
+      {
+        "condition": "動詞語幹",
+        "form": "語幹 + 고 있다",
+        "example": "읽다 → 읽고 있다"
+      },
+      { "condition": "丁寧形", "form": "-고 있어요", "example": "보고 있어요" }
+    ],
+    "usageCases": [
+      {
+        "title": "現在進行",
+        "description": "今まさに行っていること",
+        "examples": [
+          {
+            "korean": "지금 이메일을 쓰고 있어요.",
+            "japanese": "今メールを書いています。"
+          }
+        ]
+      },
+      {
+        "title": "継続中の状態",
+        "description": "一定期間続く状態",
+        "examples": [
+          {
+            "korean": "한국에서 살고 있어요.",
+            "japanese": "韓国に住んでいます。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "endingカテゴリとの違い",
+      "description": "同じ形でもここでは時制・相（進行）として扱います。"
+    },
+    "tips": ["過去進行は-고 있었다", "未来進行は-고 있을 거예요などと表現"],
+    "relatedGrammar": ["grm_ending_021", "grm_tense_006"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "지금 뭐 하고 ___요?",
+      "answer": "있",
+      "hint": "進行を尋ねる",
+      "explanation": "語幹+고 있다で進行相を表します"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「韓国に住んでいます」の正しい文は？",
+      "choices": [
+        "한국에서 살아요.",
+        "한국에서 살고 있어요.",
+        "한국에서 살 거예요.",
+        "한국에서 살았어요."
+      ],
+      "answerIndex": 1,
+      "explanation": "継続状態は-고 있어요"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「今メールを書いています」を韓国語で入力してください",
+      "answer": "지금 이메일을 쓰고 있어요",
+      "acceptableAnswers": [
+        "지금 이메일을 쓰고 있어요",
+        "지금 이메일을 쓰고 있어요."
+      ]
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

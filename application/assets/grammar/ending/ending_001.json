@@ -1,0 +1,94 @@
+{
+  "id": "grm_ending_001",
+  "title": "-아/어요",
+  "subtitle": "丁寧形語尾（〜です/ます）",
+  "category": "ending",
+  "level": "beginner",
+  "tags": ["丁寧", "基本"],
+  "content": {
+    "summary": "日常会話で最もよく使う丁寧な終止形です。現在・習慣を丁寧に述べるときに使います。",
+    "formationRules": [
+      {
+        "condition": "陽母音(ㅏ,ㅗ) 語幹",
+        "form": "語幹 + 아요",
+        "example": "가다 → 가요"
+      },
+      {
+        "condition": "その他の母音",
+        "form": "語幹 + 어요",
+        "example": "먹다 → 먹어요"
+      },
+      {
+        "condition": "하다動詞",
+        "form": "해요",
+        "example": "공부하다 → 공부해요"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "丁寧な現在・習慣",
+        "description": "現在の状態や習慣を丁寧に述べます",
+        "examples": [
+          {
+            "korean": "저는 한국어를 공부해요.",
+            "japanese": "私は韓国語を勉強します。"
+          },
+          {
+            "korean": "매일 운동해요.",
+            "japanese": "毎日運動します。"
+          }
+        ]
+      },
+      {
+        "title": "丁寧な質問",
+        "description": "요体で丁寧に尋ねます",
+        "examples": [
+          {
+            "korean": "무엇을 먹어요?",
+            "japanese": "何を食べますか？"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-습니다体との違い",
+      "description": "-아요/어요は親しみのある丁寧さ、-습니다/ㅂ니다はよりフォーマルです。"
+    },
+    "tips": [
+      "語幹の母音によるㅏ/ㅗとそれ以外の区別に注意",
+      "会話では語尾が弱くなるので聞き取りに慣れましょう"
+    ],
+    "relatedGrammar": ["grm_ending_002", "grm_ending_003"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "저는 커피를 마셔___",
+      "answer": "요",
+      "hint": "丁寧形で終わる",
+      "explanation": "語幹+어요で丁寧に表します"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「勉強します」の丁寧形は？",
+      "choices": ["공부한다", "공부해요", "공부했습니다", "공부할까요"],
+      "answerIndex": 1,
+      "explanation": "現在丁寧は해요を使います"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「毎日運動します」を韓国語で入力してください",
+      "answer": "매일 운동해요",
+      "acceptableAnswers": ["매일 운동해요", "매일 운동해요."],
+      "hint": "運動=운동하다 → 운동해요"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

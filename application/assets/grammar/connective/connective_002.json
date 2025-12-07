@@ -1,0 +1,85 @@
+{
+  "id": "grm_connective_002",
+  "title": "-아/어서",
+  "subtitle": "理由・順序接続（〜して/〜ので）",
+  "category": "connective",
+  "level": "beginner",
+  "tags": ["理由", "順序"],
+  "content": {
+    "summary": "原因・理由や時間的な順序を表す接続語尾です。「〜して」「〜なので」に相当します。",
+    "formationRules": [
+      {
+        "condition": "母音調和",
+        "form": "語幹 + 아/어서",
+        "example": "가다 → 가서 / 먹다 → 먹어서"
+      },
+      {
+        "condition": "하다動詞",
+        "form": "해서",
+        "example": "공부해서"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "理由を表す",
+        "description": "前節が原因・理由になるとき",
+        "examples": [
+          {
+            "korean": "피곤해서 일찍 잤어요.",
+            "japanese": "疲れて早く寝ました。"
+          }
+        ]
+      },
+      {
+        "title": "順序の接続",
+        "description": "前後の行動が時間的に続くとき",
+        "examples": [
+          {
+            "korean": "샤워하고 나서 밥을 먹었어요.",
+            "japanese": "シャワーをしてからご飯を食べました。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-고との違い",
+      "description": "-아서/어서は因果関係や順序が強く、-고は単なる並列です。"
+    },
+    "tips": [
+      "命令・勧誘とは基本的に一緒に使いません（-니까と比較）",
+      "原因を表すときは後ろに過去形を置くことが多いです"
+    ],
+    "relatedGrammar": ["grm_connective_001", "grm_connective_003"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "비가 와서 우산을 가져___요.",
+      "answer": "왔어요",
+      "hint": "雨が降っている理由で持ってきた",
+      "explanation": "理由を表すときに-아서/어서を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「疲れて早く寝ました」に合う接続は？",
+      "choices": ["-고", "-아서/어서", "-지만", "-면"],
+      "answerIndex": 1,
+      "explanation": "原因を表すので-아서/어서が自然です"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「疲れて早く寝ました」を韓国語で入力してください",
+      "answer": "피곤해서 일찍 잤어요",
+      "acceptableAnswers": ["피곤해서 일찍 잤어요", "피곤해서 일찍 잤어요."],
+      "hint": "疲れる=피곤하다"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

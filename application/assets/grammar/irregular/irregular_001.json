@@ -1,0 +1,141 @@
+{
+  "id": "grm_irregular_001",
+  "title": "ㅂ不規則",
+  "subtitle": "ㅂ→우/오 変化（덥다→더워요）",
+  "category": "irregular",
+  "level": "beginner",
+  "tags": ["形容詞", "動詞"],
+  "content": {
+    "summary": "語幹末の ㅂ が母音語尾の前で 우/오 に変わり、워/와 となる不規則。形容詞中心だが 돕다/곱다 など一部動詞も含まれます。",
+    "formationRules": [
+      {
+        "condition": "語幹末に ㅂ + 아/어 が続くとき",
+        "form": "ㅂ → 우 に置換し 워 を作る",
+        "example": "덥다 + 어요 → 더워요"
+      },
+      {
+        "condition": "語幹母音が ㅗ の場合",
+        "form": "ㅂ → 오 + 아 → 와",
+        "example": "돕다 + 아요 → 도와요"
+      },
+      {
+        "condition": "過去・未来・推量でも同じ語幹変化",
+        "form": "ㅂ → 우/오 + 았/었/겠",
+        "example": "덥다 → 더웠어요 / 덥겠다"
+      },
+      {
+        "condition": "子音始まりの語尾（-ㅂ니다/-고 など）",
+        "form": "ㅂ を維持",
+        "example": "춥습니다, 덥고"
+      },
+      {
+        "condition": "規則活用の例外語",
+        "form": "입다/잡다/좁다 などは ㅂ を維持",
+        "example": "옷을 입어요"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "形容詞の丁寧形",
+        "description": "天気や温度を述べるときによく使います。",
+        "examples": [
+          {
+            "korean": "오늘 날씨가 아주 더워요.",
+            "japanese": "今日はとても暑いです。"
+          },
+          {
+            "korean": "겨울에는 정말 추워요.",
+            "japanese": "冬には本当に寒いです。"
+          }
+        ]
+      },
+      {
+        "title": "動詞 돕다 の活用",
+        "description": "돕다 は 도와요/도왔어요 のように 와 を作ります。",
+        "examples": [
+          {
+            "korean": "친구를 도와요.",
+            "japanese": "友だちを手伝います。"
+          },
+          {
+            "korean": "어제 숙제를 도왔어요.",
+            "japanese": "昨日は宿題を手伝いました。"
+          }
+        ]
+      },
+      {
+        "title": "形式体・連体形での使い分け",
+        "description": "子音始まりの語尾では ㅂ が残る形と、母音始まりで変化する形が並びます。",
+        "examples": [
+          {
+            "korean": "시베리아는 정말 춥습니다.",
+            "japanese": "シベリアは本当に寒いです。（格式体）"
+          },
+          {
+            "korean": "여름에 더울 때는 물을 많이 마셔요.",
+            "japanese": "夏に暑いときは水をたくさん飲みます。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "規則活用の ㅂ 語との違い",
+      "description": "ㅂ不規則は母音語尾で 워/와 に変化。입다 のような規則活用は ㅂ を維持し、입어요 のようにそのまま付けます。",
+      "examples": [
+        {
+          "grammarA": "ㅂ不規則",
+          "sentenceA": "날씨가 더워서 창문을 열었어요.",
+          "meaningA": "暑いので窓を開けました。（더워서）",
+          "grammarB": "規則活用",
+          "sentenceB": "옷을 입어요.",
+          "meaningB": "服を着ます。（ㅂ そのまま）"
+        }
+      ]
+    },
+    "tips": [
+      "母音が続くときだけ ㅂ→우/오 が起き、子音語尾では残る点を確認しましょう。",
+      "돕다/곱다 など ㅗ の語幹は 와 を作る特別パターンです。",
+      "입다/잡다 のような規則語を覚えて区別しておくと迷いにくいです。"
+    ],
+    "relatedGrammar": ["grm_irregular_006", "grm_irregular_007", "grm_irregular_002"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "오늘 정말 더__요.",
+      "answer": "워",
+      "hint": "ㅂ→우 に変わり 워 を作ります",
+      "explanation": "덥다 は ㅂ が落ちて 더워요 となります。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "正しい活用はどれですか?",
+      "choices": ["춥아요", "추워요", "춥워요", "추우요"],
+      "answerIndex": 1,
+      "explanation": "ㅂ→우 に変え 워 を付けるので 추워요 となります。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「友だちを手伝いました」を韓国語で入力してください",
+      "answer": "친구를 도왔어요",
+      "acceptableAnswers": ["친구를 도왔어요", "친구를 도와줬어요"],
+      "hint": "돕다 → 도와요/도왔어요 の形を使います"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "冬はとても寒いです。",
+      "answer": "겨울에는 아주 춥습니다",
+      "acceptableAnswers": ["겨울에는 아주 춥습니다", "겨울에는 정말 추워요"],
+      "explanation": "格式体では ㅂ を残して 춥습니다、丁寧体では 추워요 になります。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

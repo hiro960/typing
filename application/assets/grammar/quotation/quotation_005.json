@@ -1,0 +1,134 @@
+{
+  "id": "grm_quotation_005",
+  "title": "-(으)냐고 하다",
+  "subtitle": "間接引用・疑問文（〜かと聞く）",
+  "category": "quotation",
+  "level": "intermediate",
+  "tags": ["間接引用", "疑問"],
+  "content": {
+    "summary": "疑問文を間接的に伝える表現で、「〜かと聞く」に当たります。動詞・形容詞は -(으)냐고 하다、指定詞は 이냐고/냐고 を用います。",
+    "formationRules": [
+      {
+        "condition": "動詞・形容詞",
+        "form": "V/A + (으)냐고 하다",
+        "example": "가냐고 했어요 / 예쁘냐고 했어요"
+      },
+      {
+        "condition": "指定詞・存在詞",
+        "form": "N + (이)냐고 하다",
+        "example": "학생이냐고 했어요."
+      },
+      {
+        "condition": "있다/없다",
+        "form": "있느냐고/없느냐고",
+        "example": "시간 있느냐고 물어봤어요."
+      },
+      {
+        "condition": "縮約形",
+        "form": "-냐고 해요 → -냬요",
+        "example": "가냬요, 학생이냬요"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "内容を質問されたことを伝える",
+        "description": "誰かに〜かと聞かれた内容を伝達します。",
+        "examples": [
+          {
+            "korean": "친구가 내일 시간이 있느냐고 물어봤어요.",
+            "japanese": "友達が明日時間があるかと聞きました。"
+          },
+          {
+            "korean": "엄마가 밥 먹었냐고 하셨어요.",
+            "japanese": "お母さんがご飯を食べたかとおっしゃいました。"
+          }
+        ]
+      },
+      {
+        "title": "確認質問を伝える",
+        "description": "相手が確認したい内容を第三者に伝えるとき。",
+        "examples": [
+          {
+            "korean": "선생님이 숙제 했냐고 확인하셨어요.",
+            "japanese": "先生が宿題をしたかと確認されました。"
+          }
+        ]
+      },
+      {
+        "title": "状態や身分を尋ねたことを伝える",
+        "description": "誰かに身分・状態を聞いた内容を伝える。",
+        "examples": [
+          {
+            "korean": "그 사람이 의사냐고 물었어요.",
+            "japanese": "その人が医者かと尋ねました。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-(으)냐고 하다 と -냐고 묻다",
+      "description": "どちらも疑問の間接引用を表すが、하다 は伝達、묻다 は「尋ねる」動作自体を強調します。",
+      "examples": [
+        {
+          "grammarA": "-(으)냐고 하다",
+          "sentenceA": "시간이 있느냐고 했어요.",
+          "meaningA": "時間があるかと言いました。",
+          "grammarB": "-냐고 묻다",
+          "sentenceB": "시간이 있느냐고 물었어요.",
+          "meaningB": "時間があるかと尋ねました。"
+        }
+      ]
+    },
+    "tips": [
+      "動詞・形容詞は (으)냐고、名詞は (이)냐고、있다/없다 は 있느냐고/없느냐고。",
+      "会話では -냬요 を使うと短く自然です。",
+      "丁寧さを保ちたい場合は 하세요 体で引用する。"
+    ],
+    "relatedGrammar": ["grm_quotation_002", "grm_quotation_006", "grm_quotation_008"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "친구가 어디 가____ 물어봤어요.",
+      "answer": "냐고",
+      "hint": "疑問の間接引用は -(으)냐고。",
+      "explanation": "가다 → 가냐고 하다。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"시간이 있____ 했어요\" の空欄に入るものは？",
+      "choices": ["느냐고", "다고", "라고", "자고"],
+      "answerIndex": 0,
+      "explanation": "있다/없다 は 있느냐고/없느냐고。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「その人が医者かと尋ねました」を韓国語で入力してください",
+      "answer": "그 사람이 의사냐고 물었어요",
+      "acceptableAnswers": [
+        "그 사람이 의사냐고 물었어요",
+        "그 사람이 의사냐고 했어요"
+      ],
+      "hint": "名詞は (이)냐고。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "母がご飯を食べたかと聞きました。",
+      "answer": "엄마가 밥 먹었냐고 물어봤어요",
+      "acceptableAnswers": [
+        "엄마가 밥 먹었냐고 물어봤어요",
+        "엄마가 밥 먹었냐고 했어요"
+      ],
+      "explanation": "過去の疑問も -(으)냐고 を付けます。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "id": "grm_interjection_008",
+  "title": "와/우와",
+  "subtitle": "感嘆詞（わあ）",
+  "category": "interjection",
+  "level": "beginner",
+  "tags": ["感嘆", "感動"],
+  "content": {
+    "summary": "感動や驚きを表すときに使う「わあ！」です。긍정的な驚きを表すシンプルな感嘆詞です。",
+    "formationRules": [
+      {
+        "condition": "基本",
+        "form": "와 / 우와",
+        "example": "와, 정말 멋있다!"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "感動・称賛",
+        "description": "素敵なものを見たとき",
+        "examples": [
+          {
+            "korean": "우와, 경치가 정말 예쁘네요.",
+            "japanese": "わあ、景色が本当にきれいですね。"
+          }
+        ]
+      },
+      {
+        "title": "驚き",
+        "description": "予想外のことに驚いたとき",
+        "examples": [
+          {
+            "korean": "와, 이렇게 빨리 왔어요?",
+            "japanese": "わあ、こんなに早く来たの？"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "어머/아이고との違い",
+      "description": "와/우와は主にポジティブな驚きや感動。어머/아이고は心配やため息のニュアンスも含みます。"
+    },
+    "tips": [
+      "子供から大人まで幅広く使います",
+      "長く伸ばして強い感動を表すこともあります（우와아아）"
+    ],
+    "relatedGrammar": ["grm_interjection_006", "grm_interjection_007"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "___, 여기 정말 맛있어요!",
+      "answer": "와",
+      "hint": "感動の一言",
+      "explanation": "感動や驚きには와/우와を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "ポジティブな驚きに一番合うのは？",
+      "choices": ["아이고", "와", "어머나", "えーと"],
+      "answerIndex": 1,
+      "explanation": "嬉しい驚きには와/우와がぴったり"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「わあ、景色が本当にきれいですね」を韓国語で入力してください",
+      "answer": "우와, 경치가 정말 예쁘네요",
+      "acceptableAnswers": ["우와, 경치가 정말 예쁘네요", "와, 경치가 정말 예쁘네요"],
+      "hint": "景色=경치"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

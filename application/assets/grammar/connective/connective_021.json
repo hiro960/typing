@@ -1,0 +1,90 @@
+{
+  "id": "grm_connective_021",
+  "title": "-(으)ㄹ 때",
+  "subtitle": "時間接続（〜する時）",
+  "category": "connective",
+  "level": "beginner",
+  "tags": ["時間"],
+  "content": {
+    "summary": "ある動作や状態の時点を表す表現で、「〜するとき」に相当します。",
+    "formationRules": [
+      {
+        "condition": "パッチムなし",
+        "form": "語幹 + ㄹ 때",
+        "example": "가다 → 갈 때"
+      },
+      {
+        "condition": "パッチムあり",
+        "form": "語幹 + 을 때",
+        "example": "먹다 → 먹을 때"
+      },
+      {
+        "condition": "이다/아니다",
+        "form": "일 때 / 아닐 때",
+        "example": "학생일 때, 학생이 아닐 때"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "同時・時点を表す",
+        "description": "前の動作・状態が起こる時間を示します",
+        "examples": [
+          {
+            "korean": "집에 갈 때 연락해 주세요.",
+            "japanese": "家に帰るとき連絡してください。"
+          }
+        ]
+      },
+      {
+        "title": "習慣的な時点",
+        "description": "毎回その時に起こること",
+        "examples": [
+          {
+            "korean": "아침에 일어날 때 물을 마셔요.",
+            "japanese": "朝起きるときに水を飲みます。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-(으)면との違い",
+      "description": "-(으)면は条件、-(으)ㄹ 때は時間を表します。"
+    },
+    "tips": [
+      "時制は後ろの節に合わせます",
+      "過去の時点は-았/었을 때を使います"
+    ],
+    "relatedGrammar": ["grm_connective_004", "grm_tense_008"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "학교에 올 ___ 연락 주세요.",
+      "answer": "때",
+      "hint": "〜するとき",
+      "explanation": "時間を表すときは-(으)ㄹ 때を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「家に帰るとき連絡してください」の正しい文は？",
+      "choices": ["집에 갈 때 연락해 주세요.", "집에 가면 연락해 주세요.", "집에 가서 연락해 주세요.", "全部意味は通じる"],
+      "answerIndex": 3,
+      "explanation": "時間か条件かでニュアンスが少し変わります"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「朝起きるときに水を飲みます」を韓国語で入力してください",
+      "answer": "아침에 일어날 때 물을 마셔요",
+      "acceptableAnswers": ["아침에 일어날 때 물을 마셔요", "아침에 일어날 때 물을 마셔요."],
+      "hint": "起きる=일어나다"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

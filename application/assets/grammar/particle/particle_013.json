@@ -1,0 +1,85 @@
+{
+  "id": "grm_particle_013",
+  "title": "까지",
+  "subtitle": "到達点助詞（〜まで）",
+  "category": "particle",
+  "level": "beginner",
+  "tags": ["到達点"],
+  "content": {
+    "summary": "時間や場所の終点・到達点を表す助詞です。英語のuntil/tillやtoに相当します。",
+    "formationRules": [
+      {
+        "condition": "時間の終点",
+        "form": "時間名詞 + 까지",
+        "example": "다섯 시까지 (5時まで)"
+      },
+      {
+        "condition": "場所の終点",
+        "form": "場所名詞 + 까지",
+        "example": "서울까지 (ソウルまで)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "時間の終わりを示す",
+        "description": "いつまで続くかを表します",
+        "examples": [
+          {
+            "korean": "열 시까지 공부할 거예요.",
+            "japanese": "10時まで勉強するつもりです。"
+          }
+        ]
+      },
+      {
+        "title": "場所の到達点",
+        "description": "どこまで行くかを表します",
+        "examples": [
+          {
+            "korean": "버스로 학교까지 가요.",
+            "japanese": "バスで学校まで行きます。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "부터との対",
+      "description": "부터が始まり、까지が終わりを示します。セットで覚えると便利です。"
+    },
+    "tips": [
+      "時間・場所どちらにも使えます",
+      "助詞や数詞の後ろにも付けられます（여덟 시부터 열 시까지）"
+    ],
+    "relatedGrammar": ["grm_particle_012", "grm_particle_004"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "내일까지___ 숙제를 끝낼 거예요.",
+      "answer": "까지",
+      "hint": "「明日まで」を表します",
+      "explanation": "終わりの時点には까지を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「バスで駅まで行きます」を正しく表すのは？",
+      "choices": ["버스로 역까지 가요.", "버스로 역부터 가요.", "버스로 역이 가요.", "버스로 역만 가요."],
+      "answerIndex": 0,
+      "explanation": "到達点には까지を付けます"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「10時まで勉強します」を韓国語で入力してください",
+      "answer": "열 시까지 공부해요",
+      "acceptableAnswers": ["열 시까지 공부해요", "열 시까지 공부해요.", "열시까지 공부해요"],
+      "hint": "10時=열 시"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

@@ -12,92 +12,77 @@
         "items": [
           {
             "text": "받다",
-            "meaning": "もらう",
-            "pronunciation": "パッタ",
+            "meaning": "もらう"
             "hint": "ㅂ + ㅏ + ㄷ + ㄷ + ㅏ"
           },
           {
             "text": "입다",
-            "meaning": "着る",
-            "pronunciation": "イプタ",
+            "meaning": "着る"
             "hint": "ㅇ + ㅣ + ㅂ + ㄷ + ㅏ"
           },
           {
             "text": "벗다",
-            "meaning": "脱ぐ",
-            "pronunciation": "ポッタ",
+            "meaning": "脱ぐ"
             "hint": "ㅂ + ㅓ + ㅅ + ㄷ + ㅏ"
           },
           {
             "text": "신다",
-            "meaning": "履く",
-            "pronunciation": "シンタ",
+            "meaning": "履く"
             "hint": "ㅅ + ㅣ + ㄴ + ㄷ + ㅏ"
           },
           {
             "text": "씻다",
-            "meaning": "洗う",
-            "pronunciation": "ッシッタ",
+            "meaning": "洗う"
             "hint": "ㅆ + ㅣ + ㅅ + ㄷ + ㅏ"
           },
           {
             "text": "닦다",
-            "meaning": "拭く",
-            "pronunciation": "タクタ",
+            "meaning": "拭く"
             "hint": "ㄷ + ㅏ + ㄱ + ㄷ + ㅏ"
           },
           {
             "text": "타다",
-            "meaning": "乗る",
-            "pronunciation": "タダ",
+            "meaning": "乗る"
             "hint": "ㅌ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "내리다",
-            "meaning": "降りる",
-            "pronunciation": "ネリダ",
+            "meaning": "降りる"
             "hint": "ㄴ + ㅐ + ㄹ + ㅣ + ㄷ + ㅏ"
           },
           {
             "text": "열다",
-            "meaning": "開ける",
-            "pronunciation": "ヨルダ",
+            "meaning": "開ける"
             "hint": "ㅇ + ㅕ + ㄹ + ㄷ + ㅏ"
           },
           {
             "text": "닫다",
-            "meaning": "閉める",
-            "pronunciation": "タッタ",
+            "meaning": "閉める"
             "hint": "ㄷ + ㅏ + ㄷ + ㄷ + ㅏ"
           },
           {
             "text": "켜다",
-            "meaning": "つける",
-            "pronunciation": "キョダ",
+            "meaning": "つける"
             "hint": "ㅋ + ㅕ + ㄷ + ㅏ"
           },
           {
             "text": "끄다",
-            "meaning": "消す",
-            "pronunciation": "ックダ",
+            "meaning": "消す"
             "hint": "ㄲ + ㅡ + ㄷ + ㅏ"
           },
           {
             "text": "앉다",
-            "meaning": "座る",
-            "pronunciation": "アンタ",
+            "meaning": "座る"
             "hint": "ㅇ + ㅏ + ㄵ + ㄷ + ㅏ"
           },
           {
             "text": "서다",
-            "meaning": "立つ",
-            "pronunciation": "ソダ",
+            "meaning": "立つ"
             "hint": "ㅅ + ㅓ + ㄷ + ㅏ"
           },
           {
             "text": "걷다",
-            "meaning": "歩く",
-            "pronunciation": "コッタ",
+            "meaning": "歩く"
             "hint": "ㄱ + ㅓ + ㄷ + ㄷ + ㅏ"
           }
         ]

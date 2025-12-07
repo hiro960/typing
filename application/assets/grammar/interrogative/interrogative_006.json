@@ -1,0 +1,116 @@
+{
+  "id": "grm_interrogative_006",
+  "title": "어떻게",
+  "subtitle": "疑問副詞（どのように）",
+  "category": "interrogative",
+  "level": "beginner",
+  "tags": ["方法"],
+  "content": {
+    "summary": "方法・手段・状態を尋ねる疑問詞で、日本語の「どうやって」「どのように」に当たります。相手の気分や体調を聞くときにも使われます。",
+    "formationRules": [
+      {
+        "condition": "方法・手段を尋ねる基本",
+        "form": "어떻게 + V",
+        "example": "어떻게 가요? (どうやって行きますか？)"
+      },
+      {
+        "condition": "程度・様子を尋ねる",
+        "form": "어떻게 + 되다/지내다",
+        "example": "요즘 어떻게 지내요? (最近どう過ごしていますか？)"
+      },
+      {
+        "condition": "感情や状態を尋ねる",
+        "form": "기분/몸 상태가 어때요?",
+        "example": "몸이 어때요? (体の具合はどうですか？)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "移動手段を尋ねる",
+        "description": "交通手段や行き方を確認するときに使います。",
+        "examples": [
+          {
+            "korean": "집까지 어떻게 가면 돼요?",
+            "japanese": "家まではどう行けばいいですか。"
+          }
+        ]
+      },
+      {
+        "title": "やり方・手順を尋ねる",
+        "description": "操作方法や作り方を聞くときに使います。",
+        "examples": [
+          {
+            "korean": "이거 어떻게 써요?",
+            "japanese": "これ、どうやって使いますか。"
+          }
+        ]
+      },
+      {
+        "title": "状態・体調を尋ねる",
+        "description": "近況や体の調子を確認するときに使います。",
+        "examples": [
+          {
+            "korean": "오늘 기분이 어때요?",
+            "japanese": "今日は気分はどうですか。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "어떻게 と 왜",
+      "description": "어떻게 は方法や状態を尋ね、왜 は理由を尋ねます。理由を柔らかく尋ねたいときは '어쩌다가' を使うこともあります。",
+      "examples": [
+        {
+          "grammarA": "어떻게",
+          "sentenceA": "어떻게 만들었어요?",
+          "meaningA": "どう作りましたか。",
+          "grammarB": "왜",
+          "sentenceB": "왜 만들었어요?",
+          "meaningB": "なぜ作りましたか。"
+        }
+      ]
+    },
+    "tips": [
+      "方法を尋ねるときは 뒤에 가다/오다/하다 など動詞を添えます。",
+      "相手の気分を聞くときは 어때요? と短くするのが自然です。",
+      "困惑したときの「どうしよう」は '어떡하지?' のように縮約されます。"
+    ],
+    "relatedGrammar": ["grm_interrogative_005", "grm_pronoun_009", "grm_pronoun_015"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "서울역까지 ___ 가면 돼요?",
+      "answer": "어떻게",
+      "hint": "行き方・方法を尋ねています。",
+      "explanation": "「どうやって行けばいいですか」は 어떻게 가면 돼요? と言います。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "『이거 어떻게 먹어요?』の状況として最も近いものは？",
+      "choices": [
+        "初めての料理の食べ方を聞いている",
+        "支払い方法を聞いている",
+        "場所を聞いている",
+        "時間を聞いている"
+      ],
+      "answerIndex": 0,
+      "explanation": "먹다 の方法を尋ねているため、食べ方を聞く状況です。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「最近どう過ごしていますか」を韓国語で入力してください",
+      "answer": "요즘 어떻게 지내요?",
+      "acceptableAnswers": ["요즘 어떻게 지내요?", "요즘 어떻게 지내요"],
+      "hint": "近況=요즘, 過ごす=지내다。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

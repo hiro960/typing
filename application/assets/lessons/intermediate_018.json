@@ -12,98 +12,82 @@
         "items": [
           {
             "text": "일",
-            "meaning": "仕事・こと",
-            "pronunciation": "イル",
+            "meaning": "仕事・こと"
             "hint": "ㅇ + ㅣ + ㄹ"
           },
           {
             "text": "돈",
-            "meaning": "お金",
-            "pronunciation": "トン",
+            "meaning": "お金"
             "hint": "ㄷ + ㅗ + ㄴ"
           },
           {
             "text": "책",
-            "meaning": "本",
-            "pronunciation": "チェク",
+            "meaning": "本"
             "hint": "ㅊ + ㅐ + ㄱ"
           },
           {
             "text": "종이",
-            "meaning": "紙",
-            "pronunciation": "チョンイ",
+            "meaning": "紙"
             "hint": "ㅈ + ㅗ + ㅇ + ㅇ + ㅣ"
           },
           {
             "text": "펜",
-            "meaning": "ペン",
-            "pronunciation": "ペン",
+            "meaning": "ペン"
             "hint": "ㅍ + ㅔ + ㄴ"
           },
           {
             "text": "가방",
-            "meaning": "カバン",
-            "pronunciation": "カバン",
+            "meaning": "カバン"
             "hint": "ㄱ + ㅏ + ㅂ + ㅏ + ㅇ"
           },
           {
             "text": "옷",
-            "meaning": "服",
-            "pronunciation": "オッ",
+            "meaning": "服"
             "hint": "ㅇ + ㅗ + ㅅ"
           },
           {
             "text": "신발",
-            "meaning": "靴",
-            "pronunciation": "シンバル",
+            "meaning": "靴"
             "hint": "ㅅ + ㅣ + ㄴ + ㅂ + ㅏ + ㄹ"
           },
           {
             "text": "모자",
-            "meaning": "帽子",
-            "pronunciation": "モジャ",
+            "meaning": "帽子"
             "hint": "ㅁ + ㅗ + ㅈ + ㅏ"
           },
           {
             "text": "안경",
-            "meaning": "眼鏡",
-            "pronunciation": "アンギョン",
+            "meaning": "眼鏡"
             "hint": "ㅇ + ㅏ + ㄴ + ㄱ + ㅕ + ㅇ"
           },
           {
             "text": "시계",
-            "meaning": "時計",
-            "pronunciation": "シゲ",
+            "meaning": "時計"
             "hint": "ㅅ + ㅣ + ㄱ + ㅖ"
           },
           {
             "text": "전화",
-            "meaning": "電話",
-            "pronunciation": "チョヌァ",
+            "meaning": "電話"
             "hint": "ㅈ + ㅓ + ㄴ + ㅎ + ㅘ"
           },
           {
             "text": "컴퓨터",
-            "meaning": "コンピューター",
-            "pronunciation": "コムピュト",
+            "meaning": "コンピューター"
             "hint": "ㅋ + ㅓ + ㅁ + ㅍ + ㅠ + ㅌ + ㅓ"
           },
           {
             "text": "텔레비전",
-            "meaning": "テレビ",
-            "pronunciation": "テルレビジョン",
+            "meaning": "テレビ"
             "hint": "ㅌ + ㅔ + ㄹ + ㄹ + ㅔ + ㅂ + ㅣ + ㅈ + ㅓ + ㄴ"
           },
           {
             "text": "문",
-            "meaning": "ドア",
-            "pronunciation": "ムン",
+            "meaning": "ドア"
             "hint": "ㅁ + ㅜ + ㄴ"
           },
           {
             "text": "창문",
-            "meaning": "窓",
-            "pronunciation": "チャンムン",
+            "meaning": "窓"
             "hint": "ㅊ + ㅏ + ㅇ + ㅁ + ㅜ + ㄴ"
           }
         ]

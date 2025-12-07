@@ -12,20 +12,17 @@
         "items": [
           {
             "text": "ㅜ",
-            "meaning": "u の音",
-            "pronunciation": "ウ",
+            "meaning": "u の音"
             "hint": "「ウ」の音です"
           },
           {
             "text": "ㅇ",
-            "meaning": "無音/ng の音",
-            "pronunciation": "イウン",
+            "meaning": "無音/ng の音"
             "hint": "語頭では無音、語末では「ン」の音"
           },
           {
             "text": "ㅁ",
-            "meaning": "m の音",
-            "pronunciation": "ミウム",
+            "meaning": "m の音"
             "hint": "「マ行」です"
           }
         ]
@@ -36,50 +33,42 @@
         "items": [
           {
             "text": "문",
-            "meaning": "ドア",
-            "pronunciation": "ムン",
+            "meaning": "ドア"
             "hint": "ㅁ + ㅜ + ㄴ"
           },
           {
             "text": "안",
-            "meaning": "中",
-            "pronunciation": "アン",
+            "meaning": "中"
             "hint": "ㅇ + ㅏ + ㄴ"
           },
           {
             "text": "눈",
-            "meaning": "目/雪",
-            "pronunciation": "ヌン",
+            "meaning": "目/雪"
             "hint": "ㄴ + ㅜ + ㄴ"
           },
           {
             "text": "나무",
-            "meaning": "木",
-            "pronunciation": "ナム",
+            "meaning": "木"
             "hint": "ㄴ + ㅏ + ㅁ + ㅜ"
           },
           {
             "text": "아마",
-            "meaning": "おそらく",
-            "pronunciation": "アマ",
+            "meaning": "おそらく"
             "hint": "ㅇ + ㅏ + ㅁ + ㅏ"
           },
           {
             "text": "누나",
-            "meaning": "お姉さん",
-            "pronunciation": "ヌナ",
+            "meaning": "お姉さん"
             "hint": "ㄴ + ㅜ + ㄴ + ㅏ"
           },
           {
             "text": "만",
-            "meaning": "だけ/万",
-            "pronunciation": "マン",
+            "meaning": "だけ/万"
             "hint": "ㅁ + ㅏ + ㄴ"
           },
           {
             "text": "바나나",
-            "meaning": "バナナ",
-            "pronunciation": "バナナ",
+            "meaning": "バナナ"
             "hint": "ㅂ + ㅏ + ㄴ + ㅏ + ㄴ + ㅏ"
           }
         ]

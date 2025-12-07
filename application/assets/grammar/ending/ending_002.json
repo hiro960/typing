@@ -1,0 +1,89 @@
+{
+  "id": "grm_ending_002",
+  "title": "-습니다/ㅂ니다",
+  "subtitle": "格式体語尾（〜です/ます）",
+  "category": "ending",
+  "level": "beginner",
+  "tags": ["フォーマル", "基本"],
+  "content": {
+    "summary": "ニュースやスピーチなどで使う最もフォーマルな丁寧語尾です。",
+    "formationRules": [
+      {
+        "condition": "パッチムなし語幹",
+        "form": "語幹 + ㅂ니다",
+        "example": "가다 → 갑니다"
+      },
+      {
+        "condition": "パッチムあり語幹",
+        "form": "語幹 + 습니다",
+        "example": "먹다 → 먹습니다"
+      },
+      { "condition": "하다動詞", "form": "합니다", "example": "공부합니다" }
+    ],
+    "usageCases": [
+      {
+        "title": "あいさつ・自己紹介",
+        "description": "式典や初対面で丁寧に述べる",
+        "examples": [
+          {
+            "korean": "안녕하세요. 김민수입니다.",
+            "japanese": "こんにちは。キム・ミンスです。"
+          }
+        ]
+      },
+      {
+        "title": "報告・アナウンス",
+        "description": "公式の報告・案内で使う",
+        "examples": [
+          {
+            "korean": "지금부터 회의를 시작합니다.",
+            "japanese": "ただいまから会議を始めます。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-아요/어요との違い",
+      "description": "-습니다体はよりフォーマルで書き言葉に近いです。"
+    },
+    "tips": [
+      "丁寧度が高いので目上や公式場面で使用",
+      "疑問文は -습니까? / -ㅂ니까? になります"
+    ],
+    "relatedGrammar": ["grm_ending_001", "grm_ending_031"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "저는 의사___.",
+      "answer": "입니다",
+      "hint": "名詞＋입니다",
+      "explanation": "フォーマルな指定は입니다を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "ニュースでよく使う丁寧体は？",
+      "choices": ["-아요/어요", "-습니다/ㅂ니다", "-ㄴ다", "-죠"],
+      "answerIndex": 1,
+      "explanation": "最も格式の高い丁寧体です"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「ただいまから会議を始めます」を韓国語で入力してください",
+      "answer": "지금부터 회의를 시작합니다",
+      "acceptableAnswers": [
+        "지금부터 회의를 시작합니다",
+        "지금부터 회의를 시작합니다."
+      ],
+      "hint": "始めます=시작합니다"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

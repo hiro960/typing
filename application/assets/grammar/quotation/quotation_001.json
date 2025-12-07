@@ -1,0 +1,94 @@
+{
+  "id": "grm_quotation_001",
+  "title": "-라고/이라고 하다",
+  "subtitle": "直接引用（〜と言う）",
+  "category": "quotation",
+  "level": "beginner",
+  "tags": ["直接引用"],
+  "content": {
+    "summary": "他人の言ったことをそのまま引用するときに使う表現です。名詞には-이라고 하다、その他には-라고 하다を使います。",
+    "formationRules": [
+      {
+        "condition": "母音で終わる名詞・発話",
+        "form": "명사/말 + 라고 하다",
+        "example": "학생이라고 했어요."
+      },
+      {
+        "condition": "パッチムありの名詞",
+        "form": "명사(받침) + 이라고 하다",
+        "example": "친구라고 했어요. / 선생님이라고 했어요."
+      },
+      {
+        "condition": "動詞・形容詞の原形",
+        "form": "-다 + 고 하다",
+        "example": "간다고 했어요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "自分の発言を伝える",
+        "description": "自分が言った内容を伝えます",
+        "examples": [
+          {
+            "korean": "저는 학생이라고 했어요.",
+            "japanese": "私は学生だと言いました。"
+          },
+          {
+            "korean": "내일 간다고 했어요.",
+            "japanese": "明日行くと言いました。"
+          }
+        ]
+      },
+      {
+        "title": "他人の言葉を伝える",
+        "description": "聞いた発言をそのまま伝えます",
+        "examples": [
+          {
+            "korean": "친구가 바쁘다고 했어요.",
+            "japanese": "友達が忙しいと言っていました。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "間接引用との違い",
+      "description": "直接引用は原形+라고/이라고 하다、間接引用は語尾変化が起こります。初級では直接引用を優先して覚えます。"
+    },
+    "tips": [
+      "会話では하대요/한대요のような縮約形もよく使われます",
+      "発音は「이라고」を[이라고]、「라고」を[라고]とそのまま読みます"
+    ],
+    "relatedGrammar": ["grm_quotation_009", "grm_ending_031"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "저는 의사___ 했어요.",
+      "answer": "라고",
+      "hint": "母音で終わる名詞には라고",
+      "explanation": "名詞+라고/이라고 하다で「〜だと言う」を表します"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「友達が忙しいと言いました」を正しく表すのは？",
+      "choices": ["친구가 바쁘다고 했어요.", "친구가 바쁘라고 했어요.", "친구가 바쁘게 했어요.", "친구가 바쁘였어요."],
+      "answerIndex": 0,
+      "explanation": "動詞・形容詞は原形+다고 하다を使います"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「明日行くと言いました」を韓国語で入力してください",
+      "answer": "내일 간다고 했어요",
+      "acceptableAnswers": ["내일 간다고 했어요", "내일 간다고 했어요."],
+      "hint": "行く=가다 → 간다고"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

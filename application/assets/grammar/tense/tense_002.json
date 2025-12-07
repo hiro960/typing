@@ -1,0 +1,91 @@
+{
+  "id": "grm_tense_002",
+  "title": "-았/었-",
+  "subtitle": "過去時制",
+  "category": "tense",
+  "level": "beginner",
+  "tags": ["過去"],
+  "content": {
+    "summary": "動作や状態が過去に起きたことを表す基本の過去時制です。",
+    "formationRules": [
+      {
+        "condition": "陽母音(ㅏ,ㅗ)",
+        "form": "語幹 + 았다",
+        "example": "가다 → 갔다"
+      },
+      {
+        "condition": "その他の母音",
+        "form": "語幹 + 었다",
+        "example": "먹다 → 먹었다"
+      },
+      {
+        "condition": "하다動詞",
+        "form": "했다",
+        "example": "공부하다 → 공부했다"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "完了した動作",
+        "description": "過去の行為を述べる",
+        "examples": [
+          {
+            "korean": "어제 영화를 봤어요.",
+            "japanese": "昨日映画を見ました。"
+          }
+        ]
+      },
+      {
+        "title": "経験を述べる",
+        "description": "過去の経験",
+        "examples": [
+          {
+            "korean": "한국에 두 번 갔어요.",
+            "japanese": "韓国に2回行きました。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-(으)ㄹ 것이다との違い",
+      "description": "-았/었-は過去、-(으)ㄹ 것이다は未来の予定・推量です。"
+    },
+    "tips": ["発音で合成母音化(봤어요)に注意", "丁寧体は-았/었어요を付けます"],
+    "relatedGrammar": ["grm_tense_003", "grm_ending_002"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "어제 친구를 만났___",
+      "answer": "어요",
+      "hint": "過去丁寧形",
+      "explanation": "過去は-았/었어요を付けます"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「昨日映画を見ました」の正しい文は？",
+      "choices": [
+        "어제 영화를 봐요.",
+        "어제 영화를 봤어요.",
+        "어제 영화를 볼 거예요.",
+        "어제 영화를 보고 있어요."
+      ],
+      "answerIndex": 1,
+      "explanation": "過去形は봤어요"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「韓国に2回行きました」を韓国語で入力してください",
+      "answer": "한국에 두 번 갔어요",
+      "acceptableAnswers": ["한국에 두 번 갔어요", "한국에 두 번 갔어요."]
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

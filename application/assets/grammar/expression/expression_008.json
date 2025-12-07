@@ -1,0 +1,134 @@
+{
+  "id": "grm_expression_008",
+  "title": "-(으)ㄹ 리가 없다",
+  "subtitle": "否定推量（〜するはずがない）",
+  "category": "expression",
+  "level": "intermediate",
+  "tags": ["否定", "推量"],
+  "content": {
+    "summary": "事実や常識に照らして「〜するはずがない」「あり得ない」と強く否定推量するときに使う表現です。動詞・形容詞・指定詞の語幹に付けます。",
+    "formationRules": [
+      {
+        "condition": "パッチムなし/ㄹ",
+        "form": "V/A + ㄹ 리가 없다",
+        "example": "올 리가 없다 (来るはずがない)"
+      },
+      {
+        "condition": "パッチムあり",
+        "form": "V/A + 을 리가 없다",
+        "example": "먹을 리가 없다 (食べるはずがない)"
+      },
+      {
+        "condition": "指定詞・存在詞",
+        "form": "N + (이)ㄹ 리가 없다 / 없다",
+        "example": "학생일 리가 없다 / 있을 리가 없다"
+      },
+      {
+        "condition": "強調副詞併用",
+        "form": "도저히/절대 + -(으)ㄹ 리가 없다",
+        "example": "절대 그럴 리가 없어요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "事実・常識からの否定推量",
+        "description": "状況上あり得ないことを断定的に否定します。",
+        "examples": [
+          {
+            "korean": "그 사람이 거짓말을 할 리가 없어요.",
+            "japanese": "その人がうそをつくはずがありません。"
+          },
+          {
+            "korean": "이 시간에 문을 열 리가 없어요.",
+            "japanese": "この時間に店が開いているはずがありません。"
+          }
+        ]
+      },
+      {
+        "title": "証拠をもとにした強い否定",
+        "description": "目撃や証拠から不可能だと強調します。",
+        "examples": [
+          {
+            "korean": "이미 출발했으니까 지금 집에 있을 리가 없어요.",
+            "japanese": "もう出発したから今家にいるはずがありません。"
+          }
+        ]
+      },
+      {
+        "title": "感情を伴う反論",
+        "description": "驚きや不信感をこめて否定します。",
+        "examples": [
+          {
+            "korean": "설마요, 그럴 리가 없어요!",
+            "japanese": "まさか、そんなはずがありません！"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-지 않다 と -(으)ㄹ 리가 없다",
+      "description": "-지 않다 は単なる否定、-(으)ㄹ 리가 없다 は「あり得ない」と強い否定推量を表します。",
+      "examples": [
+        {
+          "grammarA": "-(으)ㄹ 리가 없다",
+          "sentenceA": "민수가 늦을 리가 없어요.",
+          "meaningA": "ミンスが遅れるはずがありません。",
+          "grammarB": "-지 않다",
+          "sentenceB": "민수는 늦지 않아요.",
+          "meaningB": "ミンスは遅れません。"
+        }
+      ]
+    },
+    "tips": [
+      "사실/상식에 비추어 강하게 부정할 때 사용합니다.",
+      "도저히/절대 と併用すると否定がより強まります。",
+      "過去推量でも -(으)ㄹ リ가 없다 をそのまま使います。"
+    ],
+    "relatedGrammar": ["grm_expression_025", "grm_ending_014", "grm_negation_002"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "그가 거짓말을 할 ___가 없어요.",
+      "answer": "리",
+      "hint": "「はずがない」は -(으)ㄹ ___가 없다。",
+      "explanation": "할 리가 없다 の形を作ります。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"이 시간에 문을 열 ___?\" 正しい形は？",
+      "choices": ["리가 없어", "리가 있어", "리가 있다", "리다 없어"],
+      "answerIndex": 0,
+      "explanation": "否定推量は -리가 없어/없다 と言います。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「その人が遅れるはずがありません」を韓国語で入力してください",
+      "answer": "그 사람이 늦을 리가 없어요",
+      "acceptableAnswers": [
+        "그 사람이 늦을 리가 없어요",
+        "그 사람이 늦을 리가 없습니다"
+      ],
+      "hint": "늦다 → 늦을 리가 없다。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "まさか、そんなはずがありません！",
+      "answer": "설마요, 그럴 리가 없어요!",
+      "acceptableAnswers": [
+        "설마요, 그럴 리가 없어요!",
+        "설마요, 그럴 리가 없습니다!"
+      ],
+      "explanation": "強い否定推量を表す定型。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

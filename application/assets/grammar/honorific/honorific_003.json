@@ -1,0 +1,82 @@
+{
+  "id": "grm_honorific_003",
+  "title": "드시다",
+  "subtitle": "먹다の尊敬語（召し上がる）",
+  "category": "honorific",
+  "level": "beginner",
+  "tags": ["尊敬", "飲食"],
+  "content": {
+    "summary": "食べる・飲むを表す먹다/마시다の尊敬語で、目上が飲食する際に使います。",
+    "formationRules": [
+      {
+        "condition": "現在丁寧",
+        "form": "드시다 → 드세요",
+        "example": "식사 드세요."
+      },
+      { "condition": "過去", "form": "드셨어요", "example": "식사 드셨어요?" }
+    ],
+    "usageCases": [
+      {
+        "title": "飲食の尊敬",
+        "description": "目上の食事を述べる",
+        "examples": [
+          {
+            "korean": "식사 드셨어요?",
+            "japanese": "お食事なさいましたか。"
+          }
+        ]
+      },
+      {
+        "title": "勧める表現",
+        "description": "召し上がってくださいと勧める",
+        "examples": [
+          {
+            "korean": "많이 드세요.",
+            "japanese": "たくさん召し上がってください。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "드시다 vs 먹다",
+      "description": "尊敬対象が目上なら드시다、そうでなければ먹다/마시다を使います。"
+    },
+    "tips": ["마시다の尊敬も드시다を使えます", "勧誘や案内で頻出"],
+    "relatedGrammar": ["grm_honorific_001", "grm_honorific_007"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "식사 ___?",
+      "answer": "드셨어요",
+      "hint": "過去の尊敬表現",
+      "explanation": "目上の食事を尋ねるときは드시다"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「たくさん召し上がってください」の正しい文は？",
+      "choices": [
+        "많이 먹어요.",
+        "많이 드세요.",
+        "많이 드십니다.",
+        "많이 먹으세요."
+      ],
+      "answerIndex": 1,
+      "explanation": "尊敬を込めるときは드세요"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「お食事なさいましたか」を韓国語で入力してください",
+      "answer": "식사 드셨어요?",
+      "acceptableAnswers": ["식사 드셨어요?", "식사 드셨어요"]
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

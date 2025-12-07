@@ -1,0 +1,130 @@
+{
+  "id": "grm_expression_010",
+  "title": "-(으)ㄹ 겸",
+  "subtitle": "兼ねる表現（〜を兼ねて）",
+  "category": "expression",
+  "level": "intermediate",
+  "tags": ["兼用"],
+  "content": {
+    "summary": "二つ以上の目的・理由を同時に満たすときに使う表現で、「〜を兼ねて」「〜も兼ねて」に当たります。動詞連体形と組み合わせるのが基本です。",
+    "formationRules": [
+      {
+        "condition": "パッチムなし/ㄹ",
+        "form": "V + ㄹ 겸",
+        "example": "쉬다 → 쉴 겸"
+      },
+      {
+        "condition": "パッチムあり",
+        "form": "V + 을 겸",
+        "example": "먹다 → 먹을 겸"
+      },
+      {
+        "condition": "並列表現",
+        "form": "A 겸 B 겸",
+        "example": "공부도 할 겸 여행도 할 겸"
+      },
+      {
+        "condition": "よく使う組み合わせ",
+        "form": "산책할 겸, 구경할 겸, 운동할 겸",
+        "example": "장 볼 겸 산책할 겸 밖에 나갔어요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "二つの目的で行動",
+        "description": "AもBも兼ねて同時に行うことを示します。",
+        "examples": [
+          {
+            "korean": "공부도 할 겸 여행도 할 겸 한국에 왔어요.",
+            "japanese": "勉強も兼ねて旅行も兼ねて韓国に来ました。"
+          }
+        ]
+      },
+      {
+        "title": "おまけの目的を添える",
+        "description": "主目的に合わせて副次的な目的を加える。",
+        "examples": [
+          {
+            "korean": "운동할 겸 공원에 갔어요.",
+            "japanese": "運動を兼ねて公園に行きました。"
+          }
+        ]
+      },
+      {
+        "title": "買い物＋別目的",
+        "description": "買い物など日常行為に別の目的を合わせる。",
+        "examples": [
+          {
+            "korean": "장 볼 겸 산책할 겸 밖에 나갔어요.",
+            "japanese": "買い物がてら散歩も兼ねて外に出ました。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-(으)려고 と -(으)ㄹ 겸",
+      "description": "-(으)려고 は単一目的、「〜しようとして」。-(으)ㄹ 겸 は複数目的を兼ねて行うニュアンスです。",
+      "examples": [
+        {
+          "grammarA": "-(으)ㄹ 겸",
+          "sentenceA": "사진도 찍을 겸 바다에 갔어요.",
+          "meaningA": "写真も撮るついでに海へ行きました。",
+          "grammarB": "-(으)려고",
+          "sentenceB": "사진 찍으려고 바다에 갔어요.",
+          "meaningB": "写真を撮ろうとして海へ行きました。"
+        }
+      ]
+    },
+    "tips": [
+      "A 겸 B 겸 の形で並列するのが自然です。",
+      "目的が3つ以上なら 겸 を続けて列挙できます。",
+      "主目的を前に、副目的を後ろに置くと伝わりやすいです。"
+    ],
+    "relatedGrammar": ["grm_expression_009", "grm_connective_010", "grm_expression_014"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "운동할 ___ 공원에 갔어요.",
+      "answer": "겸",
+      "hint": "「〜を兼ねて」は (으)ㄹ ___。",
+      "explanation": "운동할 겸 공원에 가다。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"장 볼 ___ 산책할 ___ 밖에 나갔어요\" の空欄は？",
+      "choices": ["겸/겸", "려고/겸", "거나/거나", "면/면"],
+      "answerIndex": 0,
+      "explanation": "複数目的を並べるときは 겸/겸。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「勉強も兼ねて旅行も兼ねて韓国に来ました」を韓国語で入力してください",
+      "answer": "공부도 할 겸 여행도 할 겸 한국에 왔어요",
+      "acceptableAnswers": [
+        "공부도 할 겸 여행도 할 겸 한국에 왔어요",
+        "공부도 할 겸 여행도 할 겸 한국에 왔습니다"
+      ],
+      "hint": "A 겸 B 겸 の形を使います。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "写真も撮るついでに海へ行きました。",
+      "answer": "사진도 찍을 겸 바다에 갔어요",
+      "acceptableAnswers": [
+        "사진도 찍을 겸 바다에 갔어요",
+        "사진도 찍을 겸 바다에 갔습니다"
+      ],
+      "explanation": "複数目的には -(으)ㄹ 겸 を並べます。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "id": "grm_voice_011",
+  "title": "-게 하다",
+  "subtitle": "使役的表現（〜させる）",
+  "category": "voice",
+  "level": "beginner",
+  "tags": ["使役", "補助動詞"],
+  "content": {
+    "summary": "動詞の語幹に付けて「〜するようにさせる」を表す補助動詞です。誰かに何かをさせるときに使います。",
+    "formationRules": [
+      {
+        "condition": "基本",
+        "form": "語幹 + 게 하다",
+        "example": "기다리다 → 기다리게 하다 (待たせる)"
+      },
+      {
+        "condition": "尊敬表現",
+        "form": "-게 해 주세요 / -게 해 주시겠어요",
+        "example": "문을 닫게 해 주세요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "他人に行為をさせる",
+        "description": "主体が別の人に動作をさせるときに使います",
+        "examples": [
+          {
+            "korean": "아이를 집에 있게 했어요.",
+            "japanese": "子どもを家にいさせました。"
+          },
+          {
+            "korean": "선생님이 숙제를 내일 내게 하셨어요.",
+            "japanese": "先生が宿題を明日提出させました。"
+          }
+        ]
+      },
+      {
+        "title": "お願いする形",
+        "description": "依頼として「〜してください」に近い丁寧な形も使えます",
+        "examples": [
+          {
+            "korean": "조용히 하게 해 주세요.",
+            "japanese": "静かにさせてください。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-도록 하다との違い",
+      "description": "-게 하다は具体的な動作をさせるとき、-도록 하다は目標・方針を示すときに多く使います。"
+    },
+    "tips": [
+      "命令だけでなく依頼にも使える柔らかい表現です",
+      "受身形(-아/어지다)と組み合わせて受身使役も表せます"
+    ],
+    "relatedGrammar": ["grm_voice_005", "grm_voice_012"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "아이를 집에 있___ 했어요.",
+      "answer": "게",
+      "hint": "させる＝-게 하다",
+      "explanation": "語幹に게 하다を付けて使役を表します"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「静かにさせてください」の正しい表現は？",
+      "choices": ["조용히 하게 해 주세요.", "조용히 하세요.", "조용히 해요.", "조용히 하겠습니다."],
+      "answerIndex": 0,
+      "explanation": "お願いとして「-게 해 주세요」を使います"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「友達を待たせました」を韓国語で入力してください",
+      "answer": "친구를 기다리게 했어요",
+      "acceptableAnswers": ["친구를 기다리게 했어요", "친구를 기다리게 했어요."],
+      "hint": "待つ=기다리다"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

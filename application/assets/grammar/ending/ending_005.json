@@ -1,0 +1,28 @@
+{
+  "id": "grm_ending_005",
+  "title": "-지 마세요",
+  "subtitle": "禁止語尾（〜しないでください）",
+  "category": "ending",
+  "level": "beginner",
+  "tags": ["禁止"],
+  "content": {
+    "summary": "丁寧に禁止を伝える表現で「〜しないでください」に相当します。",
+    "formationRules": [
+      {"condition": "動詞語幹", "form": "語幹 + 지 마세요", "example": "가지 마세요"},
+      {"condition": "カジュアル", "form": "-지 마", "example": "하지 마"}
+    ],
+    "usageCases": [
+      {"title": "禁止・依頼", "description": "してほしくない行為を止める", "examples": [{"korean": "여기서 담배 피우지 마세요.", "japanese": "ここでタバコを吸わないでください。"}]},
+      {"title": "軽い注意", "description": "カジュアルに止める", "examples": [{"korean": "늦지 마요!", "japanese": "遅れないでね！"}]}
+    ],
+    "comparison": {"title": "안/ -지 않다との違い", "description": "-지 마세요は相手への禁止・依頼、안は自分の否定を述べるときに使います。"},
+    "tips": ["目上にも使える丁寧な禁止形", "命令形-(으)세요と対で覚えると便利"],
+    "relatedGrammar": ["grm_negation_001", "grm_negation_005"]
+  },
+  "exercises": [
+    {"id": "ex_001", "type": "fill_blank", "question": "문을 열___ 마세요.", "answer": "지", "hint": "動詞語幹＋지 마세요", "explanation": "禁止のときは-지 마세요を付けます"},
+    {"id": "ex_002", "type": "choice", "question": "「ここで写真を撮らないでください」の正しい文は？", "choices": ["여기서 사진 찍지 마세요.", "여기서 사진 찍지 않아요.", "여기서 사진 찍어요.", "여기서 사진 찍습니까?"], "answerIndex": 0, "explanation": "禁止は-지 마세요"},
+    {"id": "ex_003", "type": "typing", "question": "「遅れないでください」を韓国語で入力してください", "answer": "늦지 마세요", "acceptableAnswers": ["늦지 마세요", "늦지 마세요."], "hint": "遅れる=늦다"}
+  ],
+  "metadata": {"createdAt": "2025-12-07T00:00:00Z", "updatedAt": "2025-12-07T00:00:00Z", "version": "1.0.0"}
+}

@@ -1,0 +1,134 @@
+{
+  "id": "grm_expression_003",
+  "title": "-는 편이다",
+  "subtitle": "傾向表現（〜する方だ）",
+  "category": "expression",
+  "level": "intermediate",
+  "tags": ["傾向"],
+  "content": {
+    "summary": "ある傾向・傾きがあることを婉曲的に述べる表現で、「〜する方だ」「〜なほうだ」に当たります。動詞は -는 편이다、形容詞は -(으)ㄴ 편이다、過去は -았/었던 편이다 を使います。",
+    "formationRules": [
+      {
+        "condition": "動詞（現在）",
+        "form": "V + 는 편이다",
+        "example": "자주 가는 편이에요."
+      },
+      {
+        "condition": "形容詞",
+        "form": "A + (으)ㄴ 편이다",
+        "example": "조용한 편이에요."
+      },
+      {
+        "condition": "過去の傾向",
+        "form": "V/A + 았/었던 편이다",
+        "example": "예전에는 바빴던 편이에요."
+      },
+      {
+        "condition": "程度副詞と併用",
+        "form": "꽤/좀/상당히 + V/A + 편이다",
+        "example": "꽤 비싼 편이에요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "頻度・習慣の傾向",
+        "description": "よく〜する、〜しがちだと柔らかく伝える。",
+        "examples": [
+          {
+            "korean": "주말에는 집에 있는 편이에요.",
+            "japanese": "週末は家にいる方です。"
+          },
+          {
+            "korean": "저는 아침을 잘 안 먹는 편이에요.",
+            "japanese": "私は朝食をあまり食べないほうです。"
+          }
+        ]
+      },
+      {
+        "title": "性質・特徴を婉曲に述べる",
+        "description": "断定を避けて特徴を示します。",
+        "examples": [
+          {
+            "korean": "그 사람은 조용한 편이에요.",
+            "japanese": "その人は静かなほうです。"
+          }
+        ]
+      },
+      {
+        "title": "程度を柔らかく表す",
+        "description": "かなり〜だが言い切りたくないとき。",
+        "examples": [
+          {
+            "korean": "가격이 좀 비싼 편이에요.",
+            "japanese": "値段が少し高いほうです。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-는 편이다 と -는 편이에요 のニュアンス",
+      "description": "どちらも傾向を婉曲に述べる。-는 편이다 は中立、-는 편인 것 같다 を使うとさらに控えめな印象。",
+      "examples": [
+        {
+          "grammarA": "-는 편이다",
+          "sentenceA": "저는 매운 걸 잘 먹는 편이에요.",
+          "meaningA": "私は辛いものをよく食べる方です。",
+          "grammarB": "-는 편인 것 같다",
+          "sentenceB": "저는 매운 걸 잘 먹는 편인 것 같아요.",
+          "meaningB": "私は辛いものを食べる方みたいです。"
+        }
+      ]
+    },
+    "tips": [
+      "「まあまあ」「そこそこ」を示すときに便利です。",
+      "形容詞のときは (으)ㄴ 形を忘れずに。",
+      "過去の傾向を述べるときは -았/었던 편이다。"
+    ],
+    "relatedGrammar": ["grm_expression_001", "grm_expression_004", "grm_ending_014"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "저는 아침을 잘 안 먹는 편___요.",
+      "answer": "이에",
+      "hint": "名詞述語＋이다 の活用形。",
+      "explanation": "안 먹는 편이에요 で「食べないほう」。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"그 사람은 조용한 편___\" の空欄に入るものは？",
+      "choices": ["이에요", "이에", "입니다", "일 거예요"],
+      "answerIndex": 0,
+      "explanation": "形容詞は (으)ㄴ 편이다 → 편이에요。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「週末は家にいる方です」を韓国語で入力してください",
+      "answer": "주말에는 집에 있는 편이에요",
+      "acceptableAnswers": [
+        "주말에는 집에 있는 편이에요",
+        "주말엔 집에 있는 편이에요"
+      ],
+      "hint": "動詞現在は -는 편이다。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "値段が少し高いほうです。",
+      "answer": "가격이 좀 비싼 편이에요",
+      "acceptableAnswers": [
+        "가격이 좀 비싼 편이에요",
+        "가격이 조금 비싼 편입니다"
+      ],
+      "explanation": "形容詞は -(으)ㄴ 편이다 で傾向を柔らかく伝えます。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

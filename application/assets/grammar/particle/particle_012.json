@@ -1,0 +1,89 @@
+{
+  "id": "grm_particle_012",
+  "title": "부터",
+  "subtitle": "起点助詞（〜から）",
+  "category": "particle",
+  "level": "beginner",
+  "tags": ["起点", "時間"],
+  "content": {
+    "summary": "時間や場所の出発点を表す助詞です。英語のfromに相当します。",
+    "formationRules": [
+      {
+        "condition": "時間の起点",
+        "form": "時間名詞 + 부터",
+        "example": "세 시부터 (3時から)"
+      },
+      {
+        "condition": "場所の起点",
+        "form": "場所名詞 + 부터",
+        "example": "역 앞부터 (駅前から)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "時間の起点",
+        "description": "いつから始まるかを表します",
+        "examples": [
+          {
+            "korean": "내일부터 시험이에요.",
+            "japanese": "明日から試験です。"
+          },
+          {
+            "korean": "아침 9시부터 일해요.",
+            "japanese": "朝9時から働きます。"
+          }
+        ]
+      },
+      {
+        "title": "場所の起点",
+        "description": "どこからを表します",
+        "examples": [
+          {
+            "korean": "학교 정문부터 들어가세요.",
+            "japanese": "学校の正門から入ってください。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "까지との対",
+      "description": "부터は始まり、까지は終わりを示します。セットで覚えると便利です。"
+    },
+    "tips": [
+      "時間・場所どちらにも使えます",
+      "開始点を強調したいときは文頭にも置けます"
+    ],
+    "relatedGrammar": ["grm_particle_013", "grm_particle_004"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "오늘___ 연습해요.",
+      "answer": "부터",
+      "hint": "「今日から」を表します",
+      "explanation": "始まりを示すときは부터を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「朝9時から働きます」を正しく表すのは？",
+      "choices": ["아침 9시에 일해요.", "아침 9시부터 일해요.", "아침 9시에서 일해요.", "아침 9시만 일해요."],
+      "answerIndex": 1,
+      "explanation": "開始時刻には부터を付けます"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「明日から試験です」を韓国語で入力してください",
+      "answer": "내일부터 시험이에요",
+      "acceptableAnswers": ["내일부터 시험이에요", "내일부터 시험이에요.", "내일부터 시험이예요"],
+      "hint": "明日=내일、試験=시험"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

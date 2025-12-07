@@ -1,0 +1,123 @@
+{
+  "id": "grm_interrogative_001",
+  "title": "누구",
+  "subtitle": "疑問代名詞（誰）",
+  "category": "interrogative",
+  "level": "beginner",
+  "tags": ["人"],
+  "content": {
+    "summary": "人を尋ねる疑問代名詞で、日本語の「誰」に当たります。主語・目的語どちらにも使えます。",
+    "formationRules": [
+      {
+        "condition": "基本形",
+        "form": "누구 + 助詞",
+        "example": "누구를 만나요? (誰に会いますか)"
+      },
+      {
+        "condition": "主格の縮約",
+        "form": "누구 + 가 → 누가",
+        "example": "누가 왔어요? (誰が来ましたか)"
+      },
+      {
+        "condition": "目的格の縮約",
+        "form": "누구 + 를 → 누굴",
+        "example": "누굴 찾으세요? (誰をお探しですか)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "主語を尋ねる",
+        "description": "動作の主体が誰かを聞くときに使います。",
+        "examples": [
+          {
+            "korean": "누가 전화했어요?",
+            "japanese": "誰が電話しましたか。"
+          },
+          {
+            "korean": "누가 이걸 만들었어요?",
+            "japanese": "誰がこれを作りましたか。"
+          }
+        ]
+      },
+      {
+        "title": "身元や所属を尋ねる",
+        "description": "相手の身元や持ち物の持ち主を丁寧に尋ねます。",
+        "examples": [
+          {
+            "korean": "저분이 누구세요?",
+            "japanese": "あの方はどなたですか。"
+          },
+          {
+            "korean": "이 가방 누구 거예요?",
+            "japanese": "このカバンは誰のものですか。"
+          }
+        ]
+      },
+      {
+        "title": "呼びかけや確認",
+        "description": "相手が誰かを確認したり呼びかけるときに使います。",
+        "examples": [
+          {
+            "korean": "누구세요? 택배 왔어요.",
+            "japanese": "どなたですか？宅配です。"
+          },
+          {
+            "korean": "문 두드린 사람 누구예요?",
+            "japanese": "ドアをノックしたのは誰ですか。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "누구 と 어느 분",
+      "description": "누구 は標準的な「誰」、丁寧に尋ねたいときは ‘어느 분’ や ‘어느 분이세요?’ と言い換えます。",
+      "examples": [
+        {
+          "grammarA": "누구",
+          "sentenceA": "누구를 기다려요?",
+          "meaningA": "誰を待っていますか。（標準）",
+          "grammarB": "어느 분",
+          "sentenceB": "어느 분을 기다리세요?",
+          "meaningB": "どちらの方をお待ちですか。（丁寧）"
+        }
+      ]
+    },
+    "tips": [
+      "主格では必ず縮約して ‘누가’ と言います。",
+      "目的格の縮約 ‘누굴’ も会話でよく使われます。",
+      "疑問詞と一緒に使う助詞は 이/가 が基本で、은/는 はほとんど使いません。"
+    ],
+    "relatedGrammar": ["grm_interrogative_002", "grm_particle_001", "grm_interrogative_009", "grm_pronoun_012"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "___ 왔어요?",
+      "answer": "누가",
+      "hint": "主格では縮約形 누가 を使います。",
+      "explanation": "「誰が来ましたか」は 누가 왔어요? と누가をそのまま入れます。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "最も自然な表現はどれですか?",
+      "choices": ["누구가 전화했어요?", "누가 전화했어요?", "누구는 전화했어요?", "누가 전화했습니까?"],
+      "answerIndex": 1,
+      "explanation": "主格では ‘누가’ と縮約し、平叙の丁寧形では ‘누가 전화했어요?’ が自然です。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「あの方はどなたですか」を韓国語で入力してください",
+      "answer": "저분이 누구세요?",
+      "acceptableAnswers": ["저분이 누구세요?", "저 분이 누구세요?", "저분이 누구세요"],
+      "hint": "丁寧に尋ねるときも 누구 を使えます。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

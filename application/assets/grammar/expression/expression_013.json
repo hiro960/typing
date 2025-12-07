@@ -1,0 +1,130 @@
+{
+  "id": "grm_expression_013",
+  "title": "-아/어 버리다",
+  "subtitle": "完了強調（〜してしまう）",
+  "category": "expression",
+  "level": "intermediate",
+  "tags": ["完了", "強調"],
+  "content": {
+    "summary": "行為が完全に終わったことを強調したり、意外・後悔・すっきり感を表す補助動詞で、「〜してしまう」に当たります。動詞の語幹に -아/어 버리다 を付けます。",
+    "formationRules": [
+      {
+        "condition": "語幹が ㅏ/ㅗ",
+        "form": "V + 아 버리다",
+        "example": "가다 → 가 버리다"
+      },
+      {
+        "condition": "それ以外",
+        "form": "V + 어 버리다",
+        "example": "먹다 → 먹어 버리다"
+      },
+      {
+        "condition": "過去・未来",
+        "form": "V-아/어 버렸어요 / 버릴 거예요",
+        "example": "다 버렸어요. (全部捨ててしまいました)"
+      },
+      {
+        "condition": "感情ニュアンス",
+        "form": "後悔/すっきり を伴うことが多い",
+        "example": "잊어 버렸어요. (すっかり忘れました)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "予想外の完了・喪失",
+        "description": "望ましくない結果になったことを強調。",
+        "examples": [
+          {
+            "korean": "지갑을 잃어 버렸어요.",
+            "japanese": "財布をなくしてしまいました。"
+          }
+        ]
+      },
+      {
+        "title": "後悔・残念",
+        "description": "してしまって後悔する気持ちを表す。",
+        "examples": [
+          {
+            "korean": "괜히 화를 내 버렸어요.",
+            "japanese": "むやみに怒ってしまいました。"
+          }
+        ]
+      },
+      {
+        "title": "さっぱり/すっきり",
+        "description": "やり遂げてすっきりしたニュアンス。",
+        "examples": [
+          {
+            "korean": "숙제를 다 해 버렸어요. 이제 쉬어요.",
+            "japanese": "宿題を全部終わらせました。もう休みます。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-아/어 버리다 と -아/어 있다",
+      "description": "-아/어 버리다 は完了を強調、-아/어 있다 は結果状態の持続を表します。",
+      "examples": [
+        {
+          "grammarA": "-아/어 버리다",
+          "sentenceA": "잊어 버렸어요.",
+          "meaningA": "忘れてしまいました。（完了強調）",
+          "grammarB": "-아/어 있다",
+          "sentenceB": "문이 열려 있어요.",
+          "meaningB": "ドアが開いています。（状態持続）"
+        }
+      ]
+    },
+    "tips": [
+      "完了＋感情のニュアンスが乗ることが多い表現です。",
+      "過去形で使うことが多く、後悔・解放など文脈に注意。",
+      "同音反復を避けたいときは -고 말다 と比較して使い分けます。"
+    ],
+    "relatedGrammar": ["grm_expression_015", "grm_expression_012", "grm_ending_017"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "지갑을 잃어 ___렸어요.",
+      "answer": "버",
+      "hint": "「〜してしまう」の補助動詞を入れます。",
+      "explanation": "잃어 버리다 で完了強調。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"숙제를 다 해 ___\" の空欄に入るものは？",
+      "choices": ["버렸어요", "있었어요", "놓았어요", "두었어요"],
+      "answerIndex": 0,
+      "explanation": "完了を強調するなら -아/어 버리다。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「むやみに怒ってしまいました」を韓国語で入力してください",
+      "answer": "괜히 화를 내 버렸어요",
+      "acceptableAnswers": [
+        "괜히 화를 내 버렸어요",
+        "괜히 화를 내버렸어요"
+      ],
+      "hint": "내다 + -어 버리다。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "宿題を全部終わらせました。もう休みます。",
+      "answer": "숙제를 다 해 버렸어요. 이제 쉬어요",
+      "acceptableAnswers": [
+        "숙제를 다 해 버렸어요. 이제 쉬어요",
+        "숙제를 다 해버렸어요. 이제 쉬어요"
+      ],
+      "explanation": "完了強調 + 次の行動を続ける。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "id": "grm_quotation_002",
+  "title": "-ㄴ/는다고 하다",
+  "subtitle": "間接引用・平叙文（〜と言う）",
+  "category": "quotation",
+  "level": "intermediate",
+  "tags": ["間接引用", "平叙"],
+  "content": {
+    "summary": "平叙文を間接的に伝えるときに使う表現で、「〜だと言う」「〜だそうだ」に当たります。現在形は動詞に -ㄴ/는다고, 形容詞・指定詞は -다고 を付けます。",
+    "formationRules": [
+      {
+        "condition": "動詞（現在）",
+        "form": "V + ㄴ/는다고 하다",
+        "example": "온다고 해요. (来ると言います)"
+      },
+      {
+        "condition": "形容詞・指定詞",
+        "form": "A/N + (이)라고 하다",
+        "example": "예쁘다고 해요. / 학생이라고 해요."
+      },
+      {
+        "condition": "過去・未来",
+        "form": "V/A + 았/었다고, V + (으)ㄹ 거라고",
+        "example": "왔다고 해요. / 갈 거라고 했어요."
+      },
+      {
+        "condition": "縮約形",
+        "form": "-(이)래요 (会話)",
+        "example": "간대요, 예쁘대요"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "伝聞・引用",
+        "description": "他人の発言や情報を間接的に伝える。",
+        "examples": [
+          {
+            "korean": "민수가 내일 온다고 해요.",
+            "japanese": "ミンスが明日来るそうです。"
+          },
+          {
+            "korean": "오늘 비가 온다고 했어요.",
+            "japanese": "今日は雨が降ると言っていました。"
+          }
+        ]
+      },
+      {
+        "title": "内容を要約して伝える",
+        "description": "長い内容を要点だけ引用するとき。",
+        "examples": [
+          {
+            "korean": "시간이 없다고 하니까 빨리 가요.",
+            "japanese": "時間がないと言うので早く行きましょう。"
+          }
+        ]
+      },
+      {
+        "title": "噂・聞き取り",
+        "description": "聞いた話を報告する。",
+        "examples": [
+          {
+            "korean": "그 영화가 재미있다고 들었어요.",
+            "japanese": "あの映画が面白いと聞きました。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-다고 하다 と -대요",
+      "description": "両方とも間接引用だが、-대요 は会話的で短く、-다고 하다 はより丁寧で書き言葉にも使える。",
+      "examples": [
+        {
+          "grammarA": "-다고 하다",
+          "sentenceA": "그분이 온다고 했어요.",
+          "meaningA": "その方が来ると言いました。",
+          "grammarB": "-대요",
+          "sentenceB": "그분이 온대요.",
+          "meaningB": "その方、来るんだって。"
+        }
+      ]
+    },
+    "tips": [
+      "動詞は -ㄴ/는다고、形容詞・指定詞は -다고 を区別します。",
+      "過去は -았/었다고、未来は -(으)ㄹ 거라고 を使います。",
+      "話し言葉では -대요 をよく使いますが、丁寧さが必要なら -다고 해요 を使いましょう。"
+    ],
+    "relatedGrammar": ["grm_quotation_006", "grm_quotation_009", "grm_quotation_005"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "민수가 내일 온____ 해요.",
+      "answer": "다고",
+      "hint": "動詞の現在は -ㄴ/는다고。",
+      "explanation": "오다 → 온다고 하다 で間接引用。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"예쁘____ 해요\" の空欄に入るものは？",
+      "choices": ["다고", "다고요", "ㄴ다고", "는다고"],
+      "answerIndex": 0,
+      "explanation": "形容詞は -다고 を付けます。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「その映画が面白いそうです」を韓国語で入力してください",
+      "answer": "그 영화가 재미있다고 해요",
+      "acceptableAnswers": [
+        "그 영화가 재미있다고 해요",
+        "그 영화가 재미있대요"
+      ],
+      "hint": "形容詞＋다고 해요 / 대요。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "ミンスが忙しいと言っていました。",
+      "answer": "민수가 바쁘다고 했어요",
+      "acceptableAnswers": [
+        "민수가 바쁘다고 했어요",
+        "민수가 바쁘대요"
+      ],
+      "explanation": "形容詞は -다고 하다 / -대요。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

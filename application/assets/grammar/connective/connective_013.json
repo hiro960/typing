@@ -1,0 +1,130 @@
+{
+  "id": "grm_connective_013",
+  "title": "-아/어도",
+  "subtitle": "譲歩接続（〜しても）",
+  "category": "connective",
+  "level": "intermediate",
+  "tags": ["譲歩"],
+  "content": {
+    "summary": "前件を仮定しつつも後件の結果が変わらないことを示す譲歩表現で、「〜しても」「〜でも」に相当します。",
+    "formationRules": [
+      {
+        "condition": "語幹が ㅏ/ㅗ",
+        "form": "V/A + 아도",
+        "example": "가다 → 가도 (行っても)"
+      },
+      {
+        "condition": "それ以外",
+        "form": "V/A + 어도",
+        "example": "먹다 → 먹어도 (食べても)"
+      },
+      {
+        "condition": "하다 動詞",
+        "form": "해도",
+        "example": "공부해도 (勉強しても)"
+      },
+      {
+        "condition": "名詞指定詞",
+        "form": "N(이)라도 と似るが、-아/어도 は動作・状態に付ける",
+        "example": "학생이어도 (学生でも)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "条件を譲歩する",
+        "description": "前件にかかわらず後件が成立することを表します。",
+        "examples": [
+          {
+            "korean": "비가 와도 갈 거예요.",
+            "japanese": "雨が降っても行くつもりです。"
+          }
+        ]
+      },
+      {
+        "title": "期待外れを示す",
+        "description": "期待とは違う結果になることを表します。",
+        "examples": [
+          {
+            "korean": "열심히 연습해도 실수가 나요.",
+            "japanese": "一生懸命練習してもミスが出ます。"
+          }
+        ]
+      },
+      {
+        "title": "譲歩的な助言",
+        "description": "「〜しても構わない」などを示します。",
+        "examples": [
+          {
+            "korean": "늦어도 괜찮으니까 천천히 오세요.",
+            "japanese": "遅れても大丈夫ですからゆっくり来てください。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-더라도 と -아/어도",
+      "description": "-더라도 はより強い譲歩・仮定を表し、-아/어도 は一般的な譲歩を示します。",
+      "examples": [
+        {
+          "grammarA": "-아/어도",
+          "sentenceA": "비가 와도 갈게요.",
+          "meaningA": "雨が降っても行きます。",
+          "grammarB": "-더라도",
+          "sentenceB": "비가 오더라도 갈게요.",
+          "meaningB": "雨が降ったとしても行きます。（より強調）"
+        }
+      ]
+    },
+    "tips": [
+      "未来・予定のニュアンスには -(으)ㄹ 거예요 と併用。",
+      "否定的結果や譲歩的助言によく使われます。",
+      "명령/청유と組み合わせるときは相手の負担を和らげる効果があります。"
+    ],
+    "relatedGrammar": ["grm_connective_003", "grm_connective_018", "grm_adverb_017"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "비가 와___ 갈 거예요.",
+      "answer": "도",
+      "hint": "譲歩を表す接続語尾です。",
+      "explanation": "와도 で「降っても」。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"열심히 해___ 실수가 나요\" の空欄に入るものは？",
+      "choices": ["서", "도", "면", "니까"],
+      "answerIndex": 1,
+      "explanation": "譲歩「〜しても」は -아/어도。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「遅れても大丈夫ですからゆっくり来てください」を韓国語で入力してください",
+      "answer": "늦어도 괜찮으니까 천천히 오세요",
+      "acceptableAnswers": [
+        "늦어도 괜찮으니까 천천히 오세요",
+        "늦어도 괜찮으니 천천히 오세요"
+      ],
+      "hint": "譲歩 + 理由 -(으)니까 の組み合わせ。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "雨が降っても行くつもりです。",
+      "answer": "비가 와도 갈 거예요",
+      "acceptableAnswers": [
+        "비가 와도 갈 거예요",
+        "비가 와도 갈 겁니다"
+      ],
+      "explanation": "譲歩接続は -아/어도 を用います。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

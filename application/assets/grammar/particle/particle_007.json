@@ -1,0 +1,89 @@
+{
+  "id": "grm_particle_007",
+  "title": "와/과",
+  "subtitle": "並列助詞（〜と）",
+  "category": "particle",
+  "level": "beginner",
+  "tags": ["並列", "フォーマル"],
+  "content": {
+    "summary": "名詞と名詞を並列につなぐ助詞です。書き言葉や丁寧な場面でよく使います。",
+    "formationRules": [
+      {
+        "condition": "パッチムありの名詞",
+        "form": "名詞 + 과",
+        "example": "책과 펜 (本とペン)"
+      },
+      {
+        "condition": "パッチムなしの名詞",
+        "form": "名詞 + 와",
+        "example": "사과와 우유 (りんごと牛乳)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "名詞の並列",
+        "description": "二つ以上の名詞を並べるときに使います",
+        "examples": [
+          {
+            "korean": "언니와 동생이 같이 와요.",
+            "japanese": "お姉さんと弟が一緒に来ます。"
+          },
+          {
+            "korean": "책과 노트를 샀어요.",
+            "japanese": "本とノートを買いました。"
+          }
+        ]
+      },
+      {
+        "title": "共同行為を示す",
+        "description": "一緒にする相手を示すときにも使えます",
+        "examples": [
+          {
+            "korean": "친구와 영화 봐요.",
+            "japanese": "友達と映画を見ます。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "하고・(이)랑との違い",
+      "description": "와/과は丁寧・書き言葉寄り、하고は中立、(이)랑はカジュアルな口語です。"
+    },
+    "tips": [
+      "発音では과が[꽈]に近くなるので聞き取りに注意",
+      "フォーマルな文書や発表では와/과を選ぶと自然です"
+    ],
+    "relatedGrammar": ["grm_particle_008", "grm_particle_009"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "사과___ 바나나를 샀어요.",
+      "answer": "와",
+      "hint": "「사과」はパッチムなし",
+      "explanation": "パッチムがない名詞には「와」を付けます"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「本とペンを買いました」を正しく表すのは？",
+      "choices": ["책과 펜을 샀어요.", "책와 펜을 샀어요.", "책이 펜을 샀어요.", "책에서 펜을 샀어요."],
+      "answerIndex": 0,
+      "explanation": "パッチムありの책には「과」を付けます"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「友達と映画を見ます」を韓国語で入力してください",
+      "answer": "친구와 영화 봐요",
+      "acceptableAnswers": ["친구와 영화 봐요", "친구와 영화 봐요.", "친구와영화봐요"],
+      "hint": "友達=친구、映画を見る=영화 보다"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

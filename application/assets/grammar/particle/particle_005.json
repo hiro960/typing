@@ -1,0 +1,89 @@
+{
+  "id": "grm_particle_005",
+  "title": "에서",
+  "subtitle": "場所助詞（〜で）",
+  "category": "particle",
+  "level": "beginner",
+  "tags": ["場所", "動作"],
+  "content": {
+    "summary": "動作が行われる場所や出発点を示す助詞です。英語のat/inやfromに近い使い方をします。",
+    "formationRules": [
+      {
+        "condition": "動作が行われる場所",
+        "form": "名詞 + 에서",
+        "example": "학교에서 (学校で)"
+      },
+      {
+        "condition": "出発点",
+        "form": "名詞 + 에서 출발하다",
+        "example": "집에서 출발해요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "場所での動作",
+        "description": "行為が行われる場所を表します",
+        "examples": [
+          {
+            "korean": "카페에서 공부해요.",
+            "japanese": "カフェで勉強します。"
+          },
+          {
+            "korean": "회사에서 일해요.",
+            "japanese": "会社で働きます。"
+          }
+        ]
+      },
+      {
+        "title": "出発点",
+        "description": "どこから出るかを示します",
+        "examples": [
+          {
+            "korean": "집에서 학교까지 걸어요.",
+            "japanese": "家から学校まで歩きます。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "에との違い",
+      "description": "에は到着点・存在、에서は動作の場所や出発点を表します。"
+    },
+    "tips": [
+      "移動動詞でも出発点を言うときは에서を使います",
+      "存在を表す있다/없다とは一緒に使いません"
+    ],
+    "relatedGrammar": ["grm_particle_004", "grm_particle_012"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "친구랑 도서관___ 만나요.",
+      "answer": "에서",
+      "hint": "会う場所を表します",
+      "explanation": "動作が行われる場所には에서を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「家から会社までバスで行きます」の出発点に使う助詞は？",
+      "choices": ["에", "에서", "으로", "한테"],
+      "answerIndex": 1,
+      "explanation": "出発点を表すときは「에서」を使います"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「カフェで友達に会います」を韓国語で入力してください",
+      "answer": "카페에서 친구를 만나요",
+      "acceptableAnswers": ["카페에서 친구를 만나요", "카페에서 친구를 만나요.", "카페에서 친구를 만나요"],
+      "hint": "〜で=에서、会う=만나다"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

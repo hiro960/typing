@@ -1,0 +1,135 @@
+{
+  "id": "grm_quotation_011",
+  "title": "-재요",
+  "subtitle": "伝聞縮約形・勧誘（〜しようって）",
+  "category": "quotation",
+  "level": "intermediate",
+  "tags": ["伝聞", "縮約", "勧誘"],
+  "content": {
+    "summary": "「-자고 해요」（〜しようと言う）の縮約形で、勧誘を伝聞で伝えるときに使います。「〜しようって」「〜しようだって」に当たります。",
+    "formationRules": [
+      {
+        "condition": "動詞語幹",
+        "form": "V + 재요 (← 자고 해요 縮約)",
+        "example": "가재요 (行こうって)"
+      },
+      {
+        "condition": "否定の勧誘",
+        "form": "V + 지 말재요",
+        "example": "먹지 말재요 (食べるのはやめようって)"
+      },
+      {
+        "condition": "丁寧形にするなら",
+        "form": "자고 해요/합니다 を使う",
+        "example": "같이 가자고 합니다."
+      },
+      {
+        "condition": "命令伝聞との区別",
+        "form": "-(으)래요 は命令・依頼の伝聞",
+        "example": "가래요 vs 가재요"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "一緒に〜しようとの伝言",
+        "description": "誰かが提案した内容を伝える。",
+        "examples": [
+          {
+            "korean": "친구가 같이 가재요.",
+            "japanese": "友達が一緒に行こうって。"
+          },
+          {
+            "korean": "내일 3시에 만나재요.",
+            "japanese": "明日3時に会おうって。"
+          }
+        ]
+      },
+      {
+        "title": "しないことを提案したと伝える",
+        "description": "やめようという提案を伝聞で表します。",
+        "examples": [
+          {
+            "korean": "오늘은 술 마시지 말재요.",
+            "japanese": "今日はお酒を飲むのはやめようって。"
+          }
+        ]
+      },
+      {
+        "title": "カジュアルな提案の共有",
+        "description": "友人間で軽く提案を伝えるときに用います。",
+        "examples": [
+          {
+            "korean": "주말에 등산 가재요.",
+            "japanese": "週末に登山行こうって。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-재요 と -자고 해요",
+      "description": "どちらも勧誘の間接引用。-재요 は会話的で短い形、-자고 해요 は丁寧さを保ちたいときに使います。",
+      "examples": [
+        {
+          "grammarA": "-재요",
+          "sentenceA": "같이 보자고 했어요 → 같이 보재요.",
+          "meaningA": "一緒に見ようって。",
+          "grammarB": "-자고 해요",
+          "sentenceB": "같이 보자고 해요.",
+          "meaningB": "一緒に見ようと言っています。"
+        }
+      ]
+    },
+    "tips": [
+      "-재요 は勧誘の伝聞、命令・依頼の伝聞は -(으)래요、平叙の伝聞は -대요 とセットで覚えると整理しやすいです。",
+      "フォーマルな場面や書き言葉では -자고 합니다 を使います。",
+      "否定勧誘は 지 말재요 を用います。"
+    ],
+    "relatedGrammar": [
+      "grm_quotation_004",
+      "grm_quotation_007",
+      "grm_ending_007"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "친구가 같이 가___요.",
+      "answer": "재",
+      "hint": "勧誘の伝聞縮約形です。",
+      "explanation": "가자고 해요 → 가재요。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"술 마시지 말___요\" の空欄に入るものは？",
+      "choices": ["래", "재", "대", "냬"],
+      "answerIndex": 1,
+      "explanation": "否定勧誘も -재요 を用います。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「週末に登山行こうって」を韓国語で入力してください",
+      "answer": "주말에 등산 가재요",
+      "acceptableAnswers": ["주말에 등산 가재요", "주말에 등산 가자고 했어요"],
+      "hint": "勧誘の伝聞。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "明日3時に会おうって。",
+      "answer": "내일 3시에 만나재요",
+      "acceptableAnswers": [
+        "내일 3시에 만나재요",
+        "내일 3시에 만나자고 했어요"
+      ],
+      "explanation": "提案の伝聞は -재요。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

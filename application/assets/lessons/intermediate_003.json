@@ -12,92 +12,77 @@
         "items": [
           {
             "text": "가족",
-            "meaning": "家族",
-            "pronunciation": "カジョク",
+            "meaning": "家族"
             "hint": "ㄱ + ㅏ + ㅈ + ㅗ + ㄱ"
           },
           {
             "text": "부모님",
-            "meaning": "両親",
-            "pronunciation": "プモニム",
+            "meaning": "両親"
             "hint": "ㅂ + ㅜ + ㅁ + ㅗ + ㄴ + ㅣ + ㅁ"
           },
           {
             "text": "아버지",
-            "meaning": "父",
-            "pronunciation": "アボジ",
+            "meaning": "父"
             "hint": "ㅇ + ㅏ + ㅂ + ㅓ + ㅈ + ㅣ"
           },
           {
             "text": "어머니",
-            "meaning": "母",
-            "pronunciation": "オモニ",
+            "meaning": "母"
             "hint": "ㅇ + ㅓ + ㅁ + ㅓ + ㄴ + ㅣ"
           },
           {
             "text": "아들",
-            "meaning": "息子",
-            "pronunciation": "アドゥル",
+            "meaning": "息子"
             "hint": "ㅇ + ㅏ + ㄷ + ㅡ + ㄹ"
           },
           {
             "text": "딸",
-            "meaning": "娘",
-            "pronunciation": "ッタル",
+            "meaning": "娘"
             "hint": "ㄸ + ㅏ + ㄹ"
           },
           {
             "text": "형",
-            "meaning": "兄（男から）",
-            "pronunciation": "ヒョン",
+            "meaning": "兄（男から）"
             "hint": "ㅎ + ㅕ + ㅇ"
           },
           {
             "text": "누나",
-            "meaning": "姉（男から）",
-            "pronunciation": "ヌナ",
+            "meaning": "姉（男から）"
             "hint": "ㄴ + ㅜ + ㄴ + ㅏ"
           },
           {
             "text": "오빠",
-            "meaning": "兄（女から）",
-            "pronunciation": "オッパ",
+            "meaning": "兄（女から）"
             "hint": "ㅇ + ㅗ + ㅃ + ㅏ"
           },
           {
             "text": "언니",
-            "meaning": "姉（女から）",
-            "pronunciation": "オンニ",
+            "meaning": "姉（女から）"
             "hint": "ㅇ + ㅓ + ㄴ + ㄴ + ㅣ"
           },
           {
             "text": "동생",
-            "meaning": "弟・妹",
-            "pronunciation": "トンセン",
+            "meaning": "弟・妹"
             "hint": "ㄷ + ㅗ + ㅇ + ㅅ + ㅐ + ㅇ"
           },
           {
             "text": "남동생",
-            "meaning": "弟",
-            "pronunciation": "ナムドンセン",
+            "meaning": "弟"
             "hint": "ㄴ + ㅏ + ㅁ + ㄷ + ㅗ + ㅇ + ㅅ + ㅐ + ㅇ"
           },
           {
             "text": "여동생",
-            "meaning": "妹",
-            "pronunciation": "ヨドンセン",
+            "meaning": "妹"
             "hint": "ㅇ + ㅕ + ㄷ + ㅗ + ㅇ + ㅅ + ㅐ + ㅇ"
           },
           {
             "text": "할아버지",
-            "meaning": "祖父",
-            "pronunciation": "ハラボジ",
+            "meaning": "祖父"
             "hint": "ㅎ + ㅏ + ㄹ + ㅏ + ㅂ + ㅓ + ㅈ + ㅣ"
           },
           {
             "text": "할머니",
-            "meaning": "祖母",
-            "pronunciation": "ハルモニ",
+            "meaning": "祖母"
             "hint": "ㅎ + ㅏ + ㄹ + ㅁ + ㅓ + ㄴ + ㅣ"
           }
         ]

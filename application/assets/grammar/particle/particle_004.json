@@ -1,0 +1,94 @@
+{
+  "id": "grm_particle_004",
+  "title": "에",
+  "subtitle": "場所・時間助詞（〜に）",
+  "category": "particle",
+  "level": "beginner",
+  "tags": ["場所", "時間"],
+  "content": {
+    "summary": "場所や時間の到達点を表す助詞です。英語のto/atやonに近い働きをします。",
+    "formationRules": [
+      {
+        "condition": "場所を表す名詞",
+        "form": "名詞 + 에",
+        "example": "학교에 (学校に)"
+      },
+      {
+        "condition": "時間を表す名詞",
+        "form": "名詞 + 에",
+        "example": "세 시에 (3時に)"
+      },
+      {
+        "condition": "存在動詞との相性",
+        "form": "名詞 + 에 있다/없다",
+        "example": "책상 위에 있어요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "場所の到着・存在",
+        "description": "行き先や位置を示します",
+        "examples": [
+          {
+            "korean": "학교에 가요.",
+            "japanese": "学校に行きます。"
+          },
+          {
+            "korean": "집에 있어요.",
+            "japanese": "家にいます。"
+          }
+        ]
+      },
+      {
+        "title": "時間を示す",
+        "description": "行為が行われる時間を表します",
+        "examples": [
+          {
+            "korean": "아침 7시에 일어나요.",
+            "japanese": "朝7時に起きます。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "에서との違い",
+      "description": "에は到着点・存在、에서は動作が行われる場所を表します。"
+    },
+    "tips": [
+      "時間を表すときは期間を除きほとんどの場合에を使います",
+      "移動動詞や있다/없다とよく組み合わせます"
+    ],
+    "relatedGrammar": ["grm_particle_005", "grm_particle_012"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "저는 도서관___ 가요.",
+      "answer": "에",
+      "hint": "場所の到着点を表します",
+      "explanation": "行き先には「에」を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「夜10時に寝ます」を正しく表すのはどれ？",
+      "choices": ["밤 10시에 자요.", "밤 10시에서 자요.", "밤 10시가 자요.", "밤 10시는 자요."],
+      "answerIndex": 0,
+      "explanation": "時間を表すときは「〜시에」を使います"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「家にいます」を韓国語で入力してください",
+      "answer": "집에 있어요",
+      "acceptableAnswers": ["집에 있어요", "집에 있어요.", "집에있어요"],
+      "hint": "家=집、いる=있다"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

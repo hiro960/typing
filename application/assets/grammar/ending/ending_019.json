@@ -1,0 +1,131 @@
+{
+  "id": "grm_ending_019",
+  "title": "-아/어 주다",
+  "subtitle": "授受語尾（〜してあげる/くれる）",
+  "category": "ending",
+  "level": "intermediate",
+  "tags": ["授受"],
+  "content": {
+    "summary": "相手や第三者に行為を「してあげる/してくれる」ことを表す補助動詞です。依頼・感謝・申し出などで使われます。",
+    "formationRules": [
+      {
+        "condition": "語幹が ㅏ/ㅗ",
+        "form": "V + 아 주다",
+        "example": "보다 → 봐 주다 (見てあげる/くれる)"
+      },
+      {
+        "condition": "それ以外",
+        "form": "V + 어 주다",
+        "example": "돕다 → 도와 주다 (手伝ってあげる/くれる)"
+      },
+      {
+        "condition": "하다 動詞",
+        "form": "해 주다",
+        "example": "설명해 줘요. (説明してください)"
+      },
+      {
+        "condition": "敬語・謙譲",
+        "form": "주시다（尊敬）/ 드리다（謙譲）",
+        "example": "도와 주시겠어요? (手伝ってくださいますか)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "依頼する",
+        "description": "「〜してください」と丁寧に頼むときに使います。",
+        "examples": [
+          {
+            "korean": "이거 좀 설명해 주세요.",
+            "japanese": "これをちょっと説明してください。"
+          }
+        ]
+      },
+      {
+        "title": "申し出る/助ける",
+        "description": "自分が何かをしてあげると申し出るときに使います。",
+        "examples": [
+          {
+            "korean": "제가 짐을 들어 줄게요.",
+            "japanese": "私が荷物を持ってあげますね。"
+          }
+        ]
+      },
+      {
+        "title": "感謝を表す",
+        "description": "してもらったことに対してお礼を言うとき。",
+        "examples": [
+          {
+            "korean": "도와줘서 고마워요.",
+            "japanese": "手伝ってくれてありがとう。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "주다 / 드리다 / 주시다 の使い分け",
+      "description": "주다 は一般、드리다 は謙譲（目上にあげる）、주시다 は尊敬（目上がしてくださる）。",
+      "examples": [
+        {
+          "grammarA": "주다",
+          "sentenceA": "책을 빌려 줬어요.",
+          "meaningA": "本を貸してあげました。",
+          "grammarB": "주시다/드리다",
+          "sentenceB": "도와 주실 수 있나요? / 도와 드릴게요.",
+          "meaningB": "手伝っていただけますか？ / 手伝って差し上げますね。"
+        }
+      ]
+    },
+    "tips": [
+      "依頼では \"-아/어 주세요\" が定番。",
+      "申し出では \"-아/어 줄게요\"、丁寧なら \"-아/어 드릴게요\"。",
+      "尊敬表現では 주시다 を使って相手への敬意を示します。"
+    ],
+    "relatedGrammar": ["grm_honorific_011", "grm_honorific_007", "grm_ending_018"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "이 문장 좀 읽어 ___세요.",
+      "answer": "주",
+      "hint": "「読んでください」になるように。",
+      "explanation": "읽어 주세요 で丁寧な依頼。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"제가 사진을 찍어 ___\" の空欄に入るものは？",
+      "choices": ["주다", "줄게요", "줘요", "줍니다"],
+      "answerIndex": 1,
+      "explanation": "申し出なら未来形の 줄게요 が自然。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「手伝ってくれてありがとうございます」を韓国語で入力してください",
+      "answer": "도와줘서 고마워요",
+      "acceptableAnswers": [
+        "도와줘서 고마워요",
+        "도와주셔서 감사합니다"
+      ],
+      "hint": "してくれてありがとう＝아/어 줘서 고마워요。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "先生、もう一度説明してください。",
+      "answer": "선생님, 한 번 더 설명해 주세요",
+      "acceptableAnswers": [
+        "선생님 한 번 더 설명해 주세요",
+        "선생님, 한 번 더 설명해 주세요",
+        "선생님, 한 번 더 설명해 주십시오"
+      ],
+      "explanation": "依頼は -아/어 주세요 / -아/어 주십시오。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

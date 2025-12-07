@@ -1,0 +1,134 @@
+{
+  "id": "grm_expression_001",
+  "title": "-기 쉽다/어렵다",
+  "subtitle": "難易表現（〜しやすい/しにくい）",
+  "category": "expression",
+  "level": "intermediate",
+  "tags": ["難易"],
+  "content": {
+    "summary": "動作の難易度を表し、「〜しやすい／しにくい」に当たる表現です。動詞の名詞化語尾 -기 の後に 쉽다/어렵다 を付けます。",
+    "formationRules": [
+      {
+        "condition": "基本形",
+        "form": "V + 기 쉽다 / 기 어렵다",
+        "example": "읽기 쉽다 / 읽기 어렵다"
+      },
+      {
+        "condition": "体言化した形",
+        "form": "V + 기가 쉽다/어렵다",
+        "example": "쓰기가 어려워요."
+      },
+      {
+        "condition": "否定・程度副詞と併用",
+        "form": "별로/너무 + 기 쉽다/어렵다",
+        "example": "발음하기가 별로 어렵지 않아요."
+      },
+      {
+        "condition": "主語は状況・対象",
+        "form": "名詞 + 이/가 + V기 쉽다/어렵다",
+        "example": "이 문제는 풀기 어려워요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "一般的な難易度を述べる",
+        "description": "ある動作が簡単か難しいかを客観的に述べます。",
+        "examples": [
+          {
+            "korean": "이 책은 읽기 쉬워요.",
+            "japanese": "この本は読みやすいです。"
+          },
+          {
+            "korean": "한국어 발음은 익히기 어렵습니다.",
+            "japanese": "韓国語の発音は身に付けにくいです。"
+          }
+        ]
+      },
+      {
+        "title": "学習・練習の難易度",
+        "description": "技能の習得が容易/困難であることを示します。",
+        "examples": [
+          {
+            "korean": "피아노는 처음엔 치기가 어려워요.",
+            "japanese": "ピアノは最初は弾きにくいです。"
+          }
+        ]
+      },
+      {
+        "title": "場所・状況の便利さ",
+        "description": "使いやすい／使いにくいといった評価に使えます。",
+        "examples": [
+          {
+            "korean": "이 앱은 사용하기 쉬워요.",
+            "japanese": "このアプリは使いやすいです。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-기 쉽다 と -기 편하다",
+      "description": "쉬다 は難易度、편하다 は快適さ・便利さを強調します。",
+      "examples": [
+        {
+          "grammarA": "-기 쉽다",
+          "sentenceA": "이 문제는 풀기 쉬워요.",
+          "meaningA": "この問題は解きやすいです。",
+          "grammarB": "-기 편하다",
+          "sentenceB": "이 가방은 들기 편해요.",
+          "meaningB": "このカバンは持ちやすいです。"
+        }
+      ]
+    },
+    "tips": [
+      "動詞＋기 で名詞化した後に 쉽다/어렵다 を付けます。",
+      "評価対象を主語に置くと自然です（이 책이 읽기 쉽다）。",
+      "程度副詞(매우/정말/별로)と併用して強弱を調整できます。"
+    ],
+    "relatedGrammar": ["grm_expression_002", "grm_expression_003", "grm_adverb_002"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "한국어 발음은 익히___ 어려워요.",
+      "answer": "기",
+      "hint": "動詞＋名詞化＋어렵다 で表します。",
+      "explanation": "익히기 어렵다 の形。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"이 책은 읽___ 쉬워요\" の空欄に入るものは？",
+      "choices": ["기", "는 게", "을", "을 수"],
+      "answerIndex": 0,
+      "explanation": "-기 쉽다 で「〜しやすい」。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「このアプリは使いやすいです」を韓国語で入力してください",
+      "answer": "이 앱은 사용하기 쉬워요",
+      "acceptableAnswers": [
+        "이 앱은 사용하기 쉬워요",
+        "이 앱은 쓰기 쉬워요"
+      ],
+      "hint": "使う=사용하다/쓰다。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "韓国語の発音は身に付けにくいです。",
+      "answer": "한국어 발음은 익히기 어려워요",
+      "acceptableAnswers": [
+        "한국어 발음은 익히기 어려워요",
+        "한국어 발음은 익히기가 어려워요"
+      ],
+      "explanation": "名詞化+어렵다 で難易度を表現。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

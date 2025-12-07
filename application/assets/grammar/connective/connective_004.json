@@ -1,0 +1,90 @@
+{
+  "id": "grm_connective_004",
+  "title": "-(으)면",
+  "subtitle": "条件接続（〜すれば/〜なら）",
+  "category": "connective",
+  "level": "beginner",
+  "tags": ["条件"],
+  "content": {
+    "summary": "条件を表す接続語尾で「〜すれば」「〜なら」に相当します。現実・仮定どちらの条件にも使えます。",
+    "formationRules": [
+      {
+        "condition": "パッチムなし",
+        "form": "語幹 + 면",
+        "example": "가다 → 가면"
+      },
+      {
+        "condition": "パッチムあり",
+        "form": "語幹 + 으면",
+        "example": "먹다 → 먹으면"
+      },
+      {
+        "condition": "이다/아니다",
+        "form": "이면 / 아니면",
+        "example": "학생이면 / 학생이 아니면"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "一般条件",
+        "description": "〜なら〜だと条件を述べる",
+        "examples": [
+          {
+            "korean": "시간이 있으면 같이 가요.",
+            "japanese": "時間があれば一緒に行きましょう。"
+          }
+        ]
+      },
+      {
+        "title": "習慣・繰り返し",
+        "description": "ある条件で毎回起こること",
+        "examples": [
+          {
+            "korean": "봄이 되면 꽃이 펴요.",
+            "japanese": "春になると花が咲きます。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-아/어도との違い",
+      "description": "-(으)면は条件、-아/어도は譲歩「〜しても」です。"
+    },
+    "tips": [
+      "명사이면/아니면の形にも注意",
+      "会話では면が[먄]に近く発音されます"
+    ],
+    "relatedGrammar": ["grm_connective_005", "grm_connective_021"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "시간이 있___ 연락 주세요.",
+      "answer": "으면",
+      "hint": "条件を表す-(으)면",
+      "explanation": "条件を述べるときは語幹+(으)면を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「春になると花が咲きます」の正しい文は？",
+      "choices": ["봄이 되면 꽃이 펴요.", "봄이 되어서 꽃이 펴요.", "봄이 되니까 꽃이 펴요.", "봄이 되면 꽃이 펴요?"],
+      "answerIndex": 0,
+      "explanation": "繰り返し起こる条件には-(으)면が自然です"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「時間があれば一緒に行きましょう」を韓国語で入力してください",
+      "answer": "시간이 있으면 같이 가요",
+      "acceptableAnswers": ["시간이 있으면 같이 가요", "시간이 있으면 같이 가요."],
+      "hint": "一緒に=같이"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

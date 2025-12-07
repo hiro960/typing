@@ -1,0 +1,89 @@
+{
+  "id": "grm_connective_001",
+  "title": "-고",
+  "subtitle": "並列接続（〜して/〜で）",
+  "category": "connective",
+  "level": "beginner",
+  "tags": ["並列"],
+  "content": {
+    "summary": "動詞・形容詞の語幹に付けて動作や状態を並列につなぐ表現です。「〜して」「〜で」に相当します。",
+    "formationRules": [
+      {
+        "condition": "基本",
+        "form": "語幹 + 고",
+        "example": "가고, 먹고, 예쁘고"
+      },
+      {
+        "condition": "時制",
+        "form": "過去・未来も先行節に付けてから後ろを続ける",
+        "example": "먹었고, 갈 거고"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "動作の並列",
+        "description": "順番に行う動作をつなぎます",
+        "examples": [
+          {
+            "korean": "밥을 먹고 숙제해요.",
+            "japanese": "ご飯を食べて宿題をします。"
+          },
+          {
+            "korean": "친구를 만나고 영화 봤어요.",
+            "japanese": "友達に会って映画を見ました。"
+          }
+        ]
+      },
+      {
+        "title": "状態の並列",
+        "description": "形容詞を並べて性質を並列します",
+        "examples": [
+          {
+            "korean": "이 가방은 가볍고 예뻐요.",
+            "japanese": "このかばんは軽くてかわいいです。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-아서/-어서との違い",
+      "description": "-고は単なる並列・列挙、-아서/-어서は原因や順序を強調します。"
+    },
+    "tips": [
+      "時制は最後の節に付けるのが基本",
+      "並列する内容の順番が重要なときは-아서/-어서を検討"
+    ],
+    "relatedGrammar": ["grm_connective_002", "grm_connective_005"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "샤워하고 밥을 ___ 회사에 가요.",
+      "answer": "먹고",
+      "hint": "順番に並べる",
+      "explanation": "動作を列挙するときは語幹+고を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「このかばんは軽くてかわいいです」の正しい文は？",
+      "choices": ["이 가방은 가볍고 예뻐요.", "이 가방은 가볍고 예쁜다.", "이 가방은 가볍어서 예뻐요.", "이 가방은 가볍고 예뻤어요."],
+      "answerIndex": 0,
+      "explanation": "形容詞を並列する場合も-고を使います"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「ご飯を食べて宿題をします」を韓国語で入力してください",
+      "answer": "밥을 먹고 숙제해요",
+      "acceptableAnswers": ["밥을 먹고 숙제해요", "밥을 먹고 숙제해요."],
+      "hint": "宿題=숙제"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

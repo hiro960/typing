@@ -12,26 +12,22 @@
         "items": [
           {
             "text": "ㅑ",
-            "meaning": "ya の音",
-            "pronunciation": "ヤ",
+            "meaning": "ya の音"
             "hint": "「ヤ」の音です"
           },
           {
             "text": "ㅕ",
-            "meaning": "yeo の音",
-            "pronunciation": "ヨ",
+            "meaning": "yeo の音"
             "hint": "「ヨ」の音です（口を横に）"
           },
           {
             "text": "ㅛ",
-            "meaning": "yo の音",
-            "pronunciation": "ヨ",
+            "meaning": "yo の音"
             "hint": "「ヨ」の音です"
           },
           {
             "text": "ㅠ",
-            "meaning": "yu の音",
-            "pronunciation": "ユ",
+            "meaning": "yu の音"
             "hint": "「ユ」の音です"
           }
         ]
@@ -42,62 +38,52 @@
         "items": [
           {
             "text": "야",
-            "meaning": "や",
-            "pronunciation": "ヤ",
+            "meaning": "や"
             "hint": "ㅇ + ㅑ"
           },
           {
             "text": "여",
-            "meaning": "～",
-            "pronunciation": "ヨ",
+            "meaning": "～"
             "hint": "ㅇ + ㅕ"
           },
           {
             "text": "요",
-            "meaning": "～です",
-            "pronunciation": "ヨ",
+            "meaning": "～です"
             "hint": "ㅇ + ㅛ"
           },
           {
             "text": "유",
-            "meaning": "有",
-            "pronunciation": "ユ",
+            "meaning": "有"
             "hint": "ㅇ + ㅠ"
           },
           {
             "text": "야구",
-            "meaning": "野球",
-            "pronunciation": "ヤグ",
+            "meaning": "野球"
             "hint": "ㅇ + ㅑ + ㄱ + ㅜ"
           },
           {
             "text": "여기",
-            "meaning": "ここ",
-            "pronunciation": "ヨギ",
+            "meaning": "ここ"
             "hint": "ㅇ + ㅕ + ㄱ + ㅣ"
           },
           {
             "text": "요리",
-            "meaning": "料理",
-            "pronunciation": "ヨリ",
+            "meaning": "料理"
             "hint": "ㅇ + ㅛ + ㄹ + ㅣ"
           },
           {
             "text": "유리",
-            "meaning": "ガラス",
-            "pronunciation": "ユリ",
+            "meaning": "ガラス"
             "hint": "ㅇ + ㅠ + ㄹ + ㅣ"
           },
           {
             "text": "약",
-            "meaning": "薬",
-            "pronunciation": "ヤク",
+            "meaning": "薬"
             "hint": "ㅇ + ㅑ + ㄱ"
           },
           {
             "text": "연필",
-            "meaning": "鉛筆",
-            "pronunciation": "ヨンピル",
+            "meaning": "鉛筆"
             "hint": "ㅇ + ㅕ + ㄴ + ㅍ + ㅣ + ㄹ"
           }
         ]

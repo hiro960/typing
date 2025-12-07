@@ -1,0 +1,129 @@
+{
+  "id": "grm_adverb_007",
+  "title": "자주",
+  "subtitle": "頻度副詞（よく/しばしば）",
+  "category": "adverb",
+  "level": "beginner",
+  "tags": ["頻度"],
+  "content": {
+    "summary": "頻度が高いことを表す副詞。「よく/しばしば」。항상 ほどではないが、習慣的に繰り返す行為を示します。",
+    "formationRules": [
+      {
+        "condition": "자주 + 動詞",
+        "form": "動作が頻繁であることを表す",
+        "example": "자주 만나요.（よく会います）"
+      },
+      {
+        "condition": "現在・過去・未来いずれも使用可",
+        "form": "자주 + V-해요/했어요/할 거예요",
+        "example": "어렸을 때 자주 놀았어요."
+      },
+      {
+        "condition": "質問で頻度を尋ねる",
+        "form": "자주 + V-해요?",
+        "example": "자주 운동해요?（よく運動しますか？）"
+      },
+      {
+        "condition": "否定と共起",
+        "form": "자주 + 안/못/지 않다 で頻度が低いことを表す",
+        "example": "요즘은 자주 못 만나요."
+      },
+      {
+        "condition": "位置",
+        "form": "主語の直後または動詞直前に置くと自然",
+        "example": "저는 자주 커피를 마셔요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "習慣・趣味",
+        "description": "日常的に繰り返す行為を述べます。",
+        "examples": [
+          {
+            "korean": "저는 주말에 자주 영화를 봐요.",
+            "japanese": "私は週末によく映画を見ます。"
+          }
+        ]
+      },
+      {
+        "title": "頻度を尋ねる質問",
+        "description": "相手の習慣を確認するときの定番表現です。",
+        "examples": [
+          {
+            "korean": "요즘 자주 운동해요?",
+            "japanese": "最近よく運動していますか？"
+          }
+        ]
+      },
+      {
+        "title": "頻度が下がったことを示す",
+        "description": "否定表現と組み合わせて「以前ほどは〜しない」を表します。",
+        "examples": [
+          {
+            "korean": "요즘은 자주 못 만나요.",
+            "japanese": "最近はよく会えません。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "항상/가끔 との違い",
+      "description": "자주 は「よく」。항상 はほぼ毎回、가끔 は「たまに」と頻度が低くなります。",
+      "examples": [
+        {
+          "grammarA": "자주",
+          "sentenceA": "자주 만나서 친해졌어요.",
+          "meaningA": "よく会って仲良くなりました。",
+          "grammarB": "가끔",
+          "sentenceB": "가끔 연락해요.",
+          "meaningB": "たまに連絡します。"
+        }
+      ]
+    },
+    "tips": [
+      "자주 の位置は主語の後か動詞直前。入れ替えても意味はほぼ同じです。",
+      "「よく〜する？」と聞くときは intonation を上げて 자주 해요? とします。",
+      "否定と合わせれば頻度が落ちたことも表現できます。"
+    ],
+    "relatedGrammar": ["grm_adverb_006", "grm_adverb_008", "grm_adverb_009"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "주말에 ___ 친구를 만나요.",
+      "answer": "자주",
+      "hint": "「よく」を入れて頻度を表します",
+      "explanation": "頻度副詞 자주 を動詞の前に置きます。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「最近よく運動していますか？」の正しい韓国語は？",
+      "choices": ["요즘 운동 자주 해요?", "요즘 자주 운동해요?", "요즘 운동을 자주 하나요?", "すべて自然"],
+      "answerIndex": 3,
+      "explanation": "자주 の位置は変えても自然に通じますが、2,1,3 いずれも会話で使えます。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「私は週末によく映画を見ます」を韓国語で入力してください",
+      "answer": "저는 주말에 자주 영화를 봐요",
+      "acceptableAnswers": ["저는 주말에 자주 영화를 봐요", "주말에 자주 영화를 봐요"],
+      "hint": "자주 를 動詞の前に置きます"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "最近はよく会えません。",
+      "answer": "요즘은 자주 못 만나요",
+      "acceptableAnswers": ["요즘은 자주 못 만나요", "요즘은 자주 만나지 못해요"],
+      "explanation": "否定と合わせて頻度が下がったことを表します。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

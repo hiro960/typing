@@ -1,0 +1,90 @@
+{
+  "id": "grm_connective_003",
+  "title": "-(으)니까",
+  "subtitle": "理由接続（〜から/〜ので）",
+  "category": "connective",
+  "level": "beginner",
+  "tags": ["理由"],
+  "content": {
+    "summary": "原因や理由を表す接続語尾で、後ろに命令・勧誘も置けるのが特徴です。",
+    "formationRules": [
+      {
+        "condition": "パッチムなし",
+        "form": "語幹 + 니까",
+        "example": "가다 → 가니까"
+      },
+      {
+        "condition": "パッチムあり",
+        "form": "語幹 + 으니까",
+        "example": "먹다 → 먹으니까"
+      },
+      {
+        "condition": "하다動詞",
+        "form": "하니까",
+        "example": "공부하니까"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "理由・根拠を示す",
+        "description": "明確な理由を述べるとき",
+        "examples": [
+          {
+            "korean": "배고프니까 밥 먹으러 가요.",
+            "japanese": "お腹がすいたからご飯を食べに行きましょう。"
+          }
+        ]
+      },
+      {
+        "title": "命令・勧誘と一緒に",
+        "description": "後ろに命令・勧誘を置ける",
+        "examples": [
+          {
+            "korean": "늦었으니까 빨리 가세요.",
+            "japanese": "遅いので早く行ってください。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-아서/어서との違い",
+      "description": "-(으)니까は話し手の判断・命令ともよく組み合わせます。-아서/어서は命令・勧誘に基本的に使いません。"
+    },
+    "tips": [
+      "니/니까の鼻音化で発音が変わることに注意",
+      "過去形は았/었으니까の形になります"
+    ],
+    "relatedGrammar": ["grm_connective_002", "grm_connective_004"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "시간이 없으___ 빨리 합시다.",
+      "answer": "니까",
+      "hint": "理由+勧誘",
+      "explanation": "命令・勧誘と一緒に使えるのが特徴です"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「お腹がすいたからご飯を食べましょう」の正しい文は？",
+      "choices": ["배고프니까 밥 먹으러 가요.", "배고파서 밥 먹으러 가요.", "배고프면 밥 먹으러 가요.", "全部意味は通じる"],
+      "answerIndex": 3,
+      "explanation": "理由のニュアンスなら(으)니까/아서両方使えます"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「遅いので早く行ってください」を韓国語で入力してください",
+      "answer": "늦었으니까 빨리 가세요",
+      "acceptableAnswers": ["늦었으니까 빨리 가세요", "늦었으니까 빨리 가세요."],
+      "hint": "遅い=늦다"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

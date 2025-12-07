@@ -1,0 +1,130 @@
+{
+  "id": "grm_connective_006",
+  "title": "-(으)ㄴ/는데",
+  "subtitle": "背景説明接続（〜が/〜けど）",
+  "category": "connective",
+  "level": "intermediate",
+  "tags": ["背景", "対比"],
+  "content": {
+    "summary": "前件で状況を提示し、後件で追加説明・対比・依頼などにつなげる表現です。形容詞・動詞・名詞で形が変わります。",
+    "formationRules": [
+      {
+        "condition": "動詞（現在）",
+        "form": "V + 는데",
+        "example": "가다 → 가는데 (行くけど)"
+      },
+      {
+        "condition": "形容詞/指定詞（現在）",
+        "form": "A/N + (이)ㄴ데",
+        "example": "바쁜데 (忙しいけど), 학생인데 (学生だけど)"
+      },
+      {
+        "condition": "過去",
+        "form": "V/A + 았/었는데",
+        "example": "봤는데 (見たけど)"
+      },
+      {
+        "condition": "未来・予定",
+        "form": "V + (으)ㄹ 건데",
+        "example": "갈 건데 (行く予定だけど)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "背景提示・状況説明",
+        "description": "前置きとして状況を伝え、後件につなげます。",
+        "examples": [
+          {
+            "korean": "지금 회의 중인데 조금만 기다려 주세요.",
+            "japanese": "今会議中なので少しだけお待ちください。"
+          }
+        ]
+      },
+      {
+        "title": "対比・転換",
+        "description": "前後で対比や期待外れを示します。",
+        "examples": [
+          {
+            "korean": "맛은 좋은데 양이 적어요.",
+            "japanese": "味はいいけど量が少ないです。"
+          }
+        ]
+      },
+      {
+        "title": "依頼・提案の前置き",
+        "description": "依頼や提案の柔らかい導入として使います。",
+        "examples": [
+          {
+            "korean": "시간이 없는데 조금만 도와줄 수 있어요?",
+            "japanese": "時間がないんですけど、少し手伝ってもらえますか？"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-지만 と -(으)ㄴ/는데",
+      "description": "-지만 は対比・逆接が強い。一方 -(으)ㄴ/는데 は背景提示や前置きのニュアンスが広く、依頼・提案の前置きにも使われます。",
+      "examples": [
+        {
+          "grammarA": "-지만",
+          "sentenceA": "맛있지만 비싸요.",
+          "meaningA": "おいしいけれど高いです。（明確な対比）",
+          "grammarB": "-(으)ㄴ/는데",
+          "sentenceB": "맛은 좋은데 비싸요.",
+          "meaningB": "味はいいんですが、高いです。（背景提示）"
+        }
+      ]
+    },
+    "tips": [
+      "後件が依頼・提案・質問のときに自然に使われます。",
+      "形容詞・名詞には (이)ㄴ데、動詞には 는데 を使う点に注意。",
+      "強い対比を出したいときは -지만 を優先します。"
+    ],
+    "relatedGrammar": ["grm_connective_003", "grm_ending_033", "grm_ending_034"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "시간이 없___ 빨리 가야 해요.",
+      "answer": "는데",
+      "hint": "背景を述べて後件につなげる表現です。",
+      "explanation": "없는데 で「ないんだけど」。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"맛은 좋은___ 양이 적어요\" の空欄に入るものは？",
+      "choices": ["데", "데요", "는데", "은데"],
+      "answerIndex": 2,
+      "explanation": "形容詞でも基本形は -(으)ㄴ데 を用います（좋은데）。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「今会議中なので少しだけ待ってください」を韓国語で入力してください",
+      "answer": "지금 회의 중인데 조금만 기다려 주세요",
+      "acceptableAnswers": [
+        "지금 회의 중인데 조금만 기다려 주세요",
+        "지금 회의 중인데 조금만 기다려 주십시오"
+      ],
+      "hint": "背景提示には -(으)ㄴ/는데 を使います。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "味はいいんですが、高いです。",
+      "answer": "맛은 좋은데 비싸요",
+      "acceptableAnswers": [
+        "맛은 좋은데 비싸요",
+        "맛은 좋은데 비쌉니다"
+      ],
+      "explanation": "対比を柔らかく伝えるときに -(으)ㄴ/는데。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

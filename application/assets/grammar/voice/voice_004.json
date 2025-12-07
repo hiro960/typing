@@ -1,0 +1,150 @@
+{
+  "id": "grm_voice_004",
+  "title": "-기- 受身",
+  "subtitle": "안다→안기다（抱かれる）",
+  "category": "voice",
+  "level": "intermediate",
+  "tags": [
+    "受身",
+    "接尾辞"
+  ],
+  "content": {
+    "summary": "抱く・含むなどの動詞に付き、包まれる・入れられるといった受動を表す接尾辞です。",
+    "formationRules": [
+      {
+        "condition": "안다",
+        "form": "안기다",
+        "example": "아이를 안다 → 아이가 안기다"
+      },
+      {
+        "condition": "담다",
+        "form": "담기다",
+        "example": "쌀이 자루에 담기다"
+      },
+      {
+        "condition": "얹다",
+        "form": "얹히다",
+        "example": "짐이 차에 얹히다"
+      },
+      {
+        "condition": "섞다",
+        "form": "섞이다",
+        "example": "재료가 섞이다"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "抱かれる・包まれる",
+        "description": "抱きしめられる、包まれる状態。",
+        "examples": [
+          {
+            "korean": "아기가 엄마에게 안겼어요.",
+            "japanese": "赤ちゃんがお母さんに抱かれました。"
+          },
+          {
+            "korean": "포근한 담요에 안겨 있어요.",
+            "japanese": "ふかふかの毛布に包まれています。"
+          }
+        ]
+      },
+      {
+        "title": "入れられる・載る",
+        "description": "容器に入れられる、上に載せられる。",
+        "examples": [
+          {
+            "korean": "쌀이 자루에 담겼어요.",
+            "japanese": "米が袋に入れられました。"
+          },
+          {
+            "korean": "짐이 차 위에 얹혔어요.",
+            "japanese": "荷物が車の上に載せられました。"
+          }
+        ]
+      },
+      {
+        "title": "混ざる",
+        "description": "材料が混ざる状態。",
+        "examples": [
+          {
+            "korean": "양념이 잘 섞였어요.",
+            "japanese": "味付けがよく混ざりました。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-기- と -이/-히/-리",
+      "description": "抱く・入れる系で -기-, それ以外は他の接尾辞を用いることが多い。",
+      "examples": [
+        {
+          "grammarA": "-기-",
+          "sentenceA": "아기가 안겼어요.",
+          "meaningA": "赤ちゃんが抱かれました。",
+          "grammarB": "-히-",
+          "sentenceB": "문이 닫혔어요.",
+          "meaningB": "ドアが閉まりました。"
+        }
+      ]
+    },
+    "tips": [
+      "안기다/담기다/섞이다 をセットで覚える。",
+      "能動に書き換えて語幹意味を確認。",
+      "受身・使役の接尾辞表を参照すると整理しやすい。"
+    ],
+    "relatedGrammar": [
+      "grm_voice_003",
+      "grm_voice_007",
+      "grm_voice_009"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "문이 ___ 있어요. (-히-/-이- などを入れてください)",
+      "answer": "닫혀",
+      "hint": "受身形の語尾を入れます。",
+      "explanation": "닫다 → 닫히다/닫혀요"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "‘먹다’の受身/使役形として正しいのは？",
+      "choices": [
+        "먹히다",
+        "먹기다",
+        "먹려다",
+        "먹어지다"
+      ],
+      "answerIndex": 0,
+      "explanation": "-히- を付けて 먹히다。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「子どもを座らせました」を韓国語で入力してください",
+      "answer": "아이를 앉혔어요",
+      "acceptableAnswers": [
+        "아이를 앉혔어요",
+        "아이를 앉게 했어요"
+      ],
+      "hint": "-히- 使役を使います。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "会議時間を皆に知らせました。",
+      "answer": "회의 시간을 모두에게 알렸어요",
+      "acceptableAnswers": [
+        "회의 시간을 모두에게 알렸어요",
+        "회의 시간을 모두에게 알리게 했어요"
+      ],
+      "explanation": "알리다 を使った使役/伝達。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

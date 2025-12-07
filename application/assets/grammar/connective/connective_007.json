@@ -1,0 +1,130 @@
+{
+  "id": "grm_connective_007",
+  "title": "-거나",
+  "subtitle": "選択接続（〜か）",
+  "category": "connective",
+  "level": "intermediate",
+  "tags": ["選択"],
+  "content": {
+    "summary": "動詞・形容詞・名詞述語をつないで選択を表す接続語尾で、「〜したり」「〜か」を意味します。文末でも使えます。",
+    "formationRules": [
+      {
+        "condition": "動詞・形容詞",
+        "form": "V/A + 거나",
+        "example": "가다 → 가거나, 먹다 → 먹거나"
+      },
+      {
+        "condition": "名詞指定詞",
+        "form": "N(이)거나",
+        "example": "학생이거나 선생님이거나 (学生か先生か)"
+      },
+      {
+        "condition": "同じ主語で複数動作",
+        "form": "V거나 V거나",
+        "example": "집에서 쉬거나 책을 읽어요. (家で休むか本を読みます)"
+      },
+      {
+        "condition": "文末で選択",
+        "form": "문장 끝에 붙여選択肢を提示",
+        "example": "영화를 보거나 할까요? (映画を見るかしましょうか？)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "選択肢を提示する",
+        "description": "どちらかを選ぶ場合に使います。",
+        "examples": [
+          {
+            "korean": "커피를 마시거나 주스를 마셔요.",
+            "japanese": "コーヒーを飲むかジュースを飲みます。"
+          }
+        ]
+      },
+      {
+        "title": "代案・気軽な提案",
+        "description": "軽い代案を出すときに用います。",
+        "examples": [
+          {
+            "korean": "주말에 영화 보거나 산책할까요?",
+            "japanese": "週末に映画を見るか散歩しましょうか？"
+          }
+        ]
+      },
+      {
+        "title": "複数の可能性を列挙",
+        "description": "不確定な選択肢を並べます。",
+        "examples": [
+          {
+            "korean": "택시를 타거나 버스를 탈 거예요.",
+            "japanese": "タクシーに乗るかバスに乗るでしょう。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "(이)나 と -거나",
+      "description": "(이)나 は名詞の選択、-거나 は動詞・形容詞・文をつなぎます。",
+      "examples": [
+        {
+          "grammarA": "-거나",
+          "sentenceA": "집에서 쉬거나 도서관에 가요.",
+          "meaningA": "家で休むか図書館に行きます。",
+          "grammarB": "(이)나",
+          "sentenceB": "커피나 주스를 마셔요.",
+          "meaningB": "コーヒーかジュースを飲みます。"
+        }
+      ]
+    },
+    "tips": [
+      "同じ主語の並列に使うのが基本です。",
+      "文末で使うときは「〜か〜しましょうか？」という提案にもなります。",
+      "否定と組み合わせると「〜もしないし…もしない」と列挙できます。"
+    ],
+    "relatedGrammar": ["grm_particle_021", "grm_connective_002", "grm_connective_013"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "주말에 영화 보___ 쇼핑할 거예요.",
+      "answer": "거나",
+      "hint": "選択を表す接続語尾です。",
+      "explanation": "보거나 쇼핑하다 で「見るか買い物するか」。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"택시를 타___ 버스를 탈까요?\" の空欄に入るものは？",
+      "choices": ["거나", "이나", "서", "지만"],
+      "answerIndex": 0,
+      "explanation": "動詞の選択には -거나 を使います。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「家で休むか図書館に行きます」を韓国語で入力してください",
+      "answer": "집에서 쉬거나 도서관에 가요",
+      "acceptableAnswers": [
+        "집에서 쉬거나 도서관에 가요",
+        "집에서 쉬거나 도서관에 갑니다"
+      ],
+      "hint": "選択接続 -거나。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "週末に映画を見るか散歩しましょうか？",
+      "answer": "주말에 영화 보거나 산책할까요?",
+      "acceptableAnswers": [
+        "주말에 영화 보거나 산책할까요?",
+        "주말에 영화나 산책할까요?"
+      ],
+      "explanation": "提案の選択にも -거나 を使えます。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "id": "grm_pronoun_001",
+  "title": "나/저",
+  "subtitle": "一人称代名詞（私）",
+  "category": "pronoun",
+  "level": "beginner",
+  "tags": ["人称", "一人称"],
+  "content": {
+    "summary": "話し手自身を指す代名詞です。나 はフランク、저 は丁寧・謙譲の場面で使います。",
+    "formationRules": [
+      {
+        "condition": "主題・主格に付ける",
+        "form": "나는/저는, 내가/제가",
+        "example": "저는 일본 사람이에요. (私は日本人です。)"
+      },
+      {
+        "condition": "目的格・縮約形",
+        "form": "나를 → 날, 저를 (縮約なし)",
+        "example": "날 믿어. (私を信じて。)"
+      },
+      {
+        "condition": "所有を表す",
+        "form": "내/제 + 名詞",
+        "example": "제 친구예요. (私の友達です。)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "自己紹介・述べる",
+        "description": "職業・出身・考えなど自分について話すときに使います。",
+        "examples": [
+          {
+            "korean": "저는 회사원이에요.",
+            "japanese": "私は会社員です。"
+          }
+        ]
+      },
+      {
+        "title": "意見・意思表示",
+        "description": "自分の考えや希望を伝えるときに使います。",
+        "examples": [
+          {
+            "korean": "나는 이 책이 좋아.",
+            "japanese": "私はこの本が好きだ。"
+          }
+        ]
+      },
+      {
+        "title": "丁寧な依頼や謝罪",
+        "description": "目上や初対面には 저/제 を用いて丁寧さを示します。",
+        "examples": [
+          {
+            "korean": "제가 도와드릴게요.",
+            "japanese": "私がお手伝いします。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "나 と 저",
+      "description": "나 は友人・家族など親しい場面、저 は目上やフォーマルな場面で使う謙譲形です。所有形も 내/제 と変わります。",
+      "examples": [
+        {
+          "grammarA": "나",
+          "sentenceA": "나는 학생이야.",
+          "meaningA": "私は学生だ。（くだけた口調）",
+          "grammarB": "저",
+          "sentenceB": "저는 학생입니다.",
+          "meaningB": "私は学生です。（丁寧・謙譲）"
+        }
+      ]
+    },
+    "tips": [
+      "丁寧な場面では 저/제 を基本とし、나/내 は避けます。",
+      "主題助詞と合わせるときは 저는/나는 の形になります。",
+      "書き言葉では 저 が無難で、メールでもよく用いられます。"
+    ],
+    "relatedGrammar": ["grm_pronoun_004", "grm_honorific_012", "grm_particle_002"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "___는 일본 사람이에요. (丁寧)",
+      "answer": "저",
+      "hint": "謙譲の一人称を使います。",
+      "explanation": "丁寧に「私は」と言うときは 저는 を使います。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "『제 친구예요.』の意味として正しいものは？",
+      "choices": [
+        "私の友達です。",
+        "あなたの友達です。",
+        "彼の友達です。",
+        "その友達です。"
+      ],
+      "answerIndex": 0,
+      "explanation": "제 は 저 の所有形で「私の」を表します。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「私がお手伝いします」を韓国語で入力してください",
+      "answer": "제가 도와드릴게요.",
+      "acceptableAnswers": ["제가 도와드릴게요.", "제가 도와 드릴게요."],
+      "hint": "丁寧に言うので 저/제 系を使います。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

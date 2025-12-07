@@ -12,92 +12,77 @@
         "items": [
           {
             "text": "음식",
-            "meaning": "食べ物",
-            "pronunciation": "ウムシク",
+            "meaning": "食べ物"
             "hint": "ㅇ + ㅡ + ㅁ + ㅅ + ㅣ + ㄱ"
           },
           {
             "text": "밥",
-            "meaning": "ご飯",
-            "pronunciation": "バプ",
+            "meaning": "ご飯"
             "hint": "ㅂ + ㅏ + ㅂ"
           },
           {
             "text": "빵",
-            "meaning": "パン",
-            "pronunciation": "ッパン",
+            "meaning": "パン"
             "hint": "ㅃ + ㅏ + ㅇ"
           },
           {
             "text": "국",
-            "meaning": "汁物",
-            "pronunciation": "クク",
+            "meaning": "汁物"
             "hint": "ㄱ + ㅜ + ㄱ"
           },
           {
             "text": "김치",
-            "meaning": "キムチ",
-            "pronunciation": "キムチ",
+            "meaning": "キムチ"
             "hint": "ㄱ + ㅣ + ㅁ + ㅊ + ㅣ"
           },
           {
             "text": "김밥",
-            "meaning": "キンパ",
-            "pronunciation": "キムバプ",
+            "meaning": "キンパ"
             "hint": "ㄱ + ㅣ + ㅁ + ㅂ + ㅏ + ㅂ"
           },
           {
             "text": "비빔밥",
-            "meaning": "ビビンバ",
-            "pronunciation": "ビビンバプ",
+            "meaning": "ビビンバ"
             "hint": "ㅂ + ㅣ + ㅂ + ㅣ + ㅁ + ㅂ + ㅏ + ㅂ"
           },
           {
             "text": "냉면",
-            "meaning": "冷麺",
-            "pronunciation": "ネンミョン",
+            "meaning": "冷麺"
             "hint": "ㄴ + ㅐ + ㅇ + ㅁ + ㅕ + ㄴ"
           },
           {
             "text": "라면",
-            "meaning": "ラーメン",
-            "pronunciation": "ラミョン",
+            "meaning": "ラーメン"
             "hint": "ㄹ + ㅏ + ㅁ + ㅕ + ㄴ"
           },
           {
             "text": "만두",
-            "meaning": "餃子",
-            "pronunciation": "マンドゥ",
+            "meaning": "餃子"
             "hint": "ㅁ + ㅏ + ㄴ + ㄷ + ㅜ"
           },
           {
             "text": "떡",
-            "meaning": "餅",
-            "pronunciation": "ットク",
+            "meaning": "餅"
             "hint": "ㄸ + ㅓ + ㄱ"
           },
           {
             "text": "고기",
-            "meaning": "肉",
-            "pronunciation": "コギ",
+            "meaning": "肉"
             "hint": "ㄱ + ㅗ + ㄱ + ㅣ"
           },
           {
             "text": "생선",
-            "meaning": "魚",
-            "pronunciation": "センソン",
+            "meaning": "魚"
             "hint": "ㅅ + ㅐ + ㅇ + ㅅ + ㅓ + ㄴ"
           },
           {
             "text": "야채",
-            "meaning": "野菜",
-            "pronunciation": "ヤチェ",
+            "meaning": "野菜"
             "hint": "ㅇ + ㅑ + ㅊ + ㅐ"
           },
           {
             "text": "과일",
-            "meaning": "果物",
-            "pronunciation": "クァイル",
+            "meaning": "果物"
             "hint": "ㄱ + ㅘ + ㅇ + ㅣ + ㄹ"
           }
         ]

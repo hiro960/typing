@@ -1,0 +1,130 @@
+{
+  "id": "grm_connective_009",
+  "title": "-다가",
+  "subtitle": "中断・転換接続（〜していて）",
+  "category": "connective",
+  "level": "intermediate",
+  "tags": ["中断", "転換"],
+  "content": {
+    "summary": "進行中の動作を中断して別の動作に移る、または途中で何かが起きることを表します。「〜していて（途中で）」に相当します。",
+    "formationRules": [
+      {
+        "condition": "動詞語幹",
+        "form": "V + 다가",
+        "example": "가다 → 가다가 (行っていて/行く途中で)"
+      },
+      {
+        "condition": "進行中断",
+        "form": "V-다가 + 他の動作",
+        "example": "자다가 일어났어요. (寝ていて起きました)"
+      },
+      {
+        "condition": "行為の転換",
+        "form": "A 하다가 B 하다",
+        "example": "공부하다가 쉬었어요. (勉強していて休みました)"
+      },
+      {
+        "condition": "接尾辞と併用",
+        "form": "하다가 말다（途中でやめる）などの慣用",
+        "example": "말하다가 말았어요. (話しかけてやめました)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "動作の中断・別動作への転換",
+        "description": "ある動作を途中でやめて別の動作に移ることを示します。",
+        "examples": [
+          {
+            "korean": "밥을 먹다가 전화를 받았어요.",
+            "japanese": "ご飯を食べている途中で電話を受けました。"
+          }
+        ]
+      },
+      {
+        "title": "途中で起きた出来事",
+        "description": "進行中に予期せぬことが起きたことを表します。",
+        "examples": [
+          {
+            "korean": "길을 가다가 비를 만났어요.",
+            "japanese": "道を歩いている途中で雨に遭いました。"
+          }
+        ]
+      },
+      {
+        "title": "連続する動作の列挙",
+        "description": "Aし、次にBするという流れを表します。",
+        "examples": [
+          {
+            "korean": "책을 읽다가 잠이 들었어요.",
+            "japanese": "本を読んでいて眠ってしまいました。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-다가 と -았/었다가",
+      "description": "-다가 は進行中、-았/었다가 は完了した後に転換するニュアンスです。",
+      "examples": [
+        {
+          "grammarA": "-다가",
+          "sentenceA": "걷다가 넘어졌어요.",
+          "meaningA": "歩いていて転びました。（途中で）",
+          "grammarB": "-았다가",
+          "sentenceB": "앉았다가 일어났어요.",
+          "meaningB": "座ってから立ちました。（完了後の転換）"
+        }
+      ]
+    },
+    "tips": [
+      "途中で起きた出来事を語るときによく使います。",
+      "같이 가다가, 집에 가다가 など場所表現ともよく連結します。",
+      "否定形でも使えますが、文脈上自然な中断が必要です。"
+    ],
+    "relatedGrammar": ["grm_connective_001", "grm_expression_005", "grm_connective_013"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "길을 가___ 비를 만났어요.",
+      "answer": "다가",
+      "hint": "途中で何かが起きたことを表す接続語尾です。",
+      "explanation": "가다가 で「歩いていて」。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"책을 읽___ 잠이 들었어요\" の空欄に入るものは？",
+      "choices": ["고", "다가", "면", "지만"],
+      "answerIndex": 1,
+      "explanation": "進行中の中断は -다가。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「ご飯を食べている途中で電話を受けました」を韓国語で入力してください",
+      "answer": "밥을 먹다가 전화를 받았어요",
+      "acceptableAnswers": [
+        "밥을 먹다가 전화를 받았어요",
+        "밥을 먹다가 전화를 받았습니다"
+      ],
+      "hint": "途中で別の動作に移るときは -다가。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "道を歩いていて雨に遭いました。",
+      "answer": "길을 가다가 비를 만났어요",
+      "acceptableAnswers": [
+        "길을 가다가 비를 만났어요",
+        "길을 걷다가 비를 만났어요"
+      ],
+      "explanation": "-다가 は進行中の出来事を表します。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

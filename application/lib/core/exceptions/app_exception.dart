@@ -259,6 +259,41 @@ class LessonLoadException extends AppException {
   }
 }
 
+/// 文法データの読み込みに失敗した場合の例外
+class GrammarLoadException extends AppException {
+  const GrammarLoadException._({
+    required super.code,
+    required super.message,
+    super.originalError,
+    super.stackTrace,
+  });
+
+  factory GrammarLoadException.indexNotFound({
+    Object? error,
+    StackTrace? stackTrace,
+  }) {
+    return GrammarLoadException._(
+      code: 'GRAMMAR_INDEX_NOT_FOUND',
+      message: '文法一覧の読み込みに失敗しました。アプリを再起動してください。',
+      originalError: error,
+      stackTrace: stackTrace,
+    );
+  }
+
+  factory GrammarLoadException.grammarNotFound(
+    String grammarId, {
+    Object? error,
+    StackTrace? stackTrace,
+  }) {
+    return GrammarLoadException._(
+      code: 'GRAMMAR_NOT_FOUND',
+      message: '文法が見つかりません: $grammarId',
+      originalError: error,
+      stackTrace: stackTrace,
+    );
+  }
+}
+
 // ==================== その他の例外 ====================
 
 /// 予期しないエラー

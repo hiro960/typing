@@ -12,92 +12,77 @@
         "items": [
           {
             "text": "좋아하다",
-            "meaning": "好きだ",
-            "pronunciation": "チョアハダ",
+            "meaning": "好きだ"
             "hint": "ㅈ + ㅗ + ㅎ + ㅏ + ㅎ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "싫어하다",
-            "meaning": "嫌いだ",
-            "pronunciation": "シロハダ",
+            "meaning": "嫌いだ"
             "hint": "ㅅ + ㅣ + ㄹ + ㅓ + ㅎ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "사랑하다",
-            "meaning": "愛する",
-            "pronunciation": "サランハダ",
+            "meaning": "愛する"
             "hint": "ㅅ + ㅏ + ㄹ + ㅏ + ㅇ + ㅎ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "원하다",
-            "meaning": "欲しい",
-            "pronunciation": "ウォナダ",
+            "meaning": "欲しい"
             "hint": "ㅇ + ㅝ + ㄴ + ㅎ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "필요하다",
-            "meaning": "必要だ",
-            "pronunciation": "ピリョハダ",
+            "meaning": "必要だ"
             "hint": "ㅍ + ㅣ + ㄹ + ㅛ + ㅎ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "있다",
-            "meaning": "ある・いる",
-            "pronunciation": "イッタ",
+            "meaning": "ある・いる"
             "hint": "ㅇ + ㅣ + ㅆ + ㄷ + ㅏ"
           },
           {
             "text": "없다",
-            "meaning": "ない・いない",
-            "pronunciation": "オプタ",
+            "meaning": "ない・いない"
             "hint": "ㅇ + ㅓ + ㅄ + ㄷ + ㅏ"
           },
           {
             "text": "되다",
-            "meaning": "なる",
-            "pronunciation": "トェダ",
+            "meaning": "なる"
             "hint": "ㄷ + ㅚ + ㄷ + ㅏ"
           },
           {
             "text": "하다",
-            "meaning": "する",
-            "pronunciation": "ハダ",
+            "meaning": "する"
             "hint": "ㅎ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "일하다",
-            "meaning": "働く",
-            "pronunciation": "イラダ",
+            "meaning": "働く"
             "hint": "ㅇ + ㅣ + ㄹ + ㅎ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "쉬다",
-            "meaning": "休む",
-            "pronunciation": "シュィダ",
+            "meaning": "休む"
             "hint": "ㅅ + ㅟ + ㄷ + ㅏ"
           },
           {
             "text": "놀다",
-            "meaning": "遊ぶ",
-            "pronunciation": "ノルダ",
+            "meaning": "遊ぶ"
             "hint": "ㄴ + ㅗ + ㄹ + ㄷ + ㅏ"
           },
           {
             "text": "공부하다",
-            "meaning": "勉強する",
-            "pronunciation": "コンブハダ",
+            "meaning": "勉強する"
             "hint": "ㄱ + ㅗ + ㅇ + ㅂ + ㅜ + ㅎ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "운동하다",
-            "meaning": "運動する",
-            "pronunciation": "ウンドンハダ",
+            "meaning": "運動する"
             "hint": "ㅇ + ㅜ + ㄴ + ㄷ + ㅗ + ㅇ + ㅎ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "청소하다",
-            "meaning": "掃除する",
-            "pronunciation": "チョンソハダ",
+            "meaning": "掃除する"
             "hint": "ㅊ + ㅓ + ㅇ + ㅅ + ㅗ + ㅎ + ㅏ + ㄷ + ㅏ"
           }
         ]

@@ -1,0 +1,123 @@
+{
+  "id": "grm_interrogative_002",
+  "title": "무엇/뭐",
+  "subtitle": "疑問代名詞（何）",
+  "category": "interrogative",
+  "level": "beginner",
+  "tags": ["物"],
+  "content": {
+    "summary": "物事を尋ねる疑問代名詞で、フォーマルには ‘무엇’，会話では短縮形 ‘뭐’ をよく使います。",
+    "formationRules": [
+      {
+        "condition": "基本形",
+        "form": "무엇 + 助詞",
+        "example": "무엇을 원하세요? (何をお望みですか)"
+      },
+      {
+        "condition": "会話の短縮形",
+        "form": "무엇 → 뭐",
+        "example": "뭐 먹을래요? (何食べる?)"
+      },
+      {
+        "condition": "目的格の縮約",
+        "form": "뭐 + 를 → 뭘",
+        "example": "뭘 찾으세요? (何を探していますか)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "物を尋ねる",
+        "description": "目の前の物や欲しい物を聞くときに使います。",
+        "examples": [
+          {
+            "korean": "이게 뭐예요?",
+            "japanese": "これは何ですか。"
+          },
+          {
+            "korean": "선물로 뭐가 좋아요?",
+            "japanese": "プレゼントには何がいいですか。"
+          }
+        ]
+      },
+      {
+        "title": "行動を尋ねる",
+        "description": "何をしているか、何をする予定かを尋ねます。",
+        "examples": [
+          {
+            "korean": "지금 뭐 해요?",
+            "japanese": "今、何していますか。"
+          },
+          {
+            "korean": "주말에 뭐 할 거예요?",
+            "japanese": "週末は何をする予定ですか。"
+          }
+        ]
+      },
+      {
+        "title": "理由や内容を尋ねる",
+        "description": "何が問題か、何についてかを聞くときに使います。",
+        "examples": [
+          {
+            "korean": "무슨 일이에요? 뭐가 문제예요?",
+            "japanese": "どうしたんですか？何が問題ですか。"
+          },
+          {
+            "korean": "회의에서 무엇을 논의했어요?",
+            "japanese": "会議で何を議論しましたか。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "뭐 / 무엇 / 무슨 の違い",
+      "description": "뭐/무엇 は単独で「何」を尋ね、무슨 は名詞の前に置いて「どんな〜」「何の〜」を尋ねます。",
+      "examples": [
+        {
+          "grammarA": "뭐",
+          "sentenceA": "뭐 먹을래요?",
+          "meaningA": "何を食べますか？",
+          "grammarB": "무슨",
+          "sentenceB": "무슨 음식을 좋아해요?",
+          "meaningB": "どんな料理が好きですか？"
+        }
+      ]
+    },
+    "tips": [
+      "フォーマルな場面では 무엇, 일상会話では 뭐 を使うと自然です。",
+      "目的格では 뭘（무엇을の縮約）がよく使われます。",
+      "動作を尋ねるときは 뭐 하다? の形を覚えると便利です。"
+    ],
+    "relatedGrammar": ["grm_interrogative_001", "grm_interrogative_011", "grm_particle_003"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "지금 ___ 해요?",
+      "answer": "뭐",
+      "hint": "会話では短縮形が自然です。",
+      "explanation": "行動を尋ねる定型は ‘뭐 해요?’ です。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「何を探していますか」を自然に表すのは?",
+      "choices": ["무엇이 찾으세요?", "무엇을 찾으세요?", "무엇은 찾으세요?", "무엇을 찾아요?"],
+      "answerIndex": 1,
+      "explanation": "目的語にはを表す 을/를 を付け、丁寧に尋ねるなら ‘무엇을 찾으세요?’ が自然です。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「これは何ですか」を韓国語で入力してください",
+      "answer": "이게 뭐예요?",
+      "acceptableAnswers": ["이게 뭐예요?", "이게 뭐예요", "이게 뭐에요?"],
+      "hint": "目の前の物を尋ねる定番フレーズです。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

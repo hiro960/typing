@@ -1,0 +1,123 @@
+{
+  "id": "grm_numeral_015",
+  "title": "번",
+  "subtitle": "助数詞（回/番）",
+  "category": "numeral",
+  "level": "beginner",
+  "tags": ["助数詞", "回数"],
+  "content": {
+    "summary": "回数や順番、番号を表す助数詞です。「〜回」「〜番」のように幅広く使われます。",
+    "formationRules": [
+      {
+        "condition": "回数を表す",
+        "form": "数詞(固有) + 번",
+        "example": "세 번 (3回)"
+      },
+      {
+        "condition": "疑問形",
+        "form": "몇 번 + 動詞",
+        "example": "몇 번 가 봤어요? (何回行ったことがありますか)"
+      },
+      {
+        "condition": "番号を示す",
+        "form": "数詞(漢/固有) + 번 + 名詞",
+        "example": "134번 버스 (134番バス)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "回数を言う",
+        "description": "経験や試行回数を表します。",
+        "examples": [
+          {
+            "korean": "한국에 두 번 가 봤어요.",
+            "japanese": "韓国に2回行ったことがあります。"
+          },
+          {
+            "korean": "한 번만 더 해 보세요.",
+            "japanese": "もう1回だけやってみてください。"
+          }
+        ]
+      },
+      {
+        "title": "順番・番号を言う",
+        "description": "バス・部屋・試合番号などにも 번 を付けます。",
+        "examples": [
+          {
+            "korean": "저는 3번 선수예요.",
+            "japanese": "私は3番の選手です。"
+          },
+          {
+            "korean": "134번 버스를 타세요.",
+            "japanese": "134番のバスに乗ってください。"
+          }
+        ]
+      },
+      {
+        "title": "頻度を尋ねる",
+        "description": "何回か、どのくらいの頻度かを聞くときに使います。",
+        "examples": [
+          {
+            "korean": "일주일에 몇 번 운동해요?",
+            "japanese": "1週間に何回運動しますか。"
+          },
+          {
+            "korean": "몇 번이나 연락했어요?",
+            "japanese": "何回も連絡しましたか。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "번 と 회 の違い",
+      "description": "回数を表すとき 번 は日常的な言い方、회 はやや書き言葉・フォーマルな場面で使われます。",
+      "examples": [
+        {
+          "grammarA": "번",
+          "sentenceA": "이 영화 두 번 봤어요.",
+          "meaningA": "この映画を2回見ました。（会話で自然）",
+          "grammarB": "회",
+          "sentenceB": "회의는 한 회로 진행됩니다.",
+          "meaningB": "会議は1回で行われます。（フォーマルな表現）"
+        }
+      ]
+    },
+    "tips": [
+      "回数を数えるときは固有数詞を使います。",
+      "番号として使うときは数字をそのまま付け、漢数詞でもアラビア数字でも構いません。",
+      "強調するときは ‘한 번도’, ‘몇 번이나’ のように副詞を添えます。"
+    ],
+    "relatedGrammar": ["grm_numeral_001", "grm_numeral_003", "grm_numeral_016", "grm_numeral_021"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "한 ___ 더 말해 주세요.",
+      "answer": "번",
+      "hint": "「もう1回」は 数詞＋번 で表します。",
+      "explanation": "回数を表す助数詞は 번 で、1回は 한 번 です。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「私は韓国に3回行きました」を自然に表すのは?",
+      "choices": ["한국에 세 번 갔어요.", "한국에 삼 번 갔어요.", "한국에 세 회 갔어요.", "한국에 삼 회 갔어요."],
+      "answerIndex": 0,
+      "explanation": "会話では固有数詞＋번 を使い ‘세 번’ が最も自然です。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「134番のバスに乗ってください」を韓国語で入力してください",
+      "answer": "134번 버스를 타세요",
+      "acceptableAnswers": ["134번 버스를 타세요", "134번 버스를 타세요."],
+      "hint": "番号にも 번 を付けて表します。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

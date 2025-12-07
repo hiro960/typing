@@ -12,92 +12,77 @@
         "items": [
           {
             "text": "가다",
-            "meaning": "行く",
-            "pronunciation": "カダ",
+            "meaning": "行く"
             "hint": "ㄱ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "오다",
-            "meaning": "来る",
-            "pronunciation": "オダ",
+            "meaning": "来る"
             "hint": "ㅇ + ㅗ + ㄷ + ㅏ"
           },
           {
             "text": "먹다",
-            "meaning": "食べる",
-            "pronunciation": "モクタ",
+            "meaning": "食べる"
             "hint": "ㅁ + ㅓ + ㄱ + ㄷ + ㅏ"
           },
           {
             "text": "마시다",
-            "meaning": "飲む",
-            "pronunciation": "マシダ",
+            "meaning": "飲む"
             "hint": "ㅁ + ㅏ + ㅅ + ㅣ + ㄷ + ㅏ"
           },
           {
             "text": "자다",
-            "meaning": "寝る",
-            "pronunciation": "チャダ",
+            "meaning": "寝る"
             "hint": "ㅈ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "일어나다",
-            "meaning": "起きる",
-            "pronunciation": "イロナダ",
+            "meaning": "起きる"
             "hint": "ㅇ + ㅣ + ㄹ + ㅓ + ㄴ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "보다",
-            "meaning": "見る",
-            "pronunciation": "ポダ",
+            "meaning": "見る"
             "hint": "ㅂ + ㅗ + ㄷ + ㅏ"
           },
           {
             "text": "듣다",
-            "meaning": "聞く",
-            "pronunciation": "トゥッタ",
+            "meaning": "聞く"
             "hint": "ㄷ + ㅡ + ㄷ + ㄷ + ㅏ"
           },
           {
             "text": "말하다",
-            "meaning": "話す",
-            "pronunciation": "マラダ",
+            "meaning": "話す"
             "hint": "ㅁ + ㅏ + ㄹ + ㅎ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "읽다",
-            "meaning": "読む",
-            "pronunciation": "イクタ",
+            "meaning": "読む"
             "hint": "ㅇ + ㅣ + ㄺ + ㄷ + ㅏ"
           },
           {
             "text": "쓰다",
-            "meaning": "書く",
-            "pronunciation": "ッスダ",
+            "meaning": "書く"
             "hint": "ㅆ + ㅡ + ㄷ + ㅏ"
           },
           {
             "text": "만들다",
-            "meaning": "作る",
-            "pronunciation": "マンドゥルダ",
+            "meaning": "作る"
             "hint": "ㅁ + ㅏ + ㄴ + ㄷ + ㅡ + ㄹ + ㄷ + ㅏ"
           },
           {
             "text": "사다",
-            "meaning": "買う",
-            "pronunciation": "サダ",
+            "meaning": "買う"
             "hint": "ㅅ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "팔다",
-            "meaning": "売る",
-            "pronunciation": "パルダ",
+            "meaning": "売る"
             "hint": "ㅍ + ㅏ + ㄹ + ㄷ + ㅏ"
           },
           {
             "text": "주다",
-            "meaning": "あげる",
-            "pronunciation": "チュダ",
+            "meaning": "あげる"
             "hint": "ㅈ + ㅜ + ㄷ + ㅏ"
           }
         ]

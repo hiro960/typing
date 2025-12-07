@@ -1,0 +1,88 @@
+{
+  "id": "grm_honorific_007",
+  "title": "드리다",
+  "subtitle": "주다の謙譲語（差し上げる）",
+  "category": "honorific",
+  "level": "beginner",
+  "tags": ["謙譲"],
+  "content": {
+    "summary": "自分や身内が目上に物や行為を差し上げるときの謙譲表現です。授受表現でよく使われます。",
+    "formationRules": [
+      {
+        "condition": "現在丁寧",
+        "form": "드려요",
+        "example": "선물을 드려요."
+      },
+      {
+        "condition": "補助動詞",
+        "form": "動詞連用形 + 드리다",
+        "example": "도와 드리다 (手伝って差し上げる)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "物を差し上げる",
+        "description": "目上にあげる",
+        "examples": [
+          {
+            "korean": "선생님께 책을 드렸어요.",
+            "japanese": "先生に本を差し上げました。"
+          }
+        ]
+      },
+      {
+        "title": "行為をして差し上げる",
+        "description": "補助動詞として",
+        "examples": [
+          {
+            "korean": "도와 드릴까요?",
+            "japanese": "お手伝いしましょうか。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "주다との違い",
+      "description": "주다は中立、드리다は目上への謙譲です。"
+    },
+    "tips": [
+      "助詞は께/께서と相性がよい",
+      "補助動詞-아/어 드리다で使役・依頼にも使える"
+    ],
+    "relatedGrammar": ["grm_honorific_012", "grm_honorific_011"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "선생님께 꽃을 ___요.",
+      "answer": "드려",
+      "hint": "差し上げる",
+      "explanation": "目上に与えるときは드리다を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「お手伝いしましょうか？」に当たるのは？",
+      "choices": ["도와 드릴까요?", "도와 줄까요?", "도와요?", "도왔어요?"],
+      "answerIndex": 0,
+      "explanation": "謙譲の補助動詞は-아/어 드리다"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「先生に本を差し上げました」を韓国語で入力してください",
+      "answer": "선생님께 책을 드렸어요",
+      "acceptableAnswers": [
+        "선생님께 책을 드렸어요",
+        "선생님께 책을 드렸어요."
+      ],
+      "hint": "敬語の与格は께を使う"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

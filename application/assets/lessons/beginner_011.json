@@ -12,8 +12,7 @@
         "items": [
           {
             "text": "ㅡ",
-            "meaning": "eu の音",
-            "pronunciation": "ウ",
+            "meaning": "eu の音"
             "hint": "口を横に引いて「ウ」の音"
           }
         ]
@@ -24,62 +23,52 @@
         "items": [
           {
             "text": "느",
-            "meaning": "感じる",
-            "pronunciation": "ヌ",
+            "meaning": "感じる"
             "hint": "ㄴ + ㅡ"
           },
           {
             "text": "드",
-            "meaning": "～",
-            "pronunciation": "トゥ",
+            "meaning": "～"
             "hint": "ㄷ + ㅡ"
           },
           {
             "text": "르",
-            "meaning": "～",
-            "pronunciation": "ル",
+            "meaning": "～"
             "hint": "ㄹ + ㅡ"
           },
           {
             "text": "스",
-            "meaning": "～",
-            "pronunciation": "ス",
+            "meaning": "～"
             "hint": "ㅅ + ㅡ"
           },
           {
             "text": "그",
-            "meaning": "その",
-            "pronunciation": "ク",
+            "meaning": "その"
             "hint": "ㄱ + ㅡ"
           },
           {
             "text": "크다",
-            "meaning": "大きい",
-            "pronunciation": "クダ",
+            "meaning": "大きい"
             "hint": "ㅋ + ㅡ + ㄷ + ㅏ"
           },
           {
             "text": "슬프다",
-            "meaning": "悲しい",
-            "pronunciation": "スルプダ",
+            "meaning": "悲しい"
             "hint": "ㅅ + ㅡ + ㄹ + ㅍ + ㅡ + ㄷ + ㅏ"
           },
           {
             "text": "그림",
-            "meaning": "絵",
-            "pronunciation": "クリム",
+            "meaning": "絵"
             "hint": "ㄱ + ㅡ + ㄹ + ㅣ + ㅁ"
           },
           {
             "text": "스키",
-            "meaning": "スキー",
-            "pronunciation": "スキ",
+            "meaning": "スキー"
             "hint": "ㅅ + ㅡ + ㅋ + ㅣ"
           },
           {
             "text": "쓰다",
-            "meaning": "書く",
-            "pronunciation": "ッスダ",
+            "meaning": "書く"
             "hint": "ㅆ + ㅡ + ㄷ + ㅏ"
           }
         ]

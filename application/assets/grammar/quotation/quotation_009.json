@@ -1,0 +1,89 @@
+{
+  "id": "grm_quotation_009",
+  "title": "-다고/-라고",
+  "subtitle": "引用助詞（〜と）",
+  "category": "quotation",
+  "level": "beginner",
+  "tags": ["引用助詞"],
+  "content": {
+    "summary": "発言内容を名詞や他の動詞につなげる引用助詞です。動詞・形容詞の語幹や名詞の原形につけて「〜と」を表します。",
+    "formationRules": [
+      {
+        "condition": "動詞・形容詞",
+        "form": "語幹 + 다고",
+        "example": "간다고, 춥다고"
+      },
+      {
+        "condition": "名詞・指定詞",
+        "form": "名詞 + (이)라고",
+        "example": "학생이라고, 의사라고"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "伝聞を受ける動詞と共に",
+        "description": "말하다, 듣다, 생각하다 などと一緒に使います",
+        "examples": [
+          {
+            "korean": "친구가 온다고 들었어요.",
+            "japanese": "友達が来ると聞きました。"
+          },
+          {
+            "korean": "비가 온다고 했어요.",
+            "japanese": "雨が降ると言いました。"
+          }
+        ]
+      },
+      {
+        "title": "名詞文の引用",
+        "description": "名詞を引用するときは(이)라고を使います",
+        "examples": [
+          {
+            "korean": "저는 한국 사람이라고 했어요.",
+            "japanese": "私は韓国人だと言いました。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-라고/이라고 하다との関係",
+      "description": "-다고/-라고は引用助詞、後ろに오다/하다/듣다などさまざまな動詞を接続できます。"
+    },
+    "tips": [
+      "パッチムの有無で라고/이라고を選びます",
+      "質問文を引用するときは-냐고、命令文は-라고になるなど他の形もあります"
+    ],
+    "relatedGrammar": ["grm_quotation_001", "grm_quotation_002"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "친구가 늦는___ 들었어요.",
+      "answer": "다고",
+      "hint": "動詞・形容詞には다고",
+      "explanation": "語幹+다고で引用します"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「私は学生だと言いました」の正しい文は？",
+      "choices": ["학생이라고 했어요.", "학생다고 했어요.", "학생이 했어요.", "학생라 했어요."],
+      "answerIndex": 0,
+      "explanation": "名詞は(이)라고を使います"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「友達が来ると聞きました」を韓国語で入力してください",
+      "answer": "친구가 온다고 들었어요",
+      "acceptableAnswers": ["친구가 온다고 들었어요", "친구가 온다고 들었어요."],
+      "hint": "来る=오다 → 온다고"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

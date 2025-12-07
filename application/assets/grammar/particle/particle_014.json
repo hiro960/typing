@@ -1,0 +1,89 @@
+{
+  "id": "grm_particle_014",
+  "title": "에게/한테",
+  "subtitle": "与格助詞（〜に）",
+  "category": "particle",
+  "level": "beginner",
+  "tags": ["与格", "人"],
+  "content": {
+    "summary": "人や動物など行為の対象・方向を示す「〜に」です。에게はやや丁寧、한테は口語的です。",
+    "formationRules": [
+      {
+        "condition": "丁寧・書き言葉",
+        "form": "名詞 + 에게",
+        "example": "선생님에게 (先生に)"
+      },
+      {
+        "condition": "口語・会話",
+        "form": "名詞 + 한테",
+        "example": "친구한테 (友達に)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "授受の方向",
+        "description": "誰にあげる・もらうなどの方向を示します",
+        "examples": [
+          {
+            "korean": "친구한테 선물을 줬어요.",
+            "japanese": "友達にプレゼントをあげました。"
+          },
+          {
+            "korean": "선생님에게 질문했어요.",
+            "japanese": "先生に質問しました。"
+          }
+        ]
+      },
+      {
+        "title": "感情の対象",
+        "description": "怒る・話すなど、感情や動作の向かう相手を示します",
+        "examples": [
+          {
+            "korean": "동생에게 화냈어요.",
+            "japanese": "弟に怒りました。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "께 드리다との関係",
+      "description": "目上には보다丁寧な께/께서を使います。基本は에게/한테で十分です。"
+    },
+    "tips": [
+      "받다/주다/보내다/말하다などとよく組み合わせます",
+      "丁寧さを意識して에게（丁寧）/한테（口語）を使い分けましょう"
+    ],
+    "relatedGrammar": ["grm_particle_015", "grm_honorific_007"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "언니___ 편지를 보냈어요.",
+      "answer": "한테",
+      "hint": "口語で「姉に」",
+      "explanation": "会話では한테がよく使われます"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「先生に質問しました」を丁寧に表すのは？",
+      "choices": ["선생님한테 질문했어요.", "선생님에게 질문했어요.", "선생님께 질문했어요.", "全部正しい"],
+      "answerIndex": 3,
+      "explanation": "すべて意味は通じますが丁寧度が異なります"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「友達にプレゼントをあげました」を韓国語で入力してください",
+      "answer": "친구한테 선물을 줬어요",
+      "acceptableAnswers": ["친구한테 선물을 줬어요", "친구한테 선물을 줬어요.", "친구에게 선물을 줬어요"],
+      "hint": "プレゼント=선물、あげる=주다"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

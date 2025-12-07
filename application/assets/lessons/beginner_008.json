@@ -12,20 +12,17 @@
         "items": [
           {
             "text": "ㅋ",
-            "meaning": "k の音（激音）",
-            "pronunciation": "キウク",
+            "meaning": "k の音（激音）"
             "hint": "強い「カ行」です"
           },
           {
             "text": "ㅌ",
-            "meaning": "t の音（激音）",
-            "pronunciation": "ティウッ",
+            "meaning": "t の音（激音）"
             "hint": "強い「タ行」です"
           },
           {
             "text": "ㅍ",
-            "meaning": "p の音（激音）",
-            "pronunciation": "ピウプ",
+            "meaning": "p の音（激音）"
             "hint": "強い「パ行」です"
           }
         ]
@@ -36,62 +33,52 @@
         "items": [
           {
             "text": "카",
-            "meaning": "カード",
-            "pronunciation": "カ",
+            "meaning": "カード"
             "hint": "ㅋ + ㅏ"
           },
           {
             "text": "타",
-            "meaning": "他",
-            "pronunciation": "タ",
+            "meaning": "他"
             "hint": "ㅌ + ㅏ"
           },
           {
             "text": "파",
-            "meaning": "ネギ",
-            "pronunciation": "パ",
+            "meaning": "ネギ"
             "hint": "ㅍ + ㅏ"
           },
           {
             "text": "코",
-            "meaning": "鼻",
-            "pronunciation": "コ",
+            "meaning": "鼻"
             "hint": "ㅋ + ㅗ"
           },
           {
             "text": "토",
-            "meaning": "土",
-            "pronunciation": "ト",
+            "meaning": "土"
             "hint": "ㅌ + ㅗ"
           },
           {
             "text": "포도",
-            "meaning": "ぶどう",
-            "pronunciation": "ポド",
+            "meaning": "ぶどう"
             "hint": "ㅍ + ㅗ + ㄷ + ㅗ"
           },
           {
             "text": "커피",
-            "meaning": "コーヒー",
-            "pronunciation": "コピ",
+            "meaning": "コーヒー"
             "hint": "ㅋ + ㅓ + ㅍ + ㅣ"
           },
           {
             "text": "타다",
-            "meaning": "乗る",
-            "pronunciation": "タダ",
+            "meaning": "乗る"
             "hint": "ㅌ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "파다",
-            "meaning": "掘る",
-            "pronunciation": "パダ",
+            "meaning": "掘る"
             "hint": "ㅍ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "토끼",
-            "meaning": "うさぎ",
-            "pronunciation": "トッキ",
+            "meaning": "うさぎ"
             "hint": "ㅌ + ㅗ + ㄲ + ㅣ"
           }
         ]

@@ -12,104 +12,87 @@
         "items": [
           {
             "text": "하나",
-            "meaning": "1つ",
-            "pronunciation": "ハナ",
+            "meaning": "1つ"
             "hint": "ㅎ + ㅏ + ㄴ + ㅏ"
           },
           {
             "text": "둘",
-            "meaning": "2つ",
-            "pronunciation": "トゥル",
+            "meaning": "2つ"
             "hint": "ㄷ + ㅜ + ㄹ"
           },
           {
             "text": "셋",
-            "meaning": "3つ",
-            "pronunciation": "セッ",
+            "meaning": "3つ"
             "hint": "ㅅ + ㅔ + ㅅ"
           },
           {
             "text": "넷",
-            "meaning": "4つ",
-            "pronunciation": "ネッ",
+            "meaning": "4つ"
             "hint": "ㄴ + ㅔ + ㅅ"
           },
           {
             "text": "다섯",
-            "meaning": "5つ",
-            "pronunciation": "タソッ",
+            "meaning": "5つ"
             "hint": "ㄷ + ㅏ + ㅅ + ㅓ + ㅅ"
           },
           {
             "text": "여섯",
-            "meaning": "6つ",
-            "pronunciation": "ヨソッ",
+            "meaning": "6つ"
             "hint": "ㅇ + ㅕ + ㅅ + ㅓ + ㅅ"
           },
           {
             "text": "일곱",
-            "meaning": "7つ",
-            "pronunciation": "イルゴプ",
+            "meaning": "7つ"
             "hint": "ㅇ + ㅣ + ㄹ + ㄱ + ㅗ + ㅂ"
           },
           {
             "text": "여덟",
-            "meaning": "8つ",
-            "pronunciation": "ヨドル",
+            "meaning": "8つ"
             "hint": "ㅇ + ㅕ + ㄷ + ㅓ + ㄹ"
           },
           {
             "text": "아홉",
-            "meaning": "9つ",
-            "pronunciation": "アホプ",
+            "meaning": "9つ"
             "hint": "ㅇ + ㅏ + ㅎ + ㅗ + ㅂ"
           },
           {
             "text": "열",
-            "meaning": "10",
-            "pronunciation": "ヨル",
+            "meaning": "10"
             "hint": "ㅇ + ㅕ + ㄹ"
           },
           {
             "text": "시",
-            "meaning": "時",
-            "pronunciation": "シ",
+            "meaning": "時"
             "hint": "ㅅ + ㅣ"
           },
           {
             "text": "분",
-            "meaning": "分",
-            "pronunciation": "ブン",
+            "meaning": "分"
             "hint": "ㅂ + ㅜ + ㄴ"
           },
           {
             "text": "초",
-            "meaning": "秒",
-            "pronunciation": "チョ",
+            "meaning": "秒"
             "hint": "ㅊ + ㅗ"
           },
           {
             "text": "시간",
-            "meaning": "時間",
-            "pronunciation": "シガン",
+            "meaning": "時間"
             "hint": "ㅅ + ㅣ + ㄱ + ㅏ + ㄴ"
           },
           {
             "text": "년",
-            "meaning": "年",
-            "pronunciation": "ニョン",
+            "meaning": "年"
             "hint": "ㄴ + ㅕ + ㄴ"
           },
           {
             "text": "월",
-            "meaning": "月",
-            "pronunciation": "ウォル",
+            "meaning": "月"
             "hint": "ㅇ + ㅝ + ㄹ"
           },
           {
             "text": "일",
-            "meaning": "日",
-            "pronunciation": "イル",
+            "meaning": "日"
             "hint": "ㅇ + ㅣ + ㄹ"
           }
         ]

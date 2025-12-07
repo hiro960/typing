@@ -12,14 +12,12 @@
         "items": [
           {
             "text": "ㅐ",
-            "meaning": "ae の音",
-            "pronunciation": "エ",
+            "meaning": "ae の音"
             "hint": "口を横に広げて「エ」の音"
           },
           {
             "text": "ㅔ",
-            "meaning": "e の音",
-            "pronunciation": "エ",
+            "meaning": "e の音"
             "hint": "「エ」の音です"
           }
         ]
@@ -30,62 +28,52 @@
         "items": [
           {
             "text": "개",
-            "meaning": "犬",
-            "pronunciation": "ケ",
+            "meaning": "犬"
             "hint": "ㄱ + ㅐ"
           },
           {
             "text": "게",
-            "meaning": "カニ",
-            "pronunciation": "ケ",
+            "meaning": "カニ"
             "hint": "ㄱ + ㅔ"
           },
           {
             "text": "배",
-            "meaning": "船/梨",
-            "pronunciation": "ペ",
+            "meaning": "船/梨"
             "hint": "ㅂ + ㅐ"
           },
           {
             "text": "베",
-            "meaning": "切る",
-            "pronunciation": "ペ",
+            "meaning": "切る"
             "hint": "ㅂ + ㅔ"
           },
           {
             "text": "새",
-            "meaning": "鳥",
-            "pronunciation": "セ",
+            "meaning": "鳥"
             "hint": "ㅅ + ㅐ"
           },
           {
             "text": "세",
-            "meaning": "三",
-            "pronunciation": "セ",
+            "meaning": "三"
             "hint": "ㅅ + ㅔ"
           },
           {
             "text": "애기",
-            "meaning": "赤ちゃん",
-            "pronunciation": "エギ",
+            "meaning": "赤ちゃん"
             "hint": "ㅇ + ㅐ + ㄱ + ㅣ"
           },
           {
             "text": "개미",
-            "meaning": "蟻",
-            "pronunciation": "ケミ",
+            "meaning": "蟻"
             "hint": "ㄱ + ㅐ + ㅁ + ㅣ"
           },
           {
             "text": "배추",
-            "meaning": "白菜",
-            "pronunciation": "ペチュ",
+            "meaning": "白菜"
             "hint": "ㅂ + ㅐ + ㅊ + ㅜ"
           },
           {
             "text": "세수",
-            "meaning": "洗顔",
-            "pronunciation": "セス",
+            "meaning": "洗顔"
             "hint": "ㅅ + ㅔ + ㅅ + ㅜ"
           }
         ]

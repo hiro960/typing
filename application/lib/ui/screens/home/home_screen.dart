@@ -29,6 +29,8 @@ import '../writing/topic_list_screen.dart';
 import '../../widgets/ai_gradient_button.dart';
 import '../../../features/ranking_game/presentation/widgets/typing_game_section.dart';
 import '../../../features/pronunciation_game/presentation/widgets/pronunciation_game_section.dart';
+import '../reference/kanadara_screen.dart';
+import '../grammar/grammar_list_screen.dart';
 
 part 'home_progress_hero.dart';
 part 'home_stat_highlights.dart';
@@ -94,6 +96,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 
+  void _openGrammarDictionary(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => const GrammarListScreen(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final homeStateAsync = ref.watch(homeStateProvider);
@@ -116,6 +126,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       loading: () => AppPageScaffold(
         title: '안녕하세요, $displayName',
         actions: [
+          FHeaderAction(
+            icon: const Icon(Icons.menu_book_outlined),
+            onPress: () => _openGrammarDictionary(context),
+          ),
           FHeaderAction(
             icon: const Icon(Icons.settings_outlined),
             onPress: widget.onOpenSettings,
@@ -160,6 +174,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     return AppPageScaffold(
       title: '안녕하세요, $displayName',
       actions: [
+        FHeaderAction(
+          icon: const Icon(Icons.menu_book_outlined),
+          onPress: () => _openGrammarDictionary(context),
+        ),
         FHeaderAction(
           icon: const Icon(Icons.settings_outlined),
           onPress: widget.onOpenSettings,

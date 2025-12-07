@@ -1,0 +1,89 @@
+{
+  "id": "grm_particle_009",
+  "title": "(이)랑",
+  "subtitle": "並列助詞（〜と）",
+  "category": "particle",
+  "level": "beginner",
+  "tags": ["並列", "口語"],
+  "content": {
+    "summary": "口語でよく使うカジュアルな「〜と」です。親しい間柄の会話で頻出します。",
+    "formationRules": [
+      {
+        "condition": "パッチムありの名詞",
+        "form": "名詞 + 이랑",
+        "example": "친구이랑 (友達と)"
+      },
+      {
+        "condition": "パッチムなしの名詞",
+        "form": "名詞 + 랑",
+        "example": "동생랑 (弟と)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "名詞の並列",
+        "description": "カジュアルな並列を表します",
+        "examples": [
+          {
+            "korean": "동생이랑 놀았어요.",
+            "japanese": "弟と遊びました。"
+          },
+          {
+            "korean": "빵이랑 우유 주세요.",
+            "japanese": "パンと牛乳をください。"
+          }
+        ]
+      },
+      {
+        "title": "同行相手を示す",
+        "description": "一緒に行動する相手を示します",
+        "examples": [
+          {
+            "korean": "친구랑 영화 볼 거예요.",
+            "japanese": "友達と映画を見るつもりです。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "하고・와/과との違い",
+      "description": "(이)랑は最も砕けた口語。丁寧さが必要なら하고や와/과を使います。"
+    },
+    "tips": [
+      "目上には避け、親しい相手との会話で使います",
+      "パッチムの有無で이랑/랑を選びます"
+    ],
+    "relatedGrammar": ["grm_particle_007", "grm_particle_008"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "언니___ 쇼핑했어요.",
+      "answer": "랑",
+      "hint": "「언니」はパッチムなし",
+      "explanation": "パッチムなしの名詞には「랑」を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「パンと牛乳をください」をカジュアルに言うと？",
+      "choices": ["빵이랑 우유 주세요.", "빵하고 우유 주세요.", "빵과 우유 주세요.", "全部正しい"],
+      "answerIndex": 3,
+      "explanation": "どれも意味は通じますが丁寧度が異なります"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「友達と映画を見るつもりです」を韓国語で入力してください",
+      "answer": "친구랑 영화 볼 거예요",
+      "acceptableAnswers": ["친구랑 영화 볼 거예요", "친구랑 영화 볼 거예요.", "친구랑 영화 볼거예요"],
+      "hint": "볼 거예요=見るつもりです"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

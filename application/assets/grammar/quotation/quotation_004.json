@@ -1,0 +1,130 @@
+{
+  "id": "grm_quotation_004",
+  "title": "-자고 하다",
+  "subtitle": "間接引用・勧誘文（〜しようと言う）",
+  "category": "quotation",
+  "level": "intermediate",
+  "tags": ["間接引用", "勧誘"],
+  "content": {
+    "summary": "勧誘・提案の文を間接的に伝える表現で、「〜しようと言う」に相当します。動詞語幹に -자고 하다 を付けます。",
+    "formationRules": [
+      {
+        "condition": "動詞語幹",
+        "form": "V + 자고 하다",
+        "example": "가자 → 가자고 했어요."
+      },
+      {
+        "condition": "過去/未来の提案",
+        "form": "자고 했다/자고 할 거예요",
+        "example": "같이 가자고 했어요."
+      },
+      {
+        "condition": "否定の勧誘",
+        "form": "V + 지 말자고 하다",
+        "example": "싸우지 말자고 했어요."
+      },
+      {
+        "condition": "縮約形",
+        "form": "-자고 해요 → -재요",
+        "example": "같이 가재요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "一緒に〜しようと提案",
+        "description": "誰かが一緒にすることを提案した内容を伝える。",
+        "examples": [
+          {
+            "korean": "친구가 영화 보러 가자고 했어요.",
+            "japanese": "友達が映画を見に行こうと言いました。"
+          }
+        ]
+      },
+      {
+        "title": "集合・予定の提案",
+        "description": "集まる場所や時間について提案したとき。",
+        "examples": [
+          {
+            "korean": "내일 3시에 만나자고 했어요.",
+            "japanese": "明日3時に会おうと言いました。"
+          }
+        ]
+      },
+      {
+        "title": "やめようと言う",
+        "description": "何かをしないことを提案する。",
+        "examples": [
+          {
+            "korean": "오늘은 술 마시지 말자고 했어요.",
+            "japanese": "今日はお酒を飲むのはやめようと言いました。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-자고 하다 と -(으)ㄹ까요?",
+      "description": "-자고 하다 は誰かが言った提案を伝える形、-(으)ㄹ까요? はその場で提案・確認する疑問形です。",
+      "examples": [
+        {
+          "grammarA": "-자고 하다",
+          "sentenceA": "친구가 같이 가자고 했어요.",
+          "meaningA": "友達が一緒に行こうと言いました。",
+          "grammarB": "-(으)ㄹ까요?",
+          "sentenceB": "같이 갈까요?",
+          "meaningB": "一緒に行きましょうか？"
+        }
+      ]
+    },
+    "tips": [
+      "縮約形 -재요 が会話でよく使われます。",
+      "否定の提案は -지 말자고 하다 を用います。",
+      "提案内容は 동사語幹 + 자 をそのまま引用。"
+    ],
+    "relatedGrammar": ["grm_quotation_003", "grm_quotation_007", "grm_ending_007"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "친구가 일찍 만나___ 했어요.",
+      "answer": "자고",
+      "hint": "提案の間接引用です。",
+      "explanation": "만나자 → 만나자고 하다。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"술 마시지 말____ 했어요\" の空欄に入るものは？",
+      "choices": ["고", "자고", "라고", "다고"],
+      "answerIndex": 1,
+      "explanation": "否定の勧誘も -자고 を使います。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「明日3時に会おうと言いました」を韓国語で入力してください",
+      "answer": "내일 3시에 만나자고 했어요",
+      "acceptableAnswers": [
+        "내일 3시에 만나자고 했어요",
+        "내일 세 시에 만나자고 했어요"
+      ],
+      "hint": "提案の引用は 자고 하다。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "友達が一緒に行こうと言っています。",
+      "answer": "친구가 같이 가자고 해요",
+      "acceptableAnswers": [
+        "친구가 같이 가자고 해요",
+        "친구가 같이 가재요"
+      ],
+      "explanation": "現在の伝達なら -자고 해요 / -재요。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

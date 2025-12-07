@@ -1,0 +1,130 @@
+{
+  "id": "grm_connective_008",
+  "title": "-(으)면서",
+  "subtitle": "同時進行接続（〜しながら）",
+  "category": "connective",
+  "level": "intermediate",
+  "tags": ["同時"],
+  "content": {
+    "summary": "二つの動作が同時に行われることを表します。「〜しながら」に相当し、同一主語の場合に用いるのが基本です。",
+    "formationRules": [
+      {
+        "condition": "パッチムあり",
+        "form": "V + 으면서",
+        "example": "듣다 → 들으면서 (聞きながら)"
+      },
+      {
+        "condition": "パッチムなし/ㄹ",
+        "form": "V + 면서",
+        "example": "가다 → 가면서 (行きながら)"
+      },
+      {
+        "condition": "形容詞・指定詞",
+        "form": "A/N + (이)면서",
+        "example": "조용하면서 (静かでありながら)"
+      },
+      {
+        "condition": "主語一致が原則",
+        "form": "同じ主語の動作を同時に述べる",
+        "example": "밥을 먹으면서 TV를 봐요. (ご飯を食べながらテレビを見ます)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "同時進行を表す",
+        "description": "二つの動作が同時に行われることを示します。",
+        "examples": [
+          {
+            "korean": "음악을 들으면서 공부해요.",
+            "japanese": "音楽を聞きながら勉強します。"
+          }
+        ]
+      },
+      {
+        "title": "二つの性質の併存",
+        "description": "形容詞や名詞で「〜でありながら」を表します。",
+        "examples": [
+          {
+            "korean": "그 사람은 친절하면서 성실해요.",
+            "japanese": "その人は親切でありながら誠実です。"
+          }
+        ]
+      },
+      {
+        "title": "批判的な同時進行",
+        "description": "矛盾を指摘するときにも使われます。",
+        "examples": [
+          {
+            "korean": "운전하면서 전화하면 위험해요.",
+            "japanese": "運転しながら電話すると危険です。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-면서 と -면서도",
+      "description": "基本の同時進行は -면서、逆接のニュアンスを強めるときは -면서도（〜しながらも）を使います。",
+      "examples": [
+        {
+          "grammarA": "-면서",
+          "sentenceA": "노래를 부르면서 춤을 췄어요.",
+          "meaningA": "歌いながら踊りました。",
+          "grammarB": "-면서도",
+          "sentenceB": "힘들면서도 포기하지 않았어요.",
+          "meaningB": "つらいのに諦めませんでした。"
+        }
+      ]
+    },
+    "tips": [
+      "主語が同じ場合に使うのが自然です。",
+      "危険やマナー違反を注意するときによく用いられます。",
+      "連続する動作でも時間的に重なりがあれば -면서 を使えます。"
+    ],
+    "relatedGrammar": ["grm_connective_001", "grm_connective_009", "grm_connective_013"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "음악을 들으___ 공부해요.",
+      "answer": "면서",
+      "hint": "同時進行を表す接続語尾です。",
+      "explanation": "듣다 → 들으면서。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"운전하___ 전화하면 위험해요\" の空欄に入るものは？",
+      "choices": ["고", "면서", "면", "라도"],
+      "answerIndex": 1,
+      "explanation": "同時進行は -면서。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「ご飯を食べながらテレビを見ます」を韓国語で入力してください",
+      "answer": "밥을 먹으면서 TV를 봐요",
+      "acceptableAnswers": [
+        "밥을 먹으면서 TV를 봐요",
+        "밥을 먹으면서 티비를 봐요"
+      ],
+      "hint": "同時進行に -면서 を使います。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "その人は親切でありながら誠実です。",
+      "answer": "그 사람은 친절하면서 성실해요",
+      "acceptableAnswers": [
+        "그 사람은 친절하면서 성실해요",
+        "그 사람은 친절하면서 성실합니다"
+      ],
+      "explanation": "形容詞の併存にも -면서 を使えます。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

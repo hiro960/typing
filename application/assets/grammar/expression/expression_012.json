@@ -1,0 +1,134 @@
+{
+  "id": "grm_expression_012",
+  "title": "-(으)ㄴ/는 대로",
+  "subtitle": "即時・方法表現（〜する通りに/〜するやいなや）",
+  "category": "expression",
+  "level": "intermediate",
+  "tags": ["方法", "即時"],
+  "content": {
+    "summary": "動作の方法や順序を「〜する通りに」示したり、直後の即時性「〜するやいなや」を表す表現です。形容詞・動詞で形が変わります。",
+    "formationRules": [
+      {
+        "condition": "動詞現在",
+        "form": "V + 는 대로",
+        "example": "말하는 대로 (話すとおりに)"
+      },
+      {
+        "condition": "動詞過去",
+        "form": "V + (으)ㄴ 대로",
+        "example": "가르쳐 준 대로 (教えてもらったとおりに)"
+      },
+      {
+        "condition": "形容詞・指定詞",
+        "form": "A/N + (으)ㄴ 대로",
+        "example": "편한 대로 (楽なように), 계획한 대로 (計画したとおりに)"
+      },
+      {
+        "condition": "即時性を表すとき",
+        "form": "V + 자마자 와 유사한ニュアンス",
+        "example": "도착하는 대로 연락 주세요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "方法・指示通りに行う",
+        "description": "指示や手順に従うことを表します。",
+        "examples": [
+          {
+            "korean": "선생님이 말하는 대로 따라 읽으세요.",
+            "japanese": "先生が言うとおりに後について読んでください。"
+          },
+          {
+            "korean": "설명서에 적힌 대로 조립했어요.",
+            "japanese": "説明書に書いてあるとおりに組み立てました。"
+          }
+        ]
+      },
+      {
+        "title": "計画・約束通り",
+        "description": "予定したとおりに実行することを表します。",
+        "examples": [
+          {
+            "korean": "계획한 대로 진행하고 있어요.",
+            "japanese": "計画したとおりに進めています。"
+          }
+        ]
+      },
+      {
+        "title": "即時性（〜したらすぐ）",
+        "description": "ある動作後すぐに次の動作を行う。",
+        "examples": [
+          {
+            "korean": "도착하는 대로 연락 주세요.",
+            "japanese": "着いたらすぐ連絡してください。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-는 대로 と -자마자",
+      "description": "-는 대로 は「〜するとすぐ/〜する通りに」両方に使える。即時性だけを強調するなら -자마자 がより明確。",
+      "examples": [
+        {
+          "grammarA": "-는 대로",
+          "sentenceA": "회의 끝나는 대로 연락할게요.",
+          "meaningA": "会議が終わり次第連絡します。",
+          "grammarB": "-자마자",
+          "sentenceB": "회의 끝나자마자 연락할게요.",
+          "meaningB": "会議が終わるやいなや連絡します。"
+        }
+      ]
+    },
+    "tips": [
+      "方法なら『〜通りに』、時間なら『〜し次第』の意味になります。",
+      "過去連体形 (으)ㄴ 대로 は「〜したとおりに」。",
+      "即時性のときは 자마자 と置き換えてニュアンスを確認すると理解が深まります。"
+    ],
+    "relatedGrammar": ["grm_expression_006", "grm_expression_014", "grm_connective_022"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "설명서에 적힌 대___ 조립하세요.",
+      "answer": "로",
+      "hint": "「〜通りに」は 대로 を使います。",
+      "explanation": "적힌 대로 = 書いてある通りに。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"도착하___ 연락 주세요\" の空欄に入るものは？",
+      "choices": ["면", "자", "는 대로", "거든"],
+      "answerIndex": 2,
+      "explanation": "-는 대로 は「〜し次第」。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「計画したとおりに進めています」を韓国語で入力してください",
+      "answer": "계획한 대로 진행하고 있어요",
+      "acceptableAnswers": [
+        "계획한 대로 진행하고 있어요",
+        "계획한 대로 진행하고 있습니다"
+      ],
+      "hint": "過去連体形 + 대로 で「〜した通り」。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "着いたらすぐ連絡してください。",
+      "answer": "도착하는 대로 연락 주세요",
+      "acceptableAnswers": [
+        "도착하는 대로 연락 주세요",
+        "도착하는 대로 연락해 주세요"
+      ],
+      "explanation": "-는 대로 で即時性（〜し次第）。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

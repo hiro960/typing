@@ -1,0 +1,146 @@
+{
+  "id": "grm_voice_012",
+  "title": "-도록 하다",
+  "subtitle": "使役的表現（〜するようにさせる）",
+  "category": "voice",
+  "level": "intermediate",
+  "tags": [
+    "使役",
+    "補助動詞"
+  ],
+  "content": {
+    "summary": "指示や依頼で「〜するようにしてください」と伝えるときに使う表現です。",
+    "formationRules": [
+      {
+        "condition": "基本形",
+        "form": "V + 도록 하다",
+        "example": "일찍 오도록 하세요."
+      },
+      {
+        "condition": "丁寧命令",
+        "form": "-도록 하십시오",
+        "example": "지각하지 않도록 하십시오."
+      },
+      {
+        "condition": "否定と併用",
+        "form": "-지 않도록 하다",
+        "example": "늦지 않도록 할게요."
+      },
+      {
+        "condition": "書き言葉・指示",
+        "form": "회의록・案内で頻出",
+        "example": "자료를 준비하도록 합니다."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "公式な指示",
+        "description": "業務・学校などでの指示。",
+        "examples": [
+          {
+            "korean": "모든 서류를 오늘 안에 제출하도록 하세요.",
+            "japanese": "全ての書類を今日中に提出するようにしてください。"
+          },
+          {
+            "korean": "회의 시간에 늦지 않도록 하십시오.",
+            "japanese": "会議時間に遅れないようにしてください。"
+          }
+        ]
+      },
+      {
+        "title": "助言・依頼",
+        "description": "柔らかくお願い・助言をするとき。",
+        "examples": [
+          {
+            "korean": "건강을 위해 운동을 자주 하도록 하세요.",
+            "japanese": "健康のためによく運動するようにしてください。"
+          }
+        ]
+      },
+      {
+        "title": "自己への約束",
+        "description": "自分がそうするよう心がける。",
+        "examples": [
+          {
+            "korean": "다음엔 실수하지 않도록 할게요.",
+            "japanese": "次は失敗しないようにします。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-게 하다 と -도록 하다",
+      "description": "どちらも使役的だが、-도록 하다 は指示・方針を表す書き言葉寄り。",
+      "examples": [
+        {
+          "grammarA": "-도록 하다",
+          "sentenceA": "제시간에 도착하도록 하세요.",
+          "meaningA": "定刻に到着するようにしてください。",
+          "grammarB": "-게 하다",
+          "sentenceB": "제시간에 도착하게 해 주세요.",
+          "meaningB": "定刻に到着するようにしてください。"
+        }
+      ]
+    },
+    "tips": [
+      "ビジネス・学校の指示で頻出。",
+      "-지 않도록 で禁止・注意を柔らかく表現。",
+      "-게 하다 よりフォーマルな響き。"
+    ],
+    "relatedGrammar": [
+      "grm_voice_011",
+      "grm_voice_006",
+      "grm_ending_011"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "문이 ___ 있어요. (-히-/-이- などを入れてください)",
+      "answer": "닫혀",
+      "hint": "受身形の語尾を入れます。",
+      "explanation": "닫다 → 닫히다/닫혀요"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "‘먹다’の受身/使役形として正しいのは？",
+      "choices": [
+        "먹히다",
+        "먹기다",
+        "먹려다",
+        "먹어지다"
+      ],
+      "answerIndex": 0,
+      "explanation": "-히- を付けて 먹히다。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「子どもを座らせました」を韓国語で入力してください",
+      "answer": "아이를 앉혔어요",
+      "acceptableAnswers": [
+        "아이를 앉혔어요",
+        "아이를 앉게 했어요"
+      ],
+      "hint": "-히- 使役を使います。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "会議時間を皆に知らせました。",
+      "answer": "회의 시간을 모두에게 알렸어요",
+      "acceptableAnswers": [
+        "회의 시간을 모두에게 알렸어요",
+        "회의 시간을 모두에게 알리게 했어요"
+      ],
+      "explanation": "알리다 を使った使役/伝達。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

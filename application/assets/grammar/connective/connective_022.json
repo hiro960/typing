@@ -1,0 +1,130 @@
+{
+  "id": "grm_connective_022",
+  "title": "-자마자",
+  "subtitle": "即時接続（〜するやいなや）",
+  "category": "connective",
+  "level": "intermediate",
+  "tags": ["即時", "時間"],
+  "content": {
+    "summary": "一つの動作が終わると同時にすぐ次の動作が続くことを表す接続表現で、「〜するやいなや」「〜するとすぐ」に相当します。",
+    "formationRules": [
+      {
+        "condition": "動詞語幹",
+        "form": "V + 자마자",
+        "example": "도착하다 → 도착하자마자 (到着するとすぐ)"
+      },
+      {
+        "condition": "時制",
+        "form": "過去形は用いず、前件は基本形＋자마자",
+        "example": "집에 가자마자 (家に帰るやいなや)"
+      },
+      {
+        "condition": "否定と併用",
+        "form": "거의 사용 안 함（即時性が薄れるため）",
+        "example": "X"
+      },
+      {
+        "condition": "文末形",
+        "form": "後件は通常ヘヨ体/ハムニダ体",
+        "example": "자리에 앉자마자 회의가 시작됐어요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "即時的な連続動作",
+        "description": "前件が終わるとほぼ同時に後件が起きることを示します。",
+        "examples": [
+          {
+            "korean": "문을 열자마자 바람이 들어왔어요.",
+            "japanese": "ドアを開けるやいなや風が入ってきました。"
+          }
+        ]
+      },
+      {
+        "title": "すぐに続けて行動する",
+        "description": "前件後すぐ別の行動に移る様子を表します。",
+        "examples": [
+          {
+            "korean": "퇴근하자마자 잠이 들었어요.",
+            "japanese": "退勤するやいなや眠ってしまいました。"
+          }
+        ]
+      },
+      {
+        "title": "即時反応・変化",
+        "description": "瞬間的な反応や変化を表します。",
+        "examples": [
+          {
+            "korean": "연락을 받자마자 바로 출발했어요.",
+            "japanese": "連絡を受けるとすぐに出発しました。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-고 나서 と -자마자",
+      "description": "-고 나서 は順序を示し間に時間の余裕がありうる。-자마자 はほぼ同時に起きる即時性を強調します。",
+      "examples": [
+        {
+          "grammarA": "-자마자",
+          "sentenceA": "도착하자마자 전화했어요.",
+          "meaningA": "到着するとすぐ電話しました。",
+          "grammarB": "-고 나서",
+          "sentenceB": "도착하고 나서 전화했어요.",
+          "meaningB": "到着してから電話しました。（時間の余裕あり）"
+        }
+      ]
+    },
+    "tips": [
+      "過去形の活用語尾を付けず、動詞語幹＋자마자 の形で使います。",
+      "即時性が強いので、\"바로\" \"곧\" などの副詞と相性が良いです。",
+      "否定文には通常使いません。"
+    ],
+    "relatedGrammar": ["grm_expression_006", "grm_connective_009", "grm_connective_004"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "집에 가___ 잠이 들었어요.",
+      "answer": "자마자",
+      "hint": "「〜するとすぐ」を表す接続表現です。",
+      "explanation": "가자마자 で「帰るやいなや」。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"연락을 받___ 바로 출발했어요\" の空欄に入るものは？",
+      "choices": ["다가", "자마자", "고 나서", "면서"],
+      "answerIndex": 1,
+      "explanation": "即時性を表すなら -자마자。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「ドアを開けるやいなや風が入ってきました」を韓国語で入力してください",
+      "answer": "문을 열자마자 바람이 들어왔어요",
+      "acceptableAnswers": [
+        "문을 열자마자 바람이 들어왔어요",
+        "문을 열자마자 바람이 들어왔습니다"
+      ],
+      "hint": "即時の接続 -자마자。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "連絡を受けるとすぐに出発しました。",
+      "answer": "연락을 받자마자 바로 출발했어요",
+      "acceptableAnswers": [
+        "연락을 받자마자 바로 출발했어요",
+        "연락을 받자마자 바로 출발했습니다"
+      ],
+      "explanation": "即時性には -자마자 を用います。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "id": "grm_particle_003",
+  "title": "을/를",
+  "subtitle": "目的格助詞（〜を）",
+  "category": "particle",
+  "level": "beginner",
+  "tags": ["目的格", "基本"],
+  "content": {
+    "summary": "名詞の後について、その名詞が動詞や形容詞の対象であることを示します。日本語の「〜を」に相当します。",
+    "formationRules": [
+      {
+        "condition": "パッチムあり",
+        "form": "을",
+        "example": "책을 (本を)"
+      },
+      {
+        "condition": "パッチムなし",
+        "form": "를",
+        "example": "사과를 (りんごを)"
+      },
+      {
+        "condition": "縮約",
+        "form": "뭐를 → 뭘",
+        "example": "뭐를 먹어요? → 뭘 먹어요?"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "目的語を示す",
+        "description": "動作の対象をはっきり示します",
+        "examples": [
+          {
+            "korean": "밥을 먹어요.",
+            "japanese": "ご飯を食べます。"
+          },
+          {
+            "korean": "영화를 봐요.",
+            "japanese": "映画を見ます。"
+          }
+        ]
+      },
+      {
+        "title": "移動経路を示す",
+        "description": "「〜を通って」の意味で道筋を表すこともあります",
+        "examples": [
+          {
+            "korean": "다리를 건너요.",
+            "japanese": "橋を渡ります。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "省略との違い",
+      "description": "会話ではを助詞が省略されることがありますが、強調したい時や書き言葉ではを付けます。"
+    },
+    "tips": [
+      "疑問詞「무엇」は会話で「뭘」に縮約して使います",
+      "目的語が長い場合も助詞を付けると文が整理されます"
+    ],
+    "relatedGrammar": ["grm_particle_001", "grm_particle_002"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "책___ 읽어요.",
+      "answer": "을",
+      "hint": "「책」はパッチムあり",
+      "explanation": "パッチムがある名詞の後には「을」を付けます"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「りんごを食べます」の正しい文はどれ？",
+      "choices": ["사과가 먹어요.", "사과를 먹어요.", "사과은 먹어요.", "사과에 먹어요."],
+      "answerIndex": 1,
+      "explanation": "目的語「사과」の後に「를」を付けます"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「映画を見ます」を韓国語で入力してください",
+      "answer": "영화를 봐요",
+      "acceptableAnswers": ["영화를 봐요", "영화를 봐요.", "영화를봐요"],
+      "hint": "映画=영화、見る=보다→봐요"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "id": "grm_particle_011",
+  "title": "만",
+  "subtitle": "限定助詞（〜だけ）",
+  "category": "particle",
+  "level": "beginner",
+  "tags": ["限定"],
+  "content": {
+    "summary": "対象を限定して「〜だけ」「〜のみ」を表す助詞です。数量や人、場所にも付けられます。",
+    "formationRules": [
+      {
+        "condition": "基本",
+        "form": "名詞/助詞 + 만",
+        "example": "저만 (私だけ)"
+      },
+      {
+        "condition": "数量詞",
+        "form": "数詞 + 만",
+        "example": "한 개만 (一つだけ)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "対象を限定する",
+        "description": "「〜だけ」を表し、他を除くニュアンスになります",
+        "examples": [
+          {
+            "korean": "물만 마셔요.",
+            "japanese": "水だけ飲みます。"
+          },
+          {
+            "korean": "주말에만 쉬어요.",
+            "japanese": "週末だけ休みます。"
+          }
+        ]
+      },
+      {
+        "title": "数量を限定する",
+        "description": "数量詞と合わせて「たった〜」の意味になります",
+        "examples": [
+          {
+            "korean": "커피를 한 잔만 주세요.",
+            "japanese": "コーヒーを一杯だけください。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "도との違い",
+      "description": "도は追加、만は限定。どちらを強調したいかで選びます。"
+    },
+    "tips": [
+      "助詞の後ろに付けることも可能です（저에게만）",
+      "否定文とも一緒に使えます（조금도 안 해요→少しも〜ない）"
+    ],
+    "relatedGrammar": ["grm_particle_010", "grm_particle_012"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "오늘___ 집에서 쉴 거예요.",
+      "answer": "만",
+      "hint": "「今日だけ」は韓国語でも同じ形",
+      "explanation": "限定を表すときに만を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「水だけ飲みます」を正しく表すのは？",
+      "choices": ["물만 마셔요.", "물도 마셔요.", "물은 마셔요.", "물이 마셔요."],
+      "answerIndex": 0,
+      "explanation": "限定「だけ」なので만を使います"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「コーヒーを一杯だけください」を韓国語で入力してください",
+      "answer": "커피를 한 잔만 주세요",
+      "acceptableAnswers": ["커피를 한 잔만 주세요", "커피를 한 잔만 주세요.", "커피를 한잔만 주세요"],
+      "hint": "一杯=한 잔"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

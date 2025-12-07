@@ -12,14 +12,12 @@
         "items": [
           {
             "text": "ㄹ",
-            "meaning": "r/l の音",
-            "pronunciation": "リウル",
+            "meaning": "r/l の音"
             "hint": "「ラ行」です"
           },
           {
             "text": "ㅅ",
-            "meaning": "s の音",
-            "pronunciation": "シオッ",
+            "meaning": "s の音"
             "hint": "「サ行」です"
           }
         ]
@@ -30,62 +28,52 @@
         "items": [
           {
             "text": "사",
-            "meaning": "四",
-            "pronunciation": "サ",
+            "meaning": "四"
             "hint": "ㅅ + ㅏ"
           },
           {
             "text": "소",
-            "meaning": "牛",
-            "pronunciation": "ソ",
+            "meaning": "牛"
             "hint": "ㅅ + ㅗ"
           },
           {
             "text": "수",
-            "meaning": "数",
-            "pronunciation": "ス",
+            "meaning": "数"
             "hint": "ㅅ + ㅜ"
           },
           {
             "text": "라",
-            "meaning": "～だ",
-            "pronunciation": "ラ",
+            "meaning": "～だ"
             "hint": "ㄹ + ㅏ"
           },
           {
             "text": "로",
-            "meaning": "へ/で",
-            "pronunciation": "ロ",
+            "meaning": "へ/で"
             "hint": "ㄹ + ㅗ"
           },
           {
             "text": "수도",
-            "meaning": "首都",
-            "pronunciation": "スド",
+            "meaning": "首都"
             "hint": "ㅅ + ㅜ + ㄷ + ㅗ"
           },
           {
             "text": "사다",
-            "meaning": "買う",
-            "pronunciation": "サダ",
+            "meaning": "買う"
             "hint": "ㅅ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "소리",
-            "meaning": "音/声",
-            "pronunciation": "ソリ",
+            "meaning": "音/声"
             "hint": "ㅅ + ㅗ + ㄹ + ㅣ"
           },
           {
             "text": "사람",
-            "meaning": "人",
-            "pronunciation": "サラム",
+            "meaning": "人"
             "hint": "ㅅ + ㅏ + ㄹ + ㅏ + ㅁ"
           },
           {
             "text": "수박",
-            "meaning": "スイカ",
-            "pronunciation": "スバク",
+            "meaning": "スイカ"
             "hint": "ㅅ + ㅜ + ㅂ + ㅏ + ㄱ"
           }
         ]

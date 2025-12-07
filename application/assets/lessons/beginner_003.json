@@ -12,8 +12,7 @@
         "items": [
           {
             "text": "ㄱ",
-            "meaning": "g/k の音",
-            "pronunciation": "ギヨク",
+            "meaning": "g/k の音"
             "hint": "「ガ行」「カ行」です"
           }
         ]
@@ -24,56 +23,47 @@
         "items": [
           {
             "text": "김밥",
-            "meaning": "キムパプ",
-            "pronunciation": "キムバプ",
+            "meaning": "キムパプ"
             "hint": "ㄱ + ㅣ + ㅁ + ㅂ + ㅏ + ㅂ"
           },
           {
             "text": "이",
-            "meaning": "歯/これ",
-            "pronunciation": "イ",
+            "meaning": "歯/これ"
             "hint": "ㅇ + ㅣ"
           },
           {
             "text": "가위",
-            "meaning": "ハサミ",
-            "pronunciation": "カウィ",
+            "meaning": "ハサミ"
             "hint": "ㄱ + ㅏ + ㅇ + ㅟ"
           },
           {
             "text": "위",
-            "meaning": "上",
-            "pronunciation": "ウィ",
+            "meaning": "上"
             "hint": "ㅇ + ㅟ"
           },
           {
             "text": "귀",
-            "meaning": "耳",
-            "pronunciation": "クィ",
+            "meaning": "耳"
             "hint": "ㄱ + ㅟ"
           },
           {
             "text": "입",
-            "meaning": "口",
-            "pronunciation": "イプ",
+            "meaning": "口"
             "hint": "ㅇ + ㅣ + ㅂ"
           },
           {
             "text": "누구",
-            "meaning": "誰",
-            "pronunciation": "ヌグ",
+            "meaning": "誰"
             "hint": "ㄴ + ㅜ + ㄱ + ㅜ"
           },
           {
             "text": "비누",
-            "meaning": "石鹸",
-            "pronunciation": "ビヌ",
+            "meaning": "石鹸"
             "hint": "ㅂ + ㅣ + ㄴ + ㅜ"
           },
           {
             "text": "아기",
-            "meaning": "赤ちゃん",
-            "pronunciation": "アギ",
+            "meaning": "赤ちゃん"
             "hint": "ㅇ + ㅏ + ㄱ + ㅣ"
           }
         ]

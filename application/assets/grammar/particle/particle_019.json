@@ -1,0 +1,144 @@
+{
+  "id": "grm_particle_019",
+  "title": "마다",
+  "subtitle": "毎〜助詞（〜ごとに）",
+  "category": "particle",
+  "level": "intermediate",
+  "tags": ["頻度"],
+  "content": {
+    "summary": "「〜ごとに」「〜のたびに」を表し、時間・場所・機会などが繰り返される頻度を示す助詞です。",
+    "formationRules": [
+      {
+        "condition": "時間・時刻",
+        "form": "N(時間) + 마다",
+        "example": "매일 아침마다 (毎朝)"
+      },
+      {
+        "condition": "場所・機会",
+        "form": "N(場所/機会) + 마다",
+        "example": "버스정류장마다 (バス停ごとに)"
+      },
+      {
+        "condition": "固有数詞・漢数詞との併用",
+        "form": "3일마다 / 두 시간마다",
+        "example": "이틀마다 운동해요. (2日ごとに運動します)"
+      },
+      {
+        "condition": "否定と共に",
+        "form": "N + 마다 + negative",
+        "example": "매번 마다 실패하지 않아요. (毎回失敗するわけではない)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "時間の繰り返しを示す",
+        "description": "日・週・月など周期的に起こることを表します。",
+        "examples": [
+          {
+            "korean": "주말마다 산에 가요.",
+            "japanese": "週末ごとに山へ行きます。"
+          },
+          {
+            "korean": "두 시간마다 쉬어요.",
+            "japanese": "2時間ごとに休みます。"
+          }
+        ]
+      },
+      {
+        "title": "場所・単位ごとの分配",
+        "description": "場所や物ごとに起こること、分配を表します。",
+        "examples": [
+          {
+            "korean": "집마다 스타일이 달라요.",
+            "japanese": "家ごとにスタイルが違います。"
+          },
+          {
+            "korean": "학생마다 책을 한 권씩 나눠 줬어요.",
+            "japanese": "学生ごとに本を1冊ずつ配りました。"
+          }
+        ]
+      },
+      {
+        "title": "慣用的な頻度表現",
+        "description": "「いつも」「毎回」などのニュアンスで使います。",
+        "examples": [
+          {
+            "korean": "만날 때마다 비가 와요.",
+            "japanese": "会うたびに雨が降ります。"
+          },
+          {
+            "korean": "전화할 때마다 바쁘대요.",
+            "japanese": "電話するたびに忙しいと言われます。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "마다 と 때마다 の違い",
+      "description": "名詞につける単純な「〜ごとに」は 마다、動作のたびを表すときは 때마다 をよく使います。",
+      "examples": [
+        {
+          "grammarA": "마다",
+          "sentenceA": "주말마다 등산해요.",
+          "meaningA": "週末ごとに登山します。",
+          "grammarB": "때마다",
+          "sentenceB": "만날 때마다 비가 와요.",
+          "meaningB": "会うたびに雨が降ります。"
+        }
+      ]
+    },
+    "tips": [
+      "周期を表す語（매일, 매주, 매년）とセットで使うときは重複に注意し「마다」単独で済む場合もあります。",
+      "때마다 は動作性名詞（만날 때마다）と一緒に使うことが多いです。",
+      "否定と組み合わせて「毎回〜するわけではない」と柔らかく表現できます。"
+    ],
+    "relatedGrammar": ["grm_adverb_006", "grm_adverb_007", "grm_connective_021"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "주말___ 친구를 만나요.",
+      "answer": "마다",
+      "hint": "「〜ごとに」を表す助詞です。",
+      "explanation": "繰り返しの頻度には 마다 を使います。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"집___ 디자인이 달라요\" の空欄に入るものは？",
+      "choices": ["마다", "보다", "에서", "부터"],
+      "answerIndex": 0,
+      "explanation": "場所ごとに違いがあることを示すときも 마다 を用います。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「2時間ごとに休みます」を韓国語で入力してください",
+      "answer": "두 시간마다 쉬어요",
+      "acceptableAnswers": [
+        "두 시간마다 쉬어요",
+        "두 시간마다 쉬어요.",
+        "두 시간마다 쉽니다",
+        "두 시간마다 쉬어요"
+      ],
+      "hint": "「〜ごとに」は 마다。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "会うたびに雨が降ります。",
+      "answer": "만날 때마다 비가 와요",
+      "acceptableAnswers": [
+        "만날 때마다 비가 와요",
+        "만날 때마다 비가 옵니다"
+      ],
+      "explanation": "動作のたびには 때마다 を使った表現が自然です。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

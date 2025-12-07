@@ -1,0 +1,134 @@
+{
+  "id": "grm_quotation_007",
+  "title": "-래요",
+  "subtitle": "伝聞縮約形（〜しろそうです）",
+  "category": "quotation",
+  "level": "intermediate",
+  "tags": ["伝聞", "縮約"],
+  "content": {
+    "summary": "命令・依頼の間接引用「-(으)라고 해요」を会話的に縮約した形で、「〜しろって」「〜してって」に当たります。",
+    "formationRules": [
+      {
+        "condition": "パッチムなし/ㄹ",
+        "form": "V + 래요 (← 라고 해요 縮約)",
+        "example": "가래요 (行けって)"
+      },
+      {
+        "condition": "パッチムあり",
+        "form": "V + 으래요",
+        "example": "먹으래요 (食べろって)"
+      },
+      {
+        "condition": "否定命令の縮約",
+        "form": "V + 지 말래요",
+        "example": "가지 말래요 (行くなって)"
+      },
+      {
+        "condition": "勧誘縮約と区別",
+        "form": "-재요 (= -자고 해요 縮約) は勧誘",
+        "example": "같이 가재요 (一緒に行こうって)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "命令・指示の伝達",
+        "description": "誰かの指示を口語的に伝える。",
+        "examples": [
+          {
+            "korean": "선생님이 조용히 하래요.",
+            "japanese": "先生が静かにしろって。"
+          },
+          {
+            "korean": "엄마가 일찍 오래요.",
+            "japanese": "お母さんが早く来いって。"
+          }
+        ]
+      },
+      {
+        "title": "依頼の伝達",
+        "description": "お願いされた内容を伝える。",
+        "examples": [
+          {
+            "korean": "친구가 도와 달래요.",
+            "japanese": "友達が助けてくれって。"
+          }
+        ]
+      },
+      {
+        "title": "禁止の伝達",
+        "description": "してはいけないと言われたことを伝える。",
+        "examples": [
+          {
+            "korean": "밖에 나가지 말래요.",
+            "japanese": "外に出るなって。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-래요 と -(으)라고 하다",
+      "description": "-래요 は口語的縮約形、-(으)라고 하다 は丁寧さが必要な場面で用いる正式な形。",
+      "examples": [
+        {
+          "grammarA": "-래요",
+          "sentenceA": "일찍 오래요.",
+          "meaningA": "早く来いって。",
+          "grammarB": "-라고 하다",
+          "sentenceB": "일찍 오라고 했어요.",
+          "meaningB": "早く来るように言いました。"
+        }
+      ]
+    },
+    "tips": [
+      "命令の伝聞は -(으)래요、勧誘の伝聞は -재요、疑問の伝聞は -냬요 をセットで覚えます。",
+      "フォーマルな場では -라고/-(으)라고 하다 を使いましょう。",
+      "否定は 지 말래요 で伝えます。"
+    ],
+    "relatedGrammar": ["grm_quotation_003", "grm_quotation_004", "grm_quotation_006"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "엄마가 일찍 오___요.",
+      "answer": "래",
+      "hint": "命令の伝聞縮約形。",
+      "explanation": "오라고 해요 → 오래요 → 오래요(縮約)。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"조용히 하___\" の空欄に入るものは？",
+      "choices": ["래요", "대요", "재요", "냬요"],
+      "answerIndex": 0,
+      "explanation": "命令の伝聞縮約は -(으)래요。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「外に出るなって」を韓国語で入力してください",
+      "answer": "밖에 나가지 말래요",
+      "acceptableAnswers": [
+        "밖에 나가지 말래요",
+        "밖에 나가지 말라고 했어요"
+      ],
+      "hint": "否定命令は 지 말래요/말라고 했어요。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "友達が助けてくれって。",
+      "answer": "친구가 도와 달래요",
+      "acceptableAnswers": [
+        "친구가 도와 달래요",
+        "친구가 도와 달라고 했어요"
+      ],
+      "explanation": "依頼の伝聞も -(으)래요 で表せます。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

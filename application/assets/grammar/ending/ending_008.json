@@ -1,0 +1,28 @@
+{
+  "id": "grm_ending_008",
+  "title": "-고 싶다",
+  "subtitle": "願望語尾（〜したい）",
+  "category": "ending",
+  "level": "beginner",
+  "tags": ["願望"],
+  "content": {
+    "summary": "自分や第三者の願望を表すときに使う表現で「〜したい」です。",
+    "formationRules": [
+      {"condition": "動詞語幹", "form": "語幹 + 고 싶다", "example": "가다 → 가고 싶다"},
+      {"condition": "丁寧形", "form": "-고 싶어요", "example": "먹고 싶어요"}
+    ],
+    "usageCases": [
+      {"title": "希望を述べる", "description": "したいことを言う", "examples": [{"korean": "한국에 가고 싶어요.", "japanese": "韓国に行きたいです。"}]},
+      {"title": "第三者の願望", "description": "-고 싶어하다で第三者", "examples": [{"korean": "동생은 음악을 배우고 싶어해요.", "japanese": "弟は音楽を習いたがっています。"}]}
+    ],
+    "comparison": {"title": "-고 싶어하다", "description": "自分は고 싶다、他人は고 싶어하다で表現します。"},
+    "tips": ["名詞には使えず、必ず動詞語幹につけます", "過去形は고 싶었어요で過去の願望"],
+    "relatedGrammar": ["grm_ending_006", "grm_expression_001"]
+  },
+  "exercises": [
+    {"id": "ex_001", "type": "fill_blank", "question": "저는 한국에 가__ 싶어요.", "answer": "고", "hint": "語幹+고 싶어요", "explanation": "願望は動詞語幹に고 싶다を付けます"},
+    {"id": "ex_002", "type": "choice", "question": "第三者の願望を表すのに正しいのは？", "choices": ["-고 싶다", "-고 싶어하다", "-고 싶어요", "-고 싶겠다"], "answerIndex": 1, "explanation": "第三者は-고 싶어하다を使います"},
+    {"id": "ex_003", "type": "typing", "question": "「韓国に行きたいです」を韓国語で入力してください", "answer": "한국에 가고 싶어요", "acceptableAnswers": ["한국에 가고 싶어요", "한국에 가고 싶어요."]}
+  ],
+  "metadata": {"createdAt": "2025-12-07T00:00:00Z", "updatedAt": "2025-12-07T00:00:00Z", "version": "1.0.0"}
+}

@@ -1,0 +1,124 @@
+{
+  "id": "grm_tense_004",
+  "title": "-겠-",
+  "subtitle": "意志・推量時制",
+  "category": "tense",
+  "level": "intermediate",
+  "tags": ["意志", "推量"],
+  "content": {
+    "summary": "話し手の意志や推量を表す時制語尾で、丁寧・格式体に付いて未来や主観的判断を示します。",
+    "formationRules": [
+      {
+        "condition": "動詞・形容詞語幹",
+        "form": "V/A + 겠 + 終結語尾",
+        "example": "가다 → 가겠습니다 (行きます/行くつもりです)"
+      },
+      {
+        "condition": "丁寧ヘヨ体",
+        "form": "-겠어요",
+        "example": "비가 오겠어요. (雨が降りそうです)"
+      },
+      {
+        "condition": "格式体",
+        "form": "-겠습니다",
+        "example": "열심히 하겠습니다. (一生懸命やります)"
+      },
+      {
+        "condition": "過去推量",
+        "form": "V/A + 았/었겠-",
+        "example": "도착했겠어요. (到着したでしょう)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "意志・決意を表す",
+        "description": "自分の意思や約束を伝えるときに使います。",
+        "examples": [
+          {
+            "korean": "열심히 하겠습니다!",
+            "japanese": "一生懸命やります！"
+          }
+        ]
+      },
+      {
+        "title": "推量・予測を表す",
+        "description": "状況から未来を推測するときに使います。",
+        "examples": [
+          {
+            "korean": "곧 눈이 오겠어요.",
+            "japanese": "すぐ雪が降りそうです。"
+          }
+        ]
+      },
+      {
+        "title": "丁寧な申し出",
+        "description": "相手への配慮を込めて申し出るときに用います。",
+        "examples": [
+          {
+            "korean": "제가 도와드리겠습니다.",
+            "japanese": "私がお手伝いします。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-(으)ㄹ 것이다 との違い",
+      "description": "-겠- は意志や瞬間的な判断を強調し、-(으)ㄹ 것이다 は説明的な推量・予定に多用されます。",
+      "examples": [
+        {
+          "grammarA": "-겠-",
+          "sentenceA": "지금 가겠습니다.",
+          "meaningA": "今行きます。（意志）",
+          "grammarB": "-(으)ㄹ 것이다",
+          "sentenceB": "곧 갈 거예요.",
+          "meaningB": "すぐ行くでしょう。（推量・予定）"
+        }
+      ]
+    },
+    "tips": [
+      "自己紹介や宣誓で頻繁に使われます。",
+      "推量のニュアンスでは語尾を柔らかく上げると自然です。",
+      "過去への推量には -았/었겠- を用います。"
+    ],
+    "relatedGrammar": ["grm_ending_016", "grm_ending_015", "grm_expression_008"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "열심히 하____니다!",
+      "answer": "겠습",
+      "hint": "格式体の意志表現を使います。",
+      "explanation": "가겠습니다/하겠습니다 のように -겠습니다 で意志を示します。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"곧 눈이 오___\" の空欄に入るものは？",
+      "choices": ["겠어요", "었어요", "고 있어요", "거예요"],
+      "answerIndex": 0,
+      "explanation": "推量・予測を表すなら -겠어요 が自然です。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「今頃着いたでしょう」を韓国語で入力してください",
+      "answer": "지금쯤 도착했겠어요",
+      "acceptableAnswers": ["지금쯤 도착했겠어요", "지금쯤 도착했겠죠"],
+      "hint": "過去の推量には -았/었겠- を使います。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "私がお手伝いします。",
+      "answer": "제가 도와드리겠습니다",
+      "acceptableAnswers": ["제가 도와드리겠습니다", "제가 도와드릴게요"],
+      "explanation": "フォーマルな申し出では -겠습니다 を使い、柔らかくするなら -ㄹ게요。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

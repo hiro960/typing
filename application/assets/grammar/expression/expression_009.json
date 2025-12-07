@@ -1,0 +1,130 @@
+{
+  "id": "grm_expression_009",
+  "title": "-는 김에",
+  "subtitle": "機会表現（〜するついでに）",
+  "category": "expression",
+  "level": "intermediate",
+  "tags": ["機会"],
+  "content": {
+    "summary": "ある動作の機会を利用して別の動作を行うときに使う表現で、「〜するついでに」に当たります。進行形や動作名詞と共に用います。",
+    "formationRules": [
+      {
+        "condition": "動詞現在連体形",
+        "form": "V + 는 김에",
+        "example": "가는 김에, 먹는 김에"
+      },
+      {
+        "condition": "進行形と併用",
+        "form": "V-고 있는 김에",
+        "example": "청소하고 있는 김에 창문도 닦아요."
+      },
+      {
+        "condition": "名詞化パターン",
+        "form": "V + 는 김에 + 追加行為",
+        "example": "마트에 가는 김에 우유도 사요."
+      },
+      {
+        "condition": "否定・依頼と併用可",
+        "form": "V + 는 김에 + 부탁/권유",
+        "example": "나가는 김에 쓰레기 좀 버려 주세요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "移動のついでに別行動",
+        "description": "目的地へ行く機会に別のことをする。",
+        "examples": [
+          {
+            "korean": "은행에 가는 김에 약국에도 들렀어요.",
+            "japanese": "銀行に行くついでに薬局にも寄りました。"
+          }
+        ]
+      },
+      {
+        "title": "作業の延長で別作業",
+        "description": "既にしている作業に関連して追加で行う。",
+        "examples": [
+          {
+            "korean": "청소하는 김에 책상도 정리했어요.",
+            "japanese": "掃除するついでに机も片付けました。"
+          }
+        ]
+      },
+      {
+        "title": "依頼・提案の前置き",
+        "description": "相手に頼むときに柔らかく伝える。",
+        "examples": [
+          {
+            "korean": "나가는 김에 우체국에 좀 들러 주세요.",
+            "japanese": "出かけるついでに郵便局に寄ってください。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-는 김에 と -다가",
+      "description": "-는 김에 は機会利用、-다가 は途中で転換・中断を表す点で異なります。",
+      "examples": [
+        {
+          "grammarA": "-는 김에",
+          "sentenceA": "마트에 가는 김에 빵을 샀어요.",
+          "meaningA": "マートに行くついでにパンを買いました。",
+          "grammarB": "-다가",
+          "sentenceB": "마트에 가다가 친구를 만났어요.",
+          "meaningB": "マートに行く途中で友達に会いました。"
+        }
+      ]
+    },
+    "tips": [
+      "進行形・現在連体形で「今〜している、そのついでに」と表現します。",
+      "依頼に使うときは -주세요/-줄래요 と組み合わせると柔らかいです。",
+      "機会を活用するニュアンスで、予定外でも自然に繋がります。"
+    ],
+    "relatedGrammar": ["grm_expression_010", "grm_connective_009", "grm_expression_014"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "시장에 가는 ___에 과일도 사 왔어요.",
+      "answer": "김",
+      "hint": "「〜するついでに」は -는 ___에。",
+      "explanation": "가는 김에 の形を作ります。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"청소하는 ___에 창문도 닦았어요\" の空欄は？",
+      "choices": ["김", "동안", "대로", "때"],
+      "answerIndex": 0,
+      "explanation": "進行中の動作のついで＝-는 김에。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「出かけるついでに郵便局に寄ってください」を韓国語で入力してください",
+      "answer": "나가는 김에 우체국에 좀 들러 주세요",
+      "acceptableAnswers": [
+        "나가는 김에 우체국에 좀 들러 주세요",
+        "나가는 김에 우체국에 들러 주세요"
+      ],
+      "hint": "依頼＋-는 김에。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "掃除するついでに机も片付けました。",
+      "answer": "청소하는 김에 책상도 정리했어요",
+      "acceptableAnswers": [
+        "청소하는 김에 책상도 정리했어요",
+        "청소하는 김에 책상도 정리했습니다"
+      ],
+      "explanation": "しているついでに＝-는 김에。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

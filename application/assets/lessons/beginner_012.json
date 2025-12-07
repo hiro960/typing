@@ -12,20 +12,17 @@
         "items": [
           {
             "text": "ㄲ",
-            "meaning": "kk の音（濃音）",
-            "pronunciation": "ッカ",
+            "meaning": "kk の音（濃音）"
             "hint": "詰まった「カ」の音"
           },
           {
             "text": "ㄸ",
-            "meaning": "tt の音（濃音）",
-            "pronunciation": "ッタ",
+            "meaning": "tt の音（濃音）"
             "hint": "詰まった「タ」の音"
           },
           {
             "text": "ㅃ",
-            "meaning": "pp の音（濃音）",
-            "pronunciation": "ッパ",
+            "meaning": "pp の音（濃音）"
             "hint": "詰まった「パ」の音"
           }
         ]
@@ -36,56 +33,47 @@
         "items": [
           {
             "text": "까",
-            "meaning": "～まで",
-            "pronunciation": "ッカ",
+            "meaning": "～まで"
             "hint": "ㄲ + ㅏ"
           },
           {
             "text": "빠",
-            "meaning": "速い",
-            "pronunciation": "ッパ",
+            "meaning": "速い"
             "hint": "ㅃ + ㅏ"
           },
           {
             "text": "따",
-            "meaning": "～に従って",
-            "pronunciation": "ッタ",
+            "meaning": "～に従って"
             "hint": "ㄸ + ㅏ"
           },
           {
             "text": "꼬리",
-            "meaning": "尻尾",
-            "pronunciation": "ッコリ",
+            "meaning": "尻尾"
             "hint": "ㄲ + ㅗ + ㄹ + ㅣ"
           },
           {
             "text": "뿌리",
-            "meaning": "根",
-            "pronunciation": "ップリ",
+            "meaning": "根"
             "hint": "ㅃ + ㅜ + ㄹ + ㅣ"
           },
           {
             "text": "딸기",
-            "meaning": "イチゴ",
-            "pronunciation": "ッタルギ",
+            "meaning": "イチゴ"
             "hint": "ㄸ + ㅏ + ㄹ + ㄱ + ㅣ"
           },
           {
             "text": "까치",
-            "meaning": "カササギ",
-            "pronunciation": "ッカチ",
+            "meaning": "カササギ"
             "hint": "ㄲ + ㅏ + ㅊ + ㅣ"
           },
           {
             "text": "빠르다",
-            "meaning": "速い",
-            "pronunciation": "ッパルダ",
+            "meaning": "速い"
             "hint": "ㅃ + ㅏ + ㄹ + ㅡ + ㄷ + ㅏ"
           },
           {
             "text": "또",
-            "meaning": "また",
-            "pronunciation": "ット",
+            "meaning": "また"
             "hint": "ㄸ + ㅗ"
           }
         ]

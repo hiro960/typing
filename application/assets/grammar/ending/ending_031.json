@@ -1,0 +1,89 @@
+{
+  "id": "grm_ending_031",
+  "title": "-네요",
+  "subtitle": "感嘆・発見語尾（〜ですね）",
+  "category": "ending",
+  "level": "beginner",
+  "tags": ["感嘆", "発見"],
+  "content": {
+    "summary": "新しく気づいたことを述べるときの感嘆・発見の語尾です。「〜ですね」「〜だなあ」に相当します。",
+    "formationRules": [
+      {
+        "condition": "動詞・形容詞語幹",
+        "form": "語幹 + 네요",
+        "example": "춥다 → 춥네요"
+      },
+      {
+        "condition": "이다/아니다",
+        "form": "이네요 / 아니네요",
+        "example": "학생이네요"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "感想・発見",
+        "description": "見聞きして感じたこと",
+        "examples": [
+          {
+            "korean": "날씨가 좋네요!",
+            "japanese": "天気がいいですね！"
+          }
+        ]
+      },
+      {
+        "title": "軽い共感",
+        "description": "相手と共有する感想",
+        "examples": [
+          {
+            "korean": "여기가 조용하네요.",
+            "japanese": "ここは静かですね。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-군요/구나との違い",
+      "description": "-네요は柔らかい感嘆、-군요/구나はやや感嘆が強くカジュアルです。"
+    },
+    "tips": [
+      "初めて知った情報に自然",
+      "過度に使うと押し付けがましくなるので場面を選ぶ"
+    ],
+    "relatedGrammar": ["grm_ending_032", "grm_ending_033"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "와, 경치가 예쁘___!",
+      "answer": "네요",
+      "hint": "感嘆語尾",
+      "explanation": "新しく気づいた感想に-네요を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「ここは静かですね」の正しい文は？",
+      "choices": [
+        "여기가 조용해요.",
+        "여기가 조용하네요.",
+        "여기가 조용합니다.",
+        "여기가 조용하겠어요."
+      ],
+      "answerIndex": 1,
+      "explanation": "感想・発見に-네요"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「天気がいいですね！」を韓国語で入力してください",
+      "answer": "날씨가 좋네요",
+      "acceptableAnswers": ["날씨가 좋네요", "날씨가 좋네요!"]
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

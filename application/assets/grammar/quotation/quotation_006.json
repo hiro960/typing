@@ -1,0 +1,134 @@
+{
+  "id": "grm_quotation_006",
+  "title": "-대요",
+  "subtitle": "伝聞縮約形（〜だそうです）",
+  "category": "quotation",
+  "level": "intermediate",
+  "tags": ["伝聞", "縮約"],
+  "content": {
+    "summary": "間接引用「-다고 해요/하대요」の縮約形で、聞いた話を伝えるときに使う会話的な表現です。形容詞・動詞ともに -대요 を付けます。",
+    "formationRules": [
+      {
+        "condition": "動詞・形容詞・指定詞",
+        "form": "어간 + 대요",
+        "example": "온대요, 예쁘대요, 학생이래요"
+      },
+      {
+        "condition": "疑問の縮約",
+        "form": "-냬요 (=-느냐고 해요 縮約)",
+        "example": "가냬요, 뭐냬요"
+      },
+      {
+        "condition": "命令・勧誘縮約",
+        "form": "-(으)래요 / -재요",
+        "example": "가래요(来いって), 같이 가재요(一緒に行こうって)"
+      },
+      {
+        "condition": "書き言葉では使用を控える",
+        "form": "フォーマルなら -다고 합니다/해요 を使用",
+        "example": "온다고 합니다"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "伝聞を手短に伝える",
+        "description": "聞いた話をカジュアルに伝えます。",
+        "examples": [
+          {
+            "korean": "민수가 내일 온대요.",
+            "japanese": "ミンスが明日来るそうです。"
+          },
+          {
+            "korean": "그 영화가 재미있대요.",
+            "japanese": "あの映画が面白いんだって。"
+          }
+        ]
+      },
+      {
+        "title": "伝聞で理由を述べる",
+        "description": "理由を聞いた話として伝えるとき。",
+        "examples": [
+          {
+            "korean": "오늘 비가 온대요. 그래서 약속을 미뤘어요.",
+            "japanese": "今日は雨が降るそうです。それで約束を延ばしました。"
+          }
+        ]
+      },
+      {
+        "title": "相手の話を引用して確認",
+        "description": "聞いた内容を相手に確認するニュアンス。",
+        "examples": [
+          {
+            "korean": "내일 휴가라면서요? 친구가 그러대요.",
+            "japanese": "明日休みだそうですね？友達がそう言ってました。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-대요 と -다고 해요",
+      "description": "-대요 は口語的・短縮形、-다고 해요 はより丁寧で場面を選びません。",
+      "examples": [
+        {
+          "grammarA": "-대요",
+          "sentenceA": "비가 온대요.",
+          "meaningA": "雨が降るんだって。",
+          "grammarB": "-다고 해요",
+          "sentenceB": "비가 온다고 해요.",
+          "meaningB": "雨が降るそうです。"
+        }
+      ]
+    },
+    "tips": [
+      "フォーマルな文書・発表では -대요 を避け、-다고 합니다 を使います。",
+      "疑問・命令・勧誘の縮約形も併せて覚えると便利です。",
+      "語尾の母音は -어/아 でなく、直接 -대요 を付けるのがポイント。"
+    ],
+    "relatedGrammar": ["grm_quotation_002", "grm_quotation_007", "grm_quotation_010"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "민수가 온___요.",
+      "answer": "대",
+      "hint": "伝聞縮約形を入れます。",
+      "explanation": "온대요 は 온다고 해요 の縮約。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"그 영화가 재미있___\" の空欄に入るものは？",
+      "choices": ["대요", "래요", "재요", "냬요"],
+      "answerIndex": 0,
+      "explanation": "平叙の伝聞縮約は -대요。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「雨が降るそうです」を韓国語で入力してください（縮約形）",
+      "answer": "비가 온대요",
+      "acceptableAnswers": [
+        "비가 온대요",
+        "비가 온다고 해요"
+      ],
+      "hint": "伝聞なら -대요/-다고 해요。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "友達が明日休みだって。",
+      "answer": "친구가 내일 쉰대요",
+      "acceptableAnswers": [
+        "친구가 내일 쉰대요",
+        "친구가 내일 쉰다고 해요"
+      ],
+      "explanation": "動詞・形容詞ともに -대요 を付けて縮約します。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

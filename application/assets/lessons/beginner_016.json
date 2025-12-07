@@ -12,8 +12,7 @@
         "items": [
           {
             "text": "받침",
-            "meaning": "パッチム（終声）",
-            "pronunciation": "パッチム",
+            "meaning": "パッチム（終声）"
             "hint": "文字の下に来る子音"
           }
         ]
@@ -24,62 +23,52 @@
         "items": [
           {
             "text": "밥",
-            "meaning": "ご飯",
-            "pronunciation": "バプ",
+            "meaning": "ご飯"
             "hint": "ㅂ + ㅏ + ㅂ（パッチム）"
           },
           {
             "text": "집",
-            "meaning": "家",
-            "pronunciation": "チプ",
+            "meaning": "家"
             "hint": "ㅈ + ㅣ + ㅂ（パッチム）"
           },
           {
             "text": "책",
-            "meaning": "本",
-            "pronunciation": "チェク",
+            "meaning": "本"
             "hint": "ㅊ + ㅐ + ㄱ（パッチム）"
           },
           {
             "text": "옷",
-            "meaning": "服",
-            "pronunciation": "オッ",
+            "meaning": "服"
             "hint": "ㅇ + ㅗ + ㅅ（パッチム）"
           },
           {
             "text": "밖",
-            "meaning": "外",
-            "pronunciation": "バク",
+            "meaning": "外"
             "hint": "ㅂ + ㅏ + ㄲ（パッチム）"
           },
           {
             "text": "꽃",
-            "meaning": "花",
-            "pronunciation": "ッコッ",
+            "meaning": "花"
             "hint": "ㄲ + ㅗ + ㅊ（パッチム）"
           },
           {
             "text": "산",
-            "meaning": "山",
-            "pronunciation": "サン",
+            "meaning": "山"
             "hint": "ㅅ + ㅏ + ㄴ（パッチム）"
           },
           {
             "text": "달",
-            "meaning": "月",
-            "pronunciation": "タル",
+            "meaning": "月"
             "hint": "ㄷ + ㅏ + ㄹ（パッチム）"
           },
           {
             "text": "물",
-            "meaning": "水",
-            "pronunciation": "ムル",
+            "meaning": "水"
             "hint": "ㅁ + ㅜ + ㄹ（パッチム）"
           },
           {
             "text": "불",
-            "meaning": "火",
-            "pronunciation": "プル",
+            "meaning": "火"
             "hint": "ㅂ + ㅜ + ㄹ（パッチム）"
           }
         ]

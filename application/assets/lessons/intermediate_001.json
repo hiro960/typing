@@ -12,92 +12,77 @@
         "items": [
           {
             "text": "일",
-            "meaning": "1",
-            "pronunciation": "イル",
+            "meaning": "1"
             "hint": "ㅇ + ㅣ + ㄹ"
           },
           {
             "text": "이",
-            "meaning": "2",
-            "pronunciation": "イ",
+            "meaning": "2"
             "hint": "ㅇ + ㅣ"
           },
           {
             "text": "삼",
-            "meaning": "3",
-            "pronunciation": "サム",
+            "meaning": "3"
             "hint": "ㅅ + ㅏ + ㅁ"
           },
           {
             "text": "사",
-            "meaning": "4",
-            "pronunciation": "サ",
+            "meaning": "4"
             "hint": "ㅅ + ㅏ"
           },
           {
             "text": "오",
-            "meaning": "5",
-            "pronunciation": "オ",
+            "meaning": "5"
             "hint": "ㅇ + ㅗ"
           },
           {
             "text": "육",
-            "meaning": "6",
-            "pronunciation": "ユク",
+            "meaning": "6"
             "hint": "ㅇ + ㅠ + ㄱ"
           },
           {
             "text": "칠",
-            "meaning": "7",
-            "pronunciation": "チル",
+            "meaning": "7"
             "hint": "ㅊ + ㅣ + ㄹ"
           },
           {
             "text": "팔",
-            "meaning": "8",
-            "pronunciation": "パル",
+            "meaning": "8"
             "hint": "ㅍ + ㅏ + ㄹ"
           },
           {
             "text": "구",
-            "meaning": "9",
-            "pronunciation": "ク",
+            "meaning": "9"
             "hint": "ㄱ + ㅜ"
           },
           {
             "text": "십",
-            "meaning": "10",
-            "pronunciation": "シプ",
+            "meaning": "10"
             "hint": "ㅅ + ㅣ + ㅂ"
           },
           {
             "text": "백",
-            "meaning": "100",
-            "pronunciation": "ペク",
+            "meaning": "100"
             "hint": "ㅂ + ㅐ + ㄱ"
           },
           {
             "text": "천",
-            "meaning": "1000",
-            "pronunciation": "チョン",
+            "meaning": "1000"
             "hint": "ㅊ + ㅓ + ㄴ"
           },
           {
             "text": "만",
-            "meaning": "10000",
-            "pronunciation": "マン",
+            "meaning": "10000"
             "hint": "ㅁ + ㅏ + ㄴ"
           },
           {
             "text": "영",
-            "meaning": "0",
-            "pronunciation": "ヨン",
+            "meaning": "0"
             "hint": "ㅇ + ㅕ + ㅇ"
           },
           {
             "text": "번",
-            "meaning": "番・回",
-            "pronunciation": "ボン",
+            "meaning": "番・回"
             "hint": "ㅂ + ㅓ + ㄴ"
           }
         ]

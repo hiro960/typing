@@ -1,0 +1,89 @@
+{
+  "id": "grm_particle_006",
+  "title": "의",
+  "subtitle": "所有格助詞（〜の）",
+  "category": "particle",
+  "level": "beginner",
+  "tags": ["所有格"],
+  "content": {
+    "summary": "所有や所属関係を示す助詞です。名詞と名詞をつないで「〜の」を表します。口語では[의]が[에]に近く発音されます。",
+    "formationRules": [
+      {
+        "condition": "基本",
+        "form": "名詞1 + 의 + 名詞2",
+        "example": "민수의 책 (ミンスの本)"
+      },
+      {
+        "condition": "縮約",
+        "form": "나의 → 내 / 저의 → 제",
+        "example": "내 친구 (私の友達)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "所有・所属を表す",
+        "description": "誰のものか、どこに属するかを示します",
+        "examples": [
+          {
+            "korean": "제 이름은 유키예요.",
+            "japanese": "私の名前はユキです。"
+          },
+          {
+            "korean": "학교의 도서관이에요.",
+            "japanese": "学校の図書館です。"
+          }
+        ]
+      },
+      {
+        "title": "関係を説明する",
+        "description": "人間関係や部位などを表します",
+        "examples": [
+          {
+            "korean": "동생의 친구를 만났어요.",
+            "japanese": "弟の友達に会いました。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "日本語の「の」との違い",
+      "description": "語順や使い方はほぼ同じですが、発音は[에]に近くなる点に注意しましょう。"
+    },
+    "tips": [
+      "나의/저의は口語で내/제とほぼ固定",
+      "発音は[의]→[에]で覚えておくと聞き取りが楽になります"
+    ],
+    "relatedGrammar": ["grm_particle_001", "grm_particle_014"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "민수___ 휴대폰이에요.",
+      "answer": "의",
+      "hint": "所有を表す助詞を入れます",
+      "explanation": "「〜の」を表すときは의を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「私の本です」を正しく表すのは？",
+      "choices": ["나의 책이에요.", "내 책이에요.", "나 책이에요.", "나가 책이에요."],
+      "answerIndex": 1,
+      "explanation": "口語では나의→내と縮約して使います"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「弟の友達」を韓国語で入力してください",
+      "answer": "동생의 친구",
+      "acceptableAnswers": ["동생의 친구", "동생의 친구."],
+      "hint": "弟=동생、友達=친구"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

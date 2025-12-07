@@ -1,0 +1,85 @@
+{
+  "id": "grm_honorific_013",
+  "title": "저희",
+  "subtitle": "우리の謙譲語（私ども）",
+  "category": "honorific",
+  "level": "beginner",
+  "tags": ["謙譲", "複数"],
+  "content": {
+    "summary": "自分を含む複数をへりくだって指す表現で、우리の謙譲形です。目上に自分側を紹介するときに使います。",
+    "formationRules": [
+      { "condition": "基本", "form": "저희", "example": "저희 회사 (当社)" },
+      {
+        "condition": "所有",
+        "form": "저희 + 名詞",
+        "example": "저희 가족 (私どもの家族)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "謙譲の複数",
+        "description": "自分側の組織・家族を指す",
+        "examples": [
+          {
+            "korean": "저희 회사는 IT 회사입니다.",
+            "japanese": "当社はIT会社です。"
+          }
+        ]
+      },
+      {
+        "title": "案内・自己紹介",
+        "description": "目上への丁寧な紹介",
+        "examples": [
+          {
+            "korean": "저희 가족은 네 명이에요.",
+            "japanese": "私どもの家族は4人です。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "우리との違い",
+      "description": "우리=中立/カジュアル、저희=謙譲・丁寧。"
+    },
+    "tips": ["ビジネスや案内で頻出", "慣れないうちは우리と混同しないように"],
+    "relatedGrammar": ["grm_pronoun_004", "grm_honorific_012"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "___ 회사는 서울에 있습니다.",
+      "answer": "저희",
+      "hint": "当社=저희 회사",
+      "explanation": "自分側をへりくだって言うときは저희を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「私どもの家族は4人です」の正しい文は？",
+      "choices": [
+        "우리 가족은 네 명이에요.",
+        "저희 가족은 네 명이에요.",
+        "저희 가족은 네 명입니다.",
+        "2と3が謙譲"
+      ],
+      "answerIndex": 3,
+      "explanation": "謙譲形は저희"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「当社はIT会社です」を韓国語で入力してください",
+      "answer": "저희 회사는 IT 회사입니다",
+      "acceptableAnswers": [
+        "저희 회사는 IT 회사입니다",
+        "저희 회사는 IT 회사입니다."
+      ]
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

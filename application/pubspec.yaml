@@ -143,6 +143,22 @@ flutter:
     - assets/writing/travel/
     - assets/writing/hobby/
     - assets/ranking_game/words/
+    - assets/grammar/
+    - assets/grammar/adverb/
+    - assets/grammar/connective/
+    - assets/grammar/ending/
+    - assets/grammar/expression/
+    - assets/grammar/honorific/
+    - assets/grammar/interjection/
+    - assets/grammar/interrogative/
+    - assets/grammar/irregular/
+    - assets/grammar/negation/
+    - assets/grammar/numeral/
+    - assets/grammar/particle/
+    - assets/grammar/pronoun/
+    - assets/grammar/quotation/
+    - assets/grammar/tense/
+    - assets/grammar/voice/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

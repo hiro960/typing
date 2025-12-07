@@ -1,0 +1,80 @@
+{
+  "id": "grm_interjection_003",
+  "title": "글쎄요",
+  "subtitle": "応答詞（さあ/うーん）",
+  "category": "interjection",
+  "level": "beginner",
+  "tags": ["応答", "曖昧"],
+  "content": {
+    "summary": "はっきり断言できないときに使う曖昧な返答です。「さあ…」「うーん」と考える感じを表します。",
+    "formationRules": [
+      {
+        "condition": "基本",
+        "form": "글쎄요",
+        "example": "글쎄요, 잘 모르겠어요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "曖昧な返答",
+        "description": "確信がないときに返す",
+        "examples": [
+          {
+            "korean": "내일 비 올까요? 글쎄요, 모르겠어요.",
+            "japanese": "明日雨が降るかな？ さあ、分かりません。"
+          }
+        ]
+      },
+      {
+        "title": "丁寧に断る",
+        "description": "即答を避けたいときのクッション",
+        "examples": [
+          {
+            "korean": "지금 가능해요? 글쎄요, 일정 좀 볼게요.",
+            "japanese": "今大丈夫ですか？ うーん、予定を少し見てみます。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "글쎄 vs 음…",
+      "description": "글쎄요は丁寧で少し距離を置いた響き、음…はもっとカジュアルです。"
+    },
+    "tips": [
+      "質問にすぐ答えられないときの時間稼ぎにも便利",
+      "表情や声色で柔らかさを調整しましょう"
+    ],
+    "relatedGrammar": ["grm_interjection_001", "grm_interjection_011"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "A: 내일 가능할까요? B: ___, 잘 모르겠어요.",
+      "answer": "글쎄요",
+      "hint": "曖昧に返答",
+      "explanation": "はっきり言えないときに글쎄요を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "글쎄요のニュアンスに一番近いのは？",
+      "choices": ["そうです", "いいえ", "さあ…", "もちろん"],
+      "answerIndex": 2,
+      "explanation": "曖昧さを含んだ返答です"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「うーん、よく分かりません」を韓国語で入力してください",
+      "answer": "글쎄요, 잘 모르겠어요",
+      "acceptableAnswers": ["글쎄요, 잘 모르겠어요", "글쎄요 잘 모르겠어요"],
+      "hint": "글쎄요 + 잘 모르겠어요"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

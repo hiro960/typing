@@ -12,14 +12,12 @@
         "items": [
           {
             "text": "ㄴ",
-            "meaning": "n の音",
-            "pronunciation": "ニウン",
+            "meaning": "n の音"
             "hint": "「ナ行」です"
           },
           {
             "text": "ㄷ",
-            "meaning": "d/t の音",
-            "pronunciation": "ディグッ",
+            "meaning": "d/t の音"
             "hint": "「ダ行」「タ行」です"
           }
         ]
@@ -30,62 +28,52 @@
         "items": [
           {
             "text": "다",
-            "meaning": "全部",
-            "pronunciation": "タ",
+            "meaning": "全部"
             "hint": "ㄷ + ㅏ"
           },
           {
             "text": "도",
-            "meaning": "も/都",
-            "pronunciation": "ト",
+            "meaning": "も/都"
             "hint": "ㄷ + ㅗ"
           },
           {
             "text": "두",
-            "meaning": "二",
-            "pronunciation": "トゥ",
+            "meaning": "二"
             "hint": "ㄷ + ㅜ"
           },
           {
             "text": "나",
-            "meaning": "私",
-            "pronunciation": "ナ",
+            "meaning": "私"
             "hint": "ㄴ + ㅏ"
           },
           {
             "text": "노",
-            "meaning": "奴",
-            "pronunciation": "ノ",
+            "meaning": "奴"
             "hint": "ㄴ + ㅗ"
           },
           {
             "text": "누나",
-            "meaning": "お姉さん",
-            "pronunciation": "ヌナ",
+            "meaning": "お姉さん"
             "hint": "ㄴ + ㅜ + ㄴ + ㅏ"
           },
           {
             "text": "다리",
-            "meaning": "橋/脚",
-            "pronunciation": "タリ",
+            "meaning": "橋/脚"
             "hint": "ㄷ + ㅏ + ㄹ + ㅣ"
           },
           {
             "text": "도시",
-            "meaning": "都市",
-            "pronunciation": "トシ",
+            "meaning": "都市"
             "hint": "ㄷ + ㅗ + ㅅ + ㅣ"
           },
           {
             "text": "두부",
-            "meaning": "豆腐",
-            "pronunciation": "トゥブ",
+            "meaning": "豆腐"
             "hint": "ㄷ + ㅜ + ㅂ + ㅜ"
           },
           {
             "text": "나무",
-            "meaning": "木",
-            "pronunciation": "ナム",
+            "meaning": "木"
             "hint": "ㄴ + ㅏ + ㅁ + ㅜ"
           }
         ]

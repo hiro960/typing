@@ -1,0 +1,134 @@
+{
+  "id": "grm_quotation_003",
+  "title": "-(으)라고 하다",
+  "subtitle": "間接引用・命令文（〜しろと言う）",
+  "category": "quotation",
+  "level": "intermediate",
+  "tags": ["間接引用", "命令"],
+  "content": {
+    "summary": "命令を間接的に伝える表現で、「〜しろと言う」に当たります。動詞の語幹に -(으)라고 하다 を付けます。",
+    "formationRules": [
+      {
+        "condition": "パッチムあり",
+        "form": "V + 으라고 하다",
+        "example": "먹다 → 먹으라고 했어요."
+      },
+      {
+        "condition": "パッチムなし/ㄹ",
+        "form": "V + 라고 하다",
+        "example": "가다 → 가라고 했어요."
+      },
+      {
+        "condition": "否定命令の引用",
+        "form": "V + 지 말라고 하다",
+        "example": "가지 말라고 했어요."
+      },
+      {
+        "condition": "縮約形",
+        "form": "-(으)래요",
+        "example": "가래요, 먹으래요"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "指示・命令を伝える",
+        "description": "誰かの指示を第三者に伝えるときに使います。",
+        "examples": [
+          {
+            "korean": "선생님이 조용히 하라고 하셨어요.",
+            "japanese": "先生が静かにしなさいとおっしゃいました。"
+          },
+          {
+            "korean": "엄마가 일찍 들어오라고 했어요.",
+            "japanese": "母が早く帰ってきなさいと言いました。"
+          }
+        ]
+      },
+      {
+        "title": "依頼の伝達",
+        "description": "依頼やお願いを伝えるときにも用います。",
+        "examples": [
+          {
+            "korean": "친구가 연락해 달라고 했어요.",
+            "japanese": "友達が連絡してほしいと言いました。"
+          }
+        ]
+      },
+      {
+        "title": "禁止命令の伝達",
+        "description": "〜するなと言われた内容を伝える。",
+        "examples": [
+          {
+            "korean": "밖에 나가지 말라고 했어요.",
+            "japanese": "外に出るなと言われました。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-(으)래요 と -(으)라고 하다",
+      "description": "どちらも命令の間接引用だが、-(으)래요 は会話的に短縮した形。フォーマルなら -(으)라고 하다 を使います。",
+      "examples": [
+        {
+          "grammarA": "-(으)라고 하다",
+          "sentenceA": "선생님이 이 책을 읽으라고 하셨어요.",
+          "meaningA": "先生がこの本を読みなさいとおっしゃいました。",
+          "grammarB": "-(으)래요",
+          "sentenceB": "선생님이 이 책 읽으래요.",
+          "meaningB": "先生がこの本読めって。"
+        }
+      ]
+    },
+    "tips": [
+      "パッチムの有無で 라고/으라고 を分けます。",
+      "禁止を伝えるときは -지 말라고 하다 を使います。",
+      "依頼系なら -아/어 달라고 하다 と組み合わせて表現できます。"
+    ],
+    "relatedGrammar": ["grm_quotation_004", "grm_quotation_005", "grm_negation_005"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "선생님이 조용히 하___ 했어요.",
+      "answer": "라고",
+      "hint": "命令の間接引用です。",
+      "explanation": "動詞の語幹がパッチムなしなら 라고 하다。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"밖에 나가지 말____ 했어요\" の空欄に入るものは？",
+      "choices": ["라고", "으라고", "라고요", "았다고"],
+      "answerIndex": 0,
+      "explanation": "-지 말라고 하다 で禁止命令を伝えます。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「母が早く帰ってきなさいと言いました」を韓国語で入力してください",
+      "answer": "엄마가 일찍 들어오라고 했어요",
+      "acceptableAnswers": [
+        "엄마가 일찍 들어오라고 했어요",
+        "엄마가 일찍 들어오래요"
+      ],
+      "hint": "命令の間接引用。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "先生がこの本を読みなさいとおっしゃいました。",
+      "answer": "선생님이 이 책을 읽으라고 하셨어요",
+      "acceptableAnswers": [
+        "선생님이 이 책을 읽으라고 하셨어요",
+        "선생님이 이 책 읽으래요"
+      ],
+      "explanation": "パッチムあり→으라고。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

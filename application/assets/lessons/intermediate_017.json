@@ -12,98 +12,82 @@
         "items": [
           {
             "text": "오늘",
-            "meaning": "今日",
-            "pronunciation": "オヌル",
+            "meaning": "今日"
             "hint": "ㅇ + ㅗ + ㄴ + ㅡ + ㄹ"
           },
           {
             "text": "어제",
-            "meaning": "昨日",
-            "pronunciation": "オジェ",
+            "meaning": "昨日"
             "hint": "ㅇ + ㅓ + ㅈ + ㅔ"
           },
           {
             "text": "내일",
-            "meaning": "明日",
-            "pronunciation": "ネイル",
+            "meaning": "明日"
             "hint": "ㄴ + ㅐ + ㅇ + ㅣ + ㄹ"
           },
           {
             "text": "지금",
-            "meaning": "今",
-            "pronunciation": "チグム",
+            "meaning": "今"
             "hint": "ㅈ + ㅣ + ㄱ + ㅡ + ㅁ"
           },
           {
             "text": "나중",
-            "meaning": "後で",
-            "pronunciation": "ナジュン",
+            "meaning": "後で"
             "hint": "ㄴ + ㅏ + ㅈ + ㅜ + ㅇ"
           },
           {
             "text": "항상",
-            "meaning": "いつも",
-            "pronunciation": "ハンサン",
+            "meaning": "いつも"
             "hint": "ㅎ + ㅏ + ㅇ + ㅅ + ㅏ + ㅇ"
           },
           {
             "text": "자주",
-            "meaning": "よく",
-            "pronunciation": "チャジュ",
+            "meaning": "よく"
             "hint": "ㅈ + ㅏ + ㅈ + ㅜ"
           },
           {
             "text": "가끔",
-            "meaning": "たまに",
-            "pronunciation": "カックム",
+            "meaning": "たまに"
             "hint": "ㄱ + ㅏ + ㄲ + ㅡ + ㅁ"
           },
           {
             "text": "매일",
-            "meaning": "毎日",
-            "pronunciation": "メイル",
+            "meaning": "毎日"
             "hint": "ㅁ + ㅐ + ㅇ + ㅣ + ㄹ"
           },
           {
             "text": "보통",
-            "meaning": "普通",
-            "pronunciation": "ポトン",
+            "meaning": "普通"
             "hint": "ㅂ + ㅗ + ㅌ + ㅗ + ㅇ"
           },
           {
             "text": "언제",
-            "meaning": "いつ",
-            "pronunciation": "オンジェ",
+            "meaning": "いつ"
             "hint": "ㅇ + ㅓ + ㄴ + ㅈ + ㅔ"
           },
           {
             "text": "빨리",
-            "meaning": "早く",
-            "pronunciation": "ッパルリ",
+            "meaning": "早く"
             "hint": "ㅃ + ㅏ + ㄹ + ㄹ + ㅣ"
           },
           {
             "text": "천천히",
-            "meaning": "ゆっくり",
-            "pronunciation": "チョンチョニ",
+            "meaning": "ゆっくり"
             "hint": "ㅊ + ㅓ + ㄴ + ㅊ + ㅓ + ㄴ + ㅎ + ㅣ"
           },
           {
             "text": "곧",
-            "meaning": "すぐ",
-            "pronunciation": "コッ",
+            "meaning": "すぐ"
             "hint": "ㄱ + ㅗ + ㅅ"
           },
           {
             "text": "이미",
-            "meaning": "すでに",
-            "pronunciation": "イミ",
+            "meaning": "すでに"
             "hint": "ㅇ + ㅣ + ㅁ + ㅣ"
           },
           {
             "text": "아직",
-            "meaning": "まだ",
-            "pronunciation": "アジク",
+            "meaning": "まだ"
             "hint": "ㅇ + ㅏ + ㅈ + ㅣ + ㄱ"
           }
         ]

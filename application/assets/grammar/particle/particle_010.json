@@ -1,0 +1,89 @@
+{
+  "id": "grm_particle_010",
+  "title": "도",
+  "subtitle": "添加助詞（〜も）",
+  "category": "particle",
+  "level": "beginner",
+  "tags": ["添加"],
+  "content": {
+    "summary": "「〜も」を表し、前に述べたものに情報を付け加える助詞です。否定文でも肯定文でも使えます。",
+    "formationRules": [
+      {
+        "condition": "基本",
+        "form": "名詞/助詞 + 도",
+        "example": "저도 (私も)"
+      },
+      {
+        "condition": "数詞",
+        "form": "数詞 + 도",
+        "example": "한 개도 (一つも)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "添加を表す",
+        "description": "既に挙げたものに付け加えるときに使います",
+        "examples": [
+          {
+            "korean": "저도 한국어를 공부해요.",
+            "japanese": "私も韓国語を勉強します。"
+          },
+          {
+            "korean": "물도 주세요.",
+            "japanese": "水もください。"
+          }
+        ]
+      },
+      {
+        "title": "否定文での強調",
+        "description": "「一つも〜ない」のように強く否定するときに使います",
+        "examples": [
+          {
+            "korean": "시간이 한 분도 없어요.",
+            "japanese": "時間が一分もありません。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "만との違い",
+      "description": "도は追加・並列、만は限定を表します。文脈で使い分けます。"
+    },
+    "tips": [
+      "助詞の後ろに付けることもできます（저에게도）",
+      "否定文では数量詞+도で「一つも〜ない」を表せます"
+    ],
+    "relatedGrammar": ["grm_particle_002", "grm_particle_011"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "저___ 학생이에요.",
+      "answer": "도",
+      "hint": "「私も学生です」になります",
+      "explanation": "追加するときに도を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「水もください」の正しい文は？",
+      "choices": ["물도 주세요.", "물은 주세요.", "물이 주세요.", "물만 주세요."],
+      "answerIndex": 0,
+      "explanation": "追加を表すので도を使います"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「時間が一分もありません」を韓国語で入力してください",
+      "answer": "시간이 한 분도 없어요",
+      "acceptableAnswers": ["시간이 한 분도 없어요", "시간이 한 분도 없어요.", "시간이 한분도 없어요"],
+      "hint": "一分も=한 분도"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

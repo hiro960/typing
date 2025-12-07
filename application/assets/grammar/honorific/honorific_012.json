@@ -1,0 +1,86 @@
+{
+  "id": "grm_honorific_012",
+  "title": "저/제",
+  "subtitle": "나の謙譲語（私）",
+  "category": "honorific",
+  "level": "beginner",
+  "tags": ["謙譲", "人称"],
+  "content": {
+    "summary": "自分をへりくだって言う一人称の謙譲形です。저（私）、제（私の）。目上に自己紹介するときに使います。",
+    "formationRules": [
+      {
+        "condition": "一人称",
+        "form": "저",
+        "example": "저는 일본 사람입니다."
+      },
+      {
+        "condition": "所有形",
+        "form": "제 + 名詞",
+        "example": "제 이름은 하나예요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "自己紹介",
+        "description": "目上・公式場面で自分を指す",
+        "examples": [
+          {
+            "korean": "저는 회사원입니다.",
+            "japanese": "私は会社員です。"
+          }
+        ]
+      },
+      {
+        "title": "自分の所有を謙譲",
+        "description": "自分のものをへりくだって言う",
+        "examples": [
+          {
+            "korean": "이것은 제 명함입니다.",
+            "japanese": "これは私の名刺です。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "나/내との違い",
+      "description": "나/내はフランク、저/제は丁寧な場面で使います。"
+    },
+    "tips": ["제は저의の縮約形", "丁寧度に応じて使い分け"],
+    "relatedGrammar": ["grm_honorific_013", "grm_pronoun_001"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "___는 한국에서 왔습니다.",
+      "answer": "저",
+      "hint": "丁寧な一人称",
+      "explanation": "目上には나ではなく저を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「これは私の名刺です」を丁寧に言うと？",
+      "choices": [
+        "이것은 내 명함이에요.",
+        "이것은 제 명함입니다.",
+        "이것은 저 명함입니다.",
+        "이것은 나의 명함입니다."
+      ],
+      "answerIndex": 1,
+      "explanation": "所有も謙譲形제を用います"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「私は会社員です」を韓国語で入力してください",
+      "answer": "저는 회사원입니다",
+      "acceptableAnswers": ["저는 회사원입니다", "저는 회사원입니다."]
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "id": "grm_irregular_007",
+  "title": "으不規則",
+  "subtitle": "으脱落（쓰다→써요）",
+  "category": "irregular",
+  "level": "beginner",
+  "tags": ["動詞", "形容詞"],
+  "content": {
+    "summary": "語幹末の 으 が母音語尾の前で脱落し、前の母音に 아/어 を付ける不規則。쓰다, 크다, 예쁘다 などで用います。",
+    "formationRules": [
+      {
+        "condition": "語幹末 으 + 아/어요",
+        "form": "으 を削除し、前の母音が ㅏ/ㅗ なら 아、それ以外は 어",
+        "example": "쓰다 → 써요 / 크다 → 커요"
+      },
+      {
+        "condition": "ㅂ/ㄴ で始まる語尾（-ㅂ니다/-ㄴ다 など）",
+        "form": "으 を維持",
+        "example": "씁니다, 쓴다"
+      },
+      {
+        "condition": "連体形・未来形でも同様に 으 脱落/維持を判断",
+        "form": "母音始まりなら脱落 + ㄹ、子音始まりなら 유지",
+        "example": "쓸 거예요 / 쓰는 사람"
+      },
+      {
+        "condition": "過去形",
+        "form": "으 脱落後に 았/었 결合",
+        "example": "쓰다 → 썼어요"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "書く・使うの基本活用",
+        "description": "쓰다 は 으不規則の代表です。",
+        "examples": [
+          {
+            "korean": "일기를 매일 써요.",
+            "japanese": "日記を毎日書きます。"
+          },
+          {
+            "korean": "어제 편지를 썼어요.",
+            "japanese": "昨日手紙を書きました。"
+          }
+        ]
+      },
+      {
+        "title": "大きい・小さいなどの形容詞",
+        "description": "크다/예쁘다 のように 으 를落として活用します。",
+        "examples": [
+          {
+            "korean": "이 가방이 정말 커요.",
+            "japanese": "このカバンは本当に大きいです。"
+          },
+          {
+            "korean": "이 꽃이 참 예뻐요.",
+            "japanese": "この花はとてもきれいです。"
+          }
+        ]
+      },
+      {
+        "title": "格式体・連体形",
+        "description": "子音始まりでは 으 を保持する形も使います。",
+        "examples": [
+          {
+            "korean": "지금 편지를 씁니다.",
+            "japanese": "今、手紙を書いています。（格式体）"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "여不規則との違い",
+      "description": "여不規則は 하다→해요 の縮約。으不規則は 으 を落として 아/어 を付ける点が異なります。",
+      "examples": [
+        {
+          "grammarA": "으不規則",
+          "sentenceA": "일기를 써요.",
+          "meaningA": "日記を書きます。（쓰다→써요）",
+          "grammarB": "여不規則",
+          "sentenceB": "공부해요.",
+          "meaningB": "勉強します。（하다→해요）"
+        }
+      ]
+    },
+    "tips": [
+      "語幹末が 으 なら、母音語尾が来るかどうかで脱落を判断します。",
+      "ㅏ/ㅗ なら 아、その他は 어 を付ける基本の母音調和も一緒に覚えましょう。",
+      "-ㅂ니다/-ㄴ다 のような子音始まりでは 으 를そのまま残します。"
+    ],
+    "relatedGrammar": ["grm_irregular_006", "grm_irregular_009", "grm_irregular_001"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "매일 일기를 ___요.",
+      "answer": "써",
+      "hint": "쓰다 は 으 が落ちて 써요 になります",
+      "explanation": "쓰다 → 써요 なので空欄には 써 を入れます。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「このカバンは大きいです」の正しい形は？",
+      "choices": ["이 가방이 커요.", "이 가방이 크요.", "이 가방이 컸요.", "이 가방이 커요요."],
+      "answerIndex": 0,
+      "explanation": "크다 は 으 を落として 커요 と活用します。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「昨日手紙を書きました」を韓国語で入力してください",
+      "answer": "어제 편지를 썼어요",
+      "acceptableAnswers": ["어제 편지를 썼어요", "어제 편지를 썼습니다"],
+      "hint": "過去形も 으 を落として 썼어요 となります"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "今、手紙を書いています。（格式体）",
+      "answer": "지금 편지를 씁니다",
+      "acceptableAnswers": ["지금 편지를 씁니다", "지금 편지를 씁니다."],
+      "explanation": "-ㅂ니다 は子音始まりなので 으 を残した 씁니다 を使います。"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

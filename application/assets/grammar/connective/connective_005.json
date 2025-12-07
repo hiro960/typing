@@ -1,0 +1,85 @@
+{
+  "id": "grm_connective_005",
+  "title": "-지만",
+  "subtitle": "逆接（〜けれど）",
+  "category": "connective",
+  "level": "beginner",
+  "tags": ["逆接"],
+  "content": {
+    "summary": "対立・対比を表す接続語尾で、「〜けれど」「〜が」に当たります。前後の内容の対比を柔らかく示します。",
+    "formationRules": [
+      {
+        "condition": "動詞・形容詞",
+        "form": "語幹 + 지만",
+        "example": "좋다 → 좋지만 / 가다 → 가지만"
+      },
+      {
+        "condition": "이다/아니다",
+        "form": "이지만 / 아니지만",
+        "example": "학생이지만 / 학생이 아니지만"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "単純な対比",
+        "description": "前後で逆の内容を並べます",
+        "examples": [
+          {
+            "korean": "한국어는 어렵지만 재미있어요.",
+            "japanese": "韓国語は難しいけれど面白いです。"
+          }
+        ]
+      },
+      {
+        "title": "譲歩",
+        "description": "前の内容を認めつつ後ろを述べる",
+        "examples": [
+          {
+            "korean": "조금 비싸지만 품질이 좋아요.",
+            "japanese": "少し高いけれど品質がいいです。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "하지만/그러나との違い",
+      "description": "-지만は節の終わりに付ける逆接。하지만/그러나は文頭で前文全体を受けます。"
+    },
+    "tips": [
+      "後ろの節に重点が置かれることが多いです",
+      "口語では하지만を文頭に置いても同じニュアンスになります"
+    ],
+    "relatedGrammar": ["grm_connective_001", "grm_connective_004"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "이 책은 어렵___ 재미있어요.",
+      "answer": "지만",
+      "hint": "逆接の接続語尾",
+      "explanation": "逆接を表すときは語幹+지만を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「少し高いけれど品質がいいです」の正しい文は？",
+      "choices": ["조금 비싸지만 품질이 좋아요.", "조금 비싸서 품질이 좋아요.", "조금 비싸니까 품질이 좋아요.", "조금 비싸면 품질이 좋아요."],
+      "answerIndex": 0,
+      "explanation": "対比を表すので-지만を使います"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「韓国語は難しいけれど面白いです」を韓国語で入力してください",
+      "answer": "한국어는 어렵지만 재미있어요",
+      "acceptableAnswers": ["한국어는 어렵지만 재미있어요", "한국어는 어렵지만 재미있어요."],
+      "hint": "面白い=재미있다"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-07T00:00:00Z",
+    "updatedAt": "2025-12-07T00:00:00Z",
+    "version": "1.0.0"
+  }
+}
