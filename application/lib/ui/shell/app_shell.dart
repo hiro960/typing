@@ -188,7 +188,9 @@ class _MainAppShellState extends ConsumerState<_MainAppShell> {
   @override
   Widget build(BuildContext context) {
     final screens = <Widget>[
-      HomeScreen(onOpenSettings: _openSettings),
+      HomeScreen(
+        onOpenSettings: _openSettings,
+      ),
       DiaryScreen(
         onOpenSearch: _openSearch,
         onOpenBookmarks: _openBookmarks,
