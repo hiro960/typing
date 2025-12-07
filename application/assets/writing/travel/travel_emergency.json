@@ -1,0 +1,62 @@
+{
+  "id": "travel_emergency",
+  "name": "緊急・トラブル",
+  "description": "体調不良、紛失、緊急時の対応",
+  "icon": "warning",
+  "topics": [
+    {
+      "id": "travel_emergency_health",
+      "name": "体調不良",
+      "description": "薬局や病院での対応",
+      "patternId": "travel_emergency",
+      "entries": [
+        { "id": "travel_emergency_health_template_001", "level": "template", "jpText": "頭が痛いです。", "koText": "머리가 아파요." },
+        { "id": "travel_emergency_health_template_002", "level": "template", "jpText": "風邪薬をください。", "koText": "감기약 주세요." },
+        { "id": "travel_emergency_health_template_003", "level": "template", "jpText": "病院に行きたいです。", "koText": "병원에 가고 싶어요." },
+        { "id": "travel_emergency_health_basic_001", "level": "basic", "jpText": "薬局", "koText": "약국" },
+        { "id": "travel_emergency_health_basic_002", "level": "basic", "jpText": "病院", "koText": "병원" },
+        { "id": "travel_emergency_health_basic_003", "level": "basic", "jpText": "薬", "koText": "약" },
+        { "id": "travel_emergency_health_adv_001", "level": "advanced", "jpText": "アレルギーがあるのですが", "koText": "알레르기가 있는데요" },
+        { "id": "travel_emergency_health_adv_002", "level": "advanced", "jpText": "保険証を持っています", "koText": "보험증 가지고 있어요" },
+        { "id": "travel_emergency_health_sentence_001", "level": "sentence", "jpText": "お腹を壊しました。", "koText": "배탈이 났어요." },
+        { "id": "travel_emergency_health_sentence_002", "level": "sentence", "jpText": "熱があるみたいです。", "koText": "열이 있는 것 같아요." }
+      ]
+    },
+    {
+      "id": "travel_emergency_lost",
+      "name": "紛失・盗難",
+      "description": "警察や大使館での対応",
+      "patternId": "travel_emergency",
+      "entries": [
+        { "id": "travel_emergency_lost_template_001", "level": "template", "jpText": "財布をなくしました。", "koText": "지갑을 잃어버렸어요." },
+        { "id": "travel_emergency_lost_template_002", "level": "template", "jpText": "パスポートを盗まれました。", "koText": "여권을 도둑맞았어요." },
+        { "id": "travel_emergency_lost_template_003", "level": "template", "jpText": "警察を呼んでください。", "koText": "경찰을 불러 주세요." },
+        { "id": "travel_emergency_lost_basic_001", "level": "basic", "jpText": "警察署", "koText": "경찰서" },
+        { "id": "travel_emergency_lost_basic_002", "level": "basic", "jpText": "大使館", "koText": "대사관" },
+        { "id": "travel_emergency_lost_basic_003", "level": "basic", "jpText": "紛失届", "koText": "분실 신고" },
+        { "id": "travel_emergency_lost_adv_001", "level": "advanced", "jpText": "紛失届を出したいのですが", "koText": "분실 신고하고 싶은데요" },
+        { "id": "travel_emergency_lost_adv_002", "level": "advanced", "jpText": "日本大使館はどこですか", "koText": "일본 대사관이 어디예요" },
+        { "id": "travel_emergency_lost_sentence_001", "level": "sentence", "jpText": "携帯電話を落としました。", "koText": "휴대폰을 떨어뜨렸어요." },
+        { "id": "travel_emergency_lost_sentence_002", "level": "sentence", "jpText": "ここで最後に見ました。", "koText": "여기서 마지막으로 봤어요." }
+      ]
+    },
+    {
+      "id": "travel_emergency_help",
+      "name": "助けを求める",
+      "description": "緊急時の連絡と助けを求める",
+      "patternId": "travel_emergency",
+      "entries": [
+        { "id": "travel_emergency_help_template_001", "level": "template", "jpText": "助けてください！", "koText": "도와주세요!" },
+        { "id": "travel_emergency_help_template_002", "level": "template", "jpText": "救急車を呼んでください。", "koText": "구급차 불러 주세요." },
+        { "id": "travel_emergency_help_template_003", "level": "template", "jpText": "日本語が話せる人はいますか？", "koText": "일본어 하시는 분 있어요?" },
+        { "id": "travel_emergency_help_basic_001", "level": "basic", "jpText": "緊急", "koText": "긴급" },
+        { "id": "travel_emergency_help_basic_002", "level": "basic", "jpText": "救急車", "koText": "구급차" },
+        { "id": "travel_emergency_help_basic_003", "level": "basic", "jpText": "消防署", "koText": "소방서" },
+        { "id": "travel_emergency_help_adv_001", "level": "advanced", "jpText": "通訳をお願いできますか", "koText": "통역을 부탁드려도 될까요" },
+        { "id": "travel_emergency_help_adv_002", "level": "advanced", "jpText": "緊急連絡先はこれです", "koText": "긴급 연락처는 이거예요" },
+        { "id": "travel_emergency_help_sentence_001", "level": "sentence", "jpText": "気分が悪いです。", "koText": "기분이 안 좋아요." },
+        { "id": "travel_emergency_help_sentence_002", "level": "sentence", "jpText": "ホテルに連絡してください。", "koText": "호텔에 연락해 주세요." }
+      ]
+    }
+  ]
+}

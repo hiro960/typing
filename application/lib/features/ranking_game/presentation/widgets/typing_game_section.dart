@@ -3,10 +3,10 @@ import 'package:chaletta/ui/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:chaletta/features/ranking_game/domain/providers/ranking_providers.dart';
-import 'package:chaletta/features/ranking_game/presentation/screens/ranking_game_screen.dart';
-import 'package:chaletta/features/ranking_game/presentation/screens/ranking_leaderboard_screen.dart';
+import 'package:chaletta/features/ranking_game/presentation/screens/typing_game_screen.dart';
+import 'package:chaletta/features/ranking_game/presentation/screens/typing_leaderboard_screen.dart';
 
-/// ホーム画面用ランキングゲームセクション
+/// ホーム画面用タイピングゲームセクション
 class RankingGameSection extends ConsumerWidget {
   const RankingGameSection({super.key});
 
@@ -24,7 +24,7 @@ class RankingGameSection extends ConsumerWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SectionTitle(iconData: Icons.sports_esports, text: 'ランキングゲーム', color: AppColors.primary),
+            SectionTitle(iconData: Icons.sports_esports, text: 'タイピングゲーム', color: AppColors.primary),
             TextButton(
               onPressed: () {
                 Navigator.of(context).push(

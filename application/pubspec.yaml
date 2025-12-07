@@ -140,6 +140,7 @@ flutter:
     - assets/lessons/
     - assets/writing/topik/
     - assets/writing/beginner/
+    - assets/writing/travel/
     - assets/writing/hobby/
     - assets/ranking_game/words/
 

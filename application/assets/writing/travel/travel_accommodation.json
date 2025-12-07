@@ -1,0 +1,62 @@
+{
+  "id": "travel_accommodation",
+  "name": "宿泊",
+  "description": "ホテルでのチェックイン、滞在、チェックアウト",
+  "icon": "hotel",
+  "topics": [
+    {
+      "id": "travel_accommodation_checkin",
+      "name": "チェックイン",
+      "description": "ホテルのチェックイン手続き",
+      "patternId": "travel_accommodation",
+      "entries": [
+        { "id": "travel_accommodation_checkin_template_001", "level": "template", "jpText": "予約した田中です。", "koText": "예약한 다나카입니다." },
+        { "id": "travel_accommodation_checkin_template_002", "level": "template", "jpText": "チェックインお願いします。", "koText": "체크인 부탁해요." },
+        { "id": "travel_accommodation_checkin_template_003", "level": "template", "jpText": "朝食は付いていますか？", "koText": "조식 포함이에요?" },
+        { "id": "travel_accommodation_checkin_basic_001", "level": "basic", "jpText": "フロント", "koText": "프런트" },
+        { "id": "travel_accommodation_checkin_basic_002", "level": "basic", "jpText": "予約", "koText": "예약" },
+        { "id": "travel_accommodation_checkin_basic_003", "level": "basic", "jpText": "ルームキー", "koText": "룸키" },
+        { "id": "travel_accommodation_checkin_adv_001", "level": "advanced", "jpText": "高層階の部屋をお願いできますか", "koText": "높은 층 방으로 부탁드려도 될까요" },
+        { "id": "travel_accommodation_checkin_adv_002", "level": "advanced", "jpText": "アーリーチェックインは可能ですか", "koText": "얼리 체크인 가능해요" },
+        { "id": "travel_accommodation_checkin_sentence_001", "level": "sentence", "jpText": "2泊3日で予約しました。", "koText": "2박 3일로 예약했어요." },
+        { "id": "travel_accommodation_checkin_sentence_002", "level": "sentence", "jpText": "Wi-Fiのパスワードを教えてください。", "koText": "와이파이 비밀번호 알려 주세요." }
+      ]
+    },
+    {
+      "id": "travel_accommodation_stay",
+      "name": "滞在中",
+      "description": "滞在中のリクエストや質問",
+      "patternId": "travel_accommodation",
+      "entries": [
+        { "id": "travel_accommodation_stay_template_001", "level": "template", "jpText": "タオルを追加でもらえますか？", "koText": "수건 추가로 받을 수 있어요?" },
+        { "id": "travel_accommodation_stay_template_002", "level": "template", "jpText": "エアコンが効きません。", "koText": "에어컨이 안 나와요." },
+        { "id": "travel_accommodation_stay_template_003", "level": "template", "jpText": "清掃は必要ありません。", "koText": "청소 안 해도 돼요." },
+        { "id": "travel_accommodation_stay_basic_001", "level": "basic", "jpText": "アメニティ", "koText": "어메니티" },
+        { "id": "travel_accommodation_stay_basic_002", "level": "basic", "jpText": "ルームサービス", "koText": "룸서비스" },
+        { "id": "travel_accommodation_stay_basic_003", "level": "basic", "jpText": "コンセント", "koText": "콘센트" },
+        { "id": "travel_accommodation_stay_adv_001", "level": "advanced", "jpText": "変換プラグはありますか", "koText": "변환 플러그 있어요" },
+        { "id": "travel_accommodation_stay_adv_002", "level": "advanced", "jpText": "隣の部屋がうるさいです", "koText": "옆방이 시끄러워요" },
+        { "id": "travel_accommodation_stay_sentence_001", "level": "sentence", "jpText": "お湯が出ません。", "koText": "온수가 안 나와요." },
+        { "id": "travel_accommodation_stay_sentence_002", "level": "sentence", "jpText": "朝食は何時からですか？", "koText": "조식은 몇 시부터예요?" }
+      ]
+    },
+    {
+      "id": "travel_accommodation_checkout",
+      "name": "チェックアウト",
+      "description": "チェックアウトと荷物預かり",
+      "patternId": "travel_accommodation",
+      "entries": [
+        { "id": "travel_accommodation_checkout_template_001", "level": "template", "jpText": "チェックアウトお願いします。", "koText": "체크아웃 부탁해요." },
+        { "id": "travel_accommodation_checkout_template_002", "level": "template", "jpText": "荷物を預かってもらえますか？", "koText": "짐 맡아 주실 수 있어요?" },
+        { "id": "travel_accommodation_checkout_template_003", "level": "template", "jpText": "タクシーを呼んでください。", "koText": "택시 불러 주세요." },
+        { "id": "travel_accommodation_checkout_basic_001", "level": "basic", "jpText": "清算", "koText": "정산" },
+        { "id": "travel_accommodation_checkout_basic_002", "level": "basic", "jpText": "荷物預かり", "koText": "짐 보관" },
+        { "id": "travel_accommodation_checkout_basic_003", "level": "basic", "jpText": "ミニバー", "koText": "미니바" },
+        { "id": "travel_accommodation_checkout_adv_001", "level": "advanced", "jpText": "レイトチェックアウトは可能ですか", "koText": "레이트 체크아웃 가능해요" },
+        { "id": "travel_accommodation_checkout_adv_002", "level": "advanced", "jpText": "ミニバーは利用していません", "koText": "미니바는 이용 안 했어요" },
+        { "id": "travel_accommodation_checkout_sentence_001", "level": "sentence", "jpText": "とても快適でした。", "koText": "아주 편했어요." },
+        { "id": "travel_accommodation_checkout_sentence_002", "level": "sentence", "jpText": "3時に荷物を取りに来ます。", "koText": "3시에 짐 찾으러 올게요." }
+      ]
+    }
+  ]
+}

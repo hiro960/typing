@@ -1,0 +1,62 @@
+{
+  "id": "travel_transport",
+  "name": "交通",
+  "description": "地下鉄、タクシー、バスで使うフレーズ",
+  "icon": "directions_subway",
+  "topics": [
+    {
+      "id": "travel_transport_subway",
+      "name": "地下鉄",
+      "description": "地下鉄での移動",
+      "patternId": "travel_transport",
+      "entries": [
+        { "id": "travel_transport_subway_template_001", "level": "template", "jpText": "明洞駅にはどう行けばいいですか？", "koText": "명동역에 어떻게 가요?" },
+        { "id": "travel_transport_subway_template_002", "level": "template", "jpText": "乗り換えが必要ですか？", "koText": "환승해야 해요?" },
+        { "id": "travel_transport_subway_template_003", "level": "template", "jpText": "交通カードをチャージしたいです。", "koText": "교통카드 충전하고 싶어요." },
+        { "id": "travel_transport_subway_basic_001", "level": "basic", "jpText": "地下鉄", "koText": "지하철" },
+        { "id": "travel_transport_subway_basic_002", "level": "basic", "jpText": "駅", "koText": "역" },
+        { "id": "travel_transport_subway_basic_003", "level": "basic", "jpText": "乗り換え", "koText": "환승" },
+        { "id": "travel_transport_subway_adv_001", "level": "advanced", "jpText": "何号線に乗ればいいですか", "koText": "몇 호선 타면 돼요" },
+        { "id": "travel_transport_subway_adv_002", "level": "advanced", "jpText": "出口は何番ですか", "koText": "출구가 몇 번이에요" },
+        { "id": "travel_transport_subway_sentence_001", "level": "sentence", "jpText": "2号線で3駅です。", "koText": "2호선으로 세 정거장이에요." },
+        { "id": "travel_transport_subway_sentence_002", "level": "sentence", "jpText": "次の駅で降ります。", "koText": "다음 역에서 내려요." }
+      ]
+    },
+    {
+      "id": "travel_transport_taxi",
+      "name": "タクシー",
+      "description": "タクシーでの移動",
+      "patternId": "travel_transport",
+      "entries": [
+        { "id": "travel_transport_taxi_template_001", "level": "template", "jpText": "ここに行ってください。", "koText": "여기로 가 주세요." },
+        { "id": "travel_transport_taxi_template_002", "level": "template", "jpText": "どのくらいかかりますか？", "koText": "얼마나 걸려요?" },
+        { "id": "travel_transport_taxi_template_003", "level": "template", "jpText": "カード払いできますか？", "koText": "카드로 결제돼요?" },
+        { "id": "travel_transport_taxi_basic_001", "level": "basic", "jpText": "タクシー", "koText": "택시" },
+        { "id": "travel_transport_taxi_basic_002", "level": "basic", "jpText": "運転手", "koText": "기사님" },
+        { "id": "travel_transport_taxi_basic_003", "level": "basic", "jpText": "料金", "koText": "요금" },
+        { "id": "travel_transport_taxi_adv_001", "level": "advanced", "jpText": "ここで止めてください", "koText": "여기서 세워 주세요" },
+        { "id": "travel_transport_taxi_adv_002", "level": "advanced", "jpText": "トランクを開けてください", "koText": "트렁크 열어 주세요" },
+        { "id": "travel_transport_taxi_sentence_001", "level": "sentence", "jpText": "この住所までお願いします。", "koText": "이 주소까지 부탁해요." },
+        { "id": "travel_transport_taxi_sentence_002", "level": "sentence", "jpText": "領収書をください。", "koText": "영수증 주세요." }
+      ]
+    },
+    {
+      "id": "travel_transport_bus",
+      "name": "バス",
+      "description": "バスでの移動",
+      "patternId": "travel_transport",
+      "entries": [
+        { "id": "travel_transport_bus_template_001", "level": "template", "jpText": "このバスは景福宮に行きますか？", "koText": "이 버스 경복궁 가요?" },
+        { "id": "travel_transport_bus_template_002", "level": "template", "jpText": "どこで降りればいいですか？", "koText": "어디서 내리면 돼요?" },
+        { "id": "travel_transport_bus_template_003", "level": "template", "jpText": "次止まってください。", "koText": "다음에 세워 주세요." },
+        { "id": "travel_transport_bus_basic_001", "level": "basic", "jpText": "バス", "koText": "버스" },
+        { "id": "travel_transport_bus_basic_002", "level": "basic", "jpText": "バス停", "koText": "버스 정류장" },
+        { "id": "travel_transport_bus_basic_003", "level": "basic", "jpText": "降車ベル", "koText": "하차 벨" },
+        { "id": "travel_transport_bus_adv_001", "level": "advanced", "jpText": "空港リムジンバスはどこで乗れますか", "koText": "공항 리무진 버스는 어디서 타요" },
+        { "id": "travel_transport_bus_adv_002", "level": "advanced", "jpText": "このバスの終点はどこですか", "koText": "이 버스 종점이 어디예요" },
+        { "id": "travel_transport_bus_sentence_001", "level": "sentence", "jpText": "前のドアから乗ってください。", "koText": "앞문으로 타세요." },
+        { "id": "travel_transport_bus_sentence_002", "level": "sentence", "jpText": "バスが来ました。", "koText": "버스가 왔어요." }
+      ]
+    }
+  ]
+}

@@ -6,14 +6,14 @@ import 'package:chaletta/features/ranking_game/data/models/ranking_game_models.d
 import 'package:chaletta/features/ranking_game/domain/providers/game_session_provider.dart';
 import 'package:chaletta/features/ranking_game/presentation/widgets/combo_meter_widget.dart';
 import 'package:chaletta/features/ranking_game/presentation/widgets/pixel_character_widget.dart';
-import 'package:chaletta/features/ranking_game/presentation/screens/ranking_game_result_screen.dart';
+import 'package:chaletta/features/ranking_game/presentation/screens/typing_game_result_screen.dart';
 import 'package:chaletta/ui/widgets/app_page_scaffold.dart';
 import 'package:chaletta/ui/widgets/typing/input_feedback_widget.dart';
 import 'package:chaletta/ui/widgets/typing_keyboard.dart';
 import 'package:chaletta/ui/app_theme.dart';
 import 'package:chaletta/features/typing/domain/providers/typing_settings_provider.dart';
 
-/// ランキングゲーム画面
+/// タイピングゲーム画面
 class RankingGameScreen extends ConsumerStatefulWidget {
   const RankingGameScreen({super.key, required this.difficulty});
 

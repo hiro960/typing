@@ -1,0 +1,62 @@
+{
+  "id": "travel_event",
+  "name": "公演・イベント",
+  "description": "コンサートや公演のチケット購入と会場での対応",
+  "icon": "event",
+  "topics": [
+    {
+      "id": "travel_event_ticket",
+      "name": "チケット購入",
+      "description": "チケットの予約と購入",
+      "patternId": "travel_event",
+      "entries": [
+        { "id": "travel_event_ticket_template_001", "level": "template", "jpText": "今日のチケットはまだありますか？", "koText": "오늘 티켓 아직 있어요?" },
+        { "id": "travel_event_ticket_template_002", "level": "template", "jpText": "良い席はありますか？", "koText": "좋은 자리 있어요?" },
+        { "id": "travel_event_ticket_template_003", "level": "template", "jpText": "2枚お願いします。", "koText": "2장 부탁해요." },
+        { "id": "travel_event_ticket_basic_001", "level": "basic", "jpText": "公演", "koText": "공연" },
+        { "id": "travel_event_ticket_basic_002", "level": "basic", "jpText": "座席", "koText": "좌석" },
+        { "id": "travel_event_ticket_basic_003", "level": "basic", "jpText": "チケット", "koText": "티켓" },
+        { "id": "travel_event_ticket_adv_001", "level": "advanced", "jpText": "前の方の席をお願いします", "koText": "앞쪽 자리로 부탁해요" },
+        { "id": "travel_event_ticket_adv_002", "level": "advanced", "jpText": "当日券は何時から販売ですか", "koText": "당일권은 몇 시부터 판매해요" },
+        { "id": "travel_event_ticket_sentence_001", "level": "sentence", "jpText": "オンラインで予約しました。", "koText": "온라인으로 예약했어요." },
+        { "id": "travel_event_ticket_sentence_002", "level": "sentence", "jpText": "開演時間は何時ですか？", "koText": "개연 시간이 몇 시예요?" }
+      ]
+    },
+    {
+      "id": "travel_event_venue",
+      "name": "会場",
+      "description": "入場とグッズ購入",
+      "patternId": "travel_event",
+      "entries": [
+        { "id": "travel_event_venue_template_001", "level": "template", "jpText": "入口はどこですか？", "koText": "입구가 어디예요?" },
+        { "id": "travel_event_venue_template_002", "level": "template", "jpText": "グッズ売り場はどこですか？", "koText": "굿즈 판매대가 어디예요?" },
+        { "id": "travel_event_venue_template_003", "level": "template", "jpText": "私の席はどこですか？", "koText": "제 자리가 어디예요?" },
+        { "id": "travel_event_venue_basic_001", "level": "basic", "jpText": "入口", "koText": "입구" },
+        { "id": "travel_event_venue_basic_002", "level": "basic", "jpText": "グッズ", "koText": "굿즈" },
+        { "id": "travel_event_venue_basic_003", "level": "basic", "jpText": "ロッカー", "koText": "락커" },
+        { "id": "travel_event_venue_adv_001", "level": "advanced", "jpText": "再入場は可能ですか", "koText": "재입장 가능해요" },
+        { "id": "travel_event_venue_adv_002", "level": "advanced", "jpText": "荷物を預けられますか", "koText": "짐 맡길 수 있어요" },
+        { "id": "travel_event_venue_sentence_001", "level": "sentence", "jpText": "このペンライト1つください。", "koText": "이 응원봉 하나 주세요." },
+        { "id": "travel_event_venue_sentence_002", "level": "sentence", "jpText": "並んでいる列はグッズ購入ですか？", "koText": "줄 서 있는 건 굿즈 구매예요?" }
+      ]
+    },
+    {
+      "id": "travel_event_fan",
+      "name": "ファン活動",
+      "description": "応援やファンミーティング",
+      "patternId": "travel_event",
+      "entries": [
+        { "id": "travel_event_fan_template_001", "level": "template", "jpText": "大好きです！", "koText": "정말 좋아해요!" },
+        { "id": "travel_event_fan_template_002", "level": "template", "jpText": "日本から来ました。", "koText": "일본에서 왔어요." },
+        { "id": "travel_event_fan_template_003", "level": "template", "jpText": "サインをもらえますか？", "koText": "사인 받을 수 있어요?" },
+        { "id": "travel_event_fan_basic_001", "level": "basic", "jpText": "ファン", "koText": "팬" },
+        { "id": "travel_event_fan_basic_002", "level": "basic", "jpText": "応援", "koText": "응원" },
+        { "id": "travel_event_fan_basic_003", "level": "basic", "jpText": "サイン会", "koText": "사인회" },
+        { "id": "travel_event_fan_adv_001", "level": "advanced", "jpText": "ずっとファンでした", "koText": "계속 팬이었어요" },
+        { "id": "travel_event_fan_adv_002", "level": "advanced", "jpText": "一緒に写真撮ってもいいですか", "koText": "같이 사진 찍어도 돼요" },
+        { "id": "travel_event_fan_sentence_001", "level": "sentence", "jpText": "最高でした！", "koText": "최고였어요!" },
+        { "id": "travel_event_fan_sentence_002", "level": "sentence", "jpText": "また会いに来ます！", "koText": "또 보러 올게요!" }
+      ]
+    }
+  ]
+}

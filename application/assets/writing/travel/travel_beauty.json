@@ -1,0 +1,62 @@
+{
+  "id": "travel_beauty",
+  "name": "美容・エステ",
+  "description": "韓国の美容サロンやエステでの予約と施術",
+  "icon": "spa",
+  "topics": [
+    {
+      "id": "travel_beauty_booking",
+      "name": "予約・受付",
+      "description": "予約の確認と希望の伝え方",
+      "patternId": "travel_beauty",
+      "entries": [
+        { "id": "travel_beauty_booking_template_001", "level": "template", "jpText": "予約した田中です。", "koText": "예약한 다나카입니다." },
+        { "id": "travel_beauty_booking_template_002", "level": "template", "jpText": "今日空いていますか？", "koText": "오늘 자리 있어요?" },
+        { "id": "travel_beauty_booking_template_003", "level": "template", "jpText": "フェイシャルエステをお願いします。", "koText": "페이셜 에스테 부탁해요." },
+        { "id": "travel_beauty_booking_basic_001", "level": "basic", "jpText": "予約", "koText": "예약" },
+        { "id": "travel_beauty_booking_basic_002", "level": "basic", "jpText": "エステ", "koText": "에스테" },
+        { "id": "travel_beauty_booking_basic_003", "level": "basic", "jpText": "マッサージ", "koText": "마사지" },
+        { "id": "travel_beauty_booking_adv_001", "level": "advanced", "jpText": "何時間くらいかかりますか", "koText": "몇 시간 정도 걸려요" },
+        { "id": "travel_beauty_booking_adv_002", "level": "advanced", "jpText": "一番人気のコースは何ですか", "koText": "제일 인기 있는 코스가 뭐예요" },
+        { "id": "travel_beauty_booking_sentence_001", "level": "sentence", "jpText": "3時に予約したいです。", "koText": "3시에 예약하고 싶어요." },
+        { "id": "travel_beauty_booking_sentence_002", "level": "sentence", "jpText": "日本語対応できる方いますか？", "koText": "일본어 되시는 분 있어요?" }
+      ]
+    },
+    {
+      "id": "travel_beauty_treatment",
+      "name": "施術中",
+      "description": "施術中のリクエスト",
+      "patternId": "travel_beauty",
+      "entries": [
+        { "id": "travel_beauty_treatment_template_001", "level": "template", "jpText": "もう少し強くお願いします。", "koText": "조금 더 세게 해 주세요." },
+        { "id": "travel_beauty_treatment_template_002", "level": "template", "jpText": "痛いです。", "koText": "아파요." },
+        { "id": "travel_beauty_treatment_template_003", "level": "template", "jpText": "ちょうどいいです。", "koText": "딱 좋아요." },
+        { "id": "travel_beauty_treatment_basic_001", "level": "basic", "jpText": "強さ", "koText": "세기" },
+        { "id": "travel_beauty_treatment_basic_002", "level": "basic", "jpText": "肌", "koText": "피부" },
+        { "id": "travel_beauty_treatment_basic_003", "level": "basic", "jpText": "パック", "koText": "팩" },
+        { "id": "travel_beauty_treatment_adv_001", "level": "advanced", "jpText": "敏感肌なので優しくお願いします", "koText": "민감성 피부라서 부드럽게 해 주세요" },
+        { "id": "travel_beauty_treatment_adv_002", "level": "advanced", "jpText": "肩こりがひどいです", "koText": "어깨 결림이 심해요" },
+        { "id": "travel_beauty_treatment_sentence_001", "level": "sentence", "jpText": "気持ちいいです。", "koText": "시원해요." },
+        { "id": "travel_beauty_treatment_sentence_002", "level": "sentence", "jpText": "この部分を重点的にお願いします。", "koText": "이 부분 집중적으로 해 주세요." }
+      ]
+    },
+    {
+      "id": "travel_beauty_hair",
+      "name": "ヘアサロン",
+      "description": "美容院でのカットやカラー",
+      "patternId": "travel_beauty",
+      "entries": [
+        { "id": "travel_beauty_hair_template_001", "level": "template", "jpText": "カットをお願いします。", "koText": "커트 부탁해요." },
+        { "id": "travel_beauty_hair_template_002", "level": "template", "jpText": "この写真のようにしてください。", "koText": "이 사진처럼 해 주세요." },
+        { "id": "travel_beauty_hair_template_003", "level": "template", "jpText": "少し短くしてください。", "koText": "조금 짧게 해 주세요." },
+        { "id": "travel_beauty_hair_basic_001", "level": "basic", "jpText": "カット", "koText": "커트" },
+        { "id": "travel_beauty_hair_basic_002", "level": "basic", "jpText": "カラー", "koText": "염색" },
+        { "id": "travel_beauty_hair_basic_003", "level": "basic", "jpText": "パーマ", "koText": "파마" },
+        { "id": "travel_beauty_hair_adv_001", "level": "advanced", "jpText": "前髪はそのままでお願いします", "koText": "앞머리는 그대로 해 주세요" },
+        { "id": "travel_beauty_hair_adv_002", "level": "advanced", "jpText": "明るい色にしたいです", "koText": "밝은 색으로 하고 싶어요" },
+        { "id": "travel_beauty_hair_sentence_001", "level": "sentence", "jpText": "毛先だけ整えてください。", "koText": "끝만 다듬어 주세요." },
+        { "id": "travel_beauty_hair_sentence_002", "level": "sentence", "jpText": "すごく素敵になりました！", "koText": "정말 예뻐졌어요!" }
+      ]
+    }
+  ]
+}

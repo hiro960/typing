@@ -1,0 +1,62 @@
+{
+  "id": "travel_cafe",
+  "name": "カフェ",
+  "description": "韓国カフェでの注文とカスタマイズ",
+  "icon": "local_cafe",
+  "topics": [
+    {
+      "id": "travel_cafe_order",
+      "name": "注文",
+      "description": "ドリンクの注文",
+      "patternId": "travel_cafe",
+      "entries": [
+        { "id": "travel_cafe_order_template_001", "level": "template", "jpText": "アメリカーノ1杯ください。", "koText": "아메리카노 한 잔 주세요." },
+        { "id": "travel_cafe_order_template_002", "level": "template", "jpText": "アイスでお願いします。", "koText": "아이스로 주세요." },
+        { "id": "travel_cafe_order_template_003", "level": "template", "jpText": "ここで飲みます。", "koText": "여기서 마실 거예요." },
+        { "id": "travel_cafe_order_basic_001", "level": "basic", "jpText": "コーヒー", "koText": "커피" },
+        { "id": "travel_cafe_order_basic_002", "level": "basic", "jpText": "アイス", "koText": "아이스" },
+        { "id": "travel_cafe_order_basic_003", "level": "basic", "jpText": "ホット", "koText": "따뜻한 것" },
+        { "id": "travel_cafe_order_adv_001", "level": "advanced", "jpText": "テイクアウトでお願いします", "koText": "포장해 주세요" },
+        { "id": "travel_cafe_order_adv_002", "level": "advanced", "jpText": "サイズは何がありますか", "koText": "사이즈 뭐 있어요" },
+        { "id": "travel_cafe_order_sentence_001", "level": "sentence", "jpText": "一番大きいサイズでください。", "koText": "제일 큰 사이즈로 주세요." },
+        { "id": "travel_cafe_order_sentence_002", "level": "sentence", "jpText": "カフェラテをホットで1杯ください。", "koText": "카페라떼 따뜻한 걸로 한 잔 주세요." }
+      ]
+    },
+    {
+      "id": "travel_cafe_custom",
+      "name": "カスタマイズ",
+      "description": "甘さやトッピングの調整",
+      "patternId": "travel_cafe",
+      "entries": [
+        { "id": "travel_cafe_custom_template_001", "level": "template", "jpText": "甘さ控えめでお願いします。", "koText": "덜 달게 해 주세요." },
+        { "id": "travel_cafe_custom_template_002", "level": "template", "jpText": "氷少なめでください。", "koText": "얼음 적게 주세요." },
+        { "id": "travel_cafe_custom_template_003", "level": "template", "jpText": "ホイップ追加できますか？", "koText": "휘핑 추가할 수 있어요?" },
+        { "id": "travel_cafe_custom_basic_001", "level": "basic", "jpText": "砂糖", "koText": "설탕" },
+        { "id": "travel_cafe_custom_basic_002", "level": "basic", "jpText": "氷", "koText": "얼음" },
+        { "id": "travel_cafe_custom_basic_003", "level": "basic", "jpText": "ミルク", "koText": "우유" },
+        { "id": "travel_cafe_custom_adv_001", "level": "advanced", "jpText": "オーツミルクに変更できますか", "koText": "오트 밀크로 바꿀 수 있어요" },
+        { "id": "travel_cafe_custom_adv_002", "level": "advanced", "jpText": "ショット追加お願いします", "koText": "샷 추가해 주세요" },
+        { "id": "travel_cafe_custom_sentence_001", "level": "sentence", "jpText": "シロップなしでお願いします。", "koText": "시럽 빼 주세요." },
+        { "id": "travel_cafe_custom_sentence_002", "level": "sentence", "jpText": "氷なしでも作れますか？", "koText": "얼음 없이도 만들 수 있어요?" }
+      ]
+    },
+    {
+      "id": "travel_cafe_dessert",
+      "name": "デザート",
+      "description": "スイーツやパンの注文",
+      "patternId": "travel_cafe",
+      "entries": [
+        { "id": "travel_cafe_dessert_template_001", "level": "template", "jpText": "このケーキをください。", "koText": "이 케이크 주세요." },
+        { "id": "travel_cafe_dessert_template_002", "level": "template", "jpText": "おすすめのデザートは？", "koText": "추천 디저트 뭐예요?" },
+        { "id": "travel_cafe_dessert_template_003", "level": "template", "jpText": "温めてもらえますか？", "koText": "데워 주실 수 있어요?" },
+        { "id": "travel_cafe_dessert_basic_001", "level": "basic", "jpText": "ケーキ", "koText": "케이크" },
+        { "id": "travel_cafe_dessert_basic_002", "level": "basic", "jpText": "パン", "koText": "빵" },
+        { "id": "travel_cafe_dessert_basic_003", "level": "basic", "jpText": "マカロン", "koText": "마카롱" },
+        { "id": "travel_cafe_dessert_adv_001", "level": "advanced", "jpText": "日持ちはどのくらいですか", "koText": "유통기한이 얼마나 돼요" },
+        { "id": "travel_cafe_dessert_adv_002", "level": "advanced", "jpText": "お土産用に箱に入れてください", "koText": "선물용으로 박스에 넣어 주세요" },
+        { "id": "travel_cafe_dessert_sentence_001", "level": "sentence", "jpText": "一番人気のケーキは何ですか？", "koText": "제일 인기 있는 케이크가 뭐예요?" },
+        { "id": "travel_cafe_dessert_sentence_002", "level": "sentence", "jpText": "フォークをもう一つください。", "koText": "포크 하나 더 주세요." }
+      ]
+    }
+  ]
+}

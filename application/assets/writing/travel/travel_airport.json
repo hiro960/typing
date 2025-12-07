@@ -1,0 +1,62 @@
+{
+  "id": "travel_airport",
+  "name": "空港・入国",
+  "description": "入国審査、荷物受取、両替で使うフレーズ",
+  "icon": "flight",
+  "topics": [
+    {
+      "id": "travel_airport_immigration",
+      "name": "入国審査",
+      "description": "入国審査官とのやり取り",
+      "patternId": "travel_airport",
+      "entries": [
+        { "id": "travel_airport_immigration_template_001", "level": "template", "jpText": "観光で来ました。", "koText": "관광하러 왔어요." },
+        { "id": "travel_airport_immigration_template_002", "level": "template", "jpText": "5日間滞在する予定です。", "koText": "5일간 머물 예정이에요." },
+        { "id": "travel_airport_immigration_template_003", "level": "template", "jpText": "ホテルに泊まります。", "koText": "호텔에서 묵어요." },
+        { "id": "travel_airport_immigration_basic_001", "level": "basic", "jpText": "パスポート", "koText": "여권" },
+        { "id": "travel_airport_immigration_basic_002", "level": "basic", "jpText": "入国審査", "koText": "입국 심사" },
+        { "id": "travel_airport_immigration_basic_003", "level": "basic", "jpText": "滞在期間", "koText": "체류 기간" },
+        { "id": "travel_airport_immigration_adv_001", "level": "advanced", "jpText": "帰りの航空券を見せてください", "koText": "돌아가는 항공권을 보여 주세요" },
+        { "id": "travel_airport_immigration_adv_002", "level": "advanced", "jpText": "訪問目的を教えてください", "koText": "방문 목적을 알려 주세요" },
+        { "id": "travel_airport_immigration_sentence_001", "level": "sentence", "jpText": "初めての韓国旅行です。", "koText": "처음 한국 여행이에요." },
+        { "id": "travel_airport_immigration_sentence_002", "level": "sentence", "jpText": "友達に会いに来ました。", "koText": "친구를 만나러 왔어요." }
+      ]
+    },
+    {
+      "id": "travel_airport_baggage",
+      "name": "荷物受取",
+      "description": "荷物の受け取りとトラブル対応",
+      "patternId": "travel_airport",
+      "entries": [
+        { "id": "travel_airport_baggage_template_001", "level": "template", "jpText": "私の荷物が出てきません。", "koText": "제 짐이 안 나와요." },
+        { "id": "travel_airport_baggage_template_002", "level": "template", "jpText": "荷物受取所はどこですか？", "koText": "수하물 찾는 곳이 어디예요?" },
+        { "id": "travel_airport_baggage_template_003", "level": "template", "jpText": "これは私のスーツケースです。", "koText": "이건 제 캐리어예요." },
+        { "id": "travel_airport_baggage_basic_001", "level": "basic", "jpText": "手荷物", "koText": "수하물" },
+        { "id": "travel_airport_baggage_basic_002", "level": "basic", "jpText": "スーツケース", "koText": "캐리어" },
+        { "id": "travel_airport_baggage_basic_003", "level": "basic", "jpText": "紛失届", "koText": "분실 신고" },
+        { "id": "travel_airport_baggage_adv_001", "level": "advanced", "jpText": "荷物が破損していました", "koText": "짐이 파손되어 있었어요" },
+        { "id": "travel_airport_baggage_adv_002", "level": "advanced", "jpText": "補償を受けたいです", "koText": "보상을 받고 싶어요" },
+        { "id": "travel_airport_baggage_sentence_001", "level": "sentence", "jpText": "黒いスーツケースを探しています。", "koText": "검은색 캐리어를 찾고 있어요." },
+        { "id": "travel_airport_baggage_sentence_002", "level": "sentence", "jpText": "荷物タグの番号はこれです。", "koText": "수하물 태그 번호는 이거예요." }
+      ]
+    },
+    {
+      "id": "travel_airport_exchange",
+      "name": "両替・SIM",
+      "description": "両替やSIMカード購入",
+      "patternId": "travel_airport",
+      "entries": [
+        { "id": "travel_airport_exchange_template_001", "level": "template", "jpText": "日本円をウォンに両替したいです。", "koText": "일본 엔을 원으로 환전하고 싶어요." },
+        { "id": "travel_airport_exchange_template_002", "level": "template", "jpText": "今日のレートはいくらですか？", "koText": "오늘 환율이 얼마예요?" },
+        { "id": "travel_airport_exchange_template_003", "level": "template", "jpText": "SIMカードを買いたいです。", "koText": "유심 카드를 사고 싶어요." },
+        { "id": "travel_airport_exchange_basic_001", "level": "basic", "jpText": "両替", "koText": "환전" },
+        { "id": "travel_airport_exchange_basic_002", "level": "basic", "jpText": "為替レート", "koText": "환율" },
+        { "id": "travel_airport_exchange_basic_003", "level": "basic", "jpText": "SIMカード", "koText": "유심 카드" },
+        { "id": "travel_airport_exchange_adv_001", "level": "advanced", "jpText": "手数料はかかりますか", "koText": "수수료가 붙나요" },
+        { "id": "travel_airport_exchange_adv_002", "level": "advanced", "jpText": "5日間使えるプランをください", "koText": "5일간 쓸 수 있는 요금제로 주세요" },
+        { "id": "travel_airport_exchange_sentence_001", "level": "sentence", "jpText": "3万円を両替お願いします。", "koText": "3만 엔 환전해 주세요." },
+        { "id": "travel_airport_exchange_sentence_002", "level": "sentence", "jpText": "データ無制限のプランはありますか？", "koText": "데이터 무제한 요금제 있어요?" }
+      ]
+    }
+  ]
+}

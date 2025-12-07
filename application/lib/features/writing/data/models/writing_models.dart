@@ -21,7 +21,7 @@ enum WritingMode {
 }
 
 /// 書き取りのレーン種別
-enum WritingLane { topik, beginner, hobby }
+enum WritingLane { topik, beginner, travel, hobby }
 
 /// 書き取りエントリ（日本語と韓国語のペア）
 @freezed

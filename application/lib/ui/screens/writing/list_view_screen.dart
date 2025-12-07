@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
 import '../../../features/writing/data/models/writing_models.dart';
 import '../../../features/writing/domain/providers/writing_providers.dart';
 import '../../app_spacing.dart';
@@ -73,10 +74,7 @@ class ListViewScreen extends ConsumerWidget {
             sliver: SliverList(
               delegate: SliverChildBuilderDelegate((context, index) {
                 final entry = topic.entries[index];
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: AppSpacing.md),
-                  child: _EntryCard(entry: entry),
-                );
+                return _EntryCard(entry: entry);
               }, childCount: topic.entries.length),
             ),
           ),
@@ -87,70 +85,89 @@ class ListViewScreen extends ConsumerWidget {
   }
 }
 
-/// エントリカード
-class _EntryCard extends StatelessWidget {
+/// コンパクトなエントリ行
+class _EntryCard extends ConsumerWidget {
   const _EntryCard({required this.entry});
 
   final WritingEntry entry;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final isSentence = entry.level == EntryLevel.sentence;
 
-    return Card(
-      elevation: isSentence ? 0 : null,
-      color: isSentence
-          ? theme.colorScheme.surfaceContainerHighest.withOpacity(0.5)
-          : null,
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(
+            color: theme.colorScheme.outlineVariant.withOpacity(0.5),
+          ),
+        ),
+      ),
       child: Padding(
-        padding: const EdgeInsets.all(AppSpacing.md),
+        padding: const EdgeInsets.symmetric(
+          vertical: AppSpacing.sm,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // 1行目: バッジ + 日本語 + アクション
             Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                _buildLevelBadge(context, entry.level),
+                const SizedBox(width: AppSpacing.sm),
                 Expanded(
-                  child: Row(
-                    children: [
-                      _buildLevelBadge(context, entry.level),
-                      if (isSentence) ...[
-                        const SizedBox(width: AppSpacing.xs),
-                        Text(
-                          '(参照のみ)',
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            color: theme.colorScheme.onSurfaceVariant,
-                          ),
-                        ),
-                      ],
-                    ],
+                  child: Text(
+                    entry.jpText,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: isSentence
+                          ? theme.colorScheme.onSurfaceVariant
+                          : theme.colorScheme.onSurface,
+                    ),
                   ),
                 ),
-                IconButton.filledTonal(
-                  onPressed: () => _openWordForm(context),
-                  icon: const Icon(Icons.bookmark_add_outlined, size: 18),
-                  style: IconButton.styleFrom(
-                    backgroundColor: theme.colorScheme.secondaryContainer,
-                    foregroundColor: theme.colorScheme.onSecondaryContainer,
-                    minimumSize: const Size(24, 24),
+                const SizedBox(width: AppSpacing.xs),
+                // 再生ボタン
+                GestureDetector(
+                  onTap: () {
+                    ref.read(wordAudioServiceProvider.notifier).speak(entry.koText);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(AppSpacing.xs),
+                    child: Icon(
+                      Icons.volume_up_outlined,
+                      size: 20,
+                      color: theme.colorScheme.primary,
+                    ),
+                  ),
+                ),
+                // 単語帳追加ボタン
+                GestureDetector(
+                  onTap: () => _openWordForm(context),
+                  child: Padding(
+                    padding: const EdgeInsets.all(AppSpacing.xs),
+                    child: Icon(
+                      Icons.bookmark_add_outlined,
+                      size: 20,
+                      color: theme.colorScheme.secondary,
+                    ),
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: AppSpacing.sm),
-            _buildTextRow(
-              context: context,
-              label: '日本語',
-              text: entry.jpText,
-              color: theme.colorScheme.primary,
-            ),
-            const SizedBox(height: AppSpacing.sm),
-            _buildTextRow(
-              context: context,
-              label: '韓国語',
-              text: entry.koText,
-              color: theme.colorScheme.secondary,
+            // 2行目: 韓国語（インデント付き）
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 52, // バッジ幅 + 余白に合わせる
+                top: AppSpacing.xs,
+              ),
+              child: Text(
+                entry.koText,
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: theme.colorScheme.primary,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
             ),
           ],
         ),
@@ -160,20 +177,19 @@ class _EntryCard extends StatelessWidget {
 
   Widget _buildLevelBadge(BuildContext context, EntryLevel level) {
     final (label, color) = switch (level) {
-      EntryLevel.template => ('テンプレート', Colors.blue),
-      EntryLevel.basic => ('基礎', Colors.green),
-      EntryLevel.advanced => ('高級', Colors.orange),
-      EntryLevel.sentence => ('例文', Colors.grey),
+      EntryLevel.template => ('型', Colors.blue),
+      EntryLevel.basic => ('基', Colors.green),
+      EntryLevel.advanced => ('高', Colors.orange),
+      EntryLevel.sentence => ('例', Colors.grey),
     };
 
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppSpacing.sm,
-        vertical: AppSpacing.xs,
-      ),
+      width: 28,
+      height: 28,
+      alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: color.withOpacity(0.2),
-        borderRadius: BorderRadius.circular(4),
+        color: color.withOpacity(0.15),
+        borderRadius: BorderRadius.circular(6),
       ),
       child: Text(
         label,
@@ -182,37 +198,6 @@ class _EntryCard extends StatelessWidget {
           fontSize: 12,
           fontWeight: FontWeight.bold,
         ),
-      ),
-    );
-  }
-
-  Widget _buildTextRow({
-    required BuildContext context,
-    required String label,
-    required String text,
-    required Color color,
-  }) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(AppSpacing.sm),
-      decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(4),
-        border: Border.all(color: color.withOpacity(0.3)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            label,
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: color,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: AppSpacing.xs),
-          Text(text, style: Theme.of(context).textTheme.bodyLarge),
-        ],
       ),
     );
   }

@@ -8,6 +8,7 @@ import '../models/writing_models.dart';
 class WritingDataRepository {
   static const _assetManifestPath = 'AssetManifest.json';
   static const _topikDir = 'assets/writing/topik/';
+  static const _travelDir = 'assets/writing/travel/';
   static const _hobbyDir = 'assets/writing/hobby/';
   static const _beginnerDir = 'assets/writing/beginner/';
   static const _beginnerPatternId = 'beginner_words';
@@ -27,6 +28,18 @@ class WritingDataRepository {
     '${_hobbyDir}hobby_sns.json',
     '${_hobbyDir}hobby_kdrama.json',
     '${_hobbyDir}hobby_oshi.json',
+  ];
+  static const _travelFilesFallback = <String>[
+    '${_travelDir}travel_airport.json',
+    '${_travelDir}travel_transport.json',
+    '${_travelDir}travel_accommodation.json',
+    '${_travelDir}travel_restaurant.json',
+    '${_travelDir}travel_cafe.json',
+    '${_travelDir}travel_shopping.json',
+    '${_travelDir}travel_sightseeing.json',
+    '${_travelDir}travel_emergency.json',
+    '${_travelDir}travel_beauty.json',
+    '${_travelDir}travel_event.json',
   ];
 
   static const _beginnerTopicMeta = <String, (String name, String description)>{
@@ -81,6 +94,17 @@ class WritingDataRepository {
     if (beginnerPattern != null) {
       patterns.add(beginnerPattern);
     }
+
+    patterns.addAll(
+      await _loadPatternFiles(
+        files: await _listAssetFiles(
+          manifest: manifest,
+          directory: _travelDir,
+          fallback: _travelFilesFallback,
+        ),
+        lane: WritingLane.travel,
+      ),
+    );
 
     patterns.addAll(
       await _loadPatternFiles(

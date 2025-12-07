@@ -1,7 +1,10 @@
 part of 'home_screen.dart';
 
-class _ExchangeRateCard extends ConsumerWidget {
-  const _ExchangeRateCard();
+/// 為替レート + 翻訳を統合したツールカード
+class _QuickToolsCard extends ConsumerWidget {
+  const _QuickToolsCard({required this.onTranslationTap});
+
+  final VoidCallback onTranslationTap;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -9,159 +12,122 @@ class _ExchangeRateCard extends ConsumerWidget {
     final theme = Theme.of(context);
     final baseColor = theme.colorScheme.onSurface.withValues(alpha: 0.06);
 
-    return exchangeRateAsync.when(
-      data: (exchangeRate) => _buildCard(context, exchangeRate),
-      loading: () => _buildLoadingCard(context, baseColor),
-      error: (_, __) => _buildErrorCard(context),
-    );
-  }
-
-  Widget _buildCard(BuildContext context, ExchangeRate exchangeRate) {
-    final theme = Theme.of(context);
-
     return FCard.raw(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        padding: const EdgeInsets.all(12),
         child: Row(
           children: [
-            Container(
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: theme.colorScheme.primaryContainer.withValues(alpha: 0.3),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Icon(
-                Icons.currency_exchange,
-                size: 20,
-                color: theme.colorScheme.primary,
-              ),
-            ),
-            const SizedBox(width: 12),
+            // 為替レート部分
             Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        '100円',
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
-                        ),
-                      ),
-                      const SizedBox(width: 4),
-                      Icon(
-                        Icons.arrow_forward,
-                        size: 14,
-                        color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        '${(exchangeRate.rate * 100).toStringAsFixed(2)}ウォン',
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: theme.colorScheme.primary,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    '更新: ${_formatDateTime(exchangeRate.fetchedAt)}',
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
-                    ),
-                  ),
-                ],
+              child: exchangeRateAsync.when(
+                data: (rate) => _ExchangeRateContent(exchangeRate: rate),
+                loading: () => _ExchangeRateLoadingContent(baseColor: baseColor),
+                error: (_, __) => const _ExchangeRateErrorContent(),
               ),
             ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildLoadingCard(BuildContext context, Color baseColor) {
-    return FCard.raw(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        child: Row(
-          children: [
-            ShimmerLoading(
+            // 区切り線
+            Container(
+              width: 1,
+              height: 40,
+              margin: const EdgeInsets.symmetric(horizontal: 12),
+              color: theme.colorScheme.outline.withValues(alpha: 0.2),
+            ),
+            // 翻訳ボタン
+            InkWell(
+              onTap: onTranslationTap,
+              borderRadius: BorderRadius.circular(8),
               child: Container(
-                width: 36,
-                height: 36,
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 decoration: BoxDecoration(
-                  color: baseColor,
+                  color: theme.colorScheme.primaryContainer.withValues(alpha: 0.3),
                   borderRadius: BorderRadius.circular(8),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.translate,
+                      size: 18,
+                      color: theme.colorScheme.primary,
+                    ),
+                    const SizedBox(width: 6),
+                    Text(
+                      '日↔️韓翻訳',
+                      style: theme.textTheme.labelLarge?.copyWith(
+                        color: theme.colorScheme.primary,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ShimmerLoading(
-                    child: Container(
-                      width: 160,
-                      height: 20,
-                      decoration: BoxDecoration(
-                        color: baseColor,
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  ShimmerLoading(
-                    child: Container(
-                      width: 100,
-                      height: 14,
-                      decoration: BoxDecoration(
-                        color: baseColor,
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
           ],
         ),
       ),
     );
   }
+}
 
-  Widget _buildErrorCard(BuildContext context) {
+class _ExchangeRateContent extends StatelessWidget {
+  const _ExchangeRateContent({required this.exchangeRate});
+
+  final ExchangeRate exchangeRate;
+
+  @override
+  Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return FCard.raw(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        child: Row(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: theme.colorScheme.errorContainer.withValues(alpha: 0.3),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Icon(
-                Icons.currency_exchange,
-                size: 20,
-                color: theme.colorScheme.error,
-              ),
-            ),
-            const SizedBox(width: 12),
-            Text(
-              '為替レートを取得できませんでした',
-              style: theme.textTheme.bodyMedium?.copyWith(
-                color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
-              ),
-            ),
-          ],
+    return Row(
+      children: [
+        Icon(
+          Icons.currency_exchange,
+          size: 18,
+          color: theme.colorScheme.primary,
         ),
-      ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    '100円',
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+                    ),
+                  ),
+                  const SizedBox(width: 4),
+                  Icon(
+                    Icons.arrow_forward,
+                    size: 12,
+                    color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+                  ),
+                  const SizedBox(width: 4),
+                  Flexible(
+                    child: Text(
+                      '${(exchangeRate.rate * 100).toStringAsFixed(1)}₩',
+                      style: theme.textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: theme.colorScheme.primary,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
+              ),
+              Text(
+                _formatDateTime(exchangeRate.fetchedAt),
+                style: theme.textTheme.labelSmall?.copyWith(
+                  color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 
@@ -178,5 +144,87 @@ class _ExchangeRateCard extends ConsumerWidget {
     } else {
       return '${diff.inDays}日前';
     }
+  }
+}
+
+class _ExchangeRateLoadingContent extends StatelessWidget {
+  const _ExchangeRateLoadingContent({required this.baseColor});
+
+  final Color baseColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        ShimmerLoading(
+          child: Container(
+            width: 18,
+            height: 18,
+            decoration: BoxDecoration(
+              color: baseColor,
+              borderRadius: BorderRadius.circular(4),
+            ),
+          ),
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ShimmerLoading(
+                child: Container(
+                  width: 100,
+                  height: 16,
+                  decoration: BoxDecoration(
+                    color: baseColor,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 4),
+              ShimmerLoading(
+                child: Container(
+                  width: 60,
+                  height: 12,
+                  decoration: BoxDecoration(
+                    color: baseColor,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _ExchangeRateErrorContent extends StatelessWidget {
+  const _ExchangeRateErrorContent();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Row(
+      children: [
+        Icon(
+          Icons.currency_exchange,
+          size: 18,
+          color: theme.colorScheme.error,
+        ),
+        const SizedBox(width: 8),
+        Flexible(
+          child: Text(
+            '取得失敗',
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }

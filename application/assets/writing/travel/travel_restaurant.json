@@ -1,0 +1,62 @@
+{
+  "id": "travel_restaurant",
+  "name": "飲食店",
+  "description": "韓国料理店での注文から会計まで",
+  "icon": "restaurant",
+  "topics": [
+    {
+      "id": "travel_restaurant_order",
+      "name": "入店・注文",
+      "description": "席案内とメニュー注文",
+      "patternId": "travel_restaurant",
+      "entries": [
+        { "id": "travel_restaurant_order_template_001", "level": "template", "jpText": "2人です。", "koText": "두 명이에요." },
+        { "id": "travel_restaurant_order_template_002", "level": "template", "jpText": "おすすめは何ですか？", "koText": "뭐가 맛있어요?" },
+        { "id": "travel_restaurant_order_template_003", "level": "template", "jpText": "これをください。", "koText": "이거 주세요." },
+        { "id": "travel_restaurant_order_basic_001", "level": "basic", "jpText": "メニュー", "koText": "메뉴" },
+        { "id": "travel_restaurant_order_basic_002", "level": "basic", "jpText": "注文", "koText": "주문" },
+        { "id": "travel_restaurant_order_basic_003", "level": "basic", "jpText": "1人前", "koText": "1인분" },
+        { "id": "travel_restaurant_order_adv_001", "level": "advanced", "jpText": "日本語のメニューはありますか", "koText": "일본어 메뉴 있어요" },
+        { "id": "travel_restaurant_order_adv_002", "level": "advanced", "jpText": "これは何人前ですか", "koText": "이건 몇 인분이에요" },
+        { "id": "travel_restaurant_order_sentence_001", "level": "sentence", "jpText": "サムギョプサル2人前ください。", "koText": "삼겹살 2인분 주세요." },
+        { "id": "travel_restaurant_order_sentence_002", "level": "sentence", "jpText": "少し待ってから注文します。", "koText": "조금 이따가 주문할게요." }
+      ]
+    },
+    {
+      "id": "travel_restaurant_eating",
+      "name": "食事中",
+      "description": "追加注文やリクエスト",
+      "patternId": "travel_restaurant",
+      "entries": [
+        { "id": "travel_restaurant_eating_template_001", "level": "template", "jpText": "おかわりください。", "koText": "리필 주세요." },
+        { "id": "travel_restaurant_eating_template_002", "level": "template", "jpText": "辛くないのはありますか？", "koText": "안 매운 거 있어요?" },
+        { "id": "travel_restaurant_eating_template_003", "level": "template", "jpText": "箸をください。", "koText": "젓가락 주세요." },
+        { "id": "travel_restaurant_eating_basic_001", "level": "basic", "jpText": "おかわり", "koText": "리필" },
+        { "id": "travel_restaurant_eating_basic_002", "level": "basic", "jpText": "辛い", "koText": "맵다" },
+        { "id": "travel_restaurant_eating_basic_003", "level": "basic", "jpText": "おいしい", "koText": "맛있다" },
+        { "id": "travel_restaurant_eating_adv_001", "level": "advanced", "jpText": "アレルギーがあります", "koText": "알레르기가 있어요" },
+        { "id": "travel_restaurant_eating_adv_002", "level": "advanced", "jpText": "エビを抜いてください", "koText": "새우 빼 주세요" },
+        { "id": "travel_restaurant_eating_sentence_001", "level": "sentence", "jpText": "ご飯もう一杯ください。", "koText": "밥 한 공기 더 주세요." },
+        { "id": "travel_restaurant_eating_sentence_002", "level": "sentence", "jpText": "すごくおいしいです！", "koText": "정말 맛있어요!" }
+      ]
+    },
+    {
+      "id": "travel_restaurant_payment",
+      "name": "会計",
+      "description": "支払いと領収書",
+      "patternId": "travel_restaurant",
+      "entries": [
+        { "id": "travel_restaurant_payment_template_001", "level": "template", "jpText": "お会計お願いします。", "koText": "계산해 주세요." },
+        { "id": "travel_restaurant_payment_template_002", "level": "template", "jpText": "カードで払えますか？", "koText": "카드로 돼요?" },
+        { "id": "travel_restaurant_payment_template_003", "level": "template", "jpText": "いくらですか？", "koText": "얼마예요?" },
+        { "id": "travel_restaurant_payment_basic_001", "level": "basic", "jpText": "会計", "koText": "계산" },
+        { "id": "travel_restaurant_payment_basic_002", "level": "basic", "jpText": "現金", "koText": "현금" },
+        { "id": "travel_restaurant_payment_basic_003", "level": "basic", "jpText": "領収書", "koText": "영수증" },
+        { "id": "travel_restaurant_payment_adv_001", "level": "advanced", "jpText": "別々に払えますか", "koText": "따로 계산할 수 있어요" },
+        { "id": "travel_restaurant_payment_adv_002", "level": "advanced", "jpText": "サービス料込みですか", "koText": "봉사료 포함이에요" },
+        { "id": "travel_restaurant_payment_sentence_001", "level": "sentence", "jpText": "ごちそうさまでした。", "koText": "잘 먹었습니다." },
+        { "id": "travel_restaurant_payment_sentence_002", "level": "sentence", "jpText": "レジはどこですか？", "koText": "계산대가 어디예요?" }
+      ]
+    }
+  ]
+}

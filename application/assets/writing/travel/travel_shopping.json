@@ -1,0 +1,62 @@
+{
+  "id": "travel_shopping",
+  "name": "ショッピング",
+  "description": "韓国でのショッピング、試着、値引き交渉",
+  "icon": "shopping_bag",
+  "topics": [
+    {
+      "id": "travel_shopping_browse",
+      "name": "商品選び",
+      "description": "サイズや色の確認",
+      "patternId": "travel_shopping",
+      "entries": [
+        { "id": "travel_shopping_browse_template_001", "level": "template", "jpText": "これ、見せてもらえますか？", "koText": "이거 좀 보여 주세요." },
+        { "id": "travel_shopping_browse_template_002", "level": "template", "jpText": "他の色はありますか？", "koText": "다른 색 있어요?" },
+        { "id": "travel_shopping_browse_template_003", "level": "template", "jpText": "Mサイズはありますか？", "koText": "M 사이즈 있어요?" },
+        { "id": "travel_shopping_browse_basic_001", "level": "basic", "jpText": "サイズ", "koText": "사이즈" },
+        { "id": "travel_shopping_browse_basic_002", "level": "basic", "jpText": "色", "koText": "색" },
+        { "id": "travel_shopping_browse_basic_003", "level": "basic", "jpText": "新商品", "koText": "신상품" },
+        { "id": "travel_shopping_browse_adv_001", "level": "advanced", "jpText": "これは人気商品ですか", "koText": "이건 인기 상품이에요" },
+        { "id": "travel_shopping_browse_adv_002", "level": "advanced", "jpText": "在庫を確認してもらえますか", "koText": "재고 확인해 주실 수 있어요" },
+        { "id": "travel_shopping_browse_sentence_001", "level": "sentence", "jpText": "ちょっと見ているだけです。", "koText": "그냥 구경하는 거예요." },
+        { "id": "travel_shopping_browse_sentence_002", "level": "sentence", "jpText": "これと同じ商品をもう一つください。", "koText": "이거랑 같은 거 하나 더 주세요." }
+      ]
+    },
+    {
+      "id": "travel_shopping_try",
+      "name": "試着・確認",
+      "description": "試着室での確認",
+      "patternId": "travel_shopping",
+      "entries": [
+        { "id": "travel_shopping_try_template_001", "level": "template", "jpText": "試着できますか？", "koText": "입어 볼 수 있어요?" },
+        { "id": "travel_shopping_try_template_002", "level": "template", "jpText": "少し大きいです。", "koText": "좀 커요." },
+        { "id": "travel_shopping_try_template_003", "level": "template", "jpText": "ぴったりです。", "koText": "딱 맞아요." },
+        { "id": "travel_shopping_try_basic_001", "level": "basic", "jpText": "試着室", "koText": "피팅룸" },
+        { "id": "travel_shopping_try_basic_002", "level": "basic", "jpText": "鏡", "koText": "거울" },
+        { "id": "travel_shopping_try_basic_003", "level": "basic", "jpText": "似合う", "koText": "어울리다" },
+        { "id": "travel_shopping_try_adv_001", "level": "advanced", "jpText": "もう一つ小さいサイズはありますか", "koText": "하나 더 작은 사이즈 있어요" },
+        { "id": "travel_shopping_try_adv_002", "level": "advanced", "jpText": "交換は可能ですか", "koText": "교환 가능해요" },
+        { "id": "travel_shopping_try_sentence_001", "level": "sentence", "jpText": "これにします。", "koText": "이걸로 할게요." },
+        { "id": "travel_shopping_try_sentence_002", "level": "sentence", "jpText": "やっぱりやめておきます。", "koText": "역시 안 할게요." }
+      ]
+    },
+    {
+      "id": "travel_shopping_pay",
+      "name": "支払い",
+      "description": "値引き交渉と免税",
+      "patternId": "travel_shopping",
+      "entries": [
+        { "id": "travel_shopping_pay_template_001", "level": "template", "jpText": "少し安くなりますか？", "koText": "좀 깎아 주세요." },
+        { "id": "travel_shopping_pay_template_002", "level": "template", "jpText": "免税になりますか？", "koText": "면세 돼요?" },
+        { "id": "travel_shopping_pay_template_003", "level": "template", "jpText": "カードで払います。", "koText": "카드로 계산할게요." },
+        { "id": "travel_shopping_pay_basic_001", "level": "basic", "jpText": "割引", "koText": "할인" },
+        { "id": "travel_shopping_pay_basic_002", "level": "basic", "jpText": "免税", "koText": "면세" },
+        { "id": "travel_shopping_pay_basic_003", "level": "basic", "jpText": "袋", "koText": "봉투" },
+        { "id": "travel_shopping_pay_adv_001", "level": "advanced", "jpText": "2つ買ったら割引ありますか", "koText": "2개 사면 할인돼요" },
+        { "id": "travel_shopping_pay_adv_002", "level": "advanced", "jpText": "免税手続きはどうすればいいですか", "koText": "면세 절차는 어떻게 해요" },
+        { "id": "travel_shopping_pay_sentence_001", "level": "sentence", "jpText": "プレゼント用に包装してください。", "koText": "선물용으로 포장해 주세요." },
+        { "id": "travel_shopping_pay_sentence_002", "level": "sentence", "jpText": "袋は要りません。", "koText": "봉투 필요 없어요." }
+      ]
+    }
+  ]
+}
