@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:forui/forui.dart';
 
 import '../../../features/writing/data/models/writing_models.dart';
 import '../../app_spacing.dart';
@@ -57,12 +56,9 @@ class TopicListScreen extends ConsumerWidget {
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
                   final topic = pattern.topics[index];
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: AppSpacing.md),
-                    child: _TopicCard(
-                      topic: topic,
-                      patternId: pattern.id,
-                    ),
+                  return _TopicCard(
+                    topic: topic,
+                    patternId: pattern.id,
                   );
                 },
                 childCount: pattern.topics.length,
@@ -78,7 +74,7 @@ class TopicListScreen extends ConsumerWidget {
   }
 }
 
-/// トピックカード
+/// コンパクトなトピック行
 class _TopicCard extends StatelessWidget {
   const _TopicCard({
     required this.topic,
@@ -91,52 +87,74 @@ class _TopicCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final itemCount = topic.entries.where((e) => e.level != EntryLevel.sentence).length;
 
-    return Card(
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(
+            color: theme.colorScheme.outlineVariant.withOpacity(0.5),
+          ),
+        ),
+      ),
       child: Padding(
-        padding: const EdgeInsets.all(AppSpacing.md),
+        padding: const EdgeInsets.symmetric(vertical: AppSpacing.md),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              topic.name,
-              style: theme.textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: AppSpacing.xs),
-            Text(
-              topic.description,
-              style: theme.textTheme.bodyMedium?.copyWith(
-                color: theme.colorScheme.onSurfaceVariant,
-              ),
-            ),
-            const SizedBox(height: AppSpacing.sm),
-            Text(
-              '${topic.entries.where((e) => e.level != EntryLevel.sentence).length}項目',
-              style: theme.textTheme.bodySmall?.copyWith(
-                color: theme.colorScheme.onSurfaceVariant,
-              ),
-            ),
-            const SizedBox(height: AppSpacing.md),
+            // 1行目: トピック名 + 項目数 + アクションアイコン
             Row(
               children: [
                 Expanded(
-                  child: FButton(
-                    style: FButtonStyle.primary(),
-                    onPress: () => _navigateToTypingPractice(context),
-                    child: const Text('タイピング練習'),
+                  child: Text(
+                    topic.name,
+                    style: theme.textTheme.titleSmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                // 項目数
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: AppSpacing.sm,
+                    vertical: 2,
+                  ),
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.surfaceContainerHighest,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Text(
+                    '$itemCount項',
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
                   ),
                 ),
                 const SizedBox(width: AppSpacing.sm),
-                Expanded(
-                  child: FButton(
-                    style: FButtonStyle.outline(),
-                    onPress: () => _navigateToListView(context),
-                    child: const Text('一覧で確認'),
-                  ),
+                // タイピング練習ボタン
+                _ActionIconButton(
+                  icon: Icons.keyboard,
+                  tooltip: 'タイピング練習',
+                  color: theme.colorScheme.primary,
+                  onTap: () => _navigateToTypingPractice(context),
+                ),
+                const SizedBox(width: AppSpacing.xs),
+                // 一覧確認ボタン
+                _ActionIconButton(
+                  icon: Icons.list_alt,
+                  tooltip: '一覧で確認',
+                  color: theme.colorScheme.secondary,
+                  onTap: () => _navigateToListView(context),
                 ),
               ],
+            ),
+            // 2行目: 説明
+            const SizedBox(height: AppSpacing.xs),
+            Text(
+              topic.description,
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: theme.colorScheme.onSurfaceVariant,
+              ),
             ),
           ],
         ),
@@ -161,6 +179,44 @@ class _TopicCard extends StatelessWidget {
         builder: (_) => ListViewScreen(
           patternId: patternId,
           topicId: topic.id,
+        ),
+      ),
+    );
+  }
+}
+
+/// アクションアイコンボタン
+class _ActionIconButton extends StatelessWidget {
+  const _ActionIconButton({
+    required this.icon,
+    required this.tooltip,
+    required this.color,
+    required this.onTap,
+  });
+
+  final IconData icon;
+  final String tooltip;
+  final Color color;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Tooltip(
+      message: tooltip,
+      child: Material(
+        color: color.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(8),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(8),
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: Icon(
+              icon,
+              size: 20,
+              color: color,
+            ),
+          ),
         ),
       ),
     );
