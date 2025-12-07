@@ -14,6 +14,7 @@ import '../../../features/typing/domain/providers/typing_session_provider.dart';
 import '../../../features/typing/domain/providers/typing_stats_provider.dart';
 import '../../../features/typing/domain/providers/typing_settings_provider.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
+import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
 import '../../widgets/app_page_scaffold.dart';
 import '../../widgets/page_state_views.dart';
 import '../../widgets/typing/input_feedback_widget.dart';
@@ -75,6 +76,17 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen>
           WidgetsBinding.instance.addPostFrameCallback((_) {
             ref.read(typingSessionProvider(widget.lessonId).notifier).start();
           });
+          // 最初の問題を自動再生
+          _speakCurrentItem(current);
+        }
+
+        // 問題が切り替わった時に自動再生
+        if (current != null &&
+            prevState != null &&
+            !current.isCompleted &&
+            (current.currentSectionIndex != prevState.currentSectionIndex ||
+                current.currentItemIndex != prevState.currentItemIndex)) {
+          _speakCurrentItem(current);
         }
 
         if (current != null &&
@@ -92,6 +104,7 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen>
         onSpace: _handleSpace,
         onEnter: _handleEnter,
         onOpenSettings: _openSettings,
+        onSpeak: _handleSpeak,
         settings: settings,
       ),
       loading: () => const AppPageScaffold(
@@ -140,6 +153,17 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen>
     ref
         .read(typingSessionProvider(widget.lessonId).notifier)
         .handleCharacter('\n');
+  }
+
+  void _handleSpeak(String text) {
+    ref.read(wordAudioServiceProvider.notifier).speak(text);
+  }
+
+  void _speakCurrentItem(TypingSessionState session) {
+    final currentSection =
+        session.lesson.content.sections[session.currentSectionIndex];
+    final currentItem = currentSection.items[session.currentItemIndex];
+    _handleSpeak(currentItem.text);
   }
 
   Future<void> _handleCompletion(TypingSessionState session) async {
@@ -242,6 +266,7 @@ class _LessonView extends StatelessWidget {
     required this.onSpace,
     required this.onEnter,
     required this.onOpenSettings,
+    required this.onSpeak,
     required this.settings,
   });
 
@@ -251,6 +276,7 @@ class _LessonView extends StatelessWidget {
   final VoidCallback onSpace;
   final VoidCallback onEnter;
   final VoidCallback onOpenSettings;
+  final void Function(String text) onSpeak;
   final TypingSettings settings;
 
   static const _doubleConsonants = {'ㄲ', 'ㄸ', 'ㅃ', 'ㅆ', 'ㅉ'};
@@ -322,6 +348,7 @@ class _LessonView extends StatelessWidget {
                         ),
                         fontSize: _getFontSize(currentSection.type),
                         showCharacterProgress: true,
+                        onSpeak: () => onSpeak(currentItem.text),
                       ),
                     ),
                   ],

@@ -133,7 +133,6 @@ class _TypingTabContent extends StatelessWidget {
           progress: progress,
           onLessonTap: onLessonTap,
         ),
-        const SizedBox(height: AppSpacing.lg),
         _StatsAccordion(
           controller: statsAccordionController,
           integratedStatsAsync: integratedStatsAsync,

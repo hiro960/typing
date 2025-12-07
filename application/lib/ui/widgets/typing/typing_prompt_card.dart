@@ -13,6 +13,7 @@ class TypingPromptCard extends StatelessWidget {
     this.completedCharCount,
     this.fontSize = 24,
     this.showCharacterProgress = false,
+    this.onSpeak,
   });
 
   /// 表示するメインテキスト（問題文/韓国語）
@@ -29,6 +30,9 @@ class TypingPromptCard extends StatelessWidget {
 
   /// 文字ごとの進捗表示を有効にするか
   final bool showCharacterProgress;
+
+  /// 音声再生コールバック - オプション
+  final VoidCallback? onSpeak;
 
   /// Jamo進捗から完了文字数を計算するヘルパー
   static int calculateCompletedCharCount(
@@ -80,7 +84,20 @@ class TypingPromptCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const SizedBox(height: 8),
+          if (onSpeak != null)
+            Align(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                icon: Icon(
+                  Icons.volume_up_outlined,
+                  color: colors.primary,
+                ),
+                onPressed: onSpeak,
+                tooltip: '音声を再生',
+              ),
+            )
+          else
+            const SizedBox(height: 8),
           _buildMainText(theme, colors),
           if (subText != null && subText!.isNotEmpty) ...[
             const SizedBox(height: 8),
