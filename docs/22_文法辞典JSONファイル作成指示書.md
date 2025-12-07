@@ -460,12 +460,7 @@
     /* fill_blank: 1問 */,
     /* choice: 1問 */,
     /* typing: 1問 */
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }
 ```
 

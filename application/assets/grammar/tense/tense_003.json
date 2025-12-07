@@ -78,10 +78,5 @@
       "answer": "곧 비가 올 거예요",
       "acceptableAnswers": ["곧 비가 올 거예요", "곧 비가 올 거예요."]
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

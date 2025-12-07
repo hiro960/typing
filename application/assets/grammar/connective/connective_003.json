@@ -81,10 +81,5 @@
       "acceptableAnswers": ["늦었으니까 빨리 가세요", "늦었으니까 빨리 가세요."],
       "hint": "遅い=늦다"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

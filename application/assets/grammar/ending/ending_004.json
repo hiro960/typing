@@ -24,6 +24,5 @@
     {"id": "ex_001", "type": "fill_blank", "question": "여기 좀 보___!", "answer": "세요", "hint": "注意を向けてもらう丁寧な呼びかけ", "explanation": "語幹+세요/으세요で丁寧に依頼します"},
     {"id": "ex_002", "type": "choice", "question": "「食べてください」に当たるのは？", "choices": ["먹어요", "먹으세요", "먹을까요", "먹지 마세요"], "answerIndex": 1, "explanation": "丁寧依頼は-(으)세요"},
     {"id": "ex_003", "type": "typing", "question": "「ゆっくり話してください」を韓国語で入力してください", "answer": "천천히 말씀하세요", "acceptableAnswers": ["천천히 말씀하세요", "천천히 말씀하세요."], "hint": "ゆっくり=천천히"}
-  ],
-  "metadata": {"createdAt": "2025-12-07T00:00:00Z", "updatedAt": "2025-12-07T00:00:00Z", "version": "1.0.0"}
+  ]
 }

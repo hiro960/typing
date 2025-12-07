@@ -23,6 +23,5 @@
     {"id": "ex_001", "type": "fill_blank", "question": "문을 열___ 마세요.", "answer": "지", "hint": "動詞語幹＋지 마세요", "explanation": "禁止のときは-지 마세요を付けます"},
     {"id": "ex_002", "type": "choice", "question": "「ここで写真を撮らないでください」の正しい文は？", "choices": ["여기서 사진 찍지 마세요.", "여기서 사진 찍지 않아요.", "여기서 사진 찍어요.", "여기서 사진 찍습니까?"], "answerIndex": 0, "explanation": "禁止は-지 마세요"},
     {"id": "ex_003", "type": "typing", "question": "「遅れないでください」を韓国語で入力してください", "answer": "늦지 마세요", "acceptableAnswers": ["늦지 마세요", "늦지 마세요."], "hint": "遅れる=늦다"}
-  ],
-  "metadata": {"createdAt": "2025-12-07T00:00:00Z", "updatedAt": "2025-12-07T00:00:00Z", "version": "1.0.0"}
+  ]
 }

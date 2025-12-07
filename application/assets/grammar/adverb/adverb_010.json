@@ -127,10 +127,5 @@
       "acceptableAnswers": ["여유 시간이 전혀 없어요", "여유 시간이 전혀 없습니다"],
       "explanation": "存在の否定には 전혀 + 없다 を使います。"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

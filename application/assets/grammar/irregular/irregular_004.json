@@ -119,10 +119,5 @@
       "acceptableAnswers": ["짓는 집이 멋있어요", "짓는 집이 멋있습니다"],
       "explanation": "連体形では ㅅ が残って 짓는 を用います。"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

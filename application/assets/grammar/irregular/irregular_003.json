@@ -119,10 +119,5 @@
       "acceptableAnswers": ["어제 하늘이 참 파랬어요", "어제 하늘이 아주 파랬어요"],
       "explanation": "過去でも ㅎ は脱落して 파랬어요 となります。"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

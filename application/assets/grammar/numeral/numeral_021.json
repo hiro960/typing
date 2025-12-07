@@ -85,10 +85,5 @@
       "acceptableAnswers": ["몇 살이에요?", "몇 살이에요", "몇살이에요?"],
       "hint": "몇 + 살"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

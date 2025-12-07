@@ -23,6 +23,5 @@
     {"id": "ex_001", "type": "fill_blank", "question": "저는 아직 운전을 하__ 못해요.", "answer": "지", "hint": "語幹+지 못하다", "explanation": "不可能の丁寧表現です"},
     {"id": "ex_002", "type": "choice", "question": "「時間がなくて一緒に行けません」の丁寧表現は？", "choices": ["시간이 없어서 같이 못 가요.", "시간이 없어서 같이 가지 못해요.", "시간이 없어서 같이 가지 않아요.", "全部正しいが丁寧なのは2"], "answerIndex": 3, "explanation": "-지 못해요が丁寧"},
     {"id": "ex_003", "type": "typing", "question": "「私はまだ泳げません」を韓国語で入力してください", "answer": "저는 아직 수영을 하지 못해요", "acceptableAnswers": ["저는 아직 수영을 하지 못해요", "저는 아직 수영을 하지 못해요."]}
-  ],
-  "metadata": {"createdAt": "2025-12-07T00:00:00Z", "updatedAt": "2025-12-07T00:00:00Z", "version": "1.0.0"}
+  ]
 }

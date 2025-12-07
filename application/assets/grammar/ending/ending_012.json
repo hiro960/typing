@@ -23,6 +23,5 @@
     {"id": "ex_001", "type": "fill_blank", "question": "저는 술을 마시__ 않아요.", "answer": "지", "hint": "語幹+지 않다", "explanation": "丁寧に否定するときは-지 않다を使います"},
     {"id": "ex_002", "type": "choice", "question": "「簡単ではありません」を選びなさい", "choices": ["쉽지 않아요", "안 쉬워요", "쉽지 않습니다", "1と3が丁寧"], "answerIndex": 3, "explanation": "丁寧体はいずれも可"},
     {"id": "ex_003", "type": "typing", "question": "「私は肉を食べません」を韓国語で入力してください", "answer": "저는 고기를 먹지 않아요", "acceptableAnswers": ["저는 고기를 먹지 않아요", "저는 고기를 먹지 않아요."]}
-  ],
-  "metadata": {"createdAt": "2025-12-07T00:00:00Z", "updatedAt": "2025-12-07T00:00:00Z", "version": "1.0.0"}
+  ]
 }

@@ -77,10 +77,5 @@
       "acceptableAnswers": ["같이 가자", "같이가자"],
       "hint": "勧誘で-자を使います"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

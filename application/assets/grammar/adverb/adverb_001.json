@@ -120,10 +120,5 @@
       "acceptableAnswers": ["발표를 아주 잘했어요", "발표를 아주 잘했습니다"],
       "explanation": "아주 で程度を強め、잘하다 を過去形にします。"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

@@ -23,6 +23,5 @@
     {"id": "ex_001", "type": "fill_blank", "question": "제가 전화할___요.", "answer": "게", "hint": "意志・約束を表す", "explanation": "語幹+ㄹ게요/을게요で「〜しますね」"},
     {"id": "ex_002", "type": "choice", "question": "「今すぐ行きますね」に対応するのは？", "choices": ["지금 바로 가요.", "지금 바로 갈게요.", "지금 바로 갈까요?", "지금 바로 갔어요."], "answerIndex": 1, "explanation": "意志を伝えるので-ㄹ게요を使用"},
     {"id": "ex_003", "type": "typing", "question": "「必要ならもっと持ってきますよ」を韓国語で入力してください", "answer": "필요하면 더 가져올게요", "acceptableAnswers": ["필요하면 더 가져올게요", "필요하면 더 가져올게요."], "hint": "必要なら=필요하면"}
-  ],
-  "metadata": {"createdAt": "2025-12-07T00:00:00Z", "updatedAt": "2025-12-07T00:00:00Z", "version": "1.0.0"}
+  ]
 }

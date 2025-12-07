@@ -12,7 +12,6 @@ class GrammarDetail {
     required this.tags,
     required this.content,
     required this.exercises,
-    this.metadata,
   });
 
   final String id;
@@ -23,7 +22,6 @@ class GrammarDetail {
   final List<String> tags;
   final GrammarContent content;
   final List<GrammarExercise> exercises;
-  final GrammarMetadata? metadata;
 
   factory GrammarDetail.fromJson(Map<String, dynamic> json) {
     final categoryStr = json['category'] as String? ?? 'particle';
@@ -31,7 +29,6 @@ class GrammarDetail {
     final tagsJson = json['tags'] as List<dynamic>? ?? const [];
     final contentJson = json['content'] as Map<String, dynamic>? ?? const {};
     final exercisesJson = json['exercises'] as List<dynamic>? ?? const [];
-    final metadataJson = json['metadata'] as Map<String, dynamic>?;
 
     return GrammarDetail(
       id: json['id'] as String? ?? '',
@@ -46,9 +43,6 @@ class GrammarDetail {
           .whereType<Map<String, dynamic>>()
           .map(GrammarExercise.fromJson)
           .toList(),
-      metadata: metadataJson != null
-          ? GrammarMetadata.fromJson(metadataJson)
-          : null,
     );
   }
 }
@@ -215,34 +209,6 @@ class ComparisonExample {
       grammarB: json['grammarB'] as String? ?? '',
       sentenceB: json['sentenceB'] as String? ?? '',
       meaningB: json['meaningB'] as String? ?? '',
-    );
-  }
-}
-
-/// 文法メタデータ
-class GrammarMetadata {
-  const GrammarMetadata({
-    required this.createdAt,
-    required this.updatedAt,
-    required this.version,
-  });
-
-  final DateTime createdAt;
-  final DateTime updatedAt;
-  final String version;
-
-  factory GrammarMetadata.fromJson(Map<String, dynamic> json) {
-    final createdAtStr = json['createdAt'] as String?;
-    final updatedAtStr = json['updatedAt'] as String?;
-
-    return GrammarMetadata(
-      createdAt:
-          DateTime.tryParse(createdAtStr ?? '') ??
-          DateTime.fromMillisecondsSinceEpoch(0),
-      updatedAt:
-          DateTime.tryParse(updatedAtStr ?? '') ??
-          DateTime.fromMillisecondsSinceEpoch(0),
-      version: json['version'] as String? ?? '1.0.0',
     );
   }
 }

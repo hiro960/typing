@@ -69,10 +69,5 @@
       "answer": "사장님 계세요?",
       "acceptableAnswers": ["사장님 계세요?", "사장님 계세요"]
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

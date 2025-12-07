@@ -127,10 +127,5 @@
       "acceptableAnswers": ["렌터카를 두 대 예약했어요", "렌터카 두 대를 예약했어요"],
       "explanation": "台数を示す 대 を数詞と一緒に置きます。"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

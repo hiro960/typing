@@ -127,10 +127,5 @@
       "acceptableAnswers": ["티켓을 몇 장 예매해야 돼요?", "티켓을 몇 장 사야 돼요?"],
       "explanation": "疑問形は 몇 장 で「何枚」です。"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

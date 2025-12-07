@@ -80,10 +80,5 @@
       "acceptableAnswers": ["동생의 친구", "동생의 친구."],
       "hint": "弟=동생、友達=친구"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

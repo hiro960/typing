@@ -124,10 +124,5 @@
       "acceptableAnswers": ["지금 한국어를 공부해요", "지금 한국어를 공부하고 있어요"],
       "explanation": "하다 の丁寧形は 해요 になります。"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

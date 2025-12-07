@@ -127,10 +127,5 @@
       "acceptableAnswers": ["신발을 몇 켤레 가져가요?", "신발 몇 켤레를 가져가요?"],
       "explanation": "何足か尋ねるときは 몇 켤레 を用います。"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

@@ -124,10 +124,5 @@
       "acceptableAnswers": ["지금 사는 집이 어때요", "지금 사는 집이 어때요?"],
       "explanation": "連体形で ㄹ を落とし 사는 を使います。"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

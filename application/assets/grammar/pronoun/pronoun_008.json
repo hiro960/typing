@@ -127,10 +127,5 @@
       "acceptableAnswers": ["저런 경험이 도움이 될 거예요", "저런 경험이 도움이 될 거에요"],
       "explanation": "遠い・話外の事例には 저런 を使います。"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

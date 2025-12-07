@@ -128,10 +128,5 @@
       "acceptableAnswers": ["어제는 몰랐어요", "어제는 전혀 몰랐어요"],
       "explanation": "모르다 の過去形も ㄹ を足した形で活用します。"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

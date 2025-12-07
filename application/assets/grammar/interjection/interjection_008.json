@@ -71,10 +71,5 @@
       "acceptableAnswers": ["우와, 경치가 정말 예쁘네요", "와, 경치가 정말 예쁘네요"],
       "hint": "景色=경치"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

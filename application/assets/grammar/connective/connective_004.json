@@ -81,10 +81,5 @@
       "acceptableAnswers": ["시간이 있으면 같이 가요", "시간이 있으면 같이 가요."],
       "hint": "一緒に=같이"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

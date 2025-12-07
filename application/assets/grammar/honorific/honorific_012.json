@@ -77,10 +77,5 @@
       "answer": "저는 회사원입니다",
       "acceptableAnswers": ["저는 회사원입니다", "저는 회사원입니다."]
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

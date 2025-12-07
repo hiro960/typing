@@ -76,10 +76,5 @@
       "acceptableAnswers": ["저는 의사가 아니에요", "저는 의사가 아니에요."],
       "hint": "医者=의사"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

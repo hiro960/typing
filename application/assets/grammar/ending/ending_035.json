@@ -80,10 +80,5 @@
       "answer": "저는 집에서 쉴래요",
       "acceptableAnswers": ["저는 집에서 쉴래요", "저는 집에서 쉴래요."]
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

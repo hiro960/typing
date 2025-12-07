@@ -85,10 +85,5 @@
       "acceptableAnswers": ["매일 운동해요", "매일 운동해요."],
       "hint": "運動=운동하다 → 운동해요"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

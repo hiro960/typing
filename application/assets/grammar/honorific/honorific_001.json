@@ -85,10 +85,5 @@
       "answer": "어디에서 일하세요?",
       "acceptableAnswers": ["어디에서 일하세요?", "어디에서 일하세요"]
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

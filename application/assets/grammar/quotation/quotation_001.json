@@ -85,10 +85,5 @@
       "acceptableAnswers": ["내일 간다고 했어요", "내일 간다고 했어요."],
       "hint": "行く=가다 → 간다고"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

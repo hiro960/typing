@@ -120,10 +120,5 @@
       "acceptableAnswers": ["항상 건강하시길 바랍니다", "항상 건강하세요"],
       "explanation": "祈願文では 바랍니다 と合わせて使われます。"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

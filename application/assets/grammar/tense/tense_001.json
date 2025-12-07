@@ -85,10 +85,5 @@
       "answer": "그는 매일 운동한다",
       "acceptableAnswers": ["그는 매일 운동한다", "그는 매일 운동한다."]
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

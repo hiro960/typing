@@ -123,10 +123,5 @@
       "acceptableAnswers": ["오늘은 게임하지 말자", "오늘은 게임하지 말아요"],
       "explanation": "勧誘を止めるときは -지 말자。"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

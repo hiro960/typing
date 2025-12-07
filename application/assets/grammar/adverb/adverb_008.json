@@ -120,10 +120,5 @@
       "acceptableAnswers": ["항상은 아니고 가끔 가요", "항상은 아니고 가끔 가요."],
       "explanation": "항상 と対比させる典型表現です。"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

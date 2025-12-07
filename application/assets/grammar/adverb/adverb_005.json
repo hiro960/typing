@@ -124,10 +124,5 @@
       "acceptableAnswers": ["좀 기다려 주세요", "조금만 기다려 주세요"],
       "explanation": "依頼を柔らかくするために 좀/조금 を前に置きます。"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

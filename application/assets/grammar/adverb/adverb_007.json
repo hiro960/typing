@@ -120,10 +120,5 @@
       "acceptableAnswers": ["요즘은 자주 못 만나요", "요즘은 자주 만나지 못해요"],
       "explanation": "否定と合わせて頻度が下がったことを表します。"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

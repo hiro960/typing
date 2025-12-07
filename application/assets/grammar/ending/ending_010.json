@@ -24,6 +24,5 @@
     {"id": "ex_001", "type": "fill_blank", "question": "오늘까지 보고서를 내___ 해요.", "answer": "야", "hint": "義務を表す", "explanation": "語幹+아/어야 하다で「〜しなければならない」"},
     {"id": "ex_002", "type": "choice", "question": "「薬を飲まなければなりません」の正しい文は？", "choices": ["약을 먹어야 해요.", "약을 먹어요.", "약을 먹으면 돼요.", "약을 먹을까요?"], "answerIndex": 0, "explanation": "義務を表すには-아/어야 하다"},
     {"id": "ex_003", "type": "typing", "question": "「宿題をしなければなりません」を韓国語で入力してください", "answer": "숙제를 해야 해요", "acceptableAnswers": ["숙제를 해야 해요", "숙제를 해야 해요.", "숙제를 해야 돼요"]}
-  ],
-  "metadata": {"createdAt": "2025-12-07T00:00:00Z", "updatedAt": "2025-12-07T00:00:00Z", "version": "1.0.0"}
+  ]
 }

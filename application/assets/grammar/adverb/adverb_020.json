@@ -127,10 +127,5 @@
       "acceptableAnswers": ["거의 두 시간이나 걸렸어요", "거의 두 시간이 걸렸어요"],
       "explanation": "時間の近似には 거의 + 数詞 + 시간 を使います。"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

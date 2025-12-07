@@ -23,6 +23,5 @@
     {"id": "ex_001", "type": "fill_blank", "question": "저는 한국에 가__ 싶어요.", "answer": "고", "hint": "語幹+고 싶어요", "explanation": "願望は動詞語幹に고 싶다を付けます"},
     {"id": "ex_002", "type": "choice", "question": "第三者の願望を表すのに正しいのは？", "choices": ["-고 싶다", "-고 싶어하다", "-고 싶어요", "-고 싶겠다"], "answerIndex": 1, "explanation": "第三者は-고 싶어하다を使います"},
     {"id": "ex_003", "type": "typing", "question": "「韓国に行きたいです」を韓国語で入力してください", "answer": "한국에 가고 싶어요", "acceptableAnswers": ["한국에 가고 싶어요", "한국에 가고 싶어요."]}
-  ],
-  "metadata": {"createdAt": "2025-12-07T00:00:00Z", "updatedAt": "2025-12-07T00:00:00Z", "version": "1.0.0"}
+  ]
 }

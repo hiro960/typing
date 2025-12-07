@@ -23,6 +23,5 @@
     {"id": "ex_001", "type": "fill_blank", "question": "저녁에 뭐 먹을___?", "answer": "까요", "hint": "提案・疑問の語尾", "explanation": "提案するときは-(으)ㄹ까요?を使います"},
     {"id": "ex_002", "type": "choice", "question": "「一緒に映画を見ましょうか？」の正しい文は？", "choices": ["영화를 볼까요?", "영화를 봅시다", "영화를 봐요?", "영화를 봅니다"], "answerIndex": 0, "explanation": "提案疑問形-(으)ㄹ까요?"},
     {"id": "ex_003", "type": "typing", "question": "「明日雨が降るでしょうか」を韓国語で入力してください", "answer": "내일 비가 올까요?", "acceptableAnswers": ["내일 비가 올까요?", "내일 비가 올까요"]}
-  ],
-  "metadata": {"createdAt": "2025-12-07T00:00:00Z", "updatedAt": "2025-12-07T00:00:00Z", "version": "1.0.0"}
+  ]
 }

@@ -85,10 +85,5 @@
       "acceptableAnswers": ["집에 있어요", "집에 있어요.", "집에있어요"],
       "hint": "家=집、いる=있다"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

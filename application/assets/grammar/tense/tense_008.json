@@ -77,10 +77,5 @@
       "answer": "친절했던 선생님",
       "acceptableAnswers": ["친절했던 선생님", "친절했던 선생님."]
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }

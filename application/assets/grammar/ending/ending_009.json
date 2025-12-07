@@ -23,6 +23,5 @@
     {"id": "ex_001", "type": "fill_blank", "question": "저는 수영을 할 ___ 있어요.", "answer": "수", "hint": "可能を表す 수 있다", "explanation": "語幹+(으)ㄹ 수 있다で「〜できる」"},
     {"id": "ex_002", "type": "choice", "question": "「時間がなくて行けません」の正しい文は？", "choices": ["시간이 없어서 갈 수 없어요.", "시간이 없어서 갈 수 있어요.", "시간이 없어서 갈 거예요.", "時間と関係なく行けません"], "answerIndex": 0, "explanation": "可能表現の否定は갈 수 없어요"},
     {"id": "ex_003", "type": "typing", "question": "「私は泳ぐことができます」を韓国語で入力してください", "answer": "저는 수영을 할 수 있어요", "acceptableAnswers": ["저는 수영을 할 수 있어요", "저는 수영을 할 수 있어요."]}
-  ],
-  "metadata": {"createdAt": "2025-12-07T00:00:00Z", "updatedAt": "2025-12-07T00:00:00Z", "version": "1.0.0"}
+  ]
 }

@@ -124,10 +124,5 @@
       "acceptableAnswers": ["저는 커피를 별로 안 마셔요", "커피는 별로 안 마셔요"],
       "explanation": "별로 + 안/지 않다 でやわらかい否定を作ります。"
     }
-  ],
-  "metadata": {
-    "createdAt": "2025-12-07T00:00:00Z",
-    "updatedAt": "2025-12-07T00:00:00Z",
-    "version": "1.0.0"
-  }
+  ]
 }
