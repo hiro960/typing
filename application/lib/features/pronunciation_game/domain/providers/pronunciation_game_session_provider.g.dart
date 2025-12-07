@@ -69,7 +69,7 @@ final class PronunciationGameSessionProvider
 }
 
 String _$pronunciationGameSessionHash() =>
-    r'7c9ab137514cd74ad38f8e0d2250b0dcb63900c3';
+    r'93d95dbad3c21d3254e21023c381963367394912';
 
 /// 発音ゲームセッションプロバイダー
 

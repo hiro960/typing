@@ -47,6 +47,8 @@ class EnvConfig {
   /// OpenAI API KR->JP Prompt Version
   static String get openAiKrJpPromptVersion => dotenv.env['OPENAI_KR_JP_PROMPT_VERSION'] ?? '';
 
+  /// DeepL API Key
+  static String get deeplApiKey => dotenv.env['DEEPL_API'] ?? '';
 
   /// 環境変数の検証
   /// 必要な環境変数が設定されているかチェック

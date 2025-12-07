@@ -1,3 +1,4 @@
+import 'package:chaletta/ui/widgets/modern_text_input.dart';
 import 'package:chaletta/ui/widgets/premium_feature_gate.dart';
 import 'package:chaletta/ui/widgets/section_title.dart';
 import 'package:chaletta/ui/widgets/shimmer_loading.dart';
@@ -9,6 +10,8 @@ import '../../../features/auth/data/models/user_model.dart';
 import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/exchange_rate/data/models/exchange_rate_model.dart';
 import '../../../features/exchange_rate/domain/providers/exchange_rate_providers.dart';
+import '../../../features/translation/data/models/translation_model.dart';
+import '../../../features/translation/domain/providers/translation_providers.dart';
 import '../../../features/lessons/data/models/lesson_index.dart'
     as lesson_index;
 import '../../../features/lessons/data/models/lesson_models.dart';
@@ -25,6 +28,7 @@ import '../../utils/toast_helper.dart';
 import '../../widgets/app_page_scaffold.dart';
 import '../typing/lesson_detail_screen.dart';
 import '../ai_teacher_screen.dart';
+import '../wordbook/word_form_screen.dart';
 import '../writing/topic_list_screen.dart';
 import '../../widgets/ai_gradient_button.dart';
 import '../../../features/ranking_game/presentation/widgets/ranking_game_section.dart';
@@ -35,6 +39,7 @@ part 'home_stat_highlights.dart';
 part 'home_level_accordions.dart';
 part 'home_writing_accordions.dart';
 part 'home_exchange_rate.dart';
+part 'home_translation_card.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key, required this.onOpenSettings});
@@ -165,6 +170,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     ),
                     const SizedBox(height: AppSpacing.sm),
                     const _ExchangeRateCard(),
+                    const SizedBox(height: AppSpacing.xl),
+                    const SectionTitle(
+                      iconData: Icons.translate,
+                      text: '翻訳',
+                    ),
+                    const SizedBox(height: AppSpacing.sm),
+                    const _TranslationCard(),
                     const SizedBox(height: AppSpacing.xl),
                     const SectionTitle(
                       iconData: Icons.keyboard,
