@@ -1,0 +1,134 @@
+{
+  "id": "grm_substantive_017",
+  "title": "열하나, 스물...",
+  "subtitle": "固有数詞（11〜99）",
+  "category": "substantive",
+  "level": "beginner",
+  "tags": [
+    "固有数詞"
+  ],
+  "content": {
+    "summary": "固有数詞で11〜99を表すときの形です。日常的な個数や年齢、時間の「〜時」などで使います。",
+    "formationRules": [
+      {
+        "condition": "11〜19",
+        "form": "열 + 하나/둘/셋/넷...",
+        "example": "열둘 (12)"
+      },
+      {
+        "condition": "十の位の語形",
+        "form": "스물(20), 서른(30), 마흔(40), 쉰(50), 예순(60), 일흔(70), 여든(80), 아흔(90)",
+        "example": "서른다섯 (35)"
+      },
+      {
+        "condition": "組み合わせ",
+        "form": "十の位 + 一の位（続けて書く）",
+        "example": "스물여덟 (28)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "個数を言う",
+        "description": "11以上の物の数も固有数詞で数え、助数詞と合わせます。",
+        "examples": [
+          {
+            "korean": "사과 열두 개 있어요.",
+            "japanese": "りんごが12個あります。"
+          },
+          {
+            "korean": "책이 스물세 권이에요.",
+            "japanese": "本が23冊です。"
+          }
+        ]
+      },
+      {
+        "title": "年齢を言う",
+        "description": "年齢は固有数詞で言うのが自然です。",
+        "examples": [
+          {
+            "korean": "저는 스무 살이에요.",
+            "japanese": "私は20歳です。"
+          },
+          {
+            "korean": "형은 서른한 살이에요.",
+            "japanese": "兄は31歳です。"
+          }
+        ]
+      },
+      {
+        "title": "時刻を言う",
+        "description": "「〜時」には11以降も固有数詞を用います。",
+        "examples": [
+          {
+            "korean": "열한 시에 만나요.",
+            "japanese": "11時に会いましょう。"
+          },
+          {
+            "korean": "여덟 시 오 분에 출발해요.",
+            "japanese": "8時5分に出発します。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "漢数詞との使い分け",
+      "description": "時刻や年齢などは固有数詞、日付・分・金額・住所番号などは漢数詞を使うのが一般的です。",
+      "examples": [
+        {
+          "grammarA": "固有数詞",
+          "sentenceA": "열두 시에 점심을 먹어요.",
+          "meaningA": "12時に昼ごはんを食べます。（時刻は固有数詞）",
+          "grammarB": "漢数詞",
+          "sentenceB": "점심은 12,000원이에요.",
+          "meaningB": "昼食は12,000ウォンです。（金額は漢数詞）"
+        }
+      ]
+    },
+    "tips": [
+      "20はス물ですが助数詞の前では 스무 になります。",
+      "1〜4は助数詞の前で短くなるので grm_substantive_018 も確認しましょう。",
+      "11以上でも時刻の「〜시」は固有数詞、分は漢数詞で表します。"
+    ],
+    "relatedGrammar": [
+      "grm_substantive_016",
+      "grm_substantive_018",
+      "grm_substantive_019",
+      "grm_substantive_031",
+      "grm_substantive_036"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "저는 스무 ___이에요.",
+      "answer": "살",
+      "hint": "年齢を言うときは固有数詞＋살を使います。",
+      "explanation": "20歳はス무 살と表し、살は固有数詞とセットで使います。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「りんごを15個ください」に最も自然なものは?",
+      "choices": [
+        "사과 열다섯 개 주세요.",
+        "사과 십오 개 주세요.",
+        "사과 열다섯 권 주세요.",
+        "사과 스물다섯 개 주세요."
+      ],
+      "answerIndex": 0,
+      "explanation": "個数は固有数詞＋개で数え、15は 열다섯 を使います。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「11時に会いましょう」を韓国語で入力してください",
+      "answer": "열한 시에 만나요",
+      "acceptableAnswers": [
+        "열한 시에 만나요",
+        "열한 시에 만나요."
+      ],
+      "hint": "時刻の時間は固有数詞＋시です。"
+    }
+  ]
+}

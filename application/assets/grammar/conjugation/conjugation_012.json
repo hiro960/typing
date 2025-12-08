@@ -1,0 +1,157 @@
+{
+  "id": "grm_conjugation_012",
+  "title": "어간과 어미",
+  "subtitle": "語幹・語尾・接尾辞",
+  "category": "conjugation",
+  "level": "beginner",
+  "tags": ["語幹", "語尾", "接尾辞", "基本"],
+  "content": {
+    "summary": "韓国語の用言は語幹と語尾に分けられます。語幹は意味を担う不変の部分、語尾は文法的機能を持つ変化する部分です。語幹と語尾の間に接尾辞が入ることもあります。",
+    "formationRules": [
+      {
+        "condition": "語幹（어간）",
+        "form": "用言から다を取った部分",
+        "example": "먹다 → 먹（語幹）"
+      },
+      {
+        "condition": "語尾（어미）",
+        "form": "語幹の後に付く活用部分",
+        "example": "먹 + 는다 → 먹는다"
+      },
+      {
+        "condition": "接尾辞（접미사）",
+        "form": "語幹と語尾の間に入る要素",
+        "example": "먹 + 었 + 다 → 먹었다（過去）"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "語幹の抽出",
+        "description": "基本形から「다」を取り除くと語幹になります",
+        "examples": [
+          {
+            "korean": "가다 → 가",
+            "japanese": "行く → 語幹「가」"
+          },
+          {
+            "korean": "먹다 → 먹",
+            "japanese": "食べる → 語幹「먹」"
+          },
+          {
+            "korean": "예쁘다 → 예쁘",
+            "japanese": "きれいだ → 語幹「예쁘」"
+          }
+        ]
+      },
+      {
+        "title": "終結語尾",
+        "description": "文を終わらせる語尾です",
+        "examples": [
+          {
+            "korean": "가 + ㄴ다 → 간다",
+            "japanese": "行く（平叙形）"
+          },
+          {
+            "korean": "먹 + 어요 → 먹어요",
+            "japanese": "食べます（丁寧形）"
+          },
+          {
+            "korean": "가 + 자 → 가자",
+            "japanese": "行こう（勧誘形）"
+          }
+        ]
+      },
+      {
+        "title": "連結語尾",
+        "description": "文と文を繋ぐ語尾です",
+        "examples": [
+          {
+            "korean": "먹 + 고 → 먹고",
+            "japanese": "食べて（並列）"
+          },
+          {
+            "korean": "가 + 면 → 가면",
+            "japanese": "行けば（条件）"
+          },
+          {
+            "korean": "예쁘 + 니까 → 예쁘니까",
+            "japanese": "きれいだから（理由）"
+          }
+        ]
+      },
+      {
+        "title": "接尾辞の例",
+        "description": "時制や尊敬などを表す接尾辞が語幹と語尾の間に入ります",
+        "examples": [
+          {
+            "korean": "먹 + 었 + 다 → 먹었다",
+            "japanese": "食べた（過去接尾辞 -었-）"
+          },
+          {
+            "korean": "가 + 시 + 다 → 가시다",
+            "japanese": "いらっしゃる（尊敬接尾辞 -시-）"
+          },
+          {
+            "korean": "먹 + 겠 + 다 → 먹겠다",
+            "japanese": "食べるつもりだ（意志接尾辞 -겠-）"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "語尾の種類",
+      "description": "語尾は終結語尾・連結語尾・転成語尾の3種類に大別されます",
+      "examples": [
+        {
+          "grammarA": "終結語尾",
+          "sentenceA": "먹는다, 먹어요, 먹자",
+          "meaningA": "文を終わらせる",
+          "grammarB": "連結語尾",
+          "sentenceB": "먹고, 먹으면, 먹으니까",
+          "meaningB": "文を繋げる"
+        }
+      ]
+    },
+    "tips": [
+      "語幹は意味を持ち、語尾は文法的機能を持ちます",
+      "接尾辞は複数重ねて使うことができます（例：먹으셨어요）",
+      "語尾には「先語末語尾」と「語末語尾」があります",
+      "転成語尾は用言を名詞や副詞に変える機能があります"
+    ],
+    "relatedGrammar": ["grm_conjugation_011", "grm_conjugation_013", "grm_conjugation_014"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "「보다」の語幹は___です。",
+      "answer": "보",
+      "hint": "基本形から「다」を取り除きます",
+      "explanation": "「보다（見る）」から「다」を取ると語幹「보」になります"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「먹었다」で過去を表す接尾辞はどれですか？",
+      "choices": ["먹", "었", "다", "먹었"],
+      "answerIndex": 1,
+      "explanation": "「었」が過去を表す接尾辞です"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「가시다」で尊敬を表す接尾辞はどれですか？",
+      "choices": ["가", "시", "다", "가시"],
+      "answerIndex": 1,
+      "explanation": "「시」が尊敬を表す接尾辞です"
+    },
+    {
+      "id": "ex_004",
+      "type": "fill_blank",
+      "question": "「읽다」の語幹は___です。",
+      "answer": "읽",
+      "hint": "基本形から「다」を取り除きます",
+      "explanation": "「읽다（読む）」から「다」を取ると語幹「읽」になります"
+    }
+  ]
+}

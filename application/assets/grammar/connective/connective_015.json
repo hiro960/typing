@@ -96,7 +96,7 @@
       "回想の語感があるため、現在の事実には直接使いません。",
       "意外性を出すときはイントネーションを上げて前件を提示します。"
     ],
-    "relatedGrammar": ["grm_connective_019", "grm_ending_029", "grm_tense_012"]
+    "relatedGrammar": ["grm_connective_019", "grm_sentence_ending_009", "grm_adnominal_006"]
   },
   "exercises": [
     {
@@ -148,4 +148,3 @@
     }
   ]
 }
-

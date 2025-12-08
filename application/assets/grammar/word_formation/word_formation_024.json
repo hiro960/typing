@@ -1,0 +1,145 @@
+{
+  "id": "grm_word_formation_024",
+  "title": "파생 명사",
+  "subtitle": "用言から派生した名詞",
+  "category": "word_formation",
+  "level": "intermediate",
+  "tags": ["派生名詞", "名詞化"],
+  "content": {
+    "summary": "動詞や形容詞から様々な接尾辞を使って名詞を派生させます。-이、-개、-음/-ㅁ、-기など複数の方法があり、それぞれ意味や用法が異なります。語彙力を増やすために重要な知識です。",
+    "formationRules": [
+      {
+        "condition": "-이 を使う場合",
+        "form": "語幹 + 이",
+        "example": "먹다 → 먹이（餌）、높다 → 높이（高さ）"
+      },
+      {
+        "condition": "-개 を使う場合",
+        "form": "語幹 + 개",
+        "example": "덮다 → 덮개（覆い）、지우다 → 지우개（消しゴム）"
+      },
+      {
+        "condition": "-음/-ㅁ を使う場合",
+        "form": "語幹 + 음/ㅁ",
+        "example": "걷다 → 걸음（歩み）、꾸다 → 꿈（夢）"
+      },
+      {
+        "condition": "-기 を使う場合",
+        "form": "語幹 + 기",
+        "example": "읽다 → 읽기（読むこと/リーディング）"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "-이 による派生（行為者・結果）",
+        "description": "動作を行う人や物、動作の結果を表します",
+        "examples": [
+          {
+            "korean": "강아지에게 먹이를 줬어요.",
+            "japanese": "子犬に餌をあげました。"
+          },
+          {
+            "korean": "이 건물의 높이가 100미터예요.",
+            "japanese": "この建物の高さは100メートルです。"
+          },
+          {
+            "korean": "넓이를 계산했어요.",
+            "japanese": "広さを計算しました。"
+          }
+        ]
+      },
+      {
+        "title": "-개 による派生（道具）",
+        "description": "動作を行うための道具を表します",
+        "examples": [
+          {
+            "korean": "지우개로 지웠어요.",
+            "japanese": "消しゴムで消しました。"
+          },
+          {
+            "korean": "병따개가 필요해요.",
+            "japanese": "栓抜きが必要です。"
+          },
+          {
+            "korean": "베개가 너무 높아요.",
+            "japanese": "枕が高すぎます。"
+          }
+        ]
+      },
+      {
+        "title": "不規則な派生",
+        "description": "規則に従わない特殊な派生名詞もあります",
+        "examples": [
+          {
+            "korean": "그림을 그렸어요.",
+            "japanese": "絵を描きました。"
+          },
+          {
+            "korean": "마음이 아파요.",
+            "japanese": "心が痛いです。"
+          },
+          {
+            "korean": "바람이 불어요.",
+            "japanese": "風が吹いています。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "接尾辞による意味の違い",
+      "description": "同じ語幹でも接尾辞によって意味が変わることがあります。",
+      "examples": [
+        {
+          "grammarA": "-이",
+          "sentenceA": "높이 (높다 + 이)",
+          "meaningA": "高さ（測定可能な数値）",
+          "grammarB": "-음",
+          "sentenceB": "높음 (높다 + 음)",
+          "meaningB": "高いこと（状態の名詞化）"
+        }
+      ]
+    },
+    "tips": [
+      "-이は結果や程度を表す名詞を作ることが多いです",
+      "-개は道具を表す名詞を作ります",
+      "派生名詞は個別に覚える必要があります",
+      "辞書で動詞を引くと派生名詞も一緒に載っていることが多いです",
+      "よく使う派生名詞から優先的に覚えましょう"
+    ],
+    "relatedGrammar": ["grm_word_formation_022", "grm_word_formation_023"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "강아지에게 ___를 줬어요. (먹다)",
+      "answer": "먹이",
+      "hint": "「餌」という派生名詞にします",
+      "explanation": "먹다の語幹に-이が付いて먹이（餌）になります"
+    },
+    {
+      "id": "ex_002",
+      "type": "fill_blank",
+      "question": "___로 지웠어요. (지우다)",
+      "answer": "지우개",
+      "hint": "「消しゴム」という道具を表す名詞にします",
+      "explanation": "지우다の語幹に-개が付いて지우개（消しゴム）になります"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「高さ」を韓国語で言うと？",
+      "choices": ["높기", "높음", "높이", "높개"],
+      "answerIndex": 2,
+      "explanation": "높다の語幹に-이が付いて높이（高さ）になります"
+    },
+    {
+      "id": "ex_004",
+      "type": "choice",
+      "question": "「栓抜き」を韓国語で言うと？",
+      "choices": ["따이", "따음", "따기", "병따개"],
+      "answerIndex": 3,
+      "explanation": "병（瓶）+ 따다（開ける）の語幹に-개が付いて병따개になります"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "id": "grm_tense_aspect_006",
+  "title": "계시다",
+  "subtitle": "있다の尊敬語（いらっしゃる）",
+  "category": "tense_aspect",
+  "level": "beginner",
+  "tags": [
+    "尊敬",
+    "存在"
+  ],
+  "content": {
+    "summary": "存在を表す있다の尊敬語で、目上の人がいる/いらっしゃる時に使います。",
+    "formationRules": [
+      {
+        "condition": "現在",
+        "form": "계세요",
+        "example": "선생님이 계세요."
+      },
+      {
+        "condition": "過去",
+        "form": "계셨어요",
+        "example": "어제도 계셨어요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "存在を丁寧に言う",
+        "description": "目上の所在を表す",
+        "examples": [
+          {
+            "korean": "사장님 계세요?",
+            "japanese": "社長はいらっしゃいますか。"
+          }
+        ]
+      },
+      {
+        "title": "います／いません",
+        "description": "肯定・否定で使う",
+        "examples": [
+          {
+            "korean": "지금 안 계세요.",
+            "japanese": "今はいらっしゃいません。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "있다との違い",
+      "description": "目上には必ず계시다を使い、있다は一般的な存在表現です。"
+    },
+    "tips": [
+      "否定は안 계시다を使う",
+      "전화越しの問い合わせでよく使われます"
+    ],
+    "relatedGrammar": [
+      "grm_tense_aspect_005",
+      "grm_substantive_050"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "사장님 ___?",
+      "answer": "계세요",
+      "hint": "いらっしゃいますか？",
+      "explanation": "目上の存在を尋ねるときは계시다を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「今はいらっしゃいません」の正しい文は？",
+      "choices": [
+        "지금 없어요.",
+        "지금 안 계세요.",
+        "지금 안 있어요.",
+        "지금 계시지 않아요."
+      ],
+      "answerIndex": 1,
+      "explanation": "目上の不在は안 계세요"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「社長はいらっしゃいますか」を韓国語で入力してください",
+      "answer": "사장님 계세요?",
+      "acceptableAnswers": [
+        "사장님 계세요?",
+        "사장님 계세요"
+      ]
+    }
+  ]
+}

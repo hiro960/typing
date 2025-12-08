@@ -1,0 +1,162 @@
+{
+  "id": "grm_conjugation_011",
+  "title": "용언과 품사",
+  "subtitle": "韓国語の用言と品詞",
+  "category": "conjugation",
+  "level": "beginner",
+  "tags": ["用言", "品詞", "基本"],
+  "content": {
+    "summary": "韓国語の用言は、動詞・形容詞・存在詞・指定詞の4種類に分類されます。これらは文の述語となり、活用によって様々な意味を表します。",
+    "formationRules": [
+      {
+        "condition": "動詞",
+        "form": "動作や作用を表す",
+        "example": "가다（行く）、먹다（食べる）、보다（見る）"
+      },
+      {
+        "condition": "形容詞",
+        "form": "状態や性質を表す",
+        "example": "크다（大きい）、예쁘다（きれいだ）、좋다（良い）"
+      },
+      {
+        "condition": "存在詞",
+        "form": "存在や所在を表す",
+        "example": "있다（ある/いる）、없다（ない/いない）、계시다（いらっしゃる）"
+      },
+      {
+        "condition": "指定詞",
+        "form": "名詞と結合して述語を作る",
+        "example": "이다（〜だ）、아니다（〜ではない）"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "動詞の特徴",
+        "description": "動作や変化を表し、命令形や勧誘形を作ることができます",
+        "examples": [
+          {
+            "korean": "학교에 가다.",
+            "japanese": "学校に行く。"
+          },
+          {
+            "korean": "밥을 먹다.",
+            "japanese": "ご飯を食べる。"
+          },
+          {
+            "korean": "책을 읽다.",
+            "japanese": "本を読む。"
+          }
+        ]
+      },
+      {
+        "title": "形容詞の特徴",
+        "description": "状態や性質を表し、命令形や勧誘形を作ることができません",
+        "examples": [
+          {
+            "korean": "날씨가 좋다.",
+            "japanese": "天気が良い。"
+          },
+          {
+            "korean": "꽃이 예쁘다.",
+            "japanese": "花がきれいだ。"
+          },
+          {
+            "korean": "방이 넓다.",
+            "japanese": "部屋が広い。"
+          }
+        ]
+      },
+      {
+        "title": "存在詞の特徴",
+        "description": "있다/없다は動詞的な用法と形容詞的な用法の両方を持ちます",
+        "examples": [
+          {
+            "korean": "책상 위에 책이 있다.",
+            "japanese": "机の上に本がある。"
+          },
+          {
+            "korean": "시간이 없다.",
+            "japanese": "時間がない。"
+          },
+          {
+            "korean": "할아버지가 집에 계시다.",
+            "japanese": "おじいさんが家にいらっしゃる。"
+          }
+        ]
+      },
+      {
+        "title": "指定詞の特徴",
+        "description": "名詞に直接付いて「〜である」「〜ではない」を表します",
+        "examples": [
+          {
+            "korean": "저는 학생이다.",
+            "japanese": "私は学生だ。"
+          },
+          {
+            "korean": "이것은 책이 아니다.",
+            "japanese": "これは本ではない。"
+          },
+          {
+            "korean": "그는 선생님이다.",
+            "japanese": "彼は先生だ。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "動詞と形容詞の違い",
+      "description": "動詞は動作・変化を表し、形容詞は状態・性質を表します。連体形の作り方や命令形の可否が異なります。",
+      "examples": [
+        {
+          "grammarA": "動詞",
+          "sentenceA": "가는 사람（行く人）",
+          "meaningA": "現在連体形は-는を使う",
+          "grammarB": "形容詞",
+          "sentenceB": "예쁜 사람（きれいな人）",
+          "meaningB": "現在連体形は-(으)ㄴを使う"
+        }
+      ]
+    },
+    "tips": [
+      "すべての用言は基本形（辞書形）が「다」で終わります",
+      "形容詞は命令形・勧誘形を作れませんが、「-아/어지다」を付けると可能になります",
+      "있다は文脈によって動詞的にも形容詞的にも振る舞います",
+      "指定詞は名詞に直接付く特殊な用言です"
+    ],
+    "relatedGrammar": ["grm_conjugation_012", "grm_conjugation_013"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "「먹다（食べる）」は何詞ですか？",
+      "choices": ["動詞", "形容詞", "存在詞", "指定詞"],
+      "answerIndex": 0,
+      "explanation": "「食べる」という動作を表すので動詞です"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「예쁘다（きれいだ）」は何詞ですか？",
+      "choices": ["動詞", "形容詞", "存在詞", "指定詞"],
+      "answerIndex": 1,
+      "explanation": "「きれいだ」という状態・性質を表すので形容詞です"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「있다（ある/いる）」は何詞ですか？",
+      "choices": ["動詞", "形容詞", "存在詞", "指定詞"],
+      "answerIndex": 2,
+      "explanation": "存在を表す特別な用言で、存在詞に分類されます"
+    },
+    {
+      "id": "ex_004",
+      "type": "choice",
+      "question": "命令形を作ることができない品詞はどれですか？",
+      "choices": ["動詞", "形容詞", "存在詞", "指定詞"],
+      "answerIndex": 1,
+      "explanation": "形容詞は状態を表すため、命令形を作ることができません"
+    }
+  ]
+}

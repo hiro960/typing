@@ -1,0 +1,93 @@
+{
+  "id": "grm_tense_aspect_024",
+  "title": "-지 않다",
+  "subtitle": "長形否定（〜しない）",
+  "category": "tense_aspect",
+  "level": "beginner",
+  "tags": [
+    "長形否定"
+  ],
+  "content": {
+    "summary": "動詞・形容詞の語幹に付けて否定する丁寧な形です。書き言葉や落ち着いた口調でよく使われます。",
+    "formationRules": [
+      {
+        "condition": "基本",
+        "form": "語幹 + 지 않다",
+        "example": "가다 → 가지 않다"
+      },
+      {
+        "condition": "丁寧形",
+        "form": "-지 않아요 / -지 않습니다",
+        "example": "먹지 않아요 / 먹지 않습니다"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "丁寧な否定",
+        "description": "丁寧に否定するとき使います",
+        "examples": [
+          {
+            "korean": "저는 술을 마시지 않아요.",
+            "japanese": "私はお酒を飲みません。"
+          }
+        ]
+      },
+      {
+        "title": "書き言葉",
+        "description": "作文やフォーマルな場面で使います",
+        "examples": [
+          {
+            "korean": "그 문제는 쉽지 않습니다.",
+            "japanese": "その問題は簡単ではありません。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "안 + 動詞との違い",
+      "description": "内容は同じ否定ですが、-지 않다の方が丁寧・文語的です。"
+    },
+    "tips": [
+      "補助動詞と組み合わせる場合は前の語幹に付けます（도와주지 않아요）",
+      "正式な書類や発表では-지 않습니다が無難です"
+    ],
+    "relatedGrammar": [
+      "grm_tense_aspect_023",
+      "grm_tense_aspect_028"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "저는 커피를 마시___ 않아요.",
+      "answer": "지",
+      "hint": "語幹＋지 않다",
+      "explanation": "-지 않다を付けて丁寧に否定します"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「その問題は簡単ではありません」の丁寧な形は？",
+      "choices": [
+        "그 문제는 쉽지 않아요.",
+        "그 문제는 쉽지 않습니다.",
+        "그 문제는 안 쉬워요.",
+        "すべて正しい"
+      ],
+      "answerIndex": 3,
+      "explanation": "丁寧さの度合いは異なりますが意味は同じです"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「私はお酒を飲みません」を韓国語で入力してください",
+      "answer": "저는 술을 마시지 않아요",
+      "acceptableAnswers": [
+        "저는 술을 마시지 않아요",
+        "저는 술을 마시지 않아요."
+      ],
+      "hint": "お酒=술"
+    }
+  ]
+}

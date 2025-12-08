@@ -1,0 +1,146 @@
+{
+  "id": "grm_expression_030",
+  "title": "-(으)ㄴ/는 것 같다",
+  "subtitle": "推測語尾（〜ようだ）",
+  "category": "expression",
+  "level": "intermediate",
+  "tags": [
+    "推測"
+  ],
+  "content": {
+    "summary": "話し手の主観的な推測を表し、「〜のようだ」「〜みたいだ」を意味します。形容詞・動詞・時制によって活用が変わります。",
+    "formationRules": [
+      {
+        "condition": "形容詞（現在）",
+        "form": "A + (으)ㄴ 것 같다",
+        "example": "춥다 → 추운 것 같아요. (寒いようです)"
+      },
+      {
+        "condition": "動詞（現在）",
+        "form": "V + 는 것 같다",
+        "example": "비 오다 → 비가 오는 것 같아요. (雨が降るようです)"
+      },
+      {
+        "condition": "動詞/形容詞（過去）",
+        "form": "V/A + 았/었던 것 같다",
+        "example": "갔다 → 갔던 것 같아요. (行ったようです)"
+      },
+      {
+        "condition": "動詞（未来推量）",
+        "form": "V + (으)ㄹ 것 같다",
+        "example": "갈 것 같아요. (行きそうです/行くと思います)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "不確かな観察による推測",
+        "description": "視覚・聴覚などの印象から推測を述べる。",
+        "examples": [
+          {
+            "korean": "밖에 비가 오는 것 같아요.",
+            "japanese": "外で雨が降っているようです。"
+          }
+        ]
+      },
+      {
+        "title": "過去の記憶を曖昧に述べる",
+        "description": "はっきり覚えていない過去の事柄を推測します。",
+        "examples": [
+          {
+            "korean": "예전에 여기 와 본 것 같아요.",
+            "japanese": "以前ここに来たことがあったようです。"
+          }
+        ]
+      },
+      {
+        "title": "丁寧に意見を述べる",
+        "description": "断定を避け、柔らかく意見や推測を伝えます。",
+        "examples": [
+          {
+            "korean": "이 방법이 더 좋은 것 같아요.",
+            "japanese": "この方法のほうが良さそうです。"
+          }
+        ]
+      },
+      {
+        "title": "他者の気持ちを推測する",
+        "description": "相手の気持ちや状況を推し量るときに使います。",
+        "examples": [
+          {
+            "korean": "민수가 피곤한 것 같아요.",
+            "japanese": "ミンスが疲れているようです。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-나 보다 との違い",
+      "description": "-(으)ㄴ/는 것 같아요 は柔らかく主観的。-나 보다 は観察した事実からの推測でやや確信が強い。",
+      "examples": [
+        {
+          "grammarA": "-(으)ㄴ/는 것 같다",
+          "sentenceA": "비가 오는 것 같아요.",
+          "meaningA": "雨が降るようです。（主観）",
+          "grammarB": "-나 보다",
+          "sentenceB": "비가 오나 봐요.",
+          "meaningB": "雨が降っているみたいですね。（状況観察）"
+        }
+      ]
+    },
+    "tips": [
+      "ヘヨ体 \"것 같아요\" で丁寧に推測を伝えることが多いです。",
+      "形容詞は (으)ㄴ、動詞は 는、過去は 았/었던、未来は (으)ㄹ を使い分けます。",
+      "語尾を下げると断定を避けた柔らかい表現になります。"
+    ],
+    "relatedGrammar": [
+      "grm_expression_031",
+      "grm_expression_032",
+      "grm_expression_008"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "밖에 비가 오___ 것 같아요.",
+      "answer": "는",
+      "hint": "動詞の現在推測は 는 것 같아요 を使います。",
+      "explanation": "오다 → 오는 것 같아요。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"피곤___ 같아요\" の空欄に入るものは？",
+      "choices": [
+        "은 것",
+        "는 것",
+        "을 것",
+        "던 것"
+      ],
+      "answerIndex": 0,
+      "explanation": "形容詞は (으)ㄴ 것 같다 形にします。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「雨が降ったようです」を韓国語で入力してください",
+      "answer": "비가 온 것 같아요",
+      "acceptableAnswers": [
+        "비가 온 것 같아요",
+        "비가 온 것 같습니다"
+      ],
+      "hint": "過去推測は 았/었던 것 같아요。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "この服が似合いそうです。",
+      "answer": "이 옷이 잘 어울리는 것 같아요",
+      "acceptableAnswers": [
+        "이 옷이 잘 어울리는 것 같아요",
+        "이 옷이 잘 어울리는 것 같습니다"
+      ],
+      "explanation": "動詞の現在連体形 + 것 같다 で「〜しそうだ」。"
+    }
+  ]
+}

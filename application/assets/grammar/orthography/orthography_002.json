@@ -1,0 +1,273 @@
+{
+  "id": "grm_orthography_002",
+  "title": "단모음",
+  "subtitle": "単母音（ㅏ, ㅓ, ㅗ, ㅜ, ㅡ, ㅣ, ㅐ, ㅔ, ㅚ, ㅟ）",
+  "category": "orthography",
+  "level": "beginner",
+  "tags": ["母音", "単母音", "発音"],
+  "content": {
+    "summary": "単母音は口の形を変えずに一定の形で発音する母音です。韓国語には10個の単母音があり、口の開き方と舌の位置によって分類されます。",
+    "formationRules": [
+      {
+        "condition": "前舌母音（舌が前）",
+        "form": "ㅣ, ㅔ, ㅐ, ㅟ, ㅚ",
+        "example": "이(歯), 네(はい), 개(犬)"
+      },
+      {
+        "condition": "後舌母音（舌が後）",
+        "form": "ㅜ, ㅗ, ㅡ",
+        "example": "우(牛), 오(五), 으"
+      },
+      {
+        "condition": "中舌母音",
+        "form": "ㅓ, ㅏ",
+        "example": "어(魚), 아(子)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "ㅏ [a] - 아",
+        "description": "口を大きく開けて「ア」と発音します。日本語の「あ」とほぼ同じです。",
+        "examples": [
+          {
+            "korean": "아버지",
+            "japanese": "お父さん"
+          },
+          {
+            "korean": "사람",
+            "japanese": "人"
+          },
+          {
+            "korean": "바다",
+            "japanese": "海"
+          }
+        ]
+      },
+      {
+        "title": "ㅓ [ʌ] - 어",
+        "description": "口を縦に開けて「オ」と「ア」の中間のような音を出します。日本語にはない音です。",
+        "examples": [
+          {
+            "korean": "어머니",
+            "japanese": "お母さん"
+          },
+          {
+            "korean": "서울",
+            "japanese": "ソウル"
+          },
+          {
+            "korean": "먹다",
+            "japanese": "食べる"
+          }
+        ]
+      },
+      {
+        "title": "ㅗ [o] - 오",
+        "description": "唇を丸くして「オ」と発音します。日本語の「お」より唇をすぼめます。",
+        "examples": [
+          {
+            "korean": "오늘",
+            "japanese": "今日"
+          },
+          {
+            "korean": "모자",
+            "japanese": "帽子"
+          },
+          {
+            "korean": "고기",
+            "japanese": "肉"
+          }
+        ]
+      },
+      {
+        "title": "ㅜ [u] - 우",
+        "description": "唇を丸くすぼめて「ウ」と発音します。日本語の「う」より唇を突き出します。",
+        "examples": [
+          {
+            "korean": "우유",
+            "japanese": "牛乳"
+          },
+          {
+            "korean": "구두",
+            "japanese": "革靴"
+          },
+          {
+            "korean": "주다",
+            "japanese": "あげる"
+          }
+        ]
+      },
+      {
+        "title": "ㅡ [ɯ] - 으",
+        "description": "唇を横に引いて、口を閉じ気味にして「ウ」と発音します。日本語にはない音です。",
+        "examples": [
+          {
+            "korean": "으르다",
+            "japanese": "威す"
+          },
+          {
+            "korean": "그림",
+            "japanese": "絵"
+          },
+          {
+            "korean": "크다",
+            "japanese": "大きい"
+          }
+        ]
+      },
+      {
+        "title": "ㅣ [i] - 이",
+        "description": "唇を横に引いて「イ」と発音します。日本語の「い」とほぼ同じです。",
+        "examples": [
+          {
+            "korean": "이름",
+            "japanese": "名前"
+          },
+          {
+            "korean": "기차",
+            "japanese": "汽車"
+          },
+          {
+            "korean": "시간",
+            "japanese": "時間"
+          }
+        ]
+      },
+      {
+        "title": "ㅐ [ɛ] - 애",
+        "description": "口を横に開けて「エ」と発音します。ㅔより口を大きく開けます。",
+        "examples": [
+          {
+            "korean": "애인",
+            "japanese": "恋人"
+          },
+          {
+            "korean": "개",
+            "japanese": "犬"
+          },
+          {
+            "korean": "새",
+            "japanese": "鳥"
+          }
+        ]
+      },
+      {
+        "title": "ㅔ [e] - 에",
+        "description": "口を横に開けて「エ」と発音します。ㅐより口を小さく開けます。",
+        "examples": [
+          {
+            "korean": "네",
+            "japanese": "はい"
+          },
+          {
+            "korean": "세계",
+            "japanese": "世界"
+          },
+          {
+            "korean": "제일",
+            "japanese": "一番"
+          }
+        ]
+      },
+      {
+        "title": "ㅚ [ø/we] - 외",
+        "description": "本来は「オ」の口で「エ」を発音しますが、現代では[we]と発音されることが多いです。",
+        "examples": [
+          {
+            "korean": "외국",
+            "japanese": "外国"
+          },
+          {
+            "korean": "회사",
+            "japanese": "会社"
+          },
+          {
+            "korean": "최고",
+            "japanese": "最高"
+          }
+        ]
+      },
+      {
+        "title": "ㅟ [y/wi] - 위",
+        "description": "本来は「ウ」の口で「イ」を発音しますが、現代では[wi]と発音されることが多いです。",
+        "examples": [
+          {
+            "korean": "위험",
+            "japanese": "危険"
+          },
+          {
+            "korean": "귀",
+            "japanese": "耳"
+          },
+          {
+            "korean": "쥐",
+            "japanese": "ネズミ"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "ㅓとㅗの違い",
+      "description": "ㅓは口を縦に開けて発音し、ㅗは唇を丸くすぼめて発音します。日本人学習者が混同しやすい母音です。",
+      "examples": [
+        {
+          "grammarA": "ㅓ",
+          "sentenceA": "어머니",
+          "meaningA": "お母さん（口を縦に開ける）",
+          "grammarB": "ㅗ",
+          "sentenceB": "오늘",
+          "meaningB": "今日（唇を丸くする）"
+        }
+      ]
+    },
+    "tips": [
+      "ㅐとㅔは現代韓国語ではほぼ同じ発音になっています",
+      "ㅡは日本語にない音なので、唇を横に引いて意識的に練習しましょう",
+      "ㅓは「ア」と「オ」の中間のような音で、日本語にはありません",
+      "ㅚとㅟは単母音として習いますが、実際には二重母音的に発音されることが多いです"
+    ],
+    "relatedGrammar": ["grm_orthography_001", "grm_orthography_003", "grm_orthography_004"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "唇を丸くすぼめて発音する母音はどれ？",
+      "choices": ["ㅗ, ㅜ", "ㅏ, ㅓ", "ㅡ, ㅣ", "ㅐ, ㅔ"],
+      "answerIndex": 0,
+      "explanation": "ㅗとㅜは唇を丸くすぼめて発音する円唇母音です"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "日本語の「う」と違い、唇を横に引いて発音する母音は？",
+      "choices": ["ㅡ", "ㅜ", "ㅗ", "ㅓ"],
+      "answerIndex": 0,
+      "explanation": "ㅡは唇を横に引いて発音します。ㅜは唇を丸くすぼめます"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「어머니（お母さん）」の最初の母音ㅓの発音として正しいのは？",
+      "choices": ["口を縦に開けてアとオの中間", "唇を丸くしてオ", "口を大きく開けてア", "唇を横に引いてウ"],
+      "answerIndex": 0,
+      "explanation": "ㅓは口を縦に開けて「ア」と「オ」の中間のような音を出します"
+    },
+    {
+      "id": "ex_004",
+      "type": "choice",
+      "question": "韓国語の単母音は全部でいくつありますか？",
+      "choices": ["10個", "8個", "14個", "21個"],
+      "answerIndex": 0,
+      "explanation": "韓国語の単母音はㅏ, ㅓ, ㅗ, ㅜ, ㅡ, ㅣ, ㅐ, ㅔ, ㅚ, ㅟの10個です"
+    },
+    {
+      "id": "ex_005",
+      "type": "choice",
+      "question": "現代韓国語でほぼ同じ発音になっている母音の組み合わせは？",
+      "choices": ["ㅐとㅔ", "ㅏとㅓ", "ㅗとㅜ", "ㅡとㅣ"],
+      "answerIndex": 0,
+      "explanation": "ㅐとㅔは本来異なる音でしたが、現代韓国語ではほぼ区別されなくなっています"
+    }
+  ]
+}

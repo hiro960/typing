@@ -1,0 +1,104 @@
+{
+  "id": "grm_substantive_037",
+  "title": "인분",
+  "subtitle": "助数詞（〜人前）",
+  "category": "substantive",
+  "level": "beginner",
+  "tags": [
+    "助数詞",
+    "食事"
+  ],
+  "content": {
+    "summary": "料理の分量を数えるときに使う助数詞で「〜人前」を表します。",
+    "formationRules": [
+      {
+        "condition": "基本",
+        "form": "漢数詞 + 인분",
+        "example": "이 인분 (2人前)"
+      },
+      {
+        "condition": "1人前",
+        "form": "일 인분",
+        "example": "일 인분 주세요."
+      },
+      {
+        "condition": "多人数",
+        "form": "삼/사/오… 인분",
+        "example": "사 인분 주문했어요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "注文する",
+        "description": "食堂で料理を頼む",
+        "examples": [
+          {
+            "korean": "불고기 두 인분 주세요.",
+            "japanese": "プルコギを2人前ください。"
+          },
+          {
+            "korean": "김치찌개 일 인분이요.",
+            "japanese": "キムチチゲ1人前です。"
+          }
+        ]
+      },
+      {
+        "title": "分ける数量を言う",
+        "description": "食べ物を分けるときの目安",
+        "examples": [
+          {
+            "korean": "이 피자는 세 인분이에요.",
+            "japanese": "このピザは3人前です。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "개・잔との違い",
+      "description": "인분は人数分、개は個数、잔は杯数を表します。用途で使い分けます。"
+    },
+    "tips": [
+      "数字は漢数詞(일, 이, 삼…)を使います",
+      "注文では〜 인분 주세요 の形が定番です"
+    ],
+    "relatedGrammar": [
+      "grm_substantive_019",
+      "grm_substantive_021"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "갈비탕 두 ___ 주세요.",
+      "answer": "인분",
+      "hint": "人前を表す助数詞",
+      "explanation": "料理の数量には漢数詞+인분を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「1人前です」を正しく表すのは？",
+      "choices": [
+        "일 인분이에요.",
+        "한 인분이에요.",
+        "일 명이에요.",
+        "한 개예요."
+      ],
+      "answerIndex": 0,
+      "explanation": "人前は漢数詞+인분で表します"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「プルコギを2人前ください」を韓国語で入力してください",
+      "answer": "불고기 두 인분 주세요",
+      "acceptableAnswers": [
+        "불고기 두 인분 주세요",
+        "불고기 두 인분 주세요.",
+        "불고기 이 인분 주세요"
+      ],
+      "hint": "2人前=두 인분/이 인분"
+    }
+  ]
+}

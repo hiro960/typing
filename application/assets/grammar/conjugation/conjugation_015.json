@@ -1,0 +1,157 @@
+{
+  "id": "grm_conjugation_015",
+  "title": "제Ⅱ어기",
+  "subtitle": "第Ⅱ語基",
+  "category": "conjugation",
+  "level": "intermediate",
+  "tags": ["語基", "活用", "第Ⅱ語基"],
+  "content": {
+    "summary": "第Ⅱ語基は「으」で始まる語尾と結合するための形です。子音語幹用言では語幹に「으」が付き、母音語幹用言では語幹がそのまま使われます。",
+    "formationRules": [
+      {
+        "condition": "子音語幹用言",
+        "form": "語幹 + 으",
+        "example": "먹다 → 먹으、읽다 → 읽으"
+      },
+      {
+        "condition": "母音語幹用言",
+        "form": "語幹そのまま（으は付かない）",
+        "example": "가다 → 가、보다 → 보"
+      },
+      {
+        "condition": "ㄹ語幹用言",
+        "form": "ㄹを落とす",
+        "example": "살다 → 사、알다 → 아"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "条件・仮定 -면",
+        "description": "第Ⅱ語基に「면」を付けると条件・仮定を表します",
+        "examples": [
+          {
+            "korean": "먹으 + 면 → 먹으면",
+            "japanese": "食べれば"
+          },
+          {
+            "korean": "가 + 면 → 가면",
+            "japanese": "行けば"
+          },
+          {
+            "korean": "사(살다) + 면 → 살면",
+            "japanese": "住めば"
+          }
+        ]
+      },
+      {
+        "title": "理由 -니까",
+        "description": "第Ⅱ語基に「니까」を付けると理由を表します",
+        "examples": [
+          {
+            "korean": "먹으 + 니까 → 먹으니까",
+            "japanese": "食べるから"
+          },
+          {
+            "korean": "가 + 니까 → 가니까",
+            "japanese": "行くから"
+          },
+          {
+            "korean": "아(알다) + 니까 → 아니까",
+            "japanese": "知っているから"
+          }
+        ]
+      },
+      {
+        "title": "意図 -려고",
+        "description": "第Ⅱ語基に「려고」を付けると意図を表します",
+        "examples": [
+          {
+            "korean": "먹으 + 려고 → 먹으려고",
+            "japanese": "食べようと"
+          },
+          {
+            "korean": "가 + 려고 → 가려고",
+            "japanese": "行こうと"
+          },
+          {
+            "korean": "만들(만들다) + 려고 → 만들려고",
+            "japanese": "作ろうと"
+          }
+        ]
+      },
+      {
+        "title": "連体形 -(으)ㄴ / -(으)ㄹ",
+        "description": "第Ⅱ語基に「ㄴ」や「ㄹ」を付けると連体形になります",
+        "examples": [
+          {
+            "korean": "먹으 + ㄴ → 먹은",
+            "japanese": "食べた（過去連体形）"
+          },
+          {
+            "korean": "가 + ㄴ → 간",
+            "japanese": "行った（過去連体形）"
+          },
+          {
+            "korean": "먹으 + ㄹ → 먹을",
+            "japanese": "食べる（未来連体形）"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "子音語幹と母音語幹の第Ⅱ語基",
+      "description": "子音語幹では「으」が挿入されますが、母音語幹ではそのままです",
+      "examples": [
+        {
+          "grammarA": "子音語幹",
+          "sentenceA": "먹다 → 먹으면",
+          "meaningA": "「으」が挿入される",
+          "grammarB": "母音語幹",
+          "sentenceB": "가다 → 가면",
+          "meaningB": "「으」は不要"
+        }
+      ]
+    },
+    "tips": [
+      "第Ⅱ語基は「으」系語尾と結合するための形です",
+      "母音語幹用言では「으」が省略されます（가 + 으면 → 가면）",
+      "ㄹ語幹用言は「으」の前でㄹが脱落します",
+      "「-(으)면、-(으)니까、-(으)려고、-(으)ㄴ、-(으)ㄹ」などが第Ⅱ語基接続語尾です"
+    ],
+    "relatedGrammar": ["grm_conjugation_014", "grm_conjugation_016", "grm_conjugation_018"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "「읽다」+ 으면 → ___",
+      "answer": "읽으면",
+      "hint": "子音語幹なので「으」が入ります",
+      "explanation": "子音語幹「읽」に「으면」が付いて「읽으면」になります"
+    },
+    {
+      "id": "ex_002",
+      "type": "fill_blank",
+      "question": "「보다」+ 면 → ___",
+      "answer": "보면",
+      "hint": "母音語幹なので「으」は不要です",
+      "explanation": "母音語幹「보」に直接「면」が付いて「보면」になります"
+    },
+    {
+      "id": "ex_003",
+      "type": "fill_blank",
+      "question": "「살다」+ 면 → ___",
+      "answer": "살면",
+      "hint": "ㄹ語幹用言の活用を考えましょう",
+      "explanation": "ㄹ語幹「살」に「면」が付いて「살면」になります（ㄹは残る）"
+    },
+    {
+      "id": "ex_004",
+      "type": "choice",
+      "question": "第Ⅱ語基に付く語尾として正しいものはどれですか？",
+      "choices": ["-고", "-지", "-(으)면", "-는"],
+      "answerIndex": 2,
+      "explanation": "「-(으)면」は第Ⅱ語基に付く代表的な語尾です"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "id": "grm_tense_aspect_004",
+  "title": "-고 있다",
+  "subtitle": "進行語尾（〜している）",
+  "category": "tense_aspect",
+  "level": "beginner",
+  "tags": [
+    "進行"
+  ],
+  "content": {
+    "summary": "現在進行中の動作や状態を表す表現です。「〜している」に当たります。",
+    "formationRules": [
+      {
+        "condition": "動詞語幹",
+        "form": "語幹 + 고 있다",
+        "example": "읽다 → 읽고 있다"
+      },
+      {
+        "condition": "丁寧形",
+        "form": "-고 있어요",
+        "example": "보고 있어요"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "進行中の動作",
+        "description": "今行っている動作",
+        "examples": [
+          {
+            "korean": "지금 책을 읽고 있어요.",
+            "japanese": "今本を読んでいます。"
+          }
+        ]
+      },
+      {
+        "title": "継続状態",
+        "description": "一定期間続く状態",
+        "examples": [
+          {
+            "korean": "한국에서 일하고 있어요.",
+            "japanese": "韓国で働いています。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-아/어 있다との違い",
+      "description": "-고 있다は動作の進行、-아/어 있다は結果状態の持続です。"
+    },
+    "tips": [
+      "会話では고 있다 → 고 있어요が多用",
+      "過去進行は-고 있었다を使います"
+    ],
+    "relatedGrammar": [
+      "grm_tense_005",
+      "grm_tense_aspect_003"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "지금 뭐 하고 ___요?",
+      "answer": "있",
+      "hint": "進行中を尋ねる",
+      "explanation": "語幹+고 있다で進行を表します"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「今本を読んでいます」の正しい文は？",
+      "choices": [
+        "지금 책을 읽어요.",
+        "지금 책을 읽고 있어요.",
+        "지금 책을 읽을 거예요.",
+        "지금 책을 읽었어요."
+      ],
+      "answerIndex": 1,
+      "explanation": "進行は-고 있어요"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「韓国で働いています」を韓国語で入力してください",
+      "answer": "한국에서 일하고 있어요",
+      "acceptableAnswers": [
+        "한국에서 일하고 있어요",
+        "한국에서 일하고 있어요."
+      ]
+    }
+  ]
+}

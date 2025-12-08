@@ -1,0 +1,195 @@
+{
+  "id": "grm_orthography_007",
+  "title": "경음",
+  "subtitle": "濃音（ㄲ, ㄸ, ㅃ, ㅆ, ㅉ）",
+  "category": "orthography",
+  "level": "beginner",
+  "tags": ["子音", "濃音", "発音"],
+  "content": {
+    "summary": "濃音（된소리）は声帯を緊張させ、息を出さずに発音する子音です。韓国語には5つの濃音があり、日本語にはない独特の音です。語頭でも語中でも有声化しません。",
+    "formationRules": [
+      {
+        "condition": "基本形",
+        "form": "声帯を緊張させた無気音",
+        "example": "까[k͈a], 따[t͈a], 빠[p͈a], 싸[s͈a], 짜[tʃ͈a]"
+      },
+      {
+        "condition": "濃音化（パッチムの後）",
+        "form": "パッチム + 平音 → 濃音",
+        "example": "학교[학꾜], 식당[식땅]"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "ㄲ [k͈] - 쌍기역",
+        "description": "喉を締めて、息を出さずに発音します。日本語の「っか」の「か」に近い感覚です。",
+        "examples": [
+          {
+            "korean": "까다",
+            "japanese": "剥く"
+          },
+          {
+            "korean": "꼬리",
+            "japanese": "尻尾"
+          },
+          {
+            "korean": "아까",
+            "japanese": "さっき"
+          }
+        ]
+      },
+      {
+        "title": "ㄸ [t͈] - 쌍디귿",
+        "description": "喉を締めて、息を出さずに発音します。日本語の「った」の「た」に近い感覚です。",
+        "examples": [
+          {
+            "korean": "따다",
+            "japanese": "摘む"
+          },
+          {
+            "korean": "또",
+            "japanese": "また"
+          },
+          {
+            "korean": "딸",
+            "japanese": "娘"
+          }
+        ]
+      },
+      {
+        "title": "ㅃ [p͈] - 쌍비읍",
+        "description": "喉を締めて、息を出さずに発音します。日本語の「っぱ」の「ぱ」に近い感覚です。",
+        "examples": [
+          {
+            "korean": "빠르다",
+            "japanese": "速い"
+          },
+          {
+            "korean": "뻐스",
+            "japanese": "バス"
+          },
+          {
+            "korean": "아빠",
+            "japanese": "パパ"
+          }
+        ]
+      },
+      {
+        "title": "ㅆ [s͈] - 쌍시옷",
+        "description": "喉を締めて、息を出さずに摩擦音を発音します。緊張した「ス」「サ」のような音です。",
+        "examples": [
+          {
+            "korean": "쓰다",
+            "japanese": "書く/苦い"
+          },
+          {
+            "korean": "싸다",
+            "japanese": "安い/包む"
+          },
+          {
+            "korean": "아씨",
+            "japanese": "（若い）奥様"
+          }
+        ]
+      },
+      {
+        "title": "ㅉ [tʃ͈] - 쌍지읒",
+        "description": "喉を締めて、息を出さずに破擦音を発音します。緊張した「チャ」のような音です。",
+        "examples": [
+          {
+            "korean": "짜다",
+            "japanese": "しょっぱい/絞る"
+          },
+          {
+            "korean": "찌개",
+            "japanese": "チゲ（鍋料理）"
+          },
+          {
+            "korean": "아찔하다",
+            "japanese": "くらくらする"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "平音・激音・濃音の三つ組",
+      "description": "韓国語の子音は平音・激音・濃音の三つ組で対応しています。平音は弱い息、激音は強い息、濃音は緊張した発音です。",
+      "examples": [
+        {
+          "grammarA": "平音 ㄱ",
+          "sentenceA": "가다 [kada]",
+          "meaningA": "行く",
+          "grammarB": "激音 ㅋ / 濃音 ㄲ",
+          "sentenceB": "카다 / 까다",
+          "meaningB": "（なし）/ 剥く"
+        },
+        {
+          "grammarA": "平音 ㄷ",
+          "sentenceA": "달 [tal]",
+          "meaningA": "月",
+          "grammarB": "激音 ㅌ / 濃音 ㄸ",
+          "sentenceB": "탈 / 딸",
+          "meaningB": "仮面 / 娘"
+        },
+        {
+          "grammarA": "平音 ㅂ",
+          "sentenceA": "불 [pul]",
+          "meaningA": "火",
+          "grammarB": "激音 ㅍ / 濃音 ㅃ",
+          "sentenceB": "풀 / 뿔",
+          "meaningB": "草 / 角"
+        }
+      ]
+    },
+    "tips": [
+      "日本語の促音「っ」の後の子音に近い感覚で発音すると近づけます",
+      "喉を締めて、息を出さないように意識しましょう",
+      "ティッシュを口の前に置くと、濃音では紙がほとんど動きません",
+      "パッチムの後に平音が来ると濃音化することがあります（학교→학꾜）",
+      "濃音は語中でも濁音化しません"
+    ],
+    "relatedGrammar": ["grm_orthography_005", "grm_orthography_006", "grm_orthography_017"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "韓国語の濃音は全部でいくつありますか？",
+      "choices": ["5つ", "4つ", "6つ", "3つ"],
+      "answerIndex": 0,
+      "explanation": "濃音はㄲ, ㄸ, ㅃ, ㅆ, ㅉの5つです"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "濃音の発音の特徴として正しいものは？",
+      "choices": ["声帯を緊張させ、息を出さない", "息を強く出す", "息を弱く出す", "語中で濁音化する"],
+      "answerIndex": 0,
+      "explanation": "濃音は声帯を緊張させ、息を出さずに発音します"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「달（月）」「탈（仮面）」「딸（娘）」の子音の違いは？",
+      "choices": ["平音・激音・濃音", "平音・濃音・激音", "激音・平音・濃音", "濃音・激音・平音"],
+      "answerIndex": 0,
+      "explanation": "달のㄷは平音、탈のㅌは激音、딸のㄸは濃音です"
+    },
+    {
+      "id": "ex_004",
+      "type": "choice",
+      "question": "濃音の発音を練習する時のコツは？",
+      "choices": ["日本語の「っ」の後の子音のように発音", "息を強く出す", "唇を大きく開ける", "ゆっくり発音する"],
+      "answerIndex": 0,
+      "explanation": "日本語の促音「っ」の後の子音（「っか」の「か」など）のような感覚で発音すると近づけます"
+    },
+    {
+      "id": "ex_005",
+      "type": "choice",
+      "question": "「학교（学校）」の発音は？",
+      "choices": ["[학꾜]", "[학교]", "[하꾜]", "[학쿄]"],
+      "answerIndex": 0,
+      "explanation": "パッチムㄱの後の平音ㄱは濃音化して[꾜]になります"
+    }
+  ]
+}

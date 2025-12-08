@@ -1,0 +1,144 @@
+{
+  "id": "grm_tense_aspect_027",
+  "title": "-지 말다",
+  "subtitle": "禁止の基本形（〜するな）",
+  "category": "tense_aspect",
+  "level": "intermediate",
+  "tags": [
+    "禁止"
+  ],
+  "content": {
+    "summary": "動作を禁止・制止するときに使う否定表現で、「〜するな」「〜しないで」に相当します。命令・勧誘形で多用されます。",
+    "formationRules": [
+      {
+        "condition": "動詞語幹",
+        "form": "V + 지 말다",
+        "example": "가지 말다 (行かないで/行くな)"
+      },
+      {
+        "condition": "丁寧依頼",
+        "form": "지 마세요 / 지 마십시오",
+        "example": "먹지 마세요. (食べないでください)"
+      },
+      {
+        "condition": "カジュアル命令",
+        "form": "지 마",
+        "example": "울지 마. (泣くな)"
+      },
+      {
+        "condition": "勧誘を止める",
+        "form": "지 말자",
+        "example": "싸우지 말자. (けんかはやめよう)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "丁寧な禁止",
+        "description": "相手にやめてほしい行為を丁寧に伝えるときに使います。",
+        "examples": [
+          {
+            "korean": "여기서 담배 피우지 마세요.",
+            "japanese": "ここでたばこを吸わないでください。"
+          },
+          {
+            "korean": "문을 열지 마십시오.",
+            "japanese": "ドアを開けないでください。"
+          }
+        ]
+      },
+      {
+        "title": "親しい間柄の制止",
+        "description": "家族や友人に短く注意するときに用います。",
+        "examples": [
+          {
+            "korean": "늦지 마!",
+            "japanese": "遅れないで！"
+          },
+          {
+            "korean": "울지 마.",
+            "japanese": "泣くな。"
+          }
+        ]
+      },
+      {
+        "title": "勧誘をやめる提案",
+        "description": "一緒に何かをしないことを提案するときに使います。",
+        "examples": [
+          {
+            "korean": "오늘은 게임하지 말자.",
+            "japanese": "今日はゲームをしないことにしよう。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "안/못 と -지 말다",
+      "description": "안/못 は単なる否定や不可能を表し、-지 말다 は禁止を表す命令・勧誘の形になります。",
+      "examples": [
+        {
+          "grammarA": "-지 말다",
+          "sentenceA": "지금 열지 마세요.",
+          "meaningA": "今開けないでください。",
+          "grammarB": "안/못",
+          "sentenceB": "지금은 열 수 없어요.",
+          "meaningB": "今は開けることができません。"
+        }
+      ]
+    },
+    "tips": [
+      "強く聞こえやすいので、声のトーンや語尾で柔らかさを調整しましょう。",
+      "自分を含めて「やめよう」と言うときは -지 말자 を使います。",
+      "ending_005(-지 마세요) で学ぶ丁寧形と合わせて覚えると整理しやすいです。"
+    ],
+    "relatedGrammar": [
+      "grm_sentence_ending_005",
+      "grm_tense_aspect_023",
+      "grm_tense_aspect_024"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "여기서 사진을 찍___ 마세요.",
+      "answer": "지",
+      "hint": "禁止の基本形を入れます。",
+      "explanation": "動詞語幹+지 말다 で「〜するな」。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "친구에게丁寧に「遅れないでください」と言うときは？",
+      "choices": [
+        "늦지 마세요",
+        "늦지 않아요",
+        "늦지 못해요",
+        "늦지 말겠어요"
+      ],
+      "answerIndex": 0,
+      "explanation": "丁寧な禁止は -지 마세요 が最も自然です。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「泣かないでください」を韓国語で入力してください",
+      "answer": "울지 마세요",
+      "acceptableAnswers": [
+        "울지 마세요",
+        "울지 마십시오"
+      ],
+      "hint": "울다 + 지 마세요"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "今日はゲームをしないことにしよう。",
+      "answer": "오늘은 게임하지 말자",
+      "acceptableAnswers": [
+        "오늘은 게임하지 말자",
+        "오늘은 게임하지 말아요"
+      ],
+      "explanation": "勧誘を止めるときは -지 말자。"
+    }
+  ]
+}

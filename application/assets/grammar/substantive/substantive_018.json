@@ -1,0 +1,135 @@
+{
+  "id": "grm_substantive_018",
+  "title": "한, 두, 세, 네",
+  "subtitle": "固有数詞の連体形",
+  "category": "substantive",
+  "level": "beginner",
+  "tags": [
+    "固有数詞",
+    "連体形"
+  ],
+  "content": {
+    "summary": "1〜4（＋20）は名詞や助数詞の前で短くなる連体形です。数える対象の直前に置いて自然なリズムで発音します。",
+    "formationRules": [
+      {
+        "condition": "1〜4の短縮形",
+        "form": "하나→한, 둘→두, 셋→세, 넷→네",
+        "example": "사람 한 명 (1人)"
+      },
+      {
+        "condition": "20の短縮形",
+        "form": "스물 → 스무 + 名詞/助数詞",
+        "example": "스무 살 (20歳)"
+      },
+      {
+        "condition": "配置",
+        "form": "名詞 + 数詞(短縮形) + 助数詞",
+        "example": "책 세 권을 샀어요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "助数詞と合わせる",
+        "description": "個数・人数・杯数などを数えるときに短縮形を使います。",
+        "examples": [
+          {
+            "korean": "커피 한 잔 주세요.",
+            "japanese": "コーヒーを1杯ください。"
+          },
+          {
+            "korean": "학생 두 명이 왔어요.",
+            "japanese": "学生が2人来ました。"
+          }
+        ]
+      },
+      {
+        "title": "年齢や時刻を言う",
+        "description": "年齢や時間も短縮形で言うと滑らかです。",
+        "examples": [
+          {
+            "korean": "저는 네 살짜리 조카가 있어요.",
+            "japanese": "私は4歳の甥/姪がいます。"
+          },
+          {
+            "korean": "한 시 오 분이에요.",
+            "japanese": "1時5分です。"
+          }
+        ]
+      },
+      {
+        "title": "名詞の直前で数量を示す",
+        "description": "助数詞を省略して名詞だけを数えるときにも短縮形を置きます。",
+        "examples": [
+          {
+            "korean": "한 사람도 없어요.",
+            "japanese": "1人もいません。"
+          },
+          {
+            "korean": "스무 명 규모의 모임이에요.",
+            "japanese": "20人規模の集まりです。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "基本形との違い",
+      "description": "助数詞や名詞の前では短縮形を用いるのが自然で、「하나 개」「둘 시」のように言うと不自然になります。",
+      "examples": [
+        {
+          "grammarA": "短縮形",
+          "sentenceA": "사과 한 개 있어요.",
+          "meaningA": "りんごが1個あります。（自然）",
+          "grammarB": "基本形",
+          "sentenceB": "사과 하나 개 있어요.",
+          "meaningB": "りんご1個があります。（不自然な言い方）"
+        }
+      ]
+    },
+    "tips": [
+      "短縮形は助数詞や名詞の直前で使い、単独で数えるときは基本形を使います。",
+      "20のス무は助数詞・名詞の前だけで使い、単独ではス물と発音します。",
+      "助数詞との間にはスペースを入れず一つの単語として書くのが一般的です。"
+    ],
+    "relatedGrammar": [
+      "grm_substantive_016",
+      "grm_substantive_017",
+      "grm_substantive_021",
+      "grm_substantive_022",
+      "grm_substantive_030"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "학생 ___ 명이 왔어요.",
+      "answer": "두",
+      "hint": "助数詞の前なので2は 두 を使います。",
+      "explanation": "人数を数えるときは短縮形 두 명 と言います。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "自然な表現はどれですか?",
+      "choices": [
+        "물 하나 잔 주세요.",
+        "물 한 잔 주세요.",
+        "물 하나 개 주세요.",
+        "물 한 개 잔 주세요."
+      ],
+      "answerIndex": 1,
+      "explanation": "杯数を表すときは短縮形＋잔で ‘물 한 잔’ が自然です。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「コーヒーを一杯ください」を韓国語で入力してください",
+      "answer": "커피 한 잔 주세요",
+      "acceptableAnswers": [
+        "커피 한 잔 주세요",
+        "커피 한 잔 주세요."
+      ],
+      "hint": "1の短縮形 한 を使います。"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "id": "grm_adnominal_004",
+  "title": "-(으)ㄹ",
+  "subtitle": "未来連体形（〜する〜）",
+  "category": "adnominal",
+  "level": "beginner",
+  "tags": [
+    "未来",
+    "連体形"
+  ],
+  "content": {
+    "summary": "名詞を修飾して未来の予定・意図を表す連体形です。「〜する予定の〜」に当たります。",
+    "formationRules": [
+      {
+        "condition": "パッチムなし動詞",
+        "form": "語幹 + ㄹ",
+        "example": "가다 → 갈 곳"
+      },
+      {
+        "condition": "パッチムあり動詞",
+        "form": "語幹 + 을",
+        "example": "읽다 → 읽을 책"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "予定を修飾",
+        "description": "これからする予定のこと",
+        "examples": [
+          {
+            "korean": "이번 주에 만날 사람",
+            "japanese": "今週会う人"
+          }
+        ]
+      },
+      {
+        "title": "意図・推量",
+        "description": "〜するつもりの/〜しそうな",
+        "examples": [
+          {
+            "korean": "읽을 책이 많아요.",
+            "japanese": "読む予定の本が多いです。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-는 / -(으)ㄴとの違い",
+      "description": "-(으)ㄹは未来・予定、-는は現在、-(으)ㄴは過去です。"
+    },
+    "tips": [
+      "連体形は名詞の前に置く",
+      "불규則活用(ㄹ語幹など)に注意"
+    ],
+    "relatedGrammar": [
+      "grm_adnominal_002",
+      "grm_adnominal_003",
+      "grm_sentence_ending_003"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "이번 주에 만날 ___",
+      "answer": "사람",
+      "hint": "会う予定の人",
+      "explanation": "未来の予定を修飾するときは-(으)ㄹ"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「読む予定の本」の正しい形は？",
+      "choices": [
+        "읽는 책",
+        "읽은 책",
+        "읽을 책",
+        "책을 읽다"
+      ],
+      "answerIndex": 2,
+      "explanation": "未来連体形は읽을"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「今週会う人」を韓国語で入力してください",
+      "answer": "이번 주에 만날 사람",
+      "acceptableAnswers": [
+        "이번 주에 만날 사람",
+        "이번 주에 만날 사람."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "id": "grm_substantive_022",
+  "title": "명/사람",
+  "subtitle": "助数詞（人）",
+  "category": "substantive",
+  "level": "beginner",
+  "tags": [
+    "助数詞",
+    "人"
+  ],
+  "content": {
+    "summary": "人を数えるときに使う助数詞です。日常的には 명 が一般的で、사람 はより口語的な言い方です。",
+    "formationRules": [
+      {
+        "condition": "基本形",
+        "form": "名詞 + 数詞(固有) + 명",
+        "example": "학생 두 명 (学生2人)"
+      },
+      {
+        "condition": "カジュアル表現",
+        "form": "数詞(固有) + 사람",
+        "example": "친구 세 사람 (友達3人)"
+      },
+      {
+        "condition": "丁寧表現",
+        "form": "数詞 + 분 (敬語)",
+        "example": "손님 두 분 (お客様2名)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "人数を伝える",
+        "description": "集まりや家族などの人数を述べます。",
+        "examples": [
+          {
+            "korean": "저희 가족은 네 명이에요.",
+            "japanese": "うちの家族は4人です。"
+          },
+          {
+            "korean": "친구 세 명이 같이 와요.",
+            "japanese": "友達3人が一緒に来ます。"
+          }
+        ]
+      },
+      {
+        "title": "予約・案内",
+        "description": "店やイベントで人数を確認・案内するときに使います。",
+        "examples": [
+          {
+            "korean": "두 명 자리 있어요?",
+            "japanese": "2人席はありますか。"
+          },
+          {
+            "korean": "세 사람은 저쪽에 앉아 주세요.",
+            "japanese": "3名様はあちらにお座りください。"
+          }
+        ]
+      },
+      {
+        "title": "人数を尋ねる",
+        "description": "몇 명/몇 사람 で人数を聞きます。",
+        "examples": [
+          {
+            "korean": "오늘 몇 명이 올 거예요?",
+            "japanese": "今日は何人来ますか。"
+          },
+          {
+            "korean": "몇 분 예약하셨어요?",
+            "japanese": "何名で予約されましたか。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "명 / 사람 / 분 の使い分け",
+      "description": "名詞を数える一般的な助数詞は 명、カジュアルには 사람、敬語では 분 を使います。",
+      "examples": [
+        {
+          "grammarA": "명",
+          "sentenceA": "학생 두 명 있어요.",
+          "meaningA": "学生が2人います。（標準）",
+          "grammarB": "분",
+          "sentenceB": "손님 두 분 오셨어요.",
+          "meaningB": "お客様が2名いらっしゃいました。（敬語）"
+        }
+      ]
+    },
+    "tips": [
+      "助数詞の前では短縮形 한/두/세/네 を使います。",
+      "人数を丁寧に言うときは 분 に置き換えると丁寧になります。",
+      "人数の後ろに助詞を付ける場合、명/분/사람 + 이/을/은 の順につけます。"
+    ],
+    "relatedGrammar": [
+      "grm_substantive_018",
+      "grm_substantive_021",
+      "grm_substantive_030",
+      "grm_tense_aspect_005"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "우리는 네 ___이에요.",
+      "answer": "명",
+      "hint": "家族やグループの人数は 명 が基本です。",
+      "explanation": "人数は固有数詞＋명 で表し、4人なら 네 명 となります。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "丁寧に「お客様が3名いらっしゃいました」と言うときの助数詞は?",
+      "choices": [
+        "명",
+        "사람",
+        "분",
+        "개"
+      ],
+      "answerIndex": 2,
+      "explanation": "敬語では 분 を使って ‘손님 세 분’ と表します。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「友達が1人会社にいます」を韓国語で入力してください",
+      "answer": "친구 한 명이 회사에 있어요",
+      "acceptableAnswers": [
+        "친구 한 명이 회사에 있어요",
+        "친구 한 명이 회사에 있어요."
+      ],
+      "hint": "人を数える助数詞は 명 です。"
+    }
+  ]
+}

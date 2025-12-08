@@ -1,0 +1,139 @@
+{
+  "id": "grm_orthography_021",
+  "title": "ㄴ 첨가",
+  "subtitle": "ㄴ挿入",
+  "category": "orthography",
+  "level": "advanced",
+  "tags": ["発音変化", "ㄴ挿入", "合成語"],
+  "content": {
+    "summary": "ㄴ挿入（ㄴ 첨가）は、合成語や派生語で、パッチムのある語と이, 야, 여, 요, 유で始まる語が結合するとき、間にㄴが挿入される現象です。サイシオッ（사이시옷）の一種とも関連します。",
+    "formationRules": [
+      {
+        "condition": "パッチム + 이/야/여/요/유",
+        "form": "ㄴが挿入される",
+        "example": "한여름 [한녀름], 꽃잎 [꼰닙]"
+      },
+      {
+        "condition": "ㄹパッチム + 이/야/여/요/유",
+        "form": "ㄴ挿入後、流音化も起こる",
+        "example": "서울역 [서울력], 솔잎 [솔립]"
+      },
+      {
+        "condition": "パッチムなし + 이/야/여/요/유",
+        "form": "ㄴが挿入されない場合が多い",
+        "example": "바다+일 → 바다일 [바다일]"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "合成語でのㄴ挿入",
+        "description": "二つの単語が結合した合成語でㄴ挿入が起こります",
+        "examples": [
+          {
+            "korean": "한여름 [한녀름]",
+            "japanese": "真夏"
+          },
+          {
+            "korean": "꽃잎 [꼰닙]",
+            "japanese": "花びら"
+          },
+          {
+            "korean": "색연필 [생년필]",
+            "japanese": "色鉛筆"
+          }
+        ]
+      },
+      {
+        "title": "ㄹパッチム後のㄴ挿入と流音化",
+        "description": "ㄹパッチムの後にㄴが挿入されると、さらに流音化が起こります",
+        "examples": [
+          {
+            "korean": "서울역 [서울력]",
+            "japanese": "ソウル駅"
+          },
+          {
+            "korean": "솔잎 [솔립]",
+            "japanese": "松葉"
+          },
+          {
+            "korean": "물약 [물략]",
+            "japanese": "水薬"
+          }
+        ]
+      },
+      {
+        "title": "漢字語でのㄴ挿入",
+        "description": "漢字語の合成でもㄴ挿入が起こることがあります",
+        "examples": [
+          {
+            "korean": "국민 윤리 [궁민뉼리]",
+            "japanese": "国民倫理"
+          },
+          {
+            "korean": "검열 [검녈]",
+            "japanese": "検閲"
+          },
+          {
+            "korean": "담요 [담뇨]",
+            "japanese": "毛布"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "ㄴ挿入とサイシオッ",
+      "description": "ㄴ挿入とサイシオッ（ㅅ挿入）はどちらも合成語で起こる現象ですが、条件が異なります。",
+      "examples": [
+        {
+          "grammarA": "ㄴ挿入",
+          "sentenceA": "한여름 [한녀름]",
+          "meaningA": "이/야/여/요/유の前にㄴが挿入",
+          "grammarB": "サイシオッ",
+          "sentenceB": "바닷가 [바닫까]",
+          "meaningB": "合成語の間にㅅが挿入されて濃音化"
+        }
+      ]
+    },
+    "tips": [
+      "ㄴ挿入は予測が難しいので、よく使う単語は覚えましょう",
+      "한여름、꽃잎、서울역など代表的な例を覚えておくと良いです",
+      "ㄹパッチムの後はㄴ挿入後に流音化も起こります",
+      "すべての合成語でㄴ挿入が起こるわけではありません"
+    ],
+    "relatedGrammar": ["grm_orthography_020", "grm_orthography_018", "grm_orthography_017"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "「한여름」の発音として正しいものは？",
+      "choices": ["[한여름]", "[한녀름]", "[하녀름]", "[한녈름]"],
+      "answerIndex": 1,
+      "explanation": "여の前にㄴが挿入され、[한녀름]と発音します"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「꽃잎」の発音として正しいものは？",
+      "choices": ["[꽃잎]", "[꼰닙]", "[꼳잎]", "[꼬딥]"],
+      "answerIndex": 1,
+      "explanation": "잎(입)の前にㄴが挿入され、[꼰닙]と発音します"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「서울역」の発音として正しいものは？",
+      "choices": ["[서울역]", "[서울력]", "[서울녁]", "[서우력]"],
+      "answerIndex": 1,
+      "explanation": "역の前にㄴが挿入され、さらに流音化して[서울력]と発音します"
+    },
+    {
+      "id": "ex_004",
+      "type": "fill_blank",
+      "question": "「솔잎」の発音は[___]です",
+      "answer": "솔립",
+      "hint": "ㄴ挿入後、流音化が起こります",
+      "explanation": "잎の前にㄴが挿入され、流音化して[솔립]と発音します"
+    }
+  ]
+}

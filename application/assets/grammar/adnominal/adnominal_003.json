@@ -1,0 +1,94 @@
+{
+  "id": "grm_adnominal_003",
+  "title": "-는",
+  "subtitle": "現在連体形（〜する〜）",
+  "category": "adnominal",
+  "level": "beginner",
+  "tags": [
+    "現在",
+    "連体形"
+  ],
+  "content": {
+    "summary": "名詞を修飾して現在進行・習慣を表す連体形です。「〜する〜」に当たります。",
+    "formationRules": [
+      {
+        "condition": "動詞",
+        "form": "語幹 + 는",
+        "example": "먹다 → 먹는 사람"
+      },
+      {
+        "condition": "形容詞・指定詞",
+        "form": "語幹 + 은/ㄴ",
+        "example": "예쁘다 → 예쁜 꽃"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "現在の動作を修飾",
+        "description": "今〜している／普段〜する人・物",
+        "examples": [
+          {
+            "korean": "한국어를 공부하는 학생",
+            "japanese": "韓国語を勉強する学生"
+          }
+        ]
+      },
+      {
+        "title": "習慣の説明",
+        "description": "習慣的にすること",
+        "examples": [
+          {
+            "korean": "매일 운동하는 사람",
+            "japanese": "毎日運動する人"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-(으)ㄴ / -(으)ㄹとの違い",
+      "description": "-는は現在、-(으)ㄴは過去、-(으)ㄹは未来・予定を表します。"
+    },
+    "tips": [
+      "하다動詞は하는",
+      "形容詞は-은/ㄴ形になる点に注意"
+    ],
+    "relatedGrammar": [
+      "grm_adnominal_002",
+      "grm_adnominal_004",
+      "grm_tense_aspect_004"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "한국어를 공부하___ 학생",
+      "answer": "는",
+      "hint": "現在連体形",
+      "explanation": "動詞の現在連体形は-는"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「毎日運動する人」の正しい形は？",
+      "choices": [
+        "매일 운동한 사람",
+        "매일 운동하는 사람",
+        "매일 운동할 사람",
+        "매일 운동 사람"
+      ],
+      "answerIndex": 1,
+      "explanation": "現在連体形は-는"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「韓国語を勉強する学生」を韓国語で入力してください",
+      "answer": "한국어를 공부하는 학생",
+      "acceptableAnswers": [
+        "한국어를 공부하는 학생",
+        "한국어를 공부하는 학생."
+      ]
+    }
+  ]
+}

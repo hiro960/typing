@@ -1,0 +1,169 @@
+{
+  "id": "grm_conjugation_019",
+  "title": "규칙용언 제Ⅲ어기",
+  "subtitle": "規則用言の第Ⅲ語基活用",
+  "category": "conjugation",
+  "level": "intermediate",
+  "tags": ["規則用言", "第Ⅲ語基", "活用"],
+  "content": {
+    "summary": "規則用言の第Ⅲ語基活用では、「아/어」で始まる語尾と結合します。語幹末の母音が陽母音か陰母音かで「아」か「어」が決まり、母音の縮約が頻繁に起こります。",
+    "formationRules": [
+      {
+        "condition": "陽母音語幹（ㅏ, ㅗ）",
+        "form": "語幹 + 아 系語尾",
+        "example": "가 + 아요 → 가요、오 + 아요 → 와요"
+      },
+      {
+        "condition": "陰母音語幹（ㅏ, ㅗ以外）",
+        "form": "語幹 + 어 系語尾",
+        "example": "먹 + 어요 → 먹어요、쓰 + 어요 → 써요"
+      },
+      {
+        "condition": "하다用言",
+        "form": "하 + 여 → 해",
+        "example": "공부하다 → 공부해요、일하다 → 일해요"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "丁寧形 -아/어요",
+        "description": "最も一般的な丁寧形を作ります",
+        "examples": [
+          {
+            "korean": "무엇을 먹어요?",
+            "japanese": "何を食べますか？"
+          },
+          {
+            "korean": "어디에 가요?",
+            "japanese": "どこに行きますか？"
+          },
+          {
+            "korean": "뭘 해요?",
+            "japanese": "何をしますか？"
+          }
+        ]
+      },
+      {
+        "title": "過去形 -았/었어요",
+        "description": "過去の出来事を丁寧に表します",
+        "examples": [
+          {
+            "korean": "어제 영화를 봤어요.",
+            "japanese": "昨日映画を見ました。"
+          },
+          {
+            "korean": "아침에 뭘 먹었어요?",
+            "japanese": "朝何を食べましたか？"
+          },
+          {
+            "korean": "숙제를 다 했어요.",
+            "japanese": "宿題を全部しました。"
+          }
+        ]
+      },
+      {
+        "title": "継起・理由 -아/어서",
+        "description": "動作の順序や理由を表します",
+        "examples": [
+          {
+            "korean": "만나서 반갑습니다.",
+            "japanese": "お会いできてうれしいです。"
+          },
+          {
+            "korean": "배가 고파서 밥을 먹었어요.",
+            "japanese": "お腹が空いてご飯を食べました。"
+          },
+          {
+            "korean": "학교에 가서 공부해요.",
+            "japanese": "学校に行って勉強します。"
+          }
+        ]
+      },
+      {
+        "title": "母音の縮約パターン",
+        "description": "母音語幹では様々な縮約が起こります",
+        "examples": [
+          {
+            "korean": "가 + 아 → 가（ㅏ+ㅏ→ㅏ）",
+            "japanese": "行く"
+          },
+          {
+            "korean": "오 + 아 → 와（ㅗ+ㅏ→ㅘ）",
+            "japanese": "来る"
+          },
+          {
+            "korean": "서 + 어 → 서（ㅓ+ㅓ→ㅓ）",
+            "japanese": "立つ"
+          },
+          {
+            "korean": "배우 + 어 → 배워（ㅜ+ㅓ→ㅝ）",
+            "japanese": "習う"
+          },
+          {
+            "korean": "마시 + 어 → 마셔（ㅣ+ㅓ→ㅕ）",
+            "japanese": "飲む"
+          },
+          {
+            "korean": "쓰 + 어 → 써（ㅡ+ㅓ→ㅓ）",
+            "japanese": "書く/使う"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "主な母音縮約のまとめ",
+      "description": "母音語幹での縮約パターンを整理します",
+      "examples": [
+        {
+          "grammarA": "ㅏ+ㅏ→ㅏ",
+          "sentenceA": "가 + 아요 → 가요",
+          "meaningA": "同じ母音は一つになる",
+          "grammarB": "ㅗ+ㅏ→ㅘ",
+          "sentenceB": "오 + 아요 → 와요",
+          "meaningB": "二重母音になる"
+        }
+      ]
+    },
+    "tips": [
+      "陽母音（ㅏ, ㅗ）には「아」、陰母音（その他）には「어」が付きます",
+      "하다用言は常に「해」の形になります",
+      "母音の縮約パターンを覚えることが重要です",
+      "으語幹は「어」が付くと「으」が脱落します（쓰+어→써）"
+    ],
+    "relatedGrammar": ["grm_conjugation_016", "grm_conjugation_017", "grm_conjugation_018"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "「읽다」+ 어요 → ___",
+      "answer": "읽어요",
+      "hint": "「ㅣ」は陰母音です",
+      "explanation": "陰母音語幹「읽」に「어요」が付いて「읽어요」になります"
+    },
+    {
+      "id": "ex_002",
+      "type": "fill_blank",
+      "question": "「오다」+ 아요 → ___",
+      "answer": "와요",
+      "hint": "ㅗ+ㅏは縮約します",
+      "explanation": "「오+아」は「ㅗ+ㅏ→ㅘ」で縮約されて「와요」になります"
+    },
+    {
+      "id": "ex_003",
+      "type": "fill_blank",
+      "question": "「공부하다」+ 여요 → ___",
+      "answer": "공부해요",
+      "hint": "하다用言の特別な形を思い出しましょう",
+      "explanation": "하다用言は「하+여→해」で「공부해요」になります"
+    },
+    {
+      "id": "ex_004",
+      "type": "choice",
+      "question": "「배우다」+ 어요 の正しい形は？",
+      "choices": ["배우어요", "배워요", "배와요", "배웨요"],
+      "answerIndex": 1,
+      "explanation": "「배우+어」は「ㅜ+ㅓ→ㅝ」で縮約されて「배워요」になります"
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "id": "grm_orthography_014",
+  "title": "연음화",
+  "subtitle": "連音化",
+  "category": "orthography",
+  "level": "beginner",
+  "tags": ["発音変化", "パッチム", "連音"],
+  "content": {
+    "summary": "連音化（연음화）とは、パッチムの後に母音で始まる音節が続くとき、パッチムが次の音節の初声として発音される現象です。韓国語の発音で最も基本的な規則の一つです。",
+    "formationRules": [
+      {
+        "condition": "パッチム + 母音",
+        "form": "パッチムが次の音節の初声になる",
+        "example": "음악을 [으마글], 한국어 [한구거]"
+      },
+      {
+        "condition": "二重パッチム + 母音",
+        "form": "右側の子音が次の音節の初声になる",
+        "example": "닭이 [달기], 읽어요 [일거요]"
+      },
+      {
+        "condition": "ㅎパッチム + 母音",
+        "form": "ㅎは脱落（連音化しない）",
+        "example": "좋아요 [조아요], 놓아요 [노아요]"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "助詞との連音",
+        "description": "名詞のパッチムと助詞の母音が連音化します",
+        "examples": [
+          {
+            "korean": "책을 [채글]",
+            "japanese": "本を"
+          },
+          {
+            "korean": "밥을 [바블]",
+            "japanese": "ご飯を"
+          },
+          {
+            "korean": "친구와 [친구와]",
+            "japanese": "友達と（パッチムなしは連音化なし）"
+          }
+        ]
+      },
+      {
+        "title": "用言の活用での連音",
+        "description": "語幹のパッチムと語尾の母音が連音化します",
+        "examples": [
+          {
+            "korean": "먹어요 [머거요]",
+            "japanese": "食べます"
+          },
+          {
+            "korean": "읽어요 [일거요]",
+            "japanese": "読みます"
+          },
+          {
+            "korean": "있어요 [이써요]",
+            "japanese": "あります/います"
+          }
+        ]
+      },
+      {
+        "title": "合成語での連音",
+        "description": "合成語の内部でも連音化が起こります",
+        "examples": [
+          {
+            "korean": "한국어 [한구거]",
+            "japanese": "韓国語"
+          },
+          {
+            "korean": "음악을 [으마글]",
+            "japanese": "音楽を"
+          },
+          {
+            "korean": "일요일 [이료일]",
+            "japanese": "日曜日"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "連音化と終声の中和",
+      "description": "母音の前では連音化が起こり、子音の前や語末では終声の中和が起こります。",
+      "examples": [
+        {
+          "grammarA": "連音化（母音の前）",
+          "sentenceA": "꽃이 [꼬치]",
+          "meaningA": "花が（ㅊがそのまま連音）",
+          "grammarB": "中和（子音の前）",
+          "sentenceB": "꽃도 [꼳또]",
+          "meaningB": "花も（ㅊ→ㄷに中和）"
+        }
+      ]
+    },
+    "tips": [
+      "連音化は韓国語の最も基本的な発音規則です",
+      "ㅎパッチムは母音の前で脱落し、連音化しません",
+      "二重パッチムは右側の子音だけが連音化します",
+      "ㄳ, ㄵ, ㄶ, ㄺ, ㄻ, ㄼ, ㄽ, ㄾ, ㄿ, ㅀ, ㅄの二重パッチムの連音規則を覚えましょう"
+    ],
+    "relatedGrammar": ["grm_orthography_013", "grm_orthography_015", "grm_orthography_010"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "「음악을」の発音として正しいものは？",
+      "choices": ["[음악을]", "[으마글]", "[음마글]", "[으막을]"],
+      "answerIndex": 1,
+      "explanation": "ㄱパッチムが을の初声として連音化し、[으마글]と発音します"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「먹어요」の発音として正しいものは？",
+      "choices": ["[먹어요]", "[머거요]", "[멍어요]", "[먹거요]"],
+      "answerIndex": 1,
+      "explanation": "ㄱパッチムが어の初声として連音化し、[머거요]と発音します"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「읽어요」の発音として正しいものは？",
+      "choices": ["[읽어요]", "[일거요]", "[익거요]", "[일어요]"],
+      "answerIndex": 1,
+      "explanation": "二重パッチムㄺの右側ㄱが連音化し、[일거요]と発音します"
+    },
+    {
+      "id": "ex_004",
+      "type": "fill_blank",
+      "question": "「한국어」の発音は[___]です",
+      "answer": "한구거",
+      "hint": "ㄱパッチムが次の音節の初声になります",
+      "explanation": "국のㄱが어の初声として連音化し、[한구거]と発音します"
+    }
+  ]
+}

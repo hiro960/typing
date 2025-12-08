@@ -300,422 +300,12 @@
         }
       ]
     },
-    "ending": {
-      "id": "ending",
-      "name": "語尾",
-      "description": "動詞・形容詞の活用語尾",
-      "order": 2,
-      "totalItems": 35,
-      "items": [
-        {
-          "id": "grm_ending_001",
-          "order": 1,
-          "title": "-아/어요",
-          "subtitle": "丁寧形語尾（〜です/ます）",
-          "level": "beginner",
-          "file": "ending/ending_001.json",
-          "tags": [
-            "丁寧",
-            "基本"
-          ]
-        },
-        {
-          "id": "grm_ending_002",
-          "order": 2,
-          "title": "-습니다/ㅂ니다",
-          "subtitle": "格式体語尾（〜です/ます）",
-          "level": "beginner",
-          "file": "ending/ending_002.json",
-          "tags": [
-            "フォーマル",
-            "基本"
-          ]
-        },
-        {
-          "id": "grm_ending_003",
-          "order": 3,
-          "title": "-아/어",
-          "subtitle": "パンマル語尾（〜だ/する）",
-          "level": "beginner",
-          "file": "ending/ending_003.json",
-          "tags": [
-            "カジュアル"
-          ]
-        },
-        {
-          "id": "grm_ending_004",
-          "order": 4,
-          "title": "-(으)세요",
-          "subtitle": "尊敬命令・勧誘語尾",
-          "level": "beginner",
-          "file": "ending/ending_004.json",
-          "tags": [
-            "敬語",
-            "命令"
-          ]
-        },
-        {
-          "id": "grm_ending_005",
-          "order": 5,
-          "title": "-지 마세요",
-          "subtitle": "禁止語尾（〜しないでください）",
-          "level": "beginner",
-          "file": "ending/ending_005.json",
-          "tags": [
-            "禁止"
-          ]
-        },
-        {
-          "id": "grm_ending_006",
-          "order": 6,
-          "title": "-(으)ㄹ게요",
-          "subtitle": "意志語尾（〜しますね）",
-          "level": "beginner",
-          "file": "ending/ending_006.json",
-          "tags": [
-            "意志",
-            "約束"
-          ]
-        },
-        {
-          "id": "grm_ending_007",
-          "order": 7,
-          "title": "-(으)ㄹ까요?",
-          "subtitle": "提案・推量語尾（〜しましょうか）",
-          "level": "beginner",
-          "file": "ending/ending_007.json",
-          "tags": [
-            "提案",
-            "疑問"
-          ]
-        },
-        {
-          "id": "grm_ending_008",
-          "order": 8,
-          "title": "-고 싶다",
-          "subtitle": "願望語尾（〜したい）",
-          "level": "beginner",
-          "file": "ending/ending_008.json",
-          "tags": [
-            "願望"
-          ]
-        },
-        {
-          "id": "grm_ending_009",
-          "order": 9,
-          "title": "-(으)ㄹ 수 있다/없다",
-          "subtitle": "可能・不可能語尾",
-          "level": "beginner",
-          "file": "ending/ending_009.json",
-          "tags": [
-            "可能"
-          ]
-        },
-        {
-          "id": "grm_ending_010",
-          "order": 10,
-          "title": "-아/어야 하다",
-          "subtitle": "義務語尾（〜しなければならない）",
-          "level": "beginner",
-          "file": "ending/ending_010.json",
-          "tags": [
-            "義務"
-          ]
-        },
-        {
-          "id": "grm_ending_011",
-          "order": 11,
-          "title": "-(으)면 되다",
-          "subtitle": "許容語尾（〜すればいい）",
-          "level": "intermediate",
-          "file": "ending/ending_011.json",
-          "tags": [
-            "許容"
-          ]
-        },
-        {
-          "id": "grm_ending_012",
-          "order": 12,
-          "title": "-지 않다",
-          "subtitle": "否定語尾（〜しない）",
-          "level": "beginner",
-          "file": "ending/ending_012.json",
-          "tags": [
-            "否定"
-          ]
-        },
-        {
-          "id": "grm_ending_013",
-          "order": 13,
-          "title": "-못하다",
-          "subtitle": "不可能語尾（〜できない）",
-          "level": "beginner",
-          "file": "ending/ending_013.json",
-          "tags": [
-            "不可能"
-          ]
-        },
-        {
-          "id": "grm_ending_014",
-          "order": 14,
-          "title": "-(으)ㄴ/는 것 같다",
-          "subtitle": "推測語尾（〜ようだ）",
-          "level": "intermediate",
-          "file": "ending/ending_014.json",
-          "tags": [
-            "推測"
-          ]
-        },
-        {
-          "id": "grm_ending_015",
-          "order": 15,
-          "title": "-나 보다",
-          "subtitle": "推測語尾（〜みたいだ）",
-          "level": "intermediate",
-          "file": "ending/ending_015.json",
-          "tags": [
-            "推測",
-            "観察"
-          ]
-        },
-        {
-          "id": "grm_ending_016",
-          "order": 16,
-          "title": "-(으)ㄹ 것이다",
-          "subtitle": "未来推量語尾（〜だろう）",
-          "level": "intermediate",
-          "file": "ending/ending_016.json",
-          "tags": [
-            "未来",
-            "推量"
-          ]
-        },
-        {
-          "id": "grm_ending_017",
-          "order": 17,
-          "title": "-게 되다",
-          "subtitle": "変化語尾（〜ようになる）",
-          "level": "intermediate",
-          "file": "ending/ending_017.json",
-          "tags": [
-            "変化"
-          ]
-        },
-        {
-          "id": "grm_ending_018",
-          "order": 18,
-          "title": "-아/어 보다",
-          "subtitle": "試行語尾（〜してみる）",
-          "level": "intermediate",
-          "file": "ending/ending_018.json",
-          "tags": [
-            "試行"
-          ]
-        },
-        {
-          "id": "grm_ending_019",
-          "order": 19,
-          "title": "-아/어 주다",
-          "subtitle": "授受語尾（〜してあげる/くれる）",
-          "level": "intermediate",
-          "file": "ending/ending_019.json",
-          "tags": [
-            "授受"
-          ]
-        },
-        {
-          "id": "grm_ending_020",
-          "order": 20,
-          "title": "-아/어 있다",
-          "subtitle": "状態継続語尾（〜している）",
-          "level": "intermediate",
-          "file": "ending/ending_020.json",
-          "tags": [
-            "状態"
-          ]
-        },
-        {
-          "id": "grm_ending_021",
-          "order": 21,
-          "title": "-고 있다",
-          "subtitle": "進行語尾（〜している）",
-          "level": "beginner",
-          "file": "ending/ending_021.json",
-          "tags": [
-            "進行"
-          ]
-        },
-        {
-          "id": "grm_ending_022",
-          "order": 22,
-          "title": "-(으)ㄴ 적이 있다/없다",
-          "subtitle": "経験語尾（〜したことがある）",
-          "level": "intermediate",
-          "file": "ending/ending_022.json",
-          "tags": [
-            "経験"
-          ]
-        },
-        {
-          "id": "grm_ending_023",
-          "order": 23,
-          "title": "-(으)려고 하다",
-          "subtitle": "意図語尾（〜しようとする）",
-          "level": "intermediate",
-          "file": "ending/ending_023.json",
-          "tags": [
-            "意図"
-          ]
-        },
-        {
-          "id": "grm_ending_024",
-          "order": 24,
-          "title": "-기로 하다",
-          "subtitle": "決定語尾（〜することにする）",
-          "level": "intermediate",
-          "file": "ending/ending_024.json",
-          "tags": [
-            "決定"
-          ]
-        },
-        {
-          "id": "grm_ending_025",
-          "order": 25,
-          "title": "-(으)ㄹ 뻔하다",
-          "subtitle": "危機一髪語尾（〜するところだった）",
-          "level": "advanced",
-          "file": "ending/ending_025.json",
-          "tags": [
-            "危機"
-          ]
-        },
-        {
-          "id": "grm_ending_026",
-          "order": 26,
-          "title": "-던",
-          "subtitle": "回想連体形語尾",
-          "level": "advanced",
-          "file": "ending/ending_026.json",
-          "tags": [
-            "回想",
-            "連体形"
-          ]
-        },
-        {
-          "id": "grm_ending_027",
-          "order": 27,
-          "title": "-(으)ㄹ수록",
-          "subtitle": "比例語尾（〜すればするほど）",
-          "level": "advanced",
-          "file": "ending/ending_027.json",
-          "tags": [
-            "比例"
-          ]
-        },
-        {
-          "id": "grm_ending_028",
-          "order": 28,
-          "title": "-는 바람에",
-          "subtitle": "原因語尾（〜したせいで）",
-          "level": "advanced",
-          "file": "ending/ending_028.json",
-          "tags": [
-            "原因",
-            "否定的"
-          ]
-        },
-        {
-          "id": "grm_ending_029",
-          "order": 29,
-          "title": "-더라고요",
-          "subtitle": "回想報告語尾（〜でしたよ）",
-          "level": "advanced",
-          "file": "ending/ending_029.json",
-          "tags": [
-            "回想",
-            "報告"
-          ]
-        },
-        {
-          "id": "grm_ending_030",
-          "order": 30,
-          "title": "-(으)ㄹ 텐데",
-          "subtitle": "推量・心配語尾",
-          "level": "advanced",
-          "file": "ending/ending_030.json",
-          "tags": [
-            "推量",
-            "心配"
-          ]
-        },
-        {
-          "id": "grm_ending_031",
-          "order": 31,
-          "title": "-네요",
-          "subtitle": "感嘆・発見語尾（〜ですね）",
-          "level": "beginner",
-          "file": "ending/ending_031.json",
-          "tags": [
-            "感嘆",
-            "発見"
-          ]
-        },
-        {
-          "id": "grm_ending_032",
-          "order": 32,
-          "title": "-군요/구나",
-          "subtitle": "感嘆語尾（〜だなあ）",
-          "level": "intermediate",
-          "file": "ending/ending_032.json",
-          "tags": [
-            "感嘆",
-            "発見"
-          ]
-        },
-        {
-          "id": "grm_ending_033",
-          "order": 33,
-          "title": "-거든요",
-          "subtitle": "理由説明語尾（〜なんですよ）",
-          "level": "intermediate",
-          "file": "ending/ending_033.json",
-          "tags": [
-            "理由",
-            "説明"
-          ]
-        },
-        {
-          "id": "grm_ending_034",
-          "order": 34,
-          "title": "-잖아요",
-          "subtitle": "確認語尾（〜じゃないですか）",
-          "level": "intermediate",
-          "file": "ending/ending_034.json",
-          "tags": [
-            "確認",
-            "会話"
-          ]
-        },
-        {
-          "id": "grm_ending_035",
-          "order": 35,
-          "title": "-(으)ㄹ래요",
-          "subtitle": "意志・勧誘語尾（〜します/しますか）",
-          "level": "beginner",
-          "file": "ending/ending_035.json",
-          "tags": [
-            "意志",
-            "勧誘"
-          ]
-        }
-      ]
-    },
     "connective": {
       "id": "connective",
-      "name": "接続表現",
-      "description": "文と文をつなぐ表現",
+      "name": "接続形",
+      "description": "節や文をつなぐ表現",
       "order": 3,
-      "totalItems": 22,
+      "totalItems": 23,
       "items": [
         {
           "id": "grm_connective_001",
@@ -969,193 +559,16 @@
             "即時",
             "時間"
           ]
-        }
-      ]
-    },
-    "honorific": {
-      "id": "honorific",
-      "name": "敬語表現",
-      "description": "尊敬語・謙譲語の表現",
-      "order": 4,
-      "totalItems": 15,
-      "items": [
-        {
-          "id": "grm_honorific_001",
-          "order": 1,
-          "title": "-(으)시-",
-          "subtitle": "尊敬接尾辞",
-          "level": "beginner",
-          "file": "honorific/honorific_001.json",
-          "tags": [
-            "尊敬",
-            "基本"
-          ]
         },
         {
-          "id": "grm_honorific_002",
-          "order": 2,
-          "title": "계시다",
-          "subtitle": "있다の尊敬語（いらっしゃる）",
-          "level": "beginner",
-          "file": "honorific/honorific_002.json",
-          "tags": [
-            "尊敬",
-            "存在"
-          ]
-        },
-        {
-          "id": "grm_honorific_003",
-          "order": 3,
-          "title": "드시다",
-          "subtitle": "먹다の尊敬語（召し上がる）",
-          "level": "beginner",
-          "file": "honorific/honorific_003.json",
-          "tags": [
-            "尊敬",
-            "飲食"
-          ]
-        },
-        {
-          "id": "grm_honorific_004",
-          "order": 4,
-          "title": "주무시다",
-          "subtitle": "자다の尊敬語（お休みになる）",
-          "level": "intermediate",
-          "file": "honorific/honorific_004.json",
-          "tags": [
-            "尊敬",
-            "睡眠"
-          ]
-        },
-        {
-          "id": "grm_honorific_005",
-          "order": 5,
-          "title": "돌아가시다",
-          "subtitle": "죽다の尊敬語（お亡くなりになる）",
-          "level": "intermediate",
-          "file": "honorific/honorific_005.json",
-          "tags": [
-            "尊敬",
-            "婉曲"
-          ]
-        },
-        {
-          "id": "grm_honorific_006",
-          "order": 6,
-          "title": "말씀하시다",
-          "subtitle": "말하다の尊敬語（おっしゃる）",
-          "level": "intermediate",
-          "file": "honorific/honorific_006.json",
-          "tags": [
-            "尊敬",
-            "発言"
-          ]
-        },
-        {
-          "id": "grm_honorific_007",
-          "order": 7,
-          "title": "드리다",
-          "subtitle": "주다の謙譲語（差し上げる）",
-          "level": "beginner",
-          "file": "honorific/honorific_007.json",
-          "tags": [
-            "謙譲"
-          ]
-        },
-        {
-          "id": "grm_honorific_008",
-          "order": 8,
-          "title": "여쭙다/여쭤보다",
-          "subtitle": "묻다の謙譲語（お伺いする）",
-          "level": "intermediate",
-          "file": "honorific/honorific_008.json",
-          "tags": [
-            "謙譲",
-            "質問"
-          ]
-        },
-        {
-          "id": "grm_honorific_009",
-          "order": 9,
-          "title": "뵙다",
-          "subtitle": "보다の謙譲語（お目にかかる）",
-          "level": "intermediate",
-          "file": "honorific/honorific_009.json",
-          "tags": [
-            "謙譲",
-            "面会"
-          ]
-        },
-        {
-          "id": "grm_honorific_010",
-          "order": 10,
-          "title": "모시다",
-          "subtitle": "데리다の謙譲語（お連れする）",
-          "level": "intermediate",
-          "file": "honorific/honorific_010.json",
-          "tags": [
-            "謙譲",
-            "同行"
-          ]
-        },
-        {
-          "id": "grm_honorific_011",
-          "order": 11,
-          "title": "-아/어 드리다",
-          "subtitle": "謙譲補助動詞（〜して差し上げる）",
-          "level": "intermediate",
-          "file": "honorific/honorific_011.json",
-          "tags": [
-            "謙譲",
-            "補助"
-          ]
-        },
-        {
-          "id": "grm_honorific_012",
-          "order": 12,
-          "title": "저/제",
-          "subtitle": "나の謙譲語（私）",
-          "level": "beginner",
-          "file": "honorific/honorific_012.json",
-          "tags": [
-            "謙譲",
-            "人称"
-          ]
-        },
-        {
-          "id": "grm_honorific_013",
-          "order": 13,
-          "title": "저희",
-          "subtitle": "우리の謙譲語（私ども）",
-          "level": "beginner",
-          "file": "honorific/honorific_013.json",
-          "tags": [
-            "謙譲",
-            "複数"
-          ]
-        },
-        {
-          "id": "grm_honorific_014",
-          "order": 14,
-          "title": "-(으)십시오",
-          "subtitle": "格式体命令（〜してください）",
+          "id": "grm_connective_023",
+          "order": 23,
+          "title": "-(으)ㄹ수록",
+          "subtitle": "比例語尾（〜すればするほど）",
           "level": "advanced",
-          "file": "honorific/honorific_014.json",
+          "file": "connective/connective_023.json",
           "tags": [
-            "敬語",
-            "命令"
-          ]
-        },
-        {
-          "id": "grm_honorific_015",
-          "order": 15,
-          "title": "-나이다/-사옵나이다",
-          "subtitle": "古語敬語表現",
-          "level": "advanced",
-          "file": "honorific/honorific_015.json",
-          "tags": [
-            "古語",
-            "格式"
+            "比例"
           ]
         }
       ]
@@ -1309,10 +722,10 @@
     },
     "expression": {
       "id": "expression",
-      "name": "慣用表現",
-      "description": "よく使われる文法的な慣用表現",
+      "name": "さまざまな表現",
+      "description": "よく使われる文法的な表現",
       "order": 6,
-      "totalItems": 25,
+      "totalItems": 40,
       "items": [
         {
           "id": "grm_expression_001",
@@ -1595,604 +1008,778 @@
             "程度",
             "理由"
           ]
+        },
+        {
+          "id": "grm_expression_026",
+          "order": 26,
+          "title": "-고 싶다",
+          "subtitle": "願望語尾（〜したい）",
+          "level": "beginner",
+          "file": "expression/expression_026.json",
+          "tags": [
+            "願望"
+          ]
+        },
+        {
+          "id": "grm_expression_027",
+          "order": 27,
+          "title": "-(으)ㄹ 수 있다/없다",
+          "subtitle": "可能・不可能語尾",
+          "level": "beginner",
+          "file": "expression/expression_027.json",
+          "tags": [
+            "可能"
+          ]
+        },
+        {
+          "id": "grm_expression_028",
+          "order": 28,
+          "title": "-아/어야 하다",
+          "subtitle": "義務語尾（〜しなければならない）",
+          "level": "beginner",
+          "file": "expression/expression_028.json",
+          "tags": [
+            "義務"
+          ]
+        },
+        {
+          "id": "grm_expression_029",
+          "order": 29,
+          "title": "-(으)면 되다",
+          "subtitle": "許容語尾（〜すればいい）",
+          "level": "intermediate",
+          "file": "expression/expression_029.json",
+          "tags": [
+            "許容"
+          ]
+        },
+        {
+          "id": "grm_expression_030",
+          "order": 30,
+          "title": "-(으)ㄴ/는 것 같다",
+          "subtitle": "推測語尾（〜ようだ）",
+          "level": "intermediate",
+          "file": "expression/expression_030.json",
+          "tags": [
+            "推測"
+          ]
+        },
+        {
+          "id": "grm_expression_031",
+          "order": 31,
+          "title": "-나 보다",
+          "subtitle": "推測語尾（〜みたいだ）",
+          "level": "intermediate",
+          "file": "expression/expression_031.json",
+          "tags": [
+            "推測",
+            "観察"
+          ]
+        },
+        {
+          "id": "grm_expression_032",
+          "order": 32,
+          "title": "-(으)ㄹ 것이다",
+          "subtitle": "未来推量語尾（〜だろう）",
+          "level": "intermediate",
+          "file": "expression/expression_032.json",
+          "tags": [
+            "未来",
+            "推量"
+          ]
+        },
+        {
+          "id": "grm_expression_033",
+          "order": 33,
+          "title": "-게 되다",
+          "subtitle": "変化語尾（〜ようになる）",
+          "level": "intermediate",
+          "file": "expression/expression_033.json",
+          "tags": [
+            "変化"
+          ]
+        },
+        {
+          "id": "grm_expression_034",
+          "order": 34,
+          "title": "-아/어 보다",
+          "subtitle": "試行語尾（〜してみる）",
+          "level": "intermediate",
+          "file": "expression/expression_034.json",
+          "tags": [
+            "試行"
+          ]
+        },
+        {
+          "id": "grm_expression_035",
+          "order": 35,
+          "title": "-아/어 주다",
+          "subtitle": "授受語尾（〜してあげる/くれる）",
+          "level": "intermediate",
+          "file": "expression/expression_035.json",
+          "tags": [
+            "授受"
+          ]
+        },
+        {
+          "id": "grm_expression_036",
+          "order": 36,
+          "title": "-(으)ㄴ 적이 있다/없다",
+          "subtitle": "経験語尾（〜したことがある）",
+          "level": "intermediate",
+          "file": "expression/expression_036.json",
+          "tags": [
+            "経験"
+          ]
+        },
+        {
+          "id": "grm_expression_037",
+          "order": 37,
+          "title": "-(으)려고 하다",
+          "subtitle": "意図語尾（〜しようとする）",
+          "level": "intermediate",
+          "file": "expression/expression_037.json",
+          "tags": [
+            "意図"
+          ]
+        },
+        {
+          "id": "grm_expression_038",
+          "order": 38,
+          "title": "-기로 하다",
+          "subtitle": "決定語尾（〜することにする）",
+          "level": "intermediate",
+          "file": "expression/expression_038.json",
+          "tags": [
+            "決定"
+          ]
+        },
+        {
+          "id": "grm_expression_039",
+          "order": 39,
+          "title": "-(으)ㄹ 뻔하다",
+          "subtitle": "危機一髪語尾（〜するところだった）",
+          "level": "advanced",
+          "file": "expression/expression_039.json",
+          "tags": [
+            "危機"
+          ]
+        },
+        {
+          "id": "grm_expression_040",
+          "order": 40,
+          "title": "-(으)ㄹ 텐데",
+          "subtitle": "推量・心配語尾",
+          "level": "advanced",
+          "file": "expression/expression_040.json",
+          "tags": [
+            "推量",
+            "心配"
+          ]
         }
       ]
     },
-    "numeral": {
-      "id": "numeral",
-      "name": "数詞・助数詞",
-      "description": "固有数詞・漢数詞・助数詞",
+    "substantive": {
+      "id": "substantive",
+      "name": "体言",
+      "description": "代名詞・数詞・疑問詞などの名詞類",
       "order": 7,
-      "totalItems": 22,
+      "totalItems": 51,
       "items": [
         {
-          "id": "grm_numeral_001",
-          "order": 1,
-          "title": "하나, 둘, 셋...",
-          "subtitle": "固有数詞（1〜10）",
-          "level": "beginner",
-          "file": "numeral/numeral_001.json",
-          "tags": [
-            "固有数詞",
-            "基本"
-          ]
-        },
-        {
-          "id": "grm_numeral_002",
-          "order": 2,
-          "title": "열하나, 스물...",
-          "subtitle": "固有数詞（11〜99）",
-          "level": "beginner",
-          "file": "numeral/numeral_002.json",
-          "tags": [
-            "固有数詞"
-          ]
-        },
-        {
-          "id": "grm_numeral_003",
-          "order": 3,
-          "title": "한, 두, 세, 네",
-          "subtitle": "固有数詞の連体形",
-          "level": "beginner",
-          "file": "numeral/numeral_003.json",
-          "tags": [
-            "固有数詞",
-            "連体形"
-          ]
-        },
-        {
-          "id": "grm_numeral_004",
-          "order": 4,
-          "title": "일, 이, 삼...",
-          "subtitle": "漢数詞（1〜10）",
-          "level": "beginner",
-          "file": "numeral/numeral_004.json",
-          "tags": [
-            "漢数詞",
-            "基本"
-          ]
-        },
-        {
-          "id": "grm_numeral_005",
-          "order": 5,
-          "title": "십, 백, 천, 만",
-          "subtitle": "漢数詞の位",
-          "level": "beginner",
-          "file": "numeral/numeral_005.json",
-          "tags": [
-            "漢数詞",
-            "位"
-          ]
-        },
-        {
-          "id": "grm_numeral_006",
-          "order": 6,
-          "title": "개",
-          "subtitle": "助数詞（個）",
-          "level": "beginner",
-          "file": "numeral/numeral_006.json",
-          "tags": [
-            "助数詞",
-            "物"
-          ]
-        },
-        {
-          "id": "grm_numeral_007",
-          "order": 7,
-          "title": "명/사람",
-          "subtitle": "助数詞（人）",
-          "level": "beginner",
-          "file": "numeral/numeral_007.json",
-          "tags": [
-            "助数詞",
-            "人"
-          ]
-        },
-        {
-          "id": "grm_numeral_008",
-          "order": 8,
-          "title": "마리",
-          "subtitle": "助数詞（匹/頭/羽）",
-          "level": "beginner",
-          "file": "numeral/numeral_008.json",
-          "tags": [
-            "助数詞",
-            "動物"
-          ]
-        },
-        {
-          "id": "grm_numeral_009",
-          "order": 9,
-          "title": "권",
-          "subtitle": "助数詞（冊）",
-          "level": "beginner",
-          "file": "numeral/numeral_009.json",
-          "tags": [
-            "助数詞",
-            "本"
-          ]
-        },
-        {
-          "id": "grm_numeral_010",
-          "order": 10,
-          "title": "잔/병/컵",
-          "subtitle": "助数詞（杯/本/カップ）",
-          "level": "beginner",
-          "file": "numeral/numeral_010.json",
-          "tags": [
-            "助数詞",
-            "飲料"
-          ]
-        },
-        {
-          "id": "grm_numeral_011",
-          "order": 11,
-          "title": "대",
-          "subtitle": "助数詞（台）",
-          "level": "intermediate",
-          "file": "numeral/numeral_011.json",
-          "tags": [
-            "助数詞",
-            "機械"
-          ]
-        },
-        {
-          "id": "grm_numeral_012",
-          "order": 12,
-          "title": "장",
-          "subtitle": "助数詞（枚）",
-          "level": "intermediate",
-          "file": "numeral/numeral_012.json",
-          "tags": [
-            "助数詞",
-            "紙"
-          ]
-        },
-        {
-          "id": "grm_numeral_013",
-          "order": 13,
-          "title": "벌",
-          "subtitle": "助数詞（着）",
-          "level": "intermediate",
-          "file": "numeral/numeral_013.json",
-          "tags": [
-            "助数詞",
-            "服"
-          ]
-        },
-        {
-          "id": "grm_numeral_014",
-          "order": 14,
-          "title": "켤레",
-          "subtitle": "助数詞（足）",
-          "level": "intermediate",
-          "file": "numeral/numeral_014.json",
-          "tags": [
-            "助数詞",
-            "靴"
-          ]
-        },
-        {
-          "id": "grm_numeral_015",
-          "order": 15,
-          "title": "번",
-          "subtitle": "助数詞（回/番）",
-          "level": "beginner",
-          "file": "numeral/numeral_015.json",
-          "tags": [
-            "助数詞",
-            "回数"
-          ]
-        },
-        {
-          "id": "grm_numeral_016",
-          "order": 16,
-          "title": "시, 분, 초",
-          "subtitle": "時間の数え方",
-          "level": "beginner",
-          "file": "numeral/numeral_016.json",
-          "tags": [
-            "時間"
-          ]
-        },
-        {
-          "id": "grm_numeral_017",
-          "order": 17,
-          "title": "년, 월, 일",
-          "subtitle": "日付の数え方",
-          "level": "beginner",
-          "file": "numeral/numeral_017.json",
-          "tags": [
-            "日付"
-          ]
-        },
-        {
-          "id": "grm_numeral_018",
-          "order": 18,
-          "title": "원",
-          "subtitle": "助数詞（ウォン）",
-          "level": "beginner",
-          "file": "numeral/numeral_018.json",
-          "tags": [
-            "助数詞",
-            "通貨"
-          ]
-        },
-        {
-          "id": "grm_numeral_019",
-          "order": 19,
-          "title": "층/호",
-          "subtitle": "助数詞（階/号）",
-          "level": "intermediate",
-          "file": "numeral/numeral_019.json",
-          "tags": [
-            "助数詞",
-            "建物"
-          ]
-        },
-        {
-          "id": "grm_numeral_020",
-          "order": 20,
-          "title": "第一/첫째",
-          "subtitle": "序数詞（第〜/〜番目）",
-          "level": "intermediate",
-          "file": "numeral/numeral_020.json",
-          "tags": [
-            "序数詞"
-          ]
-        },
-        {
-          "id": "grm_numeral_021",
-          "order": 21,
-          "title": "살",
-          "subtitle": "助数詞（〜歳）",
-          "level": "beginner",
-          "file": "numeral/numeral_021.json",
-          "tags": [
-            "助数詞",
-            "年齢"
-          ]
-        },
-        {
-          "id": "grm_numeral_022",
-          "order": 22,
-          "title": "인분",
-          "subtitle": "助数詞（〜人前）",
-          "level": "beginner",
-          "file": "numeral/numeral_022.json",
-          "tags": [
-            "助数詞",
-            "食事"
-          ]
-        }
-      ]
-    },
-    "interrogative": {
-      "id": "interrogative",
-      "name": "疑問詞",
-      "description": "疑問代名詞・疑問副詞",
-      "order": 8,
-      "totalItems": 12,
-      "items": [
-        {
-          "id": "grm_interrogative_001",
-          "order": 1,
-          "title": "누구",
-          "subtitle": "疑問代名詞（誰）",
-          "level": "beginner",
-          "file": "interrogative/interrogative_001.json",
-          "tags": [
-            "人"
-          ]
-        },
-        {
-          "id": "grm_interrogative_002",
-          "order": 2,
-          "title": "무엇/뭐",
-          "subtitle": "疑問代名詞（何）",
-          "level": "beginner",
-          "file": "interrogative/interrogative_002.json",
-          "tags": [
-            "物"
-          ]
-        },
-        {
-          "id": "grm_interrogative_003",
-          "order": 3,
-          "title": "어디",
-          "subtitle": "疑問副詞（どこ）",
-          "level": "beginner",
-          "file": "interrogative/interrogative_003.json",
-          "tags": [
-            "場所"
-          ]
-        },
-        {
-          "id": "grm_interrogative_004",
-          "order": 4,
-          "title": "언제",
-          "subtitle": "疑問副詞（いつ）",
-          "level": "beginner",
-          "file": "interrogative/interrogative_004.json",
-          "tags": [
-            "時間"
-          ]
-        },
-        {
-          "id": "grm_interrogative_005",
-          "order": 5,
-          "title": "왜",
-          "subtitle": "疑問副詞（なぜ）",
-          "level": "beginner",
-          "file": "interrogative/interrogative_005.json",
-          "tags": [
-            "理由"
-          ]
-        },
-        {
-          "id": "grm_interrogative_006",
-          "order": 6,
-          "title": "어떻게",
-          "subtitle": "疑問副詞（どのように）",
-          "level": "beginner",
-          "file": "interrogative/interrogative_006.json",
-          "tags": [
-            "方法"
-          ]
-        },
-        {
-          "id": "grm_interrogative_007",
-          "order": 7,
-          "title": "얼마",
-          "subtitle": "疑問代名詞（いくら）",
-          "level": "beginner",
-          "file": "interrogative/interrogative_007.json",
-          "tags": [
-            "値段",
-            "量"
-          ]
-        },
-        {
-          "id": "grm_interrogative_008",
-          "order": 8,
-          "title": "몇",
-          "subtitle": "疑問連体詞（いくつ/何）",
-          "level": "beginner",
-          "file": "interrogative/interrogative_008.json",
-          "tags": [
-            "数量"
-          ]
-        },
-        {
-          "id": "grm_interrogative_009",
-          "order": 9,
-          "title": "어느",
-          "subtitle": "疑問連体詞（どの）",
-          "level": "intermediate",
-          "file": "interrogative/interrogative_009.json",
-          "tags": [
-            "選択"
-          ]
-        },
-        {
-          "id": "grm_interrogative_010",
-          "order": 10,
-          "title": "어떤",
-          "subtitle": "疑問連体詞（どんな）",
-          "level": "intermediate",
-          "file": "interrogative/interrogative_010.json",
-          "tags": [
-            "種類"
-          ]
-        },
-        {
-          "id": "grm_interrogative_011",
-          "order": 11,
-          "title": "무슨",
-          "subtitle": "疑問連体詞（何の）",
-          "level": "beginner",
-          "file": "interrogative/interrogative_011.json",
-          "tags": [
-            "種類"
-          ]
-        },
-        {
-          "id": "grm_interrogative_012",
-          "order": 12,
-          "title": "어디서/어디로",
-          "subtitle": "疑問副詞（どこで/どこへ）",
-          "level": "intermediate",
-          "file": "interrogative/interrogative_012.json",
-          "tags": [
-            "場所",
-            "方向"
-          ]
-        }
-      ]
-    },
-    "pronoun": {
-      "id": "pronoun",
-      "name": "代名詞・指示詞",
-      "description": "人称・指示・再帰代名詞",
-      "order": 9,
-      "totalItems": 15,
-      "items": [
-        {
-          "id": "grm_pronoun_001",
+          "id": "grm_substantive_001",
           "order": 1,
           "title": "나/저",
           "subtitle": "一人称代名詞（私）",
           "level": "beginner",
-          "file": "pronoun/pronoun_001.json",
+          "file": "substantive/substantive_001.json",
           "tags": [
             "人称",
             "一人称"
           ]
         },
         {
-          "id": "grm_pronoun_002",
+          "id": "grm_substantive_002",
           "order": 2,
           "title": "너/당신",
           "subtitle": "二人称代名詞（あなた）",
           "level": "beginner",
-          "file": "pronoun/pronoun_002.json",
+          "file": "substantive/substantive_002.json",
           "tags": [
             "人称",
             "二人称"
           ]
         },
         {
-          "id": "grm_pronoun_003",
+          "id": "grm_substantive_003",
           "order": 3,
           "title": "그/그녀",
           "subtitle": "三人称代名詞（彼/彼女）",
           "level": "beginner",
-          "file": "pronoun/pronoun_003.json",
+          "file": "substantive/substantive_003.json",
           "tags": [
             "人称",
             "三人称"
           ]
         },
         {
-          "id": "grm_pronoun_004",
+          "id": "grm_substantive_004",
           "order": 4,
           "title": "우리/저희",
           "subtitle": "複数人称代名詞（私たち）",
           "level": "beginner",
-          "file": "pronoun/pronoun_004.json",
+          "file": "substantive/substantive_004.json",
           "tags": [
             "人称",
             "複数"
           ]
         },
         {
-          "id": "grm_pronoun_005",
+          "id": "grm_substantive_005",
           "order": 5,
           "title": "이것/그것/저것",
           "subtitle": "指示代名詞（これ/それ/あれ）",
           "level": "beginner",
-          "file": "pronoun/pronoun_005.json",
+          "file": "substantive/substantive_005.json",
           "tags": [
             "指示",
             "物"
           ]
         },
         {
-          "id": "grm_pronoun_006",
+          "id": "grm_substantive_006",
           "order": 6,
           "title": "여기/거기/저기",
           "subtitle": "指示代名詞（ここ/そこ/あそこ）",
           "level": "beginner",
-          "file": "pronoun/pronoun_006.json",
+          "file": "substantive/substantive_006.json",
           "tags": [
             "指示",
             "場所"
           ]
         },
         {
-          "id": "grm_pronoun_007",
+          "id": "grm_substantive_007",
           "order": 7,
           "title": "이/그/저",
           "subtitle": "指示連体詞（この/その/あの）",
           "level": "beginner",
-          "file": "pronoun/pronoun_007.json",
+          "file": "substantive/substantive_007.json",
           "tags": [
             "指示",
             "連体詞"
           ]
         },
         {
-          "id": "grm_pronoun_008",
+          "id": "grm_substantive_008",
           "order": 8,
           "title": "이런/그런/저런",
           "subtitle": "指示連体詞（こんな/そんな/あんな）",
           "level": "intermediate",
-          "file": "pronoun/pronoun_008.json",
+          "file": "substantive/substantive_008.json",
           "tags": [
             "指示",
             "種類"
           ]
         },
         {
-          "id": "grm_pronoun_009",
+          "id": "grm_substantive_009",
           "order": 9,
           "title": "이렇게/그렇게/저렇게",
           "subtitle": "指示副詞（こう/そう/ああ）",
           "level": "intermediate",
-          "file": "pronoun/pronoun_009.json",
+          "file": "substantive/substantive_009.json",
           "tags": [
             "指示",
             "様態"
           ]
         },
         {
-          "id": "grm_pronoun_010",
+          "id": "grm_substantive_010",
           "order": 10,
           "title": "자기/자신",
           "subtitle": "再帰代名詞（自分）",
           "level": "intermediate",
-          "file": "pronoun/pronoun_010.json",
+          "file": "substantive/substantive_010.json",
           "tags": [
             "再帰"
           ]
         },
         {
-          "id": "grm_pronoun_011",
+          "id": "grm_substantive_011",
           "order": 11,
           "title": "서로",
           "subtitle": "相互代名詞（お互い）",
           "level": "intermediate",
-          "file": "pronoun/pronoun_011.json",
+          "file": "substantive/substantive_011.json",
           "tags": [
             "相互"
           ]
         },
         {
-          "id": "grm_pronoun_012",
+          "id": "grm_substantive_012",
           "order": 12,
           "title": "누구나/아무나",
           "subtitle": "不定代名詞（誰でも）",
           "level": "intermediate",
-          "file": "pronoun/pronoun_012.json",
+          "file": "substantive/substantive_012.json",
           "tags": [
             "不定",
             "人"
           ]
         },
         {
-          "id": "grm_pronoun_013",
+          "id": "grm_substantive_013",
           "order": 13,
           "title": "무엇이나/아무거나",
           "subtitle": "不定代名詞（何でも）",
           "level": "intermediate",
-          "file": "pronoun/pronoun_013.json",
+          "file": "substantive/substantive_013.json",
           "tags": [
             "不定",
             "物"
           ]
         },
         {
-          "id": "grm_pronoun_014",
+          "id": "grm_substantive_014",
           "order": 14,
           "title": "어디나/아무데나",
           "subtitle": "不定代名詞（どこでも）",
           "level": "intermediate",
-          "file": "pronoun/pronoun_014.json",
+          "file": "substantive/substantive_014.json",
           "tags": [
             "不定",
             "場所"
           ]
         },
         {
-          "id": "grm_pronoun_015",
+          "id": "grm_substantive_015",
           "order": 15,
           "title": "이쪽/그쪽/저쪽",
           "subtitle": "指示代名詞（こちら/そちら/あちら）",
           "level": "beginner",
-          "file": "pronoun/pronoun_015.json",
+          "file": "substantive/substantive_015.json",
           "tags": [
             "指示",
             "方向"
+          ]
+        },
+        {
+          "id": "grm_substantive_016",
+          "order": 16,
+          "title": "하나, 둘, 셋...",
+          "subtitle": "固有数詞（1〜10）",
+          "level": "beginner",
+          "file": "substantive/substantive_016.json",
+          "tags": [
+            "固有数詞",
+            "基本"
+          ]
+        },
+        {
+          "id": "grm_substantive_017",
+          "order": 17,
+          "title": "열하나, 스물...",
+          "subtitle": "固有数詞（11〜99）",
+          "level": "beginner",
+          "file": "substantive/substantive_017.json",
+          "tags": [
+            "固有数詞"
+          ]
+        },
+        {
+          "id": "grm_substantive_018",
+          "order": 18,
+          "title": "한, 두, 세, 네",
+          "subtitle": "固有数詞の連体形",
+          "level": "beginner",
+          "file": "substantive/substantive_018.json",
+          "tags": [
+            "固有数詞",
+            "連体形"
+          ]
+        },
+        {
+          "id": "grm_substantive_019",
+          "order": 19,
+          "title": "일, 이, 삼...",
+          "subtitle": "漢数詞（1〜10）",
+          "level": "beginner",
+          "file": "substantive/substantive_019.json",
+          "tags": [
+            "漢数詞",
+            "基本"
+          ]
+        },
+        {
+          "id": "grm_substantive_020",
+          "order": 20,
+          "title": "십, 백, 천, 만",
+          "subtitle": "漢数詞の位",
+          "level": "beginner",
+          "file": "substantive/substantive_020.json",
+          "tags": [
+            "漢数詞",
+            "位"
+          ]
+        },
+        {
+          "id": "grm_substantive_021",
+          "order": 21,
+          "title": "개",
+          "subtitle": "助数詞（個）",
+          "level": "beginner",
+          "file": "substantive/substantive_021.json",
+          "tags": [
+            "助数詞",
+            "物"
+          ]
+        },
+        {
+          "id": "grm_substantive_022",
+          "order": 22,
+          "title": "명/사람",
+          "subtitle": "助数詞（人）",
+          "level": "beginner",
+          "file": "substantive/substantive_022.json",
+          "tags": [
+            "助数詞",
+            "人"
+          ]
+        },
+        {
+          "id": "grm_substantive_023",
+          "order": 23,
+          "title": "마리",
+          "subtitle": "助数詞（匹/頭/羽）",
+          "level": "beginner",
+          "file": "substantive/substantive_023.json",
+          "tags": [
+            "助数詞",
+            "動物"
+          ]
+        },
+        {
+          "id": "grm_substantive_024",
+          "order": 24,
+          "title": "권",
+          "subtitle": "助数詞（冊）",
+          "level": "beginner",
+          "file": "substantive/substantive_024.json",
+          "tags": [
+            "助数詞",
+            "本"
+          ]
+        },
+        {
+          "id": "grm_substantive_025",
+          "order": 25,
+          "title": "잔/병/컵",
+          "subtitle": "助数詞（杯/本/カップ）",
+          "level": "beginner",
+          "file": "substantive/substantive_025.json",
+          "tags": [
+            "助数詞",
+            "飲料"
+          ]
+        },
+        {
+          "id": "grm_substantive_026",
+          "order": 26,
+          "title": "대",
+          "subtitle": "助数詞（台）",
+          "level": "intermediate",
+          "file": "substantive/substantive_026.json",
+          "tags": [
+            "助数詞",
+            "機械"
+          ]
+        },
+        {
+          "id": "grm_substantive_027",
+          "order": 27,
+          "title": "장",
+          "subtitle": "助数詞（枚）",
+          "level": "intermediate",
+          "file": "substantive/substantive_027.json",
+          "tags": [
+            "助数詞",
+            "紙"
+          ]
+        },
+        {
+          "id": "grm_substantive_028",
+          "order": 28,
+          "title": "벌",
+          "subtitle": "助数詞（着）",
+          "level": "intermediate",
+          "file": "substantive/substantive_028.json",
+          "tags": [
+            "助数詞",
+            "服"
+          ]
+        },
+        {
+          "id": "grm_substantive_029",
+          "order": 29,
+          "title": "켤레",
+          "subtitle": "助数詞（足）",
+          "level": "intermediate",
+          "file": "substantive/substantive_029.json",
+          "tags": [
+            "助数詞",
+            "靴"
+          ]
+        },
+        {
+          "id": "grm_substantive_030",
+          "order": 30,
+          "title": "번",
+          "subtitle": "助数詞（回/番）",
+          "level": "beginner",
+          "file": "substantive/substantive_030.json",
+          "tags": [
+            "助数詞",
+            "回数"
+          ]
+        },
+        {
+          "id": "grm_substantive_031",
+          "order": 31,
+          "title": "시, 분, 초",
+          "subtitle": "時間の数え方",
+          "level": "beginner",
+          "file": "substantive/substantive_031.json",
+          "tags": [
+            "時間"
+          ]
+        },
+        {
+          "id": "grm_substantive_032",
+          "order": 32,
+          "title": "년, 월, 일",
+          "subtitle": "日付の数え方",
+          "level": "beginner",
+          "file": "substantive/substantive_032.json",
+          "tags": [
+            "日付"
+          ]
+        },
+        {
+          "id": "grm_substantive_033",
+          "order": 33,
+          "title": "원",
+          "subtitle": "助数詞（ウォン）",
+          "level": "beginner",
+          "file": "substantive/substantive_033.json",
+          "tags": [
+            "助数詞",
+            "通貨"
+          ]
+        },
+        {
+          "id": "grm_substantive_034",
+          "order": 34,
+          "title": "층/호",
+          "subtitle": "助数詞（階/号）",
+          "level": "intermediate",
+          "file": "substantive/substantive_034.json",
+          "tags": [
+            "助数詞",
+            "建物"
+          ]
+        },
+        {
+          "id": "grm_substantive_035",
+          "order": 35,
+          "title": "第一/첫째",
+          "subtitle": "序数詞（第〜/〜番目）",
+          "level": "intermediate",
+          "file": "substantive/substantive_035.json",
+          "tags": [
+            "序数詞"
+          ]
+        },
+        {
+          "id": "grm_substantive_036",
+          "order": 36,
+          "title": "살",
+          "subtitle": "助数詞（〜歳）",
+          "level": "beginner",
+          "file": "substantive/substantive_036.json",
+          "tags": [
+            "助数詞",
+            "年齢"
+          ]
+        },
+        {
+          "id": "grm_substantive_037",
+          "order": 37,
+          "title": "인분",
+          "subtitle": "助数詞（〜人前）",
+          "level": "beginner",
+          "file": "substantive/substantive_037.json",
+          "tags": [
+            "助数詞",
+            "食事"
+          ]
+        },
+        {
+          "id": "grm_substantive_038",
+          "order": 38,
+          "title": "누구",
+          "subtitle": "疑問代名詞（誰）",
+          "level": "beginner",
+          "file": "substantive/substantive_038.json",
+          "tags": [
+            "人"
+          ]
+        },
+        {
+          "id": "grm_substantive_039",
+          "order": 39,
+          "title": "무엇/뭐",
+          "subtitle": "疑問代名詞（何）",
+          "level": "beginner",
+          "file": "substantive/substantive_039.json",
+          "tags": [
+            "物"
+          ]
+        },
+        {
+          "id": "grm_substantive_040",
+          "order": 40,
+          "title": "어디",
+          "subtitle": "疑問副詞（どこ）",
+          "level": "beginner",
+          "file": "substantive/substantive_040.json",
+          "tags": [
+            "場所"
+          ]
+        },
+        {
+          "id": "grm_substantive_041",
+          "order": 41,
+          "title": "언제",
+          "subtitle": "疑問副詞（いつ）",
+          "level": "beginner",
+          "file": "substantive/substantive_041.json",
+          "tags": [
+            "時間"
+          ]
+        },
+        {
+          "id": "grm_substantive_042",
+          "order": 42,
+          "title": "왜",
+          "subtitle": "疑問副詞（なぜ）",
+          "level": "beginner",
+          "file": "substantive/substantive_042.json",
+          "tags": [
+            "理由"
+          ]
+        },
+        {
+          "id": "grm_substantive_043",
+          "order": 43,
+          "title": "어떻게",
+          "subtitle": "疑問副詞（どのように）",
+          "level": "beginner",
+          "file": "substantive/substantive_043.json",
+          "tags": [
+            "方法"
+          ]
+        },
+        {
+          "id": "grm_substantive_044",
+          "order": 44,
+          "title": "얼마",
+          "subtitle": "疑問代名詞（いくら）",
+          "level": "beginner",
+          "file": "substantive/substantive_044.json",
+          "tags": [
+            "値段",
+            "量"
+          ]
+        },
+        {
+          "id": "grm_substantive_045",
+          "order": 45,
+          "title": "몇",
+          "subtitle": "疑問連体詞（いくつ/何）",
+          "level": "beginner",
+          "file": "substantive/substantive_045.json",
+          "tags": [
+            "数量"
+          ]
+        },
+        {
+          "id": "grm_substantive_046",
+          "order": 46,
+          "title": "어느",
+          "subtitle": "疑問連体詞（どの）",
+          "level": "intermediate",
+          "file": "substantive/substantive_046.json",
+          "tags": [
+            "選択"
+          ]
+        },
+        {
+          "id": "grm_substantive_047",
+          "order": 47,
+          "title": "어떤",
+          "subtitle": "疑問連体詞（どんな）",
+          "level": "intermediate",
+          "file": "substantive/substantive_047.json",
+          "tags": [
+            "種類"
+          ]
+        },
+        {
+          "id": "grm_substantive_048",
+          "order": 48,
+          "title": "무슨",
+          "subtitle": "疑問連体詞（何の）",
+          "level": "beginner",
+          "file": "substantive/substantive_048.json",
+          "tags": [
+            "種類"
+          ]
+        },
+        {
+          "id": "grm_substantive_049",
+          "order": 49,
+          "title": "어디서/어디로",
+          "subtitle": "疑問副詞（どこで/どこへ）",
+          "level": "intermediate",
+          "file": "substantive/substantive_049.json",
+          "tags": [
+            "場所",
+            "方向"
+          ]
+        },
+        {
+          "id": "grm_substantive_050",
+          "order": 50,
+          "title": "저/제",
+          "subtitle": "나の謙譲語（私）",
+          "level": "beginner",
+          "file": "substantive/substantive_050.json",
+          "tags": [
+            "謙譲",
+            "人称"
+          ]
+        },
+        {
+          "id": "grm_substantive_051",
+          "order": 51,
+          "title": "저희",
+          "subtitle": "우리の謙譲語（私ども）",
+          "level": "beginner",
+          "file": "substantive/substantive_051.json",
+          "tags": [
+            "謙譲",
+            "複数"
           ]
         }
       ]
@@ -3134,6 +2721,410 @@
           "tags": [
             "間投",
             "接続"
+          ]
+        }
+      ]
+    },
+    "sentence_ending": {
+      "id": "sentence_ending",
+      "name": "終止形と待遇法",
+      "description": "文末表現や待遇法を示す形",
+      "order": 2,
+      "totalItems": 16,
+      "items": [
+        {
+          "id": "grm_sentence_ending_001",
+          "order": 1,
+          "title": "-아/어요",
+          "subtitle": "丁寧形語尾（〜です/ます）",
+          "level": "beginner",
+          "file": "sentence_ending/sentence_ending_001.json",
+          "tags": [
+            "丁寧",
+            "基本"
+          ]
+        },
+        {
+          "id": "grm_sentence_ending_002",
+          "order": 2,
+          "title": "-습니다/ㅂ니다",
+          "subtitle": "格式体語尾（〜です/ます）",
+          "level": "beginner",
+          "file": "sentence_ending/sentence_ending_002.json",
+          "tags": [
+            "フォーマル",
+            "基本"
+          ]
+        },
+        {
+          "id": "grm_sentence_ending_003",
+          "order": 3,
+          "title": "-아/어",
+          "subtitle": "パンマル語尾（〜だ/する）",
+          "level": "beginner",
+          "file": "sentence_ending/sentence_ending_003.json",
+          "tags": [
+            "カジュアル"
+          ]
+        },
+        {
+          "id": "grm_sentence_ending_004",
+          "order": 4,
+          "title": "-(으)세요",
+          "subtitle": "尊敬命令・勧誘語尾",
+          "level": "beginner",
+          "file": "sentence_ending/sentence_ending_004.json",
+          "tags": [
+            "敬語",
+            "命令"
+          ]
+        },
+        {
+          "id": "grm_sentence_ending_005",
+          "order": 5,
+          "title": "-지 마세요",
+          "subtitle": "禁止語尾（〜しないでください）",
+          "level": "beginner",
+          "file": "sentence_ending/sentence_ending_005.json",
+          "tags": [
+            "禁止"
+          ]
+        },
+        {
+          "id": "grm_sentence_ending_006",
+          "order": 6,
+          "title": "-(으)ㄹ게요",
+          "subtitle": "意志語尾（〜しますね）",
+          "level": "beginner",
+          "file": "sentence_ending/sentence_ending_006.json",
+          "tags": [
+            "意志",
+            "約束"
+          ]
+        },
+        {
+          "id": "grm_sentence_ending_007",
+          "order": 7,
+          "title": "-(으)ㄹ까요?",
+          "subtitle": "提案・推量語尾（〜しましょうか）",
+          "level": "beginner",
+          "file": "sentence_ending/sentence_ending_007.json",
+          "tags": [
+            "提案",
+            "疑問"
+          ]
+        },
+        {
+          "id": "grm_sentence_ending_008",
+          "order": 8,
+          "title": "-는 바람에",
+          "subtitle": "原因語尾（〜したせいで）",
+          "level": "advanced",
+          "file": "sentence_ending/sentence_ending_008.json",
+          "tags": [
+            "原因",
+            "否定的"
+          ]
+        },
+        {
+          "id": "grm_sentence_ending_009",
+          "order": 9,
+          "title": "-더라고요",
+          "subtitle": "回想報告語尾（〜でしたよ）",
+          "level": "advanced",
+          "file": "sentence_ending/sentence_ending_009.json",
+          "tags": [
+            "回想",
+            "報告"
+          ]
+        },
+        {
+          "id": "grm_sentence_ending_010",
+          "order": 10,
+          "title": "-네요",
+          "subtitle": "感嘆・発見語尾（〜ですね）",
+          "level": "beginner",
+          "file": "sentence_ending/sentence_ending_010.json",
+          "tags": [
+            "感嘆",
+            "発見"
+          ]
+        },
+        {
+          "id": "grm_sentence_ending_011",
+          "order": 11,
+          "title": "-군요/구나",
+          "subtitle": "感嘆語尾（〜だなあ）",
+          "level": "intermediate",
+          "file": "sentence_ending/sentence_ending_011.json",
+          "tags": [
+            "感嘆",
+            "発見"
+          ]
+        },
+        {
+          "id": "grm_sentence_ending_012",
+          "order": 12,
+          "title": "-거든요",
+          "subtitle": "理由説明語尾（〜なんですよ）",
+          "level": "intermediate",
+          "file": "sentence_ending/sentence_ending_012.json",
+          "tags": [
+            "理由",
+            "説明"
+          ]
+        },
+        {
+          "id": "grm_sentence_ending_013",
+          "order": 13,
+          "title": "-잖아요",
+          "subtitle": "確認語尾（〜じゃないですか）",
+          "level": "intermediate",
+          "file": "sentence_ending/sentence_ending_013.json",
+          "tags": [
+            "確認",
+            "会話"
+          ]
+        },
+        {
+          "id": "grm_sentence_ending_014",
+          "order": 14,
+          "title": "-(으)ㄹ래요",
+          "subtitle": "意志・勧誘語尾（〜します/しますか）",
+          "level": "beginner",
+          "file": "sentence_ending/sentence_ending_014.json",
+          "tags": [
+            "意志",
+            "勧誘"
+          ]
+        },
+        {
+          "id": "grm_sentence_ending_015",
+          "order": 15,
+          "title": "-(으)십시오",
+          "subtitle": "格式体命令（〜してください）",
+          "level": "advanced",
+          "file": "sentence_ending/sentence_ending_015.json",
+          "tags": [
+            "敬語",
+            "命令"
+          ]
+        },
+        {
+          "id": "grm_sentence_ending_016",
+          "order": 16,
+          "title": "-나이다/-사옵나이다",
+          "subtitle": "古語敬語表現",
+          "level": "advanced",
+          "file": "sentence_ending/sentence_ending_016.json",
+          "tags": [
+            "古語",
+            "格式"
+          ]
+        }
+      ]
+    },
+    "tense_aspect": {
+      "id": "tense_aspect",
+      "name": "時制・相",
+      "description": "時制や相に関する表現",
+      "order": 8,
+      "totalItems": 15,
+      "items": [
+        {
+          "id": "grm_tense_aspect_001",
+          "order": 1,
+          "title": "-지 않다",
+          "subtitle": "否定語尾（〜しない）",
+          "level": "beginner",
+          "file": "tense_aspect/tense_aspect_001.json",
+          "tags": [
+            "否定"
+          ]
+        },
+        {
+          "id": "grm_tense_aspect_002",
+          "order": 2,
+          "title": "-못하다",
+          "subtitle": "不可能語尾（〜できない）",
+          "level": "beginner",
+          "file": "tense_aspect/tense_aspect_002.json",
+          "tags": [
+            "不可能"
+          ]
+        },
+        {
+          "id": "grm_tense_aspect_003",
+          "order": 3,
+          "title": "-아/어 있다",
+          "subtitle": "状態継続語尾（〜している）",
+          "level": "intermediate",
+          "file": "tense_aspect/tense_aspect_003.json",
+          "tags": [
+            "状態"
+          ]
+        },
+        {
+          "id": "grm_tense_aspect_004",
+          "order": 4,
+          "title": "-고 있다",
+          "subtitle": "進行語尾（〜している）",
+          "level": "beginner",
+          "file": "tense_aspect/tense_aspect_004.json",
+          "tags": [
+            "進行"
+          ]
+        },
+        {
+          "id": "grm_tense_aspect_005",
+          "order": 5,
+          "title": "-(으)시-",
+          "subtitle": "尊敬接尾辞",
+          "level": "beginner",
+          "file": "tense_aspect/tense_aspect_005.json",
+          "tags": [
+            "尊敬",
+            "基本"
+          ]
+        },
+        {
+          "id": "grm_tense_aspect_006",
+          "order": 6,
+          "title": "계시다",
+          "subtitle": "있다の尊敬語（いらっしゃる）",
+          "level": "beginner",
+          "file": "tense_aspect/tense_aspect_006.json",
+          "tags": [
+            "尊敬",
+            "存在"
+          ]
+        },
+        {
+          "id": "grm_tense_aspect_007",
+          "order": 7,
+          "title": "드시다",
+          "subtitle": "먹다の尊敬語（召し上がる）",
+          "level": "beginner",
+          "file": "tense_aspect/tense_aspect_007.json",
+          "tags": [
+            "尊敬",
+            "飲食"
+          ]
+        },
+        {
+          "id": "grm_tense_aspect_008",
+          "order": 8,
+          "title": "주무시다",
+          "subtitle": "자다の尊敬語（お休みになる）",
+          "level": "intermediate",
+          "file": "tense_aspect/tense_aspect_008.json",
+          "tags": [
+            "尊敬",
+            "睡眠"
+          ]
+        },
+        {
+          "id": "grm_tense_aspect_009",
+          "order": 9,
+          "title": "돌아가시다",
+          "subtitle": "죽다の尊敬語（お亡くなりになる）",
+          "level": "intermediate",
+          "file": "tense_aspect/tense_aspect_009.json",
+          "tags": [
+            "尊敬",
+            "婉曲"
+          ]
+        },
+        {
+          "id": "grm_tense_aspect_010",
+          "order": 10,
+          "title": "말씀하시다",
+          "subtitle": "말하다の尊敬語（おっしゃる）",
+          "level": "intermediate",
+          "file": "tense_aspect/tense_aspect_010.json",
+          "tags": [
+            "尊敬",
+            "発言"
+          ]
+        },
+        {
+          "id": "grm_tense_aspect_011",
+          "order": 11,
+          "title": "드리다",
+          "subtitle": "주다の謙譲語（差し上げる）",
+          "level": "beginner",
+          "file": "tense_aspect/tense_aspect_011.json",
+          "tags": [
+            "謙譲"
+          ]
+        },
+        {
+          "id": "grm_tense_aspect_012",
+          "order": 12,
+          "title": "여쭙다/여쭤보다",
+          "subtitle": "묻다の謙譲語（お伺いする）",
+          "level": "intermediate",
+          "file": "tense_aspect/tense_aspect_012.json",
+          "tags": [
+            "謙譲",
+            "質問"
+          ]
+        },
+        {
+          "id": "grm_tense_aspect_013",
+          "order": 13,
+          "title": "뵙다",
+          "subtitle": "보다の謙譲語（お目にかかる）",
+          "level": "intermediate",
+          "file": "tense_aspect/tense_aspect_013.json",
+          "tags": [
+            "謙譲",
+            "面会"
+          ]
+        },
+        {
+          "id": "grm_tense_aspect_014",
+          "order": 14,
+          "title": "모시다",
+          "subtitle": "데리다の謙譲語（お連れする）",
+          "level": "intermediate",
+          "file": "tense_aspect/tense_aspect_014.json",
+          "tags": [
+            "謙譲",
+            "同行"
+          ]
+        },
+        {
+          "id": "grm_tense_aspect_015",
+          "order": 15,
+          "title": "-아/어 드리다",
+          "subtitle": "謙譲補助動詞（〜して差し上げる）",
+          "level": "intermediate",
+          "file": "tense_aspect/tense_aspect_015.json",
+          "tags": [
+            "謙譲",
+            "補助"
+          ]
+        }
+      ]
+    },
+    "adnominal": {
+      "id": "adnominal",
+      "name": "連体形",
+      "description": "名詞を修飾する連体形の表現",
+      "order": 9,
+      "totalItems": 1,
+      "items": [
+        {
+          "id": "grm_adnominal_001",
+          "order": 1,
+          "title": "-던",
+          "subtitle": "回想連体形語尾",
+          "level": "advanced",
+          "file": "adnominal/adnominal_001.json",
+          "tags": [
+            "回想",
+            "連体形"
           ]
         }
       ]

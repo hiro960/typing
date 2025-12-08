@@ -1,0 +1,157 @@
+{
+  "id": "grm_conjugation_013",
+  "title": "자음어간과 모음어간",
+  "subtitle": "子音語幹用言と母音語幹用言",
+  "category": "conjugation",
+  "level": "beginner",
+  "tags": ["子音語幹", "母音語幹", "活用", "基本"],
+  "content": {
+    "summary": "韓国語の用言は、語幹の末尾が子音で終わるか母音で終わるかによって「子音語幹用言」と「母音語幹用言」に分類されます。この区別は活用の形に大きく影響します。",
+    "formationRules": [
+      {
+        "condition": "子音語幹用言",
+        "form": "語幹がパッチムで終わる",
+        "example": "먹다（먹）、읽다（읽）、찾다（찾）"
+      },
+      {
+        "condition": "母音語幹用言",
+        "form": "語幹が母音で終わる",
+        "example": "가다（가）、보다（보）、하다（하）"
+      },
+      {
+        "condition": "ㄹ語幹用言",
+        "form": "語幹がㄹパッチムで終わる特殊なタイプ",
+        "example": "살다（살）、알다（알）、만들다（만들）"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "子音語幹用言の活用",
+        "description": "パッチムがあるため、母音で始まる語尾と結合しやすいです",
+        "examples": [
+          {
+            "korean": "먹 + 어요 → 먹어요",
+            "japanese": "食べます"
+          },
+          {
+            "korean": "읽 + 으면 → 읽으면",
+            "japanese": "読めば"
+          },
+          {
+            "korean": "찾 + 아서 → 찾아서",
+            "japanese": "探して"
+          }
+        ]
+      },
+      {
+        "title": "母音語幹用言の活用",
+        "description": "パッチムがないため、子音で始まる語尾と直接結合します",
+        "examples": [
+          {
+            "korean": "가 + ㄴ다 → 간다",
+            "japanese": "行く"
+          },
+          {
+            "korean": "보 + 면 → 보면",
+            "japanese": "見れば"
+          },
+          {
+            "korean": "하 + 고 → 하고",
+            "japanese": "して"
+          }
+        ]
+      },
+      {
+        "title": "으の挿入",
+        "description": "子音語幹に子音で始まる語尾が付く場合、「으」が挿入されることがあります",
+        "examples": [
+          {
+            "korean": "먹 + 면 → 먹으면",
+            "japanese": "食べれば（「으」が挿入）"
+          },
+          {
+            "korean": "읽 + 니까 → 읽으니까",
+            "japanese": "読むから（「으」が挿入）"
+          },
+          {
+            "korean": "찾 + 려고 → 찾으려고",
+            "japanese": "探そうと（「으」が挿入）"
+          }
+        ]
+      },
+      {
+        "title": "母音の縮約",
+        "description": "母音語幹に母音で始まる語尾が付く場合、縮約が起こることがあります",
+        "examples": [
+          {
+            "korean": "가 + 아요 → 가요",
+            "japanese": "行きます（ㅏ+ㅏ→ㅏ）"
+          },
+          {
+            "korean": "보 + 아요 → 봐요",
+            "japanese": "見ます（ㅗ+ㅏ→ㅘ）"
+          },
+          {
+            "korean": "하 + 여요 → 해요",
+            "japanese": "します（하+여→해）"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "子音語幹と母音語幹の活用の違い",
+      "description": "同じ語尾でも、語幹のタイプによって接続の仕方が異なります",
+      "examples": [
+        {
+          "grammarA": "子音語幹",
+          "sentenceA": "먹으면（食べれば）",
+          "meaningA": "「으」が挿入される",
+          "grammarB": "母音語幹",
+          "sentenceB": "가면（行けば）",
+          "meaningB": "直接結合する"
+        }
+      ]
+    },
+    "tips": [
+      "ㄹ語幹用言は特殊な活用をするため、別途学習が必要です",
+      "으の挿入は子音で始まる特定の語尾の前でのみ起こります",
+      "母音の縮約ルールを覚えると活用がスムーズになります",
+      "辞書で用言を調べる際、語幹の種類を確認する習慣をつけましょう"
+    ],
+    "relatedGrammar": ["grm_conjugation_012", "grm_conjugation_014", "grm_conjugation_015", "grm_conjugation_016"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "「먹다」は何語幹用言ですか？",
+      "choices": ["子音語幹用言", "母音語幹用言", "ㄹ語幹用言", "不規則用言"],
+      "answerIndex": 0,
+      "explanation": "語幹「먹」がパッチム「ㄱ」で終わるので子音語幹用言です"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「가다」は何語幹用言ですか？",
+      "choices": ["子音語幹用言", "母音語幹用言", "ㄹ語幹用言", "不規則用言"],
+      "answerIndex": 1,
+      "explanation": "語幹「가」が母音「ㅏ」で終わるので母音語幹用言です"
+    },
+    {
+      "id": "ex_003",
+      "type": "fill_blank",
+      "question": "「읽다」+ 으면 → ___",
+      "answer": "읽으면",
+      "hint": "子音語幹に「으」が挿入されます",
+      "explanation": "子音語幹「읽」に「으면」が付いて「읽으면」になります"
+    },
+    {
+      "id": "ex_004",
+      "type": "fill_blank",
+      "question": "「보다」+ 아요 → ___",
+      "answer": "봐요",
+      "hint": "ㅗ+ㅏは縮約します",
+      "explanation": "母音語幹「보」に「아요」が付くと「ㅗ+ㅏ→ㅘ」で「봐요」になります"
+    }
+  ]
+}

@@ -7,21 +7,17 @@ part of 'grammar_models.dart';
 // **************************************************************************
 
 const _$GrammarCategoryEnumMap = {
+  GrammarCategory.orthography: 'orthography',
+  GrammarCategory.substantive: 'substantive',
   GrammarCategory.particle: 'particle',
-  GrammarCategory.ending: 'ending',
+  GrammarCategory.conjugation: 'conjugation',
+  GrammarCategory.sentenceEnding: 'sentence_ending',
   GrammarCategory.connective: 'connective',
-  GrammarCategory.honorific: 'honorific',
-  GrammarCategory.tense: 'tense',
+  GrammarCategory.adnominal: 'adnominal',
+  GrammarCategory.tenseAspect: 'tense_aspect',
   GrammarCategory.expression: 'expression',
-  GrammarCategory.numeral: 'numeral',
-  GrammarCategory.interrogative: 'interrogative',
-  GrammarCategory.pronoun: 'pronoun',
-  GrammarCategory.irregular: 'irregular',
-  GrammarCategory.voice: 'voice',
   GrammarCategory.quotation: 'quotation',
-  GrammarCategory.negation: 'negation',
-  GrammarCategory.adverb: 'adverb',
-  GrammarCategory.interjection: 'interjection',
+  GrammarCategory.wordFormation: 'word_formation',
 };
 
 const _$GrammarLevelEnumMap = {

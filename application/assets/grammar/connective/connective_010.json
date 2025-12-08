@@ -80,7 +80,7 @@
       "後件には必須条件や助言を置くことが多いです。",
       "\"안/못\" を前に置くと望ましくない事態を避ける条件になります。"
     ],
-    "relatedGrammar": ["grm_connective_004", "grm_ending_011", "grm_expression_010"]
+    "relatedGrammar": ["grm_connective_004", "grm_expression_029", "grm_expression_010"]
   },
   "exercises": [
     {

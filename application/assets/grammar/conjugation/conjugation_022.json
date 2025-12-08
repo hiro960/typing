@@ -1,0 +1,157 @@
+{
+  "id": "grm_conjugation_022",
+  "title": "비표준 활용",
+  "subtitle": "規則に従わない非標準的活用形",
+  "category": "conjugation",
+  "level": "advanced",
+  "tags": ["非標準活用", "口語", "方言", "上級"],
+  "content": {
+    "summary": "韓国語には標準的な活用規則に従わない非標準的な活用形があります。これらは口語や方言、古い言い方などに見られ、会話や創作物で出会うことがあります。",
+    "formationRules": [
+      {
+        "condition": "여不規則の標準外活用",
+        "form": "하다 → 하여 の代わりに해",
+        "example": "공부해요（← 공부하여요）"
+      },
+      {
+        "condition": "口語での省略",
+        "form": "様々な省略形",
+        "example": "뭐해? ← 무엇을 하여? / 가자 ← 가도록 하자"
+      },
+      {
+        "condition": "方言的活用",
+        "form": "地域による変異",
+        "example": "먹었다 → 먹었어/먹었당（方言）"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "口語での縮約",
+        "description": "日常会話では様々な縮約が起こります",
+        "examples": [
+          {
+            "korean": "그러니까 → 그니까",
+            "japanese": "だから"
+          },
+          {
+            "korean": "어떻게 → 어떡해",
+            "japanese": "どうしよう"
+          },
+          {
+            "korean": "그렇지만 → 근데",
+            "japanese": "でも"
+          }
+        ]
+      },
+      {
+        "title": "終結語尾の非標準形",
+        "description": "砕けた会話で使われる語尾の変形です",
+        "examples": [
+          {
+            "korean": "먹었어 → 먹었엉",
+            "japanese": "食べたよ（甘え・可愛さ）"
+          },
+          {
+            "korean": "그래요 → 그래용",
+            "japanese": "そうですよ（柔らかさ）"
+          },
+          {
+            "korean": "알았어 → 알았엉",
+            "japanese": "わかったよ（親しみ）"
+          }
+        ]
+      },
+      {
+        "title": "二重否定表現",
+        "description": "強調のための非標準的な二重否定です",
+        "examples": [
+          {
+            "korean": "안 가지 않을게요.",
+            "japanese": "行かないわけではありません。（＝行きます）"
+          },
+          {
+            "korean": "모르지 않아요.",
+            "japanese": "知らないわけではありません。（＝知っています）"
+          },
+          {
+            "korean": "싫지 않아요.",
+            "japanese": "嫌いじゃないです。（＝好きです）"
+          }
+        ]
+      },
+      {
+        "title": "方言・俗語的活用",
+        "description": "地域や世代による活用の違いです",
+        "examples": [
+          {
+            "korean": "뭐라고? → 뭐라카노?（慶尚道方言）",
+            "japanese": "何だって？"
+          },
+          {
+            "korean": "갔어 → 갔당게（全羅道方言）",
+            "japanese": "行ったよ"
+          },
+          {
+            "korean": "맛있다 → 맛있당",
+            "japanese": "おいしい（口語・SNS）"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "標準形と非標準形",
+      "description": "正式な場面と砕けた場面での使い分けを理解しましょう",
+      "examples": [
+        {
+          "grammarA": "標準形",
+          "sentenceA": "감사합니다.",
+          "meaningA": "ありがとうございます。",
+          "grammarB": "非標準形",
+          "sentenceB": "고마워용~",
+          "meaningB": "ありがとう〜（親しみ）"
+        }
+      ]
+    },
+    "tips": [
+      "非標準形は親しい間柄やSNSでよく使われます",
+      "フォーマルな場面では標準形を使いましょう",
+      "方言を理解すると韓国ドラマがより楽しめます",
+      "若者言葉は変化が早いので、標準形をまず習得することが大切です"
+    ],
+    "relatedGrammar": ["grm_conjugation_019", "grm_conjugation_020", "grm_conjugation_021"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "「그러니까」の口語的縮約形は？",
+      "choices": ["그니까", "그리까", "그러까", "그나까"],
+      "answerIndex": 0,
+      "explanation": "「그러니까」は口語では「그니까」に縮約されます"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「어떻게 해」の縮約形として正しいものは？",
+      "choices": ["어떡해", "어떻해", "어떠케", "어떡게"],
+      "answerIndex": 0,
+      "explanation": "「어떻게 해」は「어떡해」に縮約されます"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「먹었어용」のような語尾はどんな印象を与えますか？",
+      "choices": ["怒り", "親しみ・可愛さ", "尊敬", "皮肉"],
+      "answerIndex": 1,
+      "explanation": "「용」をつける語尾は親しみや可愛さを表現します"
+    },
+    {
+      "id": "ex_004",
+      "type": "choice",
+      "question": "公式な場面で使うべき形は？",
+      "choices": ["고마워용", "감사합니당", "감사합니다", "고마워~"],
+      "answerIndex": 2,
+      "explanation": "公式な場面では標準形の「감사합니다」を使います"
+    }
+  ]
+}

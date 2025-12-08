@@ -1,0 +1,141 @@
+{
+  "id": "grm_tense_aspect_035",
+  "title": "-이- 使役",
+  "subtitle": "먹다→먹이다（食べさせる）",
+  "category": "tense_aspect",
+  "level": "intermediate",
+  "tags": [
+    "使役",
+    "接尾辞"
+  ],
+  "content": {
+    "summary": "語幹に -이- を付けて行為をさせる使役形を作ります。",
+    "formationRules": [
+      {
+        "condition": "動詞語幹",
+        "form": "V + 이다/이-",
+        "example": "먹다→먹이다"
+      },
+      {
+        "condition": "보여 주다",
+        "form": "보다→보이다",
+        "example": "사진을 보이다"
+      },
+      {
+        "condition": "形容詞派生",
+        "form": "높다→높이다",
+        "example": "온도를 높이다"
+      },
+      {
+        "condition": "能動への置換",
+        "form": "-게 하다 でも表現可",
+        "example": "밥을 먹게 하다"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "行為をさせる",
+        "description": "他者に行為を行わせる。",
+        "examples": [
+          {
+            "korean": "엄마가 아기에게 죽을 먹였어요.",
+            "japanese": "母が赤ちゃんにおかゆを食べさせました。"
+          },
+          {
+            "korean": "선생님이 학생들에게 책을 보이셨어요.",
+            "japanese": "先生が学生に本を見せました。"
+          }
+        ]
+      },
+      {
+        "title": "状態を変える",
+        "description": "形容詞派生で状態をそうさせる。",
+        "examples": [
+          {
+            "korean": "난방 온도를 높였어요.",
+            "japanese": "暖房の温度を上げました。"
+          }
+        ]
+      },
+      {
+        "title": "提示・見せる",
+        "description": "보이다 で見せる/見えるの両義。",
+        "examples": [
+          {
+            "korean": "증거를 보여 주세요.",
+            "japanese": "証拠を見せてください。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-이- 使役 と -게 하다",
+      "description": "-이- は語尾で使役を作り、-게 하다 は補助動詞で幅広く使える。",
+      "examples": [
+        {
+          "grammarA": "-이-",
+          "sentenceA": "아이에게 밥을 먹였어요.",
+          "meaningA": "子にご飯を食べさせました。",
+          "grammarB": "-게 하다",
+          "sentenceB": "아이에게 밥을 먹게 했어요.",
+          "meaningB": "子にご飯を食べさせました。"
+        }
+      ]
+    },
+    "tips": [
+      "먹이다/보이다/높이다 を中心に覚える。",
+      "受身形と同形になる場合は文脈で判断。",
+      "-게 하다 で言い換えてニュアンスを比べる。"
+    ],
+    "relatedGrammar": [
+      "grm_tense_aspect_036",
+      "grm_tense_aspect_040",
+      "grm_tense_aspect_030"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "문이 ___ 있어요. (-히-/-이- などを入れてください)",
+      "answer": "닫혀",
+      "hint": "受身形の語尾を入れます。",
+      "explanation": "닫다 → 닫히다/닫혀요"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "‘먹다’の受身/使役形として正しいのは？",
+      "choices": [
+        "먹히다",
+        "먹기다",
+        "먹려다",
+        "먹어지다"
+      ],
+      "answerIndex": 0,
+      "explanation": "-히- を付けて 먹히다。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「子どもを座らせました」を韓国語で入力してください",
+      "answer": "아이를 앉혔어요",
+      "acceptableAnswers": [
+        "아이를 앉혔어요",
+        "아이를 앉게 했어요"
+      ],
+      "hint": "-히- 使役を使います。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "会議時間を皆に知らせました。",
+      "answer": "회의 시간을 모두에게 알렸어요",
+      "acceptableAnswers": [
+        "회의 시간을 모두에게 알렸어요",
+        "회의 시간을 모두에게 알리게 했어요"
+      ],
+      "explanation": "알리다 を使った使役/伝達。"
+    }
+  ]
+}

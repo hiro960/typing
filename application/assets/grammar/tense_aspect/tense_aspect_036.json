@@ -1,0 +1,141 @@
+{
+  "id": "grm_tense_aspect_036",
+  "title": "-히- 使役",
+  "subtitle": "읽다→읽히다（読ませる）",
+  "category": "tense_aspect",
+  "level": "intermediate",
+  "tags": [
+    "使役",
+    "接尾辞"
+  ],
+  "content": {
+    "summary": "語幹に -히- を付けて使役を作る形で、読ませる・座らせるなどに用います。",
+    "formationRules": [
+      {
+        "condition": "읽다",
+        "form": "읽히다",
+        "example": "책을 읽히다"
+      },
+      {
+        "condition": "앉다",
+        "form": "앉히다",
+        "example": "아이를 앉히다"
+      },
+      {
+        "condition": "살다→살리다",
+        "form": "生かす/活かす",
+        "example": "환자를 살리다"
+      },
+      {
+        "condition": "指示",
+        "form": "-히- + 시키다/하게 하다 と置換可",
+        "example": "책을 읽게 하다"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "行為をさせる",
+        "description": "他者に読ませる・座らせるなど。",
+        "examples": [
+          {
+            "korean": "선생님이 학생들에게 책을 읽히셨어요.",
+            "japanese": "先生が学生に本を読ませました。"
+          },
+          {
+            "korean": "아이를 의자에 앉혔어요.",
+            "japanese": "子どもを椅子に座らせました。"
+          }
+        ]
+      },
+      {
+        "title": "状態を変える",
+        "description": "살리다 で生かす、살리다/말리다 など。",
+        "examples": [
+          {
+            "korean": "의사가 환자를 살렸어요.",
+            "japanese": "医者が患者を救いました。"
+          }
+        ]
+      },
+      {
+        "title": "注意を促す",
+        "description": "읽히다 で読ませるよう促す。",
+        "examples": [
+          {
+            "korean": "공지사항을 꼭 읽히세요.",
+            "japanese": "お知らせを必ず読ませてください。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-히- 使役 と -게 하다",
+      "description": "語尾型の使役と補助型の違い。",
+      "examples": [
+        {
+          "grammarA": "-히-",
+          "sentenceA": "아이를 앉혔어요.",
+          "meaningA": "子どもを座らせました。",
+          "grammarB": "-게 하다",
+          "sentenceB": "아이를 앉게 했어요.",
+          "meaningB": "子どもを座らせました。"
+        }
+      ]
+    },
+    "tips": [
+      "읽히다/앉히다/살리다 をまとめて覚える。",
+      "受身形(-히-)との混同に注意。",
+      "-게 하다 との置換でニュアンスを確認。"
+    ],
+    "relatedGrammar": [
+      "grm_tense_aspect_035",
+      "grm_tense_aspect_038",
+      "grm_tense_aspect_041"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "문이 ___ 있어요. (-히-/-이- などを入れてください)",
+      "answer": "닫혀",
+      "hint": "受身形の語尾を入れます。",
+      "explanation": "닫다 → 닫히다/닫혀요"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "‘먹다’の受身/使役形として正しいのは？",
+      "choices": [
+        "먹히다",
+        "먹기다",
+        "먹려다",
+        "먹어지다"
+      ],
+      "answerIndex": 0,
+      "explanation": "-히- を付けて 먹히다。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「子どもを座らせました」を韓国語で入力してください",
+      "answer": "아이를 앉혔어요",
+      "acceptableAnswers": [
+        "아이를 앉혔어요",
+        "아이를 앉게 했어요"
+      ],
+      "hint": "-히- 使役を使います。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "会議時間を皆に知らせました。",
+      "answer": "회의 시간을 모두에게 알렸어요",
+      "acceptableAnswers": [
+        "회의 시간을 모두에게 알렸어요",
+        "회의 시간을 모두에게 알리게 했어요"
+      ],
+      "explanation": "알리다 を使った使役/伝達。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "id": "grm_sentence_ending_003",
+  "title": "-아/어",
+  "subtitle": "パンマル語尾（〜だ/する）",
+  "category": "sentence_ending",
+  "level": "beginner",
+  "tags": [
+    "カジュアル"
+  ],
+  "content": {
+    "summary": "親しい間柄で使う非丁寧形です。命令・勧誘にもよく使われます。",
+    "formationRules": [
+      {
+        "condition": "陽母音(ㅏ,ㅗ)",
+        "form": "語幹 + 아",
+        "example": "가다 → 가"
+      },
+      {
+        "condition": "その他の母音",
+        "form": "語幹 + 어",
+        "example": "먹다 → 먹어"
+      },
+      {
+        "condition": "하다動詞",
+        "form": "해",
+        "example": "공부해"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "親しい会話",
+        "description": "友人や家族とのラフな会話",
+        "examples": [
+          {
+            "korean": "뭐 해?",
+            "japanese": "何してる？"
+          }
+        ]
+      },
+      {
+        "title": "軽い命令・勧誘",
+        "description": "〜しよう、〜して",
+        "examples": [
+          {
+            "korean": "같이 가자!",
+            "japanese": "一緒に行こう！"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-아요/어요との違い",
+      "description": "-아/어は親しい相手限定。目上には使わないようにします。"
+    },
+    "tips": [
+      "イントネーションでニュアンスが変わる",
+      "丁寧さが必要なら-아요/어요を使う"
+    ],
+    "relatedGrammar": [
+      "grm_sentence_ending_001",
+      "grm_sentence_ending_007"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "지금 뭐 하__?",
+      "answer": "어",
+      "hint": "カジュアルな問いかけ",
+      "explanation": "親しい相手には-어/아形を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "目上に使わない方がよい終止形は？",
+      "choices": [
+        "-아요/어요",
+        "-습니다",
+        "-아/어",
+        "-겠어요"
+      ],
+      "answerIndex": 2,
+      "explanation": "パンマルは親しい間柄限定です"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「一緒に行こう！」を韓国語で入力してください",
+      "answer": "같이 가자",
+      "acceptableAnswers": [
+        "같이 가자",
+        "같이가자"
+      ],
+      "hint": "勧誘で-자を使います"
+    }
+  ]
+}

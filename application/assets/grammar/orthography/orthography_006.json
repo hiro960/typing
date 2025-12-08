@@ -1,0 +1,169 @@
+{
+  "id": "grm_orthography_006",
+  "title": "격음",
+  "subtitle": "激音（ㅋ, ㅌ, ㅍ, ㅊ）",
+  "category": "orthography",
+  "level": "beginner",
+  "tags": ["子音", "激音", "発音"],
+  "content": {
+    "summary": "激音（거센소리）は息を強く出して発音する子音です。韓国語には4つの激音があり、平音に比べて強い気流を伴います。語頭でも語中でも有声化しません。",
+    "formationRules": [
+      {
+        "condition": "基本形",
+        "form": "強い息を伴う無声音",
+        "example": "카[kʰa], 타[tʰa], 파[pʰa], 차[tʃʰa]"
+      },
+      {
+        "condition": "激音化（ㅎとの結合）",
+        "form": "平音 + ㅎ → 激音",
+        "example": "좋다[조타], 입학[이팍]"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "ㅋ [kʰ] - 키읔",
+        "description": "舌の奥を軟口蓋に当てて、息を強く出しながら発音します。日本語の「カ」より強い息を伴います。",
+        "examples": [
+          {
+            "korean": "카메라",
+            "japanese": "カメラ"
+          },
+          {
+            "korean": "커피",
+            "japanese": "コーヒー"
+          },
+          {
+            "korean": "크다",
+            "japanese": "大きい"
+          }
+        ]
+      },
+      {
+        "title": "ㅌ [tʰ] - 티읕",
+        "description": "舌先を歯茎に当てて、息を強く出しながら発音します。日本語の「タ」より強い息を伴います。",
+        "examples": [
+          {
+            "korean": "타다",
+            "japanese": "乗る/焼ける"
+          },
+          {
+            "korean": "토끼",
+            "japanese": "ウサギ"
+          },
+          {
+            "korean": "택시",
+            "japanese": "タクシー"
+          }
+        ]
+      },
+      {
+        "title": "ㅍ [pʰ] - 피읖",
+        "description": "両唇を合わせて、息を強く出しながら発音します。日本語の「パ」より強い息を伴います。",
+        "examples": [
+          {
+            "korean": "파도",
+            "japanese": "波"
+          },
+          {
+            "korean": "피아노",
+            "japanese": "ピアノ"
+          },
+          {
+            "korean": "포도",
+            "japanese": "ブドウ"
+          }
+        ]
+      },
+      {
+        "title": "ㅊ [tʃʰ] - 치읓",
+        "description": "舌を口蓋に近づけて、息を強く出しながら破擦音を発音します。日本語の「チャ」より強い息を伴います。",
+        "examples": [
+          {
+            "korean": "차",
+            "japanese": "車/お茶"
+          },
+          {
+            "korean": "치마",
+            "japanese": "スカート"
+          },
+          {
+            "korean": "추다",
+            "japanese": "踊る"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "平音と激音の比較",
+      "description": "平音は息を弱く出し語中で有声化しますが、激音は常に息を強く出し有声化しません。",
+      "examples": [
+        {
+          "grammarA": "平音",
+          "sentenceA": "달 [tal]",
+          "meaningA": "月",
+          "grammarB": "激音",
+          "sentenceB": "탈 [tʰal]",
+          "meaningB": "仮面"
+        },
+        {
+          "grammarA": "平音",
+          "sentenceA": "불 [pul]",
+          "meaningA": "火",
+          "grammarB": "激音",
+          "sentenceB": "풀 [pʰul]",
+          "meaningB": "草/のり"
+        }
+      ]
+    },
+    "tips": [
+      "ティッシュを口の前に置いて発音すると、激音では紙が大きく動きます",
+      "日本語のカ行、タ行、パ行、チャ行より強い息を意識しましょう",
+      "激音は語中でも濁音化しません（カ行のまま）",
+      "ㅎと平音が隣り合うと激音に変わる「激音化」が起こります",
+      "外来語の表記には激音がよく使われます（카메라、커피など）"
+    ],
+    "relatedGrammar": ["grm_orthography_005", "grm_orthography_007", "grm_orthography_016"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "韓国語の激音は全部でいくつありますか？",
+      "choices": ["4つ", "5つ", "3つ", "6つ"],
+      "answerIndex": 0,
+      "explanation": "激音はㅋ, ㅌ, ㅍ, ㅊの4つです"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "激音の発音の特徴として正しいものは？",
+      "choices": ["息を強く出す", "息を出さない", "声帯を緊張させる", "語中で濁音化する"],
+      "answerIndex": 0,
+      "explanation": "激音は息を強く出して発音する有気音です"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「달（月）」と「탈（仮面）」の違いは？",
+      "choices": ["달は平音、탈は激音", "달は激音、탈は平音", "同じ発音", "달は濃音、탈は激音"],
+      "answerIndex": 0,
+      "explanation": "달のㄷは平音、탈のㅌは激音で、息の強さが異なります"
+    },
+    {
+      "id": "ex_004",
+      "type": "choice",
+      "question": "ティッシュを口の前に置いて激音を発音すると？",
+      "choices": ["大きく動く", "全く動かない", "少し動く", "後ろに吹かれる"],
+      "answerIndex": 0,
+      "explanation": "激音は強い息を伴うため、ティッシュが大きく動きます"
+    },
+    {
+      "id": "ex_005",
+      "type": "choice",
+      "question": "平音と ㅎ が隣り合うとどうなりますか？",
+      "choices": ["激音に変わる", "濃音に変わる", "変化しない", "消える"],
+      "answerIndex": 0,
+      "explanation": "平音とㅎが隣り合うと「激音化」が起こり、激音に変わります（例：좋다→조타）"
+    }
+  ]
+}

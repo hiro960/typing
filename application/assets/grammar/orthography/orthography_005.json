@@ -1,0 +1,192 @@
+{
+  "id": "grm_orthography_005",
+  "title": "평음",
+  "subtitle": "平音（ㄱ, ㄷ, ㅂ, ㅅ, ㅈ）",
+  "category": "orthography",
+  "level": "beginner",
+  "tags": ["子音", "平音", "発音"],
+  "content": {
+    "summary": "平音（예사소리）は息を強く出さずに発音する基本的な子音です。韓国語には5つの平音があり、語頭では無気音、語中では有声音（濁音）になります。",
+    "formationRules": [
+      {
+        "condition": "語頭",
+        "form": "無気音（弱い息）",
+        "example": "가[ka], 다[ta], 바[pa]"
+      },
+      {
+        "condition": "語中（有声音の間）",
+        "form": "有声音（濁音）",
+        "example": "아가[aga], 어디[ʌdi], 아버지[abʌdʒi]"
+      },
+      {
+        "condition": "パッチムの後",
+        "form": "濃音化することがある",
+        "example": "학교[학꾜], 식당[식땅]"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "ㄱ [k/g] - 기역",
+        "description": "舌の奥を軟口蓋に当てて発音します。語頭では「カ行」、語中では「ガ行」に近い音になります。",
+        "examples": [
+          {
+            "korean": "가다 [kada/gada]",
+            "japanese": "行く"
+          },
+          {
+            "korean": "아기 [agi]",
+            "japanese": "赤ちゃん"
+          },
+          {
+            "korean": "고기 [kogi/gogi]",
+            "japanese": "肉"
+          }
+        ]
+      },
+      {
+        "title": "ㄷ [t/d] - 디귿",
+        "description": "舌先を歯茎に当てて発音します。語頭では「タ行」、語中では「ダ行」に近い音になります。",
+        "examples": [
+          {
+            "korean": "다리 [tari/dari]",
+            "japanese": "足/橋"
+          },
+          {
+            "korean": "어디 [ʌdi]",
+            "japanese": "どこ"
+          },
+          {
+            "korean": "도시 [toʃi/doʃi]",
+            "japanese": "都市"
+          }
+        ]
+      },
+      {
+        "title": "ㅂ [p/b] - 비읍",
+        "description": "両唇を合わせて発音します。語頭では「パ行」、語中では「バ行」に近い音になります。",
+        "examples": [
+          {
+            "korean": "바다 [pada/bada]",
+            "japanese": "海"
+          },
+          {
+            "korean": "아버지 [abʌdʒi]",
+            "japanese": "お父さん"
+          },
+          {
+            "korean": "보다 [poda/boda]",
+            "japanese": "見る"
+          }
+        ]
+      },
+      {
+        "title": "ㅅ [s] - 시옷",
+        "description": "舌先を歯茎に近づけて摩擦音を出します。ㅣの前では「シ」に近い音になります。",
+        "examples": [
+          {
+            "korean": "사람 [saram]",
+            "japanese": "人"
+          },
+          {
+            "korean": "시간 [ʃigan]",
+            "japanese": "時間"
+          },
+          {
+            "korean": "서울 [sʌul]",
+            "japanese": "ソウル"
+          }
+        ]
+      },
+      {
+        "title": "ㅈ [tʃ/dʒ] - 지읒",
+        "description": "舌を口蓋に近づけて破擦音を出します。語頭では「チャ行」、語中では「ジャ行」に近い音になります。",
+        "examples": [
+          {
+            "korean": "지금 [tʃigɯm]",
+            "japanese": "今"
+          },
+          {
+            "korean": "아저씨 [adʒʌssi]",
+            "japanese": "おじさん"
+          },
+          {
+            "korean": "주다 [tʃuda/dʒuda]",
+            "japanese": "あげる"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "平音・激音・濃音の比較",
+      "description": "平音は息を強く出さず、声帯を緊張させません。激音は息を強く出し、濃音は声帯を緊張させて発音します。",
+      "examples": [
+        {
+          "grammarA": "平音 ㄱ",
+          "sentenceA": "가다",
+          "meaningA": "行く（弱い息）",
+          "grammarB": "激音 ㅋ / 濃音 ㄲ",
+          "sentenceB": "카다 / 까다",
+          "meaningB": "強い息 / 緊張した声帯"
+        },
+        {
+          "grammarA": "平音 ㄷ",
+          "sentenceA": "달",
+          "meaningA": "月（弱い息）",
+          "grammarB": "激音 ㅌ / 濃音 ㄸ",
+          "sentenceB": "탈 / 딸",
+          "meaningB": "仮面 / 娘"
+        }
+      ]
+    },
+    "tips": [
+      "日本語の清音と濁音の中間的な音と考えると理解しやすいです",
+      "語頭では清音（カ、タ、パ）に近く、語中では濁音（ガ、ダ、バ）に近くなります",
+      "ティッシュを口の前に置いて発音すると、平音では紙があまり動きません（激音は大きく動く）",
+      "ㅅは「イ」の前では口蓋化して「シ」のような音になります",
+      "韓国語の発音では、この「有声音化」を意識することが大切です"
+    ],
+    "relatedGrammar": ["grm_orthography_006", "grm_orthography_007", "grm_orthography_001"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "韓国語の平音は全部でいくつありますか？",
+      "choices": ["5つ", "4つ", "6つ", "7つ"],
+      "answerIndex": 0,
+      "explanation": "平音はㄱ, ㄷ, ㅂ, ㅅ, ㅈの5つです"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "平音が語中で有声音（濁音）に変わる例として正しいものは？",
+      "choices": ["아버지 [abʌdʒi]", "가다 [kada]", "달 [tal]", "밤 [pam]"],
+      "answerIndex": 0,
+      "explanation": "「아버지」の「버」と「지」は有声音の間にあるため、濁音化します"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "平音の発音の特徴として正しいものは？",
+      "choices": ["息を強く出さない", "息を強く出す", "声帯を緊張させる", "二重に発音する"],
+      "answerIndex": 0,
+      "explanation": "平音は息を強く出さず、弱い息で発音します"
+    },
+    {
+      "id": "ex_004",
+      "type": "choice",
+      "question": "「ㅅ」がㅣの前で発音される時の音は？",
+      "choices": ["シ[ʃi]に近い音", "サ[sa]に近い音", "ス[sɯ]に近い音", "チ[tʃi]に近い音"],
+      "answerIndex": 0,
+      "explanation": "ㅅはㅣの前では口蓋化して「シ」のような音になります"
+    },
+    {
+      "id": "ex_005",
+      "type": "choice",
+      "question": "「가다」の「가」を発音する時、ティッシュを口の前に置くとどうなる？",
+      "choices": ["あまり動かない", "大きく動く", "全く動かない", "後ろに吹かれる"],
+      "answerIndex": 0,
+      "explanation": "平音は息を強く出さないため、ティッシュはあまり動きません（激音は大きく動く）"
+    }
+  ]
+}

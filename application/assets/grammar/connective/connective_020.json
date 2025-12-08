@@ -96,7 +96,7 @@
       "前件は既に成立した・確実な事実である必要があります。",
       "似た構造の -(으)ㄹ 테니(까) と混同しないように、義務性の強さで区別しましょう."
     ],
-    "relatedGrammar": ["grm_connective_014", "grm_ending_030", "grm_expression_017"]
+    "relatedGrammar": ["grm_connective_014", "grm_expression_040", "grm_expression_017"]
   },
   "exercises": [
     {
@@ -148,4 +148,3 @@
     }
   ]
 }
-

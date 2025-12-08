@@ -1,0 +1,137 @@
+{
+  "id": "grm_sentence_ending_011",
+  "title": "-군요/구나",
+  "subtitle": "感嘆語尾（〜だなあ）",
+  "category": "sentence_ending",
+  "level": "intermediate",
+  "tags": [
+    "感嘆",
+    "発見"
+  ],
+  "content": {
+    "summary": "新しい事実に気づいたときの感嘆・発見を表す終結語尾です。丁寧体は -군요、パンマルは -구나 を用います。",
+    "formationRules": [
+      {
+        "condition": "動詞・形容詞",
+        "form": "V/A + 군요 / 구나",
+        "example": "예쁘다 → 예쁘군요. (きれいですね)"
+      },
+      {
+        "condition": "名詞 + 이다",
+        "form": "N이군요 / N이구나",
+        "example": "학생이군요. (学生なんですね)"
+      },
+      {
+        "condition": "過去形・未来形",
+        "form": "V/A + 았/었군요 / (으)ㄹ 거군요",
+        "example": "갔군요. (行ったんですね)"
+      },
+      {
+        "condition": "パンマル形",
+        "form": "-구나 は親しい間柄・独り言で使用",
+        "example": "맛있구나! (おいしいなあ)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "新情報への感嘆",
+        "description": "知らなかった事実を知って驚きを表します。",
+        "examples": [
+          {
+            "korean": "한국인이시군요!",
+            "japanese": "韓国の方なんですね！"
+          }
+        ]
+      },
+      {
+        "title": "自分の発見・独り言",
+        "description": "一人で気づいたときの独り言に使われます。",
+        "examples": [
+          {
+            "korean": "비가 오는군요.",
+            "japanese": "雨が降っているんですね。"
+          }
+        ]
+      },
+      {
+        "title": "親しい間柄での感嘆",
+        "description": "パンマルで親しみを込めて言います。",
+        "examples": [
+          {
+            "korean": "여기 정말 조용하구나.",
+            "japanese": "ここ、本当に静かだなあ。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-네요 と -군요 の違い",
+      "description": "-네요 も感嘆だが柔らかく共感を誘う。-군요 はやや一方的な発見・納得のニュアンス。",
+      "examples": [
+        {
+          "grammarA": "-군요",
+          "sentenceA": "여기가 새 건물이군요.",
+          "meaningA": "ここが新しい建物なんですね。（発見）",
+          "grammarB": "-네요",
+          "sentenceB": "여기가 새 건물이네요.",
+          "meaningB": "ここが新しい建物ですね。（共感）"
+        }
+      ]
+    },
+    "tips": [
+      "敬語では -시- と合わせて -시는군요 の形をとります。",
+      "パンマルでは -구나 を使い、丁寧なら -군요。",
+      "質問には使わず、感嘆・確認の終止に使います。"
+    ],
+    "relatedGrammar": [
+      "grm_sentence_ending_010",
+      "grm_sentence_ending_013",
+      "grm_sentence_ending_012"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "여기가 유명한 카페___!",
+      "answer": "군요",
+      "hint": "丁寧な感嘆にはこの語尾を使います。",
+      "explanation": "発見したとき「〜군요」を用います。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"맛있___!\" の空欄に入るものは？（友達に）",
+      "choices": [
+        "네요",
+        "군요",
+        "구나",
+        "거든요"
+      ],
+      "answerIndex": 2,
+      "explanation": "親しい間柄の感嘆なら -구나 が自然。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「韓国の方なんですね！」を韓国語で入力してください",
+      "answer": "한국인이시군요!",
+      "acceptableAnswers": [
+        "한국인이시군요!",
+        "한국인이시군요"
+      ],
+      "hint": "敬語の主語には 시 を挟んで -시군요。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "ここが新しい建物なんですね。",
+      "answer": "여기가 새 건물이군요",
+      "acceptableAnswers": [
+        "여기가 새 건물이군요",
+        "여기가 새 건물이네요"
+      ],
+      "explanation": "-군요 は発見、-네요 は共感寄り。どちらも感嘆を表します。"
+    }
+  ]
+}

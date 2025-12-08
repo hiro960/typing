@@ -1,0 +1,141 @@
+{
+  "id": "grm_orthography_013",
+  "title": "받침의 중화",
+  "subtitle": "終声の中和",
+  "category": "orthography",
+  "level": "intermediate",
+  "tags": ["発音変化", "パッチム", "終声"],
+  "content": {
+    "summary": "韓国語のパッチム（終声）は、単独で発音される際に7つの代表音[ㄱ, ㄴ, ㄷ, ㄹ, ㅁ, ㅂ, ㅇ]のいずれかに変わります。これを終声の中和（받침의 중화）といいます。",
+    "formationRules": [
+      {
+        "condition": "ㄱ, ㅋ, ㄲ → [ㄱ]",
+        "form": "代表音 ㄱ",
+        "example": "부엌[부억], 밖[박], 넋[넉]"
+      },
+      {
+        "condition": "ㄴ → [ㄴ]",
+        "form": "代表音 ㄴ",
+        "example": "산[산], 눈[눈]"
+      },
+      {
+        "condition": "ㄷ, ㅌ, ㅅ, ㅆ, ㅈ, ㅊ, ㅎ → [ㄷ]",
+        "form": "代表音 ㄷ",
+        "example": "낮[낟], 꽃[꼳], 있다[읻따], 옷[옫]"
+      },
+      {
+        "condition": "ㄹ → [ㄹ]",
+        "form": "代表音 ㄹ",
+        "example": "달[달], 길[길]"
+      },
+      {
+        "condition": "ㅁ → [ㅁ]",
+        "form": "代表音 ㅁ",
+        "example": "밤[밤], 감[감]"
+      },
+      {
+        "condition": "ㅂ, ㅍ → [ㅂ]",
+        "form": "代表音 ㅂ",
+        "example": "앞[압], 잎[입], 밥[밥]"
+      },
+      {
+        "condition": "ㅇ → [ㅇ]",
+        "form": "代表音 ㅇ",
+        "example": "강[강], 방[방]"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "語末での中和",
+        "description": "単語の最後にパッチムがある場合、次に母音が来なければ代表音で発音されます",
+        "examples": [
+          {
+            "korean": "부엌 [부억]",
+            "japanese": "台所（ㅋ→ㄱに中和）"
+          },
+          {
+            "korean": "꽃 [꼳]",
+            "japanese": "花（ㅊ→ㄷに中和）"
+          },
+          {
+            "korean": "앞 [압]",
+            "japanese": "前（ㅍ→ㅂに中和）"
+          }
+        ]
+      },
+      {
+        "title": "子音の前での中和",
+        "description": "パッチムの後に子音が続く場合も代表音に中和されます",
+        "examples": [
+          {
+            "korean": "꽃다발 [꼳따발]",
+            "japanese": "花束（ㅊ→ㄷに中和後、濃音化）"
+          },
+          {
+            "korean": "옷가게 [옫까게]",
+            "japanese": "服屋（ㅅ→ㄷに中和後、濃音化）"
+          },
+          {
+            "korean": "낮잠 [낟짬]",
+            "japanese": "昼寝（ㅈ→ㄷに中和後、濃音化）"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "中和と連音化の違い",
+      "description": "パッチムの後に母音が来る場合は中和せずに連音化し、子音が来る場合や語末では中和します。",
+      "examples": [
+        {
+          "grammarA": "中和（子音の前）",
+          "sentenceA": "꽃도 [꼳또]",
+          "meaningA": "花も（ㅊ→ㄷに中和）",
+          "grammarB": "連音化（母音の前）",
+          "sentenceB": "꽃을 [꼬츨]",
+          "meaningB": "花を（ㅊがそのまま連音）"
+        }
+      ]
+    },
+    "tips": [
+      "7つの代表音を覚えましょう：ㄱ, ㄴ, ㄷ, ㄹ, ㅁ, ㅂ, ㅇ",
+      "ㅅ, ㅆ, ㅈ, ㅊ, ㅎ, ㅌは全てㄷに変わります",
+      "ㅋ, ㄲはㄱに、ㅍはㅂに変わります",
+      "中和は他の発音変化（濃音化、鼻音化など）の前段階として起こることが多いです"
+    ],
+    "relatedGrammar": ["grm_orthography_014", "grm_orthography_017", "grm_orthography_018"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "「부엌」の発音として正しいものは？",
+      "choices": ["[부억]", "[부엌]", "[부엌ㅎ]", "[부얼]"],
+      "answerIndex": 0,
+      "explanation": "ㅋパッチムは代表音ㄱに中和されるため、[부억]と発音します"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「꽃」の発音として正しいものは？",
+      "choices": ["[꼿]", "[꼳]", "[꽃]", "[꼮]"],
+      "answerIndex": 1,
+      "explanation": "ㅊパッチムは代表音ㄷに中和されるため、[꼳]と発音します"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "代表音ㄷに中和されないパッチムはどれ？",
+      "choices": ["ㅅ", "ㅈ", "ㅎ", "ㅂ"],
+      "answerIndex": 3,
+      "explanation": "ㅂは代表音ㅂのままです。ㅅ, ㅈ, ㅎは全てㄷに中和されます"
+    },
+    {
+      "id": "ex_004",
+      "type": "fill_blank",
+      "question": "「앞」の発音は[___]です",
+      "answer": "압",
+      "hint": "ㅍは代表音ㅂに中和されます",
+      "explanation": "ㅍパッチムは代表音ㅂに中和されるため、[압]と発音します"
+    }
+  ]
+}

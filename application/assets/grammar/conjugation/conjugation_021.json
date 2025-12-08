@@ -1,0 +1,157 @@
+{
+  "id": "grm_conjugation_021",
+  "title": "특수 활용",
+  "subtitle": "そのほかの特殊な活用",
+  "category": "conjugation",
+  "level": "advanced",
+  "tags": ["特殊活用", "例外", "上級"],
+  "content": {
+    "summary": "韓国語には規則活用や不規則活用以外にも、特殊な活用パターンを持つ用言があります。これらは頻度が低いものの、知っておくと便利です。",
+    "formationRules": [
+      {
+        "condition": "ㅎ語幹形容詞の連体形",
+        "form": "ㅎが脱落してㄴが付く",
+        "example": "빨갛다 → 빨간（赤い）、하얗다 → 하얀（白い）"
+      },
+      {
+        "condition": "있다/없다の連体形",
+        "form": "있는/없는（動詞的）、있는/없는（形容詞的にも同形）",
+        "example": "재미있는 영화（面白い映画）"
+      },
+      {
+        "condition": "이르다（至る/早い）",
+        "form": "「早い」の意味では러不規則",
+        "example": "이르다 → 일러요（早いです）"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "ㅎ語幹形容詞の特殊活用",
+        "description": "色を表す形容詞の多くはㅎ語幹で、連体形が特殊です",
+        "examples": [
+          {
+            "korean": "빨간 사과",
+            "japanese": "赤いりんご"
+          },
+          {
+            "korean": "파란 하늘",
+            "japanese": "青い空"
+          },
+          {
+            "korean": "노란 꽃",
+            "japanese": "黄色い花"
+          }
+        ]
+      },
+      {
+        "title": "있다/없다の特殊性",
+        "description": "存在詞は動詞的にも形容詞的にも使われます",
+        "examples": [
+          {
+            "korean": "책이 있는 책상",
+            "japanese": "本がある机"
+          },
+          {
+            "korean": "시간이 없는 사람",
+            "japanese": "時間がない人"
+          },
+          {
+            "korean": "재미있는 이야기",
+            "japanese": "面白い話"
+          }
+        ]
+      },
+      {
+        "title": "푸르다の活用",
+        "description": "「青い/緑の」を意味する푸르다は特殊な活用をします",
+        "examples": [
+          {
+            "korean": "푸른 바다",
+            "japanese": "青い海（連体形）"
+          },
+          {
+            "korean": "하늘이 푸르러요.",
+            "japanese": "空が青いです。（第Ⅲ語基）"
+          },
+          {
+            "korean": "산이 푸르다.",
+            "japanese": "山が緑だ。"
+          }
+        ]
+      },
+      {
+        "title": "縮約形の特殊な例",
+        "description": "일부 용언은 縮約形が特殊です",
+        "examples": [
+          {
+            "korean": "뭐 하니? (← 무엇을 하니?)",
+            "japanese": "何してるの？"
+          },
+          {
+            "korean": "어디 가? (← 어디에 가?)",
+            "japanese": "どこ行くの？"
+          },
+          {
+            "korean": "그래 (← 그러하여)",
+            "japanese": "そうだ"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "있다の2つの用法",
+      "description": "있다は動詞としても形容詞としても使われます",
+      "examples": [
+        {
+          "grammarA": "動詞的用法",
+          "sentenceA": "집에 있어요.",
+          "meaningA": "家にいます。（所在）",
+          "grammarB": "形容詞的用法",
+          "sentenceB": "재미있어요.",
+          "meaningB": "面白いです。（性質）"
+        }
+      ]
+    },
+    "tips": [
+      "色を表すㅎ語幹形容詞は連体形でㅎが脱落します",
+      "있다/없다は連体形が-는で、形容詞と動詞の両方の性質を持ちます",
+      "푸르다は르不規則ではなく、러不規則と同じような活用をします",
+      "회話では多くの縮約が起こりますが、書き言葉では標準形を使います"
+    ],
+    "relatedGrammar": ["grm_conjugation_017", "grm_conjugation_018", "grm_conjugation_019"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "「빨갛다」の連体形は___です。",
+      "answer": "빨간",
+      "hint": "ㅎ語幹形容詞の連体形の作り方を思い出しましょう",
+      "explanation": "ㅎ語幹形容詞「빨갛다」は連体形で「빨간」になります"
+    },
+    {
+      "id": "ex_002",
+      "type": "fill_blank",
+      "question": "「재미있다」の連体形は___です。",
+      "answer": "재미있는",
+      "hint": "있다の連体形を考えましょう",
+      "explanation": "있다の連体形は「있는」なので「재미있는」になります"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「파랗다」の連体形として正しいものは？",
+      "choices": ["파란", "파랗은", "파랗는", "파라은"],
+      "answerIndex": 0,
+      "explanation": "ㅎ語幹形容詞の連体形ではㅎが脱落して「파란」になります"
+    },
+    {
+      "id": "ex_004",
+      "type": "choice",
+      "question": "「푸르다」の第Ⅲ語基活用として正しいものは？",
+      "choices": ["푸러요", "푸르어요", "푸르러요", "푸래요"],
+      "answerIndex": 2,
+      "explanation": "푸르다は特殊活用で「푸르러요」になります"
+    }
+  ]
+}

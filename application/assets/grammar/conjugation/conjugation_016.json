@@ -1,0 +1,157 @@
+{
+  "id": "grm_conjugation_016",
+  "title": "제Ⅲ어기",
+  "subtitle": "第Ⅲ語基",
+  "category": "conjugation",
+  "level": "intermediate",
+  "tags": ["語基", "活用", "第Ⅲ語基"],
+  "content": {
+    "summary": "第Ⅲ語基は「아/어」で始まる語尾と結合するための形です。語幹の最後の母音が陽母音か陰母音かによって「아」または「어」が付きます。",
+    "formationRules": [
+      {
+        "condition": "陽母音語幹（ㅏ, ㅗ）",
+        "form": "語幹 + 아",
+        "example": "가다 → 가、오다 → 와"
+      },
+      {
+        "condition": "陰母音語幹（ㅏ, ㅗ以外）",
+        "form": "語幹 + 어",
+        "example": "먹다 → 먹어、읽다 → 읽어"
+      },
+      {
+        "condition": "하다用言",
+        "form": "하 + 여 → 해",
+        "example": "하다 → 해、공부하다 → 공부해"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "丁寧形 -아/어요",
+        "description": "第Ⅲ語基に「요」を付けると丁寧形になります",
+        "examples": [
+          {
+            "korean": "가 + 아요 → 가요",
+            "japanese": "行きます"
+          },
+          {
+            "korean": "먹 + 어요 → 먹어요",
+            "japanese": "食べます"
+          },
+          {
+            "korean": "하 + 여요 → 해요",
+            "japanese": "します"
+          }
+        ]
+      },
+      {
+        "title": "過去形 -았/었-",
+        "description": "第Ⅲ語基に過去接尾辞が付きます",
+        "examples": [
+          {
+            "korean": "가 + 았다 → 갔다",
+            "japanese": "行った"
+          },
+          {
+            "korean": "먹 + 었다 → 먹었다",
+            "japanese": "食べた"
+          },
+          {
+            "korean": "하 + 였다 → 했다",
+            "japanese": "した"
+          }
+        ]
+      },
+      {
+        "title": "理由 -아/어서",
+        "description": "第Ⅲ語基に「서」を付けると理由や継起を表します",
+        "examples": [
+          {
+            "korean": "가 + 아서 → 가서",
+            "japanese": "行って"
+          },
+          {
+            "korean": "먹 + 어서 → 먹어서",
+            "japanese": "食べて"
+          },
+          {
+            "korean": "피곤하 + 여서 → 피곤해서",
+            "japanese": "疲れて"
+          }
+        ]
+      },
+      {
+        "title": "補助動詞との結合",
+        "description": "第Ⅲ語基に補助動詞を付けて様々な意味を表します",
+        "examples": [
+          {
+            "korean": "먹 + 어 보다 → 먹어 보다",
+            "japanese": "食べてみる"
+          },
+          {
+            "korean": "가 + 아 주다 → 가 주다",
+            "japanese": "行ってあげる"
+          },
+          {
+            "korean": "읽 + 어 있다 → 읽어 있다",
+            "japanese": "読んである"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "陽母音と陰母音の選択",
+      "description": "語幹の最後の母音によって「아」か「어」が決まります",
+      "examples": [
+        {
+          "grammarA": "陽母音（ㅏ, ㅗ）",
+          "sentenceA": "가다 → 가요、오다 → 와요",
+          "meaningA": "「아」系が付く",
+          "grammarB": "陰母音（その他）",
+          "sentenceB": "먹다 → 먹어요、쓰다 → 써요",
+          "meaningB": "「어」系が付く"
+        }
+      ]
+    },
+    "tips": [
+      "陽母音（ㅏ, ㅗ）は「明るい母音」、陰母音は「暗い母音」と覚えましょう",
+      "하다用言は特別で「해」という縮約形になります",
+      "母音の縮約が起こりやすいので注意しましょう（가+아→가、오+아→와）",
+      "第Ⅲ語基は最も複雑ですが、最も頻繁に使う形です"
+    ],
+    "relatedGrammar": ["grm_conjugation_014", "grm_conjugation_015", "grm_conjugation_019"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "「먹다」+ 어요 → ___",
+      "answer": "먹어요",
+      "hint": "語幹「먹」の母音「ㅓ」は陰母音です",
+      "explanation": "陰母音なので「어요」が付いて「먹어요」になります"
+    },
+    {
+      "id": "ex_002",
+      "type": "fill_blank",
+      "question": "「가다」+ 아요 → ___",
+      "answer": "가요",
+      "hint": "ㅏ+ㅏは縮約します",
+      "explanation": "「가+아요」は「ㅏ+ㅏ」が縮約されて「가요」になります"
+    },
+    {
+      "id": "ex_003",
+      "type": "fill_blank",
+      "question": "「하다」+ 여요 → ___",
+      "answer": "해요",
+      "hint": "하다用言は特別な縮約があります",
+      "explanation": "「하+여」は「해」に縮約されて「해요」になります"
+    },
+    {
+      "id": "ex_004",
+      "type": "choice",
+      "question": "「오다」の第Ⅲ語基活用として正しいものは？",
+      "choices": ["오아요", "와요", "오어요", "워요"],
+      "answerIndex": 1,
+      "explanation": "「오+아」は「ㅗ+ㅏ→ㅘ」に縮約されて「와요」になります"
+    }
+  ]
+}

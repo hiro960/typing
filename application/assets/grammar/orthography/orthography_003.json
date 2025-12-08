@@ -1,0 +1,151 @@
+{
+  "id": "grm_orthography_003",
+  "title": "반모음",
+  "subtitle": "半母音（ㅗ/ㅜ系, ㅣ系）",
+  "category": "orthography",
+  "level": "beginner",
+  "tags": ["母音", "半母音", "わたり音"],
+  "content": {
+    "summary": "半母音（わたり音）は、母音から母音への移行過程で発音される短い音です。韓国語には[w]系と[j]系の2種類があり、二重母音を構成する重要な要素です。",
+    "formationRules": [
+      {
+        "condition": "ㅗ/ㅜ系（w音）",
+        "form": "[w]",
+        "example": "와[wa], 워[wʌ], 웨[we]"
+      },
+      {
+        "condition": "ㅣ系（y音）",
+        "form": "[j]",
+        "example": "야[ja], 여[jʌ], 요[jo]"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "[w]系半母音 - ㅗ/ㅜから始まる",
+        "description": "唇を丸めた状態から始まり、次の母音に移行します。日本語の「わ」行の音に近いです。",
+        "examples": [
+          {
+            "korean": "와 [wa]",
+            "japanese": "ㅗ + ㅏ → 「ワ」"
+          },
+          {
+            "korean": "워 [wʌ]",
+            "japanese": "ㅜ + ㅓ → 「ウォ」"
+          },
+          {
+            "korean": "외 [we]",
+            "japanese": "ㅗ + ㅣ → 「ウェ」"
+          },
+          {
+            "korean": "위 [wi]",
+            "japanese": "ㅜ + ㅣ → 「ウィ」"
+          }
+        ]
+      },
+      {
+        "title": "[j]系半母音 - ㅣから始まる",
+        "description": "舌を上げた状態から始まり、次の母音に移行します。日本語の「や」行の音に近いです。",
+        "examples": [
+          {
+            "korean": "야 [ja]",
+            "japanese": "ㅣ + ㅏ → 「ヤ」"
+          },
+          {
+            "korean": "여 [jʌ]",
+            "japanese": "ㅣ + ㅓ → 「ヨ」（口を縦に）"
+          },
+          {
+            "korean": "요 [jo]",
+            "japanese": "ㅣ + ㅗ → 「ヨ」（唇を丸く）"
+          },
+          {
+            "korean": "유 [ju]",
+            "japanese": "ㅣ + ㅜ → 「ユ」"
+          }
+        ]
+      },
+      {
+        "title": "二重母音ㅢの特殊性",
+        "description": "ㅢは[ɯi]という組み合わせで、ㅡからㅣに移行する音です。位置によって発音が変わります。",
+        "examples": [
+          {
+            "korean": "의자 [ɯija]",
+            "japanese": "椅子（語頭では「ウィ」）"
+          },
+          {
+            "korean": "회의 [hweɯi/hwee]",
+            "japanese": "会議（語中では「イ」に近い）"
+          },
+          {
+            "korean": "나의 [naɯi/nae]",
+            "japanese": "私の（助詞では「エ」に近い）"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "여と요の違い",
+      "description": "両方とも「ヨ」のように聞こえますが、여は口を縦に開け、요は唇を丸くします。元になる母音（ㅓとㅗ）の口の形を保ちます。",
+      "examples": [
+        {
+          "grammarA": "여",
+          "sentenceA": "여기",
+          "meaningA": "ここ（口を縦に開ける）",
+          "grammarB": "요",
+          "sentenceB": "요리",
+          "meaningB": "料理（唇を丸くする）"
+        }
+      ]
+    },
+    "tips": [
+      "半母音は単独では発音できず、必ず他の母音と組み合わせて発音します",
+      "[w]系は唇を丸めてから次の母音に移行します",
+      "[j]系は「イ」の位置から次の母音に移行します",
+      "日本人学習者は여と요を混同しやすいので、口の形に注意しましょう",
+      "ㅢは位置によって[ɯi]、[i]、[e]と発音が変化します"
+    ],
+    "relatedGrammar": ["grm_orthography_002", "grm_orthography_004"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "[w]系半母音を含む母音はどれ？",
+      "choices": ["ㅘ, ㅝ, ㅚ, ㅟ", "ㅑ, ㅕ, ㅛ, ㅠ", "ㅏ, ㅓ, ㅗ, ㅜ", "ㅐ, ㅔ, ㅚ, ㅟ"],
+      "answerIndex": 0,
+      "explanation": "ㅘ, ㅝ, ㅚ, ㅟは[w]系半母音を含む二重母音です"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "[j]系半母音を含む母音はどれ？",
+      "choices": ["ㅑ, ㅕ, ㅛ, ㅠ", "ㅘ, ㅝ, ㅙ, ㅞ", "ㅏ, ㅓ, ㅗ, ㅜ", "ㅡ, ㅣ, ㅐ, ㅔ"],
+      "answerIndex": 0,
+      "explanation": "ㅑ, ㅕ, ㅛ, ㅠは[j]系半母音を含む二重母音です"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「의」が助詞として使われる時、どのように発音されることが多い？",
+      "choices": ["[e]エに近い音", "[ɯi]ウィ", "[i]イ", "[wi]ウィ"],
+      "answerIndex": 0,
+      "explanation": "「의」が所有を表す助詞として使われる時は[e]（エ）に近く発音されます"
+    },
+    {
+      "id": "ex_004",
+      "type": "choice",
+      "question": "「여기（ここ）」と「요리（料理）」の母音の違いは？",
+      "choices": ["여は口を縦に、요は唇を丸く", "여は唇を丸く、요は口を縦に", "どちらも同じ発音", "여は口を大きく、요は口を小さく"],
+      "answerIndex": 0,
+      "explanation": "여はㅓ系なので口を縦に開け、요はㅗ系なので唇を丸くします"
+    },
+    {
+      "id": "ex_005",
+      "type": "choice",
+      "question": "半母音の特徴として正しいものは？",
+      "choices": ["単独では発音できない", "単独で発音できる", "子音の一種である", "パッチムになれる"],
+      "answerIndex": 0,
+      "explanation": "半母音は母音から母音への移行音なので、単独では発音できません"
+    }
+  ]
+}

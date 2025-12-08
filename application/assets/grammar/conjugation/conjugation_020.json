@@ -1,0 +1,157 @@
+{
+  "id": "grm_conjugation_020",
+  "title": "지정사의 활용",
+  "subtitle": "指定詞の活用",
+  "category": "conjugation",
+  "level": "intermediate",
+  "tags": ["指定詞", "이다", "아니다", "活用"],
+  "content": {
+    "summary": "指定詞「이다（〜だ）」と「아니다（〜ではない）」は名詞に付いて述語を作る特殊な用言です。名詞の最後にパッチムがあるかどうかで活用形が変わります。",
+    "formationRules": [
+      {
+        "condition": "パッチムあり + 이다",
+        "form": "名詞 + 이다",
+        "example": "학생이다（学生だ）、책이다（本だ）"
+      },
+      {
+        "condition": "パッチムなし + 이다",
+        "form": "名詞 + 다（이が省略可能）",
+        "example": "의사다/의사이다（医者だ）"
+      },
+      {
+        "condition": "아니다",
+        "form": "名詞 + 이/가 아니다",
+        "example": "학생이 아니다（学生ではない）"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "이다の丁寧形",
+        "description": "名詞述語文の丁寧形を作ります",
+        "examples": [
+          {
+            "korean": "저는 학생이에요.",
+            "japanese": "私は学生です。"
+          },
+          {
+            "korean": "이것은 책이에요.",
+            "japanese": "これは本です。"
+          },
+          {
+            "korean": "그분은 선생님이세요.",
+            "japanese": "その方は先生でいらっしゃいます。"
+          }
+        ]
+      },
+      {
+        "title": "이다の格式体",
+        "description": "フォーマルな場面で使う格式体です",
+        "examples": [
+          {
+            "korean": "저는 김민수입니다.",
+            "japanese": "私はキム・ミンスです。"
+          },
+          {
+            "korean": "오늘은 월요일입니다.",
+            "japanese": "今日は月曜日です。"
+          },
+          {
+            "korean": "이것은 제 책입니다.",
+            "japanese": "これは私の本です。"
+          }
+        ]
+      },
+      {
+        "title": "아니다の活用",
+        "description": "否定の指定詞「아니다」の活用です",
+        "examples": [
+          {
+            "korean": "저는 학생이 아니에요.",
+            "japanese": "私は学生ではありません。"
+          },
+          {
+            "korean": "그것은 제 것이 아닙니다.",
+            "japanese": "それは私のものではありません。"
+          },
+          {
+            "korean": "오늘은 일요일이 아니야.",
+            "japanese": "今日は日曜日じゃないよ。"
+          }
+        ]
+      },
+      {
+        "title": "이다の連体形",
+        "description": "連体形は「인」になります",
+        "examples": [
+          {
+            "korean": "학생인 사람",
+            "japanese": "学生である人"
+          },
+          {
+            "korean": "한국인인 친구",
+            "japanese": "韓国人である友達"
+          },
+          {
+            "korean": "의사인 아버지",
+            "japanese": "医者である父"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "이다と아니다の比較",
+      "description": "肯定と否定の指定詞の使い分けを理解しましょう",
+      "examples": [
+        {
+          "grammarA": "이다（肯定）",
+          "sentenceA": "학생이에요.",
+          "meaningA": "学生です。",
+          "grammarB": "아니다（否定）",
+          "sentenceB": "학생이 아니에요.",
+          "meaningB": "学生ではありません。"
+        }
+      ]
+    },
+    "tips": [
+      "パッチムありの名詞には必ず「이」が付きます（학생이에요）",
+      "パッチムなしの名詞では「이」が省略されることがあります（의사예요/의사이에요）",
+      "아니다は助詞「이/가」を伴います（학생이 아니다）",
+      "口語では「이에요」が「예요」に、「아니에요」が「아녜요」になることもあります"
+    ],
+    "relatedGrammar": ["grm_conjugation_011", "grm_particle_001"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "저는 학생___.",
+      "answer": "이에요",
+      "hint": "「학생」にはパッチムがあります",
+      "explanation": "パッチムありの名詞には「이에요」が付きます"
+    },
+    {
+      "id": "ex_002",
+      "type": "fill_blank",
+      "question": "이것은 사과___.",
+      "answer": "예요",
+      "hint": "「사과」にはパッチムがありません",
+      "explanation": "パッチムなしの名詞には「예요」（이에요の縮約）が付きます"
+    },
+    {
+      "id": "ex_003",
+      "type": "fill_blank",
+      "question": "저는 의사가 ___.",
+      "answer": "아니에요",
+      "hint": "「〜ではない」という否定の表現です",
+      "explanation": "否定の指定詞「아니다」の丁寧形は「아니에요」です"
+    },
+    {
+      "id": "ex_004",
+      "type": "choice",
+      "question": "「私は日本人です」を韓国語で正しく言うと？",
+      "choices": ["저는 일본인예요.", "저는 일본인아에요.", "저는 일본인가에요.", "저는 일본인을이에요."],
+      "answerIndex": 0,
+      "explanation": "「일본인」にはパッチムがないので「예요」が付きます"
+    }
+  ]
+}

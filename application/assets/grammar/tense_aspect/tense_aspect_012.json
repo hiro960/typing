@@ -1,0 +1,139 @@
+{
+  "id": "grm_tense_aspect_012",
+  "title": "여쭙다/여쭤보다",
+  "subtitle": "묻다の謙譲語（お伺いする）",
+  "category": "tense_aspect",
+  "level": "intermediate",
+  "tags": [
+    "謙譲",
+    "質問"
+  ],
+  "content": {
+    "summary": "目上に質問するとき自分の動作をへりくだって述べる表現です。",
+    "formationRules": [
+      {
+        "condition": "基本形",
+        "form": "여쭙다 → 여쭤보다",
+        "example": "하나 여쭤봐도 될까요?"
+      },
+      {
+        "condition": "丁寧依頼",
+        "form": "여쭤보다 + 도 되다",
+        "example": "여쭤봐도 될까요?"
+      },
+      {
+        "condition": "過去形",
+        "form": "여쭤봤어요",
+        "example": "어제 선생님께 여쭤봤어요."
+      },
+      {
+        "condition": "敬語助詞併用",
+        "form": "께 + 여쭤보다",
+        "example": "선생님께 여쭤보세요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "目上への質問",
+        "description": "敬意を払いながら尋ねる。",
+        "examples": [
+          {
+            "korean": "선생님께 하나 여쭤봐도 될까요?",
+            "japanese": "先生に一つお伺いしてもよろしいでしょうか。"
+          },
+          {
+            "korean": "이 부분을 여쭤보고 싶습니다.",
+            "japanese": "この部分をお伺いしたいです。"
+          }
+        ]
+      },
+      {
+        "title": "確認・許可を求める",
+        "description": "質問してよいか伺う表現。",
+        "examples": [
+          {
+            "korean": "잠시 여쭤봐도 괜찮을까요?",
+            "japanese": "少しお伺いしてもよろしいでしょうか。"
+          }
+        ]
+      },
+      {
+        "title": "案内・フォーマル",
+        "description": "公式案内や手続きでの丁寧表現。",
+        "examples": [
+          {
+            "korean": "문의 사항은 직원에게 여쭤보세요.",
+            "japanese": "お問い合わせはスタッフにお尋ねください。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "묻다 と 여쭙다",
+      "description": "묻다 は一般、여쭙다/여쭤보다 は謙譲で目上に対して使います。",
+      "examples": [
+        {
+          "grammarA": "여쭤보다",
+          "sentenceA": "교수님께 여쭤봤어요.",
+          "meaningA": "教授にお伺いしました。",
+          "grammarB": "묻다",
+          "sentenceB": "친구에게 물어봤어요.",
+          "meaningB": "友達に聞きました。"
+        }
+      ]
+    },
+    "tips": [
+      "許可を得る形(여쭤봐도 될까요?)が定番です。",
+      "対象には 께 を付けて丁寧さを高めます。",
+      "書き言葉では 여쭙다、会話では 여쭤보다 をよく使います。"
+    ],
+    "relatedGrammar": [
+      "grm_tense_aspect_008",
+      "grm_tense_aspect_013",
+      "grm_quotation_005"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "하나 ___?",
+      "answer": "보다",
+      "hint": "適切な敬語表現を入れます。",
+      "explanation": "尊敬・謙譲の形を用います。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "敬語として正しいものを選んでください",
+      "choices": [
+        "여쭙다/여쭤보다",
+        "여쭙다/여쭤보다",
+        "여쭙요/여쭤보요",
+        "여쭙습니다/여쭤보습니다"
+      ],
+      "answerIndex": 0,
+      "explanation": "目上には敬語形を使います。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "例文を韓国語で入力してください",
+      "answer": "하나 여쭤봐도 될까요?",
+      "acceptableAnswers": [
+        "하나 여쭤봐도 될까요?"
+      ],
+      "hint": "基本例文をそのまま入力します。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "目上に丁寧に言い換えてください。",
+      "answer": "여쭤봐도 될까요?",
+      "acceptableAnswers": [
+        "여쭤봐도 될까요?"
+      ],
+      "explanation": "丁寧形を使った表現です。"
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "id": "grm_orthography_016",
+  "title": "격음화",
+  "subtitle": "激音化",
+  "category": "orthography",
+  "level": "intermediate",
+  "tags": ["発音変化", "激音", "ㅎ"],
+  "content": {
+    "summary": "激音化（격음화）は、ㅎと平音（ㄱ, ㄷ, ㅂ, ㅈ）が出会うとき、激音（ㅋ, ㅌ, ㅍ, ㅊ）に変わる現象です。ㅎが前にある場合も後にある場合も起こります。",
+    "formationRules": [
+      {
+        "condition": "ㅎ + ㄱ → [ㅋ]",
+        "form": "激音化",
+        "example": "좋고 [조코], 놓고 [노코]"
+      },
+      {
+        "condition": "ㅎ + ㄷ → [ㅌ]",
+        "form": "激音化",
+        "example": "좋다 [조타], 놓다 [노타]"
+      },
+      {
+        "condition": "ㅎ + ㅂ → [ㅍ]",
+        "form": "激音化",
+        "example": "않보다 → [안포다]"
+      },
+      {
+        "condition": "ㅎ + ㅈ → [ㅊ]",
+        "form": "激音化",
+        "example": "좋지 [조치], 놓지 [노치]"
+      },
+      {
+        "condition": "ㄱ + ㅎ → [ㅋ]",
+        "form": "激音化",
+        "example": "입학 [이팍], 축하 [추카]"
+      },
+      {
+        "condition": "ㄷ + ㅎ → [ㅌ]",
+        "form": "激音化",
+        "example": "못하다 [모타다], 맏형 [마텽]"
+      },
+      {
+        "condition": "ㅂ + ㅎ → [ㅍ]",
+        "form": "激音化",
+        "example": "급하다 [그파다], 잡히다 [자피다]"
+      },
+      {
+        "condition": "ㅈ + ㅎ → [ㅊ]",
+        "form": "激音化",
+        "example": "맞히다 [마치다]"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "ㅎパッチム + 平音",
+        "description": "ㅎで終わる語幹の後に平音で始まる語尾が来ると激音化します",
+        "examples": [
+          {
+            "korean": "좋다 [조타]",
+            "japanese": "良い"
+          },
+          {
+            "korean": "좋고 [조코]",
+            "japanese": "良くて"
+          },
+          {
+            "korean": "좋지 [조치]",
+            "japanese": "良いでしょう"
+          }
+        ]
+      },
+      {
+        "title": "平音パッチム + ㅎ",
+        "description": "平音のパッチムの後にㅎで始まる音節が来ると激音化します",
+        "examples": [
+          {
+            "korean": "입학 [이팍]",
+            "japanese": "入学"
+          },
+          {
+            "korean": "축하 [추카]",
+            "japanese": "祝賀"
+          },
+          {
+            "korean": "급하다 [그파다]",
+            "japanese": "急いでいる"
+          }
+        ]
+      },
+      {
+        "title": "못하다の激音化",
+        "description": "「できない」を意味する못하다は非常によく使われます",
+        "examples": [
+          {
+            "korean": "못하다 [모타다]",
+            "japanese": "できない"
+          },
+          {
+            "korean": "못해요 [모태요]",
+            "japanese": "できません"
+          },
+          {
+            "korean": "잘못하다 [잘모타다]",
+            "japanese": "間違える"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "激音化と濃音化",
+      "description": "激音化はㅎとの結合で起こり、濃音化は特定の条件下で平音が濃音に変わります。両者は異なる現象です。",
+      "examples": [
+        {
+          "grammarA": "激音化",
+          "sentenceA": "좋다 [조타]",
+          "meaningA": "ㅎ + ㄷ → ㅌ（激音に変化）",
+          "grammarB": "濃音化",
+          "sentenceB": "학교 [학꾜]",
+          "meaningB": "ㄱ + ㄱ → ㄱㄲ（濃音に変化）"
+        }
+      ]
+    },
+    "tips": [
+      "ㅎが関わる発音変化では激音化を最初に考えましょう",
+      "入学、祝賀などの漢字語でよく起こります",
+      "좋다、놓다、많다、싫다などㅎを含む用言に注意",
+      "못하다は非常によく使うので発音を覚えましょう"
+    ],
+    "relatedGrammar": ["grm_orthography_017", "grm_orthography_019", "grm_orthography_015"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "「좋다」の発音として正しいものは？",
+      "choices": ["[좋다]", "[조타]", "[조다]", "[좋따]"],
+      "answerIndex": 1,
+      "explanation": "ㅎ + ㄷ は激音化して ㅌ になるため、[조타]と発音します"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「입학」の発音として正しいものは？",
+      "choices": ["[입학]", "[이팍]", "[입팍]", "[이박]"],
+      "answerIndex": 1,
+      "explanation": "ㅂ + ㅎ は激音化して ㅍ になるため、[이팍]と発音します"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「축하」の発音として正しいものは？",
+      "choices": ["[축하]", "[추카]", "[축카]", "[추하]"],
+      "answerIndex": 1,
+      "explanation": "ㄱ + ㅎ は激音化して ㅋ になるため、[추카]と発音します"
+    },
+    {
+      "id": "ex_004",
+      "type": "fill_blank",
+      "question": "「못해요」の発音は[___]です",
+      "answer": "모태요",
+      "hint": "ㄷ + ㅎ は激音ㅌになります",
+      "explanation": "못(ㄷ) + 해(ㅎ)が激音化して[모태요]と発音します"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "id": "grm_tense_aspect_003",
+  "title": "-아/어 있다",
+  "subtitle": "状態継続語尾（〜している）",
+  "category": "tense_aspect",
+  "level": "intermediate",
+  "tags": [
+    "状態"
+  ],
+  "content": {
+    "summary": "動作の結果がそのまま続いている状態を表します。進行中の動作ではなく「結果状態」に焦点があります。",
+    "formationRules": [
+      {
+        "condition": "語幹が ㅏ/ㅗ",
+        "form": "V + 아 있다",
+        "example": "앉다 → 앉아 있어요. (座っている状態です)"
+      },
+      {
+        "condition": "それ以外",
+        "form": "V + 어 있다",
+        "example": "열다 → 열어 있어요. (開いている状態です)"
+      },
+      {
+        "condition": "瞬間動詞と相性良い",
+        "form": "닫다/열다/앉다/서다 などと使う",
+        "example": "문이 닫혀 있어요. (ドアが閉まっています)"
+      },
+      {
+        "condition": "進行形との対比",
+        "form": "-고 있다 は動作進行、-아/어 있다 は結果状態",
+        "example": "쓰고 있다 (書いている最中)、써 있다 (書かれている)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "結果状態の描写",
+        "description": "行為の結果が続いている状態を説明します。",
+        "examples": [
+          {
+            "korean": "불이 켜져 있어요.",
+            "japanese": "電気がついています。"
+          }
+        ]
+      },
+      {
+        "title": "姿勢・配置の状態",
+        "description": "人や物がどんな位置にあるかを表します。",
+        "examples": [
+          {
+            "korean": "학생들이 앉아 있어요.",
+            "japanese": "学生たちが座っています。"
+          }
+        ]
+      },
+      {
+        "title": "表示・掲示の状態",
+        "description": "文字や案内が掲示されている状態を述べます。",
+        "examples": [
+          {
+            "korean": "문 앞에 안내문이 붙어 있어요.",
+            "japanese": "ドアの前に案内文が貼ってあります。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-고 있다 との違い",
+      "description": "-고 있다 は行為の進行、「〜している最中」。-아/어 있다 は結果が残った状態を表します。",
+      "examples": [
+        {
+          "grammarA": "-고 있다",
+          "sentenceA": "책을 읽고 있어요.",
+          "meaningA": "本を読んでいるところです。（動作進行）",
+          "grammarB": "-아/어 있다",
+          "sentenceB": "책이 책상 위에 놓여 있어요.",
+          "meaningB": "本が机の上に置いてあります。（結果状態）"
+        }
+      ]
+    },
+    "tips": [
+      "瞬間動詞（닫다/열다/앉다/서다/놓다）とよく組み合わせます。",
+      "能動・受動どちらの形も取り得ますが、状態を表すので受動表現と相性が良いです。",
+      "進行と混同しないように「結果が残っている」イメージで理解しましょう。"
+    ],
+    "relatedGrammar": [
+      "grm_tense_006",
+      "grm_tense_aspect_004",
+      "grm_expression_033"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "불이 꺼져 ___ 있어요.",
+      "answer": "서",
+      "hint": "結果状態を表す補助動詞を入れます。",
+      "explanation": "꺼져 있어요 で「消えている状態」です。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"학생들이 앉아 ___\" 空欄に入るものは？",
+      "choices": [
+        "있어요",
+        "있습니다",
+        "있다",
+        "全部可"
+      ],
+      "answerIndex": 3,
+      "explanation": "丁寧度により終止形が変わるだけで -아/어 있다 を保持します。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「電気がついています」を韓国語で入力してください",
+      "answer": "불이 켜져 있어요",
+      "acceptableAnswers": [
+        "불이 켜져 있어요",
+        "불이 켜져 있습니다"
+      ],
+      "hint": "結果状態は -아/어 있다。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "案内文が貼ってあります。",
+      "answer": "안내문이 붙어 있어요",
+      "acceptableAnswers": [
+        "안내문이 붙어 있어요",
+        "안내문이 붙어 있습니다"
+      ],
+      "explanation": "貼る（붙다）の結果が残っている＝붙어 있다。"
+    }
+  ]
+}

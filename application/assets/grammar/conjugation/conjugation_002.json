@@ -1,0 +1,149 @@
+{
+  "id": "grm_conjugation_002",
+  "title": "ㄷ不規則",
+  "subtitle": "ㄷ→ㄹ 変化（듣다→들어요）",
+  "category": "conjugation",
+  "level": "beginner",
+  "tags": [
+    "動詞"
+  ],
+  "content": {
+    "summary": "語幹末の ㄷ が母音で始まる語尾の前で ㄹ に変わる不規則。듣다, 걷다 など少数の動詞に限られます。",
+    "formationRules": [
+      {
+        "condition": "ㄷ + 아/어/으 など母音語尾",
+        "form": "ㄷ → ㄹ に置換",
+        "example": "듣다 + 어요 → 들어요"
+      },
+      {
+        "condition": "母音始まりの補助語幹・連体形",
+        "form": "ㄷ → ㄹ + 아/어, ㄹ 거예요 など",
+        "example": "걷다 → 걸어요 / 걸을 거예요"
+      },
+      {
+        "condition": "子音始まりの語尾",
+        "form": "ㄷ を維持",
+        "example": "듣고, 듣습니다"
+      },
+      {
+        "condition": "過去形も同様に変化",
+        "form": "ㄷ → ㄹ + 았/었",
+        "example": "듣다 → 들었어요"
+      },
+      {
+        "condition": "規則活用の ㄷ 動詞",
+        "form": "닫다/믿다 などは ㄷ を維持",
+        "example": "문을 닫아요"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "聞く・聴くの表現",
+        "description": "듣다 は日常会話で頻出するㄷ不規則です。",
+        "examples": [
+          {
+            "korean": "음악을 들어요.",
+            "japanese": "音楽を聴きます。"
+          },
+          {
+            "korean": "어제 강의를 들었어요.",
+            "japanese": "昨日講義を聞きました。"
+          }
+        ]
+      },
+      {
+        "title": "歩くの表現",
+        "description": "걷다 も ㄷ→ㄹ に変化します。",
+        "examples": [
+          {
+            "korean": "공원에서 천천히 걸어요.",
+            "japanese": "公園でゆっくり歩きます。"
+          },
+          {
+            "korean": "멀리까지 걸을 거예요.",
+            "japanese": "遠くまで歩くつもりです。"
+          }
+        ]
+      },
+      {
+        "title": "形式体での維持",
+        "description": "子音始まりの語尾では ㄷ が残る形も確認しましょう。",
+        "examples": [
+          {
+            "korean": "지금 설명을 듣습니다.",
+            "japanese": "今、説明を聞きます。（格式体）"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "規則的な ㄷ 動詞との違い",
+      "description": "닫다 のような規則動詞は ㄷ を維持して 닫아요。ㄷ不規則は母音語尾の前で ㄹ に変わる点が特徴です。",
+      "examples": [
+        {
+          "grammarA": "ㄷ不規則",
+          "sentenceA": "음악을 들어요.",
+          "meaningA": "音楽を聴きます。（듣다→들어요）",
+          "grammarB": "規則活用",
+          "sentenceB": "문을 닫아요.",
+          "meaningB": "ドアを閉めます。（ㄷ そのまま）"
+        }
+      ]
+    },
+    "tips": [
+      "듣다, 걷다, 묻다(尋ねる) が代表例。닫다/묻다(土に埋める) は規則活用です。",
+      "母音が続くかどうかで ㄷ→ㄹ か維持かを判断します。",
+      "過去・未来でも語幹変化は同じなので形をまとめて覚えましょう。"
+    ],
+    "relatedGrammar": [
+      "grm_conjugation_001",
+      "grm_conjugation_005",
+      "grm_conjugation_007"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "주말에 음악을 들__요.",
+      "answer": "어",
+      "hint": "ㄷ が ㄹ に変わって 들어요 になります",
+      "explanation": "듣다 → 들어요 の語幹変化を入れます。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「ゆっくり歩きました」の正しい形は？",
+      "choices": [
+        "천천히 걷었어요",
+        "천천히 걸었어요",
+        "천천히 걷었소",
+        "천천히 거렀어요"
+      ],
+      "answerIndex": 1,
+      "explanation": "걷다 は ㄷ→ㄹ で 걸었어요 となります。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「遠くまで歩くつもりです」を韓国語で入力してください",
+      "answer": "멀리까지 걸을 거예요",
+      "acceptableAnswers": [
+        "멀리까지 걸을 거예요",
+        "멀리까지 걸을 거야"
+      ],
+      "hint": "未来連体形でも ㄷ→ㄹ が起きて 걸을 になります"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "今、説明を聞きます。（格式体）",
+      "answer": "지금 설명을 듣습니다",
+      "acceptableAnswers": [
+        "지금 설명을 듣습니다",
+        "지금 설명을 듣습니다."
+      ],
+      "explanation": "-습니다 の前は子音始まりなので ㄷ を維持して 듣습니다 になります。"
+    }
+  ]
+}

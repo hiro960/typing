@@ -1,0 +1,139 @@
+{
+  "id": "grm_tense_aspect_008",
+  "title": "주무시다",
+  "subtitle": "자다の尊敬語（お休みになる）",
+  "category": "tense_aspect",
+  "level": "intermediate",
+  "tags": [
+    "尊敬",
+    "睡眠"
+  ],
+  "content": {
+    "summary": "目上の人の睡眠を敬って述べるときに使う尊敬語です。",
+    "formationRules": [
+      {
+        "condition": "基本形",
+        "form": "주무시다",
+        "example": "할아버지께서 주무세요."
+      },
+      {
+        "condition": "丁寧命令",
+        "form": "주무세요/주무십시오",
+        "example": "일찍 주무세요."
+      },
+      {
+        "condition": "過去形",
+        "form": "주무셨어요",
+        "example": "어제도 일찍 주무셨어요."
+      },
+      {
+        "condition": "尊敬補助",
+        "form": "-시- と併用",
+        "example": "주무시고 계세요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "目上の睡眠を述べる",
+        "description": "寝る動作を敬語で表現します。",
+        "examples": [
+          {
+            "korean": "할머니께서 주무세요.",
+            "japanese": "おばあさんがお休みになっています。"
+          },
+          {
+            "korean": "사장님이 주무시는 중입니다.",
+            "japanese": "社長がお休み中です。"
+          }
+        ]
+      },
+      {
+        "title": "丁寧な依頼・案内",
+        "description": "休むようお願いするときに使います。",
+        "examples": [
+          {
+            "korean": "피곤하시면 먼저 주무세요.",
+            "japanese": "お疲れなら先にお休みください。"
+          }
+        ]
+      },
+      {
+        "title": "電話・伝言での敬語",
+        "description": "不在理由を丁寧に伝えるとき。",
+        "examples": [
+          {
+            "korean": "지금 주무시고 계셔서 전화를 못 받으세요.",
+            "japanese": "今お休み中で電話に出られません。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "자다 との違い",
+      "description": "주무시다 は자다の尊敬語で、目上の主語に限定して使います。",
+      "examples": [
+        {
+          "grammarA": "주무시다",
+          "sentenceA": "어머니가 주무세요.",
+          "meaningA": "母がお休みになります。",
+          "grammarB": "자다",
+          "sentenceB": "아이들이 자요.",
+          "meaningB": "子どもたちが寝ています。"
+        }
+      ]
+    },
+    "tips": [
+      "-시- と一緒に用いて二重に敬意を示します。",
+      "電話応対での不在伝達にも便利です。",
+      "子どもなど目下には通常使いません。"
+    ],
+    "relatedGrammar": [
+      "grm_tense_aspect_010",
+      "grm_tense_aspect_005",
+      "grm_voice_005"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "할아버지께서 ___?",
+      "answer": "시다",
+      "hint": "適切な敬語表現を入れます。",
+      "explanation": "尊敬・謙譲の形を用います。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "敬語として正しいものを選んでください",
+      "choices": [
+        "주무시다",
+        "주무다",
+        "주무시요",
+        "주무시습니다"
+      ],
+      "answerIndex": 0,
+      "explanation": "目上には敬語形を使います。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "例文を韓国語で入力してください",
+      "answer": "할아버지께서 주무세요",
+      "acceptableAnswers": [
+        "할아버지께서 주무세요"
+      ],
+      "hint": "基本例文をそのまま入力します。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "目上に丁寧に言い換えてください。",
+      "answer": "일찍 주무세요",
+      "acceptableAnswers": [
+        "일찍 주무세요"
+      ],
+      "explanation": "丁寧形を使った表現です。"
+    }
+  ]
+}

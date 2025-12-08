@@ -1,0 +1,139 @@
+{
+  "id": "grm_orthography_022",
+  "title": "구개음화",
+  "subtitle": "口蓋音化",
+  "category": "orthography",
+  "level": "advanced",
+  "tags": ["発音変化", "口蓋音", "ㄷ", "ㅌ"],
+  "content": {
+    "summary": "口蓋音化（구개음화）は、ㄷまたはㅌパッチムの後に이が来るとき、ㄷがㅈに、ㅌがㅊに変わる現象です。舌が口蓋（硬口蓋）に近づくことで起こる同化現象です。",
+    "formationRules": [
+      {
+        "condition": "ㄷ + 이 → [지]",
+        "form": "ㄷが ㅈ に変化",
+        "example": "같이 [가치], 맏이 [마지]"
+      },
+      {
+        "condition": "ㅌ + 이 → [치]",
+        "form": "ㅌが ㅊ に変化",
+        "example": "굳이 [구지], 붙이다 [부치다]"
+      },
+      {
+        "condition": "ㄷ + 히 → [치]",
+        "form": "ㄷ + ㅎ + 이 が ㅊ に変化",
+        "example": "닫히다 [다치다], 묻히다 [무치다]"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "副詞形での口蓋音化",
+        "description": "「같이（一緒に）」など副詞形でよく起こります",
+        "examples": [
+          {
+            "korean": "같이 [가치]",
+            "japanese": "一緒に"
+          },
+          {
+            "korean": "굳이 [구지]",
+            "japanese": "わざわざ、あえて"
+          },
+          {
+            "korean": "곧이 [고지]",
+            "japanese": "そのまま"
+          }
+        ]
+      },
+      {
+        "title": "名詞での口蓋音化",
+        "description": "ㄷ, ㅌで終わる名詞に이が付くとき起こります",
+        "examples": [
+          {
+            "korean": "맏이 [마지]",
+            "japanese": "長子"
+          },
+          {
+            "korean": "해돋이 [해도지]",
+            "japanese": "日の出"
+          },
+          {
+            "korean": "미닫이 [미다지]",
+            "japanese": "引き戸"
+          }
+        ]
+      },
+      {
+        "title": "使役・受身形での口蓋音化",
+        "description": "「-히다」が付く動詞で口蓋音化が起こります",
+        "examples": [
+          {
+            "korean": "붙이다 [부치다]",
+            "japanese": "貼る"
+          },
+          {
+            "korean": "닫히다 [다치다]",
+            "japanese": "閉められる"
+          },
+          {
+            "korean": "묻히다 [무치다]",
+            "japanese": "埋められる"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "口蓋音化と他の発音変化",
+      "description": "口蓋音化は이との結合でのみ起こり、他の母音では起こりません。",
+      "examples": [
+        {
+          "grammarA": "口蓋音化（이の前）",
+          "sentenceA": "같이 [가치]",
+          "meaningA": "ㄷ + 이 → ㅈ + 이",
+          "grammarB": "連音化（他の母音の前）",
+          "sentenceB": "같아 [가타]",
+          "meaningB": "ㄷ + 아 → 連音化（口蓋音化なし）"
+        }
+      ]
+    },
+    "tips": [
+      "口蓋音化は이との結合でのみ起こります",
+      "같이、굳이は非常によく使うので発音を覚えましょう",
+      "붙이다、닫히다など日常動詞でも起こります",
+      "表記と発音が異なるので注意が必要です"
+    ],
+    "relatedGrammar": ["grm_orthography_016", "grm_orthography_014", "grm_orthography_017"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "「같이」の発音として正しいものは？",
+      "choices": ["[같이]", "[가치]", "[갇이]", "[가티]"],
+      "answerIndex": 1,
+      "explanation": "ㄷ + 이 では口蓋音化が起こり、[가치]と発音します"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「굳이」の発音として正しいものは？",
+      "choices": ["[굳이]", "[구지]", "[굳지]", "[구디]"],
+      "answerIndex": 1,
+      "explanation": "ㄷ + 이 では口蓋音化が起こり、[구지]と発音します"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「붙이다」の発音として正しいものは？",
+      "choices": ["[붙이다]", "[부치다]", "[붇이다]", "[부티다]"],
+      "answerIndex": 1,
+      "explanation": "ㅌ + 이 では口蓋音化が起こり、[부치다]と発音します"
+    },
+    {
+      "id": "ex_004",
+      "type": "fill_blank",
+      "question": "「맏이」の発音は[___]です",
+      "answer": "마지",
+      "hint": "ㄷ + 이 で口蓋音化が起こります",
+      "explanation": "ㄷパッチムの後の이で口蓋音化が起こり、[마지]と発音します"
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "id": "grm_substantive_016",
+  "title": "하나, 둘, 셋...",
+  "subtitle": "固有数詞（1〜10）",
+  "category": "substantive",
+  "level": "beginner",
+  "tags": [
+    "固有数詞",
+    "基本"
+  ],
+  "content": {
+    "summary": "韓国語固有数詞の1〜10で、物を数えたり時間の「〜時」を表すときに使います。身近な数量を口語的に示す基本の数え方です。",
+    "formationRules": [
+      {
+        "condition": "基本形",
+        "form": "하나, 둘, 셋, 넷, 다섯, 여섯, 일곱, 여덟, 아홉, 열",
+        "example": "사과가 하나 있어요."
+      },
+      {
+        "condition": "助数詞と組み合わせ",
+        "form": "数詞(固有) + 助数詞",
+        "example": "사과 두 개 (りんご2個)"
+      },
+      {
+        "condition": "時刻の時間",
+        "form": "数詞(固有) + 시",
+        "example": "세 시 (3時)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "単独で数える",
+        "description": "物や人数を口頭で数え上げるときに使います。",
+        "examples": [
+          {
+            "korean": "하나, 둘, 셋, 넷!",
+            "japanese": "1、2、3、4！"
+          },
+          {
+            "korean": "사람이 둘 있어요.",
+            "japanese": "人が2人います。"
+          }
+        ]
+      },
+      {
+        "title": "助数詞と合わせる",
+        "description": "個数や回数などを表す助数詞と一緒に使います。",
+        "examples": [
+          {
+            "korean": "사과 세 개 주세요.",
+            "japanese": "りんごを3個ください。"
+          },
+          {
+            "korean": "책 두 권 샀어요.",
+            "japanese": "本を2冊買いました。"
+          }
+        ]
+      },
+      {
+        "title": "時刻を言う",
+        "description": "時刻の「〜時」は固有数詞＋시で表します。",
+        "examples": [
+          {
+            "korean": "지금 다섯 시예요.",
+            "japanese": "今は5時です。"
+          },
+          {
+            "korean": "두 시 반에 만나요.",
+            "japanese": "2時半に会いましょう。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "漢数詞との使い分け",
+      "description": "時間の「〜時」や少ない数のものには固有数詞を使い、日付・分・秒・金額などは漢数詞を使います。",
+      "examples": [
+        {
+          "grammarA": "固有数詞",
+          "sentenceA": "세 시에 만나요.",
+          "meaningA": "3時に会いましょう。（時刻は固有数詞）",
+          "grammarB": "漢数詞",
+          "sentenceB": "삼 분만 기다려 주세요.",
+          "meaningB": "3分だけ待ってください。（分は漢数詞）"
+        }
+      ]
+    },
+    "tips": [
+      "1〜4は助数詞の前で短く変化し、詳細は grm_substantive_018 を参照します。",
+      "時刻を言うときは必ず固有数詞＋시を使い、分・秒は漢数詞で続けます。",
+      "助数詞と合わせる場合は数詞と助数詞の間にスペースを入れずにまとめて発音します。"
+    ],
+    "relatedGrammar": [
+      "grm_substantive_017",
+      "grm_substantive_018",
+      "grm_substantive_019",
+      "grm_substantive_021"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "사과 ___ 개 주세요.",
+      "answer": "세",
+      "hint": "助数詞の前では3=세の形になります。",
+      "explanation": "固有数詞3は助数詞の前で 세 となり、数詞＋개 で「3個」を表します。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「5時」を正しく表すのはどれですか?",
+      "choices": [
+        "오 시",
+        "다섯 시",
+        "오 분",
+        "다섯 분"
+      ],
+      "answerIndex": 1,
+      "explanation": "時刻の時間は固有数詞＋시で表し、5時は ‘다섯 시’ です。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「今は7時です」を韓国語で入力してください",
+      "answer": "지금 일곱 시예요",
+      "acceptableAnswers": [
+        "지금 일곱 시예요",
+        "지금 일곱 시예요.",
+        "지금 일곱 시에요"
+      ],
+      "hint": "時間は固有数詞＋시で表します。"
+    }
+  ]
+}

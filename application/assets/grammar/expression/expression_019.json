@@ -84,7 +84,7 @@
       "前件の時制に合わせて -(으)ㄴ/는 を使い分けます。",
       "否定文にすると謙遜や責任回避を表せます（제 덕분이 아니에요）。"
     ],
-    "relatedGrammar": ["grm_expression_018", "grm_connective_011", "grm_adverb_024"]
+    "relatedGrammar": ["grm_expression_018", "grm_connective_011", "grm_word_formation_019"]
   },
   "exercises": [
     {

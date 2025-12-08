@@ -1,0 +1,139 @@
+{
+  "id": "grm_orthography_019",
+  "title": "ㅎ의 약화",
+  "subtitle": "ㅎの弱化",
+  "category": "orthography",
+  "level": "intermediate",
+  "tags": ["発音変化", "ㅎ", "弱化"],
+  "content": {
+    "summary": "ㅎの弱化（ㅎ의 약화）は、ㅎが有声音（母音、ㄴ, ㄹ, ㅁ, ㅇ）に挟まれたとき、弱く発音されるか完全に脱落する現象です。会話でよく起こります。",
+    "formationRules": [
+      {
+        "condition": "母音 + ㅎ + 母音",
+        "form": "ㅎが弱化または脱落",
+        "example": "여행 [여행/여앵], 결혼 [결혼/겨론]"
+      },
+      {
+        "condition": "ㄴ,ㄹ,ㅁ,ㅇパッチム + ㅎ",
+        "form": "ㅎが弱化して有声化",
+        "example": "전화 [저놔], 은행 [으냉]"
+      },
+      {
+        "condition": "ㅎ + ㄴ,ㄹ,ㅁ,ㅇ",
+        "form": "有声子音の間でㅎが弱化",
+        "example": "정확히 [정화기/정왁이]"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "母音間でのㅎ弱化",
+        "description": "母音に挟まれたㅎは弱く発音されるか、脱落することがあります",
+        "examples": [
+          {
+            "korean": "여행 [여행/여앵]",
+            "japanese": "旅行"
+          },
+          {
+            "korean": "결혼 [결혼/겨론]",
+            "japanese": "結婚"
+          },
+          {
+            "korean": "영화 [영화/영와]",
+            "japanese": "映画"
+          }
+        ]
+      },
+      {
+        "title": "鼻音パッチム後のㅎ弱化",
+        "description": "ㄴ, ㅁ, ㅇパッチムの後のㅎは弱くなり、前のパッチムと融合することがあります",
+        "examples": [
+          {
+            "korean": "전화 [저놔]",
+            "japanese": "電話"
+          },
+          {
+            "korean": "은행 [으냉]",
+            "japanese": "銀行"
+          },
+          {
+            "korean": "심하다 [시마다]",
+            "japanese": "ひどい"
+          }
+        ]
+      },
+      {
+        "title": "ㄹパッチム後のㅎ弱化",
+        "description": "ㄹパッチムの後のㅎも弱化します",
+        "examples": [
+          {
+            "korean": "결혼 [겨론]",
+            "japanese": "結婚（くだけた発音）"
+          },
+          {
+            "korean": "발휘 [바뤼]",
+            "japanese": "発揮"
+          },
+          {
+            "korean": "실험 [시럼]",
+            "japanese": "実験"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "ㅎの弱化と激音化",
+      "description": "ㅎは有声音の間では弱化しますが、平音と出会うと激音化します。条件によって異なる変化が起こります。",
+      "examples": [
+        {
+          "grammarA": "ㅎの弱化",
+          "sentenceA": "전화 [저놔]",
+          "meaningA": "ㄴ + ㅎ → ㅎが弱化・脱落",
+          "grammarB": "激音化",
+          "sentenceB": "입학 [이팍]",
+          "meaningB": "ㅂ + ㅎ → ㅍ（激音に変化）"
+        }
+      ]
+    },
+    "tips": [
+      "ㅎの弱化は会話でよく起こりますが、正式な場面では弱化しないこともあります",
+      "전화、은행、결혼など日常語で練習しましょう",
+      "弱化は必須ではなく、話者や場面によって程度が異なります",
+      "リスニングでは弱化を想定しておくと聞き取りやすくなります"
+    ],
+    "relatedGrammar": ["grm_orthography_016", "grm_orthography_015", "grm_orthography_018"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "「전화」の弱化した発音として正しいものは？",
+      "choices": ["[전화]", "[저놔]", "[전파]", "[저와]"],
+      "answerIndex": 1,
+      "explanation": "ㄴパッチムの後のㅎが弱化し、[저놔]と発音されます"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「은행」の弱化した発音として正しいものは？",
+      "choices": ["[은행]", "[으냉]", "[은앵]", "[으행]"],
+      "answerIndex": 1,
+      "explanation": "ㄴパッチムの後のㅎが弱化し、[으냉]と発音されます"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "ㅎが弱化しやすい条件はどれ？",
+      "choices": ["平音の前", "有声音に挟まれたとき", "語頭", "激音の前"],
+      "answerIndex": 1,
+      "explanation": "ㅎは母音や鼻音などの有声音に挟まれると弱化します"
+    },
+    {
+      "id": "ex_004",
+      "type": "fill_blank",
+      "question": "「결혼」の弱化した発音は[___]です",
+      "answer": "겨론",
+      "hint": "ㄹパッチムの後のㅎが弱化します",
+      "explanation": "ㄹパッチムの後のㅎが弱化・脱落して[겨론]と発音されることがあります"
+    }
+  ]
+}

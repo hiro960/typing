@@ -1,0 +1,93 @@
+{
+  "id": "grm_tense_aspect_029",
+  "title": "없다",
+  "subtitle": "非存在・非所有（〜がない）",
+  "category": "tense_aspect",
+  "level": "beginner",
+  "tags": [
+    "非存在"
+  ],
+  "content": {
+    "summary": "存在しない・持っていないことを表す基本動詞です。ある→있다の否定形にあたります。",
+    "formationRules": [
+      {
+        "condition": "基本",
+        "form": "名詞 + 이/가 + 없다",
+        "example": "시간이 없다 (時間がない)"
+      },
+      {
+        "condition": "所有の否定",
+        "form": "名詞 + 이/가 + 없다",
+        "example": "돈이 없어요. (お金がありません)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "存在しない",
+        "description": "場所に物や人がいないことを表します",
+        "examples": [
+          {
+            "korean": "집에 아무도 없어요.",
+            "japanese": "家には誰もいません。"
+          }
+        ]
+      },
+      {
+        "title": "持っていない",
+        "description": "所有の否定を表します",
+        "examples": [
+          {
+            "korean": "지금 돈이 없어요.",
+            "japanese": "今お金がありません。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "아니다との違い",
+      "description": "없다は存在・所有の否定、아니다は名詞文の否定です。"
+    },
+    "tips": [
+      "있다/없다は形容詞的に使われ現在形でも요体",
+      "過去形は없었어요、未来は없을 거예요など活用も練習しましょう"
+    ],
+    "relatedGrammar": [
+      "grm_tense_aspect_028",
+      "grm_particle_004"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "오늘 약속___ 없어요.",
+      "answer": "이",
+      "hint": "主語に이/가",
+      "explanation": "不存在・非所有を表すときは名詞+이/가 없다"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「家には誰もいません」を正しく表すのは？",
+      "choices": [
+        "집에 아무도 없어요.",
+        "집에 아무도 아니에요.",
+        "집에 아무도 안 있어요.",
+        "집에 아무도 없습니다."
+      ],
+      "answerIndex": 3,
+      "explanation": "없어요/없습니다で存在の否定を表します"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「今お金がありません」を韓国語で入力してください",
+      "answer": "지금 돈이 없어요",
+      "acceptableAnswers": [
+        "지금 돈이 없어요",
+        "지금 돈이 없어요."
+      ],
+      "hint": "お金=돈"
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "id": "grm_orthography_004",
+  "title": "이중모음",
+  "subtitle": "二重母音（ㅑ, ㅕ, ㅛ, ㅠ, ㅒ, ㅖ, ㅘ, ㅙ, ㅝ, ㅞ, ㅢ）",
+  "category": "orthography",
+  "level": "beginner",
+  "tags": ["母音", "二重母音", "発音"],
+  "content": {
+    "summary": "二重母音は半母音と単母音が組み合わさった母音で、発音中に口の形が変化します。韓国語には11個の二重母音があり、[j]系（y音）と[w]系（w音）に分類されます。",
+    "formationRules": [
+      {
+        "condition": "[j]系二重母音（y音）",
+        "form": "ㅣ + 単母音",
+        "example": "ㅑ, ㅕ, ㅛ, ㅠ, ㅒ, ㅖ"
+      },
+      {
+        "condition": "[w]系二重母音（w音）",
+        "form": "ㅗ/ㅜ + 単母音",
+        "example": "ㅘ, ㅙ, ㅝ, ㅞ"
+      },
+      {
+        "condition": "特殊な二重母音",
+        "form": "ㅡ + ㅣ",
+        "example": "ㅢ"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "ㅑ [ja] - 야",
+        "description": "「ヤ」の音。ㅣからㅏに移行します。",
+        "examples": [
+          {
+            "korean": "야구",
+            "japanese": "野球"
+          },
+          {
+            "korean": "약",
+            "japanese": "薬"
+          }
+        ]
+      },
+      {
+        "title": "ㅕ [jʌ] - 여",
+        "description": "「ヨ」の音（口を縦に）。ㅣからㅓに移行します。",
+        "examples": [
+          {
+            "korean": "여름",
+            "japanese": "夏"
+          },
+          {
+            "korean": "역",
+            "japanese": "駅"
+          }
+        ]
+      },
+      {
+        "title": "ㅛ [jo] - 요",
+        "description": "「ヨ」の音（唇を丸く）。ㅣからㅗに移行します。",
+        "examples": [
+          {
+            "korean": "요일",
+            "japanese": "曜日"
+          },
+          {
+            "korean": "교실",
+            "japanese": "教室"
+          }
+        ]
+      },
+      {
+        "title": "ㅠ [ju] - 유",
+        "description": "「ユ」の音。ㅣからㅜに移行します。",
+        "examples": [
+          {
+            "korean": "유학",
+            "japanese": "留学"
+          },
+          {
+            "korean": "우유",
+            "japanese": "牛乳"
+          }
+        ]
+      },
+      {
+        "title": "ㅒ [jɛ] - 얘",
+        "description": "「イェ」の音。ㅣからㅐに移行します。現代ではㅖとほぼ同じ発音です。",
+        "examples": [
+          {
+            "korean": "얘기",
+            "japanese": "話（이야기の縮約）"
+          }
+        ]
+      },
+      {
+        "title": "ㅖ [je] - 예",
+        "description": "「イェ」の音。ㅣからㅔに移行します。",
+        "examples": [
+          {
+            "korean": "예",
+            "japanese": "はい"
+          },
+          {
+            "korean": "예약",
+            "japanese": "予約"
+          }
+        ]
+      },
+      {
+        "title": "ㅘ [wa] - 와",
+        "description": "「ワ」の音。ㅗからㅏに移行します。",
+        "examples": [
+          {
+            "korean": "과일",
+            "japanese": "果物"
+          },
+          {
+            "korean": "화장실",
+            "japanese": "トイレ"
+          }
+        ]
+      },
+      {
+        "title": "ㅙ [wɛ] - 왜",
+        "description": "「ウェ」の音。ㅗからㅐに移行します。",
+        "examples": [
+          {
+            "korean": "왜",
+            "japanese": "なぜ"
+          },
+          {
+            "korean": "돼지",
+            "japanese": "豚"
+          }
+        ]
+      },
+      {
+        "title": "ㅝ [wʌ] - 워",
+        "description": "「ウォ」の音。ㅜからㅓに移行します。",
+        "examples": [
+          {
+            "korean": "원",
+            "japanese": "ウォン（通貨）"
+          },
+          {
+            "korean": "권",
+            "japanese": "〜巻"
+          }
+        ]
+      },
+      {
+        "title": "ㅞ [we] - 웨",
+        "description": "「ウェ」の音。ㅜからㅔに移行します。ㅙ、ㅚとほぼ同じ発音になっています。",
+        "examples": [
+          {
+            "korean": "웨딩",
+            "japanese": "ウェディング"
+          }
+        ]
+      },
+      {
+        "title": "ㅢ [ɯi] - 의",
+        "description": "ㅡからㅣに移行する特殊な二重母音。位置によって発音が変化します。",
+        "examples": [
+          {
+            "korean": "의사",
+            "japanese": "医者"
+          },
+          {
+            "korean": "회의",
+            "japanese": "会議"
+          },
+          {
+            "korean": "나의",
+            "japanese": "私の"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "ㅙ, ㅚ, ㅞの違い",
+      "description": "この3つの母音は本来異なる音でしたが、現代韓国語ではほぼ同じ[we]の音になっています。スペルは語源によって区別されます。",
+      "examples": [
+        {
+          "grammarA": "ㅙ",
+          "sentenceA": "왜, 돼지",
+          "meaningA": "固有語に多い",
+          "grammarB": "ㅚ",
+          "sentenceB": "외국, 회사",
+          "meaningB": "漢字語に多い"
+        }
+      ]
+    },
+    "tips": [
+      "ㅑ, ㅕ, ㅛ, ㅠは単母音の前に[j]（y音）が付いた形です",
+      "ㅘ, ㅙ, ㅝ, ㅞは単母音の前に[w]（w音）が付いた形です",
+      "ㅒとㅖ、ㅙとㅚとㅞは現代韓国語ではほぼ同じ発音です",
+      "ㅢは語頭では「ウィ」、語中・語末では「イ」、助詞では「エ」と発音が変わります",
+      "キーボード入力時は、ㅘはㅗ+ㅏ、ㅝはㅜ+ㅓのように連続入力します"
+    ],
+    "relatedGrammar": ["grm_orthography_002", "grm_orthography_003"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "[j]系（y音）の二重母音はどれ？",
+      "choices": ["ㅑ, ㅕ, ㅛ, ㅠ", "ㅘ, ㅙ, ㅝ, ㅞ", "ㅏ, ㅓ, ㅗ, ㅜ", "ㅐ, ㅔ, ㅚ, ㅟ"],
+      "answerIndex": 0,
+      "explanation": "ㅑ, ㅕ, ㅛ, ㅠは[j]（y音）系の二重母音です"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「과일（果物）」の「과」に含まれる二重母音は？",
+      "choices": ["ㅘ", "ㅗ", "ㅏ", "ㅙ"],
+      "answerIndex": 0,
+      "explanation": "「과」はㄱ + ㅘで構成され、ㅘは[wa]と発音されます"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "現代韓国語でほぼ同じ発音になっている母音の組み合わせは？",
+      "choices": ["ㅙ, ㅚ, ㅞ", "ㅑ, ㅕ, ㅛ", "ㅘ, ㅝ, ㅢ", "ㅠ, ㅜ, ㅡ"],
+      "answerIndex": 0,
+      "explanation": "ㅙ, ㅚ, ㅞは現代韓国語ではすべて[we]の音になっています"
+    },
+    {
+      "id": "ex_004",
+      "type": "choice",
+      "question": "「의」が助詞「〜の」として使われる時の発音は？",
+      "choices": ["[e]（エに近い）", "[ɯi]（ウィ）", "[i]（イ）", "[wi]（ウィ）"],
+      "answerIndex": 0,
+      "explanation": "「의」が所有の助詞として使われる時は[e]（エ）に近く発音されます"
+    },
+    {
+      "id": "ex_005",
+      "type": "choice",
+      "question": "「여」と「요」の違いとして正しいものは？",
+      "choices": ["여は口を縦に、요は唇を丸く", "여は唇を丸く、요は口を縦に", "発音は同じ", "여は[w]系、요は[j]系"],
+      "answerIndex": 0,
+      "explanation": "여はㅓ系なので口を縦に開け、요はㅗ系なので唇を丸くします"
+    }
+  ]
+}

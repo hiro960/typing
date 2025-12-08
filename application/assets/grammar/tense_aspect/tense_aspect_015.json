@@ -1,0 +1,139 @@
+{
+  "id": "grm_tense_aspect_015",
+  "title": "-아/어 드리다",
+  "subtitle": "謙譲補助動詞（〜して差し上げる）",
+  "category": "tense_aspect",
+  "level": "intermediate",
+  "tags": [
+    "謙譲",
+    "補助"
+  ],
+  "content": {
+    "summary": "相手や目上の人に行為を差し上げるときの謙譲補助動詞で、依頼・申し出で頻出します。",
+    "formationRules": [
+      {
+        "condition": "基本形",
+        "form": "V + 아/어 드리다",
+        "example": "도와 드리다"
+      },
+      {
+        "condition": "丁寧依頼",
+        "form": "-아/어 드리세요",
+        "example": "설명해 드리세요."
+      },
+      {
+        "condition": "申し出",
+        "form": "-아/어 드릴게요",
+        "example": "제가 대신 해 드릴게요."
+      },
+      {
+        "condition": "否定",
+        "form": "-아/어 드릴 수 없다",
+        "example": "지금은 도와 드릴 수 없어요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "申し出る",
+        "description": "自分がしてあげる意志を丁寧に表す。",
+        "examples": [
+          {
+            "korean": "제가 짐을 들어 드릴게요.",
+            "japanese": "荷物をお持ちしますね。"
+          },
+          {
+            "korean": "필요하면 알려 드릴게요.",
+            "japanese": "必要ならお知らせします。"
+          }
+        ]
+      },
+      {
+        "title": "依頼する",
+        "description": "目上の行為を丁寧にお願いする。",
+        "examples": [
+          {
+            "korean": "조금만 천천히 읽어 주시겠어요?",
+            "japanese": "少しゆっくり読んでいただけますか。"
+          }
+        ]
+      },
+      {
+        "title": "感謝を伝える",
+        "description": "してもらったことへのお礼。",
+        "examples": [
+          {
+            "korean": "도와 주셔서 정말 감사드립니다.",
+            "japanese": "助けてくださり本当にありがとうございます。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-주다 と -드리다",
+      "description": "주다 は中立、ドゥリダは謙譲。目上に対しては必ず -드리다 を使います。",
+      "examples": [
+        {
+          "grammarA": "-드리다",
+          "sentenceA": "제가 설명해 드릴게요.",
+          "meaningA": "私がご説明しますね。",
+          "grammarB": "-주다",
+          "sentenceB": "친구가 설명해 줄 거예요.",
+          "meaningB": "友達が説明してくれるでしょう。"
+        }
+      ]
+    },
+    "tips": [
+      "依頼には -아/어 주시겠어요? 提案には -아/어 드릴게요 を使い分け。",
+      "音声案内や接客で定型的に登場します。",
+      "謙譲表現なので自分・身内が主語になります。"
+    ],
+    "relatedGrammar": [
+      "grm_tense_aspect_011",
+      "grm_tense_aspect_014",
+      "grm_expression_035"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "도와 ___?",
+      "answer": "-아/어",
+      "hint": "適切な敬語表現を入れます。",
+      "explanation": "尊敬・謙譲の形を用います。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "敬語として正しいものを選んでください",
+      "choices": [
+        "-아/어 드리다",
+        "-아/어 드리다",
+        "-아/어 드리요",
+        "-아/어 드리습니다"
+      ],
+      "answerIndex": 0,
+      "explanation": "目上には敬語形を使います。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "例文を韓国語で入力してください",
+      "answer": "도와 드리다",
+      "acceptableAnswers": [
+        "도와 드리다"
+      ],
+      "hint": "基本例文をそのまま入力します。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "目上に丁寧に言い換えてください。",
+      "answer": "설명해 드리세요",
+      "acceptableAnswers": [
+        "설명해 드리세요"
+      ],
+      "explanation": "丁寧形を使った表現です。"
+    }
+  ]
+}

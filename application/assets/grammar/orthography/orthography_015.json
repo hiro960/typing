@@ -1,0 +1,139 @@
+{
+  "id": "grm_orthography_015",
+  "title": "받침의 초음화",
+  "subtitle": "終声の初音化",
+  "category": "orthography",
+  "level": "intermediate",
+  "tags": ["発音変化", "ㅎ", "脱落"],
+  "content": {
+    "summary": "終声の初音化（받침의 초음화）は、ㅎパッチムの後に母音が来るとき、ㅎが脱落して発音されなくなる現象です。ㅎの弱化の一種で、連音化とは異なる特殊な変化です。",
+    "formationRules": [
+      {
+        "condition": "ㅎパッチム + 母音",
+        "form": "ㅎが脱落",
+        "example": "좋아요 [조아요], 놓아요 [노아요]"
+      },
+      {
+        "condition": "ㄶ(ㄴㅎ)パッチム + 母音",
+        "form": "ㅎが脱落し、ㄴが連音化",
+        "example": "많아요 [마나요], 싫어요 [시러요]"
+      },
+      {
+        "condition": "ㅀ(ㄹㅎ)パッチム + 母音",
+        "form": "ㅎが脱落し、ㄹが連音化",
+        "example": "잃어요 [이러요], 뚫어요 [뚜러요]"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "形容詞・動詞の活用",
+        "description": "ㅎパッチムを持つ用言が母音語尾と結合する際にㅎが脱落します",
+        "examples": [
+          {
+            "korean": "좋아요 [조아요]",
+            "japanese": "良いです"
+          },
+          {
+            "korean": "놓아요 [노아요]",
+            "japanese": "置きます"
+          },
+          {
+            "korean": "넣어요 [너어요]",
+            "japanese": "入れます"
+          }
+        ]
+      },
+      {
+        "title": "二重パッチムㄶでの脱落",
+        "description": "ㄶパッチム（많다, 싫다など）の場合、ㅎだけが脱落しㄴが残ります",
+        "examples": [
+          {
+            "korean": "많아요 [마나요]",
+            "japanese": "多いです"
+          },
+          {
+            "korean": "싫어요 [시러요]",
+            "japanese": "嫌です"
+          },
+          {
+            "korean": "괜찮아요 [괜차나요]",
+            "japanese": "大丈夫です"
+          }
+        ]
+      },
+      {
+        "title": "二重パッチムㅀでの脱落",
+        "description": "ㅀパッチム（잃다, 뚫다など）の場合、ㅎだけが脱落しㄹが残ります",
+        "examples": [
+          {
+            "korean": "잃어요 [이러요]",
+            "japanese": "なくします"
+          },
+          {
+            "korean": "뚫어요 [뚜러요]",
+            "japanese": "穴を開けます"
+          },
+          {
+            "korean": "끓어요 [끄러요]",
+            "japanese": "沸きます"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "ㅎ脱落と一般の連音化",
+      "description": "一般のパッチムは母音の前で連音化しますが、ㅎは脱落して発音されません。",
+      "examples": [
+        {
+          "grammarA": "一般の連音化",
+          "sentenceA": "먹어요 [머거요]",
+          "meaningA": "食べます（ㄱが連音化）",
+          "grammarB": "ㅎの脱落",
+          "sentenceB": "좋아요 [조아요]",
+          "meaningB": "良いです（ㅎが脱落）"
+        }
+      ]
+    },
+    "tips": [
+      "ㅎパッチムは母音の前で消えると覚えましょう",
+      "二重パッチムㄶ, ㅀの場合はㅎだけが消え、もう一方の子音が連音化します",
+      "좋다、놓다、넣다などㅎで終わる用言に注意しましょう",
+      "많다、싫다、괜찮다などㄶで終わる用言も同様です"
+    ],
+    "relatedGrammar": ["grm_orthography_014", "grm_orthography_019", "grm_orthography_016"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "「좋아요」の発音として正しいものは？",
+      "choices": ["[조하요]", "[조아요]", "[좋아요]", "[조타요]"],
+      "answerIndex": 1,
+      "explanation": "ㅎパッチムは母音の前で脱落するため、[조아요]と発音します"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「많아요」の発音として正しいものは？",
+      "choices": ["[만하요]", "[마나요]", "[많아요]", "[만아요]"],
+      "answerIndex": 1,
+      "explanation": "ㄶのㅎが脱落し、ㄴが連音化して[마나요]と発音します"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「싫어요」の発音として正しいものは？",
+      "choices": ["[실허요]", "[시러요]", "[싫어요]", "[실어요]"],
+      "answerIndex": 1,
+      "explanation": "ㅀのㅎが脱落し、ㄹが連音化して[시러요]と発音します"
+    },
+    {
+      "id": "ex_004",
+      "type": "fill_blank",
+      "question": "「놓아요」の発音は[___]です",
+      "answer": "노아요",
+      "hint": "ㅎパッチムは母音の前で脱落します",
+      "explanation": "ㅎパッチムが脱落して[노아요]と発音します"
+    }
+  ]
+}

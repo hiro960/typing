@@ -1,0 +1,129 @@
+{
+  "id": "grm_substantive_024",
+  "title": "권",
+  "subtitle": "助数詞（冊）",
+  "category": "substantive",
+  "level": "beginner",
+  "tags": [
+    "助数詞",
+    "本"
+  ],
+  "content": {
+    "summary": "本・雑誌・ノートなど冊子状のものを数える助数詞です。図書館や書店でよく使われます。",
+    "formationRules": [
+      {
+        "condition": "基本形",
+        "form": "名詞 + 数詞(固有) + 권",
+        "example": "책 세 권 (本3冊)"
+      },
+      {
+        "condition": "質問形",
+        "form": "몇 권 + 動詞",
+        "example": "몇 권 빌렸어요? (何冊借りましたか)"
+      },
+      {
+        "condition": "否定・強調",
+        "form": "한 권도 + 否定",
+        "example": "한 권도 못 읽었어요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "本を数える",
+        "description": "購入や貸出の際に冊数を表します。",
+        "examples": [
+          {
+            "korean": "책 두 권 빌렸어요.",
+            "japanese": "本を2冊借りました。"
+          },
+          {
+            "korean": "소설책을 세 권 샀어요.",
+            "japanese": "小説を3冊買いました。"
+          }
+        ]
+      },
+      {
+        "title": "所蔵・読書量を言う",
+        "description": "家や学校にある冊数、読んだ冊数を説明します。",
+        "examples": [
+          {
+            "korean": "집에 만화책이 열 권 있어요.",
+            "japanese": "家に漫画が10冊あります。"
+          },
+          {
+            "korean": "이번 달에 책을 다섯 권 읽었어요.",
+            "japanese": "今月は本を5冊読みました。"
+          }
+        ]
+      },
+      {
+        "title": "おすすめ・紹介",
+        "description": "冊数を示しながら本を薦めるときにも使います。",
+        "examples": [
+          {
+            "korean": "읽어 볼 만한 책 한 권 추천해 주세요.",
+            "japanese": "読んでみる価値のある本を1冊おすすめしてください。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "권 と 개 の使い分け",
+      "description": "冊子状のものには 권 を使い、立体的な小物などには 개 を使います。",
+      "examples": [
+        {
+          "grammarA": "권",
+          "sentenceA": "잡지 한 권 사 주세요.",
+          "meaningA": "雑誌を1冊買ってください。（冊には 권）",
+          "grammarB": "개",
+          "sentenceB": "잡지 한 개 사 주세요.",
+          "meaningB": "雑誌1個という意味になり不自然"
+        }
+      ]
+    },
+    "tips": [
+      "数詞は固有数詞を使い、助数詞と続けて発音します。",
+      "一冊もないときは ‘한 권도 없다’ のように 도 を付けます。",
+      "雑誌・ノート・漫画など冊になっているもの全般に使えます。"
+    ],
+    "relatedGrammar": [
+      "grm_substantive_018",
+      "grm_substantive_021",
+      "grm_substantive_027"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "책 한 ___도 못 읽었어요.",
+      "answer": "권",
+      "hint": "冊子には 권 を使います。",
+      "explanation": "否定文で「1冊も〜ない」は 한 권도 + 否定 で表します。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「雑誌を2冊買いました」に最も自然なのは?",
+      "choices": [
+        "잡지 두 개 샀어요.",
+        "잡지 두 권 샀어요.",
+        "잡지 두 잔 샀어요.",
+        "잡지 두 마리 샀어요."
+      ],
+      "answerIndex": 1,
+      "explanation": "冊子は 권 を使って ‘잡지 두 권’ と言います。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「この本を3冊読みました」を韓国語で入力してください",
+      "answer": "이 책을 세 권 읽었어요",
+      "acceptableAnswers": [
+        "이 책을 세 권 읽었어요",
+        "이 책을 세 권 읽었어요."
+      ],
+      "hint": "本の冊数は 권 で数えます。"
+    }
+  ]
+}

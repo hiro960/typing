@@ -1,0 +1,226 @@
+{
+  "id": "grm_adnominal_014",
+  "title": "한자의 훈",
+  "subtitle": "漢字の訓を表す",
+  "category": "adnominal",
+  "level": "advanced",
+  "tags": ["連体形", "漢字", "訓読み", "語彙"],
+  "content": {
+    "summary": "韓国語では漢字の訓（意味）を表す時、連体形を使って「〜する〜」「〜な〜」という形で説明します。例えば「山」は「뫼 산」（山の山）、「水」は「물 수」（水の水）のように、固有語の意味語と漢字音を組み合わせて表現します。",
+    "formationRules": [
+      {
+        "condition": "動詞的意味の漢字",
+        "form": "連体形 + 漢字音",
+        "example": "볼 견 (見る見 = 見), 갈 거 (行く去 = 去)"
+      },
+      {
+        "condition": "形容詞的意味の漢字",
+        "form": "連体形 + 漢字音",
+        "example": "큰 대 (大きい大 = 大), 작을 소 (小さい小 = 小)"
+      },
+      {
+        "condition": "名詞的意味の漢字",
+        "form": "名詞 + 漢字音",
+        "example": "물 수 (水の水 = 水), 불 화 (火の火 = 火)"
+      },
+      {
+        "condition": "副詞的意味の漢字",
+        "form": "副詞/連体形 + 漢字音",
+        "example": "다시 부 (再び復 = 復), 또 우 (また又 = 又)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "自然に関する漢字",
+        "description": "山、水、火などの自然を表す漢字の訓",
+        "examples": [
+          {
+            "korean": "山 = 뫼 산",
+            "japanese": "山（やま）の山"
+          },
+          {
+            "korean": "水 = 물 수",
+            "japanese": "水（みず）の水"
+          },
+          {
+            "korean": "火 = 불 화",
+            "japanese": "火（ひ）の火"
+          },
+          {
+            "korean": "月 = 달 월",
+            "japanese": "月（つき）の月"
+          }
+        ]
+      },
+      {
+        "title": "動作を表す漢字",
+        "description": "動詞の意味を持つ漢字の訓は連体形で表現",
+        "examples": [
+          {
+            "korean": "見 = 볼 견",
+            "japanese": "見る（みる）の見"
+          },
+          {
+            "korean": "聞 = 들을 문",
+            "japanese": "聞く（きく）の聞"
+          },
+          {
+            "korean": "食 = 먹을 식",
+            "japanese": "食べる（たべる）の食"
+          },
+          {
+            "korean": "行 = 갈 행",
+            "japanese": "行く（ゆく）の行"
+          }
+        ]
+      },
+      {
+        "title": "性質を表す漢字",
+        "description": "形容詞の意味を持つ漢字の訓",
+        "examples": [
+          {
+            "korean": "大 = 큰 대",
+            "japanese": "大きい（おおきい）の大"
+          },
+          {
+            "korean": "小 = 작을 소",
+            "japanese": "小さい（ちいさい）の小"
+          },
+          {
+            "korean": "長 = 긴 장",
+            "japanese": "長い（ながい）の長"
+          },
+          {
+            "korean": "高 = 높을 고",
+            "japanese": "高い（たかい）の高"
+          }
+        ]
+      },
+      {
+        "title": "数字に関する漢字",
+        "description": "数を表す漢字の訓",
+        "examples": [
+          {
+            "korean": "一 = 한 일",
+            "japanese": "一つの一"
+          },
+          {
+            "korean": "二 = 두 이",
+            "japanese": "二つの二"
+          },
+          {
+            "korean": "三 = 석 삼",
+            "japanese": "三つの三"
+          },
+          {
+            "korean": "百 = 온 백",
+            "japanese": "百の百"
+          }
+        ]
+      },
+      {
+        "title": "人・身体に関する漢字",
+        "description": "人間や身体を表す漢字の訓",
+        "examples": [
+          {
+            "korean": "人 = 사람 인",
+            "japanese": "人（ひと）の人"
+          },
+          {
+            "korean": "手 = 손 수",
+            "japanese": "手（て）の手"
+          },
+          {
+            "korean": "目 = 눈 목",
+            "japanese": "目（め）の目"
+          },
+          {
+            "korean": "心 = 마음 심",
+            "japanese": "心（こころ）の心"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "韓国語と日本語の訓読みの違い",
+      "description": "日本語は訓読みが発達していますが、韓国語では漢字の訓は「固有語 + 漢字音」の形で説明的に表現します。",
+      "examples": [
+        {
+          "grammarA": "韓国語",
+          "sentenceA": "山 = 뫼 산",
+          "meaningA": "固有語「뫼」+ 漢字音「산」",
+          "grammarB": "日本語",
+          "sentenceB": "山 = やま/サン",
+          "meaningB": "訓読み「やま」、音読み「サン」"
+        },
+        {
+          "grammarA": "韓国語",
+          "sentenceA": "見 = 볼 견",
+          "meaningA": "連体形「볼」+ 漢字音「견」",
+          "grammarB": "日本語",
+          "sentenceB": "見 = み（る）/ケン",
+          "meaningB": "訓読み「み」、音読み「ケン」"
+        }
+      ]
+    },
+    "tips": [
+      "韓国語では漢字を音読みのみで使うのが一般的",
+      "訓は漢字学習や辞書で漢字の意味を説明する時に使う",
+      "動詞的意味の漢字は「-(으)ㄹ」形、形容詞的意味は「-(으)ㄴ」形を使う",
+      "「千字文」などの漢字学習書で訓を学ぶ伝統がある"
+    ],
+    "relatedGrammar": ["grm_adnominal_008", "grm_adnominal_011", "grm_word_formation_001"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "大 = ___ 대",
+      "answer": "큰",
+      "hint": "「大きい」の連体形",
+      "explanation": "「大」の訓は「큰 대」です。形容詞「크다」の連体形「큰」を使います。"
+    },
+    {
+      "id": "ex_002",
+      "type": "fill_blank",
+      "question": "見 = ___ 견",
+      "answer": "볼",
+      "hint": "「見る」の連体形",
+      "explanation": "「見」の訓は「볼 견」です。動詞「보다」の連体形「볼」を使います。"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「水」の訓読みは？",
+      "choices": [
+        "강 수",
+        "물 수",
+        "비 수",
+        "눈 수"
+      ],
+      "answerIndex": 1,
+      "explanation": "「水」の訓は「물 수」です。「물」は水を意味する固有語です。"
+    },
+    {
+      "id": "ex_004",
+      "type": "choice",
+      "question": "「食」の訓読みとして正しいものは？",
+      "choices": [
+        "먹는 식",
+        "먹을 식",
+        "먹은 식",
+        "먹던 식"
+      ],
+      "answerIndex": 1,
+      "explanation": "動詞の意味を持つ漢字の訓は「-(으)ㄹ」形を使います。「먹을 식」が正解です。"
+    },
+    {
+      "id": "ex_005",
+      "type": "typing",
+      "question": "「山」の訓読みを入力してください",
+      "answer": "뫼 산",
+      "acceptableAnswers": ["뫼 산", "뫼산"],
+      "hint": "山を意味する古い固有語は「뫼」"
+    }
+  ]
+}

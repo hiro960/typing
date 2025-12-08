@@ -1,0 +1,98 @@
+{
+  "id": "grm_tense_aspect_023",
+  "title": "안 + 動詞/形容詞",
+  "subtitle": "短形否定（〜しない）",
+  "category": "tense_aspect",
+  "level": "beginner",
+  "tags": [
+    "短形否定"
+  ],
+  "content": {
+    "summary": "動詞・形容詞の前に「안」を付けて簡単に否定を表す形です。話し言葉で最もよく使われます。",
+    "formationRules": [
+      {
+        "condition": "基本形",
+        "form": "안 + 動詞/形容詞",
+        "example": "안 가요 (行きません)"
+      },
+      {
+        "condition": "하다動詞",
+        "form": "안 + 하다 → 안 해요",
+        "example": "운동 안 해요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "単純否定",
+        "description": "行為をしないことを表します",
+        "examples": [
+          {
+            "korean": "오늘은 안 바빠요.",
+            "japanese": "今日は忙しくありません。"
+          },
+          {
+            "korean": "저는 커피를 안 마셔요.",
+            "japanese": "私はコーヒーを飲みません。"
+          }
+        ]
+      },
+      {
+        "title": "習慣的な否定",
+        "description": "普段しないことを述べるとき",
+        "examples": [
+          {
+            "korean": "주말에는 일 안 해요.",
+            "japanese": "週末には仕事をしません。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-지 않다との違い",
+      "description": "안は短く口語的、-지 않다はやや丁寧・書き言葉寄りです。"
+    },
+    "tips": [
+      "하다動詞は안 하다 / 안 해요の形に注意",
+      "名詞の否定は 아니다を使います"
+    ],
+    "relatedGrammar": [
+      "grm_tense_aspect_024",
+      "grm_tense_aspect_028"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "저는 고기를 ___ 먹어요.",
+      "answer": "안",
+      "hint": "「肉を食べません」",
+      "explanation": "動詞の前に안を置いて否定します"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「週末は仕事をしません」の正しい文は？",
+      "choices": [
+        "주말에는 일 안 해요.",
+        "주말에는 일을 안 합니다.",
+        "両方正しい",
+        "どちらも間違い"
+      ],
+      "answerIndex": 2,
+      "explanation": "丁寧さは異なりますがどちらも正しい否定です"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「私はコーヒーを飲みません」を韓国語で入力してください",
+      "answer": "저는 커피를 안 마셔요",
+      "acceptableAnswers": [
+        "저는 커피를 안 마셔요",
+        "저는 커피를 안 마셔요.",
+        "커피를 안 마셔요"
+      ],
+      "hint": "飲む=마시다"
+    }
+  ]
+}

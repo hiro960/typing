@@ -1,0 +1,139 @@
+{
+  "id": "grm_tense_aspect_009",
+  "title": "돌아가시다",
+  "subtitle": "죽다の尊敬語（お亡くなりになる）",
+  "category": "tense_aspect",
+  "level": "intermediate",
+  "tags": [
+    "尊敬",
+    "婉曲"
+  ],
+  "content": {
+    "summary": "死を婉曲かつ敬って述べるときに使う表現で、亡くなる・逝去するに当たります。",
+    "formationRules": [
+      {
+        "condition": "基本形",
+        "form": "돌아가시다",
+        "example": "할아버지께서 돌아가셨어요."
+      },
+      {
+        "condition": "過去形",
+        "form": "돌아가셨다",
+        "example": "어젯밤 돌아가셨습니다."
+      },
+      {
+        "condition": "丁寧形",
+        "form": "돌아가셨어요/돌아가셨습니다",
+        "example": "친구의 할머니가 돌아가셨어요."
+      },
+      {
+        "condition": "表現",
+        "form": "별세하시다 も丁寧",
+        "example": "회장님께서 별세하셨습니다."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "訃報を伝える",
+        "description": "亡くなった事実を丁寧に伝えます。",
+        "examples": [
+          {
+            "korean": "아버지가 돌아가셨어요.",
+            "japanese": "父が亡くなりました。"
+          },
+          {
+            "korean": "그분은 작년에 돌아가셨어요.",
+            "japanese": "その方は昨年お亡くなりになりました。"
+          }
+        ]
+      },
+      {
+        "title": "公式・丁寧表現",
+        "description": "会社・公的な場面の訃報表現。",
+        "examples": [
+          {
+            "korean": "회장님께서 어제 별세하셨습니다.",
+            "japanese": "会長が昨日ご逝去されました。"
+          }
+        ]
+      },
+      {
+        "title": "婉曲にする",
+        "description": "直接的な 죽다 を避けて礼儀正しく表す。",
+        "examples": [
+          {
+            "korean": "친구 아버지가 돌아가셨다고 들었어요.",
+            "japanese": "友人のお父様が亡くなったと聞きました。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "죽다 との違い",
+      "description": "죽다 は直接的で中立的、돌아가시다 は尊敬・婉曲。目上の方には必ず敬語を用います。",
+      "examples": [
+        {
+          "grammarA": "돌아가시다",
+          "sentenceA": "할머니께서 돌아가셨어요.",
+          "meaningA": "祖母がお亡くなりになりました。",
+          "grammarB": "죽다",
+          "sentenceB": "나무가 죽었어요.",
+          "meaningB": "木が枯れました。"
+        }
+      ]
+    },
+    "tips": [
+      "별세하다 はさらに格調高い表現。",
+      "訃報は丁寧な語尾(-습니다)で伝えるのが無難です。",
+      "目下・動物・物には 사용하지 않습니다。"
+    ],
+    "relatedGrammar": [
+      "grm_tense_aspect_008",
+      "grm_tense_aspect_010",
+      "grm_voice_005"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "할아버지께서 ___?",
+      "answer": "시다",
+      "hint": "適切な敬語表現を入れます。",
+      "explanation": "尊敬・謙譲の形を用います。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "敬語として正しいものを選んでください",
+      "choices": [
+        "돌아가시다",
+        "돌아가다",
+        "돌아가시요",
+        "돌아가시습니다"
+      ],
+      "answerIndex": 0,
+      "explanation": "目上には敬語形を使います。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "例文を韓国語で入力してください",
+      "answer": "할아버지께서 돌아가셨어요",
+      "acceptableAnswers": [
+        "할아버지께서 돌아가셨어요"
+      ],
+      "hint": "基本例文をそのまま入力します。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "目上に丁寧に言い換えてください。",
+      "answer": "어젯밤 돌아가셨습니다",
+      "acceptableAnswers": [
+        "어젯밤 돌아가셨습니다"
+      ],
+      "explanation": "丁寧形を使った表現です。"
+    }
+  ]
+}

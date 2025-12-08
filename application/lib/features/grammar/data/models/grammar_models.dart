@@ -5,144 +5,112 @@ import '../../../../ui/app_theme.dart';
 
 part 'grammar_models.g.dart';
 
-/// 文法カテゴリ
+/// 文法カテゴリ（11カテゴリ）
 @JsonEnum(alwaysCreate: true)
 enum GrammarCategory {
+  @JsonValue('orthography')
+  orthography, // 表記・発音
+  @JsonValue('substantive')
+  substantive, // 体言
   @JsonValue('particle')
-  particle,
-  @JsonValue('ending')
-  ending,
+  particle, // 助詞
+  @JsonValue('conjugation')
+  conjugation, // 用言と活用
+  @JsonValue('sentence_ending')
+  sentenceEnding, // 終止形と待遇法
   @JsonValue('connective')
-  connective,
-  @JsonValue('honorific')
-  honorific,
-  @JsonValue('tense')
-  tense,
+  connective, // 接続形
+  @JsonValue('adnominal')
+  adnominal, // 連体形
+  @JsonValue('tense_aspect')
+  tenseAspect, // 時制
   @JsonValue('expression')
-  expression,
-  @JsonValue('numeral')
-  numeral,
-  @JsonValue('interrogative')
-  interrogative,
-  @JsonValue('pronoun')
-  pronoun,
-  @JsonValue('irregular')
-  irregular,
-  @JsonValue('voice')
-  voice,
+  expression, // さまざまな表現
   @JsonValue('quotation')
-  quotation,
-  @JsonValue('negation')
-  negation,
-  @JsonValue('adverb')
-  adverb,
-  @JsonValue('interjection')
-  interjection,
+  quotation, // 直接話法と間接話法
+  @JsonValue('word_formation')
+  wordFormation, // 単語の作り
 }
 
 extension GrammarCategoryX on GrammarCategory {
   String get label {
     switch (this) {
+      case GrammarCategory.orthography:
+        return '表記・発音';
+      case GrammarCategory.substantive:
+        return '体言';
       case GrammarCategory.particle:
         return '助詞';
-      case GrammarCategory.ending:
-        return '語尾';
+      case GrammarCategory.conjugation:
+        return '用言と活用';
+      case GrammarCategory.sentenceEnding:
+        return '終止形と待遇法';
       case GrammarCategory.connective:
-        return '接続表現';
-      case GrammarCategory.honorific:
-        return '敬語表現';
-      case GrammarCategory.tense:
-        return '時制・相';
+        return '接続形';
+      case GrammarCategory.adnominal:
+        return '連体形';
+      case GrammarCategory.tenseAspect:
+        return '時制';
       case GrammarCategory.expression:
-        return '慣用表現';
-      case GrammarCategory.numeral:
-        return '数詞・助数詞';
-      case GrammarCategory.interrogative:
-        return '疑問詞';
-      case GrammarCategory.pronoun:
-        return '代名詞・指示詞';
-      case GrammarCategory.irregular:
-        return '不規則活用';
-      case GrammarCategory.voice:
-        return '態（受身・使役）';
+        return 'さまざまな表現';
       case GrammarCategory.quotation:
-        return '引用表現';
-      case GrammarCategory.negation:
-        return '否定表現';
-      case GrammarCategory.adverb:
-        return '副詞';
-      case GrammarCategory.interjection:
-        return '感嘆詞・間投詞';
+        return '直接話法と間接話法';
+      case GrammarCategory.wordFormation:
+        return '単語の作り';
     }
   }
 
   String get description {
     switch (this) {
+      case GrammarCategory.orthography:
+        return 'ハングルの構造と発音の変化';
+      case GrammarCategory.substantive:
+        return '代名詞・数詞・疑問詞・依存名詞など';
       case GrammarCategory.particle:
         return '名詞に付いて文法的な関係を示す';
-      case GrammarCategory.ending:
-        return '動詞・形容詞の活用語尾';
+      case GrammarCategory.conjugation:
+        return '用言の品詞と活用パターン';
+      case GrammarCategory.sentenceEnding:
+        return '文末の終止形と待遇法';
       case GrammarCategory.connective:
-        return '文と文をつなぐ表現';
-      case GrammarCategory.honorific:
-        return '尊敬語・謙譲語の表現';
-      case GrammarCategory.tense:
-        return '過去・現在・未来・進行などの表現';
+        return '文と文をつなぐ接続表現';
+      case GrammarCategory.adnominal:
+        return '名詞を修飾する連体形';
+      case GrammarCategory.tenseAspect:
+        return '時制・否定・受身・使役など';
       case GrammarCategory.expression:
         return 'よく使われる文法的な慣用表現';
-      case GrammarCategory.numeral:
-        return '固有数詞・漢数詞・助数詞';
-      case GrammarCategory.interrogative:
-        return '疑問代名詞・疑問副詞';
-      case GrammarCategory.pronoun:
-        return '人称代名詞・指示代名詞';
-      case GrammarCategory.irregular:
-        return '不規則に変化する用言の活用パターン';
-      case GrammarCategory.voice:
-        return '受動態・使役態の表現';
       case GrammarCategory.quotation:
         return '直接引用・間接引用の表現';
-      case GrammarCategory.negation:
-        return '否定を表す文法表現';
-      case GrammarCategory.adverb:
-        return '動詞・形容詞を修飾する語';
-      case GrammarCategory.interjection:
-        return '感情や呼びかけを表す語';
+      case GrammarCategory.wordFormation:
+        return '副詞形・体言形・接辞による語形成';
     }
   }
 
   IconData get icon {
     switch (this) {
+      case GrammarCategory.orthography:
+        return Icons.text_fields; // 表記・発音
+      case GrammarCategory.substantive:
+        return Icons.category; // 体言
       case GrammarCategory.particle:
-        return Icons.link;
-      case GrammarCategory.ending:
-        return Icons.format_quote;
+        return Icons.link; // 助詞
+      case GrammarCategory.conjugation:
+        return Icons.shuffle; // 用言と活用
+      case GrammarCategory.sentenceEnding:
+        return Icons.format_quote; // 終止形と待遇法
       case GrammarCategory.connective:
-        return Icons.swap_horiz;
-      case GrammarCategory.honorific:
-        return Icons.person_outline;
-      case GrammarCategory.tense:
-        return Icons.schedule;
+        return Icons.swap_horiz; // 接続形
+      case GrammarCategory.adnominal:
+        return Icons.short_text; // 連体形
+      case GrammarCategory.tenseAspect:
+        return Icons.schedule; // 時制
       case GrammarCategory.expression:
-        return Icons.chat_bubble_outline;
-      case GrammarCategory.numeral:
-        return Icons.pin;
-      case GrammarCategory.interrogative:
-        return Icons.help_outline;
-      case GrammarCategory.pronoun:
-        return Icons.person_pin;
-      case GrammarCategory.irregular:
-        return Icons.shuffle;
-      case GrammarCategory.voice:
-        return Icons.record_voice_over;
+        return Icons.chat_bubble_outline; // さまざまな表現
       case GrammarCategory.quotation:
-        return Icons.format_quote_rounded;
-      case GrammarCategory.negation:
-        return Icons.block;
-      case GrammarCategory.adverb:
-        return Icons.speed;
-      case GrammarCategory.interjection:
-        return Icons.campaign;
+        return Icons.format_quote_rounded; // 直接話法と間接話法
+      case GrammarCategory.wordFormation:
+        return Icons.build; // 単語の作り
     }
   }
 

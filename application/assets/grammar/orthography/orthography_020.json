@@ -1,0 +1,139 @@
+{
+  "id": "grm_orthography_020",
+  "title": "유음화",
+  "subtitle": "流音化",
+  "category": "orthography",
+  "level": "intermediate",
+  "tags": ["発音変化", "流音", "ㄹ", "ㄴ"],
+  "content": {
+    "summary": "流音化（유음화）は、ㄴとㄹが隣り合うとき、ㄴがㄹに変わって両方ともㄹで発音される現象です。ㄹが前でも後でも起こります。",
+    "formationRules": [
+      {
+        "condition": "ㄴ + ㄹ → [ㄹㄹ]",
+        "form": "ㄴが ㄹ に変化",
+        "example": "신라 [실라], 난로 [날로]"
+      },
+      {
+        "condition": "ㄹ + ㄴ → [ㄹㄹ]",
+        "form": "ㄴが ㄹ に変化",
+        "example": "설날 [설랄], 일년 [일련]"
+      },
+      {
+        "condition": "漢字語の ㄹ + ㄴ",
+        "form": "ㄴが ㄹ に変化",
+        "example": "한류 [할류], 진리 [질리]"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "ㄴパッチム + ㄹの流音化",
+        "description": "ㄴパッチムの後にㄹが来ると、ㄴがㄹに変わります",
+        "examples": [
+          {
+            "korean": "신라 [실라]",
+            "japanese": "新羅"
+          },
+          {
+            "korean": "난로 [날로]",
+            "japanese": "暖炉"
+          },
+          {
+            "korean": "천리 [철리]",
+            "japanese": "千里"
+          }
+        ]
+      },
+      {
+        "title": "ㄹパッチム + ㄴの流音化",
+        "description": "ㄹパッチムの後にㄴが来ると、ㄴがㄹに変わります",
+        "examples": [
+          {
+            "korean": "설날 [설랄]",
+            "japanese": "お正月"
+          },
+          {
+            "korean": "일년 [일련]",
+            "japanese": "一年"
+          },
+          {
+            "korean": "칼날 [칼랄]",
+            "japanese": "刃"
+          }
+        ]
+      },
+      {
+        "title": "漢字語での流音化",
+        "description": "漢字語でも流音化が起こります",
+        "examples": [
+          {
+            "korean": "한류 [할류]",
+            "japanese": "韓流"
+          },
+          {
+            "korean": "진리 [질리]",
+            "japanese": "真理"
+          },
+          {
+            "korean": "연락 [열락]",
+            "japanese": "連絡"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "流音化と鼻音化",
+      "description": "ㄴとㄹが出会うと通常は流音化しますが、一部の単語では例外的に鼻音化（ㄹ→ㄴ）が起こることもあります。",
+      "examples": [
+        {
+          "grammarA": "流音化",
+          "sentenceA": "신라 [실라]",
+          "meaningA": "ㄴ + ㄹ → ㄹㄹ（流音に変化）",
+          "grammarB": "鼻音化（例外）",
+          "sentenceB": "생산량 [생산냥]",
+          "meaningB": "合成語の境界でㄹ→ㄴに変化する場合も"
+        }
+      ]
+    },
+    "tips": [
+      "ㄴとㄹが出会ったら流音化を疑いましょう",
+      "신라、설날、일년など基本的な単語で練習しましょう",
+      "한류、연락など漢字語でもよく起こります",
+      "流音化は発音を楽にするための自然な変化です"
+    ],
+    "relatedGrammar": ["grm_orthography_018", "grm_orthography_021", "grm_orthography_014"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "「신라」の発音として正しいものは？",
+      "choices": ["[신라]", "[실라]", "[신나]", "[실나]"],
+      "answerIndex": 1,
+      "explanation": "ㄴ + ㄹ では流音化が起こり、[실라]と発音します"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「설날」の発音として正しいものは？",
+      "choices": ["[설날]", "[설랄]", "[선날]", "[선랄]"],
+      "answerIndex": 1,
+      "explanation": "ㄹ + ㄴ では流音化が起こり、[설랄]と発音します"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「한류」の発音として正しいものは？",
+      "choices": ["[한류]", "[할류]", "[한뉴]", "[할뉴]"],
+      "answerIndex": 1,
+      "explanation": "ㄴ + ㄹ では流音化が起こり、[할류]と発音します"
+    },
+    {
+      "id": "ex_004",
+      "type": "fill_blank",
+      "question": "「일년」の発音は[___]です",
+      "answer": "일련",
+      "hint": "ㄹ + ㄴ で流音化が起こります",
+      "explanation": "ㄹパッチムの後のㄴが流音化して[일련]と発音します"
+    }
+  ]
+}

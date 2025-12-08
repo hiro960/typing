@@ -1,0 +1,157 @@
+{
+  "id": "grm_conjugation_014",
+  "title": "제Ⅰ어기",
+  "subtitle": "第Ⅰ語基",
+  "category": "conjugation",
+  "level": "intermediate",
+  "tags": ["語基", "活用", "第Ⅰ語基"],
+  "content": {
+    "summary": "第Ⅰ語基は用言の基本形から「다」を取った形で、子音で始まる語尾と結合します。韓国語の活用を体系的に理解するための基本概念です。",
+    "formationRules": [
+      {
+        "condition": "基本形から다を除く",
+        "form": "第Ⅰ語基 = 語幹",
+        "example": "먹다 → 먹、가다 → 가、예쁘다 → 예쁘"
+      },
+      {
+        "condition": "子音語幹の場合",
+        "form": "語幹そのまま",
+        "example": "먹다 → 먹、읽다 → 읽"
+      },
+      {
+        "condition": "母音語幹の場合",
+        "form": "語幹そのまま",
+        "example": "가다 → 가、보다 → 보"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "第Ⅰ語基に付く語尾（子音始まり）",
+        "description": "子音で始まる語尾は第Ⅰ語基に直接付きます",
+        "examples": [
+          {
+            "korean": "먹 + 고 → 먹고",
+            "japanese": "食べて（並列）"
+          },
+          {
+            "korean": "가 + 지만 → 가지만",
+            "japanese": "行くけど（逆接）"
+          },
+          {
+            "korean": "예쁘 + 지 → 예쁘지",
+            "japanese": "きれいでしょ（確認）"
+          }
+        ]
+      },
+      {
+        "title": "動詞の現在連体形",
+        "description": "動詞の第Ⅰ語基に「는」を付けると現在連体形になります",
+        "examples": [
+          {
+            "korean": "먹 + 는 → 먹는",
+            "japanese": "食べる（連体形）"
+          },
+          {
+            "korean": "가 + 는 → 가는",
+            "japanese": "行く（連体形）"
+          },
+          {
+            "korean": "읽 + 는 → 읽는",
+            "japanese": "読む（連体形）"
+          }
+        ]
+      },
+      {
+        "title": "否定形 -지 않다",
+        "description": "第Ⅰ語基に「지 않다」を付けると否定形になります",
+        "examples": [
+          {
+            "korean": "먹 + 지 않다 → 먹지 않다",
+            "japanese": "食べない"
+          },
+          {
+            "korean": "가 + 지 않다 → 가지 않다",
+            "japanese": "行かない"
+          },
+          {
+            "korean": "예쁘 + 지 않다 → 예쁘지 않다",
+            "japanese": "きれいではない"
+          }
+        ]
+      },
+      {
+        "title": "意志・推量 -겠-",
+        "description": "第Ⅰ語基に「겠」を付けると意志や推量を表します",
+        "examples": [
+          {
+            "korean": "먹 + 겠다 → 먹겠다",
+            "japanese": "食べるつもりだ / 食べるだろう"
+          },
+          {
+            "korean": "가 + 겠다 → 가겠다",
+            "japanese": "行くつもりだ / 行くだろう"
+          },
+          {
+            "korean": "알 + 겠다 → 알겠다",
+            "japanese": "わかりました"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "第Ⅰ語基と第Ⅱ語基の違い",
+      "description": "第Ⅰ語基は子音始まりの語尾に、第Ⅱ語基は「으」始まりの語尾に使います",
+      "examples": [
+        {
+          "grammarA": "第Ⅰ語基",
+          "sentenceA": "먹 + 고 → 먹고",
+          "meaningA": "子音始まりの語尾と結合",
+          "grammarB": "第Ⅱ語基",
+          "sentenceB": "먹 + 으면 → 먹으면",
+          "meaningB": "「으」始まりの語尾と結合"
+        }
+      ]
+    },
+    "tips": [
+      "第Ⅰ語基は最も基本的な形で、辞書形から「다」を取るだけです",
+      "子音で始まる語尾は第Ⅰ語基に付けると覚えましょう",
+      "「-고、-지、-겠-、-는」などが代表的な第Ⅰ語基接続語尾です",
+      "母音語幹でもパッチムがないだけで、第Ⅰ語基の概念は同じです"
+    ],
+    "relatedGrammar": ["grm_conjugation_012", "grm_conjugation_013", "grm_conjugation_015", "grm_conjugation_016"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "「보다」の第Ⅰ語基は___です。",
+      "answer": "보",
+      "hint": "基本形から「다」を取り除きます",
+      "explanation": "「보다」から「다」を取ると第Ⅰ語基「보」になります"
+    },
+    {
+      "id": "ex_002",
+      "type": "fill_blank",
+      "question": "「읽다」+ 고 → ___",
+      "answer": "읽고",
+      "hint": "第Ⅰ語基に「고」を付けます",
+      "explanation": "第Ⅰ語基「읽」に「고」が付いて「읽고」になります"
+    },
+    {
+      "id": "ex_003",
+      "type": "fill_blank",
+      "question": "「가다」+ 지 않다 → ___",
+      "answer": "가지 않다",
+      "hint": "第Ⅰ語基に「지 않다」を付けます",
+      "explanation": "第Ⅰ語基「가」に「지 않다」が付いて「가지 않다」になります"
+    },
+    {
+      "id": "ex_004",
+      "type": "choice",
+      "question": "第Ⅰ語基に付く語尾として正しいものはどれですか？",
+      "choices": ["-으면", "-아/어", "-고", "-으니까"],
+      "answerIndex": 2,
+      "explanation": "「-고」は子音で始まるので第Ⅰ語基に付きます"
+    }
+  ]
+}

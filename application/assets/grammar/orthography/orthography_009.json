@@ -1,0 +1,171 @@
+{
+  "id": "grm_orthography_009",
+  "title": "유음",
+  "subtitle": "流音（ㄹ）",
+  "category": "orthography",
+  "level": "beginner",
+  "tags": ["子音", "流音", "発音"],
+  "content": {
+    "summary": "流音ㄹは韓国語で唯一の流音で、位置によって発音が変わる特徴的な子音です。語中では弾き音[ɾ]（日本語のラ行に近い）、語末や子音の前では側面音[l]（英語のlに近い）になります。",
+    "formationRules": [
+      {
+        "condition": "語頭・母音の間",
+        "form": "弾き音 [ɾ]",
+        "example": "라면[ɾamjʌn], 나라[naɾa]"
+      },
+      {
+        "condition": "語末（パッチム）",
+        "form": "側面音 [l]",
+        "example": "달[tal], 물[mul]"
+      },
+      {
+        "condition": "子音の前",
+        "form": "側面音 [l]",
+        "example": "말하다[malhada]"
+      },
+      {
+        "condition": "ㄹㄹ（二重）",
+        "form": "長い側面音 [ll]",
+        "example": "빨래[p͈allɛ], 설날[sʌllal]"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "初声のㄹ [ɾ] - 리을",
+        "description": "舌先を歯茎に軽く当てて弾くように発音します。日本語の「ラ行」に近いですが、より軽い音です。",
+        "examples": [
+          {
+            "korean": "라면",
+            "japanese": "ラーメン"
+          },
+          {
+            "korean": "리본",
+            "japanese": "リボン"
+          },
+          {
+            "korean": "레몬",
+            "japanese": "レモン"
+          }
+        ]
+      },
+      {
+        "title": "母音間のㄹ [ɾ]",
+        "description": "母音に挟まれた位置でも弾き音になります。連音化して次の音節の初声として発音されます。",
+        "examples": [
+          {
+            "korean": "나라 [나라]",
+            "japanese": "国"
+          },
+          {
+            "korean": "머리 [머리]",
+            "japanese": "頭"
+          },
+          {
+            "korean": "우리 [우리]",
+            "japanese": "私たち"
+          }
+        ]
+      },
+      {
+        "title": "終声のㄹ [l]",
+        "description": "パッチムの位置では舌先を歯茎に付けたまま発音を終えます。英語のdarkな「l」に近い音です。",
+        "examples": [
+          {
+            "korean": "달 [dal]",
+            "japanese": "月"
+          },
+          {
+            "korean": "물 [mul]",
+            "japanese": "水"
+          },
+          {
+            "korean": "일 [il]",
+            "japanese": "仕事/一"
+          }
+        ]
+      },
+      {
+        "title": "ㄹㄹの発音",
+        "description": "パッチムㄹの後に初声ㄹが来る場合、長い側面音[ll]になります。",
+        "examples": [
+          {
+            "korean": "빨래 [빨래]",
+            "japanese": "洗濯"
+          },
+          {
+            "korean": "설날 [설랄]",
+            "japanese": "旧正月"
+          },
+          {
+            "korean": "팔력 [팔력]",
+            "japanese": "腕力"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "日本語のラ行との違い",
+      "description": "韓国語のㄹは位置によって[ɾ]と[l]の2つの発音を持ちます。日本語のラ行は主に[ɾ]ですが、韓国語の語末のㄹは[l]になります。",
+      "examples": [
+        {
+          "grammarA": "韓国語ㄹ[ɾ]",
+          "sentenceA": "라면, 나라",
+          "meaningA": "弾き音（日本語ラ行に近い）",
+          "grammarB": "韓国語ㄹ[l]",
+          "sentenceB": "달, 물",
+          "meaningB": "側面音（英語lに近い）"
+        }
+      ]
+    },
+    "tips": [
+      "語頭のㄹは日本語の「ラ行」より軽く、舌を弾くように発音します",
+      "パッチムのㄹは舌を歯茎につけたまま終わり、英語のlのような音になります",
+      "ㄴとㄹが隣り合うと「流音化」が起こり、両方ㄹになることがあります（例：신라→실라）",
+      "韓国語固有語では語頭にㄹが来ることはまれで、漢字語や外来語に多く見られます",
+      "北朝鮮の発音では語頭のㄹを[n]と発音することがあります"
+    ],
+    "relatedGrammar": ["grm_orthography_001", "grm_orthography_008", "grm_orthography_020"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "ㄹの発音が[l]（側面音）になるのはどの位置？",
+      "choices": ["語末（パッチム）", "語頭", "母音の間", "すべての位置"],
+      "answerIndex": 0,
+      "explanation": "ㄹは語末（パッチム）や子音の前では側面音[l]になります"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「나라（国）」のㄹの発音は？",
+      "choices": ["[ɾ]（弾き音）", "[l]（側面音）", "[n]（鼻音）", "[r]（ふるえ音）"],
+      "answerIndex": 0,
+      "explanation": "母音に挟まれた位置のㄹは弾き音[ɾ]になります"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「물（水）」のㄹの発音の特徴は？",
+      "choices": ["舌を歯茎につけたまま終わる", "舌を弾く", "唇を閉じる", "鼻から息を出す"],
+      "answerIndex": 0,
+      "explanation": "パッチムのㄹは舌先を歯茎につけたまま発音を終えます（側面音）"
+    },
+    {
+      "id": "ex_004",
+      "type": "choice",
+      "question": "「설날（旧正月）」のㄹㄹの発音は？",
+      "choices": ["長い[ll]", "[ɾɾ]", "[ln]", "[nl]"],
+      "answerIndex": 0,
+      "explanation": "パッチムㄹ + 初声ㄹは長い側面音[ll]になります"
+    },
+    {
+      "id": "ex_005",
+      "type": "choice",
+      "question": "韓国語のㄹについて正しい説明は？",
+      "choices": ["位置によって発音が変わる", "常に同じ発音", "常に弾き音", "常に側面音"],
+      "answerIndex": 0,
+      "explanation": "ㄹは位置によって弾き音[ɾ]と側面音[l]の2つの発音を持ちます"
+    }
+  ]
+}

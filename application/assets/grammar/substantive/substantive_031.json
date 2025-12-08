@@ -1,0 +1,134 @@
+{
+  "id": "grm_substantive_031",
+  "title": "시, 분, 초",
+  "subtitle": "時間の数え方",
+  "category": "substantive",
+  "level": "beginner",
+  "tags": [
+    "時間"
+  ],
+  "content": {
+    "summary": "時刻を表すときの単位で、時間は固有数詞＋시、分と秒は漢数詞＋분/초を使います。",
+    "formationRules": [
+      {
+        "condition": "時間（〜時）",
+        "form": "数詞(固有) + 시",
+        "example": "두 시 (2時), 열한 시 (11時)"
+      },
+      {
+        "condition": "分（〜分）",
+        "form": "数詞(漢) + 분",
+        "example": "십오 분 (15分), 오 분 (5分)"
+      },
+      {
+        "condition": "秒（〜秒）",
+        "form": "数詞(漢) + 초",
+        "example": "삼 초 (3秒)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "時刻を伝える",
+        "description": "現在の時刻や約束の時間を言います。",
+        "examples": [
+          {
+            "korean": "지금 세 시예요.",
+            "japanese": "今は3時です。"
+          },
+          {
+            "korean": "회의가 네 시 십 분에 시작해요.",
+            "japanese": "会議は4時10分に始まります。"
+          }
+        ]
+      },
+      {
+        "title": "約束・待ち合わせ",
+        "description": "会う時間や集合時間を伝えます。",
+        "examples": [
+          {
+            "korean": "두 시 반에 만나요.",
+            "japanese": "2時半に会いましょう。"
+          },
+          {
+            "korean": "여섯 시 이십오 분에 끝나요.",
+            "japanese": "6時25分に終わります。"
+          }
+        ]
+      },
+      {
+        "title": "短い秒数を伝える",
+        "description": "ストップウォッチやカウントダウンで秒を示します。",
+        "examples": [
+          {
+            "korean": "오 초만 기다려 주세요.",
+            "japanese": "5秒だけ待ってください。"
+          },
+          {
+            "korean": "삼 초 후에 시작합니다.",
+            "japanese": "3秒後に始めます。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "固有数詞と漢数詞の組み合わせ",
+      "description": "時間の『〜時』は固有数詞、分と秒は漢数詞を使う点が混ざりやすいので注意します。",
+      "examples": [
+        {
+          "grammarA": "正しい組み合わせ",
+          "sentenceA": "다섯 시 십 분",
+          "meaningA": "5時10分（時=固有数詞、分=漢数詞）",
+          "grammarB": "誤用",
+          "sentenceB": "오 시 열 분",
+          "meaningB": "数字自体は通じるが、時は固有数詞を使うのが自然"
+        }
+      ]
+    },
+    "tips": [
+      "30分は ‘삼십 분’ 以外に ‘반(半)’ もよく使います。",
+      "24時間表記でも 시 は固有数詞で読み、13時は 열세 시 のように言えます。",
+      "時間を尋ねるときは ‘몇 시예요?’, ‘몇 분이에요?’ と聞き分けます。"
+    ],
+    "relatedGrammar": [
+      "grm_substantive_016",
+      "grm_substantive_017",
+      "grm_substantive_019",
+      "grm_substantive_032"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "지금 네 ___예요.",
+      "answer": "시",
+      "hint": "時間は固有数詞＋시で表します。",
+      "explanation": "「4時」は 네 시 と言い、시 を付けます。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「2時15分」に最も合うのはどれですか?",
+      "choices": [
+        "두 시 십오 분",
+        "두 시 열다섯 초",
+        "두 시 열다섯 분",
+        "두 시 십오 시"
+      ],
+      "answerIndex": 0,
+      "explanation": "分は漢数詞で表し、15分は 십오 분 が自然です。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「5秒数えてください」を韓国語で入力してください",
+      "answer": "오 초 재 주세요",
+      "acceptableAnswers": [
+        "오 초 재 주세요",
+        "오 초 재 주세요.",
+        "오 초 세 주세요"
+      ],
+      "hint": "秒は漢数詞＋초を使います。"
+    }
+  ]
+}

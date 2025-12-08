@@ -1,0 +1,104 @@
+{
+  "id": "grm_substantive_036",
+  "title": "살",
+  "subtitle": "助数詞（〜歳）",
+  "category": "substantive",
+  "level": "beginner",
+  "tags": [
+    "助数詞",
+    "年齢"
+  ],
+  "content": {
+    "summary": "年齢を数える助数詞で、固有数詞と組み合わせて「〜歳」を表します。",
+    "formationRules": [
+      {
+        "condition": "基本",
+        "form": "固有数詞 + 살",
+        "example": "다섯 살 (5歳)"
+      },
+      {
+        "condition": "1〜4歳の縮約",
+        "form": "한/두/세/네 살",
+        "example": "세 살 (3歳)"
+      },
+      {
+        "condition": "丁寧表現",
+        "form": "연세 (敬語: 年齢)",
+        "example": "할아버지 연세가 어떻게 되세요?"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "年齢を言う",
+        "description": "自分や他人の年齢を述べる",
+        "examples": [
+          {
+            "korean": "저는 서른 살이에요.",
+            "japanese": "私は30歳です。"
+          },
+          {
+            "korean": "아이는 네 살이에요.",
+            "japanese": "子どもは4歳です。"
+          }
+        ]
+      },
+      {
+        "title": "質問する",
+        "description": "年齢を尋ねる",
+        "examples": [
+          {
+            "korean": "몇 살이에요?",
+            "japanese": "何歳ですか？"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "연세との違い",
+      "description": "살は一般的な年齢表現、연세は目上に使う敬語表現です。"
+    },
+    "tips": [
+      "1〜4歳は 한/두/세/네 살 の縮約形を使います",
+      "目上の年齢は 연세를 여쭙다 のように尋ねます"
+    ],
+    "relatedGrammar": [
+      "grm_substantive_018",
+      "grm_substantive_001"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "저는 서른 ___이에요.",
+      "answer": "살",
+      "hint": "年齢の助数詞を入れます",
+      "explanation": "年齢を表すときは固有数詞+살を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「4歳」の正しい言い方は？",
+      "choices": [
+        "네 살",
+        "넷 살",
+        "네살",
+        "네세"
+      ],
+      "answerIndex": 0,
+      "explanation": "1〜4は縮約形（세/네など）を使います"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「何歳ですか？」を韓国語で入力してください",
+      "answer": "몇 살이에요?",
+      "acceptableAnswers": [
+        "몇 살이에요?",
+        "몇 살이에요",
+        "몇살이에요?"
+      ],
+      "hint": "몇 + 살"
+    }
+  ]
+}

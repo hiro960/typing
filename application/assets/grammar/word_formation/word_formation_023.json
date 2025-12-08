@@ -1,0 +1,140 @@
+{
+  "id": "grm_word_formation_023",
+  "title": "체언형 Ⅱ-ㅁ",
+  "subtitle": "体言形 Ⅱ-ㅁ",
+  "category": "word_formation",
+  "level": "intermediate",
+  "tags": ["名詞化", "体言形"],
+  "content": {
+    "summary": "動詞や形容詞の第Ⅱ語基に-ㅁを付けて名詞化します。-기と比べてより文語的で、完了した動作や固定化された名詞を作るのに使われます。多くの派生名詞がこの形で作られています。",
+    "formationRules": [
+      {
+        "condition": "パッチムなしの語幹",
+        "form": "語幹 + ㅁ",
+        "example": "자다 → 잠（眠り）、꾸다 → 꿈（夢）"
+      },
+      {
+        "condition": "パッチムありの語幹",
+        "form": "語幹 + 음",
+        "example": "믿다 → 믿음（信頼）、걷다 → 걸음（歩み）"
+      },
+      {
+        "condition": "ㄹ語幹",
+        "form": "ㄹ脱落 + ㅁ",
+        "example": "살다 → 삶（人生）、알다 → 앎（知識）"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "固定化された名詞",
+        "description": "辞書に載っている独立した名詞として使われます",
+        "examples": [
+          {
+            "korean": "꿈을 꾸었어요.",
+            "japanese": "夢を見ました。"
+          },
+          {
+            "korean": "삶이 힘들어요.",
+            "japanese": "人生がつらいです。"
+          },
+          {
+            "korean": "믿음이 중요해요.",
+            "japanese": "信頼が大切です。"
+          }
+        ]
+      },
+      {
+        "title": "動作の結果・状態",
+        "description": "動作が完了した結果としての状態を表します",
+        "examples": [
+          {
+            "korean": "걸음이 빨라요.",
+            "japanese": "歩みが速いです。"
+          },
+          {
+            "korean": "웃음소리가 들려요.",
+            "japanese": "笑い声が聞こえます。"
+          },
+          {
+            "korean": "울음을 그쳤어요.",
+            "japanese": "泣くのをやめました。"
+          }
+        ]
+      },
+      {
+        "title": "文語的な名詞化",
+        "description": "文章体で動作を名詞化する時に使います",
+        "examples": [
+          {
+            "korean": "그의 죽음은 많은 사람을 슬프게 했다.",
+            "japanese": "彼の死は多くの人を悲しませた。"
+          },
+          {
+            "korean": "배움에는 끝이 없다.",
+            "japanese": "学びに終わりはない。"
+          },
+          {
+            "korean": "앎은 힘이다.",
+            "japanese": "知は力なり。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-기 との違い",
+      "description": "-ㅁ/-음は完了した結果や固定名詞を作り、文語的です。-기は動作そのものを表し、口語的です。",
+      "examples": [
+        {
+          "grammarA": "-ㅁ/-음",
+          "sentenceA": "그의 죽음이 슬펐어요.",
+          "meaningA": "彼の死が悲しかったです。（名詞として固定）",
+          "grammarB": "-기",
+          "sentenceB": "죽기가 무서워요.",
+          "meaningB": "死ぬことが怖いです。（動作に焦点）"
+        }
+      ]
+    },
+    "tips": [
+      "多くの-ㅁ/-음形は独立した名詞として辞書に載っています",
+      "口語では-기の方が使われやすいです",
+      "ㄹ語幹ではㄹが脱落します（살다→삶）",
+      "걷다のような変則活用では注意が必要です（걷다→걸음）",
+      "抽象的な概念を表す名詞に多く使われます"
+    ],
+    "relatedGrammar": ["grm_word_formation_022", "grm_word_formation_024"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "___을 꾸었어요. (꾸다)",
+      "answer": "꿈",
+      "hint": "「夢」という名詞形にします",
+      "explanation": "꾸다の語幹にㅁを付けて꿈になります"
+    },
+    {
+      "id": "ex_002",
+      "type": "fill_blank",
+      "question": "___이 중요해요. (믿다)",
+      "answer": "믿음",
+      "hint": "「信頼」という名詞形にします",
+      "explanation": "믿다の語幹に음を付けて믿음になります"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「人生」を韓国語で言うと？",
+      "choices": ["살기", "살음", "삶", "살이"],
+      "answerIndex": 2,
+      "explanation": "살다はㄹ語幹なのでㄹが脱落し、ㅁが付いて삶になります"
+    },
+    {
+      "id": "ex_004",
+      "type": "choice",
+      "question": "「笑い」を韓国語で言うと？",
+      "choices": ["웃기", "웃음", "웃ㅁ", "웃이"],
+      "answerIndex": 1,
+      "explanation": "웃다の語幹に음を付けて웃음になります"
+    }
+  ]
+}

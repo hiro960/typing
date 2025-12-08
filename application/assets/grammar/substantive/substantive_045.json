@@ -1,0 +1,120 @@
+{
+  "id": "grm_substantive_045",
+  "title": "몇",
+  "subtitle": "疑問連体詞（いくつ/何）",
+  "category": "substantive",
+  "level": "beginner",
+  "tags": [
+    "数量"
+  ],
+  "content": {
+    "summary": "具体的な数や個数を尋ねる疑問連体詞で、日本語の「いくつ/何〜」に当たります。助数詞とセットで使うのが基本です。",
+    "formationRules": [
+      {
+        "condition": "個数を尋ねる基本形",
+        "form": "몇 + 助数詞",
+        "example": "몇 개 있어요? (いくつありますか？)"
+      },
+      {
+        "condition": "時間を尋ねる",
+        "form": "몇 시/몇 분",
+        "example": "지금 몇 시예요? (今何時ですか？)"
+      },
+      {
+        "condition": "人数を尋ねる",
+        "form": "몇 명/몇 분",
+        "example": "몇 명이 올 거예요? (何人来る予定ですか？)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "個数を尋ねる",
+        "description": "ものの数を具体的に知りたいときに使います。",
+        "examples": [
+          {
+            "korean": "사과를 몇 개 살까요?",
+            "japanese": "リンゴをいくつ買いましょうか。"
+          }
+        ]
+      },
+      {
+        "title": "時刻・日付を尋ねる",
+        "description": "時間や日付の数字を知りたいときに使います。",
+        "examples": [
+          {
+            "korean": "지금 몇 시예요?",
+            "japanese": "今何時ですか。"
+          }
+        ]
+      },
+      {
+        "title": "人数を尋ねる",
+        "description": "予約や注文で人数を確認するときに使います。",
+        "examples": [
+          {
+            "korean": "몇 명 예약하셨어요?",
+            "japanese": "何人で予約されましたか。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "몇 と 얼마",
+      "description": "몇 は数えられる個数・時刻を尋ね、얼마 は金額や数えにくい量・期間の長さを尋ねます。",
+      "examples": [
+        {
+          "grammarA": "몇",
+          "sentenceA": "책을 몇 권 빌렸어요?",
+          "meaningA": "本を何冊借りましたか。",
+          "grammarB": "얼마",
+          "sentenceB": "책값이 얼마예요?",
+          "meaningB": "本の値段はいくらですか。"
+        }
+      ]
+    },
+    "tips": [
+      "助数詞は物なら 개、人数なら 명/분、時間なら 시/분 を合わせます。",
+      "몇 시 は固有数詞を使うので 1〜4は 한/두/세/네 시 となります。",
+      "フォーマルな場面では 명 より 분 を使うと丁寧です。"
+    ],
+    "relatedGrammar": [
+      "grm_substantive_016",
+      "grm_substantive_021",
+      "grm_substantive_044"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "학생이 ___ 명이에요?",
+      "answer": "몇",
+      "hint": "人数を尋ねるときに使う疑問連体詞です。",
+      "explanation": "人数を聞くときは 몇 명/몇 분 を使います。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "『지금 몇 시예요?』に対する自然な答えは？",
+      "choices": [
+        "두 시예요.",
+        "많이 바빠요.",
+        "커피 마셔요.",
+        "사무실에 있어요."
+      ],
+      "answerIndex": 0,
+      "explanation": "時刻を尋ねているので数字で答えます。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「リンゴをいくつ買いましょうか」を韓国語で入力してください",
+      "answer": "사과를 몇 개 살까요?",
+      "acceptableAnswers": [
+        "사과를 몇 개 살까요?",
+        "사과 몇 개 살까요?"
+      ],
+      "hint": "個数を尋ねるときは 몇 + 개 を使います。"
+    }
+  ]
+}

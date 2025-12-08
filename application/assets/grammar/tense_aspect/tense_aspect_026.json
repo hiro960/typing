@@ -1,0 +1,94 @@
+{
+  "id": "grm_tense_aspect_026",
+  "title": "-지 못하다",
+  "subtitle": "長形不可能否定（〜できない）",
+  "category": "tense_aspect",
+  "level": "beginner",
+  "tags": [
+    "不可能"
+  ],
+  "content": {
+    "summary": "能力や状況のためにできないことを丁寧に表す形です。못よりフォーマルで、書き言葉にも向きます。",
+    "formationRules": [
+      {
+        "condition": "基本",
+        "form": "語幹 + 지 못하다",
+        "example": "읽지 못하다"
+      },
+      {
+        "condition": "丁寧体",
+        "form": "-지 못해요 / -지 못합니다",
+        "example": "먹지 못해요 / 먹지 못합니다"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "能力不足の不可能",
+        "description": "スキル不足や体力不足を丁寧に表します",
+        "examples": [
+          {
+            "korean": "아직 한자를 읽지 못해요.",
+            "japanese": "まだ漢字を読めません。"
+          }
+        ]
+      },
+      {
+        "title": "事情による不可能",
+        "description": "状況のためできないと丁寧に述べます",
+        "examples": [
+          {
+            "korean": "시간이 없어서 같이 가지 못해요.",
+            "japanese": "時間がなくて一緒に行けません。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "못 + 動詞との違い",
+      "description": "意味は同じですが-지 못하다の方が丁寧・硬い印象です。"
+    },
+    "tips": [
+      "作文では-지 못합니다をよく使います",
+      "可能表現-(으)ㄹ 수 없다とも意味が近いので併せて覚えましょう"
+    ],
+    "relatedGrammar": [
+      "grm_tense_aspect_025",
+      "grm_expression_027"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "저는 아직 운전을 하___ 못해요.",
+      "answer": "지",
+      "hint": "語幹+지 못하다",
+      "explanation": "丁寧に不可能を言うときは-지 못하다を使います"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「時間がなくて一緒に行けません」の丁寧な表現は？",
+      "choices": [
+        "시간이 없어서 같이 못 가요.",
+        "시간이 없어서 같이 가지 못해요.",
+        "시간이 없어서 같이 가지 않습니다.",
+        "どれも正しい"
+      ],
+      "answerIndex": 3,
+      "explanation": "丁寧さの段階で選びます"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「まだ漢字を読めません」を韓国語で入力してください",
+      "answer": "아직 한자를 읽지 못해요",
+      "acceptableAnswers": [
+        "아직 한자를 읽지 못해요",
+        "아직 한자를 읽지 못해요.",
+        "아직 한자를 읽지 못합니다"
+      ],
+      "hint": "漢字=한자"
+    }
+  ]
+}

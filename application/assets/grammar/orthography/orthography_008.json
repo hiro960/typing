@@ -1,0 +1,174 @@
+{
+  "id": "grm_orthography_008",
+  "title": "비음",
+  "subtitle": "鼻音（ㄴ, ㅁ, ㅇ）",
+  "category": "orthography",
+  "level": "beginner",
+  "tags": ["子音", "鼻音", "発音"],
+  "content": {
+    "summary": "鼻音は空気を鼻から出して発音する子音です。韓国語には3つの鼻音があり、初声と終声（パッチム）の両方で使われます。ㅇは初声では無音ですが、終声では[ŋ]の鼻音になります。",
+    "formationRules": [
+      {
+        "condition": "歯茎鼻音",
+        "form": "ㄴ [n]",
+        "example": "나[na], 눈[nun]"
+      },
+      {
+        "condition": "両唇鼻音",
+        "form": "ㅁ [m]",
+        "example": "마[ma], 밤[pam]"
+      },
+      {
+        "condition": "軟口蓋鼻音",
+        "form": "ㅇ [ŋ]（終声のみ）",
+        "example": "강[kaŋ], 공[koŋ]"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "ㄴ [n] - 니은",
+        "description": "舌先を歯茎に当てて、鼻から息を出して発音します。日本語の「ナ行」とほぼ同じです。",
+        "examples": [
+          {
+            "korean": "나라",
+            "japanese": "国"
+          },
+          {
+            "korean": "눈",
+            "japanese": "目/雪"
+          },
+          {
+            "korean": "노래",
+            "japanese": "歌"
+          }
+        ]
+      },
+      {
+        "title": "ㅁ [m] - 미음",
+        "description": "両唇を閉じて、鼻から息を出して発音します。日本語の「マ行」とほぼ同じです。",
+        "examples": [
+          {
+            "korean": "마음",
+            "japanese": "心"
+          },
+          {
+            "korean": "물",
+            "japanese": "水"
+          },
+          {
+            "korean": "밤",
+            "japanese": "夜/栗"
+          }
+        ]
+      },
+      {
+        "title": "ㅇ [ŋ] - 이응（終声のみ）",
+        "description": "舌の奥を軟口蓋に近づけて、鼻から息を出して発音します。日本語の「ン」の一種（「りんご」の「ン」）に近いです。",
+        "examples": [
+          {
+            "korean": "강",
+            "japanese": "川"
+          },
+          {
+            "korean": "공부",
+            "japanese": "勉強"
+          },
+          {
+            "korean": "방",
+            "japanese": "部屋"
+          }
+        ]
+      },
+      {
+        "title": "初声のㅇは無音",
+        "description": "ㅇは初声（音節の最初）では無音を表します。母音だけの音節を作る時に使います。",
+        "examples": [
+          {
+            "korean": "아이",
+            "japanese": "子供"
+          },
+          {
+            "korean": "오늘",
+            "japanese": "今日"
+          },
+          {
+            "korean": "우리",
+            "japanese": "私たち"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "終声ㄴ, ㅁ, ㅇの違い",
+      "description": "3つの鼻音は調音位置が異なります。ㄴは舌先を歯茎に、ㅁは両唇を、ㅇは舌の奥を使います。",
+      "examples": [
+        {
+          "grammarA": "ㄴ [n]",
+          "sentenceA": "산 [san]",
+          "meaningA": "山（舌先が歯茎）",
+          "grammarB": "ㅁ [m]",
+          "sentenceB": "삼 [sam]",
+          "meaningB": "三（両唇を閉じる）"
+        },
+        {
+          "grammarA": "ㄴ [n]",
+          "sentenceA": "반 [pan]",
+          "meaningA": "半分/クラス",
+          "grammarB": "ㅇ [ŋ]",
+          "sentenceB": "방 [paŋ]",
+          "meaningB": "部屋（舌の奥）"
+        }
+      ]
+    },
+    "tips": [
+      "ㅇは位置によって全く異なる役割を持ちます（初声では無音、終声では鼻音）",
+      "日本語の「ン」は位置によって[n], [m], [ŋ]のどれにもなりますが、韓国語では明確に区別します",
+      "「반（半分）」と「방（部屋）」の違いを聞き分けられるように練習しましょう",
+      "鼻音は「鼻音化」という発音規則で重要な役割を果たします",
+      "終声のㅁは唇を閉じた状態で終わります"
+    ],
+    "relatedGrammar": ["grm_orthography_001", "grm_orthography_010", "grm_orthography_018"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "韓国語の鼻音は全部でいくつありますか？",
+      "choices": ["3つ", "4つ", "2つ", "5つ"],
+      "answerIndex": 0,
+      "explanation": "鼻音はㄴ, ㅁ, ㅇの3つです（ㅇは終声のみ）"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "初声のㅇはどのような音ですか？",
+      "choices": ["無音（ゼロ子音）", "[ŋ]の音", "[n]の音", "[m]の音"],
+      "answerIndex": 0,
+      "explanation": "初声のㅇは無音を表し、母音だけの音節を作る時に使います"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「방（部屋）」の終声ㅇの発音は？",
+      "choices": ["[ŋ]（りんごの「ン」）", "[n]（あんこの「ン」）", "[m]（さんまの「ン」）", "無音"],
+      "answerIndex": 0,
+      "explanation": "終声のㅇは[ŋ]で、「りんご」の「ン」のような音です"
+    },
+    {
+      "id": "ex_004",
+      "type": "choice",
+      "question": "「산（山）」と「삼（三）」の違いは？",
+      "choices": ["終声がㄴとㅁで異なる", "初声が異なる", "中声が異なる", "同じ発音"],
+      "answerIndex": 0,
+      "explanation": "산は終声が[n]、삼は終声が[m]で、鼻音の調音位置が異なります"
+    },
+    {
+      "id": "ex_005",
+      "type": "choice",
+      "question": "両唇を閉じて発音する鼻音は？",
+      "choices": ["ㅁ", "ㄴ", "ㅇ", "ㄹ"],
+      "answerIndex": 0,
+      "explanation": "ㅁは両唇を閉じて鼻から息を出して発音する両唇鼻音です"
+    }
+  ]
+}

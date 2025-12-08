@@ -1,0 +1,94 @@
+{
+  "id": "grm_sentence_ending_006",
+  "title": "-(으)ㄹ게요",
+  "subtitle": "意志語尾（〜しますね）",
+  "category": "sentence_ending",
+  "level": "beginner",
+  "tags": [
+    "意志",
+    "約束"
+  ],
+  "content": {
+    "summary": "自分の意志や約束を相手に伝えるときの語尾です。「〜しますね」「〜しますよ」に当たります。",
+    "formationRules": [
+      {
+        "condition": "パッチムなし",
+        "form": "語幹 + ㄹ게요",
+        "example": "가다 → 갈게요"
+      },
+      {
+        "condition": "パッチムあり",
+        "form": "語幹 + 을게요",
+        "example": "먹다 → 먹을게요"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "約束する",
+        "description": "これからそうする、と相手に伝える",
+        "examples": [
+          {
+            "korean": "지금 바로 갈게요.",
+            "japanese": "今すぐ行きますね。"
+          }
+        ]
+      },
+      {
+        "title": "配慮を示す",
+        "description": "相手に合わせる意志",
+        "examples": [
+          {
+            "korean": "필요하면 더 가져올게요.",
+            "japanese": "必要ならもっと持ってきますよ。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-(으)ㄹ 거예요との違い",
+      "description": "-(으)ㄹ게요は話し手の意志を強調、-(으)ㄹ 거예요は予定・推量です。"
+    },
+    "tips": [
+      "相手の反応を考慮した柔らかい意志表現",
+      "命令・勧誘には使いません"
+    ],
+    "relatedGrammar": [
+      "grm_expression_032",
+      "grm_sentence_ending_014"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "제가 전화할___요.",
+      "answer": "게",
+      "hint": "意志・約束を表す",
+      "explanation": "語幹+ㄹ게요/을게요で「〜しますね」"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「今すぐ行きますね」に対応するのは？",
+      "choices": [
+        "지금 바로 가요.",
+        "지금 바로 갈게요.",
+        "지금 바로 갈까요?",
+        "지금 바로 갔어요."
+      ],
+      "answerIndex": 1,
+      "explanation": "意志を伝えるので-ㄹ게요を使用"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「必要ならもっと持ってきますよ」を韓国語で入力してください",
+      "answer": "필요하면 더 가져올게요",
+      "acceptableAnswers": [
+        "필요하면 더 가져올게요",
+        "필요하면 더 가져올게요."
+      ],
+      "hint": "必要なら=필요하면"
+    }
+  ]
+}

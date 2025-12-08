@@ -1,0 +1,150 @@
+{
+  "id": "grm_conjugation_006",
+  "title": "르不規則",
+  "subtitle": "르→ㄹㄹ 変化（모르다→몰라요）",
+  "category": "conjugation",
+  "level": "beginner",
+  "tags": [
+    "動詞",
+    "形容詞"
+  ],
+  "content": {
+    "summary": "語幹末の 르 が母音語尾の前で ㄹ が一つ増え、라/러 を形成する不規則。모르다, 빠르다, 누르다 などで現れます。",
+    "formationRules": [
+      {
+        "condition": "語幹末 르 + 아/어요",
+        "form": "르 の前の母音に ㄹ を挿入し、라/러 を付ける",
+        "example": "모르다 → 몰라요"
+      },
+      {
+        "condition": "母音が ㅏ/ㅗ のとき",
+        "form": "르 → 래/라（ㄹ追加）",
+        "example": "빠르다 → 빨라요"
+      },
+      {
+        "condition": "母音がそれ以外",
+        "form": "르 → 러（ㄹ追加）",
+        "example": "누르다 → 눌러요"
+      },
+      {
+        "condition": "過去・推量でも同様にㄹ追加",
+        "form": "르 → ㄹㄹ + 았/었/겠",
+        "example": "모르다 → 몰랐어요 / 모를 거예요"
+      },
+      {
+        "condition": "子音始まりの語尾（-습니다, -고 など）",
+        "form": "르 を維持して活用",
+        "example": "모릅니다, 모르고"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "知らない・分からない",
+        "description": "모르다 の活用は最頻出です。",
+        "examples": [
+          {
+            "korean": "저는 잘 몰라요.",
+            "japanese": "私はよく分かりません。"
+          },
+          {
+            "korean": "어제는 몰랐어요.",
+            "japanese": "昨日は知りませんでした。"
+          }
+        ]
+      },
+      {
+        "title": "速さを表す 빠르다",
+        "description": "라 を作る形に注意します。",
+        "examples": [
+          {
+            "korean": "지하철이 정말 빨라요.",
+            "japanese": "地下鉄は本当に速いです。"
+          },
+          {
+            "korean": "너무 빨라서 따라가기 힘들었어요.",
+            "japanese": "あまりに速くてついて行くのが大変でした。"
+          }
+        ]
+      },
+      {
+        "title": "押す・押さえる",
+        "description": "눌러요/눌렀어요 の形を覚えます。",
+        "examples": [
+          {
+            "korean": "벨을 눌러 주세요.",
+            "japanese": "ベルを押してください。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "ㅂ不規則との違い",
+      "description": "ㅂ不規則は ㅂ→우/오 に変化、르不規則は ㄹ を一つ増やして 라/러 を作る点が異なります。",
+      "examples": [
+        {
+          "grammarA": "르不規則",
+          "sentenceA": "지하철이 빨라요.",
+          "meaningA": "地下鉄は速いです。（ㄹ 추가）",
+          "grammarB": "ㅂ不規則",
+          "sentenceB": "날씨가 더워요.",
+          "meaningB": "天気が暑いです。（ㅂ→우）"
+        }
+      ]
+    },
+    "tips": [
+      "母音が ㅏ/ㅗ なら 라、その他は 러 を作ると覚えると整理しやすいです。",
+      "-습니다/-고 のような子音始まりでは 르 をそのまま使います。",
+      "몰라요/빨라요/눌러요 の代表形をセットで暗記すると便利です。"
+    ],
+    "relatedGrammar": [
+      "grm_conjugation_001",
+      "grm_conjugation_007",
+      "grm_conjugation_009"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "저는 잘 몰__요.",
+      "answer": "라",
+      "hint": "르 の前に ㄹ を足して 라/러 を作ります",
+      "explanation": "모르다 → 몰라요 の活用を入れます。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「地下鉄は本当に速かったです」の正しい形は？",
+      "choices": [
+        "지하철이 정말 빨랐어요.",
+        "지하철이 정말 빠랐어요.",
+        "지하철이 정말 빨랐소.",
+        "지하철이 정말 빨랐어"
+      ],
+      "answerIndex": 0,
+      "explanation": "빠르다 → 빨랐어요 と ㄹ を足してラ行を作ります。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「ベルを押してください」を韓国語で入力してください",
+      "answer": "벨을 눌러 주세요",
+      "acceptableAnswers": [
+        "벨을 눌러 주세요",
+        "벨을 눌러 주십시오"
+      ],
+      "hint": "누르다 は 눌러요 となる点に注意"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "昨日は知りませんでした。",
+      "answer": "어제는 몰랐어요",
+      "acceptableAnswers": [
+        "어제는 몰랐어요",
+        "어제는 전혀 몰랐어요"
+      ],
+      "explanation": "모르다 の過去形も ㄹ を足した形で活用します。"
+    }
+  ]
+}

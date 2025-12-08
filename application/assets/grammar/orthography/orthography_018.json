@@ -1,0 +1,144 @@
+{
+  "id": "grm_orthography_018",
+  "title": "비음화",
+  "subtitle": "鼻音化",
+  "category": "orthography",
+  "level": "intermediate",
+  "tags": ["発音変化", "鼻音", "パッチム"],
+  "content": {
+    "summary": "鼻音化（비음화）は、閉鎖音パッチム（ㄱ, ㄷ, ㅂ）が鼻音（ㄴ, ㅁ）の前で対応する鼻音（ㅇ, ㄴ, ㅁ）に変わる現象です。また、ㄹがㄴに変わる場合もあります。",
+    "formationRules": [
+      {
+        "condition": "ㄱ(ㅋ,ㄲ) + ㄴ,ㅁ → [ㅇ]",
+        "form": "ㄱ系が ㅇ に変化",
+        "example": "한국말 [한궁말], 작년 [장년]"
+      },
+      {
+        "condition": "ㄷ(ㅌ,ㅅ,ㅆ,ㅈ,ㅊ) + ㄴ,ㅁ → [ㄴ]",
+        "form": "ㄷ系が ㄴ に変化",
+        "example": "걷는 [건는], 있는 [인는]"
+      },
+      {
+        "condition": "ㅂ(ㅍ) + ㄴ,ㅁ → [ㅁ]",
+        "form": "ㅂ系が ㅁ に変化",
+        "example": "십만 [심만], 합니다 [함니다]"
+      },
+      {
+        "condition": "ㄱ,ㅂ + ㄹ → [ㅇ/ㅁ] + [ㄴ]",
+        "form": "ㄹが ㄴ に変化し、前も鼻音化",
+        "example": "독립 [동닙], 협력 [혐녁]"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "ㄱ系パッチムの鼻音化",
+        "description": "ㄱ, ㅋ, ㄲパッチムはㄴ, ㅁの前でㅇになります",
+        "examples": [
+          {
+            "korean": "한국말 [한궁말]",
+            "japanese": "韓国語"
+          },
+          {
+            "korean": "작년 [장년]",
+            "japanese": "昨年"
+          },
+          {
+            "korean": "국내 [궁내]",
+            "japanese": "国内"
+          }
+        ]
+      },
+      {
+        "title": "ㄷ系パッチムの鼻音化",
+        "description": "ㄷ, ㅌ, ㅅ, ㅆ, ㅈ, ㅊパッチムはㄴ, ㅁの前でㄴになります",
+        "examples": [
+          {
+            "korean": "있는 [인는]",
+            "japanese": "ある/いる（連体形）"
+          },
+          {
+            "korean": "걷는 [건는]",
+            "japanese": "歩く（連体形）"
+          },
+          {
+            "korean": "맛없는 [마던는]",
+            "japanese": "おいしくない"
+          }
+        ]
+      },
+      {
+        "title": "ㅂ系パッチムの鼻音化",
+        "description": "ㅂ, ㅍパッチムはㄴ, ㅁの前でㅁになります",
+        "examples": [
+          {
+            "korean": "십만 [심만]",
+            "japanese": "十万"
+          },
+          {
+            "korean": "합니다 [함니다]",
+            "japanese": "します"
+          },
+          {
+            "korean": "없는 [엄는]",
+            "japanese": "ない（連体形）"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "鼻音化と流音化",
+      "description": "鼻音化は閉鎖音が鼻音になる現象で、流音化はㄴがㄹになる現象です。ㄹとㄴが出会うと流音化が起こります。",
+      "examples": [
+        {
+          "grammarA": "鼻音化",
+          "sentenceA": "십만 [심만]",
+          "meaningA": "ㅂ + ㅁ → ㅁㅁ（鼻音に変化）",
+          "grammarB": "流音化",
+          "sentenceB": "신라 [실라]",
+          "meaningB": "ㄴ + ㄹ → ㄹㄹ（流音に変化）"
+        }
+      ]
+    },
+    "tips": [
+      "鼻音はㄴ, ㅁ, ㅇの3つです",
+      "閉鎖音（ㄱ, ㄷ, ㅂ）は対応する鼻音（ㅇ, ㄴ, ㅁ）に変わります",
+      "합니다、입니다などの「-ㅂ니다」は非常によく使うので注意",
+      "鼻音化の後に流音化が起こることもあります（独立→[동닙]）"
+    ],
+    "relatedGrammar": ["grm_orthography_020", "grm_orthography_017", "grm_orthography_013"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "「한국말」の発音として正しいものは？",
+      "choices": ["[한국말]", "[한궁말]", "[항국말]", "[한군말]"],
+      "answerIndex": 1,
+      "explanation": "ㄱパッチムがㅁの前でㅇに鼻音化して[한궁말]と発音します"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「십만」の発音として正しいものは？",
+      "choices": ["[십만]", "[심만]", "[신만]", "[싱만]"],
+      "answerIndex": 1,
+      "explanation": "ㅂパッチムがㅁの前でㅁに鼻音化して[심만]と発音します"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「있는」の発音として正しいものは？",
+      "choices": ["[있는]", "[인는]", "[잇는]", "[잉는]"],
+      "answerIndex": 1,
+      "explanation": "ㅆパッチムがㄴの前でㄴに鼻音化して[인는]と発音します"
+    },
+    {
+      "id": "ex_004",
+      "type": "fill_blank",
+      "question": "「합니다」の発音は[___]です",
+      "answer": "함니다",
+      "hint": "ㅂパッチムがㄴの前で変化します",
+      "explanation": "ㅂパッチムがㄴの前でㅁに鼻音化して[함니다]と発音します"
+    }
+  ]
+}

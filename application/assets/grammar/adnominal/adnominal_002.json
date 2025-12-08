@@ -1,0 +1,98 @@
+{
+  "id": "grm_adnominal_002",
+  "title": "-(으)ㄴ",
+  "subtitle": "過去連体形（〜した〜）",
+  "category": "adnominal",
+  "level": "beginner",
+  "tags": [
+    "過去",
+    "連体形"
+  ],
+  "content": {
+    "summary": "名詞を修飾するときの過去連体形です。「〜した〜」「〜だった〜」を表します。",
+    "formationRules": [
+      {
+        "condition": "パッチムなし動詞",
+        "form": "語幹 + ㄴ",
+        "example": "가다 → 간 사람"
+      },
+      {
+        "condition": "パッチムあり動詞",
+        "form": "語幹 + 은",
+        "example": "읽다 → 읽은 책"
+      },
+      {
+        "condition": "形容詞",
+        "form": "語幹 + ㄴ/은",
+        "example": "예쁘다 → 예쁜 사람"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "経験を修飾",
+        "description": "過去に行った動作を持つ名詞",
+        "examples": [
+          {
+            "korean": "어제 본 영화",
+            "japanese": "昨日見た映画"
+          }
+        ]
+      },
+      {
+        "title": "過去の状態",
+        "description": "〜だった〜",
+        "examples": [
+          {
+            "korean": "친절했던 선생님",
+            "japanese": "親切だった先生"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-는 / -(으)ㄹとの違い",
+      "description": "-는は現在、-(으)ㄹは未来の連体形です。"
+    },
+    "tips": [
+      "하다動詞は한",
+      "連体形は名詞の前に置く"
+    ],
+    "relatedGrammar": [
+      "grm_adnominal_003",
+      "grm_adnominal_004"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "어제 본 ___",
+      "answer": "영화",
+      "hint": "過去に見た映画",
+      "explanation": "過去連体形-(으)ㄴで名詞を修飾します"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「読んだ本」の正しい形は？",
+      "choices": [
+        "읽는 책",
+        "읽을 책",
+        "읽은 책",
+        "책을 읽다"
+      ],
+      "answerIndex": 2,
+      "explanation": "過去連体形は읽은 책"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「親切だった先生」を韓国語で入力してください",
+      "answer": "친절했던 선생님",
+      "acceptableAnswers": [
+        "친절했던 선생님",
+        "친절했던 선생님."
+      ]
+    }
+  ]
+}

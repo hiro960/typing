@@ -1,0 +1,133 @@
+{
+  "id": "grm_substantive_047",
+  "title": "어떤",
+  "subtitle": "疑問連体詞（どんな）",
+  "category": "substantive",
+  "level": "intermediate",
+  "tags": [
+    "種類"
+  ],
+  "content": {
+    "summary": "対象の性質・種類を尋ねる疑問連体詞で、日本語の「どんな」に当たります。",
+    "formationRules": [
+      {
+        "condition": "名詞の前",
+        "form": "어떤 + 名詞",
+        "example": "어떤 색 (どんな色)"
+      },
+      {
+        "condition": "助詞併用",
+        "form": "어떤 N + が/を/に",
+        "example": "어떤 영화를 좋아해요?"
+      },
+      {
+        "condition": "強調",
+        "form": "어떤 + 것도/사람도",
+        "example": "어떤 것도 좋아요. (どんなものでもいいです)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "性質・種類を尋ねる",
+        "description": "対象のタイプや特徴を聞きたいときに使います。",
+        "examples": [
+          {
+            "korean": "어떤 영화를 좋아해요?",
+            "japanese": "どんな映画が好きですか。"
+          },
+          {
+            "korean": "어떤 음식이 맛있어요?",
+            "japanese": "どんな料理がおいしいですか。"
+          }
+        ]
+      },
+      {
+        "title": "好み・希望を尋ねる",
+        "description": "相手の好みを聞き出す質問でよく使います。",
+        "examples": [
+          {
+            "korean": "어떤 스타일을 원하세요?",
+            "japanese": "どんなスタイルをお望みですか。"
+          }
+        ]
+      },
+      {
+        "title": "条件提示",
+        "description": "どんな条件かを尋ねるときに使います。",
+        "examples": [
+          {
+            "korean": "어떤 조건이 필요해요?",
+            "japanese": "どんな条件が必要ですか。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "어느 と 어떤",
+      "description": "어느 は具体的な候補から選ぶ、어떤 は性質や種類を尋ねるときに使います。",
+      "examples": [
+        {
+          "grammarA": "어느",
+          "sentenceA": "어느 책을 살 거예요?",
+          "meaningA": "どの本を買いますか。",
+          "grammarB": "어떤",
+          "sentenceB": "어떤 책을 좋아해요?",
+          "meaningB": "どんな本が好きですか。"
+        }
+      ]
+    },
+    "tips": [
+      "性質・タイプを尋ねたいときは 어떤 を使います。",
+      "人に対して ‘어떤 분’ も丁寧な聞き方です。",
+      "選択肢がはっきりしていれば 어느、曖昧なら 어떤。"
+    ],
+    "relatedGrammar": [
+      "grm_substantive_046",
+      "grm_substantive_008",
+      "grm_substantive_009"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "___ 음식을 좋아하세요?",
+      "answer": "어떤",
+      "hint": "種類・性質を尋ねる疑問連体詞。",
+      "explanation": "好みの種類を聞くときは 어떤。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "『어떤 영화가 좋아요?』の意味は？",
+      "choices": [
+        "どの映画が好きですか",
+        "どんな映画が好きですか",
+        "誰の映画が好きですか",
+        "いつ映画が好きですか"
+      ],
+      "answerIndex": 1,
+      "explanation": "어떤 は性質・タイプを尋ねます。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「どんなスタイルをお望みですか」を韓国語で入力してください",
+      "answer": "어떤 스타일을 원하세요?",
+      "acceptableAnswers": [
+        "어떤 스타일을 원하세요?"
+      ],
+      "hint": "スタイル=스타일。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "どんな条件が必要ですか。",
+      "answer": "어떤 조건이 필요해요?",
+      "acceptableAnswers": [
+        "어떤 조건이 필요해요?"
+      ],
+      "explanation": "条件の種類を尋ねるときも 어떤。"
+    }
+  ]
+}

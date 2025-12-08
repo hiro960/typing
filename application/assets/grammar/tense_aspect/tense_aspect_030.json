@@ -1,0 +1,141 @@
+{
+  "id": "grm_tense_aspect_030",
+  "title": "-이- 受身",
+  "subtitle": "받다→받이다（受けられる）",
+  "category": "tense_aspect",
+  "level": "intermediate",
+  "tags": [
+    "受身",
+    "接尾辞"
+  ],
+  "content": {
+    "summary": "他動詞語幹に -이- を付けて受け身を作るタイプで、行為を受ける側を主語に立てます。",
+    "formationRules": [
+      {
+        "condition": "パッチムある語幹",
+        "form": "V + 이다/이-",
+        "example": "닫다→닫히다 (ドアが閉まる)"
+      },
+      {
+        "condition": "받다 など",
+        "form": "받다→받이다",
+        "example": "편지가 받이다(X) → 편지를 받다 で置き換え可"
+      },
+      {
+        "condition": "状態継続",
+        "form": "-이- + 아/어 있다",
+        "example": "문이 닫혀 있어요."
+      },
+      {
+        "condition": "能動への置換",
+        "form": "주어/에게 + 동사",
+        "example": "문을 학생이 닫았어요."
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "行為を受ける",
+        "description": "外部の行為を受けた結果を述べる。",
+        "examples": [
+          {
+            "korean": "문이 학생에게 닫혔어요.",
+            "japanese": "ドアが学生に閉められました。"
+          },
+          {
+            "korean": "가방이 버스 문에 끼였어요.",
+            "japanese": "かばんがバスのドアに挟まれました。"
+          }
+        ]
+      },
+      {
+        "title": "被害を述べる",
+        "description": "望ましくない出来事を受身で表す。",
+        "examples": [
+          {
+            "korean": "돈을 도둑에게서 빼앗겼어요.",
+            "japanese": "お金を泥棒に奪われました。"
+          }
+        ]
+      },
+      {
+        "title": "ニュース・説明文",
+        "description": "客観的に結果を報告するとき。",
+        "examples": [
+          {
+            "korean": "새 법이 공포되었어요.",
+            "japanese": "新しい法律が公布されました。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-이- と -아/어지다",
+      "description": "-이- は語尾で受身化、-아/어지다 は補助動詞で状態変化・受動を広く表す。",
+      "examples": [
+        {
+          "grammarA": "-이-",
+          "sentenceA": "문이 닫혔어요.",
+          "meaningA": "ドアが閉められました。",
+          "grammarB": "-아/어지다",
+          "sentenceB": "문이 닫아졌어요.",
+          "meaningB": "ドアが閉まってしまいました。"
+        }
+      ]
+    },
+    "tips": [
+      "受身接尾辞(이/히/리/기)をセットで覚える。",
+      "能動文＋에게/에서 で書き換えると理解しやすい。",
+      "状態描写には -아/어 있다 と併用。"
+    ],
+    "relatedGrammar": [
+      "grm_tense_aspect_031",
+      "grm_tense_aspect_034",
+      "grm_tense_aspect_035"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "문이 ___ 있어요. (-히-/-이- などを入れてください)",
+      "answer": "닫혀",
+      "hint": "受身形の語尾を入れます。",
+      "explanation": "닫다 → 닫히다/닫혀요"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "‘먹다’の受身/使役形として正しいのは？",
+      "choices": [
+        "먹히다",
+        "먹기다",
+        "먹려다",
+        "먹어지다"
+      ],
+      "answerIndex": 0,
+      "explanation": "-히- を付けて 먹히다。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「子どもを座らせました」を韓国語で入力してください",
+      "answer": "아이를 앉혔어요",
+      "acceptableAnswers": [
+        "아이를 앉혔어요",
+        "아이를 앉게 했어요"
+      ],
+      "hint": "-히- 使役を使います。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "会議時間を皆に知らせました。",
+      "answer": "회의 시간을 모두에게 알렸어요",
+      "acceptableAnswers": [
+        "회의 시간을 모두에게 알렸어요",
+        "회의 시간을 모두에게 알리게 했어요"
+      ],
+      "explanation": "알리다 を使った使役/伝達。"
+    }
+  ]
+}

@@ -84,7 +84,7 @@
       "도저히/절대 と併用すると否定がより強まります。",
       "過去推量でも -(으)ㄹ リ가 없다 をそのまま使います。"
     ],
-    "relatedGrammar": ["grm_expression_025", "grm_ending_014", "grm_negation_002"]
+    "relatedGrammar": ["grm_expression_025", "grm_expression_030", "grm_tense_aspect_024"]
   },
   "exercises": [
     {

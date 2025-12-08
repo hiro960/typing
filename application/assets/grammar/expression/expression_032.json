@@ -1,0 +1,137 @@
+{
+  "id": "grm_expression_032",
+  "title": "-(으)ㄹ 것이다",
+  "subtitle": "未来推量語尾（〜だろう）",
+  "category": "expression",
+  "level": "intermediate",
+  "tags": [
+    "未来",
+    "推量"
+  ],
+  "content": {
+    "summary": "未来の推測や意志を表し「〜だろう」「〜するつもりだ」に相当します。話し手の判断や予定を表現できます。",
+    "formationRules": [
+      {
+        "condition": "動詞・形容詞（パッチムなし/ㄹ）",
+        "form": "V/A + ㄹ 것이다",
+        "example": "가다 → 갈 것이다 (行くだろう)"
+      },
+      {
+        "condition": "動詞・形容詞（パッチムあり）",
+        "form": "V/A + 을 것이다",
+        "example": "읽다 → 읽을 것이다 (読むだろう)"
+      },
+      {
+        "condition": "指定詞",
+        "form": "N일 것이다 / N이 아닐 것이다",
+        "example": "학생일 것이다 (学生だろう)"
+      },
+      {
+        "condition": "縮約形（会話）",
+        "form": "-(으)ㄹ 거예요 / -(으)ㄹ 거야",
+        "example": "바쁠 거예요. (忙しいでしょう)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "未来の推測",
+        "description": "これから起こりそうなことを推測します。",
+        "examples": [
+          {
+            "korean": "내일은 비가 올 거예요.",
+            "japanese": "明日は雨が降るでしょう。"
+          }
+        ]
+      },
+      {
+        "title": "話し手の意志・予定",
+        "description": "自分の予定や意図をやや固い形で示します。",
+        "examples": [
+          {
+            "korean": "졸업 후에 유학을 갈 거예요.",
+            "japanese": "卒業後に留学に行くつもりです。"
+          }
+        ]
+      },
+      {
+        "title": "推量を伴う断定",
+        "description": "話し手の判断を添えて状況を述べます。",
+        "examples": [
+          {
+            "korean": "벌써 집에 갔을 거예요.",
+            "japanese": "もう家に帰ったはずです。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-겠다 と -(으)ㄹ 것이다",
+      "description": "-겠다 は瞬間的な意思・推測や強い意志、-(으)ㄹ 것이다 はより説明的で落ち着いた推量・予定を述べます。",
+      "examples": [
+        {
+          "grammarA": "-겠다",
+          "sentenceA": "지금 비가 오겠어요.",
+          "meaningA": "今雨が降りそうですね。（今の状況から推測）",
+          "grammarB": "-(으)ㄹ 것이다",
+          "sentenceB": "곧 비가 올 거예요.",
+          "meaningB": "すぐ雨が降るでしょう。（説明的）"
+        }
+      ]
+    },
+    "tips": [
+      "会話では縮約形 \"-(으)ㄹ 거예요\" を最もよく使います。",
+      "根拠を示したいときは 문맥や 근거を一緒に示すと自然です。",
+      "意志を柔らかく言うなら -(으)려고 해요 も使えます。"
+    ],
+    "relatedGrammar": [
+      "grm_tense_004",
+      "grm_expression_031",
+      "grm_expression_033"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "내일은 춥___ 거예요.",
+      "answer": "을",
+      "hint": "パッチムありの形容詞は 을 것을使います。",
+      "explanation": "춥다 → 추울 거예요。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"곧 시작___ 겁니다\" の空欄に入るものは？",
+      "choices": [
+        "할",
+        "하는",
+        "할 것",
+        "하는 것"
+      ],
+      "answerIndex": 0,
+      "explanation": "未来推量の連体形は -(으)ㄹ 것이다 → -(으)ㄹ 겁니다/거예요。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「すぐ雨が降るでしょう」を韓国語で入力してください",
+      "answer": "곧 비가 올 거예요",
+      "acceptableAnswers": [
+        "곧 비가 올 거예요",
+        "곧 비가 올 것입니다"
+      ],
+      "hint": "未来推量は -(으)ㄹ 거예요。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "卒業後に留学に行くつもりです。",
+      "answer": "졸업 후에 유학을 갈 거예요",
+      "acceptableAnswers": [
+        "졸업 후에 유학을 갈 거예요",
+        "졸업 후에 유학을 갈 것입니다"
+      ],
+      "explanation": "意志・予定を表すときも -(으)ㄹ 것이다/거예요 を使います。"
+    }
+  ]
+}

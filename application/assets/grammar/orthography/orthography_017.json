@@ -1,0 +1,149 @@
+{
+  "id": "grm_orthography_017",
+  "title": "경음화",
+  "subtitle": "濃音化",
+  "category": "orthography",
+  "level": "intermediate",
+  "tags": ["発音変化", "濃音", "パッチム"],
+  "content": {
+    "summary": "濃音化（경음화）は、特定の条件下で平音（ㄱ, ㄷ, ㅂ, ㅅ, ㅈ）が濃音（ㄲ, ㄸ, ㅃ, ㅆ, ㅉ）に変わる現象です。パッチムの後や特定の語彙で起こります。",
+    "formationRules": [
+      {
+        "condition": "閉鎖音パッチム(ㄱ,ㄷ,ㅂ) + 平音",
+        "form": "平音が濃音化",
+        "example": "학교 [학꾜], 식당 [식땅], 접시 [접씨]"
+      },
+      {
+        "condition": "ㄴ, ㅁ パッチム + 平音（一部）",
+        "form": "平音が濃音化（語彙的）",
+        "example": "신고 [신꼬], 삼고 [삼꼬]"
+      },
+      {
+        "condition": "ㄹ パッチム + 平音（一部）",
+        "form": "平音が濃音化（語彙的）",
+        "example": "발가락 [발까락], 물고기 [물꼬기]"
+      },
+      {
+        "condition": "用言語幹 + 平音語尾（一部）",
+        "form": "平音が濃音化",
+        "example": "먹고 [먹꼬], 읽다 [익따]"
+      },
+      {
+        "condition": "漢字語での濃音化",
+        "form": "ㄹパッチム後の ㄷ, ㅅ, ㅈ",
+        "example": "발전 [발쩐], 물질 [물찔]"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "閉鎖音パッチム後の濃音化",
+        "description": "ㄱ, ㄷ, ㅂパッチムの後の平音は必ず濃音化します",
+        "examples": [
+          {
+            "korean": "학교 [학꾜]",
+            "japanese": "学校"
+          },
+          {
+            "korean": "식당 [식땅]",
+            "japanese": "食堂"
+          },
+          {
+            "korean": "접시 [접씨]",
+            "japanese": "皿"
+          }
+        ]
+      },
+      {
+        "title": "用言の活用での濃音化",
+        "description": "用言の語幹パッチム後に平音語尾が来ると濃音化することがあります",
+        "examples": [
+          {
+            "korean": "먹고 [먹꼬]",
+            "japanese": "食べて"
+          },
+          {
+            "korean": "읽다 [익따]",
+            "japanese": "読む"
+          },
+          {
+            "korean": "잡고 [잡꼬]",
+            "japanese": "つかんで"
+          }
+        ]
+      },
+      {
+        "title": "合成語での濃音化",
+        "description": "合成語の内部でも濃音化が起こることがあります",
+        "examples": [
+          {
+            "korean": "물고기 [물꼬기]",
+            "japanese": "魚"
+          },
+          {
+            "korean": "발가락 [발까락]",
+            "japanese": "足の指"
+          },
+          {
+            "korean": "손가락 [손까락]",
+            "japanese": "手の指"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "濃音化と激音化",
+      "description": "濃音化は平音が濃音（ㄲ, ㄸ, ㅃ, ㅆ, ㅉ）に変わる現象で、激音化はㅎとの結合で激音（ㅋ, ㅌ, ㅍ, ㅊ）に変わる現象です。",
+      "examples": [
+        {
+          "grammarA": "濃音化",
+          "sentenceA": "학교 [학꾜]",
+          "meaningA": "ㄱ + ㄱ → ㄱㄲ（濃音に変化）",
+          "grammarB": "激音化",
+          "sentenceB": "축하 [추카]",
+          "meaningB": "ㄱ + ㅎ → ㅋ（激音に変化）"
+        }
+      ]
+    },
+    "tips": [
+      "ㄱ, ㄷ, ㅂパッチムの後は必ず濃音化すると覚えましょう",
+      "学校、食堂、接시など基本単語で練習しましょう",
+      "合成語や漢字語でも濃音化が起こることがあります",
+      "濃音化は予測しにくい場合もあるので、単語ごとに覚えるのも大切です"
+    ],
+    "relatedGrammar": ["grm_orthography_016", "grm_orthography_013", "grm_orthography_018"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "choice",
+      "question": "「학교」の発音として正しいものは？",
+      "choices": ["[학교]", "[학꾜]", "[하꾜]", "[학쿄]"],
+      "answerIndex": 1,
+      "explanation": "ㄱパッチムの後の平音ㄱは濃音化して[학꾜]と発音します"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「식당」の発音として正しいものは？",
+      "choices": ["[식당]", "[식땅]", "[싣당]", "[싣땅]"],
+      "answerIndex": 1,
+      "explanation": "ㄱパッチムの後の平音ㄷは濃音化して[식땅]と発音します"
+    },
+    {
+      "id": "ex_003",
+      "type": "choice",
+      "question": "「읽다」の発音として正しいものは？",
+      "choices": ["[읽다]", "[익따]", "[일따]", "[읽따]"],
+      "answerIndex": 1,
+      "explanation": "二重パッチムㄺはㄱが残り、後のㄷが濃音化して[익따]と発音します"
+    },
+    {
+      "id": "ex_004",
+      "type": "fill_blank",
+      "question": "「물고기」の発音は[___]です",
+      "answer": "물꼬기",
+      "hint": "ㄹパッチムの後で濃音化が起こります",
+      "explanation": "合成語で濃音化が起こり[물꼬기]と発音します"
+    }
+  ]
+}

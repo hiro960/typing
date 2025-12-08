@@ -1,0 +1,134 @@
+{
+  "id": "grm_substantive_019",
+  "title": "일, 이, 삼...",
+  "subtitle": "漢数詞（1〜10）",
+  "category": "substantive",
+  "level": "beginner",
+  "tags": [
+    "漢数詞",
+    "基本"
+  ],
+  "content": {
+    "summary": "漢数詞の1〜10で、日付・分・秒・金額など公的な数え方に用います。電話番号や数学的な数字を読むときにも使われます。",
+    "formationRules": [
+      {
+        "condition": "基本形",
+        "form": "일, 이, 삼, 사, 오, 육, 칠, 팔, 구, 십",
+        "example": "삼 (3)"
+      },
+      {
+        "condition": "11〜19の作り方",
+        "form": "십 + 일/이/삼...",
+        "example": "십오 (15)"
+      },
+      {
+        "condition": "助数詞との組み合わせ",
+        "form": "数詞(漢) + 分/秒/年/月/日/元など",
+        "example": "오 분 (5分), 사 월 (4月)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "日付を言う",
+        "description": "年月日には漢数詞を用います。",
+        "examples": [
+          {
+            "korean": "오늘은 3월 5일이에요.",
+            "japanese": "今日は3月5日です。"
+          },
+          {
+            "korean": "시험은 6월 10일이에요.",
+            "japanese": "試験は6月10日です。"
+          }
+        ]
+      },
+      {
+        "title": "時間の分・秒を言う",
+        "description": "分と秒は漢数詞で表します。",
+        "examples": [
+          {
+            "korean": "지금 십오 분이에요.",
+            "japanese": "今は15分です。"
+          },
+          {
+            "korean": "삼 초만 기다려 주세요.",
+            "japanese": "3秒だけ待ってください。"
+          }
+        ]
+      },
+      {
+        "title": "数値・番号を読む",
+        "description": "電話番号や点数など数字をそのまま読むときに使います。",
+        "examples": [
+          {
+            "korean": "제 점수는 구십 점이에요.",
+            "japanese": "私の点数は90点です。"
+          },
+          {
+            "korean": "방 번호가 이층 삼호예요.",
+            "japanese": "部屋番号は2階3号です。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "固有数詞との使い分け",
+      "description": "時間の『〜時』や少数の物・年齢は固有数詞、日付・分・秒・金額・点数などは漢数詞を使います。",
+      "examples": [
+        {
+          "grammarA": "漢数詞",
+          "sentenceA": "오 분 후에 만나요.",
+          "meaningA": "5分後に会いましょう。（分は漢数詞）",
+          "grammarB": "固有数詞",
+          "sentenceB": "다섯 시에 만나요.",
+          "meaningB": "5時に会いましょう。（時は固有数詞）"
+        }
+      ]
+    },
+    "tips": [
+      "6月は ‘유월’, 10月は ‘시월’ と発音が変化します。",
+      "読み上げでは数字を一つずつ読むことも多く、0は ‘공/영’ を使います。",
+      "15=십오 のように続けて書きます。大きな数は grm_substantive_020 で確認しましょう。"
+    ],
+    "relatedGrammar": [
+      "grm_substantive_020",
+      "grm_substantive_031",
+      "grm_substantive_032",
+      "grm_substantive_033"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "오늘은 삼월 ___일이에요.",
+      "answer": "오",
+      "hint": "日付は漢数詞を使います。",
+      "explanation": "5日は漢数詞で ‘오일’ と続けて書きます。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "「10分」を正しく表すのは?",
+      "choices": [
+        "십 분",
+        "열 분",
+        "십 시",
+        "열 시"
+      ],
+      "answerIndex": 0,
+      "explanation": "分は漢数詞＋분で表し、10分は 십 분 です。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「3秒だけ待ってください」を韓国語で入力してください",
+      "answer": "삼 초만 기다려 주세요",
+      "acceptableAnswers": [
+        "삼 초만 기다려 주세요",
+        "삼 초만 기다려 주세요."
+      ],
+      "hint": "秒も漢数詞を使います。"
+    }
+  ]
+}

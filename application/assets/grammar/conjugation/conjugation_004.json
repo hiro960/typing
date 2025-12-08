@@ -1,0 +1,140 @@
+{
+  "id": "grm_conjugation_004",
+  "title": "ㅅ不規則",
+  "subtitle": "ㅅ脱落（짓다→지어요）",
+  "category": "conjugation",
+  "level": "intermediate",
+  "tags": [
+    "動詞"
+  ],
+  "content": {
+    "summary": "語幹末の ㅅ が母音で始まる語尾の前で脱落する不規則活用です。主に 일부 동사（짓다, 낫다 など）で起こります。",
+    "formationRules": [
+      {
+        "condition": "語幹末に ㅅ + 아/어/으",
+        "form": "ㅅ 脱落",
+        "example": "짓다 → 지어(요)"
+      },
+      {
+        "condition": "未来連体形",
+        "form": "V + 을 때 などでは ㅅ が残る場合もある",
+        "example": "짓는 집 (建てる家)"
+      },
+      {
+        "condition": "例外",
+        "form": "벗다/씻다/웃다 などは規則活用（ㅅ維持）",
+        "example": "벗어요, 씻어요"
+      },
+      {
+        "condition": "ハムニダ体",
+        "form": "ㅂ니다/습니다 前では ㅅ を残す",
+        "example": "짓습니다"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "動詞の基本活用",
+        "description": "母音で始まる語尾が続くときに ㅅ が落ちます。",
+        "examples": [
+          {
+            "korean": "집을 짓고 있어요.",
+            "japanese": "家を建てています。"
+          },
+          {
+            "korean": "이름을 지었어요.",
+            "japanese": "名前を付けました。"
+          }
+        ]
+      },
+      {
+        "title": "健康・回復を表す 낫다",
+        "description": "낫다（良くなる）も ㅅ 脱落をします。",
+        "examples": [
+          {
+            "korean": "감기가 많이 나았어요.",
+            "japanese": "風邪がだいぶ良くなりました。"
+          }
+        ]
+      },
+      {
+        "title": "未来形・連体形の注意",
+        "description": "未来連体形では ㅅ が残る形が使われます。",
+        "examples": [
+          {
+            "korean": "짓는 집이 멋있어요.",
+            "japanese": "建てている家がかっこいいです。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "ㄷ不規則との違い",
+      "description": "ㅅ不規則は語幹末の ㅅ が消える。ㄷ不規則は ㄷ→ㄹ 変化で音が変わる。",
+      "examples": [
+        {
+          "grammarA": "ㅅ不規則",
+          "sentenceA": "짓다 → 지어요.",
+          "meaningA": "建てます。（ㅅ脱落）",
+          "grammarB": "ㄷ不規則",
+          "sentenceB": "듣다 → 들어요.",
+          "meaningB": "聞きます。（ㄷ→ㄹ）"
+        }
+      ]
+    },
+    "tips": [
+      "脱落する動詞を丸暗記しておくと活用が安定します。",
+      "벗다/씻다/웃다 は規則活用である点に注意。",
+      "連体形では ㅅ が戻る形（짓는/짓던）を使うケースが多いです。"
+    ],
+    "relatedGrammar": [
+      "grm_conjugation_002",
+      "grm_conjugation_001",
+      "grm_conjugation_003"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "이름을 지___어요.",
+      "answer": "었",
+      "hint": "ㅅ脱落後に 아/어 が付きます。",
+      "explanation": "짓다 → 지어 → 지었어요。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"집을 짓고 있어요\" の活用に関わる説明で正しいのは？",
+      "choices": [
+        "ㅅが変化して ㄹになる",
+        "ㅅが脱落する",
+        "語幹が変わらない",
+        "ㅎが脱落する"
+      ],
+      "answerIndex": 1,
+      "explanation": "ㅅが母音語尾の前で落ちるのが特徴です。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「風邪が良くなりました」を韓国語で入力してください",
+      "answer": "감기가 많이 나았어요",
+      "acceptableAnswers": [
+        "감기가 많이 나았어요",
+        "감기가 다 나았어요"
+      ],
+      "hint": "낫다 の ㅅ が脱落して 나아요/나았어요 となります。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "建てている家がかっこいいです。",
+      "answer": "짓는 집이 멋있어요",
+      "acceptableAnswers": [
+        "짓는 집이 멋있어요",
+        "짓는 집이 멋있습니다"
+      ],
+      "explanation": "連体形では ㅅ が残って 짓는 を用います。"
+    }
+  ]
+}

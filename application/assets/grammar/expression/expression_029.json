@@ -1,0 +1,136 @@
+{
+  "id": "grm_expression_029",
+  "title": "-(으)면 되다",
+  "subtitle": "許容語尾（〜すればいい）",
+  "category": "expression",
+  "level": "intermediate",
+  "tags": [
+    "許容"
+  ],
+  "content": {
+    "summary": "「〜すればいい」「〜すればよい」という許容・十分条件を示す表現です。相手の負担を和らげる提案や最低限の条件を示すときに使われます。",
+    "formationRules": [
+      {
+        "condition": "パッチムあり",
+        "form": "V + 으면 되다",
+        "example": "먹으면 돼요. (食べればいいです)"
+      },
+      {
+        "condition": "パッチムなし/ㄹ",
+        "form": "V + 면 되다",
+        "example": "가면 돼요. (行けばいいです)"
+      },
+      {
+        "condition": "ヘヨ体",
+        "form": "(으)면 돼요 / (으)면 됩니다",
+        "example": "기다리면 됩니다. (待てばいいです)"
+      },
+      {
+        "condition": "否定形",
+        "form": "안 V + 아/어도 돼요",
+        "example": "안 가도 돼요. (行かなくてもいいです)"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "十分条件を提示する",
+        "description": "最低限これをすればよいという条件を示します。",
+        "examples": [
+          {
+            "korean": "여기에 이름만 쓰면 돼요.",
+            "japanese": "ここに名前だけ書けばいいです。"
+          }
+        ]
+      },
+      {
+        "title": "気軽な提案・助言",
+        "description": "相手に負担をかけずに方法を教えるとき。",
+        "examples": [
+          {
+            "korean": "모르면 물어보면 돼요.",
+            "japanese": "分からなければ聞けばいいですよ。"
+          }
+        ]
+      },
+      {
+        "title": "許可・必要なしを示す",
+        "description": "「〜しなくてもいい」と義務がないことを伝えます。",
+        "examples": [
+          {
+            "korean": "오늘은 숙제 안 해도 돼요.",
+            "japanese": "今日は宿題をしなくてもいいです。"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "-아/어도 되다 との違い",
+      "description": "「〜してもいい」は許可、-(으)면 되다 は条件・方法を示す「〜すればいい」。目的が違う点に注意。",
+      "examples": [
+        {
+          "grammarA": "-(으)면 되다",
+          "sentenceA": "이 약을 먹으면 돼요.",
+          "meaningA": "この薬を飲めばいいです。（方法・条件）",
+          "grammarB": "-아/어도 되다",
+          "sentenceB": "이 약을 먹어도 돼요.",
+          "meaningB": "この薬を飲んでもいいです。（許可）"
+        }
+      ]
+    },
+    "tips": [
+      "命令や指示を柔らかくする効果があります。",
+      "안/못 + 아/어도 되다 で「〜しなくてもいい」。",
+      "ヘヨ体・ハムニダ体どちらでもよく使われます。"
+    ],
+    "relatedGrammar": [
+      "grm_tense_aspect_003",
+      "grm_expression_038",
+      "grm_adverb_015"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "모르면 물어보___ 돼요.",
+      "answer": "면",
+      "hint": "条件を表す -(으)면 を入れます。",
+      "explanation": "ヘヨ体では \"물어보면 돼요\" となります。"
+    },
+    {
+      "id": "ex_002",
+      "type": "choice",
+      "question": "\"여기에 서명만 ___ 됩니다\" の空欄に入るものは？",
+      "choices": [
+        "하면",
+        "이면",
+        "이면",
+        "시면"
+      ],
+      "answerIndex": 0,
+      "explanation": "動詞は -(으)면 되다 を付けて「〜すればいい」です。"
+    },
+    {
+      "id": "ex_003",
+      "type": "typing",
+      "question": "「ここに名前を書けばいいです」を韓国語で入力してください",
+      "answer": "여기에 이름만 쓰면 돼요",
+      "acceptableAnswers": [
+        "여기에 이름만 쓰면 돼요",
+        "여기에 이름만 쓰면 됩니다"
+      ],
+      "hint": "条件は -(으)면 돼요 を使います。"
+    },
+    {
+      "id": "ex_004",
+      "type": "translation",
+      "japanese": "今日の宿題はしなくてもいいです。",
+      "answer": "오늘은 숙제 안 해도 돼요",
+      "acceptableAnswers": [
+        "오늘은 숙제 안 해도 돼요",
+        "오늘은 숙제 안 해도 됩니다"
+      ],
+      "explanation": "しなくてもよい＝안 V + 아/어도 되다 の形。"
+    }
+  ]
+}

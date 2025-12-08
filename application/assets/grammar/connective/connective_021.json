@@ -54,7 +54,7 @@
       "時制は後ろの節に合わせます",
       "過去の時点は-았/었을 때を使います"
     ],
-    "relatedGrammar": ["grm_connective_004", "grm_tense_008"]
+    "relatedGrammar": ["grm_connective_004", "grm_adnominal_002"]
   },
   "exercises": [
     {

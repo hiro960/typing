@@ -1,0 +1,157 @@
+{
+  "id": "grm_conjugation_017",
+  "title": "규칙용언 제Ⅰ어기",
+  "subtitle": "規則用言の第Ⅰ語基活用",
+  "category": "conjugation",
+  "level": "intermediate",
+  "tags": ["規則用言", "第Ⅰ語基", "活用"],
+  "content": {
+    "summary": "規則用言の第Ⅰ語基活用では、語幹がそのまま使われ、子音で始まる語尾が直接接続します。子音語幹・母音語幹・ㄹ語幹それぞれの特徴を理解しましょう。",
+    "formationRules": [
+      {
+        "condition": "子音語幹 + 子音語尾",
+        "form": "語幹そのまま + 語尾",
+        "example": "먹 + 고 → 먹고、읽 + 지만 → 읽지만"
+      },
+      {
+        "condition": "母音語幹 + 子音語尾",
+        "form": "語幹そのまま + 語尾",
+        "example": "가 + 고 → 가고、보 + 지만 → 보지만"
+      },
+      {
+        "condition": "ㄹ語幹 + ㄴ/ㅂ/ㅅ語尾",
+        "form": "ㄹが脱落",
+        "example": "살 + ㅂ니다 → 삽니다、알 + 는 → 아는"
+      }
+    ],
+    "usageCases": [
+      {
+        "title": "並列 -고",
+        "description": "「〜して」「〜であり」の意味を表します",
+        "examples": [
+          {
+            "korean": "밥을 먹고 학교에 가요.",
+            "japanese": "ご飯を食べて学校に行きます。"
+          },
+          {
+            "korean": "예쁘고 착해요.",
+            "japanese": "きれいで優しいです。"
+          },
+          {
+            "korean": "책을 읽고 공부해요.",
+            "japanese": "本を読んで勉強します。"
+          }
+        ]
+      },
+      {
+        "title": "逆接 -지만",
+        "description": "「〜だが」「〜けれど」の意味を表します",
+        "examples": [
+          {
+            "korean": "비싸지만 사고 싶어요.",
+            "japanese": "高いけど買いたいです。"
+          },
+          {
+            "korean": "알지만 말할 수 없어요.",
+            "japanese": "知っているけど言えません。"
+          },
+          {
+            "korean": "먹지만 맛없어요.",
+            "japanese": "食べるけどおいしくないです。"
+          }
+        ]
+      },
+      {
+        "title": "否定 -지 않다 / -지 못하다",
+        "description": "否定や不可能を表します",
+        "examples": [
+          {
+            "korean": "가지 않아요.",
+            "japanese": "行きません。"
+          },
+          {
+            "korean": "먹지 못해요.",
+            "japanese": "食べられません。"
+          },
+          {
+            "korean": "알지 못해요.",
+            "japanese": "わかりません。"
+          }
+        ]
+      },
+      {
+        "title": "ㄹ語幹の特殊変化",
+        "description": "ㄹ語幹はㄴ/ㅂ/ㅅで始まる語尾の前でㄹが脱落します",
+        "examples": [
+          {
+            "korean": "살다 + ㅂ니다 → 삽니다",
+            "japanese": "住んでいます"
+          },
+          {
+            "korean": "알다 + 는 → 아는",
+            "japanese": "知っている（連体形）"
+          },
+          {
+            "korean": "만들다 + ㅂ니다 → 만듭니다",
+            "japanese": "作ります"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "ㄹ語幹の脱落条件",
+      "description": "ㄹ語幹はㄴ/ㅂ/ㅅで始まる語尾の前でのみㄹが脱落します",
+      "examples": [
+        {
+          "grammarA": "ㄹ脱落",
+          "sentenceA": "알다 + ㅂ니다 → 압니다",
+          "meaningA": "ㅂの前でㄹが脱落",
+          "grammarB": "ㄹ維持",
+          "sentenceB": "알다 + 고 → 알고",
+          "meaningB": "ㄱの前ではㄹが残る"
+        }
+      ]
+    },
+    "tips": [
+      "第Ⅰ語基では基本的に語幹がそのまま使われます",
+      "ㄹ語幹はㄴ/ㅂ/ㅅの前でㄹが脱落する特殊ルールがあります",
+      "「-고、-지만、-지、-는（動詞）、-겠-」などが代表的な第Ⅰ語基接続語尾です",
+      "格式体（ㅂ니다体）も第Ⅰ語基に接続します"
+    ],
+    "relatedGrammar": ["grm_conjugation_014", "grm_conjugation_018", "grm_conjugation_019"]
+  },
+  "exercises": [
+    {
+      "id": "ex_001",
+      "type": "fill_blank",
+      "question": "「보다」+ 고 → ___",
+      "answer": "보고",
+      "hint": "母音語幹にそのまま「고」を付けます",
+      "explanation": "母音語幹「보」に「고」が直接付いて「보고」になります"
+    },
+    {
+      "id": "ex_002",
+      "type": "fill_blank",
+      "question": "「알다」+ ㅂ니다 → ___",
+      "answer": "압니다",
+      "hint": "ㄹ語幹はㅂの前でㄹが脱落します",
+      "explanation": "ㄹ語幹「알」の「ㄹ」が脱落して「압니다」になります"
+    },
+    {
+      "id": "ex_003",
+      "type": "fill_blank",
+      "question": "「읽다」+ 지만 → ___",
+      "answer": "읽지만",
+      "hint": "子音語幹にそのまま「지만」を付けます",
+      "explanation": "子音語幹「읽」に「지만」が直接付いて「읽지만」になります"
+    },
+    {
+      "id": "ex_004",
+      "type": "choice",
+      "question": "「살다」+ 는(連体形)の正しい形は？",
+      "choices": ["살는", "사는", "산는", "살은"],
+      "answerIndex": 1,
+      "explanation": "ㄹ語幹「살」はㄴの前でㄹが脱落し「사는」になります"
+    }
+  ]
+}
