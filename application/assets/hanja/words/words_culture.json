@@ -1,0 +1,2313 @@
+{
+  "version": "1.0.0",
+  "category": "culture",
+  "categoryName": "文化・芸術・その他",
+  "totalWords": 100,
+  "words": [
+    {
+      "id": "word_4001",
+      "word": "문화",
+      "hanja": "文化",
+      "meaning": "文化",
+      "pronunciation": "문화",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "文", "korean": "문", "meaning": "文字・学問"},
+        {"character": "化", "korean": "화", "meaning": "変化する"}
+      ],
+      "examples": [
+        {
+          "sentence": "한류 문화가 세계적으로 주목받고 있다.",
+          "meaning": "韓流文化が世界的に注目されている。"
+        }
+      ],
+      "relatedWords": ["전통", "예술", "문화재"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4002",
+      "word": "전통",
+      "hanja": "傳統",
+      "meaning": "伝統",
+      "pronunciation": "전통",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "傳", "korean": "전", "meaning": "伝える"},
+        {"character": "統", "korean": "통", "meaning": "統べる・まとめる"}
+      ],
+      "examples": [
+        {
+          "sentence": "할머니는 고향의 전통 음식을 자주 말씀하신다.",
+          "meaning": "祖母は故郷の伝統料理をよく話してくれる。"
+        }
+      ],
+      "relatedWords": ["문화", "풍습"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4003",
+      "word": "예절",
+      "hanja": "禮節",
+      "meaning": "礼儀",
+      "pronunciation": "예절",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "禮", "korean": "예", "meaning": "礼儀"},
+        {"character": "節", "korean": "절", "meaning": "節度・節目"}
+      ],
+      "examples": [
+        {
+          "sentence": "식사 자리에서 기본 예절을 지켜 주세요.",
+          "meaning": "食事の席で基本的な礼儀を守ってください。"
+        }
+      ],
+      "relatedWords": ["의례", "예식"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4004",
+      "word": "의례",
+      "hanja": "儀禮",
+      "meaning": "儀礼",
+      "pronunciation": "의례",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "儀", "korean": "의", "meaning": "儀式・姿"},
+        {"character": "禮", "korean": "례", "meaning": "礼"}
+      ],
+      "examples": [
+        {
+          "sentence": "전통 의례를 간소화하는 가정이 늘고 있다.",
+          "meaning": "伝統の儀礼を簡素化する家庭が増えている。"
+        }
+      ],
+      "relatedWords": ["예절", "예식"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4005",
+      "word": "풍습",
+      "hanja": "風習",
+      "meaning": "風習",
+      "pronunciation": "풍습",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "風", "korean": "풍", "meaning": "風・様式"},
+        {"character": "習", "korean": "습", "meaning": "慣れる・学ぶ"}
+      ],
+      "examples": [
+        {
+          "sentence": "지역마다 다른 풍습을 알면 여행이 더 재미있다.",
+          "meaning": "地域ごとの風習を知ると旅行がもっと楽しくなる。"
+        }
+      ],
+      "relatedWords": ["전통", "민속"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4006",
+      "word": "문화재",
+      "hanja": "文化財",
+      "meaning": "文化財",
+      "pronunciation": "문화재",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "文", "korean": "문", "meaning": "文字・学問"},
+        {"character": "化", "korean": "화", "meaning": "変化する"},
+        {"character": "財", "korean": "재", "meaning": "財・資産"}
+      ],
+      "examples": [
+        {
+          "sentence": "고궁은 중요한 문화재로 보호되고 있다.",
+          "meaning": "古宮は重要な文化財として保護されている。"
+        }
+      ],
+      "relatedWords": ["유산", "전통"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4007",
+      "word": "유산",
+      "hanja": "遺産",
+      "meaning": "遺産",
+      "pronunciation": "유산",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "遺", "korean": "유", "meaning": "残す・遺す"},
+        {"character": "産", "korean": "산", "meaning": "生む・財産"}
+      ],
+      "examples": [
+        {
+          "sentence": "제주의 자연 유산은 세계적으로 유명하다.",
+          "meaning": "済州の自然遺産は世界的に有名だ。"
+        }
+      ],
+      "relatedWords": ["문화재"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4008",
+      "word": "예식",
+      "hanja": "禮式",
+      "meaning": "儀式",
+      "pronunciation": "예식",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "禮", "korean": "예", "meaning": "礼儀"},
+        {"character": "式", "korean": "식", "meaning": "式・方式"}
+      ],
+      "examples": [
+        {
+          "sentence": "결혼 예식이 오후 두 시에 시작된다.",
+          "meaning": "結婚式が午後2時に始まる。"
+        }
+      ],
+      "relatedWords": ["의례", "예절"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4009",
+      "word": "민속",
+      "hanja": "民俗",
+      "meaning": "民俗",
+      "pronunciation": "민속",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "民", "korean": "민", "meaning": "民・人々"},
+        {"character": "俗", "korean": "속", "meaning": "俗・慣習"}
+      ],
+      "examples": [
+        {
+          "sentence": "민속 공연에서 전통 악기를 들을 수 있다.",
+          "meaning": "民俗公演で伝統楽器を聞くことができる。"
+        }
+      ],
+      "relatedWords": ["전통", "풍습"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4010",
+      "word": "행사",
+      "hanja": "行事",
+      "meaning": "行事",
+      "pronunciation": "행사",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "行", "korean": "행", "meaning": "行く・行う"},
+        {"character": "事", "korean": "사", "meaning": "事・こと"}
+      ],
+      "examples": [
+        {
+          "sentence": "도시 축제에는 다양한 문화 행사가 준비되어 있다.",
+          "meaning": "都市の祭りには多様な文化行事が準備されている。"
+        }
+      ],
+      "relatedWords": ["공연", "전통"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4011",
+      "word": "예술",
+      "hanja": "藝術",
+      "meaning": "芸術",
+      "pronunciation": "예술",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "藝", "korean": "예", "meaning": "芸・技芸"},
+        {"character": "術", "korean": "술", "meaning": "術・技術"}
+      ],
+      "examples": [
+        {
+          "sentence": "예술은 사람들의 감정을 움직인다.",
+          "meaning": "芸術は人々の感情を動かす。"
+        }
+      ],
+      "relatedWords": ["미술", "음악", "문학"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4012",
+      "word": "음악",
+      "hanja": "音樂",
+      "meaning": "音楽",
+      "pronunciation": "음악",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "音", "korean": "음", "meaning": "音"},
+        {"character": "樂", "korean": "악", "meaning": "楽しむ・音楽"}
+      ],
+      "examples": [
+        {
+          "sentence": "전통 음악과 현대 음악이 함께 연주되었다.",
+          "meaning": "伝統音楽と現代音楽が一緒に演奏された。"
+        }
+      ],
+      "relatedWords": ["예술", "작곡"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4013",
+      "word": "미술",
+      "hanja": "美術",
+      "meaning": "美術",
+      "pronunciation": "미술",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "美", "korean": "미", "meaning": "美しい"},
+        {"character": "術", "korean": "술", "meaning": "術・技術"}
+      ],
+      "examples": [
+        {
+          "sentence": "그는 현대 미술 전시회를 관람했다.",
+          "meaning": "彼は現代美術の展示会を観覧した。"
+        }
+      ],
+      "relatedWords": ["예술", "조각", "건축"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4014",
+      "word": "무용",
+      "hanja": "舞踊",
+      "meaning": "舞踊",
+      "pronunciation": "무용",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "舞", "korean": "무", "meaning": "舞う"},
+        {"character": "踊", "korean": "용", "meaning": "踊る・跳ねる"}
+      ],
+      "examples": [
+        {
+          "sentence": "무용수들이 무대에서 우아하게 움직였다.",
+          "meaning": "舞踊家たちが舞台で優雅に動いた。"
+        }
+      ],
+      "relatedWords": ["공연", "예술"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4015",
+      "word": "연극",
+      "hanja": "演劇",
+      "meaning": "演劇",
+      "pronunciation": "연극",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "演", "korean": "연", "meaning": "演じる"},
+        {"character": "劇", "korean": "극", "meaning": "劇・芝居"}
+      ],
+      "examples": [
+        {
+          "sentence": "새 연극은 사회 문제를 진지하게 다룬다.",
+          "meaning": "新しい演劇は社会問題を真剣に扱う。"
+        }
+      ],
+      "relatedWords": ["영화", "공연"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4016",
+      "word": "영화",
+      "hanja": "映畫",
+      "meaning": "映画",
+      "pronunciation": "영화",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "映", "korean": "영", "meaning": "映す"},
+        {"character": "畫", "korean": "화", "meaning": "絵・画く"}
+      ],
+      "examples": [
+        {
+          "sentence": "이 영화는 역사적 사건을 다룬다.",
+          "meaning": "この映画は歴史的事件を扱っている。"
+        }
+      ],
+      "relatedWords": ["연극", "공연"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4017",
+      "word": "사진",
+      "hanja": "寫真",
+      "meaning": "写真",
+      "pronunciation": "사진",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "寫", "korean": "사", "meaning": "写す・書き写す"},
+        {"character": "真", "korean": "진", "meaning": "真・本当"}
+      ],
+      "examples": [
+        {
+          "sentence": "여행에서 찍은 사진을 전시회에 걸었다.",
+          "meaning": "旅行で撮った写真を展示会に飾った。"
+        }
+      ],
+      "relatedWords": ["미술", "예술"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4018",
+      "word": "조각",
+      "hanja": "彫刻",
+      "meaning": "彫刻",
+      "pronunciation": "조각",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "彫", "korean": "조", "meaning": "彫る"},
+        {"character": "刻", "korean": "각", "meaning": "刻む"}
+      ],
+      "examples": [
+        {
+          "sentence": "공원에 새로운 조각 작품이 설치되었다.",
+          "meaning": "公園に新しい彫刻作品が設置された。"
+        }
+      ],
+      "relatedWords": ["미술", "건축"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4019",
+      "word": "건축",
+      "hanja": "建築",
+      "meaning": "建築",
+      "pronunciation": "건축",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "建", "korean": "건", "meaning": "建てる"},
+        {"character": "築", "korean": "축", "meaning": "築く・組む"}
+      ],
+      "examples": [
+        {
+          "sentence": "전통 건축 양식이 잘 보존된 마을이다.",
+          "meaning": "伝統建築様式がよく保存された村だ。"
+        }
+      ],
+      "relatedWords": ["미술", "조각"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4020",
+      "word": "공연",
+      "hanja": "公演",
+      "meaning": "公演",
+      "pronunciation": "공연",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "公", "korean": "공", "meaning": "公の・共有"},
+        {"character": "演", "korean": "연", "meaning": "演じる・演出する"}
+      ],
+      "examples": [
+        {
+          "sentence": "거리 공연이 관광객들의 눈길을 끌었다.",
+          "meaning": "ストリート公演が観光客の目を引いた。"
+        }
+      ],
+      "relatedWords": ["무용", "연극", "영화"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4021",
+      "word": "작곡",
+      "hanja": "作曲",
+      "meaning": "作曲",
+      "pronunciation": "작곡",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "作", "korean": "작", "meaning": "作る・作業"},
+        {"character": "曲", "korean": "곡", "meaning": "曲・旋律"}
+      ],
+      "examples": [
+        {
+          "sentence": "그는 영화 음악을 작곡했다.",
+          "meaning": "彼は映画音楽を作曲した。"
+        }
+      ],
+      "relatedWords": ["음악", "작품"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4022",
+      "word": "작품",
+      "hanja": "作品",
+      "meaning": "作品",
+      "pronunciation": "작품",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "作", "korean": "작", "meaning": "作る"},
+        {"character": "品", "korean": "품", "meaning": "品・物"}
+      ],
+      "examples": [
+        {
+          "sentence": "이 작품은 작가의 경험을 바탕으로 한다.",
+          "meaning": "この作品は作家の経験に基づいている。"
+        }
+      ],
+      "relatedWords": ["문학", "예술"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4023",
+      "word": "문학",
+      "hanja": "文學",
+      "meaning": "文学",
+      "pronunciation": "문학",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "文", "korean": "문", "meaning": "文字・文"},
+        {"character": "學", "korean": "학", "meaning": "学ぶ・学問"}
+      ],
+      "examples": [
+        {
+          "sentence": "한국 문학을 일본어로 번역하는 사람이 늘고 있다.",
+          "meaning": "韓国文学を日本語に翻訳する人が増えている。"
+        }
+      ],
+      "relatedWords": ["시인", "소설"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4024",
+      "word": "시인",
+      "hanja": "詩人",
+      "meaning": "詩人",
+      "pronunciation": "시인",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "詩", "korean": "시", "meaning": "詩"},
+        {"character": "人", "korean": "인", "meaning": "人"}
+      ],
+      "examples": [
+        {
+          "sentence": "시인은 자연을 노래한 시집을 출간했다.",
+          "meaning": "詩人は自然を歌った詩集を出版した。"
+        }
+      ],
+      "relatedWords": ["문학", "작품"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4025",
+      "word": "소설",
+      "hanja": "小說",
+      "meaning": "小説",
+      "pronunciation": "소설",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "小", "korean": "소", "meaning": "小さい"},
+        {"character": "說", "korean": "설", "meaning": "説く・話す"}
+      ],
+      "examples": [
+        {
+          "sentence": "이 소설은 역사적 사실을 바탕으로 한다.",
+          "meaning": "この小説は歴史的事実を基にしている。"
+        }
+      ],
+      "relatedWords": ["문학", "작품"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4026",
+      "word": "체육",
+      "hanja": "體育",
+      "meaning": "体育",
+      "pronunciation": "체육",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "體", "korean": "체", "meaning": "からだ・体"},
+        {"character": "育", "korean": "육", "meaning": "育てる・育つ"}
+      ],
+      "examples": [
+        {
+          "sentence": "체육 수업에서 팀워크를 배웠다.",
+          "meaning": "体育の授業でチームワークを学んだ。"
+        }
+      ],
+      "relatedWords": ["운동", "경기"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4027",
+      "word": "경기",
+      "hanja": "競技",
+      "meaning": "競技・試合",
+      "pronunciation": "경기",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "競", "korean": "경", "meaning": "競う"},
+        {"character": "技", "korean": "기", "meaning": "技・技術"}
+      ],
+      "examples": [
+        {
+          "sentence": "경기가 연장전까지 이어졌다.",
+          "meaning": "試合が延長戦まで続いた。"
+        }
+      ],
+      "relatedWords": ["선수", "우승"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4028",
+      "word": "선수",
+      "hanja": "選手",
+      "meaning": "選手",
+      "pronunciation": "선수",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "選", "korean": "선", "meaning": "選ぶ"},
+        {"character": "手", "korean": "수", "meaning": "手・人"}
+      ],
+      "examples": [
+        {
+          "sentence": "선수들은 최선을 다해 경기에 임했다.",
+          "meaning": "選手たちは最善を尽くして試合に臨んだ。"
+        }
+      ],
+      "relatedWords": ["경기", "우승"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4029",
+      "word": "우승",
+      "hanja": "優勝",
+      "meaning": "優勝",
+      "pronunciation": "우승",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "優", "korean": "우", "meaning": "優れる"},
+        {"character": "勝", "korean": "승", "meaning": "勝つ"}
+      ],
+      "examples": [
+        {
+          "sentence": "팀은 치열한 결승에서 우승을 차지했다.",
+          "meaning": "チームは激しい決勝で優勝を手にした。"
+        }
+      ],
+      "relatedWords": ["경기", "선수"],
+      "antonyms": ["패배"],
+      "synonyms": []
+    },
+    {
+      "id": "word_4030",
+      "word": "연습",
+      "hanja": "練習",
+      "meaning": "練習",
+      "pronunciation": "연습",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "練", "korean": "연", "meaning": "練る・磨く"},
+        {"character": "習", "korean": "습", "meaning": "習う・慣れる"}
+      ],
+      "examples": [
+        {
+          "sentence": "꾸준한 연습이 실력을 만든다.",
+          "meaning": "地道な練習が実力を育てる。"
+        }
+      ],
+      "relatedWords": ["체육", "경기"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4031",
+      "word": "오락",
+      "hanja": "娛樂",
+      "meaning": "娯楽",
+      "pronunciation": "오락",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "娛", "korean": "오", "meaning": "楽しむ・慰める"},
+        {"character": "樂", "korean": "락", "meaning": "楽しみ・音楽"}
+      ],
+      "examples": [
+        {
+          "sentence": "게임은 현대인의 대표적인 오락이다.",
+          "meaning": "ゲームは現代人の代表的な娯楽だ。"
+        }
+      ],
+      "relatedWords": ["취미"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4032",
+      "word": "취미",
+      "hanja": "趣味",
+      "meaning": "趣味",
+      "pronunciation": "취미",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "趣", "korean": "취", "meaning": "趣く・興味"},
+        {"character": "味", "korean": "미", "meaning": "味・趣"}
+      ],
+      "examples": [
+        {
+          "sentence": "새로운 취미를 찾아 스트레스를 풀었다.",
+          "meaning": "新しい趣味を見つけてストレスを解消した。"
+        }
+      ],
+      "relatedWords": ["오락"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4033",
+      "word": "종교",
+      "hanja": "宗教",
+      "meaning": "宗教",
+      "pronunciation": "종교",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "宗", "korean": "종", "meaning": "宗・起こり"},
+        {"character": "教", "korean": "교", "meaning": "教える・教え"}
+      ],
+      "examples": [
+        {
+          "sentence": "종교는 사람들의 삶에 깊은 영향을 준다.",
+          "meaning": "宗教は人々の生活に深く影響を与える。"
+        }
+      ],
+      "relatedWords": ["불교", "유교", "신앙"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4034",
+      "word": "불교",
+      "hanja": "佛教",
+      "meaning": "仏教",
+      "pronunciation": "불교",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "佛", "korean": "불", "meaning": "仏・仏陀"},
+        {"character": "教", "korean": "교", "meaning": "教え・教える"}
+      ],
+      "examples": [
+        {
+          "sentence": "불교 사찰에서 명상을 체험했다.",
+          "meaning": "仏教寺院で瞑想を体験した。"
+        }
+      ],
+      "relatedWords": ["종교", "신앙"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4035",
+      "word": "유교",
+      "hanja": "儒敎",
+      "meaning": "儒教",
+      "pronunciation": "유교",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "儒", "korean": "유", "meaning": "儒・学者"},
+        {"character": "敎", "korean": "교", "meaning": "教え・教育"}
+      ],
+      "examples": [
+        {
+          "sentence": "유교 윤리는 예절을 중시한다.",
+          "meaning": "儒教の倫理は礼節を重んじる。"
+        }
+      ],
+      "relatedWords": ["종교", "사상"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4036",
+      "word": "신앙",
+      "hanja": "信仰",
+      "meaning": "信仰",
+      "pronunciation": "신앙",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "信", "korean": "신", "meaning": "信じる"},
+        {"character": "仰", "korean": "앙", "meaning": "仰ぐ・敬う"}
+      ],
+      "examples": [
+        {
+          "sentence": "그는 독실한 신앙 생활을 이어가고 있다.",
+          "meaning": "彼は篤い信仰生活を続けている。"
+        }
+      ],
+      "relatedWords": ["종교", "기도"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4037",
+      "word": "성경",
+      "hanja": "聖經",
+      "meaning": "聖書",
+      "pronunciation": "성경",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "聖", "korean": "성", "meaning": "聖い・尊い"},
+        {"character": "經", "korean": "경", "meaning": "経る・経書"}
+      ],
+      "examples": [
+        {
+          "sentence": "성경 구절을 매일 읽으며 마음을 다스린다.",
+          "meaning": "聖書の一節を毎日読み心を整える。"
+        }
+      ],
+      "relatedWords": ["종교", "신앙"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4038",
+      "word": "철학",
+      "hanja": "哲學",
+      "meaning": "哲学",
+      "pronunciation": "철학",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "哲", "korean": "철", "meaning": "哲・さとい"},
+        {"character": "學", "korean": "학", "meaning": "学ぶ・学問"}
+      ],
+      "examples": [
+        {
+          "sentence": "철학 수업에서 존재의 의미를 토론했다.",
+          "meaning": "哲学の授業で存在の意味を議論した。"
+        }
+      ],
+      "relatedWords": ["사상", "사유"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4039",
+      "word": "사상",
+      "hanja": "思想",
+      "meaning": "思想",
+      "pronunciation": "사상",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "思", "korean": "사", "meaning": "思う・考える"},
+        {"character": "想", "korean": "상", "meaning": "想う・思い描く"}
+      ],
+      "examples": [
+        {
+          "sentence": "그의 사상은 자유와 평화를 강조한다.",
+          "meaning": "彼の思想は自由と平和を強調する。"
+        }
+      ],
+      "relatedWords": ["철학", "이념"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4040",
+      "word": "심리",
+      "hanja": "心理",
+      "meaning": "心理",
+      "pronunciation": "심리",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "心", "korean": "심", "meaning": "心・気持ち"},
+        {"character": "理", "korean": "리", "meaning": "理・筋道"}
+      ],
+      "examples": [
+        {
+          "sentence": "심리 연구에서 인간 행동을 분석한다.",
+          "meaning": "心理研究で人間の行動を分析する。"
+        }
+      ],
+      "relatedWords": ["감정", "사상"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4041",
+      "word": "감정",
+      "hanja": "感情",
+      "meaning": "感情",
+      "pronunciation": "감정",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "感", "korean": "감", "meaning": "感じる"},
+        {"character": "情", "korean": "정", "meaning": "情・心"}
+      ],
+      "examples": [
+        {
+          "sentence": "감정을 솔직하게 표현하는 것이 중요하다.",
+          "meaning": "感情を率直に表現することが大切だ。"
+        }
+      ],
+      "relatedWords": ["심리", "희망"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4042",
+      "word": "희망",
+      "hanja": "希望",
+      "meaning": "希望",
+      "pronunciation": "희망",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "希", "korean": "희", "meaning": "望む・希う"},
+        {"character": "望", "korean": "망", "meaning": "望む・見る"}
+      ],
+      "examples": [
+        {
+          "sentence": "희망이 있으면 어려움도 견딜 수 있다.",
+          "meaning": "希望があれば困難も耐えられる。"
+        }
+      ],
+      "relatedWords": ["감정", "절망"],
+      "antonyms": ["절망"],
+      "synonyms": []
+    },
+    {
+      "id": "word_4043",
+      "word": "절망",
+      "hanja": "絶望",
+      "meaning": "絶望",
+      "pronunciation": "절망",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "絶", "korean": "절", "meaning": "絶つ・断つ"},
+        {"character": "望", "korean": "망", "meaning": "望む・希望"}
+      ],
+      "examples": [
+        {
+          "sentence": "절망 속에서도 다시 일어설 힘을 찾았다.",
+          "meaning": "絶望の中でも再び立ち上がる力を見つけた。"
+        }
+      ],
+      "relatedWords": ["희망", "감정"],
+      "antonyms": ["희망"],
+      "synonyms": []
+    },
+    {
+      "id": "word_4044",
+      "word": "행복",
+      "hanja": "幸福",
+      "meaning": "幸福",
+      "pronunciation": "행복",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "幸", "korean": "행", "meaning": "幸い・しあわせ"},
+        {"character": "福", "korean": "복", "meaning": "福・めでたさ"}
+      ],
+      "examples": [
+        {
+          "sentence": "소소한 일상에서 행복을 느꼈다.",
+          "meaning": "ささやかな日常で幸福を感じた。"
+        }
+      ],
+      "relatedWords": ["감정", "희망"],
+      "antonyms": ["불행"],
+      "synonyms": []
+    },
+    {
+      "id": "word_4045",
+      "word": "불안",
+      "hanja": "不安",
+      "meaning": "不安",
+      "pronunciation": "불안",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "不", "korean": "불", "meaning": "否定・〜でない"},
+        {"character": "安", "korean": "안", "meaning": "安らか・落ち着く"}
+      ],
+      "examples": [
+        {
+          "sentence": "시험을 앞두고 불안이 커졌다.",
+          "meaning": "試験を前に不安が大きくなった。"
+        }
+      ],
+      "relatedWords": ["감정", "공포"],
+      "antonyms": ["안정"],
+      "synonyms": []
+    },
+    {
+      "id": "word_4046",
+      "word": "공포",
+      "hanja": "恐怖",
+      "meaning": "恐怖",
+      "pronunciation": "공포",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "恐", "korean": "공", "meaning": "恐れる"},
+        {"character": "怖", "korean": "포", "meaning": "怖い・恐れる"}
+      ],
+      "examples": [
+        {
+          "sentence": "갑작스러운 사고에 모두 공포를 느꼈다.",
+          "meaning": "突然の事故に皆が恐怖を感じた。"
+        }
+      ],
+      "relatedWords": ["불안", "감정"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4047",
+      "word": "분노",
+      "hanja": "憤怒",
+      "meaning": "憤怒・怒り",
+      "pronunciation": "분노",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "憤", "korean": "분", "meaning": "憤る・怒る"},
+        {"character": "怒", "korean": "노", "meaning": "怒る・いかる"}
+      ],
+      "examples": [
+        {
+          "sentence": "부당한 대우에 분노가 치밀었다.",
+          "meaning": "不当な扱いに怒りが込み上げた。"
+        }
+      ],
+      "relatedWords": ["감정", "공포"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4048",
+      "word": "평화",
+      "hanja": "平和",
+      "meaning": "平和",
+      "pronunciation": "평화",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "平", "korean": "평", "meaning": "平ら・均す"},
+        {"character": "和", "korean": "화", "meaning": "和らぐ・和する"}
+      ],
+      "examples": [
+        {
+          "sentence": "평화를 지키기 위한 국제 회의가 열렸다.",
+          "meaning": "平和を守るための国際会議が開かれた。"
+        }
+      ],
+      "relatedWords": ["자유", "희망"],
+      "antonyms": ["전쟁"],
+      "synonyms": []
+    },
+    {
+      "id": "word_4049",
+      "word": "자유",
+      "hanja": "自由",
+      "meaning": "自由",
+      "pronunciation": "자유",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "自", "korean": "자", "meaning": "自ら・自発"},
+        {"character": "由", "korean": "유", "meaning": "由る・よりどころ"}
+      ],
+      "examples": [
+        {
+          "sentence": "표현의 자유는 민주 사회의 핵심이다.",
+          "meaning": "表現の自由は民主社会の核心だ。"
+        }
+      ],
+      "relatedWords": ["평화", "희망"],
+      "antonyms": ["억압"],
+      "synonyms": []
+    },
+    {
+      "id": "word_4050",
+      "word": "인생",
+      "hanja": "人生",
+      "meaning": "人生",
+      "pronunciation": "인생",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "人", "korean": "인", "meaning": "人・人間"},
+        {"character": "生", "korean": "생", "meaning": "生きる・生まれる"}
+      ],
+      "examples": [
+        {
+          "sentence": "인생은 선택의 연속이라고들 한다.",
+          "meaning": "人生は選択の連続だと言われる。"
+        }
+      ],
+      "relatedWords": ["자유", "희망"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4051",
+      "word": "언론",
+      "hanja": "言論",
+      "meaning": "言論・報道",
+      "pronunciation": "언론",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "high",
+      "components": [
+        {"character": "言", "korean": "언", "meaning": "言う・言葉"},
+        {"character": "論", "korean": "론", "meaning": "論じる・意見"}
+      ],
+      "examples": [
+        {
+          "sentence": "언론의 자유는 민주주의의 기반이다.",
+          "meaning": "報道の自由は民主主義の基盤だ。"
+        }
+      ],
+      "relatedWords": ["출판", "시청"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4052",
+      "word": "출판",
+      "hanja": "出版",
+      "meaning": "出版",
+      "pronunciation": "출판",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "出", "korean": "출", "meaning": "出る・出す"},
+        {"character": "版", "korean": "판", "meaning": "版・刷る"}
+      ],
+      "examples": [
+        {
+          "sentence": "새 책이 다음 달 출판된다.",
+          "meaning": "新しい本が来月出版される。"
+        }
+      ],
+      "relatedWords": ["언론", "전시"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4053",
+      "word": "전시",
+      "hanja": "展示",
+      "meaning": "展示",
+      "pronunciation": "전시",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "展", "korean": "전", "meaning": "広げる・展開する"},
+        {"character": "示", "korean": "시", "meaning": "示す・見せる"}
+      ],
+      "examples": [
+        {
+          "sentence": "신작 전시가 미술관에서 열린다.",
+          "meaning": "新作展示が美術館で開かれる。"
+        }
+      ],
+      "relatedWords": ["관람", "전시회"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4054",
+      "word": "박물관",
+      "hanja": "博物館",
+      "meaning": "博物館",
+      "pronunciation": "박물관",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "博", "korean": "박", "meaning": "広い・博識"},
+        {"character": "物", "korean": "물", "meaning": "物・もの"},
+        {"character": "館", "korean": "관", "meaning": "館・建物"}
+      ],
+      "examples": [
+        {
+          "sentence": "국립 박물관에 학생들이 견학을 왔다.",
+          "meaning": "国立博物館に学生たちが見学に来た。"
+        }
+      ],
+      "relatedWords": ["미술관", "전시"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4055",
+      "word": "미술관",
+      "hanja": "美術館",
+      "meaning": "美術館",
+      "pronunciation": "미술관",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "美", "korean": "미", "meaning": "美しい"},
+        {"character": "術", "korean": "술", "meaning": "術・技術"},
+        {"character": "館", "korean": "관", "meaning": "館・建物"}
+      ],
+      "examples": [
+        {
+          "sentence": "미술관에서 인상주의 전시가 진행 중이다.",
+          "meaning": "美術館で印象派の展示が開催中だ。"
+        }
+      ],
+      "relatedWords": ["박물관", "전시회"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4056",
+      "word": "서예",
+      "hanja": "書藝",
+      "meaning": "書芸・書道",
+      "pronunciation": "서예",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "書", "korean": "서", "meaning": "書く・文字"},
+        {"character": "藝", "korean": "예", "meaning": "芸・技芸"}
+      ],
+      "examples": [
+        {
+          "sentence": "서예 수업에서 붓글씨를 배운다.",
+          "meaning": "書芸の授業で筆文字を学ぶ。"
+        }
+      ],
+      "relatedWords": ["공예", "문학"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4057",
+      "word": "공예",
+      "hanja": "工藝",
+      "meaning": "工芸",
+      "pronunciation": "공예",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "工", "korean": "공", "meaning": "工・技術"},
+        {"character": "藝", "korean": "예", "meaning": "芸・技芸"}
+      ],
+      "examples": [
+        {
+          "sentence": "도자기 공예 체험이 인기가 많다.",
+          "meaning": "陶磁器の工芸体験が人気だ。"
+        }
+      ],
+      "relatedWords": ["서예", "공연"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4058",
+      "word": "국악",
+      "hanja": "國樂",
+      "meaning": "国楽",
+      "pronunciation": "국악",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "國", "korean": "국", "meaning": "国・国家"},
+        {"character": "樂", "korean": "악", "meaning": "音楽・楽しむ"}
+      ],
+      "examples": [
+        {
+          "sentence": "국악 공연에서 가야금 소리가 울려 퍼졌다.",
+          "meaning": "国楽公演で伽耶琴の音が響き渡った。"
+        }
+      ],
+      "relatedWords": ["민요", "공연"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4059",
+      "word": "민요",
+      "hanja": "民謠",
+      "meaning": "民謡",
+      "pronunciation": "민요",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "民", "korean": "민", "meaning": "民・人々"},
+        {"character": "謠", "korean": "요", "meaning": "うたう・歌謡"}
+      ],
+      "examples": [
+        {
+          "sentence": "민요는 지역의 삶을 담고 있다.",
+          "meaning": "民謡は地域の暮らしを映している。"
+        }
+      ],
+      "relatedWords": ["국악", "악기"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4060",
+      "word": "악기",
+      "hanja": "樂器",
+      "meaning": "楽器",
+      "pronunciation": "악기",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "樂", "korean": "악", "meaning": "音楽・楽しむ"},
+        {"character": "器", "korean": "기", "meaning": "器・道具"}
+      ],
+      "examples": [
+        {
+          "sentence": "새 악기를 배우기 위해 연습을 시작했다.",
+          "meaning": "新しい楽器を習うため練習を始めた。"
+        }
+      ],
+      "relatedWords": ["연주", "음악"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4061",
+      "word": "지휘",
+      "hanja": "指揮",
+      "meaning": "指揮",
+      "pronunciation": "지휘",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "指", "korean": "지", "meaning": "指す・指"},
+        {"character": "揮", "korean": "휘", "meaning": "振る・指揮する"}
+      ],
+      "examples": [
+        {
+          "sentence": "지휘자가 오케스트라를 이끌었다.",
+          "meaning": "指揮者がオーケストラを率いた。"
+        }
+      ],
+      "relatedWords": ["합창", "연주"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4062",
+      "word": "합창",
+      "hanja": "合唱",
+      "meaning": "合唱",
+      "pronunciation": "합창",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "合", "korean": "합", "meaning": "合う・合わせる"},
+        {"character": "唱", "korean": "창", "meaning": "唱える・歌う"}
+      ],
+      "examples": [
+        {
+          "sentence": "합창 대회에서 학교가 1등을 했다.",
+          "meaning": "合唱大会で学校が1位になった。"
+        }
+      ],
+      "relatedWords": ["지휘", "음악"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4063",
+      "word": "음반",
+      "hanja": "音盤",
+      "meaning": "音盤・アルバム",
+      "pronunciation": "음반",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "音", "korean": "음", "meaning": "音・音声"},
+        {"character": "盤", "korean": "반", "meaning": "盤・板"}
+      ],
+      "examples": [
+        {
+          "sentence": "가수의 새 음반이 큰 인기를 얻었다.",
+          "meaning": "歌手の新しいアルバムが大人気になった。"
+        }
+      ],
+      "relatedWords": ["음악", "작곡"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4064",
+      "word": "연주",
+      "hanja": "演奏",
+      "meaning": "演奏",
+      "pronunciation": "연주",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "演", "korean": "연", "meaning": "演じる・進める"},
+        {"character": "奏", "korean": "주", "meaning": "奏でる・演奏する"}
+      ],
+      "examples": [
+        {
+          "sentence": "피아노 연주가 감동을 주었다.",
+          "meaning": "ピアノ演奏が感動を与えた。"
+        }
+      ],
+      "relatedWords": ["악기", "공연"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4065",
+      "word": "관객",
+      "hanja": "觀客",
+      "meaning": "観客",
+      "pronunciation": "관객",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "觀", "korean": "관", "meaning": "見る・観察する"},
+        {"character": "客", "korean": "객", "meaning": "客・訪問者"}
+      ],
+      "examples": [
+        {
+          "sentence": "관객들이 공연 후 큰 박수를 보냈다.",
+          "meaning": "観客が公演後に大きな拍手を送った。"
+        }
+      ],
+      "relatedWords": ["관중", "무대"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4066",
+      "word": "무대",
+      "hanja": "舞臺",
+      "meaning": "舞台",
+      "pronunciation": "무대",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "舞", "korean": "무", "meaning": "舞う・踊る"},
+        {"character": "臺", "korean": "대", "meaning": "台・高い所"}
+      ],
+      "examples": [
+        {
+          "sentence": "무대 조명이 화려하게 바뀌었다.",
+          "meaning": "舞台の照明が華やかに変わった。"
+        }
+      ],
+      "relatedWords": ["극장", "공연"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4067",
+      "word": "극장",
+      "hanja": "劇場",
+      "meaning": "劇場",
+      "pronunciation": "극장",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "劇", "korean": "극", "meaning": "劇・芝居"},
+        {"character": "場", "korean": "장", "meaning": "場所・場"}
+      ],
+      "examples": [
+        {
+          "sentence": "새로운 극장이 도심에 개관했다.",
+          "meaning": "新しい劇場が都心に開館した。"
+        }
+      ],
+      "relatedWords": ["무대", "연극"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4068",
+      "word": "제작",
+      "hanja": "製作",
+      "meaning": "製作",
+      "pronunciation": "제작",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "製", "korean": "제", "meaning": "作る・製造する"},
+        {"character": "作", "korean": "작", "meaning": "作る・作品"}
+      ],
+      "examples": [
+        {
+          "sentence": "영화 제작 비용이 크게 증가했다.",
+          "meaning": "映画制作費が大きく増えた。"
+        }
+      ],
+      "relatedWords": ["촬영", "배역"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4069",
+      "word": "촬영",
+      "hanja": "撮影",
+      "meaning": "撮影",
+      "pronunciation": "촬영",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "撮", "korean": "촬", "meaning": "撮る・つまむ"},
+        {"character": "影", "korean": "영", "meaning": "影・映る"}
+      ],
+      "examples": [
+        {
+          "sentence": "드라마 촬영이 겨울에 진행된다.",
+          "meaning": "ドラマの撮影が冬に行われる。"
+        }
+      ],
+      "relatedWords": ["제작", "배역"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4070",
+      "word": "배역",
+      "hanja": "配役",
+      "meaning": "配役・役どころ",
+      "pronunciation": "배역",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "配", "korean": "배", "meaning": "配る・配置する"},
+        {"character": "役", "korean": "역", "meaning": "役・役割"}
+      ],
+      "examples": [
+        {
+          "sentence": "배역 선정이 끝나고 리허설을 시작했다.",
+          "meaning": "配役の選定が終わりリハーサルを始めた。"
+        }
+      ],
+      "relatedWords": ["연극", "제작"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4071",
+      "word": "체력",
+      "hanja": "體力",
+      "meaning": "体力",
+      "pronunciation": "체력",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "體", "korean": "체", "meaning": "体・からだ"},
+        {"character": "力", "korean": "력", "meaning": "力・能力"}
+      ],
+      "examples": [
+        {
+          "sentence": "체력을 기르기 위해 꾸준히 달린다.",
+          "meaning": "体力をつけるために継続して走る。"
+        }
+      ],
+      "relatedWords": ["운동", "훈련"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4072",
+      "word": "운동",
+      "hanja": "運動",
+      "meaning": "運動",
+      "pronunciation": "운동",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "運", "korean": "운", "meaning": "運ぶ・動く"},
+        {"character": "動", "korean": "동", "meaning": "動く・動かす"}
+      ],
+      "examples": [
+        {
+          "sentence": "매일 운동을 하면 건강에 좋다.",
+          "meaning": "毎日運動すると健康に良い。"
+        }
+      ],
+      "relatedWords": ["체력", "훈련"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4073",
+      "word": "훈련",
+      "hanja": "訓練",
+      "meaning": "訓練",
+      "pronunciation": "훈련",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "訓", "korean": "훈", "meaning": "教える・訓する"},
+        {"character": "練", "korean": "련", "meaning": "練る・訓練する"}
+      ],
+      "examples": [
+        {
+          "sentence": "선수들은 강도 높은 훈련을 소화했다.",
+          "meaning": "選手たちは高強度の訓練をこなした。"
+        }
+      ],
+      "relatedWords": ["체력", "운동"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4074",
+      "word": "감독",
+      "hanja": "監督",
+      "meaning": "監督・コーチ",
+      "pronunciation": "감독",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "監", "korean": "감", "meaning": "監視する・見る"},
+        {"character": "督", "korean": "독", "meaning": "督促する・取り締まる"}
+      ],
+      "examples": [
+        {
+          "sentence": "감독이 새로운 전략을 지시했다.",
+          "meaning": "監督が新しい戦略を指示した。"
+        }
+      ],
+      "relatedWords": ["선수", "훈련"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4075",
+      "word": "심판",
+      "hanja": "審判",
+      "meaning": "審判",
+      "pronunciation": "심판",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "審", "korean": "심", "meaning": "審査する・詳しく調べる"},
+        {"character": "判", "korean": "판", "meaning": "判断する・裁く"}
+      ],
+      "examples": [
+        {
+          "sentence": "심판의 판정이 논란이 되었다.",
+          "meaning": "審判の判定が物議を醸した。"
+        }
+      ],
+      "relatedWords": ["경기", "규칙"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4076",
+      "word": "기록",
+      "hanja": "記錄",
+      "meaning": "記録",
+      "pronunciation": "기록",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "記", "korean": "기", "meaning": "記す・書き留める"},
+        {"character": "錄", "korean": "록", "meaning": "記す・記録"}
+      ],
+      "examples": [
+        {
+          "sentence": "선수가 세계 기록을 갱신했다.",
+          "meaning": "選手が世界記録を更新した。"
+        }
+      ],
+      "relatedWords": ["승리", "패배"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4077",
+      "word": "경기장",
+      "hanja": "競技場",
+      "meaning": "競技場",
+      "pronunciation": "경기장",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "競", "korean": "경", "meaning": "競う・争う"},
+        {"character": "技", "korean": "기", "meaning": "技・技能"},
+        {"character": "場", "korean": "장", "meaning": "場所・場"}
+      ],
+      "examples": [
+        {
+          "sentence": "경기장은 팬들로 가득 찼다.",
+          "meaning": "競技場はファンでいっぱいだった。"
+        }
+      ],
+      "relatedWords": ["관중", "경기"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4078",
+      "word": "관중",
+      "hanja": "觀衆",
+      "meaning": "観衆",
+      "pronunciation": "관중",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "觀", "korean": "관", "meaning": "見る・観察する"},
+        {"character": "衆", "korean": "중", "meaning": "衆・大勢"}
+      ],
+      "examples": [
+        {
+          "sentence": "관중이 일제히 환호했다.",
+          "meaning": "観衆が一斉に歓声を上げた。"
+        }
+      ],
+      "relatedWords": ["관객", "경기장"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4079",
+      "word": "출전",
+      "hanja": "出戰",
+      "meaning": "出場・出戦",
+      "pronunciation": "출전",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "出", "korean": "출", "meaning": "出る・出発する"},
+        {"character": "戰", "korean": "전", "meaning": "戦う・競う"}
+      ],
+      "examples": [
+        {
+          "sentence": "그 선수는 부상으로 출전을 포기했다.",
+          "meaning": "その選手は負傷で出場をあきらめた。"
+        }
+      ],
+      "relatedWords": ["승리", "패배"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4080",
+      "word": "승리",
+      "hanja": "勝利",
+      "meaning": "勝利",
+      "pronunciation": "승리",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "勝", "korean": "승", "meaning": "勝つ・優れる"},
+        {"character": "利", "korean": "리", "meaning": "利・利益"}
+      ],
+      "examples": [
+        {
+          "sentence": "팀이 극적인 승리를 거두었다.",
+          "meaning": "チームが劇的な勝利を収めた。"
+        }
+      ],
+      "relatedWords": ["패배", "기록"],
+      "antonyms": ["패배"],
+      "synonyms": []
+    },
+    {
+      "id": "word_4081",
+      "word": "패배",
+      "hanja": "敗北",
+      "meaning": "敗北",
+      "pronunciation": "패배",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "敗", "korean": "패", "meaning": "敗れる・失う"},
+        {"character": "北", "korean": "배", "meaning": "北・背く"}
+      ],
+      "examples": [
+        {
+          "sentence": "아쉬운 패배였지만 교훈을 얻었다.",
+          "meaning": "悔しい敗北だったが教訓を得た。"
+        }
+      ],
+      "relatedWords": ["승리", "출전"],
+      "antonyms": ["승리"],
+      "synonyms": []
+    },
+    {
+      "id": "word_4082",
+      "word": "전략",
+      "hanja": "戰略",
+      "meaning": "戦略",
+      "pronunciation": "전략",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "戰", "korean": "전", "meaning": "戦う・争う"},
+        {"character": "略", "korean": "략", "meaning": "略す・計略"}
+      ],
+      "examples": [
+        {
+          "sentence": "경기 전략을 다시 점검했다.",
+          "meaning": "試合の戦略を改めて点検した。"
+        }
+      ],
+      "relatedWords": ["승리", "감독"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4083",
+      "word": "사원",
+      "hanja": "寺院",
+      "meaning": "寺院",
+      "pronunciation": "사원",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "寺", "korean": "사", "meaning": "寺・仏寺"},
+        {"character": "院", "korean": "원", "meaning": "院・建物"}
+      ],
+      "examples": [
+        {
+          "sentence": "사원에서 조용히 기도를 올렸다.",
+          "meaning": "寺院で静かに祈りを捧げた。"
+        }
+      ],
+      "relatedWords": ["교회", "성당"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4084",
+      "word": "교회",
+      "hanja": "敎會",
+      "meaning": "教会",
+      "pronunciation": "교회",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "敎", "korean": "교", "meaning": "教える・教え"},
+        {"character": "會", "korean": "회", "meaning": "会う・集まる"}
+      ],
+      "examples": [
+        {
+          "sentence": "일요일마다 교회에 간다.",
+          "meaning": "日曜日ごとに教会へ行く。"
+        }
+      ],
+      "relatedWords": ["예배", "목사"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4085",
+      "word": "성당",
+      "hanja": "聖堂",
+      "meaning": "聖堂・カテドラル",
+      "pronunciation": "성당",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "聖", "korean": "성", "meaning": "聖なる・尊い"},
+        {"character": "堂", "korean": "당", "meaning": "堂・大きな建物"}
+      ],
+      "examples": [
+        {
+          "sentence": "성당의 스테인드글라스가 아름답다.",
+          "meaning": "聖堂のステンドグラスが美しい。"
+        }
+      ],
+      "relatedWords": ["교회", "성지"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4086",
+      "word": "목사",
+      "hanja": "牧師",
+      "meaning": "牧師",
+      "pronunciation": "목사",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "牧", "korean": "목", "meaning": "牧する・世話する"},
+        {"character": "師", "korean": "사", "meaning": "師・教師"}
+      ],
+      "examples": [
+        {
+          "sentence": "목사가 예배를 인도했다.",
+          "meaning": "牧師が礼拝を導いた。"
+        }
+      ],
+      "relatedWords": ["교회", "예배"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4087",
+      "word": "신부",
+      "hanja": "神父",
+      "meaning": "神父・司祭",
+      "pronunciation": "신부",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "神", "korean": "신", "meaning": "神・神聖"},
+        {"character": "父", "korean": "부", "meaning": "父・父親"}
+      ],
+      "examples": [
+        {
+          "sentence": "신부가 결혼식을 집전했다.",
+          "meaning": "神父が結婚式を執り行った。"
+        }
+      ],
+      "relatedWords": ["성당", "기도"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4088",
+      "word": "기도",
+      "hanja": "祈禱",
+      "meaning": "祈祷・祈り",
+      "pronunciation": "기도",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "祈", "korean": "기", "meaning": "祈る・願う"},
+        {"character": "禱", "korean": "도", "meaning": "祈る・祈願する"}
+      ],
+      "examples": [
+        {
+          "sentence": "새해에는 가족의 건강을 위해 기도했다.",
+          "meaning": "新年には家族の健康を祈った。"
+        }
+      ],
+      "relatedWords": ["예배", "신앙"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4089",
+      "word": "예배",
+      "hanja": "禮拜",
+      "meaning": "礼拝",
+      "pronunciation": "예배",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "禮", "korean": "예", "meaning": "礼・礼儀"},
+        {"character": "拜", "korean": "배", "meaning": "拝む・敬う"}
+      ],
+      "examples": [
+        {
+          "sentence": "예배 시간에 찬송가를 불렀다.",
+          "meaning": "礼拝の時間に賛美歌を歌った。"
+        }
+      ],
+      "relatedWords": ["기도", "교회"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4090",
+      "word": "성지",
+      "hanja": "聖地",
+      "meaning": "聖地",
+      "pronunciation": "성지",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "聖", "korean": "성", "meaning": "聖い・尊い"},
+        {"character": "地", "korean": "지", "meaning": "地・土地"}
+      ],
+      "examples": [
+        {
+          "sentence": "순례자들이 성지를 방문했다.",
+          "meaning": "巡礼者たちが聖地を訪れた。"
+        }
+      ],
+      "relatedWords": ["성당", "신앙"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4091",
+      "word": "신화",
+      "hanja": "神話",
+      "meaning": "神話",
+      "pronunciation": "신화",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "神", "korean": "신", "meaning": "神・神聖"},
+        {"character": "話", "korean": "화", "meaning": "話・語る"}
+      ],
+      "examples": [
+        {
+          "sentence": "고대 신화를 주제로 한 전시가 열린다.",
+          "meaning": "古代神話をテーマにした展示が開かれる。"
+        }
+      ],
+      "relatedWords": ["전설", "문화"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4092",
+      "word": "전설",
+      "hanja": "傳說",
+      "meaning": "伝説",
+      "pronunciation": "전설",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "傳", "korean": "전", "meaning": "伝える・伝わる"},
+        {"character": "說", "korean": "설", "meaning": "説く・話す"}
+      ],
+      "examples": [
+        {
+          "sentence": "마을에는 오래된 전설이 전해 내려온다.",
+          "meaning": "村には古い伝説が伝わっている。"
+        }
+      ],
+      "relatedWords": ["신화", "전통"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4093",
+      "word": "만족",
+      "hanja": "滿足",
+      "meaning": "満足",
+      "pronunciation": "만족",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "滿", "korean": "만", "meaning": "満ちる・いっぱい"},
+        {"character": "足", "korean": "족", "meaning": "足りる・足"}
+      ],
+      "examples": [
+        {
+          "sentence": "결과에 만족하지 않고 더 노력했다.",
+          "meaning": "結果に満足せずさらに努力した。"
+        }
+      ],
+      "relatedWords": ["불만", "희망"],
+      "antonyms": ["불만"],
+      "synonyms": []
+    },
+    {
+      "id": "word_4094",
+      "word": "불만",
+      "hanja": "不滿",
+      "meaning": "不満",
+      "pronunciation": "불만",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "不", "korean": "불", "meaning": "否定・〜でない"},
+        {"character": "滿", "korean": "만", "meaning": "満ちる・いっぱい"}
+      ],
+      "examples": [
+        {
+          "sentence": "서비스에 대한 불만이 접수되었다.",
+          "meaning": "サービスへの不満が受け付けられた。"
+        }
+      ],
+      "relatedWords": ["만족", "감정"],
+      "antonyms": ["만족"],
+      "synonyms": []
+    },
+    {
+      "id": "word_4095",
+      "word": "고민",
+      "hanja": "苦悶",
+      "meaning": "苦悶・悩み",
+      "pronunciation": "고민",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "苦", "korean": "고", "meaning": "苦しい・苦しむ"},
+        {"character": "悶", "korean": "민", "meaning": "もだえる・悩む"}
+      ],
+      "examples": [
+        {
+          "sentence": "진로 선택으로 고민이 많다.",
+          "meaning": "進路選択で悩みが多い。"
+        }
+      ],
+      "relatedWords": ["걱정", "불안"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4096",
+      "word": "위로",
+      "hanja": "慰勞",
+      "meaning": "慰労・慰め",
+      "pronunciation": "위로",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "慰", "korean": "위", "meaning": "慰める・励ます"},
+        {"character": "勞", "korean": "로", "meaning": "労・働く"}
+      ],
+      "examples": [
+        {
+          "sentence": "친구의 말이 큰 위로가 되었다.",
+          "meaning": "友人の言葉が大きな慰めになった。"
+        }
+      ],
+      "relatedWords": ["격려", "감정"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4097",
+      "word": "격려",
+      "hanja": "激勵",
+      "meaning": "激励",
+      "pronunciation": "격려",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "激", "korean": "격", "meaning": "激しい・刺激する"},
+        {"character": "勵", "korean": "려", "meaning": "励ます・努める"}
+      ],
+      "examples": [
+        {
+          "sentence": "격려의 박수가 선수들에게 힘이 되었다.",
+          "meaning": "激励の拍手が選手たちの力になった。"
+        }
+      ],
+      "relatedWords": ["위로", "감정"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4098",
+      "word": "자존심",
+      "hanja": "自尊心",
+      "meaning": "自尊心・プライド",
+      "pronunciation": "자존심",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "自", "korean": "자", "meaning": "自ら・自分"},
+        {"character": "尊", "korean": "존", "meaning": "尊い・敬う"},
+        {"character": "心", "korean": "심", "meaning": "心・気持ち"}
+      ],
+      "examples": [
+        {
+          "sentence": "자존심을 세우기보다 솔직해지는 것이 필요하다.",
+          "meaning": "プライドを立てるより正直になることが必要だ。"
+        }
+      ],
+      "relatedWords": ["감정", "성격"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4099",
+      "word": "상상",
+      "hanja": "想像",
+      "meaning": "想像",
+      "pronunciation": "상상",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "想", "korean": "상", "meaning": "思う・想う"},
+        {"character": "像", "korean": "상", "meaning": "像・かたち"}
+      ],
+      "examples": [
+        {
+          "sentence": "미래를 상상하면 설레기도 한다.",
+          "meaning": "未来を想像するとわくわくもする。"
+        }
+      ],
+      "relatedWords": ["기억", "창의"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_4100",
+      "word": "기억",
+      "hanja": "記憶",
+      "meaning": "記憶",
+      "pronunciation": "기억",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "記", "korean": "기", "meaning": "記す・書く"},
+        {"character": "憶", "korean": "억", "meaning": "憶える・覚える"}
+      ],
+      "examples": [
+        {
+          "sentence": "어린 시절의 기억이 선명하게 남아 있다.",
+          "meaning": "幼い頃の記憶が鮮明に残っている。"
+        }
+      ],
+      "relatedWords": ["상상", "분석"],
+      "antonyms": [],
+      "synonyms": []
+    }
+  ]
+}

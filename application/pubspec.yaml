@@ -155,6 +155,8 @@ flutter:
     - assets/grammar/substantive/
     - assets/grammar/tense_aspect/
     - assets/grammar/word_formation/
+    - assets/hanja/characters/
+    - assets/hanja/words/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

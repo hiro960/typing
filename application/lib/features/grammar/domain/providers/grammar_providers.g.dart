@@ -410,7 +410,7 @@ final class GrammarFilterNotifierProvider
 }
 
 String _$grammarFilterNotifierHash() =>
-    r'46b8a817ef4d7af9b4a967be61ad6a37d0e84bbc';
+    r'3f87f8be9c42a4e72f548fd59f4e360ff17ae87c';
 
 abstract class _$GrammarFilterNotifier extends $Notifier<GrammarFilterState> {
   GrammarFilterState build();

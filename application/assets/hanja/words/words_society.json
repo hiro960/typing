@@ -1,0 +1,2334 @@
+{
+  "version": "1.0.0",
+  "category": "society",
+  "categoryName": "社会・政治・経済",
+  "totalWords": 100,
+  "words": [
+    {
+      "id": "word_2001",
+      "word": "사회",
+      "hanja": "社會",
+      "meaning": "社会",
+      "pronunciation": "사회",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "社", "korean": "사", "meaning": "社、集団"},
+        {"character": "會", "korean": "회", "meaning": "会う、会合"}
+      ],
+      "examples": [
+        {
+          "sentence": "현대 사회에서는 정보가 빠르게 공유된다.",
+          "meaning": "現代社会では情報が素早く共有される。"
+        }
+      ],
+      "relatedWords": ["사회학", "사회복지", "공동체"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2002",
+      "word": "제도",
+      "hanja": "制度",
+      "meaning": "制度、仕組み",
+      "pronunciation": "제도",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "制", "korean": "제", "meaning": "定める、制御する"},
+        {"character": "度", "korean": "도", "meaning": "度合い、法度"}
+      ],
+      "examples": [
+        {
+          "sentence": "새로운 교육 제도가 시행되었다.",
+          "meaning": "新しい教育制度が施行された。"
+        }
+      ],
+      "relatedWords": ["정책", "법령"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2003",
+      "word": "복지",
+      "hanja": "福祉",
+      "meaning": "福祉",
+      "pronunciation": "복지",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "福", "korean": "복", "meaning": "福、幸せ"},
+        {"character": "祉", "korean": "지", "meaning": "祉、めぐみ"}
+      ],
+      "examples": [
+        {
+          "sentence": "정부는 복지 예산을 늘리기로 했다.",
+          "meaning": "政府は福祉予算を増やすことにした。"
+        }
+      ],
+      "relatedWords": ["사회복지", "공공서비스"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2004",
+      "word": "공공",
+      "hanja": "公共",
+      "meaning": "公共",
+      "pronunciation": "공공",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "公", "korean": "공", "meaning": "公、公的"},
+        {"character": "共", "korean": "공", "meaning": "共に、共有する"}
+      ],
+      "examples": [
+        {
+          "sentence": "공공 시설을 이용할 때는 규칙을 지켜야 한다.",
+          "meaning": "公共施設を利用する際は規則を守るべきだ。"
+        }
+      ],
+      "relatedWords": ["공익", "공적"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2005",
+      "word": "시민",
+      "hanja": "市民",
+      "meaning": "市民",
+      "pronunciation": "시민",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "市", "korean": "시", "meaning": "市、街"},
+        {"character": "民", "korean": "민", "meaning": "民、人民"}
+      ],
+      "examples": [
+        {
+          "sentence": "시민 참여가 도시 발전을 이끈다.",
+          "meaning": "市民の参加が都市の発展を導く。"
+        }
+      ],
+      "relatedWords": ["주민", "국민"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2006",
+      "word": "인권",
+      "hanja": "人權",
+      "meaning": "人権",
+      "pronunciation": "인권",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "人", "korean": "인", "meaning": "人"},
+        {"character": "權", "korean": "권", "meaning": "権利、力"}
+      ],
+      "examples": [
+        {
+          "sentence": "인권 침해에 대한 조사가 진행 중이다.",
+          "meaning": "人権侵害に対する調査が進行中だ。"
+        }
+      ],
+      "relatedWords": ["자유", "평등"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2007",
+      "word": "평등",
+      "hanja": "平等",
+      "meaning": "平等",
+      "pronunciation": "평등",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "平", "korean": "평", "meaning": "平ら、均す"},
+        {"character": "等", "korean": "등", "meaning": "等しい、種類"}
+      ],
+      "examples": [
+        {
+          "sentence": "법 앞의 평등은 기본 원칙이다.",
+          "meaning": "法の下の平等は基本原則だ。"
+        }
+      ],
+      "relatedWords": ["형평", "인권"],
+      "antonyms": ["차별"],
+      "synonyms": []
+    },
+    {
+      "id": "word_2008",
+      "word": "노동",
+      "hanja": "勞動",
+      "meaning": "労働",
+      "pronunciation": "노동",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "勞", "korean": "노", "meaning": "苦労、働く"},
+        {"character": "動", "korean": "동", "meaning": "動く、動作"}
+      ],
+      "examples": [
+        {
+          "sentence": "노동 시간 단축 논의가 이어지고 있다.",
+          "meaning": "労働時間短縮の議論が続いている。"
+        }
+      ],
+      "relatedWords": ["근로", "일자리"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2009",
+      "word": "근로자",
+      "hanja": "勤勞者",
+      "meaning": "勤労者、労働者",
+      "pronunciation": "근로자",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "勤", "korean": "근", "meaning": "勤める、励む"},
+        {"character": "勞", "korean": "로", "meaning": "労、働く"},
+        {"character": "者", "korean": "자", "meaning": "〜者、人"}
+      ],
+      "examples": [
+        {
+          "sentence": "근로자 권익을 보호해야 한다.",
+          "meaning": "勤労者の権益を守るべきだ。"
+        }
+      ],
+      "relatedWords": ["노동자", "임금"],
+      "antonyms": [],
+      "synonyms": ["노동자"]
+    },
+    {
+      "id": "word_2010",
+      "word": "고용",
+      "hanja": "雇用",
+      "meaning": "雇用",
+      "pronunciation": "고용",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "雇", "korean": "고", "meaning": "雇う"},
+        {"character": "用", "korean": "용", "meaning": "用いる、使う"}
+      ],
+      "examples": [
+        {
+          "sentence": "정부의 고용 정책이 발표되었다.",
+          "meaning": "政府の雇用政策が発表された。"
+        }
+      ],
+      "relatedWords": ["취업", "채용"],
+      "antonyms": ["해고"],
+      "synonyms": []
+    },
+    {
+      "id": "word_2011",
+      "word": "실업",
+      "hanja": "失業",
+      "meaning": "失業",
+      "pronunciation": "실업",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "失", "korean": "실", "meaning": "失う"},
+        {"character": "業", "korean": "업", "meaning": "業、仕事"}
+      ],
+      "examples": [
+        {
+          "sentence": "청년 실업률이 감소했다.",
+          "meaning": "青年失業率が減少した."
+        }
+      ],
+      "relatedWords": ["실직", "구직"],
+      "antonyms": ["취업"],
+      "synonyms": []
+    },
+    {
+      "id": "word_2012",
+      "word": "복무",
+      "hanja": "服務",
+      "meaning": "服務、任務に就くこと",
+      "pronunciation": "봉무",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "服", "korean": "복", "meaning": "従う、服する"},
+        {"character": "務", "korean": "무", "meaning": "務め、任務"}
+      ],
+      "examples": [
+        {
+          "sentence": "그는 군 복무를 마쳤다.",
+          "meaning": "彼は兵役を終えた。"
+        }
+      ],
+      "relatedWords": ["의무", "근무"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2013",
+      "word": "정치",
+      "hanja": "政治",
+      "meaning": "政治",
+      "pronunciation": "정치",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "政", "korean": "정", "meaning": "政、正す"},
+        {"character": "治", "korean": "치", "meaning": "治める、治す"}
+      ],
+      "examples": [
+        {
+          "sentence": "정치 참여가 민주주의를 강화한다.",
+          "meaning": "政治参加が民主主義を強化する。"
+        }
+      ],
+      "relatedWords": ["정당", "민주주의"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2014",
+      "word": "행정",
+      "hanja": "行政",
+      "meaning": "行政",
+      "pronunciation": "행정",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "行", "korean": "행", "meaning": "行う、進む"},
+        {"character": "政", "korean": "정", "meaning": "政、政治"}
+      ],
+      "examples": [
+        {
+          "sentence": "행정 절차를 단순화했다.",
+          "meaning": "行政手続きを簡素化した。"
+        }
+      ],
+      "relatedWords": ["관료", "공공서비스"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2015",
+      "word": "법률",
+      "hanja": "法律",
+      "meaning": "法律",
+      "pronunciation": "범뉼",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "法", "korean": "법", "meaning": "法、規範"},
+        {"character": "律", "korean": "률", "meaning": "律する、規律"}
+      ],
+      "examples": [
+        {
+          "sentence": "새로운 법률이 국회를 통과했다.",
+          "meaning": "新しい法律が国会を通過した。"
+        }
+      ],
+      "relatedWords": ["법령", "규정"],
+      "antonyms": [],
+      "synonyms": ["법"]
+    },
+    {
+      "id": "word_2016",
+      "word": "헌법",
+      "hanja": "憲法",
+      "meaning": "憲法",
+      "pronunciation": "헌법",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "high",
+      "components": [
+        {"character": "憲", "korean": "헌", "meaning": "憲、規範"},
+        {"character": "法", "korean": "법", "meaning": "法"}
+      ],
+      "examples": [
+        {
+          "sentence": "헌법은 국가의 최고 법이다.",
+          "meaning": "憲法は国家の最高法である。"
+        }
+      ],
+      "relatedWords": ["기본권", "입헌"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2017",
+      "word": "국회",
+      "hanja": "國會",
+      "meaning": "国会",
+      "pronunciation": "구쾨",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "國", "korean": "국", "meaning": "国"},
+        {"character": "會", "korean": "회", "meaning": "会合、集まり"}
+      ],
+      "examples": [
+        {
+          "sentence": "국회에서 예산안이 논의되었다.",
+          "meaning": "国会で予算案が議論された。"
+        }
+      ],
+      "relatedWords": ["의회", "입법부"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2018",
+      "word": "지방자치",
+      "hanja": "地方自治",
+      "meaning": "地方自治",
+      "pronunciation": "지방자치",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "地", "korean": "지", "meaning": "地、土地"},
+        {"character": "方", "korean": "방", "meaning": "方向、地域"},
+        {"character": "自", "korean": "자", "meaning": "自ら"},
+        {"character": "治", "korean": "치", "meaning": "治める、治す"}
+      ],
+      "examples": [
+        {
+          "sentence": "지방자치 제도가 주민 참여를 높인다.",
+          "meaning": "地方自治制度が住民参加を高める。"
+        }
+      ],
+      "relatedWords": ["시정", "도정"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2019",
+      "word": "선거",
+      "hanja": "選擧",
+      "meaning": "選挙",
+      "pronunciation": "선거",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "選", "korean": "선", "meaning": "選ぶ"},
+        {"character": "擧", "korean": "거", "meaning": "挙げる"}
+      ],
+      "examples": [
+        {
+          "sentence": "선거 일정이 공고되었다.",
+          "meaning": "選挙日程が公告された。"
+        }
+      ],
+      "relatedWords": ["투표", "개표"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2020",
+      "word": "투표",
+      "hanja": "投票",
+      "meaning": "投票",
+      "pronunciation": "투표",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "投", "korean": "투", "meaning": "投げる、投じる"},
+        {"character": "票", "korean": "표", "meaning": "票、札"}
+      ],
+      "examples": [
+        {
+          "sentence": "투표는 오후 6시에 종료된다.",
+          "meaning": "投票は午後6時に終了する。"
+        }
+      ],
+      "relatedWords": ["선거", "개표"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2021",
+      "word": "공무원",
+      "hanja": "公務員",
+      "meaning": "公務員",
+      "pronunciation": "공무원",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "公", "korean": "공", "meaning": "公、公的"},
+        {"character": "務", "korean": "무", "meaning": "務め、仕事"},
+        {"character": "員", "korean": "원", "meaning": "員、メンバー"}
+      ],
+      "examples": [
+        {
+          "sentence": "공무원 시험을 준비한다.",
+          "meaning": "公務員試験を準備する。"
+        }
+      ],
+      "relatedWords": ["행정", "공직"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2022",
+      "word": "예산",
+      "hanja": "豫算",
+      "meaning": "予算",
+      "pronunciation": "예산",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "豫", "korean": "예", "meaning": "あらかじめ、予め"},
+        {"character": "算", "korean": "산", "meaning": "計算する、数える"}
+      ],
+      "examples": [
+        {
+          "sentence": "예산 편성이 마무리되었다.",
+          "meaning": "予算編成が終わった。"
+        }
+      ],
+      "relatedWords": ["재정", "결산"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2023",
+      "word": "재정",
+      "hanja": "財政",
+      "meaning": "財政",
+      "pronunciation": "재정",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "財", "korean": "재", "meaning": "財、資産"},
+        {"character": "政", "korean": "정", "meaning": "政、政治"}
+      ],
+      "examples": [
+        {
+          "sentence": "재정 건전성을 확보해야 한다.",
+          "meaning": "財政健全性を確保しなければならない。"
+        }
+      ],
+      "relatedWords": ["예산", "세입"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2024",
+      "word": "경제",
+      "hanja": "經濟",
+      "meaning": "経済",
+      "pronunciation": "경제",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "經", "korean": "경", "meaning": "経る、経済"},
+        {"character": "濟", "korean": "제", "meaning": "済ます、救う"}
+      ],
+      "examples": [
+        {
+          "sentence": "세계 경제가 회복세다.",
+          "meaning": "世界経済が回復傾向にある。"
+        }
+      ],
+      "relatedWords": ["경기", "재정"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2025",
+      "word": "시장",
+      "hanja": "市場",
+      "meaning": "市場",
+      "pronunciation": "시장",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "市", "korean": "시", "meaning": "市、マーケット"},
+        {"character": "場", "korean": "장", "meaning": "場所、場"}
+      ],
+      "examples": [
+        {
+          "sentence": "자유 시장 경쟁이 치열하다.",
+          "meaning": "自由市場の競争が激しい。"
+        }
+      ],
+      "relatedWords": ["경제", "유통"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2026",
+      "word": "통화",
+      "hanja": "通貨",
+      "meaning": "通貨",
+      "pronunciation": "통화",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "通", "korean": "통", "meaning": "通る、通じる"},
+        {"character": "貨", "korean": "화", "meaning": "貨幣、財貨"}
+      ],
+      "examples": [
+        {
+          "sentence": "통화 정책이 금리에 영향을 준다.",
+          "meaning": "通貨政策が金利に影響を与える。"
+        }
+      ],
+      "relatedWords": ["화폐", "금리"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2027",
+      "word": "물가",
+      "hanja": "物價",
+      "meaning": "物価",
+      "pronunciation": "물가",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "物", "korean": "물", "meaning": "物、もの"},
+        {"character": "價", "korean": "가", "meaning": "価値、値段"}
+      ],
+      "examples": [
+        {
+          "sentence": "물가 상승률이 둔화됐다.",
+          "meaning": "物価上昇率が鈍化した。"
+        }
+      ],
+      "relatedWords": ["가격", "인플레이션"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2028",
+      "word": "환율",
+      "hanja": "換率",
+      "meaning": "為替レート",
+      "pronunciation": "환뉼",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "換", "korean": "환", "meaning": "替える、換える"},
+        {"character": "率", "korean": "율", "meaning": "率、割合"}
+      ],
+      "examples": [
+        {
+          "sentence": "원/달러 환율이 하락했다.",
+          "meaning": "ウォン/ドルの為替レートが下落した。"
+        }
+      ],
+      "relatedWords": ["외환", "통화"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2029",
+      "word": "무역",
+      "hanja": "貿易",
+      "meaning": "貿易",
+      "pronunciation": "무역",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "貿", "korean": "무", "meaning": "貿易、交易"},
+        {"character": "易", "korean": "역", "meaning": "易しい、交換する"}
+      ],
+      "examples": [
+        {
+          "sentence": "양국은 무역 협정을 체결했다.",
+          "meaning": "両国は貿易協定を締結した。"
+        }
+      ],
+      "relatedWords": ["수출", "수입"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2030",
+      "word": "수출",
+      "hanja": "輸出",
+      "meaning": "輸出",
+      "pronunciation": "수출",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "輸", "korean": "수", "meaning": "運ぶ、輸送する"},
+        {"character": "出", "korean": "출", "meaning": "出る、出す"}
+      ],
+      "examples": [
+        {
+          "sentence": "수출 실적이 증가했다.",
+          "meaning": "輸出実績が増加した。"
+        }
+      ],
+      "relatedWords": ["무역", "수입"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2031",
+      "word": "수입",
+      "hanja": "輸入",
+      "meaning": "輸入",
+      "pronunciation": "수입",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "輸", "korean": "수", "meaning": "運ぶ、輸送する"},
+        {"character": "入", "korean": "입", "meaning": "入る、入れる"}
+      ],
+      "examples": [
+        {
+          "sentence": "원자재 수입 비용이 상승했다.",
+          "meaning": "原材料の輸入費用が上昇した。"
+        }
+      ],
+      "relatedWords": ["무역", "수출"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2032",
+      "word": "투자",
+      "hanja": "投資",
+      "meaning": "投資",
+      "pronunciation": "투자",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "投", "korean": "투", "meaning": "投げる、投じる"},
+        {"character": "資", "korean": "자", "meaning": "資本、資源"}
+      ],
+      "examples": [
+        {
+          "sentence": "해외 투자 비중이 커지고 있다.",
+          "meaning": "海外投資の比重が大きくなっている。"
+        }
+      ],
+      "relatedWords": ["자본", "주식"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2033",
+      "word": "주식",
+      "hanja": "株式",
+      "meaning": "株式",
+      "pronunciation": "주식",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "株", "korean": "주", "meaning": "株"},
+        {"character": "式", "korean": "식", "meaning": "式、形態"}
+      ],
+      "examples": [
+        {
+          "sentence": "주식 시장이 변동성을 보였다.",
+          "meaning": "株式市場が変動性を示した。"
+        }
+      ],
+      "relatedWords": ["증권", "채권"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2034",
+      "word": "채권",
+      "hanja": "債券",
+      "meaning": "債券",
+      "pronunciation": "채권",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "債", "korean": "채", "meaning": "債、借り"},
+        {"character": "券", "korean": "권", "meaning": "券、証券"}
+      ],
+      "examples": [
+        {
+          "sentence": "국채보다 회사채 금리가 높다.",
+          "meaning": "国債より社債の金利が高い。"
+        }
+      ],
+      "relatedWords": ["국채", "주식"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2035",
+      "word": "금융",
+      "hanja": "金融",
+      "meaning": "金融",
+      "pronunciation": "금융",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "金", "korean": "금", "meaning": "金、資金"},
+        {"character": "融", "korean": "융", "meaning": "融通する、溶かす"}
+      ],
+      "examples": [
+        {
+          "sentence": "금융 규제가 강화되었다.",
+          "meaning": "金融規制が強化された。"
+        }
+      ],
+      "relatedWords": ["은행", "투자"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2036",
+      "word": "은행",
+      "hanja": "銀行",
+      "meaning": "銀行",
+      "pronunciation": "은행",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "銀", "korean": "은", "meaning": "銀"},
+        {"character": "行", "korean": "행", "meaning": "行く、行う"}
+      ],
+      "examples": [
+        {
+          "sentence": "은행 계좌를 개설했다.",
+          "meaning": "銀行口座を開設した。"
+        }
+      ],
+      "relatedWords": ["금융", "예금"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2037",
+      "word": "이자",
+      "hanja": "利子",
+      "meaning": "利子、利息",
+      "pronunciation": "이자",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "利", "korean": "리", "meaning": "利、利する"},
+        {"character": "子", "korean": "자", "meaning": "子、もの"}
+      ],
+      "examples": [
+        {
+          "sentence": "대출 이자가 인상되었다.",
+          "meaning": "貸出金利が引き上げられた。"
+        }
+      ],
+      "relatedWords": ["금리", "대출"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2038",
+      "word": "세금",
+      "hanja": "稅金",
+      "meaning": "税金",
+      "pronunciation": "세금",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "稅", "korean": "세", "meaning": "税"},
+        {"character": "金", "korean": "금", "meaning": "金、資金"}
+      ],
+      "examples": [
+        {
+          "sentence": "세금을 기한 내에 납부해야 한다.",
+          "meaning": "税金を期限内に納付しなければならない。"
+        }
+      ],
+      "relatedWords": ["조세", "소득세"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2039",
+      "word": "소득",
+      "hanja": "所得",
+      "meaning": "所得、収入",
+      "pronunciation": "소득",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "所", "korean": "소", "meaning": "場所、ところ"},
+        {"character": "得", "korean": "득", "meaning": "得る、利益"}
+      ],
+      "examples": [
+        {
+          "sentence": "소득 격차가 화두다.",
+          "meaning": "所得格差が話題だ。"
+        }
+      ],
+      "relatedWords": ["수입", "임금"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2040",
+      "word": "지출",
+      "hanja": "支出",
+      "meaning": "支出、出費",
+      "pronunciation": "지출",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "支", "korean": "지", "meaning": "支える、支出する"},
+        {"character": "出", "korean": "출", "meaning": "出る、出す"}
+      ],
+      "examples": [
+        {
+          "sentence": "가계 지출을 줄였다.",
+          "meaning": "家計の支出を減らした。"
+        }
+      ],
+      "relatedWords": ["예산", "소비"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2041",
+      "word": "국채",
+      "hanja": "國債",
+      "meaning": "国債",
+      "pronunciation": "국채",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "國", "korean": "국", "meaning": "国、国家"},
+        {"character": "債", "korean": "채", "meaning": "債務、負債"}
+      ],
+      "examples": [
+        {
+          "sentence": "국채 발행 규모가 늘었다.",
+          "meaning": "国債発行の規模が増えた。"
+        }
+      ],
+      "relatedWords": ["채권", "재정"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2042",
+      "word": "통계",
+      "hanja": "統計",
+      "meaning": "統計",
+      "pronunciation": "통계",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "統", "korean": "통", "meaning": "統べる、まとめる"},
+        {"character": "計", "korean": "계", "meaning": "計る、計算する"}
+      ],
+      "examples": [
+        {
+          "sentence": "통계 자료를 분석했다.",
+          "meaning": "統計資料を分析した。"
+        }
+      ],
+      "relatedWords": ["자료", "분석"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2043",
+      "word": "협상",
+      "hanja": "協商",
+      "meaning": "協商、交渉",
+      "pronunciation": "협쌍",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "協", "korean": "협", "meaning": "協力する"},
+        {"character": "商", "korean": "상", "meaning": "商う、相談する"}
+      ],
+      "examples": [
+        {
+          "sentence": "노사 협상이 타결되었다.",
+          "meaning": "労使交渉が妥結した。"
+        }
+      ],
+      "relatedWords": ["교섭", "합의"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2044",
+      "word": "조약",
+      "hanja": "條約",
+      "meaning": "条約",
+      "pronunciation": "조약",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "條", "korean": "조", "meaning": "条、枝"},
+        {"character": "約", "korean": "약", "meaning": "約束、締める"}
+      ],
+      "examples": [
+        {
+          "sentence": "양국이 새 조약을 비준했다.",
+          "meaning": "両国が新しい条約を批准した。"
+        }
+      ],
+      "relatedWords": ["협정", "합의"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2045",
+      "word": "재판",
+      "hanja": "裁判",
+      "meaning": "裁判",
+      "pronunciation": "재판",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "裁", "korean": "재", "meaning": "裁く、裁断する"},
+        {"character": "判", "korean": "판", "meaning": "判定する、分ける"}
+      ],
+      "examples": [
+        {
+          "sentence": "재판 절차가 진행 중이다.",
+          "meaning": "裁判手続きが進行中だ。"
+        }
+      ],
+      "relatedWords": ["법정", "판결"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2046",
+      "word": "판결",
+      "hanja": "判決",
+      "meaning": "判決",
+      "pronunciation": "판결",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "判", "korean": "판", "meaning": "判定する、分かつ"},
+        {"character": "決", "korean": "결", "meaning": "決める、決する"}
+      ],
+      "examples": [
+        {
+          "sentence": "법원 판결이 확정되었다.",
+          "meaning": "裁判所の判決が確定した。"
+        }
+      ],
+      "relatedWords": ["재판", "선고"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2047",
+      "word": "검사",
+      "hanja": "檢事",
+      "meaning": "検事、検察官",
+      "pronunciation": "검사",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "檢", "korean": "검", "meaning": "検査する、調べる"},
+        {"character": "事", "korean": "사", "meaning": "事、務め"}
+      ],
+      "examples": [
+        {
+          "sentence": "검사가 증거를 제출했다.",
+          "meaning": "検事が証拠を提出した。"
+        }
+      ],
+      "relatedWords": ["검찰", "변호사"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2048",
+      "word": "변호사",
+      "hanja": "辯護士",
+      "meaning": "弁護士",
+      "pronunciation": "변호사",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "辯", "korean": "변", "meaning": "弁明する、説く"},
+        {"character": "護", "korean": "호", "meaning": "護る、守る"},
+        {"character": "士", "korean": "사", "meaning": "士、専門家"}
+      ],
+      "examples": [
+        {
+          "sentence": "변호사가 피고를 변론했다.",
+          "meaning": "弁護士が被告を弁論した。"
+        }
+      ],
+      "relatedWords": ["법률", "법정"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2049",
+      "word": "피고",
+      "hanja": "被告",
+      "meaning": "被告",
+      "pronunciation": "피고",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "被", "korean": "피", "meaning": "被る、こうむる"},
+        {"character": "告", "korean": "고", "meaning": "告げる、訴える"}
+      ],
+      "examples": [
+        {
+          "sentence": "피고가 무죄를 주장했다.",
+          "meaning": "被告が無罪を主張した。"
+        }
+      ],
+      "relatedWords": ["원고", "변호사"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2050",
+      "word": "원고",
+      "hanja": "原告",
+      "meaning": "原告",
+      "pronunciation": "원고",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "原", "korean": "원", "meaning": "原、もと"},
+        {"character": "告", "korean": "고", "meaning": "告げる、訴える"}
+      ],
+      "examples": [
+        {
+          "sentence": "원고가 손해배상을 청구했다.",
+          "meaning": "原告が損害賠償を請求した。"
+        }
+      ],
+      "relatedWords": ["피고", "소송"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2051",
+      "word": "교통",
+      "hanja": "交通",
+      "meaning": "交通",
+      "pronunciation": "교통",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "交", "korean": "교", "meaning": "交わる、交差する"},
+        {"character": "通", "korean": "통", "meaning": "通る、通じる"}
+      ],
+      "examples": [
+        {
+          "sentence": "교통 체증이 심각하다.",
+          "meaning": "交通渋滞が深刻だ。"
+        }
+      ],
+      "relatedWords": ["운송", "도로"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2052",
+      "word": "통신",
+      "hanja": "通信",
+      "meaning": "通信",
+      "pronunciation": "통신",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "通", "korean": "통", "meaning": "通る、通じる"},
+        {"character": "信", "korean": "신", "meaning": "信じる、知らせる"}
+      ],
+      "examples": [
+        {
+          "sentence": "통신 장애가 발생했다.",
+          "meaning": "通信障害が発生した。"
+        }
+      ],
+      "relatedWords": ["네트워크", "전화"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2053",
+      "word": "철도",
+      "hanja": "鐵道",
+      "meaning": "鉄道",
+      "pronunciation": "철도",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "鐵", "korean": "철", "meaning": "鉄"},
+        {"character": "道", "korean": "도", "meaning": "道、路"}
+      ],
+      "examples": [
+        {
+          "sentence": "철도 노선이 연장되었다.",
+          "meaning": "鉄道路線が延長された。"
+        }
+      ],
+      "relatedWords": ["기차", "교통"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2054",
+      "word": "항공",
+      "hanja": "航空",
+      "meaning": "航空",
+      "pronunciation": "항공",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "航", "korean": "항", "meaning": "航行する"},
+        {"character": "空", "korean": "공", "meaning": "空、空中"}
+      ],
+      "examples": [
+        {
+          "sentence": "항공 산업이 회복되고 있다.",
+          "meaning": "航空産業が回復している。"
+        }
+      ],
+      "relatedWords": ["비행", "공항"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2055",
+      "word": "우편",
+      "hanja": "郵便",
+      "meaning": "郵便",
+      "pronunciation": "우편",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "郵", "korean": "우", "meaning": "郵便、驛"},
+        {"character": "便", "korean": "편", "meaning": "便り、便利"}
+      ],
+      "examples": [
+        {
+          "sentence": "우편 배달이 지연되었다.",
+          "meaning": "郵便配達が遅れた。"
+        }
+      ],
+      "relatedWords": ["발송", "소포"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2056",
+      "word": "정책",
+      "hanja": "政策",
+      "meaning": "政策",
+      "pronunciation": "정책",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "政", "korean": "정", "meaning": "政、政治"},
+        {"character": "策", "korean": "책", "meaning": "策、手立て"}
+      ],
+      "examples": [
+        {
+          "sentence": "정부의 정책 방향이 발표되었다.",
+          "meaning": "政府の政策方向が発表された。"
+        }
+      ],
+      "relatedWords": ["제도", "규제"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2057",
+      "word": "규제",
+      "hanja": "規制",
+      "meaning": "規制",
+      "pronunciation": "규제",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "high",
+      "components": [
+        {"character": "規", "korean": "규", "meaning": "規則、定め"},
+        {"character": "制", "korean": "제", "meaning": "制限する、整える"}
+      ],
+      "examples": [
+        {
+          "sentence": "산업 규제를 완화하는 방안이 논의된다.",
+          "meaning": "産業規制を緩和する案が議論されている。"
+        }
+      ],
+      "relatedWords": ["정책", "법령"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2058",
+      "word": "언론",
+      "hanja": "言論",
+      "meaning": "言論、マスメディア",
+      "pronunciation": "언론",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "言", "korean": "언", "meaning": "言う、言葉"},
+        {"character": "論", "korean": "론", "meaning": "論じる、議論"}
+      ],
+      "examples": [
+        {
+          "sentence": "언론의 자유는 민주주의의 핵심이다.",
+          "meaning": "言論の自由は民主主義の核心だ。"
+        }
+      ],
+      "relatedWords": ["여론", "신문"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2059",
+      "word": "여론",
+      "hanja": "輿論",
+      "meaning": "世論",
+      "pronunciation": "여론",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "high",
+      "components": [
+        {"character": "輿", "korean": "여", "meaning": "世間、大衆"},
+        {"character": "論", "korean": "론", "meaning": "論じる、議論"}
+      ],
+      "examples": [
+        {
+          "sentence": "여론이 정책 결정에 큰 영향을 준다.",
+          "meaning": "世論が政策決定に大きな影響を与える。"
+        }
+      ],
+      "relatedWords": ["언론", "민심"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2060",
+      "word": "공공기관",
+      "hanja": "公共機關",
+      "meaning": "公共機関",
+      "pronunciation": "공공기관",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "high",
+      "components": [
+        {"character": "公", "korean": "공", "meaning": "公、公的"},
+        {"character": "共", "korean": "공", "meaning": "共に、共有する"},
+        {"character": "機", "korean": "기", "meaning": "機械、機能"},
+        {"character": "關", "korean": "관", "meaning": "関わる、管轄"}
+      ],
+      "examples": [
+        {
+          "sentence": "공공기관은 투명하게 운영되어야 한다.",
+          "meaning": "公共機関は透明に運営されるべきだ。"
+        }
+      ],
+      "relatedWords": ["행정", "공무원"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2061",
+      "word": "시민권",
+      "hanja": "市民權",
+      "meaning": "市民権、国籍上の権利",
+      "pronunciation": "시민꿘",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "市", "korean": "시", "meaning": "市、街"},
+        {"character": "民", "korean": "민", "meaning": "民、人民"},
+        {"character": "權", "korean": "권", "meaning": "権利、力"}
+      ],
+      "examples": [
+        {
+          "sentence": "이민자는 시민권을 신청했다.",
+          "meaning": "移民は市民権を申請した。"
+        }
+      ],
+      "relatedWords": ["인권", "국적"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2062",
+      "word": "복지국가",
+      "hanja": "福祉國家",
+      "meaning": "福祉国家",
+      "pronunciation": "복지국까",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "福", "korean": "복", "meaning": "福、幸せ"},
+        {"character": "祉", "korean": "지", "meaning": "祉、めぐみ"},
+        {"character": "國", "korean": "국", "meaning": "国、国家"},
+        {"character": "家", "korean": "가", "meaning": "家、体系"}
+      ],
+      "examples": [
+        {
+          "sentence": "복지국가를 지향하는 정책이 추진된다.",
+          "meaning": "福祉国家を志向する政策が推進される。"
+        }
+      ],
+      "relatedWords": ["복지", "사회안전망"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2063",
+      "word": "사회안전망",
+      "hanja": "社會安全網",
+      "meaning": "社会安全網",
+      "pronunciation": "사회안전망",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "社", "korean": "사", "meaning": "社、集団"},
+        {"character": "會", "korean": "회", "meaning": "会、集まり"},
+        {"character": "安", "korean": "안", "meaning": "安らか、安全"},
+        {"character": "全", "korean": "전", "meaning": "すべて、完全"},
+        {"character": "網", "korean": "망", "meaning": "網、ネットワーク"}
+      ],
+      "examples": [
+        {
+          "sentence": "사회안전망을 강화해 취약계층을 보호한다.",
+          "meaning": "社会安全網を強化して弱者を保護する。"
+        }
+      ],
+      "relatedWords": ["복지", "보험"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2064",
+      "word": "인구",
+      "hanja": "人口",
+      "meaning": "人口",
+      "pronunciation": "인구",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "人", "korean": "인", "meaning": "人"},
+        {"character": "口", "korean": "구", "meaning": "口、人口"}
+      ],
+      "examples": [
+        {
+          "sentence": "도시 인구가 계속 증가하고 있다.",
+          "meaning": "都市人口が増え続けている。"
+        }
+      ],
+      "relatedWords": ["출생률", "고령화"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2065",
+      "word": "고령화",
+      "hanja": "高齡化",
+      "meaning": "高齢化",
+      "pronunciation": "고령화",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "high",
+      "components": [
+        {"character": "高", "korean": "고", "meaning": "高い"},
+        {"character": "齡", "korean": "령", "meaning": "年齢"},
+        {"character": "化", "korean": "화", "meaning": "〜化する"}
+      ],
+      "examples": [
+        {
+          "sentence": "고령화로 복지 지출이 늘고 있다.",
+          "meaning": "高齢化で福祉支出が増えている。"
+        }
+      ],
+      "relatedWords": ["인구", "출생률"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2066",
+      "word": "출생률",
+      "hanja": "出生率",
+      "meaning": "出生率",
+      "pronunciation": "출쌩뉼",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "出", "korean": "출", "meaning": "出る、出す"},
+        {"character": "生", "korean": "생", "meaning": "生まれる、生命"},
+        {"character": "率", "korean": "률", "meaning": "率、割合"}
+      ],
+      "examples": [
+        {
+          "sentence": "출생률 하락이 심각한 문제다.",
+          "meaning": "出生率の低下が深刻な問題だ。"
+        }
+      ],
+      "relatedWords": ["인구", "고령화"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2067",
+      "word": "이민",
+      "hanja": "移民",
+      "meaning": "移民",
+      "pronunciation": "이민",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "移", "korean": "이", "meaning": "移す、移動"},
+        {"character": "民", "korean": "민", "meaning": "民、人民"}
+      ],
+      "examples": [
+        {
+          "sentence": "이민 정책이 완화되었다.",
+          "meaning": "移民政策が緩和された。"
+        }
+      ],
+      "relatedWords": ["출입국", "시민권"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2068",
+      "word": "도시화",
+      "hanja": "都市化",
+      "meaning": "都市化",
+      "pronunciation": "도시화",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "都", "korean": "도", "meaning": "都、都市"},
+        {"character": "市", "korean": "시", "meaning": "市、マーケット"},
+        {"character": "化", "korean": "화", "meaning": "〜化する"}
+      ],
+      "examples": [
+        {
+          "sentence": "도시화로 농촌 인구가 감소했다.",
+          "meaning": "都市化で農村人口が減少した。"
+        }
+      ],
+      "relatedWords": ["농촌", "인구"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2069",
+      "word": "농촌",
+      "hanja": "農村",
+      "meaning": "農村",
+      "pronunciation": "농촌",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "農", "korean": "농", "meaning": "農業、耕す"},
+        {"character": "村", "korean": "촌", "meaning": "村、集落"}
+      ],
+      "examples": [
+        {
+          "sentence": "농촌 지역의 인프라가 개선되고 있다.",
+          "meaning": "農村地域のインフラが改善されている。"
+        }
+      ],
+      "relatedWords": ["도시화", "농업"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2070",
+      "word": "빈곤",
+      "hanja": "貧困",
+      "meaning": "貧困",
+      "pronunciation": "빈곤",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "貧", "korean": "빈", "meaning": "貧しい"},
+        {"character": "困", "korean": "곤", "meaning": "困る、苦しむ"}
+      ],
+      "examples": [
+        {
+          "sentence": "빈곤 문제 해결을 위한 정책이 필요하다.",
+          "meaning": "貧困問題解決のための政策が必要だ。"
+        }
+      ],
+      "relatedWords": ["복지", "불평등"],
+      "antonyms": ["부유"],
+      "synonyms": []
+    },
+    {
+      "id": "word_2071",
+      "word": "불평등",
+      "hanja": "不平等",
+      "meaning": "不平等",
+      "pronunciation": "불평등",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "不", "korean": "불", "meaning": "〜でない"},
+        {"character": "平", "korean": "평", "meaning": "平ら、均す"},
+        {"character": "等", "korean": "등", "meaning": "等しい、種類"}
+      ],
+      "examples": [
+        {
+          "sentence": "불평등 해소가 사회적 과제다.",
+          "meaning": "不平等の解消が社会的課題だ。"
+        }
+      ],
+      "relatedWords": ["평등", "차별"],
+      "antonyms": ["평등"],
+      "synonyms": []
+    },
+    {
+      "id": "word_2072",
+      "word": "차별",
+      "hanja": "差別",
+      "meaning": "差別",
+      "pronunciation": "차별",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "差", "korean": "차", "meaning": "差、違い"},
+        {"character": "別", "korean": "별", "meaning": "分ける、区別する"}
+      ],
+      "examples": [
+        {
+          "sentence": "차별 금지법이 논의되고 있다.",
+          "meaning": "差別禁止法が議論されている。"
+        }
+      ],
+      "relatedWords": ["평등", "인권"],
+      "antonyms": ["평등"],
+      "synonyms": []
+    },
+    {
+      "id": "word_2073",
+      "word": "권리",
+      "hanja": "權利",
+      "meaning": "権利",
+      "pronunciation": "궐리",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "權", "korean": "권", "meaning": "権力、権利"},
+        {"character": "利", "korean": "리", "meaning": "利する、利益"}
+      ],
+      "examples": [
+        {
+          "sentence": "모든 국민은 기본 권리를 가진다.",
+          "meaning": "すべての国民は基本権を持つ。"
+        }
+      ],
+      "relatedWords": ["인권", "의무"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2074",
+      "word": "의무",
+      "hanja": "義務",
+      "meaning": "義務",
+      "pronunciation": "의무",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "義", "korean": "의", "meaning": "義、正しい道"},
+        {"character": "務", "korean": "무", "meaning": "務め、任務"}
+      ],
+      "examples": [
+        {
+          "sentence": "납세는 국민의 의무이다.",
+          "meaning": "納税は国民の義務だ。"
+        }
+      ],
+      "relatedWords": ["권리", "복무"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2075",
+      "word": "민주주의",
+      "hanja": "民主主義",
+      "meaning": "民主主義",
+      "pronunciation": "민주주의",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "民", "korean": "민", "meaning": "民、人民"},
+        {"character": "主", "korean": "주", "meaning": "主、主人"},
+        {"character": "義", "korean": "의", "meaning": "義、主義"}
+      ],
+      "examples": [
+        {
+          "sentence": "선거는 민주주의의 핵심 절차다.",
+          "meaning": "選挙は民主主義の核心手続きだ。"
+        }
+      ],
+      "relatedWords": ["정치", "공화국"],
+      "antonyms": ["독재"],
+      "synonyms": []
+    },
+    {
+      "id": "word_2076",
+      "word": "공산주의",
+      "hanja": "共産主義",
+      "meaning": "共産主義",
+      "pronunciation": "공산주의",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "共", "korean": "공", "meaning": "共に"},
+        {"character": "産", "korean": "산", "meaning": "産む、産業"},
+        {"character": "主", "korean": "주", "meaning": "主、主体"},
+        {"character": "義", "korean": "의", "meaning": "義、主義"}
+      ],
+      "examples": [
+        {
+          "sentence": "공산주의 이념을 채택한 국가도 있다.",
+          "meaning": "共産主義理念を採択した国家もある。"
+        }
+      ],
+      "relatedWords": ["자본주의", "사회주의"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2077",
+      "word": "자본주의",
+      "hanja": "資本主義",
+      "meaning": "資本主義",
+      "pronunciation": "자본주의",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "資", "korean": "자", "meaning": "資本、資源"},
+        {"character": "本", "korean": "본", "meaning": "本、基礎"},
+        {"character": "主", "korean": "주", "meaning": "主、主体"},
+        {"character": "義", "korean": "의", "meaning": "義、主義"}
+      ],
+      "examples": [
+        {
+          "sentence": "자본주의 사회에서 경쟁은 필수적이다.",
+          "meaning": "資本主義社会では競争が不可欠だ。"
+        }
+      ],
+      "relatedWords": ["시장경제", "공산주의"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2078",
+      "word": "시장경제",
+      "hanja": "市場經濟",
+      "meaning": "市場経済",
+      "pronunciation": "시장경제",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "high",
+      "components": [
+        {"character": "市", "korean": "시", "meaning": "市、マーケット"},
+        {"character": "場", "korean": "장", "meaning": "場所、場"},
+        {"character": "經", "korean": "경", "meaning": "経る、経済"},
+        {"character": "濟", "korean": "제", "meaning": "済ます、救う"}
+      ],
+      "examples": [
+        {
+          "sentence": "시장경제는 수요와 공급에 의해 움직인다.",
+          "meaning": "市場経済は需要と供給によって動く。"
+        }
+      ],
+      "relatedWords": ["자본주의", "계획경제"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2079",
+      "word": "계획경제",
+      "hanja": "計劃經濟",
+      "meaning": "計画経済",
+      "pronunciation": "계획경제",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "計", "korean": "계", "meaning": "計る、計算する"},
+        {"character": "劃", "korean": "획", "meaning": "区切る、計画する"},
+        {"character": "經", "korean": "경", "meaning": "経る、経済"},
+        {"character": "濟", "korean": "제", "meaning": "済ます、救う"}
+      ],
+      "examples": [
+        {
+          "sentence": "계획경제에서는 국가가 생산을 통제한다.",
+          "meaning": "計画経済では国家が生産を統制する。"
+        }
+      ],
+      "relatedWords": ["시장경제", "공산주의"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2080",
+      "word": "경기",
+      "hanja": "景氣",
+      "meaning": "景気",
+      "pronunciation": "경기",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "景", "korean": "경", "meaning": "景色、情勢"},
+        {"character": "氣", "korean": "기", "meaning": "気、雰囲気"}
+      ],
+      "examples": [
+        {
+          "sentence": "경기 회복 신호가 나타났다.",
+          "meaning": "景気回復の兆しが見られた。"
+        }
+      ],
+      "relatedWords": ["경제", "성장"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2081",
+      "word": "성장",
+      "hanja": "成長",
+      "meaning": "成長",
+      "pronunciation": "성장",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "成", "korean": "성", "meaning": "成る、成し遂げる"},
+        {"character": "長", "korean": "장", "meaning": "長い、伸びる"}
+      ],
+      "examples": [
+        {
+          "sentence": "올해 경제 성장률이 상향 조정되었다.",
+          "meaning": "今年の経済成長率が上方修正された。"
+        }
+      ],
+      "relatedWords": ["경기", "침체"],
+      "antonyms": ["침체"],
+      "synonyms": []
+    },
+    {
+      "id": "word_2082",
+      "word": "침체",
+      "hanja": "沈滯",
+      "meaning": "停滞、低迷",
+      "pronunciation": "침체",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "沈", "korean": "침", "meaning": "沈む、沈める"},
+        {"character": "滯", "korean": "체", "meaning": "滞る、止まる"}
+      ],
+      "examples": [
+        {
+          "sentence": "경기 침체가 장기화되고 있다.",
+          "meaning": "景気低迷が長期化している。"
+        }
+      ],
+      "relatedWords": ["경기", "성장"],
+      "antonyms": ["성장"],
+      "synonyms": []
+    },
+    {
+      "id": "word_2083",
+      "word": "물류",
+      "hanja": "物流",
+      "meaning": "物流",
+      "pronunciation": "물류",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "物", "korean": "물", "meaning": "物、もの"},
+        {"character": "流", "korean": "류", "meaning": "流れる、流通"}
+      ],
+      "examples": [
+        {
+          "sentence": "물류 비용을 줄이기 위한 기술이 도입됐다.",
+          "meaning": "物流コストを減らす技術が導入された。"
+        }
+      ],
+      "relatedWords": ["운송", "유통"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2084",
+      "word": "제조",
+      "hanja": "製造",
+      "meaning": "製造",
+      "pronunciation": "제조",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "製", "korean": "제", "meaning": "作る、製造する"},
+        {"character": "造", "korean": "조", "meaning": "造る、作る"}
+      ],
+      "examples": [
+        {
+          "sentence": "제조 공정을 자동화했다.",
+          "meaning": "製造工程を自動化した。"
+        }
+      ],
+      "relatedWords": ["생산", "산업"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2085",
+      "word": "생산",
+      "hanja": "生産",
+      "meaning": "生産",
+      "pronunciation": "생산",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "生", "korean": "생", "meaning": "生む、生命"},
+        {"character": "産", "korean": "산", "meaning": "産む、産業"}
+      ],
+      "examples": [
+        {
+          "sentence": "공장 가동률이 올라 생산이 증가했다.",
+          "meaning": "工場稼働率が上がり生産が増えた。"
+        }
+      ],
+      "relatedWords": ["제조", "소비"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2086",
+      "word": "소비",
+      "hanja": "消費",
+      "meaning": "消費",
+      "pronunciation": "소비",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "消", "korean": "소", "meaning": "消える、消す"},
+        {"character": "費", "korean": "비", "meaning": "費やす、費用"}
+      ],
+      "examples": [
+        {
+          "sentence": "소비 심리가 회복되고 있다.",
+          "meaning": "消費マインドが回復している。"
+        }
+      ],
+      "relatedWords": ["수요", "생산"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2087",
+      "word": "수요",
+      "hanja": "需要",
+      "meaning": "需要",
+      "pronunciation": "수요",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "需", "korean": "수", "meaning": "需、求める"},
+        {"character": "要", "korean": "요", "meaning": "要る、重要"}
+      ],
+      "examples": [
+        {
+          "sentence": "신제품 수요가 예상보다 높다.",
+          "meaning": "新製品の需要が予想より高い。"
+        }
+      ],
+      "relatedWords": ["공급", "시장"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2088",
+      "word": "공급",
+      "hanja": "供給",
+      "meaning": "供給",
+      "pronunciation": "공급",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "供", "korean": "공", "meaning": "供える、提供する"},
+        {"character": "給", "korean": "급", "meaning": "与える、支給する"}
+      ],
+      "examples": [
+        {
+          "sentence": "원자재 공급이 부족하다.",
+          "meaning": "原材料の供給が不足している。"
+        }
+      ],
+      "relatedWords": ["수요", "시장"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2089",
+      "word": "가격",
+      "hanja": "價格",
+      "meaning": "価格、値段",
+      "pronunciation": "가격",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "價", "korean": "가", "meaning": "価値、値段"},
+        {"character": "格", "korean": "격", "meaning": "格、基準"}
+      ],
+      "examples": [
+        {
+          "sentence": "가격 인상이 예고되었다.",
+          "meaning": "価格の値上げが予告された。"
+        }
+      ],
+      "relatedWords": ["물가", "비용"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2090",
+      "word": "수익",
+      "hanja": "收益",
+      "meaning": "収益、利益",
+      "pronunciation": "수익",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "收", "korean": "수", "meaning": "収める、収穫する"},
+        {"character": "益", "korean": "익", "meaning": "益する、利益"}
+      ],
+      "examples": [
+        {
+          "sentence": "분기 수익이 예상보다 높았다.",
+          "meaning": "四半期の収益が予想より高かった。"
+        }
+      ],
+      "relatedWords": ["이익", "매출"],
+      "antonyms": ["손실"],
+      "synonyms": []
+    },
+    {
+      "id": "word_2091",
+      "word": "적자",
+      "hanja": "赤字",
+      "meaning": "赤字",
+      "pronunciation": "적자",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "赤", "korean": "적", "meaning": "赤、足りない"},
+        {"character": "字", "korean": "자", "meaning": "字、記録"}
+      ],
+      "examples": [
+        {
+          "sentence": "회사가 연속 적자를 기록했다.",
+          "meaning": "会社が連続赤字を記録した。"
+        }
+      ],
+      "relatedWords": ["흑자", "손실"],
+      "antonyms": ["흑자"],
+      "synonyms": []
+    },
+    {
+      "id": "word_2092",
+      "word": "흑자",
+      "hanja": "黑字",
+      "meaning": "黒字",
+      "pronunciation": "흑짜",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "黑", "korean": "흑", "meaning": "黒"},
+        {"character": "字", "korean": "자", "meaning": "字、記録"}
+      ],
+      "examples": [
+        {
+          "sentence": "무역수지가 흑자로 전환됐다.",
+          "meaning": "貿易収支が黒字に転換した。"
+        }
+      ],
+      "relatedWords": ["적자", "수익"],
+      "antonyms": ["적자"],
+      "synonyms": []
+    },
+    {
+      "id": "word_2093",
+      "word": "예금",
+      "hanja": "預金",
+      "meaning": "預金",
+      "pronunciation": "예금",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "預", "korean": "예", "meaning": "預ける、預かる"},
+        {"character": "金", "korean": "금", "meaning": "金、資金"}
+      ],
+      "examples": [
+        {
+          "sentence": "예금 이자가 낮아졌다.",
+          "meaning": "預金金利が下がった。"
+        }
+      ],
+      "relatedWords": ["은행", "이자"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2094",
+      "word": "대출",
+      "hanja": "貸出",
+      "meaning": "貸出、ローン",
+      "pronunciation": "대출",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "貸", "korean": "대", "meaning": "貸す"},
+        {"character": "出", "korean": "출", "meaning": "出る、出す"}
+      ],
+      "examples": [
+        {
+          "sentence": "주택 대출 한도가 조정되었다.",
+          "meaning": "住宅ローンの上限が調整された。"
+        }
+      ],
+      "relatedWords": ["이자", "담보"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2095",
+      "word": "담보",
+      "hanja": "擔保",
+      "meaning": "担保",
+      "pronunciation": "담보",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "擔", "korean": "담", "meaning": "担ぐ、引き受ける"},
+        {"character": "保", "korean": "보", "meaning": "保つ、守る"}
+      ],
+      "examples": [
+        {
+          "sentence": "대출을 위해 담보를 제공했다.",
+          "meaning": "融資のために担保を提供した。"
+        }
+      ],
+      "relatedWords": ["대출", "보증"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2096",
+      "word": "보험",
+      "hanja": "保險",
+      "meaning": "保険",
+      "pronunciation": "보험",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "保", "korean": "보", "meaning": "保つ、守る"},
+        {"character": "險", "korean": "험", "meaning": "危険、険しい"}
+      ],
+      "examples": [
+        {
+          "sentence": "건강 보험료가 인상되었다.",
+          "meaning": "健康保険料が値上げされた。"
+        }
+      ],
+      "relatedWords": ["사회안전망", "보장"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2097",
+      "word": "상속",
+      "hanja": "相續",
+      "meaning": "相続",
+      "pronunciation": "상속",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "相", "korean": "상", "meaning": "互いに、相手"},
+        {"character": "續", "korean": "속", "meaning": "続く、継ぐ"}
+      ],
+      "examples": [
+        {
+          "sentence": "상속 재산을 둘러싼 분쟁이 발생했다.",
+          "meaning": "相続財産をめぐる紛争が発生した。"
+        }
+      ],
+      "relatedWords": ["유산", "법률"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2098",
+      "word": "파산",
+      "hanja": "破産",
+      "meaning": "破産",
+      "pronunciation": "파산",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "破", "korean": "파", "meaning": "破る、壊す"},
+        {"character": "産", "korean": "산", "meaning": "産物、財産"}
+      ],
+      "examples": [
+        {
+          "sentence": "기업이 법원에 파산을 신청했다.",
+          "meaning": "企業が裁判所に破産を申請した。"
+        }
+      ],
+      "relatedWords": ["채무", "법원"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2099",
+      "word": "외환",
+      "hanja": "外換",
+      "meaning": "外貨、外為",
+      "pronunciation": "외환",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "外", "korean": "외", "meaning": "外、外部"},
+        {"character": "換", "korean": "환", "meaning": "替える、換える"}
+      ],
+      "examples": [
+        {
+          "sentence": "외환 보유액이 사상 최고치를 기록했다.",
+          "meaning": "外貨準備高が過去最高を記録した。"
+        }
+      ],
+      "relatedWords": ["환율", "통화"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_2100",
+      "word": "금리",
+      "hanja": "金利",
+      "meaning": "金利、利率",
+      "pronunciation": "금리",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "金", "korean": "금", "meaning": "金、資金"},
+        {"character": "利", "korean": "리", "meaning": "利、利益"}
+      ],
+      "examples": [
+        {
+          "sentence": "중앙은행이 기준 금리를 인상했다.",
+          "meaning": "中央銀行が基準金利を引き上げた。"
+        }
+      ],
+      "relatedWords": ["이자", "통화"],
+      "antonyms": [],
+      "synonyms": []
+    }
+  ]
+}

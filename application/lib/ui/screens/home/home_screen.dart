@@ -31,6 +31,7 @@ import '../../../features/ranking_game/presentation/widgets/typing_game_section.
 import '../../../features/pronunciation_game/presentation/widgets/pronunciation_game_section.dart';
 import '../reference/kanadara_screen.dart';
 import '../grammar/grammar_list_screen.dart';
+import '../hanja/hanja_list_screen.dart';
 
 part 'home_progress_hero.dart';
 part 'home_stat_highlights.dart';

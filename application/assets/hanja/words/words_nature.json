@@ -1,0 +1,1648 @@
+{
+  "version": "1.0.0",
+  "category": "nature",
+  "categoryName": "自然・科学・医療",
+  "totalWords": 71,
+  "words": [
+    {
+      "id": "word_3001",
+      "word": "자연",
+      "hanja": "自然",
+      "meaning": "自然",
+      "pronunciation": "자연",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "自", "korean": "자", "meaning": "みずから"},
+        {"character": "然", "korean": "연", "meaning": "しかり、自然"}
+      ],
+      "examples": [
+        {
+          "sentence": "자연을 보호하는 일이 중요합니다.",
+          "meaning": "自然を守ることが重要です。"
+        }
+      ],
+      "relatedWords": ["환경", "생태"],
+      "antonyms": ["인공"],
+      "synonyms": []
+    },
+    {
+      "id": "word_3002",
+      "word": "환경",
+      "hanja": "環境",
+      "meaning": "環境",
+      "pronunciation": "환경",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "環", "korean": "환", "meaning": "環、めぐる"},
+        {"character": "境", "korean": "경", "meaning": "さかい、境界"}
+      ],
+      "examples": [
+        {
+          "sentence": "도시는 환경 문제에 민감하다.",
+          "meaning": "都市は環境問題に敏感だ。"
+        }
+      ],
+      "relatedWords": ["오염", "자연"],
+      "antonyms": [],
+      "synonyms": ["주변"]
+    },
+    {
+      "id": "word_3003",
+      "word": "생태",
+      "hanja": "生態",
+      "meaning": "生態",
+      "pronunciation": "생태",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "生", "korean": "생", "meaning": "生きる、生命"},
+        {"character": "態", "korean": "태", "meaning": "様子、姿"}
+      ],
+      "examples": [
+        {
+          "sentence": "생태 균형이 무너지고 있다.",
+          "meaning": "生態バランスが崩れている。"
+        }
+      ],
+      "relatedWords": ["자연", "환경"],
+      "antonyms": [],
+      "synonyms": ["생물상"]
+    },
+    {
+      "id": "word_3004",
+      "word": "대기",
+      "hanja": "大氣",
+      "meaning": "大気",
+      "pronunciation": "대기",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "大", "korean": "대", "meaning": "大きい"},
+        {"character": "氣", "korean": "기", "meaning": "気、空気"}
+      ],
+      "examples": [
+        {
+          "sentence": "대기 오염이 심각하다.",
+          "meaning": "大気汚染が深刻だ。"
+        }
+      ],
+      "relatedWords": ["오염", "환경"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3005",
+      "word": "수질",
+      "hanja": "水質",
+      "meaning": "水質",
+      "pronunciation": "수질",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "水", "korean": "수", "meaning": "水"},
+        {"character": "質", "korean": "질", "meaning": "質、性質"}
+      ],
+      "examples": [
+        {
+          "sentence": "정부가 수질 검사를 실시했다.",
+          "meaning": "政府が水質検査を実施した。"
+        }
+      ],
+      "relatedWords": ["오염", "환경"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3006",
+      "word": "오염",
+      "hanja": "汚染",
+      "meaning": "汚染",
+      "pronunciation": "오염",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "汚", "korean": "오", "meaning": "けがす、汚れる"},
+        {"character": "染", "korean": "염", "meaning": "染める、染みる"}
+      ],
+      "examples": [
+        {
+          "sentence": "강이 산업 폐수로 오염되었다.",
+          "meaning": "川が産業廃水で汚染された。"
+        }
+      ],
+      "relatedWords": ["환경", "대기", "수질"],
+      "antonyms": ["정화"],
+      "synonyms": ["공해"]
+    },
+    {
+      "id": "word_3007",
+      "word": "기후",
+      "hanja": "氣候",
+      "meaning": "気候",
+      "pronunciation": "기후",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "氣", "korean": "기", "meaning": "気、空気"},
+        {"character": "候", "korean": "후", "meaning": "季節、天候"}
+      ],
+      "examples": [
+        {
+          "sentence": "한반도의 기후는 온대 몬순이다.",
+          "meaning": "朝鮮半島の気候は温帯モンスーンだ。"
+        }
+      ],
+      "relatedWords": ["기온", "습도"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3008",
+      "word": "기온",
+      "hanja": "氣溫",
+      "meaning": "気温",
+      "pronunciation": "기온",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "氣", "korean": "기", "meaning": "気、空気"},
+        {"character": "溫", "korean": "온", "meaning": "温かい、温度"}
+      ],
+      "examples": [
+        {
+          "sentence": "오늘 기온이 급격히 떨어졌다.",
+          "meaning": "今日の気温が急激に下がった。"
+        }
+      ],
+      "relatedWords": ["기후", "습도"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3009",
+      "word": "습도",
+      "hanja": "濕度",
+      "meaning": "湿度",
+      "pronunciation": "습도",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "濕", "korean": "습", "meaning": "湿る、湿気"},
+        {"character": "度", "korean": "도", "meaning": "度、基準"}
+      ],
+      "examples": [
+        {
+          "sentence": "습도가 높아 불쾌하다.",
+          "meaning": "湿度が高くて不快だ。"
+        }
+      ],
+      "relatedWords": ["기온", "기후"],
+      "antonyms": ["건조"],
+      "synonyms": []
+    },
+    {
+      "id": "word_3010",
+      "word": "강수",
+      "hanja": "降水",
+      "meaning": "降水",
+      "pronunciation": "강수",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "降", "korean": "강", "meaning": "降りる、降ろす"},
+        {"character": "水", "korean": "수", "meaning": "水"}
+      ],
+      "examples": [
+        {
+          "sentence": "이번 주 강수 확률이 낮다.",
+          "meaning": "今週の降水確率が低い。"
+        }
+      ],
+      "relatedWords": ["기후", "태풍"],
+      "antonyms": [],
+      "synonyms": ["강우"]
+    },
+    {
+      "id": "word_3011",
+      "word": "태풍",
+      "hanja": "颱風",
+      "meaning": "台風",
+      "pronunciation": "태풍",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "颱", "korean": "태", "meaning": "台風"},
+        {"character": "風", "korean": "풍", "meaning": "風"}
+      ],
+      "examples": [
+        {
+          "sentence": "태풍이 한반도를 통과했다.",
+          "meaning": "台風が朝鮮半島を通過した。"
+        }
+      ],
+      "relatedWords": ["강수", "기후"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3012",
+      "word": "건조",
+      "hanja": "乾燥",
+      "meaning": "乾燥",
+      "pronunciation": "건조",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "乾", "korean": "건", "meaning": "干す、乾く"},
+        {"character": "燥", "korean": "조", "meaning": "乾く、騒ぐ"}
+      ],
+      "examples": [
+        {
+          "sentence": "건조 주의보가 발령되었다.",
+          "meaning": "乾燥注意報が発令された。"
+        }
+      ],
+      "relatedWords": ["습도"],
+      "antonyms": ["습기"],
+      "synonyms": []
+    },
+    {
+      "id": "word_3013",
+      "word": "동물",
+      "hanja": "動物",
+      "meaning": "動物",
+      "pronunciation": "동물",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "動", "korean": "동", "meaning": "動く"},
+        {"character": "物", "korean": "물", "meaning": "物、もの"}
+      ],
+      "examples": [
+        {
+          "sentence": "동물 보호 단체가 캠페인을 벌였다.",
+          "meaning": "動物保護団体がキャンペーンを展開した。"
+        }
+      ],
+      "relatedWords": ["식물", "조류"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3014",
+      "word": "식물",
+      "hanja": "植物",
+      "meaning": "植物",
+      "pronunciation": "식물",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "植", "korean": "식", "meaning": "植える、植わる"},
+        {"character": "物", "korean": "물", "meaning": "物、もの"}
+      ],
+      "examples": [
+        {
+          "sentence": "식물의 광합성을 실험했다.",
+          "meaning": "植物の光合成を実験した。"
+        }
+      ],
+      "relatedWords": ["동물", "생태"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3015",
+      "word": "조류",
+      "hanja": "鳥類",
+      "meaning": "鳥類",
+      "pronunciation": "조류",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "鳥", "korean": "조", "meaning": "鳥"},
+        {"character": "類", "korean": "류", "meaning": "類、たぐい"}
+      ],
+      "examples": [
+        {
+          "sentence": "조류 관찰이 취미이다.",
+          "meaning": "鳥類観察が趣味だ。"
+        }
+      ],
+      "relatedWords": ["동물"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3016",
+      "word": "포유류",
+      "hanja": "哺乳類",
+      "meaning": "哺乳類",
+      "pronunciation": "포유류",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "哺", "korean": "포", "meaning": "はぐくむ、養う"},
+        {"character": "乳", "korean": "유", "meaning": "乳、母乳"},
+        {"character": "類", "korean": "류", "meaning": "類、たぐい"}
+      ],
+      "examples": [
+        {
+          "sentence": "사람은 포유류에 속한다.",
+          "meaning": "人は哺乳類に属する。"
+        }
+      ],
+      "relatedWords": ["동물", "조류"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3017",
+      "word": "어류",
+      "hanja": "魚類",
+      "meaning": "魚類",
+      "pronunciation": "어류",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "魚", "korean": "어", "meaning": "魚"},
+        {"character": "類", "korean": "류", "meaning": "類、たぐい"}
+      ],
+      "examples": [
+        {
+          "sentence": "이 강에는 어류가 다양하다.",
+          "meaning": "この川には魚類が多様だ。"
+        }
+      ],
+      "relatedWords": ["동물", "곤충"],
+      "antonyms": [],
+      "synonyms": ["물고기류"]
+    },
+    {
+      "id": "word_3018",
+      "word": "곤충",
+      "hanja": "昆蟲",
+      "meaning": "昆虫",
+      "pronunciation": "곤충",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "昆", "korean": "곤", "meaning": "多くの虫"},
+        {"character": "蟲", "korean": "충", "meaning": "虫"}
+      ],
+      "examples": [
+        {
+          "sentence": "여름에는 곤충이 많다.",
+          "meaning": "夏には昆虫が多い。"
+        }
+      ],
+      "relatedWords": ["동물"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3019",
+      "word": "과학",
+      "hanja": "科學",
+      "meaning": "科学",
+      "pronunciation": "과학",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "科", "korean": "과", "meaning": "科、部門"},
+        {"character": "學", "korean": "학", "meaning": "学ぶ、学問"}
+      ],
+      "examples": [
+        {
+          "sentence": "과학 발전이 삶을 바꾸었다.",
+          "meaning": "科学の発展が生活を変えた。"
+        }
+      ],
+      "relatedWords": ["기술", "연구"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3020",
+      "word": "기술",
+      "hanja": "技術",
+      "meaning": "技術",
+      "pronunciation": "기술",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "技", "korean": "기", "meaning": "技、わざ"},
+        {"character": "術", "korean": "술", "meaning": "術、手法"}
+      ],
+      "examples": [
+        {
+          "sentence": "신기술을 도입했다.",
+          "meaning": "新技術を導入した。"
+        }
+      ],
+      "relatedWords": ["과학", "인공지능"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3021",
+      "word": "연구",
+      "hanja": "研究",
+      "meaning": "研究",
+      "pronunciation": "연구",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "研", "korean": "연", "meaning": "とぐ、研究する"},
+        {"character": "究", "korean": "구", "meaning": "きわめる"}
+      ],
+      "examples": [
+        {
+          "sentence": "새로운 치료법을 연구 중이다.",
+          "meaning": "新しい治療法を研究中だ。"
+        }
+      ],
+      "relatedWords": ["실험", "과학"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3022",
+      "word": "실험",
+      "hanja": "實驗",
+      "meaning": "実験",
+      "pronunciation": "실험",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "實", "korean": "실", "meaning": "実、まこと"},
+        {"character": "驗", "korean": "험", "meaning": "ためす、検証する"}
+      ],
+      "examples": [
+        {
+          "sentence": "실험 결과가 일관되지 않았다.",
+          "meaning": "実験結果が一貫していなかった。"
+        }
+      ],
+      "relatedWords": ["연구", "화학"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3023",
+      "word": "화학",
+      "hanja": "化學",
+      "meaning": "化学",
+      "pronunciation": "화학",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "化", "korean": "화", "meaning": "変わる、化する"},
+        {"character": "學", "korean": "학", "meaning": "学ぶ、学問"}
+      ],
+      "examples": [
+        {
+          "sentence": "화학 반응을 관찰했다.",
+          "meaning": "化学反応を観察した。"
+        }
+      ],
+      "relatedWords": ["실험", "과학"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3024",
+      "word": "인공지능",
+      "hanja": "人工知能",
+      "meaning": "人工知能",
+      "pronunciation": "인공지능",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "人", "korean": "인", "meaning": "人"},
+        {"character": "工", "korean": "공", "meaning": "工、人工"},
+        {"character": "知", "korean": "지", "meaning": "知る、知恵"},
+        {"character": "能", "korean": "능", "meaning": "能力、できる"}
+      ],
+      "examples": [
+        {
+          "sentence": "인공지능 기술이 의료에 활용된다.",
+          "meaning": "人工知能技術が医療に活用される。"
+        }
+      ],
+      "relatedWords": ["기술", "연구"],
+      "antonyms": [],
+      "synonyms": ["AI"]
+    },
+    {
+      "id": "word_3025",
+      "word": "의료",
+      "hanja": "醫療",
+      "meaning": "医療",
+      "pronunciation": "의료",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "醫", "korean": "의", "meaning": "医者、医術"},
+        {"character": "療", "korean": "료", "meaning": "治療、癒やす"}
+      ],
+      "examples": [
+        {
+          "sentence": "의료 서비스의 접근성을 높였다.",
+          "meaning": "医療サービスのアクセス性を高めた。"
+        }
+      ],
+      "relatedWords": ["치료", "수술"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3026",
+      "word": "건강",
+      "hanja": "健康",
+      "meaning": "健康",
+      "pronunciation": "건강",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "健", "korean": "건", "meaning": "健やか"},
+        {"character": "康", "korean": "강", "meaning": "健康、やすらか"}
+      ],
+      "examples": [
+        {
+          "sentence": "규칙적인 운동이 건강에 좋다.",
+          "meaning": "規則的な運動が健康によい。"
+        }
+      ],
+      "relatedWords": ["예방", "면역"],
+      "antonyms": ["질병"],
+      "synonyms": []
+    },
+    {
+      "id": "word_3027",
+      "word": "예방",
+      "hanja": "豫防",
+      "meaning": "予防",
+      "pronunciation": "예방",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "豫", "korean": "예", "meaning": "前もって、あらかじめ"},
+        {"character": "防", "korean": "방", "meaning": "防ぐ、守る"}
+      ],
+      "examples": [
+        {
+          "sentence": "예방 접종을 맞았다.",
+          "meaning": "予防接種を受けた。"
+        }
+      ],
+      "relatedWords": ["면역", "건강"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3028",
+      "word": "면역",
+      "hanja": "免疫",
+      "meaning": "免疫",
+      "pronunciation": "면역",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "免", "korean": "면", "meaning": "免れる"},
+        {"character": "疫", "korean": "역", "meaning": "疫病、流行病"}
+      ],
+      "examples": [
+        {
+          "sentence": "면역 반응을 강화한다.",
+          "meaning": "免疫反応を強化する。"
+        }
+      ],
+      "relatedWords": ["예방", "건강"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3029",
+      "word": "수술",
+      "hanja": "手術",
+      "meaning": "手術",
+      "pronunciation": "수술",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "手", "korean": "수", "meaning": "手、技"},
+        {"character": "術", "korean": "술", "meaning": "術、技術"}
+      ],
+      "examples": [
+        {
+          "sentence": "환자가 수술을 받았다.",
+          "meaning": "患者が手術を受けた。"
+        }
+      ],
+      "relatedWords": ["치료", "의료"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3030",
+      "word": "치료",
+      "hanja": "治療",
+      "meaning": "治療",
+      "pronunciation": "치료",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "治", "korean": "치", "meaning": "治す、治める"},
+        {"character": "療", "korean": "료", "meaning": "治療、癒やす"}
+      ],
+      "examples": [
+        {
+          "sentence": "적절한 치료가 필요하다.",
+          "meaning": "適切な治療が必要だ。"
+        }
+      ],
+      "relatedWords": ["의료", "수술"],
+      "antonyms": [],
+      "synonyms": ["요법"]
+    },
+    {
+      "id": "word_3031",
+      "word": "심장",
+      "hanja": "心臟",
+      "meaning": "心臓",
+      "pronunciation": "심장",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "心", "korean": "심", "meaning": "心、こころ"},
+        {"character": "臟", "korean": "장", "meaning": "臓器"}
+      ],
+      "examples": [
+        {
+          "sentence": "심장 박동이 빨라졌다.",
+          "meaning": "心臓の鼓動が速くなった。"
+        }
+      ],
+      "relatedWords": ["혈압", "호흡"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3032",
+      "word": "호흡",
+      "hanja": "呼吸",
+      "meaning": "呼吸",
+      "pronunciation": "호흡",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "呼", "korean": "호", "meaning": "呼ぶ、吐く"},
+        {"character": "吸", "korean": "흡", "meaning": "吸う"}
+      ],
+      "examples": [
+        {
+          "sentence": "호흡 곤란을 호소했다.",
+          "meaning": "呼吸困難を訴えた。"
+        }
+      ],
+      "relatedWords": ["심장", "소화"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3033",
+      "word": "소화",
+      "hanja": "消化",
+      "meaning": "消化",
+      "pronunciation": "소화",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "消", "korean": "소", "meaning": "消す、消える"},
+        {"character": "化", "korean": "화", "meaning": "変わる、化する"}
+      ],
+      "examples": [
+        {
+          "sentence": "늦은 식사는 소화에 부담을 준다.",
+          "meaning": "遅い食事は消化に負担を与える。"
+        }
+      ],
+      "relatedWords": ["호흡", "건강"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3034",
+      "word": "감염",
+      "hanja": "感染",
+      "meaning": "感染",
+      "pronunciation": "감염",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "感", "korean": "감", "meaning": "感じる、感情"},
+        {"character": "染", "korean": "염", "meaning": "染める、染みる"}
+      ],
+      "examples": [
+        {
+          "sentence": "바이러스 감염이 확산되었다.",
+          "meaning": "ウイルス感染が拡散した。"
+        }
+      ],
+      "relatedWords": ["면역", "예방"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3035",
+      "word": "혈압",
+      "hanja": "血壓",
+      "meaning": "血圧",
+      "pronunciation": "혈압",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "血", "korean": "혈", "meaning": "血"},
+        {"character": "壓", "korean": "압", "meaning": "圧、押さえる"}
+      ],
+      "examples": [
+        {
+          "sentence": "혈압을 정기적으로 측정하세요.",
+          "meaning": "血圧を定期的に測定してください。"
+        }
+      ],
+      "relatedWords": ["심장", "건강"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3036",
+      "word": "골절",
+      "hanja": "骨折",
+      "meaning": "骨折",
+      "pronunciation": "골절",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "骨", "korean": "골", "meaning": "骨"},
+        {"character": "折", "korean": "절", "meaning": "折る、折れる"}
+      ],
+      "examples": [
+        {
+          "sentence": "넘어져서 골절을 당했다.",
+          "meaning": "転んで骨折を負った。"
+        }
+      ],
+      "relatedWords": ["치료", "수술"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3037",
+      "word": "병원",
+      "hanja": "病院",
+      "meaning": "病院",
+      "pronunciation": "병원",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "病", "korean": "병", "meaning": "病気"},
+        {"character": "院", "korean": "원", "meaning": "院、建物"}
+      ],
+      "examples": [
+        {
+          "sentence": "병원에서 검사를 받았다.",
+          "meaning": "病院で検査を受けた。"
+        }
+      ],
+      "relatedWords": ["의료", "환자"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3038",
+      "word": "의사",
+      "hanja": "醫師",
+      "meaning": "医師",
+      "pronunciation": "의사",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "醫", "korean": "의", "meaning": "医者、医術"},
+        {"character": "師", "korean": "사", "meaning": "師、教師"}
+      ],
+      "examples": [
+        {
+          "sentence": "의사가 진단을 내렸다.",
+          "meaning": "医師が診断を下した。"
+        }
+      ],
+      "relatedWords": ["환자", "진단"],
+      "antonyms": [],
+      "synonyms": ["닥터"]
+    },
+    {
+      "id": "word_3039",
+      "word": "환자",
+      "hanja": "患者",
+      "meaning": "患者",
+      "pronunciation": "환자",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "患", "korean": "환", "meaning": "病む、悩む"},
+        {"character": "者", "korean": "자", "meaning": "者、人"}
+      ],
+      "examples": [
+        {
+          "sentence": "환자가 대기실에서 기다리고 있다.",
+          "meaning": "患者が待合室で待っている。"
+        }
+      ],
+      "relatedWords": ["의사", "병원"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3040",
+      "word": "치과",
+      "hanja": "齒科",
+      "meaning": "歯科",
+      "pronunciation": "치과",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "齒", "korean": "치", "meaning": "歯"},
+        {"character": "科", "korean": "과", "meaning": "科、部門"}
+      ],
+      "examples": [
+        {
+          "sentence": "치과 예약을 잡았다.",
+          "meaning": "歯科の予約を取った。"
+        }
+      ],
+      "relatedWords": ["의료", "병원"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3041",
+      "word": "약국",
+      "hanja": "藥局",
+      "meaning": "薬局",
+      "pronunciation": "약국",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "藥", "korean": "약", "meaning": "薬"},
+        {"character": "局", "korean": "국", "meaning": "局、役所"}
+      ],
+      "examples": [
+        {
+          "sentence": "처방전을 약국에 제출했다.",
+          "meaning": "処方箋を薬局に出した。"
+        }
+      ],
+      "relatedWords": ["처방", "약품"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3042",
+      "word": "처방",
+      "hanja": "處方",
+      "meaning": "処方",
+      "pronunciation": "처방",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "處", "korean": "처", "meaning": "処する、置く"},
+        {"character": "方", "korean": "방", "meaning": "方法、方角"}
+      ],
+      "examples": [
+        {
+          "sentence": "의사가 새로운 약을 처방했다.",
+          "meaning": "医師が新しい薬を処方した。"
+        }
+      ],
+      "relatedWords": ["약국", "약품"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3043",
+      "word": "약품",
+      "hanja": "藥品",
+      "meaning": "薬品",
+      "pronunciation": "약품",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "藥", "korean": "약", "meaning": "薬"},
+        {"character": "品", "korean": "품", "meaning": "品、物"}
+      ],
+      "examples": [
+        {
+          "sentence": "약품 보관에 주의해야 한다.",
+          "meaning": "薬品の保管に注意しなければならない。"
+        }
+      ],
+      "relatedWords": ["약국", "처방"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3044",
+      "word": "진단",
+      "hanja": "診斷",
+      "meaning": "診断",
+      "pronunciation": "진단",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "診", "korean": "진", "meaning": "みる、診る"},
+        {"character": "斷", "korean": "단", "meaning": "断つ、判断する"}
+      ],
+      "examples": [
+        {
+          "sentence": "정확한 진단이 치료의 출발점이다.",
+          "meaning": "正確な診断が治療の出発点だ。"
+        }
+      ],
+      "relatedWords": ["검사", "의사"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3045",
+      "word": "검사",
+      "hanja": "檢査",
+      "meaning": "検査",
+      "pronunciation": "검사",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "檢", "korean": "검", "meaning": "検査する、調べる"},
+        {"character": "査", "korean": "사", "meaning": "調べる、査定する"}
+      ],
+      "examples": [
+        {
+          "sentence": "혈액 검사를 예약했다.",
+          "meaning": "血液検査を予約した。"
+        }
+      ],
+      "relatedWords": ["진단", "혈액"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3046",
+      "word": "응급",
+      "hanja": "應急",
+      "meaning": "応急",
+      "pronunciation": "응급",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "應", "korean": "응", "meaning": "応じる"},
+        {"character": "急", "korean": "급", "meaning": "急ぐ、急ぎ"}
+      ],
+      "examples": [
+        {
+          "sentence": "응급 처치 후 병원으로 이송했다.",
+          "meaning": "応急処置の後、病院へ搬送した。"
+        }
+      ],
+      "relatedWords": ["병원", "응급실"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3047",
+      "word": "수혈",
+      "hanja": "輸血",
+      "meaning": "輸血",
+      "pronunciation": "수혈",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "輸", "korean": "수", "meaning": "運ぶ、輸送する"},
+        {"character": "血", "korean": "혈", "meaning": "血"}
+      ],
+      "examples": [
+        {
+          "sentence": "대량 출혈로 긴급 수혈이 필요했다.",
+          "meaning": "大量出血で緊急輸血が必要だった。"
+        }
+      ],
+      "relatedWords": ["혈액", "응급"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3048",
+      "word": "감기",
+      "hanja": "感氣",
+      "meaning": "風邪",
+      "pronunciation": "감기",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "感", "korean": "감", "meaning": "感じる、感情"},
+        {"character": "氣", "korean": "기", "meaning": "気、空気"}
+      ],
+      "examples": [
+        {
+          "sentence": "감기에 걸려 휴가를 냈다.",
+          "meaning": "風邪をひいて休暇を取った。"
+        }
+      ],
+      "relatedWords": ["면역", "예방"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3049",
+      "word": "폐렴",
+      "hanja": "肺炎",
+      "meaning": "肺炎",
+      "pronunciation": "폐렴",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "肺", "korean": "폐", "meaning": "肺"},
+        {"character": "炎", "korean": "염", "meaning": "炎、ほのお"}
+      ],
+      "examples": [
+        {
+          "sentence": "폐렴으로 입원했다.",
+          "meaning": "肺炎で入院した。"
+        }
+      ],
+      "relatedWords": ["호흡", "감염"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3050",
+      "word": "천식",
+      "hanja": "喘息",
+      "meaning": "喘息",
+      "pronunciation": "천식",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "喘", "korean": "천", "meaning": "あえぐ、喘ぐ"},
+        {"character": "息", "korean": "식", "meaning": "息、休む"}
+      ],
+      "examples": [
+        {
+          "sentence": "천식 발작이 자주 일어난다.",
+          "meaning": "喘息発作がよく起きる。"
+        }
+      ],
+      "relatedWords": ["호흡", "알레르기"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3051",
+      "word": "당뇨",
+      "hanja": "糖尿",
+      "meaning": "糖尿",
+      "pronunciation": "당뇨",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "糖", "korean": "당", "meaning": "糖、砂糖"},
+        {"character": "尿", "korean": "뇨", "meaning": "尿"}
+      ],
+      "examples": [
+        {
+          "sentence": "당뇨 환자는 식단 조절이 중요하다.",
+          "meaning": "糖尿の患者は食事管理が重要だ。"
+        }
+      ],
+      "relatedWords": ["혈압", "비만"],
+      "antonyms": [],
+      "synonyms": ["당뇨병"]
+    },
+    {
+      "id": "word_3052",
+      "word": "비만",
+      "hanja": "肥滿",
+      "meaning": "肥満",
+      "pronunciation": "비만",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "肥", "korean": "비", "meaning": "肥える"},
+        {"character": "滿", "korean": "만", "meaning": "満ちる、いっぱい"}
+      ],
+      "examples": [
+        {
+          "sentence": "비만은 여러 질환의 위험을 높인다.",
+          "meaning": "肥満はさまざまな疾患のリスクを高める。"
+        }
+      ],
+      "relatedWords": ["당뇨", "건강"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3053",
+      "word": "근육",
+      "hanja": "筋肉",
+      "meaning": "筋肉",
+      "pronunciation": "근육",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "筋", "korean": "근", "meaning": "筋、すじ"},
+        {"character": "肉", "korean": "육", "meaning": "肉"}
+      ],
+      "examples": [
+        {
+          "sentence": "근육 통증이 심하다.",
+          "meaning": "筋肉痛がひどい。"
+        }
+      ],
+      "relatedWords": ["신경", "운동"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3054",
+      "word": "신경",
+      "hanja": "神經",
+      "meaning": "神経",
+      "pronunciation": "신경",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "神", "korean": "신", "meaning": "神、精神"},
+        {"character": "經", "korean": "경", "meaning": "経る、すじ"}
+      ],
+      "examples": [
+        {
+          "sentence": "신경 전달 물질을 연구한다.",
+          "meaning": "神経伝達物質を研究する。"
+        }
+      ],
+      "relatedWords": ["근육", "뇌"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3055",
+      "word": "위장",
+      "hanja": "胃腸",
+      "meaning": "胃腸",
+      "pronunciation": "위장",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "胃", "korean": "위", "meaning": "胃"},
+        {"character": "腸", "korean": "장", "meaning": "腸、はらわた"}
+      ],
+      "examples": [
+        {
+          "sentence": "위장 약을 복용했다.",
+          "meaning": "胃腸薬を服用した。"
+        }
+      ],
+      "relatedWords": ["소화", "치료"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3056",
+      "word": "간장",
+      "hanja": "肝臟",
+      "meaning": "肝臓",
+      "pronunciation": "간장",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "肝", "korean": "간", "meaning": "肝、きも"},
+        {"character": "臟", "korean": "장", "meaning": "臓器"}
+      ],
+      "examples": [
+        {
+          "sentence": "간장 기능 검사를 받았다.",
+          "meaning": "肝機能検査を受けた。"
+        }
+      ],
+      "relatedWords": ["혈액", "건강"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3057",
+      "word": "신장",
+      "hanja": "腎臟",
+      "meaning": "腎臓",
+      "pronunciation": "신장",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "腎", "korean": "신", "meaning": "腎臓"},
+        {"character": "臟", "korean": "장", "meaning": "臓器"}
+      ],
+      "examples": [
+        {
+          "sentence": "신장 질환으로 투석을 받는다.",
+          "meaning": "腎臓疾患で透析を受ける。"
+        }
+      ],
+      "relatedWords": ["혈액", "치료"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3058",
+      "word": "폐",
+      "hanja": "肺",
+      "meaning": "肺",
+      "pronunciation": "폐",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "肺", "korean": "폐", "meaning": "肺"}
+      ],
+      "examples": [
+        {
+          "sentence": "흡연은 폐에 해롭다.",
+          "meaning": "喫煙は肺に有害だ。"
+        }
+      ],
+      "relatedWords": ["호흡", "폐렴"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3059",
+      "word": "혈액",
+      "hanja": "血液",
+      "meaning": "血液",
+      "pronunciation": "혈액",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "血", "korean": "혈", "meaning": "血"},
+        {"character": "液", "korean": "액", "meaning": "液、流体"}
+      ],
+      "examples": [
+        {
+          "sentence": "혈액 순환을 촉진하는 운동이 필요하다.",
+          "meaning": "血液循環を促進する運動が必要だ。"
+        }
+      ],
+      "relatedWords": ["수혈", "혈압"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3060",
+      "word": "백혈구",
+      "hanja": "白血球",
+      "meaning": "白血球",
+      "pronunciation": "백혈구",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "白", "korean": "백", "meaning": "白、しろ"},
+        {"character": "血", "korean": "혈", "meaning": "血"},
+        {"character": "球", "korean": "구", "meaning": "球、丸いもの"}
+      ],
+      "examples": [
+        {
+          "sentence": "백혈구 수치가 정상이다.",
+          "meaning": "白血球の数値が正常だ。"
+        }
+      ],
+      "relatedWords": ["면역", "혈액"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3061",
+      "word": "면역력",
+      "hanja": "免疫力",
+      "meaning": "免疫力",
+      "pronunciation": "면역력",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "免", "korean": "면", "meaning": "免れる"},
+        {"character": "疫", "korean": "역", "meaning": "疫病、流行病"},
+        {"character": "力", "korean": "력", "meaning": "力、能力"}
+      ],
+      "examples": [
+        {
+          "sentence": "충분한 수면이 면역력을 높인다.",
+          "meaning": "十分な睡眠が免疫力を高める。"
+        }
+      ],
+      "relatedWords": ["면역", "예방"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3062",
+      "word": "산림",
+      "hanja": "山林",
+      "meaning": "山林",
+      "pronunciation": "산림",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "山", "korean": "산", "meaning": "山"},
+        {"character": "林", "korean": "림", "meaning": "林、森"}
+      ],
+      "examples": [
+        {
+          "sentence": "산림 보호 정책이 강화되었다.",
+          "meaning": "山林保護政策が強化された。"
+        }
+      ],
+      "relatedWords": ["자연", "환경"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3063",
+      "word": "해양",
+      "hanja": "海洋",
+      "meaning": "海洋",
+      "pronunciation": "해양",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "海", "korean": "해", "meaning": "海"},
+        {"character": "洋", "korean": "양", "meaning": "洋、広い海"}
+      ],
+      "examples": [
+        {
+          "sentence": "해양 생태계를 조사했다.",
+          "meaning": "海洋生態系を調査した。"
+        }
+      ],
+      "relatedWords": ["해수", "생태계"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3064",
+      "word": "해수",
+      "hanja": "海水",
+      "meaning": "海水",
+      "pronunciation": "해수",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "海", "korean": "해", "meaning": "海"},
+        {"character": "水", "korean": "수", "meaning": "水"}
+      ],
+      "examples": [
+        {
+          "sentence": "해수 온도가 상승하고 있다.",
+          "meaning": "海水温が上昇している。"
+        }
+      ],
+      "relatedWords": ["해양", "기온"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3065",
+      "word": "수자원",
+      "hanja": "水資源",
+      "meaning": "水資源",
+      "pronunciation": "수자원",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "水", "korean": "수", "meaning": "水"},
+        {"character": "資", "korean": "자", "meaning": "資、たから"},
+        {"character": "源", "korean": "원", "meaning": "源、みなもと"}
+      ],
+      "examples": [
+        {
+          "sentence": "수자원 관리가 국가 과제다.",
+          "meaning": "水資源の管理が国家課題だ。"
+        }
+      ],
+      "relatedWords": ["지하수", "해수"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3066",
+      "word": "지하수",
+      "hanja": "地下水",
+      "meaning": "地下水",
+      "pronunciation": "지하수",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "地", "korean": "지", "meaning": "地"},
+        {"character": "下", "korean": "하", "meaning": "下、下の"},
+        {"character": "水", "korean": "수", "meaning": "水"}
+      ],
+      "examples": [
+        {
+          "sentence": "지하수 오염을 막아야 한다.",
+          "meaning": "地下水汚染を防がなければならない。"
+        }
+      ],
+      "relatedWords": ["수자원", "환경"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3067",
+      "word": "빙하",
+      "hanja": "氷河",
+      "meaning": "氷河",
+      "pronunciation": "빙하",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "氷", "korean": "빙", "meaning": "氷"},
+        {"character": "河", "korean": "하", "meaning": "川"}
+      ],
+      "examples": [
+        {
+          "sentence": "빙하가 빠르게 녹고 있다.",
+          "meaning": "氷河が急速に溶けている。"
+        }
+      ],
+      "relatedWords": ["기후", "해수"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3068",
+      "word": "사막",
+      "hanja": "沙漠",
+      "meaning": "砂漠",
+      "pronunciation": "사막",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "沙", "korean": "사", "meaning": "砂"},
+        {"character": "漠", "korean": "막", "meaning": "広い砂地"}
+      ],
+      "examples": [
+        {
+          "sentence": "사막 지역은 강수량이 적다.",
+          "meaning": "砂漠地域は降水量が少ない。"
+        }
+      ],
+      "relatedWords": ["건조", "초원"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3069",
+      "word": "초원",
+      "hanja": "草原",
+      "meaning": "草原",
+      "pronunciation": "초원",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "草", "korean": "초", "meaning": "草"},
+        {"character": "原", "korean": "원", "meaning": "原、はら"}
+      ],
+      "examples": [
+        {
+          "sentence": "초원에서 야생 동물이 서식한다.",
+          "meaning": "草原で野生動物が生息する。"
+        }
+      ],
+      "relatedWords": ["사막", "생태"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_3070",
+      "word": "습지",
+      "hanja": "濕地",
+      "meaning": "湿地",
+      "pronunciation": "습지",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "濕", "korean": "습", "meaning": "湿る、湿気"},
+        {"character": "地", "korean": "지", "meaning": "地、土地"}
+      ],
+      "examples": [
+        {
+          "sentence": "습지는 생태계 보전에 중요하다.",
+          "meaning": "湿地は生態系の保全に重要だ。"
+        }
+      ],
+      "relatedWords": ["생태계", "환경"],
+      "antonyms": ["건조"],
+      "synonyms": []
+    },
+    {
+      "id": "word_3071",
+      "word": "생태계",
+      "hanja": "生態系",
+      "meaning": "生態系",
+      "pronunciation": "생태계",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "生", "korean": "생", "meaning": "生きる、生命"},
+        {"character": "態", "korean": "태", "meaning": "様子、姿"},
+        {"character": "系", "korean": "계", "meaning": "系統、つながり"}
+      ],
+      "examples": [
+        {
+          "sentence": "생태계 균형을 유지해야 한다.",
+          "meaning": "生態系のバランスを維持しなければならない。"
+        }
+      ],
+      "relatedWords": ["생태", "습지"],
+      "antonyms": [],
+      "synonyms": []
+    }
+  ]
+}

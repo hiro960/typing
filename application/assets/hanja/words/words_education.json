@@ -1,0 +1,814 @@
+{
+  "version": "1.0.0",
+  "category": "education",
+  "categoryName": "教育・学問",
+  "totalWords": 40,
+  "words": [
+    {
+      "id": "word_1001",
+      "word": "교육",
+      "hanja": "敎育",
+      "meaning": "教育",
+      "pronunciation": "교육",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "敎", "korean": "교", "meaning": "教える"},
+        {"character": "育", "korean": "육", "meaning": "育てる"}
+      ],
+      "examples": [
+        {"sentence": "기초 교육을 강화하고 있다.", "meaning": "基礎教育を強化している。"}
+      ],
+      "relatedWords": ["학교", "수업", "교사"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1002",
+      "word": "학교",
+      "hanja": "學校",
+      "meaning": "学校",
+      "pronunciation": "학꾜",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "學", "korean": "학", "meaning": "学ぶ"},
+        {"character": "校", "korean": "교", "meaning": "学校"}
+      ],
+      "examples": [
+        {"sentence": "학교에 가는 길이 눈으로 덮였다.", "meaning": "学校へ向かう道が雪で覆われた。"}
+      ],
+      "relatedWords": ["학생", "교실", "수업"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1003",
+      "word": "학생",
+      "hanja": "學生",
+      "meaning": "学生",
+      "pronunciation": "학쌩",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "學", "korean": "학", "meaning": "学ぶ"},
+        {"character": "生", "korean": "생", "meaning": "生徒、生命"}
+      ],
+      "examples": [
+        {"sentence": "학생들이 도서관에서 시험을 준비한다.", "meaning": "学生たちが図書館で試験を準備している。"}
+      ],
+      "relatedWords": ["학교", "수업", "시험"],
+      "antonyms": [],
+      "synonyms": ["학습자"]
+    },
+    {
+      "id": "word_1004",
+      "word": "교사",
+      "hanja": "敎師",
+      "meaning": "教師",
+      "pronunciation": "교사",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "敎", "korean": "교", "meaning": "教える"},
+        {"character": "師", "korean": "사", "meaning": "師、教師"}
+      ],
+      "examples": [
+        {"sentence": "교사는 학생들의 질문에 성실히 답했다.", "meaning": "教師は学生の質問に誠実に答えた。"}
+      ],
+      "relatedWords": ["교육", "수업", "학생"],
+      "antonyms": [],
+      "synonyms": ["선생"]
+    },
+    {
+      "id": "word_1005",
+      "word": "교실",
+      "hanja": "敎室",
+      "meaning": "教室",
+      "pronunciation": "교실",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "敎", "korean": "교", "meaning": "教える"},
+        {"character": "室", "korean": "실", "meaning": "室、部屋"}
+      ],
+      "examples": [
+        {"sentence": "교실에 새 칠판이 설치되었다.", "meaning": "教室に新しい黒板が設置された。"}
+      ],
+      "relatedWords": ["학교", "수업"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1006",
+      "word": "수업",
+      "hanja": "授業",
+      "meaning": "授業",
+      "pronunciation": "수업",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "授", "korean": "수", "meaning": "授ける"},
+        {"character": "業", "korean": "업", "meaning": "業、仕事"}
+      ],
+      "examples": [
+        {"sentence": "오늘 수업은 토론 중심으로 진행된다.", "meaning": "今日の授業は討論中心で進められる。"}
+      ],
+      "relatedWords": ["시험", "강의", "교실"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1007",
+      "word": "시험",
+      "hanja": "試驗",
+      "meaning": "試験",
+      "pronunciation": "시험",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "試", "korean": "시", "meaning": "試す"},
+        {"character": "驗", "korean": "험", "meaning": "検証する"}
+      ],
+      "examples": [
+        {"sentence": "다음 주에 자격 시험을 본다.", "meaning": "来週資格試験を受ける。"}
+      ],
+      "relatedWords": ["수업", "합격"],
+      "antonyms": [],
+      "synonyms": ["테스트"]
+    },
+    {
+      "id": "word_1008",
+      "word": "입학",
+      "hanja": "入學",
+      "meaning": "入学",
+      "pronunciation": "이팍",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "入", "korean": "입", "meaning": "入る"},
+        {"character": "學", "korean": "학", "meaning": "学ぶ"}
+      ],
+      "examples": [
+        {"sentence": "그녀는 원하는 대학에 입학했다.", "meaning": "彼女は希望の大学に入学した。"}
+      ],
+      "relatedWords": ["시험", "대학", "합격"],
+      "antonyms": ["퇴학"],
+      "synonyms": []
+    },
+    {
+      "id": "word_1009",
+      "word": "졸업",
+      "hanja": "卒業",
+      "meaning": "卒業",
+      "pronunciation": "조럽",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "卒", "korean": "졸", "meaning": "卒業する・終える"},
+        {"character": "業", "korean": "업", "meaning": "業、仕事"}
+      ],
+      "examples": [
+        {"sentence": "졸업 후에 해외에서 공부할 계획이다.", "meaning": "卒業後に海外で勉強する予定だ。"}
+      ],
+      "relatedWords": ["대학", "합격"],
+      "antonyms": ["중퇴"],
+      "synonyms": []
+    },
+    {
+      "id": "word_1010",
+      "word": "합격",
+      "hanja": "合格",
+      "meaning": "合格",
+      "pronunciation": "합껵",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "合", "korean": "합", "meaning": "合う・合わせる"},
+        {"character": "格", "korean": "격", "meaning": "格、資格"}
+      ],
+      "examples": [
+        {"sentence": "시험에 합격해서 가족에게 바로 전화했다.", "meaning": "試験に合格して家族にすぐ電話した。"}
+      ],
+      "relatedWords": ["시험", "입학"],
+      "antonyms": ["불합격"],
+      "synonyms": []
+    },
+    {
+      "id": "word_1011",
+      "word": "장학금",
+      "hanja": "獎學金",
+      "meaning": "奨学金",
+      "pronunciation": "장학끔",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "獎", "korean": "장", "meaning": "奨める・褒賞する"},
+        {"character": "學", "korean": "학", "meaning": "学ぶ"},
+        {"character": "金", "korean": "금", "meaning": "金・お金"}
+      ],
+      "examples": [
+        {"sentence": "장학금을 받으면 등록금 부담이 줄어든다.", "meaning": "奨学金を受ければ学費の負担が減る。"}
+      ],
+      "relatedWords": ["학생", "대학", "교육"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1012",
+      "word": "교육과정",
+      "hanja": "敎育課程",
+      "meaning": "教育課程・カリキュラム",
+      "pronunciation": "교육과정",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "敎", "korean": "교", "meaning": "教える"},
+        {"character": "育", "korean": "육", "meaning": "育てる"},
+        {"character": "課", "korean": "과", "meaning": "課、科目"},
+        {"character": "程", "korean": "정", "meaning": "程、課程"}
+      ],
+      "examples": [
+        {"sentence": "새 교육과정이 다음 학기부터 적용된다.", "meaning": "新しい教育課程が次の学期から適用される。"}
+      ],
+      "relatedWords": ["교과서", "수업"],
+      "antonyms": [],
+      "synonyms": ["커리큘럼"]
+    },
+    {
+      "id": "word_1013",
+      "word": "교과서",
+      "hanja": "敎科書",
+      "meaning": "教科書",
+      "pronunciation": "교과서",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "敎", "korean": "교", "meaning": "教える"},
+        {"character": "科", "korean": "과", "meaning": "科、科目"},
+        {"character": "書", "korean": "서", "meaning": "書物"}
+      ],
+      "examples": [
+        {"sentence": "교과서를 미리 예습해 왔다.", "meaning": "教科書を事前に予習してきた。"}
+      ],
+      "relatedWords": ["교육과정", "수업"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1014",
+      "word": "강의",
+      "hanja": "講義",
+      "meaning": "講義",
+      "pronunciation": "강의",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "講", "korean": "강", "meaning": "講義する"},
+        {"character": "義", "korean": "의", "meaning": "義、意味"}
+      ],
+      "examples": [
+        {"sentence": "이번 강의는 녹화 영상으로 제공된다.", "meaning": "今回の講義は録画映像で提供される。"}
+      ],
+      "relatedWords": ["수업", "대학"],
+      "antonyms": [],
+      "synonyms": ["강연"]
+    },
+    {
+      "id": "word_1015",
+      "word": "전공",
+      "hanja": "專攻",
+      "meaning": "専攻",
+      "pronunciation": "전공",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "專", "korean": "전", "meaning": "専ら"},
+        {"character": "攻", "korean": "공", "meaning": "攻める・専攻する"}
+      ],
+      "examples": [
+        {"sentence": "나는 생명공학을 전공했다.", "meaning": "私は生命工学を専攻した。"}
+      ],
+      "relatedWords": ["대학", "학문"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1016",
+      "word": "대학",
+      "hanja": "大學",
+      "meaning": "大学",
+      "pronunciation": "대학",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "大", "korean": "대", "meaning": "大きい"},
+        {"character": "學", "korean": "학", "meaning": "学ぶ"}
+      ],
+      "examples": [
+        {"sentence": "대학 캠퍼스가 도심에 위치해 있다.", "meaning": "大学のキャンパスが都心に位置している。"}
+      ],
+      "relatedWords": ["입학", "졸업", "전공"],
+      "antonyms": [],
+      "synonyms": ["대학교"]
+    },
+    {
+      "id": "word_1017",
+      "word": "대학원",
+      "hanja": "大學院",
+      "meaning": "大学院",
+      "pronunciation": "대학원",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "大", "korean": "대", "meaning": "大きい"},
+        {"character": "學", "korean": "학", "meaning": "学ぶ"},
+        {"character": "院", "korean": "원", "meaning": "院、機関"}
+      ],
+      "examples": [
+        {"sentence": "대학원 입시를 준비하며 연구 계획서를 작성했다.", "meaning": "大学院入試を準備しながら研究計画書を書いた。"}
+      ],
+      "relatedWords": ["연구", "논문"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1018",
+      "word": "연구",
+      "hanja": "研究",
+      "meaning": "研究",
+      "pronunciation": "연구",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "研", "korean": "연", "meaning": "研究する・磨く"},
+        {"character": "究", "korean": "구", "meaning": "究める"}
+      ],
+      "examples": [
+        {"sentence": "신약 개발 연구가 빠르게 진행되고 있다.", "meaning": "新薬開発の研究が迅速に進んでいる。"}
+      ],
+      "relatedWords": ["실험", "논문", "학술"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1019",
+      "word": "학문",
+      "hanja": "學問",
+      "meaning": "学問",
+      "pronunciation": "항문",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "學", "korean": "학", "meaning": "学ぶ"},
+        {"character": "問", "korean": "문", "meaning": "問う・問うこと"}
+      ],
+      "examples": [
+        {"sentence": "학문적 호기심이 그의 진로를 결정했다.", "meaning": "学問的な好奇心が彼の進路を決めた。"}
+      ],
+      "relatedWords": ["연구", "학술"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1020",
+      "word": "학술",
+      "hanja": "學術",
+      "meaning": "学術",
+      "pronunciation": "학쓸",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "學", "korean": "학", "meaning": "学ぶ"},
+        {"character": "術", "korean": "술", "meaning": "術、技術"}
+      ],
+      "examples": [
+        {"sentence": "학술 대회에서 최신 연구 결과를 발표했다.", "meaning": "学術大会で最新の研究結果を発表した。"}
+      ],
+      "relatedWords": ["연구", "학문"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1021",
+      "word": "학자",
+      "hanja": "學者",
+      "meaning": "学者",
+      "pronunciation": "학짜",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "學", "korean": "학", "meaning": "学ぶ"},
+        {"character": "者", "korean": "자", "meaning": "者、人"}
+      ],
+      "examples": [
+        {"sentence": "그 학자는 언어학 분야의 권위자다.", "meaning": "その学者は言語学分野の権威だ。"}
+      ],
+      "relatedWords": ["연구", "학문"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1022",
+      "word": "논문",
+      "hanja": "論文",
+      "meaning": "論文",
+      "pronunciation": "논문",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "論", "korean": "논", "meaning": "論じる"},
+        {"character": "文", "korean": "문", "meaning": "文、文章"}
+      ],
+      "examples": [
+        {"sentence": "논문을 국제 학술지에 게재했다.", "meaning": "論文を国際学術誌に掲載した。"}
+      ],
+      "relatedWords": ["연구", "학술", "대학원"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1023",
+      "word": "실험",
+      "hanja": "實驗",
+      "meaning": "実験",
+      "pronunciation": "시럼",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "實", "korean": "실", "meaning": "実、真実"},
+        {"character": "驗", "korean": "험", "meaning": "試す・検証する"}
+      ],
+      "examples": [
+        {"sentence": "실험 결과가 예상과 달랐다.", "meaning": "実験結果が予想と違った。"}
+      ],
+      "relatedWords": ["연구", "가설", "증명"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1024",
+      "word": "어학",
+      "hanja": "語學",
+      "meaning": "語学",
+      "pronunciation": "어학",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "語", "korean": "어", "meaning": "言語、言う"},
+        {"character": "學", "korean": "학", "meaning": "学ぶ"}
+      ],
+      "examples": [
+        {"sentence": "어학 실력을 높이기 위해 매일 듣기 연습을 한다.", "meaning": "語学力を高めるために毎日リスニング練習をする。"}
+      ],
+      "relatedWords": ["외국어", "문법"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1025",
+      "word": "문법",
+      "hanja": "文法",
+      "meaning": "文法",
+      "pronunciation": "문뻡",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "文", "korean": "문", "meaning": "文"},
+        {"character": "法", "korean": "법", "meaning": "法、規則"}
+      ],
+      "examples": [
+        {"sentence": "문법 오류를 꼼꼼히 수정했다.", "meaning": "文法の誤りを丁寧に修正した。"}
+      ],
+      "relatedWords": ["어학", "문학"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1026",
+      "word": "문학",
+      "hanja": "文學",
+      "meaning": "文学",
+      "pronunciation": "문학",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "文", "korean": "문", "meaning": "文"},
+        {"character": "學", "korean": "학", "meaning": "学ぶ"}
+      ],
+      "examples": [
+        {"sentence": "현대 문학 작품을 분석하는 수업이다.", "meaning": "現代文学の作品を分析する授業だ。"}
+      ],
+      "relatedWords": ["고전", "어학"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1027",
+      "word": "국어",
+      "hanja": "國語",
+      "meaning": "国語",
+      "pronunciation": "구거",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "國", "korean": "국", "meaning": "国"},
+        {"character": "語", "korean": "어", "meaning": "言語、言葉"}
+      ],
+      "examples": [
+        {"sentence": "국어 시험 범위가 상당히 넓다.", "meaning": "国語の試験範囲がかなり広い。"}
+      ],
+      "relatedWords": ["문법", "문학"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1028",
+      "word": "외국어",
+      "hanja": "外國語",
+      "meaning": "外国語",
+      "pronunciation": "외구거",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "外", "korean": "외", "meaning": "外"},
+        {"character": "國", "korean": "국", "meaning": "国"},
+        {"character": "語", "korean": "어", "meaning": "言語、言葉"}
+      ],
+      "examples": [
+        {"sentence": "외국어 능력을 위해 교환학생을 준비한다.", "meaning": "外国語能力向上のため交換留学を準備する。"}
+      ],
+      "relatedWords": ["어학", "번역"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1029",
+      "word": "번역",
+      "hanja": "翻譯",
+      "meaning": "翻訳",
+      "pronunciation": "버녁",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "翻", "korean": "번", "meaning": "ひるがえす・翻す"},
+        {"character": "譯", "korean": "역", "meaning": "訳す"}
+      ],
+      "examples": [
+        {"sentence": "번역 품질을 향상시키기 위해 두 번 검토했다.", "meaning": "翻訳の品質を上げるために二度見直した。"}
+      ],
+      "relatedWords": ["외국어", "문학"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1030",
+      "word": "고전",
+      "hanja": "古典",
+      "meaning": "古典",
+      "pronunciation": "고전",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "古", "korean": "고", "meaning": "古い"},
+        {"character": "典", "korean": "전", "meaning": "典、規範"}
+      ],
+      "examples": [
+        {"sentence": "고전을 통해 시대의 사상을 배운다.", "meaning": "古典を通じて時代の思想を学ぶ。"}
+      ],
+      "relatedWords": ["문학", "역사"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1031",
+      "word": "역사",
+      "hanja": "歷史",
+      "meaning": "歴史",
+      "pronunciation": "역싸",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "歷", "korean": "역", "meaning": "歴・経る"},
+        {"character": "史", "korean": "사", "meaning": "史、記録"}
+      ],
+      "examples": [
+        {"sentence": "역사 수업에서 근대사를 집중적으로 다룬다.", "meaning": "歴史の授業で近代史を重点的に扱う。"}
+      ],
+      "relatedWords": ["지리", "고전"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1032",
+      "word": "지리",
+      "hanja": "地理",
+      "meaning": "地理",
+      "pronunciation": "지리",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "地", "korean": "지", "meaning": "地、土地"},
+        {"character": "理", "korean": "리", "meaning": "理、道理"}
+      ],
+      "examples": [
+        {"sentence": "지리 시간에 세계 기후대를 공부했다.", "meaning": "地理の時間に世界の気候帯を学んだ。"}
+      ],
+      "relatedWords": ["지도", "역사"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1033",
+      "word": "지도",
+      "hanja": "地圖",
+      "meaning": "地図",
+      "pronunciation": "지도",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "地", "korean": "지", "meaning": "地、土地"},
+        {"character": "圖", "korean": "도", "meaning": "図、絵"}
+      ],
+      "examples": [
+        {"sentence": "지도에 없는 작은 마을을 발견했다.", "meaning": "地図にない小さな村を見つけた。"}
+      ],
+      "relatedWords": ["지리", "역사"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1034",
+      "word": "수학",
+      "hanja": "數學",
+      "meaning": "数学",
+      "pronunciation": "수학",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "數", "korean": "수", "meaning": "数、数える"},
+        {"character": "學", "korean": "학", "meaning": "学ぶ"}
+      ],
+      "examples": [
+        {"sentence": "수학 문제를 해결하는 데 시간이 걸렸다.", "meaning": "数学の問題を解くのに時間がかかった。"}
+      ],
+      "relatedWords": ["기하", "대수", "논리"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1035",
+      "word": "기하",
+      "hanja": "幾何",
+      "meaning": "幾何学",
+      "pronunciation": "기하",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "幾", "korean": "기", "meaning": "いくつ・幾多"},
+        {"character": "何", "korean": "하", "meaning": "何、いくつ"}
+      ],
+      "examples": [
+        {"sentence": "기하 과제에서 입체도형을 증명했다.", "meaning": "幾何の課題で立体図形を証明した。"}
+      ],
+      "relatedWords": ["수학", "증명"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1036",
+      "word": "대수",
+      "hanja": "代數",
+      "meaning": "代数学",
+      "pronunciation": "대수",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "代", "korean": "대", "meaning": "代わり・代"},
+        {"character": "數", "korean": "수", "meaning": "数、数える"}
+      ],
+      "examples": [
+        {"sentence": "대수 수업에서 행렬 계산을 배웠다.", "meaning": "代数学の授業で行列計算を学んだ。"}
+      ],
+      "relatedWords": ["수학", "기하"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1037",
+      "word": "논리",
+      "hanja": "論理",
+      "meaning": "論理",
+      "pronunciation": "놀리",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "論", "korean": "논", "meaning": "論じる"},
+        {"character": "理", "korean": "리", "meaning": "理、筋道"}
+      ],
+      "examples": [
+        {"sentence": "논리적 근거 없이 주장을 펼치지 말아야 한다.", "meaning": "論理的根拠なしに主張を広げてはならない。"}
+      ],
+      "relatedWords": ["증명", "수학"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1038",
+      "word": "증명",
+      "hanja": "證明",
+      "meaning": "証明",
+      "pronunciation": "증명",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "證", "korean": "증", "meaning": "証明する"},
+        {"character": "明", "korean": "명", "meaning": "明らかにする"}
+      ],
+      "examples": [
+        {"sentence": "정리를 증명하는 과정이 길었다.", "meaning": "定理を証明する過程が長かった。"}
+      ],
+      "relatedWords": ["논리", "가설"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1039",
+      "word": "가설",
+      "hanja": "假設",
+      "meaning": "仮説",
+      "pronunciation": "가설",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "假", "korean": "가", "meaning": "仮の"},
+        {"character": "設", "korean": "설", "meaning": "設ける"}
+      ],
+      "examples": [
+        {"sentence": "가설을 세우고 실험을 설계했다.", "meaning": "仮説を立てて実験を設計した。"}
+      ],
+      "relatedWords": ["실험", "증명"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_1040",
+      "word": "통계",
+      "hanja": "統計",
+      "meaning": "統計",
+      "pronunciation": "통계",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "統", "korean": "통", "meaning": "統べる・まとめる"},
+        {"character": "計", "korean": "계", "meaning": "計る・計算する"}
+      ],
+      "examples": [
+        {"sentence": "통계 분석으로 데이터를 해석했다.", "meaning": "統計分析でデータを解釈した。"}
+      ],
+      "relatedWords": ["수학", "분석"],
+      "antonyms": [],
+      "synonyms": ["통계학"]
+    }
+  ]
+}

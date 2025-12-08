@@ -1,0 +1,1853 @@
+{
+  "version": "1.0.0",
+  "category": "daily",
+  "categoryName": "日常生活",
+  "totalWords": 80,
+  "words": [
+    {
+      "id": "word_0001",
+      "word": "가족",
+      "hanja": "家族",
+      "meaning": "家族",
+      "pronunciation": "가족",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "家", "korean": "가", "meaning": "家"},
+        {"character": "族", "korean": "족", "meaning": "族、一族"}
+      ],
+      "examples": [
+        {
+          "sentence": "우리 가족은 주말마다 함께 식사를 합니다.",
+          "meaning": "私の家族は毎週末一緒に食事をします."
+        }
+      ],
+      "relatedWords": ["가정", "친척", "부모"],
+      "antonyms": [],
+      "synonyms": ["식구"]
+    },
+    {
+      "id": "word_0002",
+      "word": "부모",
+      "hanja": "父母",
+      "meaning": "両親",
+      "pronunciation": "부모",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "父", "korean": "부", "meaning": "父"},
+        {"character": "母", "korean": "모", "meaning": "母"}
+      ],
+      "examples": [
+        {
+          "sentence": "부모님은 항상 응원해 주세요.",
+          "meaning": "両親はいつも応援してくれます."
+        }
+      ],
+      "relatedWords": ["자녀", "가족"],
+      "antonyms": [],
+      "synonyms": ["어버이"]
+    },
+    {
+      "id": "word_0003",
+      "word": "자녀",
+      "hanja": "子女",
+      "meaning": "子供",
+      "pronunciation": "자녀",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "子", "korean": "자", "meaning": "子"},
+        {"character": "女", "korean": "녀", "meaning": "女"}
+      ],
+      "examples": [
+        {
+          "sentence": "부모는 자녀 교육에 많은 관심을 갖습니다.",
+          "meaning": "親は子どもの教育に大きな関心を持っています."
+        }
+      ],
+      "relatedWords": ["부모", "가족"],
+      "antonyms": [],
+      "synonyms": ["자식"]
+    },
+    {
+      "id": "word_0004",
+      "word": "형제",
+      "hanja": "兄弟",
+      "meaning": "兄弟",
+      "pronunciation": "형제",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "兄", "korean": "형", "meaning": "兄"},
+        {"character": "弟", "korean": "제", "meaning": "弟"}
+      ],
+      "examples": [
+        {
+          "sentence": "형제끼리 자주 연락합니다.",
+          "meaning": "兄弟同士でよく連絡します."
+        }
+      ],
+      "relatedWords": ["자매", "가족"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0005",
+      "word": "자매",
+      "hanja": "姊妹",
+      "meaning": "姉妹",
+      "pronunciation": "자매",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "姊", "korean": "자", "meaning": "姉"},
+        {"character": "妹", "korean": "매", "meaning": "妹"}
+      ],
+      "examples": [
+        {
+          "sentence": "자매는 취미가 비슷합니다.",
+          "meaning": "姉妹は趣味が似ています."
+        }
+      ],
+      "relatedWords": ["형제", "가족"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0006",
+      "word": "부부",
+      "hanja": "夫婦",
+      "meaning": "夫婦",
+      "pronunciation": "부부",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "夫", "korean": "부", "meaning": "夫"},
+        {"character": "婦", "korean": "부", "meaning": "妻、婦人"}
+      ],
+      "examples": [
+        {
+          "sentence": "부부는 주말 여행을 계획 중입니다.",
+          "meaning": "夫婦は週末の旅行を計画中です."
+        }
+      ],
+      "relatedWords": ["가족", "배우자"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0007",
+      "word": "친척",
+      "hanja": "親戚",
+      "meaning": "親戚",
+      "pronunciation": "친척",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "親", "korean": "친", "meaning": "親しい、親"},
+        {"character": "戚", "korean": "척", "meaning": "親戚"}
+      ],
+      "examples": [
+        {
+          "sentence": "명절에는 친척이 모두 모입니다.",
+          "meaning": "名節には親戚が皆集まります."
+        }
+      ],
+      "relatedWords": ["가족", "조부모"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0008",
+      "word": "가정",
+      "hanja": "家庭",
+      "meaning": "家庭",
+      "pronunciation": "가정",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "家", "korean": "가", "meaning": "家"},
+        {"character": "庭", "korean": "정", "meaning": "庭"}
+      ],
+      "examples": [
+        {
+          "sentence": "가정의 평화를 지키고 싶어요.",
+          "meaning": "家庭の平和を守りたいです."
+        }
+      ],
+      "relatedWords": ["가족", "주택"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0009",
+      "word": "조부모",
+      "hanja": "祖父母",
+      "meaning": "祖父母",
+      "pronunciation": "조부모",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "祖", "korean": "조", "meaning": "祖先"},
+        {"character": "父", "korean": "부", "meaning": "父"},
+        {"character": "母", "korean": "모", "meaning": "母"}
+      ],
+      "examples": [
+        {
+          "sentence": "조부모님을 뵈러 시골에 갑니다.",
+          "meaning": "祖父母に会いに田舎へ行きます."
+        }
+      ],
+      "relatedWords": ["손자", "친척"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0010",
+      "word": "손자",
+      "hanja": "孫子",
+      "meaning": "孫",
+      "pronunciation": "손자",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "孫", "korean": "손", "meaning": "孫"},
+        {"character": "子", "korean": "자", "meaning": "子"}
+      ],
+      "examples": [
+        {
+          "sentence": "할머니는 손자를 정성껏 돌봅니다.",
+          "meaning": "祖母は孫の世話を心を込めてします."
+        }
+      ],
+      "relatedWords": ["조부모", "가족"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0011",
+      "word": "식사",
+      "hanja": "食事",
+      "meaning": "食事",
+      "pronunciation": "식사",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "食", "korean": "식", "meaning": "食べる"},
+        {"character": "事", "korean": "사", "meaning": "事"}
+      ],
+      "examples": [
+        {
+          "sentence": "식사 시간은 정해져 있습니다.",
+          "meaning": "食事の時間は決まっています."
+        }
+      ],
+      "relatedWords": ["간식", "음식"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0012",
+      "word": "음식",
+      "hanja": "飲食",
+      "meaning": "食べ物",
+      "pronunciation": "음식",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "飲", "korean": "음", "meaning": "飲む"},
+        {"character": "食", "korean": "식", "meaning": "食べる"}
+      ],
+      "examples": [
+        {
+          "sentence": "한식은 다양한 음식이 있습니다.",
+          "meaning": "韓国料理には多様な食べ物があります."
+        }
+      ],
+      "relatedWords": ["요리", "음료"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0013",
+      "word": "요리",
+      "hanja": "料理",
+      "meaning": "料理",
+      "pronunciation": "요리",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "料", "korean": "료", "meaning": "材料"},
+        {"character": "理", "korean": "리", "meaning": "整える、理"}
+      ],
+      "examples": [
+        {
+          "sentence": "저는 새로운 요리법을 배우고 있습니다.",
+          "meaning": "私は新しい料理法を学んでいます."
+        }
+      ],
+      "relatedWords": ["식사", "주방"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0014",
+      "word": "식당",
+      "hanja": "食堂",
+      "meaning": "食堂",
+      "pronunciation": "식당",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "食", "korean": "식", "meaning": "食べる"},
+        {"character": "堂", "korean": "당", "meaning": "堂、建物"}
+      ],
+      "examples": [
+        {
+          "sentence": "회사 근처에 맛있는 식당이 많아요.",
+          "meaning": "会社の近くにおいしい食堂がたくさんあります."
+        }
+      ],
+      "relatedWords": ["음식", "요리"],
+      "antonyms": [],
+      "synonyms": ["음식점"]
+    },
+    {
+      "id": "word_0015",
+      "word": "음료",
+      "hanja": "飲料",
+      "meaning": "飲み物",
+      "pronunciation": "음료",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "飲", "korean": "음", "meaning": "飲む"},
+        {"character": "料", "korean": "료", "meaning": "材料、料"}
+      ],
+      "examples": [
+        {
+          "sentence": "음료는 냉장고에 있습니다.",
+          "meaning": "飲み物は冷蔵庫にあります."
+        }
+      ],
+      "relatedWords": ["음식", "물"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0016",
+      "word": "야채",
+      "hanja": "野菜",
+      "meaning": "野菜",
+      "pronunciation": "야채",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "野", "korean": "야", "meaning": "野原"},
+        {"character": "菜", "korean": "채", "meaning": "菜、野菜"}
+      ],
+      "examples": [
+        {
+          "sentence": "야채를 많이 먹으면 건강에 좋습니다.",
+          "meaning": "野菜をたくさん食べると健康に良いです."
+        }
+      ],
+      "relatedWords": ["과실", "육류"],
+      "antonyms": [],
+      "synonyms": ["채소"]
+    },
+    {
+      "id": "word_0017",
+      "word": "과실",
+      "hanja": "果實",
+      "meaning": "果物",
+      "pronunciation": "과실",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "果", "korean": "과", "meaning": "果物"},
+        {"character": "實", "korean": "실", "meaning": "実、内容"}
+      ],
+      "examples": [
+        {
+          "sentence": "신선한 과실을 시장에서 샀습니다.",
+          "meaning": "新鮮な果物を市場で買いました."
+        }
+      ],
+      "relatedWords": ["야채", "간식"],
+      "antonyms": [],
+      "synonyms": ["과일"]
+    },
+    {
+      "id": "word_0018",
+      "word": "육류",
+      "hanja": "肉類",
+      "meaning": "肉類",
+      "pronunciation": "육류",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "肉", "korean": "육", "meaning": "肉"},
+        {"character": "類", "korean": "류", "meaning": "種類"}
+      ],
+      "examples": [
+        {
+          "sentence": "건강을 위해 육류 섭취를 줄이고 있습니다.",
+          "meaning": "健康のために肉類の摂取を減らしています."
+        }
+      ],
+      "relatedWords": ["야채", "음식"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0019",
+      "word": "간식",
+      "hanja": "間食",
+      "meaning": "間食、おやつ",
+      "pronunciation": "간식",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "間", "korean": "간", "meaning": "間、合間"},
+        {"character": "食", "korean": "식", "meaning": "食べる"}
+      ],
+      "examples": [
+        {
+          "sentence": "오후에 간식으로 과일을 먹었어요.",
+          "meaning": "午後におやつとして果物を食べました."
+        }
+      ],
+      "relatedWords": ["식사", "과실"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0020",
+      "word": "주방",
+      "hanja": "廚房",
+      "meaning": "台所、キッチン",
+      "pronunciation": "주방",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "廚", "korean": "주", "meaning": "台所"},
+        {"character": "房", "korean": "방", "meaning": "部屋"}
+      ],
+      "examples": [
+        {
+          "sentence": "주방에서 요리 준비를 하고 있습니다.",
+          "meaning": "キッチンで料理の準備をしています."
+        }
+      ],
+      "relatedWords": ["요리", "식탁"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0021",
+      "word": "식탁",
+      "hanja": "食卓",
+      "meaning": "食卓",
+      "pronunciation": "식탁",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "食", "korean": "식", "meaning": "食べる"},
+        {"character": "卓", "korean": "탁", "meaning": "卓、机"}
+      ],
+      "examples": [
+        {
+          "sentence": "식탁 위에 따뜻한 국이 놓여 있습니다.",
+          "meaning": "食卓の上に温かいスープがあります."
+        }
+      ],
+      "relatedWords": ["주방", "식사"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0022",
+      "word": "의복",
+      "hanja": "衣服",
+      "meaning": "衣服",
+      "pronunciation": "의복",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "衣", "korean": "의", "meaning": "衣服"},
+        {"character": "服", "korean": "복", "meaning": "服"}
+      ],
+      "examples": [
+        {
+          "sentence": "계절에 맞는 의복을 준비하세요.",
+          "meaning": "季節に合った衣服を用意してください."
+        }
+      ],
+      "relatedWords": ["세탁", "위생"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0023",
+      "word": "신체",
+      "hanja": "身體",
+      "meaning": "身体",
+      "pronunciation": "신체",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "身", "korean": "신", "meaning": "身"},
+        {"character": "體", "korean": "체", "meaning": "体"}
+      ],
+      "examples": [
+        {
+          "sentence": "운동은 신체 건강에 도움이 됩니다.",
+          "meaning": "運動は身体の健康に役立ちます."
+        }
+      ],
+      "relatedWords": ["위생", "목욕"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0024",
+      "word": "세탁",
+      "hanja": "洗濯",
+      "meaning": "洗濯",
+      "pronunciation": "세탁",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "洗", "korean": "세", "meaning": "洗う"},
+        {"character": "濯", "korean": "탁", "meaning": "濯ぐ"}
+      ],
+      "examples": [
+        {
+          "sentence": "세탁은 주말에 몰아서 합니다.",
+          "meaning": "洗濯は週末にまとめてします."
+        }
+      ],
+      "relatedWords": ["의복", "위생"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0025",
+      "word": "목욕",
+      "hanja": "沐浴",
+      "meaning": "入浴",
+      "pronunciation": "목욕",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "沐", "korean": "목", "meaning": "洗い清める"},
+        {"character": "浴", "korean": "욕", "meaning": "浴びる"}
+      ],
+      "examples": [
+        {
+          "sentence": "저녁에 따뜻한 목욕을 즐겼어요.",
+          "meaning": "夕方に温かいお風呂を楽しみました."
+        }
+      ],
+      "relatedWords": ["위생", "신체"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0026",
+      "word": "위생",
+      "hanja": "衛生",
+      "meaning": "衛生",
+      "pronunciation": "위생",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "衛", "korean": "위", "meaning": "守る"},
+        {"character": "生", "korean": "생", "meaning": "生、生命"}
+      ],
+      "examples": [
+        {
+          "sentence": "손 씻기는 기본적인 위생 습관입니다.",
+          "meaning": "手洗いは基本的な衛生習慣です."
+        }
+      ],
+      "relatedWords": ["세탁", "목욕"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0027",
+      "word": "주택",
+      "hanja": "住宅",
+      "meaning": "住宅",
+      "pronunciation": "주택",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "住", "korean": "주", "meaning": "住む"},
+        {"character": "宅", "korean": "택", "meaning": "宅"}
+      ],
+      "examples": [
+        {
+          "sentence": "도심에는 아파트 주택이 많습니다.",
+          "meaning": "都心にはアパート住宅が多いです."
+        }
+      ],
+      "relatedWords": ["거실", "가정"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0028",
+      "word": "거실",
+      "hanja": "居室",
+      "meaning": "居間、リビング",
+      "pronunciation": "거실",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "居", "korean": "거", "meaning": "居る"},
+        {"character": "室", "korean": "실", "meaning": "室、部屋"}
+      ],
+      "examples": [
+        {
+          "sentence": "거실에 큰 소파가 놓여 있습니다.",
+          "meaning": "リビングに大きなソファがあります."
+        }
+      ],
+      "relatedWords": ["주택", "침실"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0029",
+      "word": "침실",
+      "hanja": "寢室",
+      "meaning": "寝室",
+      "pronunciation": "침실",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "寢", "korean": "침", "meaning": "寝る"},
+        {"character": "室", "korean": "실", "meaning": "室、部屋"}
+      ],
+      "examples": [
+        {
+          "sentence": "침실은 조용하고 편안해야 합니다.",
+          "meaning": "寝室は静かで快適でなければなりません."
+        }
+      ],
+      "relatedWords": ["거실", "욕실"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0030",
+      "word": "욕실",
+      "hanja": "浴室",
+      "meaning": "浴室",
+      "pronunciation": "욕실",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "浴", "korean": "욕", "meaning": "浴びる"},
+        {"character": "室", "korean": "실", "meaning": "室、部屋"}
+      ],
+      "examples": [
+        {
+          "sentence": "욕실 청소는 일주일에 한 번 합니다.",
+          "meaning": "浴室の掃除は週に一度行います."
+        }
+      ],
+      "relatedWords": ["목욕", "주택"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0031",
+      "word": "가구",
+      "hanja": "家具",
+      "meaning": "家具",
+      "pronunciation": "가구",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "家", "korean": "가", "meaning": "家"},
+        {"character": "具", "korean": "구", "meaning": "道具、備え"}
+      ],
+      "examples": [
+        {
+          "sentence": "새 가구를 들여서 집 분위기가 달라졌습니다.",
+          "meaning": "新しい家具を入れて家の雰囲気が変わりました."
+        }
+      ],
+      "relatedWords": ["거실", "주택"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0032",
+      "word": "전등",
+      "hanja": "電燈",
+      "meaning": "電灯",
+      "pronunciation": "전등",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "電", "korean": "전", "meaning": "電気"},
+        {"character": "燈", "korean": "등", "meaning": "灯り"}
+      ],
+      "examples": [
+        {
+          "sentence": "밤에는 전등을 끄고 잠을 잡니다.",
+          "meaning": "夜は電灯を消して寝ます."
+        }
+      ],
+      "relatedWords": ["주택", "가구"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0033",
+      "word": "냉장고",
+      "hanja": "冷藏庫",
+      "meaning": "冷蔵庫",
+      "pronunciation": "냉장고",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "冷", "korean": "냉", "meaning": "冷たい"},
+        {"character": "藏", "korean": "장", "meaning": "蔵える"},
+        {"character": "庫", "korean": "고", "meaning": "庫、倉庫"}
+      ],
+      "examples": [
+        {
+          "sentence": "냉장고에 야채가 가득합니다.",
+          "meaning": "冷蔵庫に野菜がいっぱいです."
+        }
+      ],
+      "relatedWords": ["음식", "음료"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0034",
+      "word": "시간",
+      "hanja": "時間",
+      "meaning": "時間",
+      "pronunciation": "시간",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "時", "korean": "시", "meaning": "時"},
+        {"character": "間", "korean": "간", "meaning": "間、時間"}
+      ],
+      "examples": [
+        {
+          "sentence": "시간 약속을 잘 지켜 주세요.",
+          "meaning": "時間の約束を守ってください."
+        }
+      ],
+      "relatedWords": ["오전", "오후"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0035",
+      "word": "오전",
+      "hanja": "午前",
+      "meaning": "午前",
+      "pronunciation": "오전",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "午", "korean": "오", "meaning": "午"},
+        {"character": "前", "korean": "전", "meaning": "前"}
+      ],
+      "examples": [
+        {
+          "sentence": "회의는 오전 10시에 시작됩니다.",
+          "meaning": "会議は午前10時に始まります."
+        }
+      ],
+      "relatedWords": ["오후", "시간"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0036",
+      "word": "오후",
+      "hanja": "午後",
+      "meaning": "午後",
+      "pronunciation": "오후",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "午", "korean": "오", "meaning": "午"},
+        {"character": "後", "korean": "후", "meaning": "後、後ろ"}
+      ],
+      "examples": [
+        {
+          "sentence": "오후에는 산책을 즐깁니다.",
+          "meaning": "午後には散歩を楽しみます."
+        }
+      ],
+      "relatedWords": ["오전", "주말"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0037",
+      "word": "금일",
+      "hanja": "今日",
+      "meaning": "本日",
+      "pronunciation": "금일",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "今", "korean": "금", "meaning": "今、現在"},
+        {"character": "日", "korean": "일", "meaning": "日、日付"}
+      ],
+      "examples": [
+        {
+          "sentence": "금일 일정은 오후에 집중되어 있습니다.",
+          "meaning": "本日の予定は午後に集中しています."
+        }
+      ],
+      "relatedWords": ["시간", "주말"],
+      "antonyms": [],
+      "synonyms": ["오늘"]
+    },
+    {
+      "id": "word_0038",
+      "word": "금년",
+      "hanja": "今年",
+      "meaning": "今年",
+      "pronunciation": "금년",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "今", "korean": "금", "meaning": "今、現在"},
+        {"character": "年", "korean": "년", "meaning": "年"}
+      ],
+      "examples": [
+        {
+          "sentence": "금년 목표를 다시 한 번 확인합시다.",
+          "meaning": "今年の目標をもう一度確認しましょう."
+        }
+      ],
+      "relatedWords": ["내년", "시간"],
+      "antonyms": [],
+      "synonyms": ["올해"]
+    },
+    {
+      "id": "word_0039",
+      "word": "내년",
+      "hanja": "來年",
+      "meaning": "来年",
+      "pronunciation": "내년",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "來", "korean": "내", "meaning": "来る"},
+        {"character": "年", "korean": "년", "meaning": "年"}
+      ],
+      "examples": [
+        {
+          "sentence": "내년에는 가족 여행을 가고 싶습니다.",
+          "meaning": "来年は家族旅行に行きたいです."
+        }
+      ],
+      "relatedWords": ["금년", "시간"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0040",
+      "word": "주말",
+      "hanja": "週末",
+      "meaning": "週末",
+      "pronunciation": "주말",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "週", "korean": "주", "meaning": "週"},
+        {"character": "末", "korean": "말", "meaning": "終わり"}
+      ],
+      "examples": [
+        {
+          "sentence": "주말에는 휴식을 취하거나 취미 활동을 합니다.",
+          "meaning": "週末には休憩したり趣味の活動をしたりします."
+        }
+      ],
+      "relatedWords": ["시간", "오후"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0041",
+      "word": "약속",
+      "hanja": "約束",
+      "meaning": "約束",
+      "pronunciation": "약속",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "約", "korean": "약", "meaning": "約、約束する"},
+        {"character": "束", "korean": "속", "meaning": "束ねる"}
+      ],
+      "examples": [
+        {
+          "sentence": "약속 시간을 잘 지켜야 합니다.",
+          "meaning": "約束の時間を守らなければなりません."
+        }
+      ],
+      "relatedWords": ["시간", "정시"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0042",
+      "word": "외출",
+      "hanja": "外出",
+      "meaning": "外出",
+      "pronunciation": "외출",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "外", "korean": "외", "meaning": "外"},
+        {"character": "出", "korean": "출", "meaning": "出る"}
+      ],
+      "examples": [
+        {
+          "sentence": "외출 전에 문을 잘 잠그세요.",
+          "meaning": "外出前にドアをしっかり閉めてください."
+        }
+      ],
+      "relatedWords": ["귀가", "약속"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0043",
+      "word": "귀가",
+      "hanja": "歸家",
+      "meaning": "帰宅",
+      "pronunciation": "귀가",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "歸", "korean": "귀", "meaning": "帰る"},
+        {"character": "家", "korean": "가", "meaning": "家"}
+      ],
+      "examples": [
+        {
+          "sentence": "늦게 귀가해서 가족이 걱정했어요.",
+          "meaning": "遅く帰宅して家族が心配しました."
+        }
+      ],
+      "relatedWords": ["외출", "가족"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0044",
+      "word": "출근",
+      "hanja": "出勤",
+      "meaning": "出勤",
+      "pronunciation": "출근",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "出", "korean": "출", "meaning": "出る"},
+        {"character": "勤", "korean": "근", "meaning": "勤める"}
+      ],
+      "examples": [
+        {
+          "sentence": "매일 8시에 출근합니다.",
+          "meaning": "毎日8時に出勤します."
+        }
+      ],
+      "relatedWords": ["퇴근", "정시"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0045",
+      "word": "퇴근",
+      "hanja": "退勤",
+      "meaning": "退勤",
+      "pronunciation": "퇴근",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "退", "korean": "퇴", "meaning": "退く"},
+        {"character": "勤", "korean": "근", "meaning": "勤める"}
+      ],
+      "examples": [
+        {
+          "sentence": "퇴근 후에 운동을 합니다.",
+          "meaning": "退勤後に運動をします."
+        }
+      ],
+      "relatedWords": ["출근", "휴가"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0046",
+      "word": "휴가",
+      "hanja": "休暇",
+      "meaning": "休暇",
+      "pronunciation": "휴가",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "休", "korean": "휴", "meaning": "休む"},
+        {"character": "暇", "korean": "가", "meaning": "暇"}
+      ],
+      "examples": [
+        {
+          "sentence": "휴가를 받아 여행을 떠납니다.",
+          "meaning": "休暇を取って旅行に出ます."
+        }
+      ],
+      "relatedWords": ["퇴근", "연휴"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0047",
+      "word": "지각",
+      "hanja": "遲刻",
+      "meaning": "遅刻",
+      "pronunciation": "지각",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "遲", "korean": "지", "meaning": "遅い"},
+        {"character": "刻", "korean": "각", "meaning": "刻む、刻"}
+      ],
+      "examples": [
+        {
+          "sentence": "오늘 지각해서 죄송합니다.",
+          "meaning": "今日は遅刻してすみません."
+        }
+      ],
+      "relatedWords": ["정시", "출근"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0048",
+      "word": "정시",
+      "hanja": "定時",
+      "meaning": "定刻",
+      "pronunciation": "정시",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "定", "korean": "정", "meaning": "定める"},
+        {"character": "時", "korean": "시", "meaning": "時"}
+      ],
+      "examples": [
+        {
+          "sentence": "회의가 정시에 시작됩니다.",
+          "meaning": "会議が定刻に始まります."
+        }
+      ],
+      "relatedWords": ["약속", "출근"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0049",
+      "word": "단위",
+      "hanja": "單位",
+      "meaning": "単位",
+      "pronunciation": "단위",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "單", "korean": "단", "meaning": "単、単一"},
+        {"character": "位", "korean": "위", "meaning": "位置、くらい"}
+      ],
+      "examples": [
+        {
+          "sentence": "길이 단위를 미터로 환산하세요.",
+          "meaning": "長さの単位をメートルに換算してください."
+        }
+      ],
+      "relatedWords": ["중량", "용량"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0050",
+      "word": "중량",
+      "hanja": "重量",
+      "meaning": "重量",
+      "pronunciation": "중량",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "重", "korean": "중", "meaning": "重い"},
+        {"character": "量", "korean": "량", "meaning": "量、測る"}
+      ],
+      "examples": [
+        {
+          "sentence": "짐의 중량을 확인했습니다.",
+          "meaning": "荷物の重量を確認しました."
+        }
+      ],
+      "relatedWords": ["단위", "금액"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0051",
+      "word": "용량",
+      "hanja": "容量",
+      "meaning": "容量",
+      "pronunciation": "용량",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "容", "korean": "용", "meaning": "容れる"},
+        {"character": "量", "korean": "량", "meaning": "量"}
+      ],
+      "examples": [
+        {
+          "sentence": "병의 용량은 500ml입니다.",
+          "meaning": "ボトルの容量は500mlです."
+        }
+      ],
+      "relatedWords": ["단위", "중량"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0052",
+      "word": "면적",
+      "hanja": "面積",
+      "meaning": "面積",
+      "pronunciation": "면적",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "面", "korean": "면", "meaning": "面、表"},
+        {"character": "積", "korean": "적", "meaning": "積む、積"}
+      ],
+      "examples": [
+        {
+          "sentence": "방의 면적을 계산해 보겠습니다.",
+          "meaning": "部屋の面積を計算してみます."
+        }
+      ],
+      "relatedWords": ["체적", "단위"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0053",
+      "word": "체적",
+      "hanja": "體積",
+      "meaning": "体積",
+      "pronunciation": "체적",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "體", "korean": "체", "meaning": "体"},
+        {"character": "積", "korean": "적", "meaning": "積む、積"}
+      ],
+      "examples": [
+        {
+          "sentence": "체적을 줄이기 위해 물건을 압축했습니다.",
+          "meaning": "体積を減らすために物を圧縮しました."
+        }
+      ],
+      "relatedWords": ["면적", "용량"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0054",
+      "word": "가격",
+      "hanja": "價格",
+      "meaning": "価格",
+      "pronunciation": "가격",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "價", "korean": "가", "meaning": "価値、値段"},
+        {"character": "格", "korean": "격", "meaning": "格、程度"}
+      ],
+      "examples": [
+        {
+          "sentence": "가격이 합리적이라서 구입했습니다.",
+          "meaning": "価格が合理的だったので購入しました."
+        }
+      ],
+      "relatedWords": ["금액", "할인"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0055",
+      "word": "금액",
+      "hanja": "金額",
+      "meaning": "金額",
+      "pronunciation": "금액",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "金", "korean": "금", "meaning": "金、金銭"},
+        {"character": "額", "korean": "액", "meaning": "額、ひたい"}
+      ],
+      "examples": [
+        {
+          "sentence": "총 금액을 다시 확인해 주세요.",
+          "meaning": "総金額をもう一度確認してください."
+        }
+      ],
+      "relatedWords": ["가격", "할인"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0056",
+      "word": "할인",
+      "hanja": "割引",
+      "meaning": "割引",
+      "pronunciation": "할인",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "high",
+      "components": [
+        {"character": "割", "korean": "할", "meaning": "割る、分ける"},
+        {"character": "引", "korean": "인", "meaning": "引く"}
+      ],
+      "examples": [
+        {
+          "sentence": "할인 기간에 물건을 샀습니다.",
+          "meaning": "割引期間に商品を買いました."
+        }
+      ],
+      "relatedWords": ["가격", "금액"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0057",
+      "word": "조식",
+      "hanja": "朝食",
+      "meaning": "朝食",
+      "pronunciation": "조식",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "朝", "korean": "조", "meaning": "朝"},
+        {"character": "食", "korean": "식", "meaning": "食べる"}
+      ],
+      "examples": [
+        {
+          "sentence": "호텔에서 조식이 제공됩니다.",
+          "meaning": "ホテルで朝食が提供されます."
+        }
+      ],
+      "relatedWords": ["중식", "석식"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0058",
+      "word": "중식",
+      "hanja": "中食",
+      "meaning": "昼食",
+      "pronunciation": "중식",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "中", "korean": "중", "meaning": "中"},
+        {"character": "食", "korean": "식", "meaning": "食べる"}
+      ],
+      "examples": [
+        {
+          "sentence": "중식을 학교 식당에서 먹었습니다.",
+          "meaning": "昼食を学校の食堂で食べました."
+        }
+      ],
+      "relatedWords": ["조식", "석식"],
+      "antonyms": [],
+      "synonyms": ["점심"]
+    },
+    {
+      "id": "word_0059",
+      "word": "석식",
+      "hanja": "夕食",
+      "meaning": "夕食",
+      "pronunciation": "석식",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "夕", "korean": "석", "meaning": "夕方"},
+        {"character": "食", "korean": "식", "meaning": "食べる"}
+      ],
+      "examples": [
+        {
+          "sentence": "석식으로 가족과 함께 외식했습니다.",
+          "meaning": "夕食に家族と外食しました."
+        }
+      ],
+      "relatedWords": ["조식", "중식"],
+      "antonyms": [],
+      "synonyms": ["저녁식사"]
+    },
+    {
+      "id": "word_0060",
+      "word": "기념일",
+      "hanja": "記念日",
+      "meaning": "記念日",
+      "pronunciation": "기념일",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "記", "korean": "기", "meaning": "記す"},
+        {"character": "念", "korean": "념", "meaning": "念じる"},
+        {"character": "日", "korean": "일", "meaning": "日"}
+      ],
+      "examples": [
+        {
+          "sentence": "결혼 기념일을 축하합니다.",
+          "meaning": "結婚記念日を祝います."
+        }
+      ],
+      "relatedWords": ["생일", "시간"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0061",
+      "word": "생일",
+      "hanja": "生日",
+      "meaning": "誕生日",
+      "pronunciation": "생일",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "生", "korean": "생", "meaning": "生まれる"},
+        {"character": "日", "korean": "일", "meaning": "日"}
+      ],
+      "examples": [
+        {
+          "sentence": "생일 축하 파티를 열었습니다.",
+          "meaning": "誕生日のパーティーを開きました."
+        }
+      ],
+      "relatedWords": ["기념일", "시간"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0062",
+      "word": "요일",
+      "hanja": "曜日",
+      "meaning": "曜日",
+      "pronunciation": "요일",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "曜", "korean": "요", "meaning": "曜日"},
+        {"character": "日", "korean": "일", "meaning": "日"}
+      ],
+      "examples": [
+        {
+          "sentence": "요일별로 운동 계획을 세웠습니다.",
+          "meaning": "曜日ごとに運動計画を立てました."
+        }
+      ],
+      "relatedWords": ["시간", "주간"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0063",
+      "word": "주간",
+      "hanja": "週間",
+      "meaning": "一週間",
+      "pronunciation": "주간",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "週", "korean": "주", "meaning": "週"},
+        {"character": "間", "korean": "간", "meaning": "間"}
+      ],
+      "examples": [
+        {
+          "sentence": "주간 스케줄을 공유합니다.",
+          "meaning": "週間スケジュールを共有します."
+        }
+      ],
+      "relatedWords": ["요일", "시간"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0064",
+      "word": "월급",
+      "hanja": "月給",
+      "meaning": "月給",
+      "pronunciation": "월급",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "月", "korean": "월", "meaning": "月"},
+        {"character": "給", "korean": "급", "meaning": "給する、支給"}
+      ],
+      "examples": [
+        {
+          "sentence": "월급은 말일에 입금됩니다.",
+          "meaning": "月給は月末に振り込まれます."
+        }
+      ],
+      "relatedWords": ["금액", "가격"],
+      "antonyms": [],
+      "synonyms": ["급여"]
+    },
+    {
+      "id": "word_0065",
+      "word": "연휴",
+      "hanja": "連休",
+      "meaning": "連休",
+      "pronunciation": "연휴",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "連", "korean": "연", "meaning": "連なる"},
+        {"character": "休", "korean": "휴", "meaning": "休む"}
+      ],
+      "examples": [
+        {
+          "sentence": "연휴에 고향을 방문할 예정입니다.",
+          "meaning": "連休に故郷を訪ねる予定です."
+        }
+      ],
+      "relatedWords": ["휴가", "주말"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0066",
+      "word": "정오",
+      "hanja": "正午",
+      "meaning": "正午",
+      "pronunciation": "정오",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "正", "korean": "정", "meaning": "正しい"},
+        {"character": "午", "korean": "오", "meaning": "午"}
+      ],
+      "examples": [
+        {
+          "sentence": "정오에 점심을 먹습니다.",
+          "meaning": "正午に昼食を取ります."
+        }
+      ],
+      "relatedWords": ["자정", "시간"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0067",
+      "word": "자정",
+      "hanja": "子正",
+      "meaning": "真夜中",
+      "pronunciation": "자정",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "子", "korean": "자", "meaning": "子、十二支の子"},
+        {"character": "正", "korean": "정", "meaning": "正しい"}
+      ],
+      "examples": [
+        {
+          "sentence": "자정이 되기 전에 귀가하세요.",
+          "meaning": "真夜中になる前に帰宅してください."
+        }
+      ],
+      "relatedWords": ["정오", "심야"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0068",
+      "word": "심야",
+      "hanja": "深夜",
+      "meaning": "深夜",
+      "pronunciation": "심야",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "深", "korean": "심", "meaning": "深い"},
+        {"character": "夜", "korean": "야", "meaning": "夜"}
+      ],
+      "examples": [
+        {
+          "sentence": "심야 버스를 이용했습니다.",
+          "meaning": "深夜バスを利用しました."
+        }
+      ],
+      "relatedWords": ["자정", "시간"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0069",
+      "word": "의류",
+      "hanja": "衣類",
+      "meaning": "衣類",
+      "pronunciation": "의류",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "衣", "korean": "의", "meaning": "衣服"},
+        {"character": "類", "korean": "류", "meaning": "類、種類"}
+      ],
+      "examples": [
+        {
+          "sentence": "의류를 계절별로 정리했습니다.",
+          "meaning": "衣類を季節ごとに整理しました."
+        }
+      ],
+      "relatedWords": ["의복", "세탁"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0070",
+      "word": "수건",
+      "hanja": "手巾",
+      "meaning": "タオル",
+      "pronunciation": "수건",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "手", "korean": "수", "meaning": "手"},
+        {"character": "巾", "korean": "건", "meaning": "巾、布"}
+      ],
+      "examples": [
+        {
+          "sentence": "깨끗한 수건을 준비했어요.",
+          "meaning": "清潔なタオルを用意しました."
+        }
+      ],
+      "relatedWords": ["세면", "위생"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0071",
+      "word": "화장품",
+      "hanja": "化粧品",
+      "meaning": "化粧品",
+      "pronunciation": "화장품",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "化", "korean": "화", "meaning": "化ける"},
+        {"character": "粧", "korean": "장", "meaning": "粧う"},
+        {"character": "品", "korean": "품", "meaning": "品物"}
+      ],
+      "examples": [
+        {
+          "sentence": "새로운 화장품을 구매했습니다.",
+          "meaning": "新しい化粧品を購入しました."
+        }
+      ],
+      "relatedWords": ["세면", "양치"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0072",
+      "word": "세면",
+      "hanja": "洗面",
+      "meaning": "洗面",
+      "pronunciation": "세면",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "洗", "korean": "세", "meaning": "洗う"},
+        {"character": "面", "korean": "면", "meaning": "面、顔"}
+      ],
+      "examples": [
+        {
+          "sentence": "아침 세면 후 상쾌합니다.",
+          "meaning": "朝の洗面後はさっぱりします."
+        }
+      ],
+      "relatedWords": ["양치", "위생"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0073",
+      "word": "양치",
+      "hanja": "養齒",
+      "meaning": "歯磨き",
+      "pronunciation": "양치",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "養", "korean": "양", "meaning": "養う"},
+        {"character": "齒", "korean": "치", "meaning": "歯"}
+      ],
+      "examples": [
+        {
+          "sentence": "식사 후 양치를 꼭 하세요.",
+          "meaning": "食後は必ず歯磨きをしてください."
+        }
+      ],
+      "relatedWords": ["세면", "수건"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0074",
+      "word": "창문",
+      "hanja": "窓門",
+      "meaning": "窓",
+      "pronunciation": "창문",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "窓", "korean": "창", "meaning": "窓"},
+        {"character": "門", "korean": "문", "meaning": "門"}
+      ],
+      "examples": [
+        {
+          "sentence": "창문을 열어 환기했습니다.",
+          "meaning": "窓を開けて換気しました."
+        }
+      ],
+      "relatedWords": ["주택", "정원"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0075",
+      "word": "현관",
+      "hanja": "玄關",
+      "meaning": "玄関",
+      "pronunciation": "현관",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "玄", "korean": "현", "meaning": "奥深い、玄"},
+        {"character": "關", "korean": "관", "meaning": "関わる、関所"}
+      ],
+      "examples": [
+        {
+          "sentence": "현관에 신발을 정리해 두었습니다.",
+          "meaning": "玄関に靴を整理しておきました."
+        }
+      ],
+      "relatedWords": ["주택", "계단"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0076",
+      "word": "계단",
+      "hanja": "階段",
+      "meaning": "階段",
+      "pronunciation": "계단",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "階", "korean": "계", "meaning": "階"},
+        {"character": "段", "korean": "단", "meaning": "段"}
+      ],
+      "examples": [
+        {
+          "sentence": "계단을 조심해서 오르세요.",
+          "meaning": "階段を気をつけて上ってください."
+        }
+      ],
+      "relatedWords": ["엘리베이터", "복도"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0077",
+      "word": "복도",
+      "hanja": "複道",
+      "meaning": "廊下",
+      "pronunciation": "복도",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "複", "korean": "복", "meaning": "複数、重ねる"},
+        {"character": "道", "korean": "도", "meaning": "道"}
+      ],
+      "examples": [
+        {
+          "sentence": "복도가 넓어서 이동이 편합니다.",
+          "meaning": "廊下が広くて移動が楽です."
+        }
+      ],
+      "relatedWords": ["계단", "주택"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0078",
+      "word": "주차장",
+      "hanja": "駐車場",
+      "meaning": "駐車場",
+      "pronunciation": "주차장",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "medium",
+      "components": [
+        {"character": "駐", "korean": "주", "meaning": "駐める"},
+        {"character": "車", "korean": "차", "meaning": "車"},
+        {"character": "場", "korean": "장", "meaning": "場所"}
+      ],
+      "examples": [
+        {
+          "sentence": "주차장은 지하 2층에 있습니다.",
+          "meaning": "駐車場は地下2階にあります."
+        }
+      ],
+      "relatedWords": ["주택", "외출"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0079",
+      "word": "옥상",
+      "hanja": "屋上",
+      "meaning": "屋上",
+      "pronunciation": "옥상",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "屋", "korean": "옥", "meaning": "屋根、建物"},
+        {"character": "上", "korean": "상", "meaning": "上"}
+      ],
+      "examples": [
+        {
+          "sentence": "옥상에서 하늘을 바라보았습니다.",
+          "meaning": "屋上で空を眺めました."
+        }
+      ],
+      "relatedWords": ["정원", "주택"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_0080",
+      "word": "정원",
+      "hanja": "庭園",
+      "meaning": "庭園",
+      "pronunciation": "정원",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "庭", "korean": "정", "meaning": "庭"},
+        {"character": "園", "korean": "원", "meaning": "園"}
+      ],
+      "examples": [
+        {
+          "sentence": "정원에 꽃을 심었습니다.",
+          "meaning": "庭園に花を植えました."
+        }
+      ],
+      "relatedWords": ["창문", "주택"],
+      "antonyms": [],
+      "synonyms": []
+    }
+  ]
+}

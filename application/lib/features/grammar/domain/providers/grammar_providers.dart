@@ -91,6 +91,19 @@ class GrammarFilterState {
       selectedCategory != null ||
       selectedLevel != null ||
       searchQuery.isNotEmpty;
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    return other is GrammarFilterState &&
+        other.selectedCategory == selectedCategory &&
+        other.selectedLevel == selectedLevel &&
+        other.searchQuery == searchQuery;
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(selectedCategory, selectedLevel, searchQuery);
 }
 
 @riverpod
@@ -101,16 +114,18 @@ class GrammarFilterNotifier extends _$GrammarFilterNotifier {
   }
 
   void setCategory(GrammarCategory? category) {
-    state = state.copyWith(
+    state = GrammarFilterState(
       selectedCategory: category,
-      clearCategory: category == null,
+      selectedLevel: state.selectedLevel,
+      searchQuery: state.searchQuery,
     );
   }
 
   void setLevel(GrammarLevel? level) {
-    state = state.copyWith(
+    state = GrammarFilterState(
+      selectedCategory: state.selectedCategory,
       selectedLevel: level,
-      clearLevel: level == null,
+      searchQuery: state.searchQuery,
     );
   }
 
