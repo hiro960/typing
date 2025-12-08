@@ -414,7 +414,9 @@ class _ExerciseCard extends StatelessWidget {
           const SizedBox(height: AppSpacing.md),
           // 問題文
           Text(
-            exercise.question,
+            exercise.type == ExerciseType.translation
+                ? (exercise.japanese ?? exercise.question)
+                : exercise.question,
             style: theme.textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.bold,
             ),
