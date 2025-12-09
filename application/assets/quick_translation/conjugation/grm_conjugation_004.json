@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_004",
+  "grammarTitle": "ㅅ不規則",
+  "grammarSubtitle": "ㅅ脱落（짓다→지어요）",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_004_01",
+      "order": 1,
+      "japanese": "家を建てます。",
+      "korean": "집을 지어요.",
+      "alternativeAnswers": ["집을 짓습니다."],
+      "hint": "집을...",
+      "explanation": "「짓다」は母音語尾前でㅅが脱落し「지어요」、子音始まりでは 짓습니다 です。"
+    },
+    {
+      "id": "qt_conjugation_004_02",
+      "order": 2,
+      "japanese": "名前を付けました。",
+      "korean": "이름을 지었어요.",
+      "alternativeAnswers": ["이름을 지었습니다."],
+      "hint": "이름을...",
+      "explanation": "過去形でも母音語尾前でㅅが落ち「지었어요」になります。"
+    },
+    {
+      "id": "qt_conjugation_004_03",
+      "order": 3,
+      "japanese": "風邪が良くなりました。",
+      "korean": "감기가 나았어요.",
+      "alternativeAnswers": ["감기가 나았습니다."],
+      "hint": "감기가...",
+      "explanation": "「낫다」はㅅ脱落で「나아요/나았어요」と活用します。"
+    },
+    {
+      "id": "qt_conjugation_004_04",
+      "order": 4,
+      "japanese": "今日は腕が腫れました。",
+      "korean": "오늘 팔이 부었어요.",
+      "alternativeAnswers": ["오늘 팔이 부었습니다."],
+      "hint": "오늘...",
+      "explanation": "「붓다」は母音語尾でㅅが脱落し「부었어요」になります。"
+    },
+    {
+      "id": "qt_conjugation_004_05",
+      "order": 5,
+      "japanese": "スープをかき混ぜます。",
+      "korean": "국을 저어요.",
+      "alternativeAnswers": ["국을 젓습니다."],
+      "hint": "국을...",
+      "explanation": "「젓다」は母音語尾前でㅅが落ち「저어요」になり、格式体では 젓습니다 です。"
+    },
+    {
+      "id": "qt_conjugation_004_06",
+      "order": 6,
+      "japanese": "線を引いてください。",
+      "korean": "줄을 그어 주세요.",
+      "alternativeAnswers": ["줄을 그어 주십시오."],
+      "hint": "줄을...",
+      "explanation": "「긋다」は母音語尾でㅅ脱落し「그어요→그어 주세요」となります。"
+    },
+    {
+      "id": "qt_conjugation_004_07",
+      "order": 7,
+      "japanese": "家を建てて住んでいます。",
+      "korean": "집을 지어서 살아요.",
+      "alternativeAnswers": ["집을 지어 삽니다."],
+      "hint": "집을...",
+      "explanation": "接続語尾も母音始まりでㅅが落ち「지어서」になります。"
+    },
+    {
+      "id": "qt_conjugation_004_08",
+      "order": 8,
+      "japanese": "まだ治っていません。",
+      "korean": "아직 다 낫지 않았어요.",
+      "alternativeAnswers": ["아직 다 낫지 않았습니다."],
+      "hint": "아직...",
+      "explanation": "「-지」は子音始まりなのでㅅを維持し「낫지」になります。"
+    },
+    {
+      "id": "qt_conjugation_004_09",
+      "order": 9,
+      "japanese": "名前を付けてください。",
+      "korean": "이름을 지어 주세요.",
+      "alternativeAnswers": ["이름을 지어 주십시오."],
+      "hint": "이름을...",
+      "explanation": "母音語尾「-어」前でㅅが脱落し「지어 주세요」になります。"
+    },
+    {
+      "id": "qt_conjugation_004_10",
+      "order": 10,
+      "japanese": "建てる家が大きいです。",
+      "korean": "짓는 집이 커요.",
+      "alternativeAnswers": ["짓는 집이 큽니다."],
+      "hint": "짓는...",
+      "explanation": "連体形「-는」は子音始まりなのでㅅを維持し「짓는」を使います。"
+    }
+  ]
+}

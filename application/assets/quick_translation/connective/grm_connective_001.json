@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_connective_001",
+  "grammarTitle": "-아서/어서",
+  "grammarSubtitle": "理由・原因（〜ので）",
+  "category": "connective",
+  "questions": [
+    {
+      "id": "qt_connective_001_01",
+      "order": 1,
+      "japanese": "疲れたので休みます。",
+      "korean": "피곤해서 쉬어요.",
+      "alternativeAnswers": ["피곤해서 쉽니다."],
+      "hint": "피곤해서...",
+      "explanation": "原因を表す接続語尾で「〜ので」の意味になります。"
+    },
+    {
+      "id": "qt_connective_001_02",
+      "order": 2,
+      "japanese": "雨が降っているので出かけません。",
+      "korean": "비가 와서 안 나가요.",
+      "alternativeAnswers": ["비가 와서 안 나갑니다."],
+      "hint": "비가...",
+      "explanation": "理由を先に示し結果を続けるとき -아서/어서 を使います。"
+    },
+    {
+      "id": "qt_connective_001_03",
+      "order": 3,
+      "japanese": "時間がなくてタクシーに乗りました。",
+      "korean": "시간이 없어서 택시를 탔어요.",
+      "alternativeAnswers": [],
+      "hint": "시간이...",
+      "explanation": "不足を理由に行動したことを述べる接続形です。"
+    },
+    {
+      "id": "qt_connective_001_04",
+      "order": 4,
+      "japanese": "お腹が空いてご飯を食べます。",
+      "korean": "배고파서 밥을 먹어요.",
+      "alternativeAnswers": [],
+      "hint": "배고...",
+      "explanation": "状態の理由を示し後件の行動をつなげます。"
+    },
+    {
+      "id": "qt_connective_001_05",
+      "order": 5,
+      "japanese": "寒いので窓を閉めました。",
+      "korean": "추워서 창문을 닫았어요.",
+      "alternativeAnswers": [],
+      "hint": "추워서...",
+      "explanation": "形容詞に付けて原因を述べるときも同じ形を使います。"
+    },
+    {
+      "id": "qt_connective_001_06",
+      "order": 6,
+      "japanese": "友達に会えてうれしいです。",
+      "korean": "친구를 만나서 기뻐요.",
+      "alternativeAnswers": [],
+      "hint": "친구를...",
+      "explanation": "先行節で原因・背景を示し感情を続ける表現です。"
+    },
+    {
+      "id": "qt_connective_001_07",
+      "order": 7,
+      "japanese": "道が混んでいて遅れました。",
+      "korean": "길이 막혀서 늦었어요.",
+      "alternativeAnswers": ["길이 막혀서 늦었습니다."],
+      "hint": "길이...",
+      "explanation": "理由を説明して結果の遅れを述べるときに使います。"
+    },
+    {
+      "id": "qt_connective_001_08",
+      "order": 8,
+      "japanese": "眠いので早く寝ます。",
+      "korean": "졸려서 일찍 자요.",
+      "alternativeAnswers": [],
+      "hint": "졸려서...",
+      "explanation": "状態を理由に次の行動を接続する形です。"
+    },
+    {
+      "id": "qt_connective_001_09",
+      "order": 9,
+      "japanese": "面白くて笑いました。",
+      "korean": "재미있어서 웃었어요.",
+      "alternativeAnswers": [],
+      "hint": "재미...",
+      "explanation": "先行節が原因となる結果を示すとき -아서/어서 を用います。"
+    },
+    {
+      "id": "qt_connective_001_10",
+      "order": 10,
+      "japanese": "安かったので買いました。",
+      "korean": "싸서 샀어요.",
+      "alternativeAnswers": [],
+      "hint": "싸서...",
+      "explanation": "価格が理由で行動したことを述べる接続表現です。"
+    }
+  ]
+}

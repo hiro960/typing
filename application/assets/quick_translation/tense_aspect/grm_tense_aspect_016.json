@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_tense_aspect_016",
+  "grammarTitle": "-아/어 주다",
+  "grammarSubtitle": "恩恵・授与",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_016_01",
+      "order": 1,
+      "japanese": "友達に本を貸してあげます。",
+      "korean": "친구에게 책을 빌려 줘요.",
+      "alternativeAnswers": ["친구에게 책을 빌려 줍니다."],
+      "hint": "친구에게...",
+      "explanation": "相手にしてあげるとき動詞に-아/어 주다を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_016_02",
+      "order": 2,
+      "japanese": "ドアを開けてあげます。",
+      "korean": "문을 열어 줘요.",
+      "alternativeAnswers": ["문을 열어 줍니다."],
+      "hint": "문을...",
+      "explanation": "助けとして行う動作に-어 주다を付けて表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_016_03",
+      "order": 3,
+      "japanese": "荷物を持ってあげます。",
+      "korean": "짐을 들어 줘요.",
+      "alternativeAnswers": ["짐을 들어 줍니다."],
+      "hint": "짐을...",
+      "explanation": "手助けのニュアンスを込めて動詞+어 주다を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_016_04",
+      "order": 4,
+      "japanese": "メールを送ってください。",
+      "korean": "메일 좀 보내 주세요.",
+      "alternativeAnswers": ["메일 좀 보내 주십시오."],
+      "hint": "메일...",
+      "explanation": "依頼も-아/어 주세요で「〜してください」と表します。"
+    },
+    {
+      "id": "qt_tense_aspect_016_05",
+      "order": 5,
+      "japanese": "ご飯を作ってあげました。",
+      "korean": "밥을 만들어 줬어요.",
+      "alternativeAnswers": ["밥을 만들어 주었습니다."],
+      "hint": "밥을...",
+      "explanation": "相手のためにした行為を過去-어 줬어요で示します。"
+    },
+    {
+      "id": "qt_tense_aspect_016_06",
+      "order": 6,
+      "japanese": "コーヒーを入れてあげました。",
+      "korean": "커피를 타 줬어요.",
+      "alternativeAnswers": ["커피를 타 주었습니다."],
+      "hint": "커피를...",
+      "explanation": "好意でしてあげる動作に-아/어 주다を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_016_07",
+      "order": 7,
+      "japanese": "友達を手伝ってあげました。",
+      "korean": "친구를 도와 줬어요.",
+      "alternativeAnswers": ["친구를 도와 주었습니다."],
+      "hint": "친구를...",
+      "explanation": "助ける行為を相手のために行ったので-아/어 주다を使用。"
+    },
+    {
+      "id": "qt_tense_aspect_016_08",
+      "order": 8,
+      "japanese": "兄に写真を見せてあげました。",
+      "korean": "형에게 사진을 보여 줬어요.",
+      "alternativeAnswers": ["형에게 사진을 보여 주었습니다."],
+      "hint": "형에게...",
+      "explanation": "見せてあげる好意を-어 주다で表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_016_09",
+      "order": 9,
+      "japanese": "先生が発音を教えてくれました。",
+      "korean": "선생님이 발음을 가르쳐 줬어요.",
+      "alternativeAnswers": ["선생님이 발음을 가르쳐 주었습니다."],
+      "hint": "선생님이...",
+      "explanation": "相手がしてくれた行為も-아/어 주다で受ける形を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_016_10",
+      "order": 10,
+      "japanese": "道を教えてください。",
+      "korean": "길을 알려 주세요.",
+      "alternativeAnswers": ["길을 알려 주십시오."],
+      "hint": "길을...",
+      "explanation": "依頼表現として-어 주세요を使い丁寧に頼みます。"
+    }
+  ]
+}

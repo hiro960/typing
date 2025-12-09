@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_sentence_ending_005",
+  "grammarTitle": "-(스)ㅂ니까?",
+  "grammarSubtitle": "格式体疑問（〜ですか？）",
+  "category": "sentence_ending",
+  "questions": [
+    {
+      "id": "qt_sentence_ending_005_01",
+      "order": 1,
+      "japanese": "お名前は何ですか？",
+      "korean": "성함이 어떻게 되십니까?",
+      "alternativeAnswers": ["성함이 뭐예요?"],
+      "hint": "성함이...",
+      "explanation": "フォーマルな疑問は語尾を「-ㅂ니까?/습니까?」で結びます。"
+    },
+    {
+      "id": "qt_sentence_ending_005_02",
+      "order": 2,
+      "japanese": "今忙しいですか？",
+      "korean": "지금 바쁩니까?",
+      "alternativeAnswers": ["지금 바쁘세요?", "지금 바빠요?"],
+      "hint": "지금...",
+      "explanation": "パッチムなし語幹は「-ㅂ니까?」を付け格式体疑問にします。"
+    },
+    {
+      "id": "qt_sentence_ending_005_03",
+      "order": 3,
+      "japanese": "どこに住んでいますか？",
+      "korean": "어디에 삽니까?",
+      "alternativeAnswers": ["어디에 사세요?", "어디에 살아요?"],
+      "hint": "어디에...",
+      "explanation": "ㄹ語幹はㄹ脱落し「삽니까?」でフォーマルに質問します。"
+    },
+    {
+      "id": "qt_sentence_ending_005_04",
+      "order": 4,
+      "japanese": "韓国語を勉強しますか？",
+      "korean": "한국어를 공부합니까?",
+      "alternativeAnswers": ["한국어를 공부하세요?", "한국어를 공부해요?"],
+      "hint": "한국어를...",
+      "explanation": "하다動詞の格式体疑問は「-합니까?」の形になります。"
+    },
+    {
+      "id": "qt_sentence_ending_005_05",
+      "order": 5,
+      "japanese": "今日は雨が降りますか？",
+      "korean": "오늘 비가 옵니까?",
+      "alternativeAnswers": ["오늘 비가 오나요?", "오늘 비가 와요?"],
+      "hint": "오늘...",
+      "explanation": "パッチムなし動詞には「-ㅂ니까?」を付けて尋ねます。"
+    },
+    {
+      "id": "qt_sentence_ending_005_06",
+      "order": 6,
+      "japanese": "この本は面白いですか？",
+      "korean": "이 책이 재미있습니까?",
+      "alternativeAnswers": ["이 책이 재미있어요?", "이 책이 재밌어요?"],
+      "hint": "이 책이...",
+      "explanation": "形容詞述語も格式体疑問「-습니까?」で丁寧に尋ねます。"
+    },
+    {
+      "id": "qt_sentence_ending_005_07",
+      "order": 7,
+      "japanese": "会社はどこですか？",
+      "korean": "회사 어디입니까?",
+      "alternativeAnswers": ["회사가 어디예요?"],
+      "hint": "회사...",
+      "explanation": "名詞述語の疑問も指定詞＋「-입니까?」を用います。"
+    },
+    {
+      "id": "qt_sentence_ending_005_08",
+      "order": 8,
+      "japanese": "お茶を飲みますか？",
+      "korean": "차를 마십니까?",
+      "alternativeAnswers": ["차를 마셔요?", "차를 마시나요?"],
+      "hint": "차를...",
+      "explanation": "パッチムなし動詞は「-ㅂ니까?」でフォーマルな質問にします。"
+    },
+    {
+      "id": "qt_sentence_ending_005_09",
+      "order": 9,
+      "japanese": "週末に会いますか？",
+      "korean": "주말에 만납니까?",
+      "alternativeAnswers": ["주말에 만나나요?", "주말에 만나요?"],
+      "hint": "주말에...",
+      "explanation": "パッチムなしの「만나-」にも「-ㅂ니까?」を付け疑問にします。"
+    },
+    {
+      "id": "qt_sentence_ending_005_10",
+      "order": 10,
+      "japanese": "この道で合っていますか？",
+      "korean": "이 길이 맞습니까?",
+      "alternativeAnswers": ["이 길이 맞아요?"],
+      "hint": "이 길이...",
+      "explanation": "確認の丁寧疑問も格式体では「-습니까?」を用います。"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_021",
+  "grammarTitle": "-아/어 가다",
+  "grammarSubtitle": "進行・継続（〜していく）",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_021_01",
+      "order": 1,
+      "japanese": "韓国語が上手になっていきます。",
+      "korean": "한국어가 늘어 가요.",
+      "alternativeAnswers": [
+        "한국어가 늘어 갑니다."
+      ],
+      "hint": "한국어가...",
+      "explanation": "「-아/어 가다」は能力が徐々に伸びていく進行を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_021_02",
+      "order": 2,
+      "japanese": "天気が寒くなっていきます。",
+      "korean": "날씨가 추워져 가요.",
+      "alternativeAnswers": [
+        "날씨가 추워져 갑니다."
+      ],
+      "hint": "날씨가...",
+      "explanation": "寒さが増していくような変化の流れを表します。"
+    },
+    {
+      "id": "qt_tense_aspect_021_03",
+      "order": 3,
+      "japanese": "日が短くなっていきます。",
+      "korean": "해가 짧아져 가요.",
+      "alternativeAnswers": [
+        "해가 짧아져 갑니다."
+      ],
+      "hint": "해가...",
+      "explanation": "長さが徐々に変わる進行を示し、日照が減る様子です。"
+    },
+    {
+      "id": "qt_tense_aspect_021_04",
+      "order": 4,
+      "japanese": "子どもたちが大きくなっていきます。",
+      "korean": "아이들이 커 가요.",
+      "alternativeAnswers": [
+        "아이들이 커 갑니다."
+      ],
+      "hint": "아이들이...",
+      "explanation": "成長が続いて背が伸びていく進行を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_021_05",
+      "order": 5,
+      "japanese": "時間が過ぎていきます。",
+      "korean": "시간이 지나 가요.",
+      "alternativeAnswers": [
+        "시간이 지나 갑니다."
+      ],
+      "hint": "시간이...",
+      "explanation": "流れが進んでいくことを示し、時の経過を表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_021_06",
+      "order": 6,
+      "japanese": "雨がやんでいきます。",
+      "korean": "비가 그쳐 가요.",
+      "alternativeAnswers": [
+        "비가 그쳐 갑니다."
+      ],
+      "hint": "비가...",
+      "explanation": "動作の変化が進行し、雨が少しずつ止む方向を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_021_07",
+      "order": 7,
+      "japanese": "宿題が終わりに近づいていきます。",
+      "korean": "숙제가 끝나 가요.",
+      "alternativeAnswers": [
+        "숙제가 끝나 갑니다."
+      ],
+      "hint": "숙제가...",
+      "explanation": "完了へ向かって進んでいる途中段階を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_021_08",
+      "order": 8,
+      "japanese": "バスが遠ざかっていきます。",
+      "korean": "버스가 멀어져 가요.",
+      "alternativeAnswers": [
+        "버스가 멀어져 갑니다."
+      ],
+      "hint": "버스가...",
+      "explanation": "距離が徐々に離れていく進行を表す用法です。"
+    },
+    {
+      "id": "qt_tense_aspect_021_09",
+      "order": 9,
+      "japanese": "春になっていきます。",
+      "korean": "봄이 되어 가요.",
+      "alternativeAnswers": [
+        "봄이 되어 갑니다."
+      ],
+      "hint": "봄이...",
+      "explanation": "季節の変化が進み、春に近づく流れを示します。"
+    },
+    {
+      "id": "qt_tense_aspect_021_10",
+      "order": 10,
+      "japanese": "会話が楽しくなっていきます。",
+      "korean": "이야기가 재미있어져 가요.",
+      "alternativeAnswers": [
+        "이야기가 재미있어져 갑니다."
+      ],
+      "hint": "이야기가...",
+      "explanation": "雰囲気が徐々に変わり楽しさが増す進行を表します。"
+    }
+  ]
+}

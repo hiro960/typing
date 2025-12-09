@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_031",
+  "grammarTitle": "-(으)ㄹ 수 있다/없다",
+  "grammarSubtitle": "可能・不可能（〜できる/できない）",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_031_01",
+      "order": 1,
+      "japanese": "私は泳ぐことができます。",
+      "korean": "저는 수영할 수 있어요.",
+      "alternativeAnswers": [
+        "저는 수영할 수 있습니다."
+      ],
+      "hint": "저는...",
+      "explanation": "能力や可能を表す基本形で「〜できる」意味です。"
+    },
+    {
+      "id": "qt_tense_aspect_031_02",
+      "order": 2,
+      "japanese": "韓国語を読むことができます。",
+      "korean": "한국어를 읽을 수 있어요.",
+      "alternativeAnswers": [
+        "한국어를 읽을 수 있습니다."
+      ],
+      "hint": "한국어를...",
+      "explanation": "できる行為を肯定する可能表現です。"
+    },
+    {
+      "id": "qt_tense_aspect_031_03",
+      "order": 3,
+      "japanese": "今日は行くことができません。",
+      "korean": "오늘은 갈 수 없어요.",
+      "alternativeAnswers": [
+        "오늘은 갈 수 없습니다."
+      ],
+      "hint": "오늘은...",
+      "explanation": "事情によりできないことを否定形で示します。"
+    },
+    {
+      "id": "qt_tense_aspect_031_04",
+      "order": 4,
+      "japanese": "手伝うことができます。",
+      "korean": "도와줄 수 있어요.",
+      "alternativeAnswers": [
+        "도와줄 수 있습니다."
+      ],
+      "hint": "도와줄...",
+      "explanation": "可能性を述べて協力できると伝えます。"
+    },
+    {
+      "id": "qt_tense_aspect_031_05",
+      "order": 5,
+      "japanese": "今は電話できません。",
+      "korean": "지금은 전화할 수 없어요.",
+      "alternativeAnswers": [
+        "지금은 전화할 수 없습니다."
+      ],
+      "hint": "지금은...",
+      "explanation": "状況的に不可能であることを述べる形です。"
+    },
+    {
+      "id": "qt_tense_aspect_031_06",
+      "order": 6,
+      "japanese": "バスに乗ることができます。",
+      "korean": "버스를 탈 수 있어요.",
+      "alternativeAnswers": [
+        "버스를 탈 수 있습니다."
+      ],
+      "hint": "버스를...",
+      "explanation": "ある行動が可能であることを伝えます。"
+    },
+    {
+      "id": "qt_tense_aspect_031_07",
+      "order": 7,
+      "japanese": "ここで待つことができます。",
+      "korean": "여기서 기다릴 수 있어요.",
+      "alternativeAnswers": [
+        "여기서 기다릴 수 있습니다."
+      ],
+      "hint": "여기서...",
+      "explanation": "場所を示して可能かどうか表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_031_08",
+      "order": 8,
+      "japanese": "今日は友だちに会えません。",
+      "korean": "오늘은 친구를 만날 수 없어요.",
+      "alternativeAnswers": [
+        "오늘은 친구를 만날 수 없습니다."
+      ],
+      "hint": "오늘은...",
+      "explanation": "予定や事情で不可能なことを伝えます。"
+    },
+    {
+      "id": "qt_tense_aspect_031_09",
+      "order": 9,
+      "japanese": "写真を撮ることができます。",
+      "korean": "사진을 찍을 수 있어요.",
+      "alternativeAnswers": [
+        "사진을 찍을 수 있습니다."
+      ],
+      "hint": "사진을...",
+      "explanation": "能力や許容の意味で「撮れる」を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_031_10",
+      "order": 10,
+      "japanese": "たくさん食べることができません。",
+      "korean": "많이 먹을 수 없어요.",
+      "alternativeAnswers": [
+        "많이 먹을 수 없습니다."
+      ],
+      "hint": "많이...",
+      "explanation": "身体的にできないことを否定形で述べます。"
+    }
+  ]
+}

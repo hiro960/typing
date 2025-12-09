@@ -1,0 +1,101 @@
+{
+  "grammarRef": "grm_expression_038",
+  "grammarTitle": "-(으)ㄹ 뿐이다",
+  "grammarSubtitle": "〜するだけだ／〜にすぎない",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_038_01",
+      "order": 1,
+      "japanese": "ただ待つだけです。",
+      "korean": "그냥 기다릴 뿐이에요.",
+      "alternativeAnswers": [
+        "그냥 기다릴 뿐입니다."
+      ],
+      "hint": "그냥...",
+      "explanation": "行為が限定されることを強調する「-ㄹ 뿐이다」を使います。"
+    },
+    {
+      "id": "qt_expression_038_02",
+      "order": 2,
+      "japanese": "聞いているだけです。",
+      "korean": "듣고 있을 뿐이에요.",
+      "alternativeAnswers": [],
+      "hint": "듣고...",
+      "explanation": "他の行動はなく聞くだけであることを「-ㄹ 뿐이다」で表します。"
+    },
+    {
+      "id": "qt_expression_038_03",
+      "order": 3,
+      "japanese": "少し手伝うだけです。",
+      "korean": "조금 도울 뿐이에요.",
+      "alternativeAnswers": [],
+      "hint": "조금...",
+      "explanation": "限定的な助けを強調するため「-ㄹ 뿐이다」を用います。"
+    },
+    {
+      "id": "qt_expression_038_04",
+      "order": 4,
+      "japanese": "事実を言うだけです。",
+      "korean": "사실을 말할 뿐이에요.",
+      "alternativeAnswers": [],
+      "hint": "사실을...",
+      "explanation": "他意がないことを示し「말할 뿐이다」で強調します。"
+    },
+    {
+      "id": "qt_expression_038_05",
+      "order": 5,
+      "japanese": "ただ見るだけです。",
+      "korean": "그냥 바라볼 뿐이에요.",
+      "alternativeAnswers": [],
+      "hint": "그냥...",
+      "explanation": "行動を限定している様子を「-ㄹ 뿐이다」で表します。"
+    },
+    {
+      "id": "qt_expression_038_06",
+      "order": 6,
+      "japanese": "薬を飲むだけです。",
+      "korean": "약을 먹을 뿐이에요.",
+      "alternativeAnswers": [],
+      "hint": "약을...",
+      "explanation": "他の措置はしないことを「-ㄹ 뿐이다」で述べます。"
+    },
+    {
+      "id": "qt_expression_038_07",
+      "order": 7,
+      "japanese": "ただ笑うだけです。",
+      "korean": "그냥 웃을 뿐이에요.",
+      "alternativeAnswers": [],
+      "hint": "그냥...",
+      "explanation": "行為を単純化して示すため「웃을 뿐이다」を使います。"
+    },
+    {
+      "id": "qt_expression_038_08",
+      "order": 8,
+      "japanese": "趣味でやるだけです。",
+      "korean": "취미로 하는 것일 뿐이에요.",
+      "alternativeAnswers": [],
+      "hint": "취미로...",
+      "explanation": "大した目的はないと述べる際「-일 뿐이다」を用います。"
+    },
+    {
+      "id": "qt_expression_038_09",
+      "order": 9,
+      "japanese": "ただ友達として過ごすだけです。",
+      "korean": "친구로 지낼 뿐이에요.",
+      "alternativeAnswers": [],
+      "hint": "친구로...",
+      "explanation": "関係を限定する意味で「-뿐이다」を使います。"
+    },
+    {
+      "id": "qt_expression_038_10",
+      "order": 10,
+      "japanese": "少し休んでいるだけです。",
+      "korean": "잠시 쉬는 중일 뿐이에요.",
+      "alternativeAnswers": [],
+      "hint": "잠시...",
+      "explanation": "一時的で限定的であることを「-ㄹ 뿐이다」で表します。"
+    }
+  ]
+}
+

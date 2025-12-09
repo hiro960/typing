@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_adnominal_012",
+  "grammarTitle": "-(으)ㄴ/는/(으)ㄹ 곳",
+  "grammarSubtitle": "〜する場所",
+  "category": "adnominal",
+  "questions": [
+    {
+      "id": "qt_adnominal_012_01",
+      "order": 1,
+      "japanese": "勉強する場所は図書館です。",
+      "korean": "공부하는 곳은 도서관이에요.",
+      "alternativeAnswers": ["공부하는 곳은 도서관입니다."],
+      "hint": "공부하...",
+      "explanation": "現在の動作を行う場所を -는 곳 で示します。"
+    },
+    {
+      "id": "qt_adnominal_012_02",
+      "order": 2,
+      "japanese": "昨日行った場所は公園です。",
+      "korean": "어제 간 곳은 공원이에요.",
+      "alternativeAnswers": ["어제 간 곳은 공원입니다."],
+      "hint": "어제...",
+      "explanation": "過去に行った場所は -(으)ㄴ 곳 で表します。"
+    },
+    {
+      "id": "qt_adnominal_012_03",
+      "order": 3,
+      "japanese": "住む場所を探しています。",
+      "korean": "살 곳을 찾고 있어요.",
+      "alternativeAnswers": ["살 곳을 찾고 있습니다."],
+      "hint": "살 곳...",
+      "explanation": "未来に暮らす予定の場所に -(으)ㄹ 곳 を使います。"
+    },
+    {
+      "id": "qt_adnominal_012_04",
+      "order": 4,
+      "japanese": "休む場所がありません。",
+      "korean": "쉴 곳이 없어요.",
+      "alternativeAnswers": ["쉴 곳이 없습니다."],
+      "hint": "쉴 곳...",
+      "explanation": "予定の行為をする場所の有無を表します。"
+    },
+    {
+      "id": "qt_adnominal_012_05",
+      "order": 5,
+      "japanese": "会う場所はカフェです。",
+      "korean": "만날 곳은 카페예요.",
+      "alternativeAnswers": ["만날 곳은 카페입니다."],
+      "hint": "만날...",
+      "explanation": "未来の約束場所を -(으)ㄹ 곳 で示します。"
+    },
+    {
+      "id": "qt_adnominal_012_06",
+      "order": 6,
+      "japanese": "遊ぶ場所が広いです。",
+      "korean": "놀 곳이 넓어요.",
+      "alternativeAnswers": ["놀 곳이 넓습니다."],
+      "hint": "놀 곳...",
+      "explanation": "これから遊ぶ予定の場所の特徴を述べています。"
+    },
+    {
+      "id": "qt_adnominal_012_07",
+      "order": 7,
+      "japanese": "働く場所は会社です。",
+      "korean": "일하는 곳은 회사예요.",
+      "alternativeAnswers": ["일하는 곳은 회사입니다."],
+      "hint": "일하는...",
+      "explanation": "現在の動作の場所を -는 곳 で表現します。"
+    },
+    {
+      "id": "qt_adnominal_012_08",
+      "order": 8,
+      "japanese": "ご飯を食べる場所はあそこです。",
+      "korean": "밥 먹는 곳이 저기예요.",
+      "alternativeAnswers": ["밥 먹는 곳이 저기입니다."],
+      "hint": "밥 먹...",
+      "explanation": "進行する行為の場所を示す連体形です。"
+    },
+    {
+      "id": "qt_adnominal_012_09",
+      "order": 9,
+      "japanese": "行く場所を決めました。",
+      "korean": "갈 곳을 정했어요.",
+      "alternativeAnswers": ["갈 곳을 정했습니다."],
+      "hint": "갈 곳...",
+      "explanation": "未来に行く場所を -(으)ㄹ 곳 で表します。"
+    },
+    {
+      "id": "qt_adnominal_012_10",
+      "order": 10,
+      "japanese": "住んでいた場所が懐かしいです。",
+      "korean": "살던 곳이 그리워요.",
+      "alternativeAnswers": ["살던 곳이 그립습니다."],
+      "hint": "살던...",
+      "explanation": "過去の場所には -(으)ㄴ/던 곳 を使い回想します。"
+    }
+  ]
+}

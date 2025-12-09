@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_002",
+  "grammarTitle": "은/는",
+  "grammarSubtitle": "主題助詞（〜は）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_002_01",
+      "order": 1,
+      "japanese": "私は学生です。",
+      "korean": "저는 학생이에요.",
+      "alternativeAnswers": ["저는 학생입니다."],
+      "hint": "저는...",
+      "explanation": "自己紹介などで話題を示すので「저+는」を使います。"
+    },
+    {
+      "id": "qt_particle_002_02",
+      "order": 2,
+      "japanese": "今日は休みです。",
+      "korean": "오늘은 쉬는 날이에요.",
+      "alternativeAnswers": ["오늘은 쉬는 날입니다."],
+      "hint": "오늘은...",
+      "explanation": "日時を主題にして伝えるとき「오늘+은」を使います。"
+    },
+    {
+      "id": "qt_particle_002_03",
+      "order": 3,
+      "japanese": "この本は面白いです。",
+      "korean": "이 책은 재미있어요.",
+      "alternativeAnswers": ["이 책은 재미있습니다."],
+      "hint": "이 책...",
+      "explanation": "パッチムのある「책」には「은」を付けて話題を立てます。"
+    },
+    {
+      "id": "qt_particle_002_04",
+      "order": 4,
+      "japanese": "コーヒーは好きですがお茶は飲みません。",
+      "korean": "커피는 좋아하지만 차는 안 마셔요.",
+      "alternativeAnswers": ["커피는 좋아하지만 차는 안 마십니다."],
+      "hint": "커피는...",
+      "explanation": "対比を示すとき対象ごとに「은/는」を付けて区別します。"
+    },
+    {
+      "id": "qt_particle_002_05",
+      "order": 5,
+      "japanese": "私たちは家族です。",
+      "korean": "우리는 가족이에요.",
+      "alternativeAnswers": ["우리는 가족입니다."],
+      "hint": "우리는...",
+      "explanation": "複数でも主題提示は「은/는」で行います。"
+    },
+    {
+      "id": "qt_particle_002_06",
+      "order": 6,
+      "japanese": "週末は休みます。",
+      "korean": "주말에는 쉬어요.",
+      "alternativeAnswers": ["주말에는 쉽니다."],
+      "hint": "주말에...",
+      "explanation": "時間名詞に「에+는」を付けて週末を話題にします。"
+    },
+    {
+      "id": "qt_particle_002_07",
+      "order": 7,
+      "japanese": "弟は学生です。",
+      "korean": "동생은 학생이에요.",
+      "alternativeAnswers": ["동생은 학생입니다."],
+      "hint": "동생은...",
+      "explanation": "人物を説明するとき主題助詞「은/는」を使います。"
+    },
+    {
+      "id": "qt_particle_002_08",
+      "order": 8,
+      "japanese": "映画は夜に見ます。",
+      "korean": "영화는 밤에 봐요.",
+      "alternativeAnswers": ["영화는 밤에 봅니다."],
+      "hint": "영화는...",
+      "explanation": "習慣や一般的事実は主題助詞で示すのが自然です。"
+    },
+    {
+      "id": "qt_particle_002_09",
+      "order": 9,
+      "japanese": "この道は狭いです。",
+      "korean": "이 길은 좁아요.",
+      "alternativeAnswers": ["이 길은 좁습니다."],
+      "hint": "이 길...",
+      "explanation": "パッチムありの名詞「길」に「은」を付けて主題化します。"
+    },
+    {
+      "id": "qt_particle_002_10",
+      "order": 10,
+      "japanese": "私はあまり食べません。",
+      "korean": "저는 많이 안 먹어요.",
+      "alternativeAnswers": ["저는 많이 안 먹습니다."],
+      "hint": "저는...",
+      "explanation": "自分の習慣を述べるので「저+는」で話題を提示します。"
+    }
+  ]
+}

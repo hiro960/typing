@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_017",
+  "grammarTitle": "열하나, 스물...",
+  "grammarSubtitle": "固有数詞（11〜99）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_017_01",
+      "order": 1,
+      "japanese": "十一時に終わります。",
+      "korean": "열한 시에 끝나요.",
+      "alternativeAnswers": [],
+      "hint": "열한...",
+      "explanation": "11時など10以上も固有数詞で時間を言います。"
+    },
+    {
+      "id": "qt_substantive_017_02",
+      "order": 2,
+      "japanese": "十二人来ました。",
+      "korean": "열두 명이 왔어요.",
+      "alternativeAnswers": [],
+      "hint": "열두...",
+      "explanation": "11以上の人数も固有数詞＋명を使います。"
+    },
+    {
+      "id": "qt_substantive_017_03",
+      "order": 3,
+      "japanese": "十三歳です。",
+      "korean": "열세 살이에요.",
+      "alternativeAnswers": [],
+      "hint": "열세...",
+      "explanation": "13歳は短縮形「열세 살」を使います。"
+    },
+    {
+      "id": "qt_substantive_017_04",
+      "order": 4,
+      "japanese": "十四個あります。",
+      "korean": "열네 개 있어요.",
+      "alternativeAnswers": [],
+      "hint": "열네...",
+      "explanation": "14も「열넷→열네」と連体形にして助数詞を付けます。"
+    },
+    {
+      "id": "qt_substantive_017_05",
+      "order": 5,
+      "japanese": "十五回練習します。",
+      "korean": "열다섯 번 연습해요.",
+      "alternativeAnswers": [],
+      "hint": "열다...",
+      "explanation": "15も固有数詞＋번で回数を表します。"
+    },
+    {
+      "id": "qt_substantive_017_06",
+      "order": 6,
+      "japanese": "十六人が集まりました。",
+      "korean": "열여섯 명 모였어요.",
+      "alternativeAnswers": [],
+      "hint": "열여...",
+      "explanation": "「열여섯」など固有数詞で人数を表します。"
+    },
+    {
+      "id": "qt_substantive_017_07",
+      "order": 7,
+      "japanese": "十七歳です。",
+      "korean": "열일곱 살이에요.",
+      "alternativeAnswers": [],
+      "hint": "열일...",
+      "explanation": "17歳も固有数詞＋살で言います。"
+    },
+    {
+      "id": "qt_substantive_017_08",
+      "order": 8,
+      "japanese": "十八個売れました。",
+      "korean": "열여덟 개 팔았어요.",
+      "alternativeAnswers": [],
+      "hint": "열여...",
+      "explanation": "18も固有数詞＋助数詞で数えます。"
+    },
+    {
+      "id": "qt_substantive_017_09",
+      "order": 9,
+      "japanese": "十九回見ました。",
+      "korean": "열아홉 번 봤어요.",
+      "alternativeAnswers": [],
+      "hint": "열아...",
+      "explanation": "19回も固有数詞＋번を使います。"
+    },
+    {
+      "id": "qt_substantive_017_10",
+      "order": 10,
+      "japanese": "二十歳です。",
+      "korean": "스무 살이에요.",
+      "alternativeAnswers": [],
+      "hint": "스무...",
+      "explanation": "20は連体形で「스무」＋살と縮約します。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_tense_aspect_018",
+  "grammarTitle": "-아/어 보다",
+  "grammarSubtitle": "試行",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_018_01",
+      "order": 1,
+      "japanese": "韓国料理を食べてみました。",
+      "korean": "한국 음식을 먹어 봤어요.",
+      "alternativeAnswers": ["한국 음식을 먹어 보았습니다."],
+      "hint": "한국...",
+      "explanation": "試しに行う動作は語幹に-아/어 보다を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_018_02",
+      "order": 2,
+      "japanese": "この服を着てみてください。",
+      "korean": "이 옷 입어 보세요.",
+      "alternativeAnswers": ["이 옷 입어 보십시오."],
+      "hint": "이 옷...",
+      "explanation": "「〜してみて」は-아/어 보세요で依頼します。"
+    },
+    {
+      "id": "qt_tense_aspect_018_03",
+      "order": 3,
+      "japanese": "その映画を見てみます。",
+      "korean": "그 영화를 봐 볼게요.",
+      "alternativeAnswers": ["그 영화를 한번 볼게요."],
+      "hint": "그 영화...",
+      "explanation": "試しに見る意思は보다に-아 보다を重ねて表現できます。"
+    },
+    {
+      "id": "qt_tense_aspect_018_04",
+      "order": 4,
+      "japanese": "もう一度やってみます。",
+      "korean": "다시 해 볼게요.",
+      "alternativeAnswers": ["다시 해 보겠습니다."],
+      "hint": "다시...",
+      "explanation": "試みに行うとき行為に-아/어 보다を付けて表します。"
+    },
+    {
+      "id": "qt_tense_aspect_018_05",
+      "order": 5,
+      "japanese": "自転車に乗ってみました。",
+      "korean": "자전거를 타 봤어요.",
+      "alternativeAnswers": ["자전거를 타 보았습니다."],
+      "hint": "자전거를...",
+      "explanation": "経験として試した場合も-아/어 봤어요を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_018_06",
+      "order": 6,
+      "japanese": "その靴を履いてみてください。",
+      "korean": "그 신발 신어 보세요.",
+      "alternativeAnswers": ["그 신발 신어 보십시오."],
+      "hint": "그 신발...",
+      "explanation": "試着を促すとき動詞に-어 보세요を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_018_07",
+      "order": 7,
+      "japanese": "韓国語で話してみました。",
+      "korean": "한국어로 말해 봤어요.",
+      "alternativeAnswers": ["한국어로 말해 보았습니다."],
+      "hint": "한국어로...",
+      "explanation": "試しに行った経験を-아/어 봤어요で表現。"
+    },
+    {
+      "id": "qt_tense_aspect_018_08",
+      "order": 8,
+      "japanese": "音楽を聞いてみてください。",
+      "korean": "음악을 들어 보세요.",
+      "alternativeAnswers": ["음악을 들어 보십시오."],
+      "hint": "음악을...",
+      "explanation": "試しに聞く依頼にも-어 보세요を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_018_09",
+      "order": 9,
+      "japanese": "ここに行ってみましょう。",
+      "korean": "여기에 가 봐요.",
+      "alternativeAnswers": ["여기 한번 가 볼까요?"],
+      "hint": "여기에...",
+      "explanation": "提案として試す際に-아/어 보다を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_018_10",
+      "order": 10,
+      "japanese": "手紙を書いてみました。",
+      "korean": "편지를 써 봤어요.",
+      "alternativeAnswers": ["편지를 써 보았습니다."],
+      "hint": "편지를...",
+      "explanation": "実際に試した経験を-아/어 봤어요で表現します。"
+    }
+  ]
+}

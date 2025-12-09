@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_023",
+  "grammarTitle": "(이)야말로",
+  "grammarSubtitle": "強調助詞（〜こそ）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_023_01",
+      "order": 1,
+      "japanese": "今日こそ休みたいです。",
+      "korean": "오늘이야말로 쉬고 싶어요.",
+      "alternativeAnswers": ["오늘이야말로 쉬고 싶습니다."],
+      "hint": "오늘이야말로...",
+      "explanation": "名詞の後に「(이)야말로」を付けて『〜こそ』を強調します。"
+    },
+    {
+      "id": "qt_particle_023_02",
+      "order": 2,
+      "japanese": "これこそ問題です。",
+      "korean": "이것이야말로 문제예요.",
+      "alternativeAnswers": ["이것이야말로 문제입니다."],
+      "hint": "이것이야말로...",
+      "explanation": "指示代名詞にも付けて最も重要だと強調します。"
+    },
+    {
+      "id": "qt_particle_023_03",
+      "order": 3,
+      "japanese": "今こそ話します。",
+      "korean": "지금이야말로 말할게요.",
+      "alternativeAnswers": ["지금이야말로 말하겠습니다."],
+      "hint": "지금이야말로...",
+      "explanation": "時点を強く示したいときも「이야말로/야말로」を使います。"
+    },
+    {
+      "id": "qt_particle_023_04",
+      "order": 4,
+      "japanese": "こここそ私の家です。",
+      "korean": "여기야말로 우리 집이에요.",
+      "alternativeAnswers": ["여기야말로 우리 집입니다."],
+      "hint": "여기야말로...",
+      "explanation": "場所を強調する場合も主格助詞と合わせて使います。"
+    },
+    {
+      "id": "qt_particle_023_05",
+      "order": 5,
+      "japanese": "友達こそ大事です。",
+      "korean": "친구야말로 정말 중요해요.",
+      "alternativeAnswers": ["친구야말로 정말 중요합니다."],
+      "hint": "친구야말로...",
+      "explanation": "強調したい名詞に直接付けて重要性を示します。"
+    },
+    {
+      "id": "qt_particle_023_06",
+      "order": 6,
+      "japanese": "この瞬間こそ幸せです。",
+      "korean": "이 순간이야말로 행복해요.",
+      "alternativeAnswers": ["이 순간이야말로 행복합니다."],
+      "hint": "이 순간이야말로...",
+      "explanation": "瞬間を強調して唯一性を示す表現です。"
+    },
+    {
+      "id": "qt_particle_023_07",
+      "order": 7,
+      "japanese": "家族こそ力です。",
+      "korean": "가족이야말로 힘이에요.",
+      "alternativeAnswers": ["가족이야말로 힘입니다."],
+      "hint": "가족이야말로...",
+      "explanation": "名詞に付け強調するだけで語順は変わりません。"
+    },
+    {
+      "id": "qt_particle_023_08",
+      "order": 8,
+      "japanese": "この料理こそ最高です。",
+      "korean": "이 음식이야말로 최고예요.",
+      "alternativeAnswers": ["이 음식이야말로 최고입니다."],
+      "hint": "이 음식이야말로...",
+      "explanation": "特定の対象を指して強調するとき「(이)야말로」を使います。"
+    },
+    {
+      "id": "qt_particle_023_09",
+      "order": 9,
+      "japanese": "この週末こそ休みます。",
+      "korean": "이번 주말이야말로 쉬어요.",
+      "alternativeAnswers": ["이번 주말이야말로 쉽니다."],
+      "hint": "이번 주말이야말로...",
+      "explanation": "予定を強調するときも時間名詞に付けて使えます。"
+    },
+    {
+      "id": "qt_particle_023_10",
+      "order": 10,
+      "japanese": "この人こそ探していた人です。",
+      "korean": "이 사람이야말로 찾던 사람이에요.",
+      "alternativeAnswers": ["이 사람이야말로 찾던 사람입니다."],
+      "hint": "이 사람이야말로...",
+      "explanation": "強調対象に「(이)야말로」を付けて『まさに〜だ』と示します。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_adnominal_005",
+  "grammarTitle": "-았/었던",
+  "grammarSubtitle": "過去回想連体形",
+  "category": "adnominal",
+  "questions": [
+    {
+      "id": "qt_adnominal_005_01",
+      "order": 1,
+      "japanese": "昔食べた味が思い出されます。",
+      "korean": "예전에 먹었던 맛이 생각나요.",
+      "alternativeAnswers": ["예전에 먹었던 맛이 생각납니다."],
+      "hint": "예전에...",
+      "explanation": "すでに終わった過去の経験を強く回想する形です。"
+    },
+    {
+      "id": "qt_adnominal_005_02",
+      "order": 2,
+      "japanese": "一緒にいた友達を覚えています。",
+      "korean": "같이 있었던 친구를 기억해요.",
+      "alternativeAnswers": ["같이 있었던 친구를 기억합니다."],
+      "hint": "같이...",
+      "explanation": "完了した過去の状態を名詞にかけています。"
+    },
+    {
+      "id": "qt_adnominal_005_03",
+      "order": 3,
+      "japanese": "行ったことのある場所です。",
+      "korean": "가봤던 곳이에요.",
+      "alternativeAnswers": ["가봤던 곳입니다."],
+      "hint": "가봤...",
+      "explanation": "一度終わった経験を回想連体形で表します。"
+    },
+    {
+      "id": "qt_adnominal_005_04",
+      "order": 4,
+      "japanese": "昔住んでいた家です。",
+      "korean": "전에 살았던 집이에요.",
+      "alternativeAnswers": ["전에 살았던 집입니다."],
+      "hint": "전에...",
+      "explanation": "すでに終えた居住経験を名詞の前で示します。"
+    },
+    {
+      "id": "qt_adnominal_005_05",
+      "order": 5,
+      "japanese": "見た映画がとても良かったです。",
+      "korean": "봤던 영화가 아주 좋았어요.",
+      "alternativeAnswers": ["봤던 영화가 아주 좋았습니다."],
+      "hint": "봤던...",
+      "explanation": "過去の一度の経験を回想して述べる形です。"
+    },
+    {
+      "id": "qt_adnominal_005_06",
+      "order": 6,
+      "japanese": "書いた手紙を見つけました。",
+      "korean": "썼던 편지를 찾았어요.",
+      "alternativeAnswers": ["썼던 편지를 찾았습니다."],
+      "hint": "썼던...",
+      "explanation": "書き終えた過去の行為を回想して名詞を修飾します。"
+    },
+    {
+      "id": "qt_adnominal_005_07",
+      "order": 7,
+      "japanese": "知っていた人に会いました。",
+      "korean": "알았던 사람을 만났어요.",
+      "alternativeAnswers": ["알았던 사람을 만났습니다."],
+      "hint": "알았...",
+      "explanation": "以前知っていた関係を回想して名詞を修飾します。"
+    },
+    {
+      "id": "qt_adnominal_005_08",
+      "order": 8,
+      "japanese": "聞いた歌をまた聴きたいです。",
+      "korean": "들었던 노래를 다시 듣고 싶어요.",
+      "alternativeAnswers": ["들었던 노래를 다시 듣고 싶습니다."],
+      "hint": "들었던...",
+      "explanation": "過去に聞いた経験を回想連体形で示します。"
+    },
+    {
+      "id": "qt_adnominal_005_09",
+      "order": 9,
+      "japanese": "使っていたかばんを売りました。",
+      "korean": "썼던 가방을 팔았어요.",
+      "alternativeAnswers": ["썼던 가방을 팔았습니다."],
+      "hint": "썼던...",
+      "explanation": "以前使った物を回想しながら述べる例です。"
+    },
+    {
+      "id": "qt_adnominal_005_10",
+      "order": 10,
+      "japanese": "勉強していた本を友達にあげました。",
+      "korean": "공부했던 책을 친구에게 줬어요.",
+      "alternativeAnswers": ["공부했던 책을 친구에게 줬습니다."],
+      "hint": "공부했...",
+      "explanation": "過去に使った教材を回想連体形で表します。"
+    }
+  ]
+}

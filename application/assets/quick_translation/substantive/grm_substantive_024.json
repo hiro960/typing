@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_024",
+  "grammarTitle": "권",
+  "grammarSubtitle": "助数詞（冊）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_024_01",
+      "order": 1,
+      "japanese": "本を一冊読みます。",
+      "korean": "책 한 권 읽어요.",
+      "alternativeAnswers": [],
+      "hint": "책 한...",
+      "explanation": "本は助数詞 권 で数えます。"
+    },
+    {
+      "id": "qt_substantive_024_02",
+      "order": 2,
+      "japanese": "本を二冊買いました。",
+      "korean": "책 두 권 샀어요.",
+      "alternativeAnswers": [],
+      "hint": "책 두...",
+      "explanation": "購入数も 권 を付けます。"
+    },
+    {
+      "id": "qt_substantive_024_03",
+      "order": 3,
+      "japanese": "小説が三冊あります。",
+      "korean": "소설 세 권 있어요.",
+      "alternativeAnswers": [],
+      "hint": "소설 세...",
+      "explanation": "文庫なども 권 で数えます。"
+    },
+    {
+      "id": "qt_substantive_024_04",
+      "order": 4,
+      "japanese": "漫画を四冊借りました。",
+      "korean": "만화 네 권 빌렸어요.",
+      "alternativeAnswers": [],
+      "hint": "만화 네...",
+      "explanation": "借りるときも 권 を使います。"
+    },
+    {
+      "id": "qt_substantive_024_05",
+      "order": 5,
+      "japanese": "雑誌を五冊見ました。",
+      "korean": "잡지 다섯 권 봤어요.",
+      "alternativeAnswers": [],
+      "hint": "잡지 다...",
+      "explanation": "雑誌の数え方も 권 です。"
+    },
+    {
+      "id": "qt_substantive_024_06",
+      "order": 6,
+      "japanese": "教科書を六冊持ってきました。",
+      "korean": "교과서 여섯 권 가져왔어요.",
+      "alternativeAnswers": [],
+      "hint": "교과서...",
+      "explanation": "複数の教科書も 권 で数えます。"
+    },
+    {
+      "id": "qt_substantive_024_07",
+      "order": 7,
+      "japanese": "本を七冊プレゼントしました。",
+      "korean": "책 일곱 권 선물했어요.",
+      "alternativeAnswers": [],
+      "hint": "책 일...",
+      "explanation": "贈り物の冊数も 권 로 표현합니다."
+    },
+    {
+      "id": "qt_substantive_024_08",
+      "order": 8,
+      "japanese": "本を八冊整理します。",
+      "korean": "책 여덟 권 정리해요.",
+      "alternativeAnswers": [],
+      "hint": "책 여...",
+      "explanation": "整理する冊数も 권 を用います。"
+    },
+    {
+      "id": "qt_substantive_024_09",
+      "order": 9,
+      "japanese": "本が九冊残りました。",
+      "korean": "책 아홉 권 남았어요.",
+      "alternativeAnswers": [],
+      "hint": "책 아...",
+      "explanation": "残り冊数も 권 で表します。"
+    },
+    {
+      "id": "qt_substantive_024_10",
+      "order": 10,
+      "japanese": "本を十冊読むのが目標です。",
+      "korean": "책 열 권 읽는 게 목표예요.",
+      "alternativeAnswers": [],
+      "hint": "책 열...",
+      "explanation": "目標冊数にも 권 을 붙입니다."
+    }
+  ]
+}

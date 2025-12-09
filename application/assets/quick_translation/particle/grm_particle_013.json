@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_013",
+  "grammarTitle": "까지",
+  "grammarSubtitle": "到達点助詞（〜まで）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_013_01",
+      "order": 1,
+      "japanese": "家まで歩きます。",
+      "korean": "집까지 걸어요.",
+      "alternativeAnswers": ["집까지 걷습니다."],
+      "hint": "집까지...",
+      "explanation": "終点を示す助詞「까지」で歩く距離を表します。"
+    },
+    {
+      "id": "qt_particle_013_02",
+      "order": 2,
+      "japanese": "五時まで働きます。",
+      "korean": "다섯 시까지 일해요.",
+      "alternativeAnswers": ["다섯 시까지 일합니다."],
+      "hint": "다섯 시까지...",
+      "explanation": "時間の終わりを表すときも「까지」を使います。"
+    },
+    {
+      "id": "qt_particle_013_03",
+      "order": 3,
+      "japanese": "ここまでが終わりです。",
+      "korean": "여기까지가 끝이에요.",
+      "alternativeAnswers": ["여기까지가 끝입니다."],
+      "hint": "여기까지...",
+      "explanation": "地点を区切る表現で「まで」を示します。"
+    },
+    {
+      "id": "qt_particle_013_04",
+      "order": 4,
+      "japanese": "宿題は明日までです。",
+      "korean": "숙제는 내일까지예요.",
+      "alternativeAnswers": ["숙제는 내일까지입니다."],
+      "hint": "숙제는...",
+      "explanation": "締切の終点を「까지」で示し主題とは別に扱います。"
+    },
+    {
+      "id": "qt_particle_013_05",
+      "order": 5,
+      "japanese": "学校までバスで行きます。",
+      "korean": "학교까지 버스로 가요.",
+      "alternativeAnswers": ["학교까지 버스로 갑니다."],
+      "hint": "학교까지...",
+      "explanation": "移動の終点を「까지」で示し手段は別に付けます。"
+    },
+    {
+      "id": "qt_particle_013_06",
+      "order": 6,
+      "japanese": "駅まで一緒に行きます。",
+      "korean": "역까지 같이 가요.",
+      "alternativeAnswers": ["역까지 같이 갑니다."],
+      "hint": "역까지...",
+      "explanation": "同行の終点を示すのも「까지」です。"
+    },
+    {
+      "id": "qt_particle_013_07",
+      "order": 7,
+      "japanese": "夜まで勉強します。",
+      "korean": "밤까지 공부해요.",
+      "alternativeAnswers": ["밤까지 공부합니다."],
+      "hint": "밤까지...",
+      "explanation": "時間の範囲の終わりを表す助詞として使います。"
+    },
+    {
+      "id": "qt_particle_013_08",
+      "order": 8,
+      "japanese": "休みまで待ちます。",
+      "korean": "방학까지 기다려요.",
+      "alternativeAnswers": ["방학까지 기다립니다."],
+      "hint": "방학까지...",
+      "explanation": "ある時期までの忍耐を表す場合も「까지」を使います。"
+    },
+    {
+      "id": "qt_particle_013_09",
+      "order": 9,
+      "japanese": "十時まで来てください。",
+      "korean": "열 시까지 오세요.",
+      "alternativeAnswers": ["열 시까지 오십시오."],
+      "hint": "열 시까지...",
+      "explanation": "締切時刻を示し依頼する表現で「까지」を使います。"
+    },
+    {
+      "id": "qt_particle_013_10",
+      "order": 10,
+      "japanese": "ここまで歩いてください。",
+      "korean": "여기까지 걸어 오세요.",
+      "alternativeAnswers": ["여기까지 걸어 오십시오."],
+      "hint": "여기까지...",
+      "explanation": "到達点を指定して行動を求めるときも「까지」を用います。"
+    }
+  ]
+}

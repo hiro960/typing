@@ -1,0 +1,104 @@
+{
+  "grammarRef": "grm_expression_029",
+  "grammarTitle": "-(으)ㄴ/는 셈이다",
+  "grammarSubtitle": "〜したことになる／〜も同然だ",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_029_01",
+      "order": 1,
+      "japanese": "今日で三回会ったことになりますね。",
+      "korean": "오늘로 세 번 만난 셈이네요.",
+      "alternativeAnswers": [
+        "오늘로 세 번 만난 셈입니다."
+      ],
+      "hint": "오늘로...",
+      "explanation": "累計をまとめて評価する際に「-ㄴ 셈이다」を使います。"
+    },
+    {
+      "id": "qt_expression_029_02",
+      "order": 2,
+      "japanese": "この値段ならほとんどタダも同然です。",
+      "korean": "이 가격이면 거의 공짜인 셈이에요.",
+      "alternativeAnswers": [
+        "이 가격이면 거의 공짜인 셈입니다."
+      ],
+      "hint": "이 가격이면...",
+      "explanation": "結果的に同等であることを「인 셈이에요」で表します。"
+    },
+    {
+      "id": "qt_expression_029_03",
+      "order": 3,
+      "japanese": "少し遅れましたがほとんど時間通りに来たことになります。",
+      "korean": "조금 늦었지만 거의 시간 맞춘 셈이에요.",
+      "alternativeAnswers": [],
+      "hint": "조금...",
+      "explanation": "近い結果を評価して「맞춘 셈이다」でほぼ同じだと示します。"
+    },
+    {
+      "id": "qt_expression_029_04",
+      "order": 4,
+      "japanese": "昼ご飯を二回食べたことになります。",
+      "korean": "점심을 두 번 먹은 셈이에요.",
+      "alternativeAnswers": [
+        "점심을 두 번 먹은 셈입니다."
+      ],
+      "hint": "점심을...",
+      "explanation": "重ねた行動の結果を「-은 셈이에요」で述べます。"
+    },
+    {
+      "id": "qt_expression_029_05",
+      "order": 5,
+      "japanese": "これだけ練習したなら毎日したことになります。",
+      "korean": "이 정도 연습했으면 매일 한 셈이에요.",
+      "alternativeAnswers": [],
+      "hint": "이 정도...",
+      "explanation": "量を換算して同等とみなすとき「한 셈이다」を用います。"
+    },
+    {
+      "id": "qt_expression_029_06",
+      "order": 6,
+      "japanese": "歩いて行くと遠くまで行ったことになります。",
+      "korean": "걸어서 가면 멀리 간 셈이에요.",
+      "alternativeAnswers": [],
+      "hint": "걸어서...",
+      "explanation": "結果的な距離を評価する表現として「-ㄴ 셈이다」を使います。"
+    },
+    {
+      "id": "qt_expression_029_07",
+      "order": 7,
+      "japanese": "先に到着したので待ったことになります。",
+      "korean": "제가 먼저 도착해서 기다린 셈이에요.",
+      "alternativeAnswers": [],
+      "hint": "제가...",
+      "explanation": "状況をまとめて結果を示すとき「-ㄴ 셈이다」を用います。"
+    },
+    {
+      "id": "qt_expression_029_08",
+      "order": 8,
+      "japanese": "この本を全部読んだから、もう終わったも同然です。",
+      "korean": "이 책을 다 읽어서 끝낸 셈이에요.",
+      "alternativeAnswers": [],
+      "hint": "이 책을...",
+      "explanation": "ある行為の完了を総括し「끝낸 셈이다」で表します。"
+    },
+    {
+      "id": "qt_expression_029_09",
+      "order": 9,
+      "japanese": "コーヒーを買わなかったのでお金を節約したことになります。",
+      "korean": "커피를 안 사서 돈을 아낀 셈이에요.",
+      "alternativeAnswers": [],
+      "hint": "커피를...",
+      "explanation": "行動の結果として節約したと評価し「-ㄴ 셈이다」を使います。"
+    },
+    {
+      "id": "qt_expression_029_10",
+      "order": 10,
+      "japanese": "毎日歩くので運動したことになります。",
+      "korean": "매일 걸으니 운동한 셈이에요.",
+      "alternativeAnswers": [],
+      "hint": "매일...",
+      "explanation": "日常行動を運動とみなす際に「-ㄴ 셈이다」で同等と示します。"
+    }
+  ]
+}

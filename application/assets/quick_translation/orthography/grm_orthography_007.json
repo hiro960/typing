@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_orthography_007",
+  "grammarTitle": "경음",
+  "grammarSubtitle": "濃音",
+  "category": "orthography",
+  "questions": [
+    {
+      "id": "qt_orthography_007_01",
+      "order": 1,
+      "japanese": "「까」は喉を締めて言います。",
+      "korean": "까는 목을 조여 말해요.",
+      "alternativeAnswers": ["까는 목을 조여 말합니다."],
+      "hint": "까는...",
+      "explanation": "濃音ㄲは声帯を緊張させ、息をほとんど出さない無気音です。"
+    },
+    {
+      "id": "qt_orthography_007_02",
+      "order": 2,
+      "japanese": "「따」も息をほぼ使いません。",
+      "korean": "따는 숨을 거의 안 써요.",
+      "alternativeAnswers": ["따는 숨을 거의 안 씁니다."],
+      "hint": "따는...",
+      "explanation": "濃音ㄸは強く閉じて出し、息を抑えて発音します。"
+    },
+    {
+      "id": "qt_orthography_007_03",
+      "order": 3,
+      "japanese": "「빠」は唇を固く閉じます。",
+      "korean": "빠는 입술을 꽉 닫아요.",
+      "alternativeAnswers": ["빠는 입술을 꽉 닫습니다."],
+      "hint": "빠는...",
+      "explanation": "濃音ㅃは唇を強く閉じ息を出さずに弾く無気音です。"
+    },
+    {
+      "id": "qt_orthography_007_04",
+      "order": 4,
+      "japanese": "「싸」を言っても紙は動きません。",
+      "korean": "싸 말해도 종이는 안 날려요.",
+      "alternativeAnswers": ["싸 말해도 종이는 안 날립니다."],
+      "hint": "싸 말...",
+      "explanation": "濃音ㅆは息をほぼ出さないため、ティッシュがあまり動きません。"
+    },
+    {
+      "id": "qt_orthography_007_05",
+      "order": 5,
+      "japanese": "「짜」は短く強く押します。",
+      "korean": "짜는 짧고 세게 눌러요.",
+      "alternativeAnswers": ["짜는 짧고 세게 누릅니다."],
+      "hint": "짜는...",
+      "explanation": "濃音ㅉは喉を締めて短く強く押し出す破擦音です。"
+    },
+    {
+      "id": "qt_orthography_007_06",
+      "order": 6,
+      "japanese": "「아까」のㄲは濁りません。",
+      "korean": "아까의 ㄲ은 안 울려요.",
+      "alternativeAnswers": ["아까의 ㄲ은 안 울립니다."],
+      "hint": "아까...",
+      "explanation": "濃音は語中でも有声化せず、ㄲは常に無声音を保ちます。"
+    },
+    {
+      "id": "qt_orthography_007_07",
+      "order": 7,
+      "japanese": "「딸」のㄸも息を出しません。",
+      "korean": "딸의 ㄸ도 숨을 안 내요.",
+      "alternativeAnswers": ["딸의 ㄸ도 숨을 안 냅니다."],
+      "hint": "딸의...",
+      "explanation": "濃音ㄸは強く閉じて息を止め、濁音にならず[t͈]で発音します。"
+    },
+    {
+      "id": "qt_orthography_007_08",
+      "order": 8,
+      "japanese": "「아빠」のㅃは強く閉じます。",
+      "korean": "아빠의 ㅃ은 꽉 닫아요.",
+      "alternativeAnswers": ["아빠의 ㅃ은 꽉 닫습니다."],
+      "hint": "아빠...",
+      "explanation": "濃音ㅃは声帯を緊張させ両唇を固く閉じ、息を止めて出します。"
+    },
+    {
+      "id": "qt_orthography_007_09",
+      "order": 9,
+      "japanese": "「학교」は[학꾜]に聞こえます。",
+      "korean": "학교는 [학꾜]로 들려요.",
+      "alternativeAnswers": ["학교는 [학꾜]로 들립니다."],
+      "hint": "학교...",
+      "explanation": "パッチムㄱの後に平音ㄱが来て濃音化し[꾜]になります。"
+    },
+    {
+      "id": "qt_orthography_007_10",
+      "order": 10,
+      "japanese": "「식당」は[식땅]に聞こえます。",
+      "korean": "식당은 [식땅]처럼 나요.",
+      "alternativeAnswers": ["식당은 [식땅]처럼 납니다."],
+      "hint": "식당...",
+      "explanation": "パッチムㄱの後のㄷが濃音化しㄸになり、[땅]の音になります。"
+    }
+  ]
+}

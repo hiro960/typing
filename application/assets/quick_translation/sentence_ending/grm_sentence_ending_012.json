@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_sentence_ending_012",
+  "grammarTitle": "-(으)ㄹ래요",
+  "grammarSubtitle": "意向・勧誘（〜するつもりですか）",
+  "category": "sentence_ending",
+  "questions": [
+    {
+      "id": "qt_sentence_ending_012_01",
+      "order": 1,
+      "japanese": "一緒に映画を見ませんか。",
+      "korean": "같이 영화 볼래요?",
+      "alternativeAnswers": ["영화를 같이 볼래요?"],
+      "hint": "같이...",
+      "explanation": "相手の意思をたずねる勧誘で -(으)ㄹ래요 を使います。"
+    },
+    {
+      "id": "qt_sentence_ending_012_02",
+      "order": 2,
+      "japanese": "コーヒーを飲みますか。",
+      "korean": "커피 마실래요?",
+      "alternativeAnswers": [],
+      "hint": "커피...",
+      "explanation": "選択を促すときに丁寧な質問として -(으)ㄹ래요 を付けます。"
+    },
+    {
+      "id": "qt_sentence_ending_012_03",
+      "order": 3,
+      "japanese": "私は歩いて行きます。",
+      "korean": "저는 걸어갈래요.",
+      "alternativeAnswers": [],
+      "hint": "저는...",
+      "explanation": "自分の意思を表明するときも -(으)ㄹ래요 が使えます。"
+    },
+    {
+      "id": "qt_sentence_ending_012_04",
+      "order": 4,
+      "japanese": "今日は家にいるつもりです。",
+      "korean": "오늘 집에 있을래요.",
+      "alternativeAnswers": [],
+      "hint": "오늘...",
+      "explanation": "自分の予定や選択を柔らかく伝える終止形です。"
+    },
+    {
+      "id": "qt_sentence_ending_012_05",
+      "order": 5,
+      "japanese": "窓側に座りたいです。",
+      "korean": "창가에 앉을래요.",
+      "alternativeAnswers": ["창가 쪽에 앉을래요."],
+      "hint": "창가...",
+      "explanation": "希望を示して選択する場面で -(으)ㄹ래요 を使います。"
+    },
+    {
+      "id": "qt_sentence_ending_012_06",
+      "order": 6,
+      "japanese": "あとで電話しますね。",
+      "korean": "이따 전화할래요.",
+      "alternativeAnswers": ["나중에 전화할래요."],
+      "hint": "이따...",
+      "explanation": "自分の意向を示しつつ確認するニュアンスです。"
+    },
+    {
+      "id": "qt_sentence_ending_012_07",
+      "order": 7,
+      "japanese": "明日は早く起きたいです。",
+      "korean": "내일 일찍 일어날래요.",
+      "alternativeAnswers": [],
+      "hint": "내일...",
+      "explanation": "未来の意思を表明するときに -(으)ㄹ래요 を使います。"
+    },
+    {
+      "id": "qt_sentence_ending_012_08",
+      "order": 8,
+      "japanese": "タクシーに乗りますか。",
+      "korean": "택시 탈래요?",
+      "alternativeAnswers": ["택시 타고 갈래요?"],
+      "hint": "택시...",
+      "explanation": "提案して相手の選択を聞く場面で使う終止形です。"
+    },
+    {
+      "id": "qt_sentence_ending_012_09",
+      "order": 9,
+      "japanese": "これを買いたいです。",
+      "korean": "이거 살래요.",
+      "alternativeAnswers": ["이걸 살래요."],
+      "hint": "이거...",
+      "explanation": "自分の希望をやわらかく伝えるとき -(으)ㄹ래요 を用います。"
+    },
+    {
+      "id": "qt_sentence_ending_012_10",
+      "order": 10,
+      "japanese": "誰と行きますか。",
+      "korean": "누구랑 갈래요?",
+      "alternativeAnswers": ["누구하고 갈래요?"],
+      "hint": "누구...",
+      "explanation": "相手の意向をたずねる疑問文にも -(으)ㄹ래요 を使います。"
+    }
+  ]
+}

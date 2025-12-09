@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_sentence_ending_011",
+  "grammarTitle": "-(으)ㄹ게요",
+  "grammarSubtitle": "意志・約束（〜しますね）",
+  "category": "sentence_ending",
+  "questions": [
+    {
+      "id": "qt_sentence_ending_011_01",
+      "order": 1,
+      "japanese": "すぐ戻りますね。",
+      "korean": "금방 돌아올게요.",
+      "alternativeAnswers": ["곧 돌아올게요.", "금방 돌아오겠습니다."],
+      "hint": "금방...",
+      "explanation": "自分のこれからの行動を約束する終止形が -(으)ㄹ게요 です。"
+    },
+    {
+      "id": "qt_sentence_ending_011_02",
+      "order": 2,
+      "japanese": "夕方に連絡しますね。",
+      "korean": "저녁에 연락할게요.",
+      "alternativeAnswers": ["저녁에 연락하겠습니다."],
+      "hint": "저녁에...",
+      "explanation": "相手への配慮を含めた意志表現に -(으)ㄹ게요 を使います。"
+    },
+    {
+      "id": "qt_sentence_ending_011_03",
+      "order": 3,
+      "japanese": "これ持って行きますね。",
+      "korean": "이거 가져갈게요.",
+      "alternativeAnswers": ["이걸 가져갈게요."],
+      "hint": "이거...",
+      "explanation": "これからの行動を宣言して相手に知らせる形です。"
+    },
+    {
+      "id": "qt_sentence_ending_011_04",
+      "order": 4,
+      "japanese": "先に行きますね。",
+      "korean": "먼저 갈게요.",
+      "alternativeAnswers": [],
+      "hint": "먼저...",
+      "explanation": "自分の意志を示しつつ相手に了承を求める表現です。"
+    },
+    {
+      "id": "qt_sentence_ending_011_05",
+      "order": 5,
+      "japanese": "窓を開けますね。",
+      "korean": "창문 열게요.",
+      "alternativeAnswers": ["창문을 열게요.", "창문 열겠습니다."],
+      "hint": "창문...",
+      "explanation": "動作前に一声かけるときに -(으)ㄹ게요 を付けます。"
+    },
+    {
+      "id": "qt_sentence_ending_011_06",
+      "order": 6,
+      "japanese": "ゆっくり話しますね。",
+      "korean": "천천히 말할게요.",
+      "alternativeAnswers": ["천천히 말하겠습니다."],
+      "hint": "천천히...",
+      "explanation": "これから行う話し方を約束する場面で使います。"
+    },
+    {
+      "id": "qt_sentence_ending_011_07",
+      "order": 7,
+      "japanese": "次は私が払いますね。",
+      "korean": "다음에는 제가 낼게요.",
+      "alternativeAnswers": ["다음에 제가 낼게요.", "다음에는 제가 내겠습니다."],
+      "hint": "다음에는...",
+      "explanation": "自分が行うことを宣言し相手に配慮を示す用法です。"
+    },
+    {
+      "id": "qt_sentence_ending_011_08",
+      "order": 8,
+      "japanese": "今掃除しますね。",
+      "korean": "지금 청소할게요.",
+      "alternativeAnswers": ["지금 치울게요.", "지금 청소하겠습니다."],
+      "hint": "지금...",
+      "explanation": "これからの行動を知らせる意志表現として使います。"
+    },
+    {
+      "id": "qt_sentence_ending_011_09",
+      "order": 9,
+      "japanese": "待っていますね。",
+      "korean": "기다릴게요.",
+      "alternativeAnswers": ["기다리겠습니다."],
+      "hint": "기다...",
+      "explanation": "相手に合わせて待つ意志を伝えるとき -(으)ㄹ게요 を用います。"
+    },
+    {
+      "id": "qt_sentence_ending_011_10",
+      "order": 10,
+      "japanese": "必ず守りますね。",
+      "korean": "꼭 지킬게요.",
+      "alternativeAnswers": ["꼭 지키겠습니다."],
+      "hint": "꼭...",
+      "explanation": "約束を強調して述べる終止形に -(으)ㄹ게요 を使います。"
+    }
+  ]
+}

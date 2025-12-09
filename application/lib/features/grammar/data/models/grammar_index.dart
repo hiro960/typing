@@ -25,7 +25,7 @@ class GrammarIndex {
     final categoryMap = <GrammarCategory, GrammarCategoryCatalog>{};
 
     for (final category in GrammarCategory.values) {
-      final categoryJson = categoriesJson[category.name];
+      final categoryJson = categoriesJson[category.jsonKey];
       if (categoryJson is Map<String, dynamic>) {
         categoryMap[category] = GrammarCategoryCatalog.fromJson(
           category,

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_tense_aspect_014",
+  "grammarTitle": "-게 하다",
+  "grammarSubtitle": "使役",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_014_01",
+      "order": 1,
+      "japanese": "母が薬を飲ませました。",
+      "korean": "엄마가 약을 먹게 했어요.",
+      "alternativeAnswers": ["어머니가 약을 먹게 했습니다."],
+      "hint": "엄마가...",
+      "explanation": "相手に行為をさせるとき動詞に-게 하다を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_014_02",
+      "order": 2,
+      "japanese": "先生が本を読ませました。",
+      "korean": "선생님이 책을 읽게 했어요.",
+      "alternativeAnswers": ["선생님이 책을 읽게 했습니다."],
+      "hint": "선생님이...",
+      "explanation": "行為をさせる使役で읽다に-게 하다を用います。"
+    },
+    {
+      "id": "qt_tense_aspect_014_03",
+      "order": 3,
+      "japanese": "友達が私を待たせました。",
+      "korean": "친구가 저를 기다리게 했어요.",
+      "alternativeAnswers": ["친구가 저를 기다리게 했습니다."],
+      "hint": "친구가...",
+      "explanation": "他人に待つ行為をさせるので기다리게 하다形にします。"
+    },
+    {
+      "id": "qt_tense_aspect_014_04",
+      "order": 4,
+      "japanese": "母が早く寝させました。",
+      "korean": "엄마가 일찍 자게 했어요.",
+      "alternativeAnswers": ["엄마가 일찍 자게 했습니다."],
+      "hint": "엄마가...",
+      "explanation": "寝るようにさせる使役で자다に-게 하다を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_014_05",
+      "order": 5,
+      "japanese": "先生が韓国語で話させました。",
+      "korean": "선생님이 한국어로 말하게 했어요.",
+      "alternativeAnswers": ["선생님이 한국어로 말하게 했습니다."],
+      "hint": "선생님이...",
+      "explanation": "言わせる使役表現で말하다に-게 하다を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_014_06",
+      "order": 6,
+      "japanese": "父が部屋を掃除させました。",
+      "korean": "아빠가 방을 청소하게 했어요.",
+      "alternativeAnswers": ["아버지가 방을 청소하게 했습니다."],
+      "hint": "아빠가...",
+      "explanation": "させる行為に-게 하다を付け掃除させたことを示します。"
+    },
+    {
+      "id": "qt_tense_aspect_014_07",
+      "order": 7,
+      "japanese": "その話がおかしくて笑わせました。",
+      "korean": "그 이야기가 사람을 웃게 했어요.",
+      "alternativeAnswers": ["그 이야기가 사람을 웃게 했습니다."],
+      "hint": "그 이야기가...",
+      "explanation": "笑うようにさせるので웃다に-게 하다を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_014_08",
+      "order": 8,
+      "japanese": "音楽が私を泣かせました。",
+      "korean": "음악이 저를 울게 했어요.",
+      "alternativeAnswers": ["음악이 저를 울게 했습니다."],
+      "hint": "음악이...",
+      "explanation": "泣くようにさせる使役で울다+게 하다を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_014_09",
+      "order": 9,
+      "japanese": "先生が手を挙げさせました。",
+      "korean": "선생님이 손을 들게 했어요.",
+      "alternativeAnswers": ["선생님이 손을 들게 했습니다."],
+      "hint": "선생님이...",
+      "explanation": "動作を促す場合も-게 하다を付けて使役を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_014_10",
+      "order": 10,
+      "japanese": "その映画が考えさせました。",
+      "korean": "그 영화가 생각하게 했어요.",
+      "alternativeAnswers": ["그 영화가 생각하게 했습니다."],
+      "hint": "그 영화가...",
+      "explanation": "考えるようにさせる意味で생각하다+게 하다を用います。"
+    }
+  ]
+}

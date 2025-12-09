@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_007",
+  "grammarTitle": "이/그/저",
+  "grammarSubtitle": "指示連体詞（この/その/あの）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_007_01",
+      "order": 1,
+      "japanese": "この本は面白いです。",
+      "korean": "이 책은 재미있어요.",
+      "alternativeAnswers": [],
+      "hint": "이 책...",
+      "explanation": "話し手の近くの名詞は「이」＋名詞。"
+    },
+    {
+      "id": "qt_substantive_007_02",
+      "order": 2,
+      "japanese": "その人は先生です。",
+      "korean": "그 사람은 선생님이에요.",
+      "alternativeAnswers": [],
+      "hint": "그 사...",
+      "explanation": "聞き手の側の名詞は「그」。"
+    },
+    {
+      "id": "qt_substantive_007_03",
+      "order": 3,
+      "japanese": "あの家は大きいです。",
+      "korean": "저 집은 커요.",
+      "alternativeAnswers": [],
+      "hint": "저 집...",
+      "explanation": "離れたものは「저」＋名詞で指します。"
+    },
+    {
+      "id": "qt_substantive_007_04",
+      "order": 4,
+      "japanese": "このかばんは軽いです。",
+      "korean": "이 가방은 가벼워요.",
+      "alternativeAnswers": [],
+      "hint": "이 가...",
+      "explanation": "近くの持ち物にも「이」＋名詞を使います。"
+    },
+    {
+      "id": "qt_substantive_007_05",
+      "order": 5,
+      "japanese": "その映画は面白かったです。",
+      "korean": "그 영화 재미있었어요.",
+      "alternativeAnswers": [],
+      "hint": "그 영...",
+      "explanation": "過去の対象でも聞き手側なら「그」。"
+    },
+    {
+      "id": "qt_substantive_007_06",
+      "order": 6,
+      "japanese": "あの道は静かです。",
+      "korean": "저 길은 조용해요.",
+      "alternativeAnswers": [],
+      "hint": "저 길...",
+      "explanation": "遠い場所を指す修飾は「저」。"
+    },
+    {
+      "id": "qt_substantive_007_07",
+      "order": 7,
+      "japanese": "この服はいくらですか。",
+      "korean": "이 옷은 얼마예요?",
+      "alternativeAnswers": [],
+      "hint": "이 옷...",
+      "explanation": "商品を指すときも「이」＋名詞。"
+    },
+    {
+      "id": "qt_substantive_007_08",
+      "order": 8,
+      "japanese": "そのバスは速いです。",
+      "korean": "그 버스는 빨라요.",
+      "alternativeAnswers": [],
+      "hint": "그 버...",
+      "explanation": "相手が見ているものは「그 버스」。"
+    },
+    {
+      "id": "qt_substantive_007_09",
+      "order": 9,
+      "japanese": "あの山は高いです。",
+      "korean": "저 산은 높아요.",
+      "alternativeAnswers": [],
+      "hint": "저 산...",
+      "explanation": "遠景を指すとき「저」＋名詞。"
+    },
+    {
+      "id": "qt_substantive_007_10",
+      "order": 10,
+      "japanese": "この問題はやさしいです。",
+      "korean": "이 문제는 쉬워요.",
+      "alternativeAnswers": [],
+      "hint": "이 문...",
+      "explanation": "近くの話題を「이 문제」で示します。"
+    }
+  ]
+}

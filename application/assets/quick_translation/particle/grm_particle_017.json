@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_017",
+  "grammarTitle": "보다",
+  "grammarSubtitle": "比較助詞（〜より）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_017_01",
+      "order": 1,
+      "japanese": "私は兄より背が高いです。",
+      "korean": "나는 형보다 키가 커요.",
+      "alternativeAnswers": ["저는 형보다 키가 커요.", "저는 형보다 키가 큽니다."],
+      "hint": "나는 형보다...",
+      "explanation": "基準になる名詞の後に「보다」を付けて比較を表します。"
+    },
+    {
+      "id": "qt_particle_017_02",
+      "order": 2,
+      "japanese": "今日は昨日より暖かいです。",
+      "korean": "오늘은 어제보다 따뜻해요.",
+      "alternativeAnswers": ["오늘은 어제보다 따뜻합니다."],
+      "hint": "오늘은...",
+      "explanation": "比較対象の昨日に「보다」を付けて差を示します。"
+    },
+    {
+      "id": "qt_particle_017_03",
+      "order": 3,
+      "japanese": "コーヒーよりお茶が好きです。",
+      "korean": "커피보다 차를 더 좋아해요.",
+      "alternativeAnswers": ["커피보다 차를 좋아합니다."],
+      "hint": "커피보다...",
+      "explanation": "好みの比較で基準に「보다」を付け強調に「더」を添えます。"
+    },
+    {
+      "id": "qt_particle_017_04",
+      "order": 4,
+      "japanese": "映画より本が好きです。",
+      "korean": "영화보다 책이 좋아요.",
+      "alternativeAnswers": ["영화보다 책이 좋습니다."],
+      "hint": "영화보다...",
+      "explanation": "基準を示す助詞「보다」で好みの対象を比較します。"
+    },
+    {
+      "id": "qt_particle_017_05",
+      "order": 5,
+      "japanese": "バスより地下鉄が速いです。",
+      "korean": "버스보다 지하철이 빨라요.",
+      "alternativeAnswers": ["버스보다 지하철이 빠릅니다."],
+      "hint": "버스보다...",
+      "explanation": "速度比較でも基準の後ろに「보다」を置きます。"
+    },
+    {
+      "id": "qt_particle_017_06",
+      "order": 6,
+      "japanese": "学校は家より近いです。",
+      "korean": "학교가 집보다 가까워요.",
+      "alternativeAnswers": ["학교가 집보다 가깝습니다."],
+      "hint": "학교가...",
+      "explanation": "比較対象『家』に「보다」を付け距離を比べています。"
+    },
+    {
+      "id": "qt_particle_017_07",
+      "order": 7,
+      "japanese": "このかばんはあのかばんより軽いです。",
+      "korean": "이 가방이 저 가방보다 가벼워요.",
+      "alternativeAnswers": ["이 가방이 저 가방보다 가볍습니다."],
+      "hint": "이 가방이...",
+      "explanation": "二つの物を比較するとき両方名詞を置き基準に「보다」。"
+    },
+    {
+      "id": "qt_particle_017_08",
+      "order": 8,
+      "japanese": "友達より私が早いです。",
+      "korean": "친구보다 제가 더 빨라요.",
+      "alternativeAnswers": ["친구보다 제가 빠릅니다."],
+      "hint": "친구보다...",
+      "explanation": "主語を強調しつつ比較基準には「보다」を使用します。"
+    },
+    {
+      "id": "qt_particle_017_09",
+      "order": 9,
+      "japanese": "冬より春が好きです。",
+      "korean": "겨울보다 봄이 좋아요.",
+      "alternativeAnswers": ["겨울보다 봄이 좋습니다."],
+      "hint": "겨울보다...",
+      "explanation": "季節を比較するときも同じ形で「より」を表します。"
+    },
+    {
+      "id": "qt_particle_017_10",
+      "order": 10,
+      "japanese": "水よりジュースをよく飲みます。",
+      "korean": "물보다 주스를 자주 마셔요.",
+      "alternativeAnswers": ["물보다 주스를 자주 마십니다."],
+      "hint": "물보다...",
+      "explanation": "頻度の比較でも基準語に「보다」を付けます。"
+    }
+  ]
+}

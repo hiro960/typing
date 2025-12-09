@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_quotation_010",
+  "grammarTitle": "-다면서요?",
+  "grammarSubtitle": "〜だそうですね？（確認）",
+  "category": "quotation",
+  "questions": [
+    {
+      "id": "qt_quotation_010_01",
+      "order": 1,
+      "japanese": "今日休みだそうですね？",
+      "korean": "오늘 쉰다면서요?",
+      "alternativeAnswers": [],
+      "hint": "오늘...",
+      "explanation": "聞いた内容の確認で「-다면서요?」を用います。"
+    },
+    {
+      "id": "qt_quotation_010_02",
+      "order": 2,
+      "japanese": "雨が降るそうですね？",
+      "korean": "비가 온다면서요?",
+      "alternativeAnswers": [],
+      "hint": "비가...",
+      "explanation": "伝聞情報を確認する疑問形に「-다면서요?」を使います。"
+    },
+    {
+      "id": "qt_quotation_010_03",
+      "order": 3,
+      "japanese": "その店がおいしいそうですね？",
+      "korean": "그 가게 맛있다면서요?",
+      "alternativeAnswers": [],
+      "hint": "그 가게...",
+      "explanation": "聞いた評判を確かめるときにも「-다면서요?」を使用。"
+    },
+    {
+      "id": "qt_quotation_010_04",
+      "order": 4,
+      "japanese": "宿題があるそうですね？",
+      "korean": "숙제가 있다면서요?",
+      "alternativeAnswers": [],
+      "hint": "숙제가...",
+      "explanation": "存在の伝聞を確認する表現として「-다면서요?」を使います。"
+    },
+    {
+      "id": "qt_quotation_010_05",
+      "order": 5,
+      "japanese": "今日忙しいそうですね？",
+      "korean": "오늘 바쁘다면서요?",
+      "alternativeAnswers": [],
+      "hint": "오늘...",
+      "explanation": "形容詞の伝聞を確認する際も「-다면서요?」を用います。"
+    },
+    {
+      "id": "qt_quotation_010_06",
+      "order": 6,
+      "japanese": "明日早く行くそうですね？",
+      "korean": "내일 일찍 간다면서요?",
+      "alternativeAnswers": [],
+      "hint": "내일...",
+      "explanation": "未来の予定の伝聞を確かめる疑問で「-다면서요?」。"
+    },
+    {
+      "id": "qt_quotation_010_07",
+      "order": 7,
+      "japanese": "友達も来るそうですね？",
+      "korean": "친구도 온다면서요?",
+      "alternativeAnswers": [],
+      "hint": "친구도...",
+      "explanation": "追加情報の確認にも伝聞確認形「-다면서요?」を使います。"
+    },
+    {
+      "id": "qt_quotation_010_08",
+      "order": 8,
+      "japanese": "ここが近いそうですね？",
+      "korean": "여기가 가깝다면서요?",
+      "alternativeAnswers": [],
+      "hint": "여기가...",
+      "explanation": "聞いた距離情報を確認する際「-다면서요?」を用います。"
+    },
+    {
+      "id": "qt_quotation_010_09",
+      "order": 9,
+      "japanese": "彼が学生だそうですね？",
+      "korean": "그가 학생이라면서요?",
+      "alternativeAnswers": [],
+      "hint": "그가...",
+      "explanation": "名詞述語の伝聞確認では「-이라면서요?」を使います。"
+    },
+    {
+      "id": "qt_quotation_010_10",
+      "order": 10,
+      "japanese": "今日会議がないそうですね？",
+      "korean": "오늘 회의 없다면서요?",
+      "alternativeAnswers": [],
+      "hint": "오늘...",
+      "explanation": "否定の伝聞を確かめるときも「-다면서요?」を使います。"
+    }
+  ]
+}

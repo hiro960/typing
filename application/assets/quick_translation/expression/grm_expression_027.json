@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_expression_027",
+  "grammarTitle": "-(으)ㄹ걸",
+  "grammarSubtitle": "〜すればよかったのに／〜だろうに（後悔）",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_027_01",
+      "order": 1,
+      "japanese": "もっと勉強すればよかったです。",
+      "korean": "더 공부할걸 그랬어요.",
+      "alternativeAnswers": [
+        "더 공부할걸 그랬습니다."
+      ],
+      "hint": "더 공부...",
+      "explanation": "過去の未実行への後悔を「-ㄹ걸 그랬어요」で表します。"
+    },
+    {
+      "id": "qt_expression_027_02",
+      "order": 2,
+      "japanese": "早く来ればよかったです。",
+      "korean": "일찍 올걸 그랬어요.",
+      "alternativeAnswers": [
+        "일찍 올걸 그랬습니다."
+      ],
+      "hint": "일찍...",
+      "explanation": "来なかったことへの後悔を「올걸 그랬어요」で述べます。"
+    },
+    {
+      "id": "qt_expression_027_03",
+      "order": 3,
+      "japanese": "傘を持ってくればよかったです。",
+      "korean": "우산을 가져올걸 그랬어요.",
+      "alternativeAnswers": [
+        "우산을 가져올걸 그랬습니다."
+      ],
+      "hint": "우산을...",
+      "explanation": "準備不足を悔やむ場面で「-ㄹ걸 그랬어요」を用います。"
+    },
+    {
+      "id": "qt_expression_027_04",
+      "order": 4,
+      "japanese": "タクシーに乗ればよかったです。",
+      "korean": "택시 탈걸 그랬어요.",
+      "alternativeAnswers": [
+        "택시 탈걸 그랬습니다."
+      ],
+      "hint": "택시...",
+      "explanation": "選択を誤った後悔を「탈걸 그랬어요」で表しています。"
+    },
+    {
+      "id": "qt_expression_027_05",
+      "order": 5,
+      "japanese": "もう少し食べればよかったです。",
+      "korean": "조금 더 먹을걸 그랬어요.",
+      "alternativeAnswers": [
+        "조금 더 먹을걸 그랬습니다."
+      ],
+      "hint": "조금...",
+      "explanation": "足りなかったと後悔する際に「-ㄹ걸 그랬어요」を使います。"
+    },
+    {
+      "id": "qt_expression_027_06",
+      "order": 6,
+      "japanese": "正直に言えばよかったです。",
+      "korean": "솔직히 말할걸 그랬어요.",
+      "alternativeAnswers": [
+        "솔직히 말할걸 그랬습니다."
+      ],
+      "hint": "솔직히...",
+      "explanation": "言わなかったことへの後悔を表す「-ㄹ걸 그랬어요」です。"
+    },
+    {
+      "id": "qt_expression_027_07",
+      "order": 7,
+      "japanese": "写真を撮ればよかったです。",
+      "korean": "사진을 찍을걸 그랬어요.",
+      "alternativeAnswers": [
+        "사진을 찍을걸 그랬습니다."
+      ],
+      "hint": "사진을...",
+      "explanation": "撮らなかった後悔を「찍을걸 그랬어요」で示します。"
+    },
+    {
+      "id": "qt_expression_027_08",
+      "order": 8,
+      "japanese": "休めばよかったです。",
+      "korean": "쉴걸 그랬어요.",
+      "alternativeAnswers": [
+        "쉴걸 그랬습니다."
+      ],
+      "hint": "쉴...",
+      "explanation": "休まなかったことを悔む際に「-ㄹ걸 그랬어요」を使います。"
+    },
+    {
+      "id": "qt_expression_027_09",
+      "order": 9,
+      "japanese": "先に電話すればよかったです。",
+      "korean": "먼저 전화할걸 그랬어요.",
+      "alternativeAnswers": [
+        "먼저 전화할걸 그랬습니다."
+      ],
+      "hint": "먼저...",
+      "explanation": "連絡をしなかった後悔を「-ㄹ걸 그랬어요」で表現します。"
+    },
+    {
+      "id": "qt_expression_027_10",
+      "order": 10,
+      "japanese": "休みの日に遊べばよかったです。",
+      "korean": "쉬는 날에 놀 걸 그랬어요.",
+      "alternativeAnswers": [
+        "쉬는 날에 놀 걸 그랬습니다."
+      ],
+      "hint": "쉬는...",
+      "explanation": "遊ばなかった後悔を「놀 걸 그랬어요」で示しています。"
+    }
+  ]
+}

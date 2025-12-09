@@ -1,0 +1,104 @@
+{
+  "grammarRef": "grm_substantive_013",
+  "grammarTitle": "무엇이나/아무거나",
+  "grammarSubtitle": "不定代名詞（何でも）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_013_01",
+      "order": 1,
+      "japanese": "何でも食べます。",
+      "korean": "아무거나 먹어요.",
+      "alternativeAnswers": [],
+      "hint": "아무거...",
+      "explanation": "「아무거나」で何でもよいという意味になります。"
+    },
+    {
+      "id": "qt_substantive_013_02",
+      "order": 2,
+      "japanese": "何でもください。",
+      "korean": "아무거나 주세요.",
+      "alternativeAnswers": [],
+      "hint": "아무거...",
+      "explanation": "注文で選ばないとき「아무거나 주세요」。"
+    },
+    {
+      "id": "qt_substantive_013_03",
+      "order": 3,
+      "japanese": "何でもかまいません。",
+      "korean": "무엇이나 괜찮아요.",
+      "alternativeAnswers": [],
+      "hint": "무엇이...",
+      "explanation": "選択自由を伝えるなら「무엇이나 괜찮아요」。"
+    },
+    {
+      "id": "qt_substantive_013_04",
+      "order": 4,
+      "japanese": "何でも質問してください。",
+      "korean": "무엇이나 물어보세요.",
+      "alternativeAnswers": [
+        "아무거나 물어보세요."
+      ],
+      "hint": "무엇이...",
+      "explanation": "質問を促すとき自由さを「무엇이나」で示します。"
+    },
+    {
+      "id": "qt_substantive_013_05",
+      "order": 5,
+      "japanese": "何でも作って食べます。",
+      "korean": "아무거나 만들어 먹어요.",
+      "alternativeAnswers": [],
+      "hint": "아무거...",
+      "explanation": "材料を選ばない意味でも「아무거나」。"
+    },
+    {
+      "id": "qt_substantive_013_06",
+      "order": 6,
+      "japanese": "何でも選んでください。",
+      "korean": "아무거나 고르세요.",
+      "alternativeAnswers": [
+        "무엇이나 고르세요."
+      ],
+      "hint": "아무거...",
+      "explanation": "選択の自由を示すときも使います。"
+    },
+    {
+      "id": "qt_substantive_013_07",
+      "order": 7,
+      "japanese": "何でもよく食べます。",
+      "korean": "아무거나 잘 먹어요.",
+      "alternativeAnswers": [],
+      "hint": "아무거...",
+      "explanation": "偏りなく食べる意味を「아무거나 잘 먹어요」。"
+    },
+    {
+      "id": "qt_substantive_013_08",
+      "order": 8,
+      "japanese": "何でも持ってきていいです。",
+      "korean": "무엇이나 가져와도 돼요.",
+      "alternativeAnswers": [],
+      "hint": "무엇이...",
+      "explanation": "許可を表すときも「무엇이나」。"
+    },
+    {
+      "id": "qt_substantive_013_09",
+      "order": 9,
+      "japanese": "何でも見せてください。",
+      "korean": "아무거나 보여 주세요.",
+      "alternativeAnswers": [],
+      "hint": "아무거...",
+      "explanation": "具体物を指定せず依頼するときに使います。"
+    },
+    {
+      "id": "qt_substantive_013_10",
+      "order": 10,
+      "japanese": "何でもすればいいです。",
+      "korean": "무엇이나 하면 돼요.",
+      "alternativeAnswers": [
+        "아무거나 하면 돼요."
+      ],
+      "hint": "무엇이...",
+      "explanation": "方法を限定しないとき「무엇이나」＋하면 돼요 と言います。"
+    }
+  ]
+}

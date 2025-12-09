@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_049",
+  "grammarTitle": "어디서/어디로",
+  "grammarSubtitle": "疑問副詞（どこで/どこへ）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_049_01",
+      "order": 1,
+      "japanese": "どこで会いますか？",
+      "korean": "어디서 만나요?",
+      "alternativeAnswers": ["어디에서 만나요?", "어디서 만납니까?"],
+      "hint": "어디서...",
+      "explanation": "場所での行為は 어디서/어디에서 로尋ねます。"
+    },
+    {
+      "id": "qt_substantive_049_02",
+      "order": 2,
+      "japanese": "どこでご飯を食べますか？",
+      "korean": "어디서 밥을 먹어요?",
+      "alternativeAnswers": ["어디에서 밥을 먹어요?"],
+      "hint": "어디서...",
+      "explanation": "動作の場所を尋ねるとき도 어디서 를使います。"
+    },
+    {
+      "id": "qt_substantive_049_03",
+      "order": 3,
+      "japanese": "どこから来ましたか？",
+      "korean": "어디서 왔어요?",
+      "alternativeAnswers": ["어디에서 왔어요?", "어디서 왔습니까?"],
+      "hint": "어디서...",
+      "explanation": "出発点を聞くとき 어디서/어디에서 를用います。"
+    },
+    {
+      "id": "qt_substantive_049_04",
+      "order": 4,
+      "japanese": "どこへ行きますか？",
+      "korean": "어디로 가요?",
+      "alternativeAnswers": ["어디로 갑니까?"],
+      "hint": "어디로...",
+      "explanation": "方向を尋ねるとき는 어디로 를使います。"
+    },
+    {
+      "id": "qt_substantive_049_05",
+      "order": 5,
+      "japanese": "どこへ引っ越しますか？",
+      "korean": "어디로 이사해요?",
+      "alternativeAnswers": ["어디로 이사합니까?"],
+      "hint": "어디로...",
+      "explanation": "移動先を聞くとき도 어디로 を使います。"
+    },
+    {
+      "id": "qt_substantive_049_06",
+      "order": 6,
+      "japanese": "どこでバスに乗りますか？",
+      "korean": "어디서 버스를 타요?",
+      "alternativeAnswers": ["어디에서 버스를 타요?"],
+      "hint": "어디서...",
+      "explanation": "乗車場所も 어디서/어디에서 로尋ねます。"
+    },
+    {
+      "id": "qt_substantive_049_07",
+      "order": 7,
+      "japanese": "どこで降りますか？",
+      "korean": "어디서 내려요?",
+      "alternativeAnswers": ["어디에서 내립니까?"],
+      "hint": "어디서...",
+      "explanation": "降車場所も 어디서 で尋ねます。"
+    },
+    {
+      "id": "qt_substantive_049_08",
+      "order": 8,
+      "japanese": "どこへ送りますか？",
+      "korean": "어디로 보내요?",
+      "alternativeAnswers": ["어디로 보냅니까?"],
+      "hint": "어디로...",
+      "explanation": "送付先を聞くとき는 어디로 를使います。"
+    },
+    {
+      "id": "qt_substantive_049_09",
+      "order": 9,
+      "japanese": "どこでこの本を買いましたか？",
+      "korean": "이 책을 어디서 샀어요?",
+      "alternativeAnswers": ["이 책을 어디에서 샀어요?"],
+      "hint": "이 책...",
+      "explanation": "購入場所を尋ねるとき도 어디서 を使います。"
+    },
+    {
+      "id": "qt_substantive_049_10",
+      "order": 10,
+      "japanese": "どこから声が聞こえますか？",
+      "korean": "소리가 어디서 들려요?",
+      "alternativeAnswers": ["소리가 어디에서 들려요?"],
+      "hint": "소리가...",
+      "explanation": "音の発生場所も 어디서/어디에서 로表します。"
+    }
+  ]
+}

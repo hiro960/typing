@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_sentence_ending_009",
+  "grammarTitle": "-거든요",
+  "grammarSubtitle": "理由説明（〜なんですよ）",
+  "category": "sentence_ending",
+  "questions": [
+    {
+      "id": "qt_sentence_ending_009_01",
+      "order": 1,
+      "japanese": "明日は忙しいんですよ。",
+      "korean": "내일은 바쁘거든요.",
+      "alternativeAnswers": ["내일 바쁘거든요."],
+      "hint": "내일은...",
+      "explanation": "予定を断る理由を柔らかく伝えるとき -거든요 を使います。"
+    },
+    {
+      "id": "qt_sentence_ending_009_02",
+      "order": 2,
+      "japanese": "その店、本当に安いんですよ。",
+      "korean": "그 가게 정말 싸거든요.",
+      "alternativeAnswers": ["그 가게는 정말 싸거든요."],
+      "hint": "그 가...",
+      "explanation": "相手が知らない情報を補足し理由として示すときの形です。"
+    },
+    {
+      "id": "qt_sentence_ending_009_03",
+      "order": 3,
+      "japanese": "今は会議中なんです。",
+      "korean": "지금 회의 중이거든요.",
+      "alternativeAnswers": ["지금 회의하는 중이거든요."],
+      "hint": "지금...",
+      "explanation": "現在の状況を理由として伝える終止形が -거든요 です。"
+    },
+    {
+      "id": "qt_sentence_ending_009_04",
+      "order": 4,
+      "japanese": "体調が悪いんです。",
+      "korean": "몸이 안 좋거든요.",
+      "alternativeAnswers": ["몸 상태가 안 좋거든요."],
+      "hint": "몸이...",
+      "explanation": "断りや説明の背景として体調を述べるときに用います。"
+    },
+    {
+      "id": "qt_sentence_ending_009_05",
+      "order": 5,
+      "japanese": "雨がたくさん降っているんですよ。",
+      "korean": "비가 많이 오거든요.",
+      "alternativeAnswers": ["지금 비가 많이 오거든요."],
+      "hint": "비가...",
+      "explanation": "状況の理由を後出しで説明するとき -거든요 を付けます。"
+    },
+    {
+      "id": "qt_sentence_ending_009_06",
+      "order": 6,
+      "japanese": "その映画、とても面白かったんですよ。",
+      "korean": "그 영화 아주 재미있었거든요.",
+      "alternativeAnswers": ["그 영화 정말 재미있었거든요."],
+      "hint": "그 영...",
+      "explanation": "体験した感想を理由として補足するときの表現です。"
+    },
+    {
+      "id": "qt_sentence_ending_009_07",
+      "order": 7,
+      "japanese": "ここは人が少ないんですよ。",
+      "korean": "여기는 사람이 적거든요.",
+      "alternativeAnswers": ["여기는 사람이 별로 없거든요."],
+      "hint": "여기는...",
+      "explanation": "相手が知らない状況を説明するニュアンスで使います。"
+    },
+    {
+      "id": "qt_sentence_ending_009_08",
+      "order": 8,
+      "japanese": "今日は早く寝るつもりなんですよ。",
+      "korean": "오늘은 일찍 잘 거거든요.",
+      "alternativeAnswers": ["오늘은 일찍 자려고 하거든요."],
+      "hint": "오늘은...",
+      "explanation": "これからの予定を理由として伝えるときに -거든요 を使えます。"
+    },
+    {
+      "id": "qt_sentence_ending_009_09",
+      "order": 9,
+      "japanese": "今日初めて来たんですよ。",
+      "korean": "오늘 처음 왔거든요.",
+      "alternativeAnswers": [],
+      "hint": "오늘...",
+      "explanation": "新情報を共有しながら理由を補足する用法です。"
+    },
+    {
+      "id": "qt_sentence_ending_009_10",
+      "order": 10,
+      "japanese": "その友達、日本人なんですよ。",
+      "korean": "그 친구는 일본 사람이거든요.",
+      "alternativeAnswers": ["그 친구가 일본 사람이거든요."],
+      "hint": "그 친...",
+      "explanation": "相手が知らない属性を説明して理由づけする終止形です。"
+    }
+  ]
+}

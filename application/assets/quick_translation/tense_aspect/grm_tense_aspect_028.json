@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_028",
+  "grammarTitle": "-(으)면 안 되다",
+  "grammarSubtitle": "禁止（〜してはいけない）",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_028_01",
+      "order": 1,
+      "japanese": "ここでたばこを吸ってはいけません。",
+      "korean": "여기서 담배 피우면 안 돼요.",
+      "alternativeAnswers": [
+        "여기서 담배 피우면 안 됩니다."
+      ],
+      "hint": "여기서...",
+      "explanation": "禁止事項を伝える基本形で「〜してはいけない」意味です。"
+    },
+    {
+      "id": "qt_tense_aspect_028_02",
+      "order": 2,
+      "japanese": "遅く来てはいけません。",
+      "korean": "늦게 오면 안 돼요.",
+      "alternativeAnswers": [
+        "늦게 오면 안 됩니다."
+      ],
+      "hint": "늦게...",
+      "explanation": "してはいけない条件を提示するときに使います。"
+    },
+    {
+      "id": "qt_tense_aspect_028_03",
+      "order": 3,
+      "japanese": "バスで走ってはいけません。",
+      "korean": "버스에서 뛰면 안 돼요.",
+      "alternativeAnswers": [
+        "버스에서 뛰면 안 됩니다."
+      ],
+      "hint": "버스에서...",
+      "explanation": "行動を禁止する場面で「-면 안 되다」を用います。"
+    },
+    {
+      "id": "qt_tense_aspect_028_04",
+      "order": 4,
+      "japanese": "他人の物を触ってはいけません。",
+      "korean": "남의 물건을 만지면 안 돼요.",
+      "alternativeAnswers": [
+        "남의 물건을 만지면 안 됩니다."
+      ],
+      "hint": "남의...",
+      "explanation": "禁止すべき相手や物を指定して伝えます。"
+    },
+    {
+      "id": "qt_tense_aspect_028_05",
+      "order": 5,
+      "japanese": "大きな声を出してはいけません。",
+      "korean": "소리를 크게 내면 안 돼요.",
+      "alternativeAnswers": [
+        "소리를 크게 내면 안 됩니다."
+      ],
+      "hint": "소리를...",
+      "explanation": "望ましくない行動をやめさせる禁止表現です。"
+    },
+    {
+      "id": "qt_tense_aspect_028_06",
+      "order": 6,
+      "japanese": "うそをついてはいけません。",
+      "korean": "거짓말하면 안 돼요.",
+      "alternativeAnswers": [
+        "거짓말하면 안 됩니다."
+      ],
+      "hint": "거짓말...",
+      "explanation": "道徳的にしてはいけない行為を禁止します。"
+    },
+    {
+      "id": "qt_tense_aspect_028_07",
+      "order": 7,
+      "japanese": "試験で答えを見てはいけません。",
+      "korean": "시험에서 답을 보면 안 돼요.",
+      "alternativeAnswers": [
+        "시험에서 답을 보면 안 됩니다."
+      ],
+      "hint": "시험에서...",
+      "explanation": "条件を満たすといけない行動を制止します。"
+    },
+    {
+      "id": "qt_tense_aspect_028_08",
+      "order": 8,
+      "japanese": "道路で遊んではいけません。",
+      "korean": "길에서 놀면 안 돼요.",
+      "alternativeAnswers": [
+        "길에서 놀면 안 됩니다."
+      ],
+      "hint": "길에서...",
+      "explanation": "危険だから避けるべき行動を禁止します。"
+    },
+    {
+      "id": "qt_tense_aspect_028_09",
+      "order": 9,
+      "japanese": "ごみを捨ててはいけません。",
+      "korean": "쓰레기를 버리면 안 돼요.",
+      "alternativeAnswers": [
+        "쓰레기를 버리면 안 됩니다."
+      ],
+      "hint": "쓰레기를...",
+      "explanation": "禁止すべき行為を明確に伝えるとき使います。"
+    },
+    {
+      "id": "qt_tense_aspect_028_10",
+      "order": 10,
+      "japanese": "食事中に電話してはいけません。",
+      "korean": "밥 먹으면서 전화하면 안 돼요.",
+      "alternativeAnswers": [
+        "밥 먹으면서 전화하면 안 됩니다."
+      ],
+      "hint": "밥 먹으면서...",
+      "explanation": "状況を合わせて禁止する日常的な言い方です。"
+    }
+  ]
+}

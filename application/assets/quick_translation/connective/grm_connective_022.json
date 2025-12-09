@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_connective_022",
+  "grammarTitle": "-(으)ㄴ/는 대신에",
+  "grammarSubtitle": "〜する代わりに",
+  "category": "connective",
+  "questions": [
+    {
+      "id": "qt_connective_022_01",
+      "order": 1,
+      "japanese": "コーヒーを飲む代わりに水を飲みます。",
+      "korean": "커피를 마시는 대신에 물을 마셔요.",
+      "alternativeAnswers": ["커피를 마시는 대신에 물을 마십니다."],
+      "hint": "커피를...",
+      "explanation": "ある行動をやめて別の行動をする置き換えです。"
+    },
+    {
+      "id": "qt_connective_022_02",
+      "order": 2,
+      "japanese": "映画を見る代わりに本を読みます。",
+      "korean": "영화를 보는 대신에 책을 읽어요.",
+      "alternativeAnswers": ["영화를 보는 대신에 책을 읽습니다."],
+      "hint": "영화를...",
+      "explanation": "一方をやめて別の選択をする例です。"
+    },
+    {
+      "id": "qt_connective_022_03",
+      "order": 3,
+      "japanese": "休む代わりに宿題をします。",
+      "korean": "쉬는 대신에 숙제를 해요.",
+      "alternativeAnswers": ["쉬는 대신에 숙제를 합니다."],
+      "hint": "쉬는...",
+      "explanation": "休みを諦めて別の行動をする置換を示します。"
+    },
+    {
+      "id": "qt_connective_022_04",
+      "order": 4,
+      "japanese": "タクシーに乗る代わりに歩いて行きます。",
+      "korean": "택시 타는 대신에 걸어가요.",
+      "alternativeAnswers": ["택시 타는 대신에 걸어갑니다."],
+      "hint": "택시...",
+      "explanation": "ある手段を取らず別の手段を使う例です。"
+    },
+    {
+      "id": "qt_connective_022_05",
+      "order": 5,
+      "japanese": "私が料理する代わりにあなたが皿洗いしてください。",
+      "korean": "내가 요리하는 대신에 네가 설거지해 주세요.",
+      "alternativeAnswers": ["내가 요리하는 대신에 너가 설거지해 주세요."],
+      "hint": "내가...",
+      "explanation": "役割分担を交換する時に使う表現です。"
+    },
+    {
+      "id": "qt_connective_022_06",
+      "order": 6,
+      "japanese": "お金の代わりに時間をあげます。",
+      "korean": "돈 대신에 시간을 드려요.",
+      "alternativeAnswers": ["돈 대신에 시간을 드립니다."],
+      "hint": "돈...",
+      "explanation": "名詞＋대신에 で物の代替を示します。"
+    },
+    {
+      "id": "qt_connective_022_07",
+      "order": 7,
+      "japanese": "遅く寝る代わりに早く起きます。",
+      "korean": "늦게 자는 대신에 일찍 일어나요.",
+      "alternativeAnswers": ["늦게 자는 대신에 일찍 일어납니다."],
+      "hint": "늦게...",
+      "explanation": "習慣を別の行動に置き換える例です。"
+    },
+    {
+      "id": "qt_connective_022_08",
+      "order": 8,
+      "japanese": "働く代わりに休んでください。",
+      "korean": "일하는 대신에 쉬세요.",
+      "alternativeAnswers": ["일하는 대신에 쉬십시오."],
+      "hint": "일하는...",
+      "explanation": "ある行動をやめさせ別の行動を促す形です。"
+    },
+    {
+      "id": "qt_connective_022_09",
+      "order": 9,
+      "japanese": "買う代わりに借ります。",
+      "korean": "사는 대신에 빌려요.",
+      "alternativeAnswers": ["사는 대신에 빌립니다."],
+      "hint": "사는...",
+      "explanation": "購入を避けて借りる代替手段を示します。"
+    },
+    {
+      "id": "qt_connective_022_10",
+      "order": 10,
+      "japanese": "運動する代わりに散歩します。",
+      "korean": "운동하는 대신에 산책해요.",
+      "alternativeAnswers": ["운동하는 대신에 산책합니다."],
+      "hint": "운동하...",
+      "explanation": "より軽い行動に置き換えるときの表現です。"
+    }
+  ]
+}

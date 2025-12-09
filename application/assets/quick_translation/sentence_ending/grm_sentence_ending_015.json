@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_sentence_ending_015",
+  "grammarTitle": "-(으)ㅂ시다",
+  "grammarSubtitle": "勧誘・합시다体（〜しましょう）",
+  "category": "sentence_ending",
+  "questions": [
+    {
+      "id": "qt_sentence_ending_015_01",
+      "order": 1,
+      "japanese": "一緒にご飯を食べましょう。",
+      "korean": "같이 밥 먹읍시다.",
+      "alternativeAnswers": ["같이 밥 먹어요.", "함께 밥 먹읍시다."],
+      "hint": "같이...",
+      "explanation": "聞き手を含めた提案に丁寧な 합시다体 -(으)ㅂ시다 を使います。"
+    },
+    {
+      "id": "qt_sentence_ending_015_02",
+      "order": 2,
+      "japanese": "今日は早く帰りましょう。",
+      "korean": "오늘은 일찍 돌아갑시다.",
+      "alternativeAnswers": ["오늘은 일찍 갑시다."],
+      "hint": "오늘은...",
+      "explanation": "一緒に行動する提案を丁寧に述べる形です。"
+    },
+    {
+      "id": "qt_sentence_ending_015_03",
+      "order": 3,
+      "japanese": "ここで待ちましょう。",
+      "korean": "여기서 기다립시다.",
+      "alternativeAnswers": ["여기서 기다려요."],
+      "hint": "여기서...",
+      "explanation": "共同行動を促すときに -(으)ㅂ시다 を付けます。"
+    },
+    {
+      "id": "qt_sentence_ending_015_04",
+      "order": 4,
+      "japanese": "少し休みましょう。",
+      "korean": "조금 쉽시다.",
+      "alternativeAnswers": ["조금 쉬어요."],
+      "hint": "조금...",
+      "explanation": "휴식 제안にも 합시다体を用いて丁寧に誘います。"
+    },
+    {
+      "id": "qt_sentence_ending_015_05",
+      "order": 5,
+      "japanese": "バスで行きましょう。",
+      "korean": "버스로 갑시다.",
+      "alternativeAnswers": [],
+      "hint": "버스로...",
+      "explanation": "移動手段を提案する際の「〜しましょう」表現です。"
+    },
+    {
+      "id": "qt_sentence_ending_015_06",
+      "order": 6,
+      "japanese": "ここで勉強しましょう。",
+      "korean": "여기서 공부합시다.",
+      "alternativeAnswers": ["여기서 공부해요."],
+      "hint": "여기서...",
+      "explanation": "場所を決めて一緒に行動する提案に使います。"
+    },
+    {
+      "id": "qt_sentence_ending_015_07",
+      "order": 7,
+      "japanese": "先に始めましょう。",
+      "korean": "먼저 시작합시다.",
+      "alternativeAnswers": [],
+      "hint": "먼저...",
+      "explanation": "開始を促す丁寧な勧誘として -(으)ㅂ시다 を用います。"
+    },
+    {
+      "id": "qt_sentence_ending_015_08",
+      "order": 8,
+      "japanese": "休んでから話しましょう。",
+      "korean": "쉬고 이야기합시다.",
+      "alternativeAnswers": ["쉬고 얘기합시다."],
+      "hint": "쉬고...",
+      "explanation": "順序を示しつつ共同行動を提案する形です。"
+    },
+    {
+      "id": "qt_sentence_ending_015_09",
+      "order": 9,
+      "japanese": "約束を守りましょう。",
+      "korean": "약속을 지킵시다.",
+      "alternativeAnswers": ["약속을 지켜요."],
+      "hint": "약속을...",
+      "explanation": "意志を共有し合う丁寧な呼びかけに使う終止形です。"
+    },
+    {
+      "id": "qt_sentence_ending_015_10",
+      "order": 10,
+      "japanese": "次に会いましょう。",
+      "korean": "다음에 만납시다.",
+      "alternativeAnswers": ["다음에 만나요."],
+      "hint": "다음에...",
+      "explanation": "約束を提案しつつ丁寧に誘うとき -(으)ㅂ시다 を使います。"
+    }
+  ]
+}

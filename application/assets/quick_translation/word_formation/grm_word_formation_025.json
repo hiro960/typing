@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_word_formation_025",
+  "grammarTitle": "고유어 접두사",
+  "grammarSubtitle": "固有語の接頭辞",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_025_01",
+      "order": 1,
+      "japanese": "青いリンゴを買いました。",
+      "korean": "풋사과를 샀어요.",
+      "alternativeAnswers": [],
+      "hint": "풋사과...",
+      "explanation": "熟していないことを表す接頭辞「풋-」を使った例です。"
+    },
+    {
+      "id": "qt_word_formation_025_02",
+      "order": 2,
+      "japanese": "青唐辛子は辛くないです。",
+      "korean": "풋고추는 안 매워요.",
+      "alternativeAnswers": [],
+      "hint": "풋고추...",
+      "explanation": "未熟さを示す「풋-」で「青唐辛子」を表現しています。"
+    },
+    {
+      "id": "qt_word_formation_025_03",
+      "order": 3,
+      "japanese": "新米を食べました。",
+      "korean": "햇쌀을 먹었어요.",
+      "alternativeAnswers": [],
+      "hint": "햇쌀...",
+      "explanation": "今年採れた物を表す接頭辞「햇-」を使っています。"
+    },
+    {
+      "id": "qt_word_formation_025_04",
+      "order": 4,
+      "japanese": "新しい果物が出ました。",
+      "korean": "햇과일이 나왔어요.",
+      "alternativeAnswers": [],
+      "hint": "햇과일...",
+      "explanation": "収穫したての果物を表す「햇-」の用例です。"
+    },
+    {
+      "id": "qt_word_formation_025_05",
+      "order": 5,
+      "japanese": "素手で持ちました。",
+      "korean": "맨손으로 들었어요.",
+      "alternativeAnswers": [],
+      "hint": "맨손으로...",
+      "explanation": "何も付けていないことを示す接頭辞「맨-」を使います。"
+    },
+    {
+      "id": "qt_word_formation_025_06",
+      "order": 6,
+      "japanese": "素足で歩きました。",
+      "korean": "맨발로 걸었어요.",
+      "alternativeAnswers": [],
+      "hint": "맨발로...",
+      "explanation": "「맨-」で裸の状態を表し「素足で歩いた」と言います。"
+    },
+    {
+      "id": "qt_word_formation_025_07",
+      "order": 7,
+      "japanese": "すっぴんです。",
+      "korean": "맨얼굴이에요.",
+      "alternativeAnswers": [],
+      "hint": "맨얼굴...",
+      "explanation": "化粧していない素の状態を接頭辞「맨-」で表現します。"
+    },
+    {
+      "id": "qt_word_formation_025_08",
+      "order": 8,
+      "japanese": "床に直接座りました。",
+      "korean": "맨바닥에 앉았어요.",
+      "alternativeAnswers": [],
+      "hint": "맨바닥...",
+      "explanation": "覆いのない状態を示す「맨-」で「裸の床」を表します。"
+    },
+    {
+      "id": "qt_word_formation_025_09",
+      "order": 9,
+      "japanese": "素肌で泳ぎました。",
+      "korean": "맨몸으로 수영했어요.",
+      "alternativeAnswers": [],
+      "hint": "맨몸으로...",
+      "explanation": "衣服がない体を表す「맨몸」など裸を示す用法です。"
+    },
+    {
+      "id": "qt_word_formation_025_10",
+      "order": 10,
+      "japanese": "生野菜を食べました。",
+      "korean": "풋채소를 먹었어요.",
+      "alternativeAnswers": [],
+      "hint": "풋채소...",
+      "explanation": "接頭辞「풋-」でまだ熟していない野菜を指します。"
+    }
+  ]
+}

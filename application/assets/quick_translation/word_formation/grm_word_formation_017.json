@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_word_formation_017",
+  "grammarTitle": "아직",
+  "grammarSubtitle": "時間副詞（まだ）",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_017_01",
+      "order": 1,
+      "japanese": "まだ終わっていません。",
+      "korean": "아직 안 끝났어요.",
+      "alternativeAnswers": [],
+      "hint": "아직...",
+      "explanation": "未完了を表し否定と合わせて「まだ終わっていない」と言います。"
+    },
+    {
+      "id": "qt_word_formation_017_02",
+      "order": 2,
+      "japanese": "まだ寝ていません。",
+      "korean": "아직 안 잤어요.",
+      "alternativeAnswers": [],
+      "hint": "아직...",
+      "explanation": "未実施の行動に否定と共に使い「まだ寝ていない」です。"
+    },
+    {
+      "id": "qt_word_formation_017_03",
+      "order": 3,
+      "japanese": "まだ食べています。",
+      "korean": "아직 먹고 있어요.",
+      "alternativeAnswers": [],
+      "hint": "아직...",
+      "explanation": "進行中の動作に付け「まだ〜している」を示します。"
+    },
+    {
+      "id": "qt_word_formation_017_04",
+      "order": 4,
+      "japanese": "まだ寒いです。",
+      "korean": "아직 추워요.",
+      "alternativeAnswers": [],
+      "hint": "아직...",
+      "explanation": "状態が続いているときに「まだ寒い」と言います。"
+    },
+    {
+      "id": "qt_word_formation_017_05",
+      "order": 5,
+      "japanese": "まだ行けません。",
+      "korean": "아직 못 가요.",
+      "alternativeAnswers": [],
+      "hint": "아직...",
+      "explanation": "不能表現と組み合わせ「まだ行けない」を示します。"
+    },
+    {
+      "id": "qt_word_formation_017_06",
+      "order": 6,
+      "japanese": "まだ時間があります。",
+      "korean": "아직 시간이 있어요.",
+      "alternativeAnswers": [],
+      "hint": "아직...",
+      "explanation": "現在も残っている時間を表し「まだある」と言います。"
+    },
+    {
+      "id": "qt_word_formation_017_07",
+      "order": 7,
+      "japanese": "まだ学生です。",
+      "korean": "아직 학생이에요.",
+      "alternativeAnswers": [],
+      "hint": "아직...",
+      "explanation": "状態が続く場合も「아직」を使い継続を示します。"
+    },
+    {
+      "id": "qt_word_formation_017_08",
+      "order": 8,
+      "japanese": "まだ起きていません。",
+      "korean": "아직 안 일어났어요.",
+      "alternativeAnswers": [],
+      "hint": "아직...",
+      "explanation": "未完の行動に否定を付け「まだ起きていない」です。"
+    },
+    {
+      "id": "qt_word_formation_017_09",
+      "order": 9,
+      "japanese": "まだ準備中です。",
+      "korean": "아직 준비하고 있어요.",
+      "alternativeAnswers": [],
+      "hint": "아직...",
+      "explanation": "進行形と合わせて準備が続いていることを表現します。"
+    },
+    {
+      "id": "qt_word_formation_017_10",
+      "order": 10,
+      "japanese": "まだ決めていません。",
+      "korean": "아직 안 정했어요.",
+      "alternativeAnswers": [],
+      "hint": "아직...",
+      "explanation": "意思決定が未完であることを「아직」と否定で示します。"
+    }
+  ]
+}

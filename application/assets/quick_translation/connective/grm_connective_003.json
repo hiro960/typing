@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_connective_003",
+  "grammarTitle": "-고",
+  "grammarSubtitle": "並列・順序（〜して／〜で）",
+  "category": "connective",
+  "questions": [
+    {
+      "id": "qt_connective_003_01",
+      "order": 1,
+      "japanese": "ご飯を食べて学校に行きます。",
+      "korean": "밥 먹고 학교에 가요.",
+      "alternativeAnswers": ["밥 먹고 학교에 갑니다."],
+      "hint": "밥 먹...",
+      "explanation": "動作を順に並べるとき語幹に -고 を付けます。"
+    },
+    {
+      "id": "qt_connective_003_02",
+      "order": 2,
+      "japanese": "本を読んで寝ます。",
+      "korean": "책을 읽고 자요.",
+      "alternativeAnswers": [],
+      "hint": "책을...",
+      "explanation": "連続した行為をつなぐ基本の並列接続です。"
+    },
+    {
+      "id": "qt_connective_003_03",
+      "order": 3,
+      "japanese": "友達に会って話しました。",
+      "korean": "친구를 만나고 이야기했어요.",
+      "alternativeAnswers": ["친구를 만나고 얘기했어요."],
+      "hint": "친구를...",
+      "explanation": "先行動作と後行動作を並べて述べる形です。"
+    },
+    {
+      "id": "qt_connective_003_04",
+      "order": 4,
+      "japanese": "起きてコーヒーを飲みます。",
+      "korean": "일어나고 커피를 마셔요.",
+      "alternativeAnswers": ["일어나고 커피를 마십니다."],
+      "hint": "일어나...",
+      "explanation": "順番に続く行為を列挙するとき -고 を使います。"
+    },
+    {
+      "id": "qt_connective_003_05",
+      "order": 5,
+      "japanese": "勉強して宿題をしました。",
+      "korean": "공부하고 숙제했어요.",
+      "alternativeAnswers": [],
+      "hint": "공부...",
+      "explanation": "複数の行動を連続して表すときの接続形です。"
+    },
+    {
+      "id": "qt_connective_003_06",
+      "order": 6,
+      "japanese": "部屋を掃除して休みます。",
+      "korean": "방을 청소하고 쉬어요.",
+      "alternativeAnswers": [],
+      "hint": "방을...",
+      "explanation": "先に掃除し次の行動を続ける並列接続を示します。"
+    },
+    {
+      "id": "qt_connective_003_07",
+      "order": 7,
+      "japanese": "バスに乗って会社に行きます。",
+      "korean": "버스를 타고 회사에 가요.",
+      "alternativeAnswers": [],
+      "hint": "버스를...",
+      "explanation": "移動手段を示し次に目的地を続けるときに用います。"
+    },
+    {
+      "id": "qt_connective_003_08",
+      "order": 8,
+      "japanese": "音楽を聴いて歩きます。",
+      "korean": "음악 듣고 걸어요.",
+      "alternativeAnswers": ["음악을 듣고 걸어요."],
+      "hint": "음악...",
+      "explanation": "同時または連続の動作を並べる基本形です。"
+    },
+    {
+      "id": "qt_connective_003_09",
+      "order": 9,
+      "japanese": "仕事を終えて家に帰ります。",
+      "korean": "일을 끝내고 집에 가요.",
+      "alternativeAnswers": ["일을 끝내고 집에 갑니다."],
+      "hint": "일을...",
+      "explanation": "先行動作の完了後に続く行為をつなげています。"
+    },
+    {
+      "id": "qt_connective_003_10",
+      "order": 10,
+      "japanese": "ご飯を作って家族と食べました。",
+      "korean": "밥을 만들고 가족과 먹었어요.",
+      "alternativeAnswers": [],
+      "hint": "밥을...",
+      "explanation": "連続する二つの行動を対等に並べる接続表現です。"
+    }
+  ]
+}

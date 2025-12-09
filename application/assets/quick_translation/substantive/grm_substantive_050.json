@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_050",
+  "grammarTitle": "저/제",
+  "grammarSubtitle": "나の謙譲語（私）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_050_01",
+      "order": 1,
+      "japanese": "私は会社員です。",
+      "korean": "저는 회사원이에요.",
+      "alternativeAnswers": ["저는 회사원입니다."],
+      "hint": "저는...",
+      "explanation": "謙譲の一人称は 저 を使って丁寧に表します。"
+    },
+    {
+      "id": "qt_substantive_050_02",
+      "order": 2,
+      "japanese": "私は日本人です。",
+      "korean": "저는 일본 사람이에요.",
+      "alternativeAnswers": ["저는 일본 사람입니다."],
+      "hint": "저는...",
+      "explanation": "自己紹介でも 나 の代わりに 저 를用います。"
+    },
+    {
+      "id": "qt_substantive_050_03",
+      "order": 3,
+      "japanese": "私が先に行きます。",
+      "korean": "제가 먼저 갈게요.",
+      "alternativeAnswers": ["제가 먼저 가겠습니다."],
+      "hint": "제가...",
+      "explanation": "助詞が付くとき는 제가 と縮約して使います。"
+    },
+    {
+      "id": "qt_substantive_050_04",
+      "order": 4,
+      "japanese": "私の名前はハナです。",
+      "korean": "제 이름은 하나예요.",
+      "alternativeAnswers": ["제 이름은 하나입니다."],
+      "hint": "제 이...",
+      "explanation": "所有を表す 저의 は 제 に縮約します。"
+    },
+    {
+      "id": "qt_substantive_050_05",
+      "order": 5,
+      "japanese": "私の家はソウルです。",
+      "korean": "제 집은 서울이에요.",
+      "alternativeAnswers": ["제 집은 서울입니다."],
+      "hint": "제 집...",
+      "explanation": "自分の物を言うとき 제 + 名詞 で表します。"
+    },
+    {
+      "id": "qt_substantive_050_06",
+      "order": 6,
+      "japanese": "私の父は先生です。",
+      "korean": "제 아버지는 선생님이에요.",
+      "alternativeAnswers": ["제 아버지는 선생님입니다."],
+      "hint": "제 아...",
+      "explanation": "家族を紹介するとき도 제 를用い丁寧に言います。"
+    },
+    {
+      "id": "qt_substantive_050_07",
+      "order": 7,
+      "japanese": "私が買います。",
+      "korean": "제가 살게요.",
+      "alternativeAnswers": ["제가 사겠습니다."],
+      "hint": "제가...",
+      "explanation": "意志を表すときも 제가 と言って謙譲します。"
+    },
+    {
+      "id": "qt_substantive_050_08",
+      "order": 8,
+      "japanese": "これは私の電話番号です。",
+      "korean": "이게 제 전화번호예요.",
+      "alternativeAnswers": ["이게 제 전화번호입니다."],
+      "hint": "이게...",
+      "explanation": "所有を示すとき 제 + 名詞 で丁寧に伝えます。"
+    },
+    {
+      "id": "qt_substantive_050_09",
+      "order": 9,
+      "japanese": "このかばんは私のです。",
+      "korean": "이 가방은 제 거예요.",
+      "alternativeAnswers": ["이 가방은 제 것입니다."],
+      "hint": "이 가...",
+      "explanation": "持ち物を言うとき 제 거/제 것 で表せます。"
+    },
+    {
+      "id": "qt_substantive_050_10",
+      "order": 10,
+      "japanese": "私が連絡します。",
+      "korean": "제가 연락할게요.",
+      "alternativeAnswers": ["제가 연락하겠습니다."],
+      "hint": "제가...",
+      "explanation": "連絡の担当を丁寧に言うとき도 제가 を使います。"
+    }
+  ]
+}

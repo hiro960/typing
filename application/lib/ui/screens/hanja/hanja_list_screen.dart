@@ -97,6 +97,9 @@ class _HanjaListScreenState extends ConsumerState<HanjaListScreen>
           const SizedBox(height: AppSpacing.sm),
           // 五十音インデックス
           const _JapaneseOnIndexChips(),
+          const SizedBox(height: AppSpacing.xs),
+          // 韓国語初声インデックス
+          const _KoreanChoseongIndexChips(),
           const SizedBox(height: AppSpacing.sm),
           // 検索タイプタブ
           _SearchTypeTabBar(controller: _tabController),
@@ -128,9 +131,10 @@ class _JapaneseOnIndexChips extends ConsumerWidget {
       child: Row(
         children: [
           // 「全て」ボタン
-          _JapaneseOnIndexChip(
+          _IndexChip(
             label: '全て',
-            selected: filterState.japaneseOnIndex == null,
+            selected: filterState.japaneseOnIndex == null &&
+                filterState.koreanChoseongIndex == null,
             onTap: () =>
                 ref.read(hanjaFilterProvider.notifier).setJapaneseOnIndex(null),
           ),
@@ -139,7 +143,7 @@ class _JapaneseOnIndexChips extends ConsumerWidget {
           ...JapaneseOnIndex.values.map(
             (index) => Padding(
               padding: const EdgeInsets.only(right: AppSpacing.xs),
-              child: _JapaneseOnIndexChip(
+              child: _IndexChip(
                 label: index.label,
                 selected: filterState.japaneseOnIndex == index,
                 onTap: () => ref
@@ -154,9 +158,50 @@ class _JapaneseOnIndexChips extends ConsumerWidget {
   }
 }
 
-/// 五十音インデックスチップ（個別）
-class _JapaneseOnIndexChip extends StatelessWidget {
-  const _JapaneseOnIndexChip({
+/// 韓国語初声インデックスチップ
+class _KoreanChoseongIndexChips extends ConsumerWidget {
+  const _KoreanChoseongIndexChips();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final filterState = ref.watch(hanjaFilterProvider);
+
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+      child: Row(
+        children: [
+          // 「全て」ボタン（韓国語）
+          _IndexChip(
+            label: '전체',
+            selected: filterState.koreanChoseongIndex == null &&
+                filterState.japaneseOnIndex == null,
+            onTap: () =>
+                ref.read(hanjaFilterProvider.notifier).setKoreanChoseongIndex(null),
+          ),
+          const SizedBox(width: AppSpacing.xs),
+          // 韓国語初声インデックス（ㄱ〜ㅎ）
+          ...KoreanChoseongIndex.values.map(
+            (index) => Padding(
+              padding: const EdgeInsets.only(right: AppSpacing.xs),
+              child: _IndexChip(
+                label: index.label,
+                selected: filterState.koreanChoseongIndex == index,
+                onTap: () => ref
+                    .read(hanjaFilterProvider.notifier)
+                    .setKoreanChoseongIndex(index),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// インデックスチップ（共通）
+class _IndexChip extends StatelessWidget {
+  const _IndexChip({
     required this.label,
     required this.selected,
     required this.onTap,

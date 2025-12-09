@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_023",
+  "grammarTitle": "마리",
+  "grammarSubtitle": "助数詞（匹/頭/羽）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_023_01",
+      "order": 1,
+      "japanese": "猫が一匹います。",
+      "korean": "고양이 한 마리 있어요.",
+      "alternativeAnswers": [],
+      "hint": "고양이...",
+      "explanation": "動物は固有数詞＋마리で数えます。"
+    },
+    {
+      "id": "qt_substantive_023_02",
+      "order": 2,
+      "japanese": "犬を二匹飼っています。",
+      "korean": "개 두 마리 키워요.",
+      "alternativeAnswers": [],
+      "hint": "개 두...",
+      "explanation": "ペットの数え方も 마리 を使います。"
+    },
+    {
+      "id": "qt_substantive_023_03",
+      "order": 3,
+      "japanese": "鳥が三羽飛んでいます。",
+      "korean": "새 세 마리 날아요.",
+      "alternativeAnswers": [],
+      "hint": "새 세...",
+      "explanation": "鳥なども 마리 を用います。"
+    },
+    {
+      "id": "qt_substantive_023_04",
+      "order": 4,
+      "japanese": "魚を四匹捕まえました。",
+      "korean": "물고기 네 마리 잡았어요.",
+      "alternativeAnswers": [],
+      "hint": "물고기...",
+      "explanation": "魚も動物なので 마리 で数えます。"
+    },
+    {
+      "id": "qt_substantive_023_05",
+      "order": 5,
+      "japanese": "うさぎを五匹見ました。",
+      "korean": "토끼 다섯 마리 봤어요.",
+      "alternativeAnswers": [],
+      "hint": "토끼...",
+      "explanation": "野生動物も 마리 で表します。"
+    },
+    {
+      "id": "qt_substantive_023_06",
+      "order": 6,
+      "japanese": "にわとりを六羽飼っています。",
+      "korean": "닭 여섯 마리 있어요.",
+      "alternativeAnswers": [],
+      "hint": "닭 여...",
+      "explanation": "家畜の鳥も 마리 で数えます。"
+    },
+    {
+      "id": "qt_substantive_023_07",
+      "order": 7,
+      "japanese": "牛が七頭います。",
+      "korean": "소 일곱 마리 있어요.",
+      "alternativeAnswers": [],
+      "hint": "소 일...",
+      "explanation": "大きな家畜も 마리 로 셉니다."
+    },
+    {
+      "id": "qt_substantive_023_08",
+      "order": 8,
+      "japanese": "馬が八頭走っています。",
+      "korean": "말 여덟 마리 달려요.",
+      "alternativeAnswers": [],
+      "hint": "말 여...",
+      "explanation": "馬の数も 마리 を使います。"
+    },
+    {
+      "id": "qt_substantive_023_09",
+      "order": 9,
+      "japanese": "子犬が九匹残りました。",
+      "korean": "강아지 아홉 마리 남았어요.",
+      "alternativeAnswers": [],
+      "hint": "강아지...",
+      "explanation": "子犬も動物として 마리 로 셉니다."
+    },
+    {
+      "id": "qt_substantive_023_10",
+      "order": 10,
+      "japanese": "あひるが十羽います。",
+      "korean": "오리 열 마리 있어요.",
+      "alternativeAnswers": [],
+      "hint": "오리 열...",
+      "explanation": "10羽も固有数詞＋마리 で表します。"
+    }
+  ]
+}

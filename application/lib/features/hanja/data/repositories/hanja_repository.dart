@@ -191,6 +191,37 @@ class HanjaRepository {
     }).toList();
   }
 
+  /// 韓国語読みの初声で単漢字をフィルタリング
+  /// [choseongIndices] は初声インデックスのリスト（0〜18）
+  Future<List<HanjaCharacter>> filterCharactersByKoreanChoseong(
+    List<int> choseongIndices,
+  ) async {
+    final characters = await loadAllCharacters();
+    return characters.where((c) {
+      return _matchesKoreanChoseong(c.korean, choseongIndices);
+    }).toList();
+  }
+
+  /// 韓国語読みの初声で漢字語をフィルタリング
+  Future<List<HanjaWord>> filterWordsByKoreanChoseong(
+    List<int> choseongIndices,
+  ) async {
+    final words = await loadAllWords();
+    return words.where((word) {
+      return _matchesKoreanChoseong(word.word, choseongIndices);
+    }).toList();
+  }
+
+  /// 韓国語文字列の最初の文字が指定した初声インデックスに含まれるかチェック
+  bool _matchesKoreanChoseong(String korean, List<int> choseongIndices) {
+    if (korean.isEmpty) return false;
+    final firstChar = korean.codeUnitAt(0);
+    // ハングル音節範囲: AC00 ~ D7A3
+    if (firstChar < 0xAC00 || firstChar > 0xD7A3) return false;
+    final choseongIndex = (firstChar - 0xAC00) ~/ 588; // 588 = 21 * 28
+    return choseongIndices.contains(choseongIndex);
+  }
+
   /// 漢字で検索
   Future<HanjaCharacter?> searchByCharacter(String character) async {
     final characters = await loadAllCharacters();

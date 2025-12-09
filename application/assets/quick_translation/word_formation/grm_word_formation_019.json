@@ -1,0 +1,100 @@
+{
+  "grammarRef": "grm_word_formation_019",
+  "grammarTitle": "드디어",
+  "grammarSubtitle": "時間副詞（ついに/やっと）",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_019_01",
+      "order": 1,
+      "japanese": "ついに終わりました。",
+      "korean": "드디어 끝났어요.",
+      "alternativeAnswers": [],
+      "hint": "드디어...",
+      "explanation": "待っていた完了に「드디어」を付けやっと終わったと述べます。"
+    },
+    {
+      "id": "qt_word_formation_019_02",
+      "order": 2,
+      "japanese": "ついに会いました。",
+      "korean": "드디어 만났어요.",
+      "alternativeAnswers": [],
+      "hint": "드디어...",
+      "explanation": "念願の出会いが実現したときに用いる副詞です。"
+    },
+    {
+      "id": "qt_word_formation_019_03",
+      "order": 3,
+      "japanese": "ついに合格しました。",
+      "korean": "드디어 합격했어요.",
+      "alternativeAnswers": [],
+      "hint": "드디어...",
+      "explanation": "長く望んでいた合格がかなったときに使います。"
+    },
+    {
+      "id": "qt_word_formation_019_04",
+      "order": 4,
+      "japanese": "ついに雨が止みました。",
+      "korean": "드디어 비가 멈췄어요.",
+      "alternativeAnswers": [
+        "드디어 비가 그쳤어요."
+      ],
+      "hint": "드디어...",
+      "explanation": "待ち望んだ終了に付け「ついに雨が止んだ」と表します。"
+    },
+    {
+      "id": "qt_word_formation_019_05",
+      "order": 5,
+      "japanese": "ついに休みです。",
+      "korean": "드디어 쉬는 날이에요.",
+      "alternativeAnswers": [],
+      "hint": "드디어...",
+      "explanation": "待っていた休みが来た喜びを「드디어」で示します。"
+    },
+    {
+      "id": "qt_word_formation_019_06",
+      "order": 6,
+      "japanese": "ついに引っ越します。",
+      "korean": "드디어 이사해요.",
+      "alternativeAnswers": [],
+      "hint": "드디어...",
+      "explanation": "準備していた引っ越しが実現したことを表現します。"
+    },
+    {
+      "id": "qt_word_formation_019_07",
+      "order": 7,
+      "japanese": "ついに家に帰ります。",
+      "korean": "드디어 집에 가요.",
+      "alternativeAnswers": [],
+      "hint": "드디어...",
+      "explanation": "待望の帰宅を強調し「やっと帰る」と述べます。"
+    },
+    {
+      "id": "qt_word_formation_019_08",
+      "order": 8,
+      "japanese": "ついにチケットを買いました。",
+      "korean": "드디어 표를 샀어요.",
+      "alternativeAnswers": [],
+      "hint": "드디어...",
+      "explanation": "苦労して得た成果を「드디어」で表します。"
+    },
+    {
+      "id": "qt_word_formation_019_09",
+      "order": 9,
+      "japanese": "ついに朝が来ました。",
+      "korean": "드디어 아침이 됐어요.",
+      "alternativeAnswers": [],
+      "hint": "드디어...",
+      "explanation": "待ちわびた時間の到来を副詞で伝えます。"
+    },
+    {
+      "id": "qt_word_formation_019_10",
+      "order": 10,
+      "japanese": "ついに夢がかないました。",
+      "korean": "드디어 꿈을 이뤘어요.",
+      "alternativeAnswers": [],
+      "hint": "드디어...",
+      "explanation": "努力の結果が実現したとき「드디어」を使い喜びを表します。"
+    }
+  ]
+}

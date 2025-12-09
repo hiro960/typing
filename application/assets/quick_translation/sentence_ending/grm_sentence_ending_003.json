@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_sentence_ending_003",
+  "grammarTitle": "-(으)세요",
+  "grammarSubtitle": "依頼・命令（〜してください）",
+  "category": "sentence_ending",
+  "questions": [
+    {
+      "id": "qt_sentence_ending_003_01",
+      "order": 1,
+      "japanese": "座ってください。",
+      "korean": "앉으세요.",
+      "alternativeAnswers": ["앉아 주세요.", "앉으십시오."],
+      "hint": "앉...",
+      "explanation": "パッチムあり語幹は「-으세요」で丁寧に依頼します。"
+    },
+    {
+      "id": "qt_sentence_ending_003_02",
+      "order": 2,
+      "japanese": "こちらに来てください。",
+      "korean": "이쪽으로 오세요.",
+      "alternativeAnswers": ["이쪽으로 오십시오."],
+      "hint": "이쪽으로...",
+      "explanation": "パッチムなし語幹は「-세요」で丁寧な命令・勧誘を表します。"
+    },
+    {
+      "id": "qt_sentence_ending_003_03",
+      "order": 3,
+      "japanese": "名前を書いてください。",
+      "korean": "이름을 쓰세요.",
+      "alternativeAnswers": ["이름을 써 주세요.", "이름을 쓰십시오."],
+      "hint": "이름을...",
+      "explanation": "依頼の基本形として「-으세요/세요」を用います。"
+    },
+    {
+      "id": "qt_sentence_ending_003_04",
+      "order": 4,
+      "japanese": "ゆっくり話してください。",
+      "korean": "천천히 말씀하세요.",
+      "alternativeAnswers": ["천천히 말하세요.", "천천히 말씀하십시오."],
+      "hint": "천천히...",
+      "explanation": "하다動詞も「하세요」で丁寧に依頼できます。"
+    },
+    {
+      "id": "qt_sentence_ending_003_05",
+      "order": 5,
+      "japanese": "早く起きてください。",
+      "korean": "빨리 일어나세요.",
+      "alternativeAnswers": [],
+      "hint": "빨리...",
+      "explanation": "勧誘・依頼でも「-세요」を使い柔らかく伝えます。"
+    },
+    {
+      "id": "qt_sentence_ending_003_06",
+      "order": 6,
+      "japanese": "静かにしてください。",
+      "korean": "조용히 하세요.",
+      "alternativeAnswers": ["조용히 해 주세요.", "조용히 하십시오."],
+      "hint": "조용히...",
+      "explanation": "命令的な場面でも丁寧さを保つため「-세요」を用います。"
+    },
+    {
+      "id": "qt_sentence_ending_003_07",
+      "order": 7,
+      "japanese": "たくさん召し上がってください。",
+      "korean": "많이 드세요.",
+      "alternativeAnswers": ["많이 드십시오."],
+      "hint": "많이...",
+      "explanation": "敬語動詞「드시다」にも「-세요」を付けて丁寧に勧めます。"
+    },
+    {
+      "id": "qt_sentence_ending_003_08",
+      "order": 8,
+      "japanese": "電話してください。",
+      "korean": "전화하세요.",
+      "alternativeAnswers": ["전화해 주세요.", "전화하십시오."],
+      "hint": "전화...",
+      "explanation": "依頼表現の定型として「-하세요」がよく使われます。"
+    },
+    {
+      "id": "qt_sentence_ending_003_09",
+      "order": 9,
+      "japanese": "ゆっくり歩いてください。",
+      "korean": "천천히 걸으세요.",
+      "alternativeAnswers": [],
+      "hint": "천천히...",
+      "explanation": "パッチムあり動詞は「-으세요」で丁寧な指示をします。"
+    },
+    {
+      "id": "qt_sentence_ending_003_10",
+      "order": 10,
+      "japanese": "質問があれば言ってください。",
+      "korean": "질문이 있으면 말씀하세요.",
+      "alternativeAnswers": ["질문이 있으면 말씀하십시오."],
+      "hint": "질문이...",
+      "explanation": "「-세요」で相手に発言を促す丁寧な依頼にします。"
+    }
+  ]
+}

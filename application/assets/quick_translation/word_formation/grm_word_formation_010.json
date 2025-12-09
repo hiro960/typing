@@ -1,0 +1,100 @@
+{
+  "grammarRef": "grm_word_formation_010",
+  "grammarTitle": "전혀",
+  "grammarSubtitle": "程度副詞（全く〜ない）",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_010_01",
+      "order": 1,
+      "japanese": "全く知りません。",
+      "korean": "전혀 몰라요.",
+      "alternativeAnswers": [],
+      "hint": "전혀...",
+      "explanation": "「전혀」は完全否定を表し「全く知らない」と言います。"
+    },
+    {
+      "id": "qt_word_formation_010_02",
+      "order": 2,
+      "japanese": "全く聞こえません。",
+      "korean": "전혀 안 들려요.",
+      "alternativeAnswers": [
+        "전혀 못 들어요."
+      ],
+      "hint": "전혀...",
+      "explanation": "否定や不能の表現と組み合わせ「全く聞こえない」です。"
+    },
+    {
+      "id": "qt_word_formation_010_03",
+      "order": 3,
+      "japanese": "全く時間がありません。",
+      "korean": "전혀 시간이 없어요.",
+      "alternativeAnswers": [],
+      "hint": "전혀...",
+      "explanation": "存在を否定する「없어요」と合わせて時間が全くないと言います。"
+    },
+    {
+      "id": "qt_word_formation_010_04",
+      "order": 4,
+      "japanese": "全く行きたくありません。",
+      "korean": "전혀 가고 싶지 않아요.",
+      "alternativeAnswers": [],
+      "hint": "전혀...",
+      "explanation": "希望表現「-고 싶다」に否定を付け完全拒否を示します。"
+    },
+    {
+      "id": "qt_word_formation_010_05",
+      "order": 5,
+      "japanese": "全く食べません。",
+      "korean": "전혀 안 먹어요.",
+      "alternativeAnswers": [],
+      "hint": "전혀...",
+      "explanation": "行動の前で完全否定を示し「全く食べない」と言います。"
+    },
+    {
+      "id": "qt_word_formation_010_06",
+      "order": 6,
+      "japanese": "全く覚えていません。",
+      "korean": "전혀 기억 안 나요.",
+      "alternativeAnswers": [],
+      "hint": "전혀...",
+      "explanation": "思い出せないときも「전혀」と否定文をセットで使います。"
+    },
+    {
+      "id": "qt_word_formation_010_07",
+      "order": 7,
+      "japanese": "全く眠れません。",
+      "korean": "전혀 못 자요.",
+      "alternativeAnswers": [],
+      "hint": "전혀...",
+      "explanation": "不能を表す「못」と合わせて「全く眠れない」です。"
+    },
+    {
+      "id": "qt_word_formation_010_08",
+      "order": 8,
+      "japanese": "全く心配していません。",
+      "korean": "전혀 걱정 안 해요.",
+      "alternativeAnswers": [],
+      "hint": "전혀...",
+      "explanation": "感情表現でも否定と一緒に使い心配していないと伝えます。"
+    },
+    {
+      "id": "qt_word_formation_010_09",
+      "order": 9,
+      "japanese": "全くお金がありません。",
+      "korean": "전혀 돈이 없어요.",
+      "alternativeAnswers": [],
+      "hint": "전혀...",
+      "explanation": "存在の否定と組み合わせ「お金が全くない」と言います。"
+    },
+    {
+      "id": "qt_word_formation_010_10",
+      "order": 10,
+      "japanese": "全く問題ありません。",
+      "korean": "전혀 문제 없어요.",
+      "alternativeAnswers": [],
+      "hint": "전혀...",
+      "explanation": "否定表現とセットで「全く問題ない」を強く示します。"
+    }
+  ]
+}

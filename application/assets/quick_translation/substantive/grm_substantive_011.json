@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_011",
+  "grammarTitle": "서로",
+  "grammarSubtitle": "相互代名詞（お互い）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_011_01",
+      "order": 1,
+      "japanese": "お互い助けます。",
+      "korean": "서로 도와요.",
+      "alternativeAnswers": [],
+      "hint": "서로...",
+      "explanation": "相互動作は「서로」を前に置きます。"
+    },
+    {
+      "id": "qt_substantive_011_02",
+      "order": 2,
+      "japanese": "お互い信じます。",
+      "korean": "서로 믿어요.",
+      "alternativeAnswers": [],
+      "hint": "서로...",
+      "explanation": "相互の信頼を表すときも「서로」。"
+    },
+    {
+      "id": "qt_substantive_011_03",
+      "order": 3,
+      "japanese": "お互い挨拶します。",
+      "korean": "서로 인사해요.",
+      "alternativeAnswers": [],
+      "hint": "서로...",
+      "explanation": "挨拶など双方向動作に「서로」。"
+    },
+    {
+      "id": "qt_substantive_011_04",
+      "order": 4,
+      "japanese": "お互い連絡します。",
+      "korean": "서로 연락해요.",
+      "alternativeAnswers": [],
+      "hint": "서로...",
+      "explanation": "連絡し合う意味で「서로 연락하다」。"
+    },
+    {
+      "id": "qt_substantive_011_05",
+      "order": 5,
+      "japanese": "お互い尊重してください。",
+      "korean": "서로 존중하세요.",
+      "alternativeAnswers": [],
+      "hint": "서로...",
+      "explanation": "尊重し合うよう促すとき「서로」。"
+    },
+    {
+      "id": "qt_substantive_011_06",
+      "order": 6,
+      "japanese": "お互いプレゼントをあげます。",
+      "korean": "서로 선물을 줘요.",
+      "alternativeAnswers": [],
+      "hint": "서로...",
+      "explanation": "やり取りは「서로 주다/받다」で表現。"
+    },
+    {
+      "id": "qt_substantive_011_07",
+      "order": 7,
+      "japanese": "お互いの顔を見ます。",
+      "korean": "서로 얼굴을 봐요.",
+      "alternativeAnswers": [],
+      "hint": "서로...",
+      "explanation": "相手同士の視線も「서로」＋動詞。"
+    },
+    {
+      "id": "qt_substantive_011_08",
+      "order": 8,
+      "japanese": "お互い違う点を理解します。",
+      "korean": "서로 다른 점을 이해해요.",
+      "alternativeAnswers": [],
+      "hint": "서로 다...",
+      "explanation": "違いを理解し合う時も「서로」を使います。"
+    },
+    {
+      "id": "qt_substantive_011_09",
+      "order": 9,
+      "japanese": "お互い気をつけます。",
+      "korean": "서로 조심해요.",
+      "alternativeAnswers": [],
+      "hint": "서로...",
+      "explanation": "注意を促すときも相互を表します。"
+    },
+    {
+      "id": "qt_substantive_011_10",
+      "order": 10,
+      "japanese": "お互いほめ合います。",
+      "korean": "서로 칭찬해요.",
+      "alternativeAnswers": [],
+      "hint": "서로...",
+      "explanation": "褒め合う動作も「서로」＋動詞で示します。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_011",
+  "grammarTitle": "용언과 품사",
+  "grammarSubtitle": "韓国語の用言と品詞",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_011_01",
+      "order": 1,
+      "japanese": "私は走ります。",
+      "korean": "저는 달려요.",
+      "alternativeAnswers": ["저는 달립니다."],
+      "hint": "저는...",
+      "explanation": "「달리다」は動作を表す動詞で、動詞の丁寧形「-어요/-ㅂ니다」を使います。"
+    },
+    {
+      "id": "qt_conjugation_011_02",
+      "order": 2,
+      "japanese": "天気が良いです。",
+      "korean": "날씨가 좋아요.",
+      "alternativeAnswers": ["날씨가 좋습니다."],
+      "hint": "날씨가...",
+      "explanation": "「좋다」は状態を表す形容詞で、命令形は作らず述語として活用します。"
+    },
+    {
+      "id": "qt_conjugation_011_03",
+      "order": 3,
+      "japanese": "きれいな花です。",
+      "korean": "예쁜 꽃이에요.",
+      "alternativeAnswers": ["예쁜 꽃입니다."],
+      "hint": "예쁜...",
+      "explanation": "形容詞の連体形は「-(으)ㄴ」で「예쁜」を作り名詞を修飾します。"
+    },
+    {
+      "id": "qt_conjugation_011_04",
+      "order": 4,
+      "japanese": "勉強する学生です。",
+      "korean": "공부하는 학생이에요.",
+      "alternativeAnswers": ["공부하는 학생입니다."],
+      "hint": "공부하...",
+      "explanation": "動詞の現在連体形は「-는/은」を使い「공부하는」で名詞を修飾します。"
+    },
+    {
+      "id": "qt_conjugation_011_05",
+      "order": 5,
+      "japanese": "静かな図書館です。",
+      "korean": "조용한 도서관이에요.",
+      "alternativeAnswers": ["조용한 도서관입니다."],
+      "hint": "조용한...",
+      "explanation": "形容詞「조용하다」の連体形は「조용한」で、形容詞は命令形を作りません。"
+    },
+    {
+      "id": "qt_conjugation_011_06",
+      "order": 6,
+      "japanese": "先生が来ます。",
+      "korean": "선생님이 와요.",
+      "alternativeAnswers": ["선생님이 옵니다."],
+      "hint": "선생님이...",
+      "explanation": "「오다」は動作を表す動詞なので、命令形や勧誘形も作れる活用です。"
+    },
+    {
+      "id": "qt_conjugation_011_07",
+      "order": 7,
+      "japanese": "大きい部屋です。",
+      "korean": "큰 방이에요.",
+      "alternativeAnswers": ["큰 방입니다."],
+      "hint": "큰...",
+      "explanation": "形容詞「크다」は連体形で「큰」となり、名詞を直接修飾します。"
+    },
+    {
+      "id": "qt_conjugation_011_08",
+      "order": 8,
+      "japanese": "知っている人です。",
+      "korean": "아는 사람이에요.",
+      "alternativeAnswers": ["아는 사람입니다."],
+      "hint": "아는...",
+      "explanation": "動詞「알다」の現在連体形は「아는」で、動詞は「-는/은」で名詞を修飾します。"
+    },
+    {
+      "id": "qt_conjugation_011_09",
+      "order": 9,
+      "japanese": "親切な先生です。",
+      "korean": "친절한 선생님이에요.",
+      "alternativeAnswers": ["친절한 선생님입니다."],
+      "hint": "친절한...",
+      "explanation": "形容詞「친절하다」は状態を表し、連体形「친절한」で名詞を修飾します。"
+    },
+    {
+      "id": "qt_conjugation_011_10",
+      "order": 10,
+      "japanese": "食べることが好きです。",
+      "korean": "먹는 것을 좋아해요.",
+      "alternativeAnswers": ["먹는 것을 좋아합니다."],
+      "hint": "먹는...",
+      "explanation": "動詞は「-는 것」で名詞化でき、形容詞と区別して活用します。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_connective_011",
+  "grammarTitle": "-(으)려고",
+  "grammarSubtitle": "意図・目的（〜しようと）",
+  "category": "connective",
+  "questions": [
+    {
+      "id": "qt_connective_011_01",
+      "order": 1,
+      "japanese": "勉強しようと本を買いました。",
+      "korean": "공부하려고 책을 샀어요.",
+      "alternativeAnswers": [],
+      "hint": "공부...",
+      "explanation": "目的を示す接続で「〜しようとして」の意味を表します。"
+    },
+    {
+      "id": "qt_connective_011_02",
+      "order": 2,
+      "japanese": "早く行こうとタクシーに乗りました。",
+      "korean": "빨리 가려고 택시를 탔어요.",
+      "alternativeAnswers": [],
+      "hint": "빨리...",
+      "explanation": "意図を先に出し後件の行動を続けるとき -(으)려고 を使います。"
+    },
+    {
+      "id": "qt_connective_011_03",
+      "order": 3,
+      "japanese": "友達に会おうと電話しました。",
+      "korean": "친구 만나려고 전화했어요.",
+      "alternativeAnswers": [],
+      "hint": "친구...",
+      "explanation": "目的を持って前の行動をしたことを示す接続形です。"
+    },
+    {
+      "id": "qt_connective_011_04",
+      "order": 4,
+      "japanese": "健康になろうとして運動します。",
+      "korean": "건강하려고 운동해요.",
+      "alternativeAnswers": [],
+      "hint": "건강...",
+      "explanation": "意図や目的を表し後件の行動とつなぎます。"
+    },
+    {
+      "id": "qt_connective_011_05",
+      "order": 5,
+      "japanese": "旅行に行こうとお金を貯めています。",
+      "korean": "여행 가려고 돈을 모아요.",
+      "alternativeAnswers": [],
+      "hint": "여행...",
+      "explanation": "目的を達成するための準備行動を示すとき使います。"
+    },
+    {
+      "id": "qt_connective_011_06",
+      "order": 6,
+      "japanese": "韓国語を学ぼうとして学院に通います。",
+      "korean": "한국어 배우려고 학원에 다녀요.",
+      "alternativeAnswers": [],
+      "hint": "한국어...",
+      "explanation": "学ぶ目的を示して行動を続ける接続表現です。"
+    },
+    {
+      "id": "qt_connective_011_07",
+      "order": 7,
+      "japanese": "晩ご飯を作ろうとして市場に行きます。",
+      "korean": "저녁을 만들려고 시장에 가요.",
+      "alternativeAnswers": [],
+      "hint": "저녁...",
+      "explanation": "意図を示し行動の理由を説明する形です。"
+    },
+    {
+      "id": "qt_connective_011_08",
+      "order": 8,
+      "japanese": "仕事を手伝おうとして早く行きました。",
+      "korean": "일을 도우려고 일찍 갔어요.",
+      "alternativeAnswers": [],
+      "hint": "일을...",
+      "explanation": "目的を持って行動したことを述べるとき -(으)려고 を用います。"
+    },
+    {
+      "id": "qt_connective_011_09",
+      "order": 9,
+      "japanese": "写真を撮ろうとしてカメラを持ってきました。",
+      "korean": "사진 찍으려고 카메라 가져왔어요.",
+      "alternativeAnswers": [],
+      "hint": "사진...",
+      "explanation": "意図を先に示し準備した行動を続ける接続形です。"
+    },
+    {
+      "id": "qt_connective_011_10",
+      "order": 10,
+      "japanese": "早く寝ようとしてテレビを消しました。",
+      "korean": "일찍 자려고 TV를 껐어요.",
+      "alternativeAnswers": ["일찍 자려고 티비를 껐어요."],
+      "hint": "일찍...",
+      "explanation": "目的を達成するための前段の行為を表すとき使います。"
+    }
+  ]
+}

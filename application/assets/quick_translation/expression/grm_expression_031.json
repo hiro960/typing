@@ -1,0 +1,114 @@
+{
+  "grammarRef": "grm_expression_031",
+  "grammarTitle": "-다시피",
+  "grammarSubtitle": "〜するように／〜のとおり",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_031_01",
+      "order": 1,
+      "japanese": "ご存じのように私は学生です。",
+      "korean": "아시다시피 저는 학생이에요.",
+      "alternativeAnswers": [
+        "아시다시피 저는 학생입니다."
+      ],
+      "hint": "아시다시피...",
+      "explanation": "相手が知っている事実を前置きするとき「-다시피」を使います。"
+    },
+    {
+      "id": "qt_expression_031_02",
+      "order": 2,
+      "japanese": "ご覧のとおり部屋が狭いです。",
+      "korean": "보시다시피 방이 좁아요.",
+      "alternativeAnswers": [
+        "보시다시피 방이 좁습니다."
+      ],
+      "hint": "보시다시피...",
+      "explanation": "見たままの状態を示すとき「보시다시피」を用います。"
+    },
+    {
+      "id": "qt_expression_031_03",
+      "order": 3,
+      "japanese": "お聞きのとおり明日は雨が降るそうです。",
+      "korean": "들으셨다시피 내일 비가 온대요.",
+      "alternativeAnswers": [
+        "들으셨다시피 내일 비가 온다고 해요."
+      ],
+      "hint": "듣다시피...",
+      "explanation": "得た情報を前提に話す際「듣다시피」を使います。"
+    },
+    {
+      "id": "qt_expression_031_04",
+      "order": 4,
+      "japanese": "見てのとおりここは静かです。",
+      "korean": "보다시피 여기는 조용해요.",
+      "alternativeAnswers": [],
+      "hint": "보다시피...",
+      "explanation": "目の前の状態を示すとき「보다시피」で共有します。"
+    },
+    {
+      "id": "qt_expression_031_05",
+      "order": 5,
+      "japanese": "お聞きのとおり忙しいです。",
+      "korean": "들어서 아시다시피 바빠요.",
+      "alternativeAnswers": [
+        "들어서 아시다시피 바쁩니다."
+      ],
+      "hint": "들어서...",
+      "explanation": "前に聞いた情報を確認する形で「-다시피」を使います。"
+    },
+    {
+      "id": "qt_expression_031_06",
+      "order": 6,
+      "japanese": "ご存じのとおり今日は休みです。",
+      "korean": "아시다시피 오늘은 쉬는 날이에요.",
+      "alternativeAnswers": [
+        "아시다시피 오늘은 쉬는 날입니다."
+      ],
+      "hint": "아시다시피...",
+      "explanation": "共有済みの予定を再確認する際に「아시다시피」を用います。"
+    },
+    {
+      "id": "qt_expression_031_07",
+      "order": 7,
+      "japanese": "見てのとおり人が多いです。",
+      "korean": "보시다시피 사람이 많아요.",
+      "alternativeAnswers": [
+        "보시다시피 사람이 많습니다."
+      ],
+      "hint": "보시다시피...",
+      "explanation": "視覚情報を共有する際「보시다시피」を使います。"
+    },
+    {
+      "id": "qt_expression_031_08",
+      "order": 8,
+      "japanese": "聞いてのとおり会議はありません。",
+      "korean": "들으셨다시피 회의가 없어요.",
+      "alternativeAnswers": [
+        "들으셨다시피 회의가 없습니다."
+      ],
+      "hint": "들으셨다시피...",
+      "explanation": "相手も聞いた情報を確認する形で「-다시피」を用います。"
+    },
+    {
+      "id": "qt_expression_031_09",
+      "order": 9,
+      "japanese": "ご存じのとおりここまでは遠いです。",
+      "korean": "아시다시피 여기까지는 멀어요.",
+      "alternativeAnswers": [],
+      "hint": "아시다시피...",
+      "explanation": "既知の距離感を述べるとき「아시다시피」を使います。"
+    },
+    {
+      "id": "qt_expression_031_10",
+      "order": 10,
+      "japanese": "ご覧のように道が狭いです。",
+      "korean": "보시다시피 길이 좁아요.",
+      "alternativeAnswers": [
+        "보시다시피 길이 좁습니다."
+      ],
+      "hint": "보시다시피...",
+      "explanation": "視覚情報を確認しながら説明するとき「-다시피」を用います。"
+    }
+  ]
+}

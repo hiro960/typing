@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_connective_016",
+  "grammarTitle": "-(으)ㄹ수록",
+  "grammarSubtitle": "〜すればするほど",
+  "category": "connective",
+  "questions": [
+    {
+      "id": "qt_connective_016_01",
+      "order": 1,
+      "japanese": "勉強すればするほど面白いです。",
+      "korean": "공부할수록 재미있어요.",
+      "alternativeAnswers": ["공부할수록 재미있습니다."],
+      "hint": "공부할...",
+      "explanation": "前件が増すほど後件も比例する「〜するほど」。"
+    },
+    {
+      "id": "qt_connective_016_02",
+      "order": 2,
+      "japanese": "会えば会うほど仲良くなります。",
+      "korean": "만날수록 친해져요.",
+      "alternativeAnswers": ["만날수록 친해집니다."],
+      "hint": "만날...",
+      "explanation": "繰り返し会うほど親しくなる比例を表します。"
+    },
+    {
+      "id": "qt_connective_016_03",
+      "order": 3,
+      "japanese": "見れば見るほどきれいです。",
+      "korean": "볼수록 예뻐요.",
+      "alternativeAnswers": [],
+      "hint": "볼수록...",
+      "explanation": "同じ動詞を反復し「見るほどもっと〜」を示します。"
+    },
+    {
+      "id": "qt_connective_016_04",
+      "order": 4,
+      "japanese": "寒いほどラーメンが美味しいです。",
+      "korean": "추울수록 라면이 맛있어요.",
+      "alternativeAnswers": ["추울수록 라면이 맛있습니다."],
+      "hint": "추울...",
+      "explanation": "形容詞語幹＋(으)ㄹ수록で程度の比例を表します。"
+    },
+    {
+      "id": "qt_connective_016_05",
+      "order": 5,
+      "japanese": "忙しいほど計画が必要です。",
+      "korean": "바쁠수록 계획이 필요해요.",
+      "alternativeAnswers": ["바쁠수록 계획이 필요합니다."],
+      "hint": "바쁠...",
+      "explanation": "状況が厳しいほど後件の必要性が高まる例です。"
+    },
+    {
+      "id": "qt_connective_016_06",
+      "order": 6,
+      "japanese": "食べれば食べるほどお腹がいっぱいになります。",
+      "korean": "먹을수록 배가 불러요.",
+      "alternativeAnswers": ["먹을수록 배가 부릅니다."],
+      "hint": "먹을...",
+      "explanation": "繰り返し食べるほど満腹になる比例を示します。"
+    },
+    {
+      "id": "qt_connective_016_07",
+      "order": 7,
+      "japanese": "聞けば聞くほど理解できます。",
+      "korean": "들을수록 이해가 돼요.",
+      "alternativeAnswers": ["들을수록 이해가 됩니다."],
+      "hint": "들을...",
+      "explanation": "聞く回数が増すほど理解度が上がるという形です。"
+    },
+    {
+      "id": "qt_connective_016_08",
+      "order": 8,
+      "japanese": "待てば待つほど退屈です。",
+      "korean": "기다릴수록 지루해요.",
+      "alternativeAnswers": ["기다릴수록 지루합니다."],
+      "hint": "기다릴...",
+      "explanation": "同じ動作を続けるほど退屈さが増す比例表現です。"
+    },
+    {
+      "id": "qt_connective_016_09",
+      "order": 9,
+      "japanese": "走れば走るほど息が切れます。",
+      "korean": "달릴수록 숨이 차요.",
+      "alternativeAnswers": ["달릴수록 숨이 찹니다."],
+      "hint": "달릴...",
+      "explanation": "動作量が増すほど結果が強まる用法です。"
+    },
+    {
+      "id": "qt_connective_016_10",
+      "order": 10,
+      "japanese": "知れば知るほど難しいです。",
+      "korean": "알수록 어려워요.",
+      "alternativeAnswers": ["알수록 어렵습니다."],
+      "hint": "알수록...",
+      "explanation": "知識が増すほど難しく感じる逆説的比例です。"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "grammarRef": "grm_quotation_006",
+  "grammarTitle": "-대요",
+  "grammarSubtitle": "〜だそうです・伝聞",
+  "category": "quotation",
+  "questions": [
+    {
+      "id": "qt_quotation_006_01",
+      "order": 1,
+      "japanese": "雨が降るそうです。",
+      "korean": "비가 온대요.",
+      "alternativeAnswers": [
+        "비가 온다고 해요."
+      ],
+      "hint": "비가...",
+      "explanation": "聞いた情報を伝えるとき簡略形の「-대요」を使います。"
+    },
+    {
+      "id": "qt_quotation_006_02",
+      "order": 2,
+      "japanese": "その店がおいしいそうです。",
+      "korean": "그 가게가 맛있대요.",
+      "alternativeAnswers": [],
+      "hint": "그 가게가...",
+      "explanation": "他人の話を伝聞で言うとき形容詞にも「-대요」を付けます。"
+    },
+    {
+      "id": "qt_quotation_006_03",
+      "order": 3,
+      "japanese": "明日会議があるそうです。",
+      "korean": "내일 회의가 있대요.",
+      "alternativeAnswers": [],
+      "hint": "내일...",
+      "explanation": "存在を聞いた内容として伝える際「-대요」を使用。"
+    },
+    {
+      "id": "qt_quotation_006_04",
+      "order": 4,
+      "japanese": "友達が今日来るそうです。",
+      "korean": "친구가 오늘 온대요.",
+      "alternativeAnswers": [],
+      "hint": "친구가...",
+      "explanation": "聞き伝えた予定を述べるとき「-대요」で表現します。"
+    },
+    {
+      "id": "qt_quotation_006_05",
+      "order": 5,
+      "japanese": "この服が安いそうです。",
+      "korean": "이 옷이 싸대요.",
+      "alternativeAnswers": [],
+      "hint": "이 옷이...",
+      "explanation": "評価を伝聞するとき形容詞にも「-대요」を付けます。"
+    },
+    {
+      "id": "qt_quotation_006_06",
+      "order": 6,
+      "japanese": "その映画が面白いそうです。",
+      "korean": "그 영화가 재미있대요.",
+      "alternativeAnswers": [],
+      "hint": "그 영화가...",
+      "explanation": "他人の感想を伝聞するとき「-대요」を使います。"
+    },
+    {
+      "id": "qt_quotation_006_07",
+      "order": 7,
+      "japanese": "明日は寒いそうです。",
+      "korean": "내일 춥대요.",
+      "alternativeAnswers": [],
+      "hint": "내일...",
+      "explanation": "天気情報を聞いたまま伝える際にも「-대요」を使用。"
+    },
+    {
+      "id": "qt_quotation_006_08",
+      "order": 8,
+      "japanese": "駅まで近いそうです。",
+      "korean": "역까지 가깝대요.",
+      "alternativeAnswers": [],
+      "hint": "역까지...",
+      "explanation": "距離の情報を伝聞で述べるとき「-대요」を付けます。"
+    },
+    {
+      "id": "qt_quotation_006_09",
+      "order": 9,
+      "japanese": "先生が優しいそうです。",
+      "korean": "선생님이 친절하시대요.",
+      "alternativeAnswers": [],
+      "hint": "선생님이...",
+      "explanation": "尊敬表現も伝聞形「-대요」で伝えられます。"
+    },
+    {
+      "id": "qt_quotation_006_10",
+      "order": 10,
+      "japanese": "その店は閉まっているそうです。",
+      "korean": "그 가게는 문을 닫았대요.",
+      "alternativeAnswers": [],
+      "hint": "그 가게는...",
+      "explanation": "聞いた休業情報をそのまま伝えるため「-대요」を使います。"
+    }
+  ]
+}

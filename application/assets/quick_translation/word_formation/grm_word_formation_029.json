@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_word_formation_029",
+  "grammarTitle": "복수 접미사",
+  "grammarSubtitle": "複数を表す接尾辞",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_029_01",
+      "order": 1,
+      "japanese": "友達たちが来ます。",
+      "korean": "친구들이 와요.",
+      "alternativeAnswers": [],
+      "hint": "친구들이...",
+      "explanation": "名詞に-들を付けて複数の友達を表します。"
+    },
+    {
+      "id": "qt_word_formation_029_02",
+      "order": 2,
+      "japanese": "学生たちが勉強します。",
+      "korean": "학생들이 공부해요.",
+      "alternativeAnswers": [],
+      "hint": "학생들이...",
+      "explanation": "学習者が複数であることを-들で示します。"
+    },
+    {
+      "id": "qt_word_formation_029_03",
+      "order": 3,
+      "japanese": "子どもたちが笑います。",
+      "korean": "아이들이 웃어요.",
+      "alternativeAnswers": [],
+      "hint": "아이들이...",
+      "explanation": "基本名詞にも-들を付けて複数形を作ります。"
+    },
+    {
+      "id": "qt_word_formation_029_04",
+      "order": 4,
+      "japanese": "先生たちが集まります。",
+      "korean": "선생님들이 모여요.",
+      "alternativeAnswers": [],
+      "hint": "선생님들이...",
+      "explanation": "敬称を含む名詞も-들で複数を表せます。"
+    },
+    {
+      "id": "qt_word_formation_029_05",
+      "order": 5,
+      "japanese": "家族たちが集まりました。",
+      "korean": "가족들이 모였어요.",
+      "alternativeAnswers": [],
+      "hint": "가족들이...",
+      "explanation": "集合名詞でも人数を強調したいとき-들을使います。"
+    },
+    {
+      "id": "qt_word_formation_029_06",
+      "order": 6,
+      "japanese": "職員たちが昼ご飯を食べます。",
+      "korean": "직원들이 점심을 먹어요.",
+      "alternativeAnswers": [],
+      "hint": "직원들이...",
+      "explanation": "職場の複数の人を示す際も-들を付けます。"
+    },
+    {
+      "id": "qt_word_formation_029_07",
+      "order": 7,
+      "japanese": "親たちが心配します。",
+      "korean": "부모님들이 걱정해요.",
+      "alternativeAnswers": [],
+      "hint": "부모님들이...",
+      "explanation": "敬称「부모님」にも-들を加えて複数の親を表現します。"
+    },
+    {
+      "id": "qt_word_formation_029_08",
+      "order": 8,
+      "japanese": "友達たちと遊びます。",
+      "korean": "친구들과 놀아요.",
+      "alternativeAnswers": [],
+      "hint": "친구들과...",
+      "explanation": "助詞と結合した形でも-들が入り複数と一緒に遊ぶ意味になります。"
+    },
+    {
+      "id": "qt_word_formation_029_09",
+      "order": 9,
+      "japanese": "学生たちが質問します。",
+      "korean": "학생들이 질문해요.",
+      "alternativeAnswers": [],
+      "hint": "학생들이...",
+      "explanation": "行為者が複数であることを-들で明確にします。"
+    },
+    {
+      "id": "qt_word_formation_029_10",
+      "order": 10,
+      "japanese": "兄弟たちと一緒に住みます。",
+      "korean": "형제들이 같이 살아요.",
+      "alternativeAnswers": [],
+      "hint": "형제들이...",
+      "explanation": "家族内の複数を表し「兄弟たち」と言うとき-들을使います。"
+    }
+  ]
+}

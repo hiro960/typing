@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_quotation_007",
+  "grammarTitle": "-래요",
+  "grammarSubtitle": "〜しろって・伝聞命令",
+  "category": "quotation",
+  "questions": [
+    {
+      "id": "qt_quotation_007_01",
+      "order": 1,
+      "japanese": "母が早く帰ってこいって。",
+      "korean": "엄마가 빨리 오래요.",
+      "alternativeAnswers": [],
+      "hint": "엄마가...",
+      "explanation": "命令引用の口語形で「-라고 해요」が縮約して「-래요」になります。"
+    },
+    {
+      "id": "qt_quotation_007_02",
+      "order": 2,
+      "japanese": "先生が静かにしろって。",
+      "korean": "선생님이 조용히 하래요.",
+      "alternativeAnswers": [],
+      "hint": "선생님이...",
+      "explanation": "命令形の伝聞を簡略に伝えるとき「-래요」を使います。"
+    },
+    {
+      "id": "qt_quotation_007_03",
+      "order": 3,
+      "japanese": "友達が一緒に来いって。",
+      "korean": "친구가 같이 오래요.",
+      "alternativeAnswers": [],
+      "hint": "친구가...",
+      "explanation": "相手の命令を伝聞する口語で「오라고 해요」→「오래요」。"
+    },
+    {
+      "id": "qt_quotation_007_04",
+      "order": 4,
+      "japanese": "姉が部屋を片付けろって。",
+      "korean": "누나가 방 정리하래요.",
+      "alternativeAnswers": [],
+      "hint": "누나가...",
+      "explanation": "命令引用を日常会話で伝える簡略形が「-래요」です。"
+    },
+    {
+      "id": "qt_quotation_007_05",
+      "order": 5,
+      "japanese": "父がもっと食べろって。",
+      "korean": "아빠가 더 먹으래요.",
+      "alternativeAnswers": [],
+      "hint": "아빠가...",
+      "explanation": "パッチムのない動詞も命令引用「-으래요」で伝えます。"
+    },
+    {
+      "id": "qt_quotation_007_06",
+      "order": 6,
+      "japanese": "先生が宿題を出せって。",
+      "korean": "선생님이 숙제 내래요.",
+      "alternativeAnswers": [],
+      "hint": "선생님이...",
+      "explanation": "命令の伝聞で「내라고 해요」が口語で「내래요」になります。"
+    },
+    {
+      "id": "qt_quotation_007_07",
+      "order": 7,
+      "japanese": "友達が早く連絡しろって。",
+      "korean": "친구가 빨리 연락하래요.",
+      "alternativeAnswers": [],
+      "hint": "친구가...",
+      "explanation": "命令伝聞の縮約形を使い「-래요」で伝えます。"
+    },
+    {
+      "id": "qt_quotation_007_08",
+      "order": 8,
+      "japanese": "母が薬を飲めって。",
+      "korean": "엄마가 약 먹으래요.",
+      "alternativeAnswers": [],
+      "hint": "엄마가...",
+      "explanation": "飲むように言われた内容を口語伝聞「-래요」で表現します。"
+    },
+    {
+      "id": "qt_quotation_007_09",
+      "order": 9,
+      "japanese": "先に行けって。",
+      "korean": "먼저 가래요.",
+      "alternativeAnswers": [],
+      "hint": "먼저...",
+      "explanation": "命令の伝聞は「가라고 해요」が「가래요」に短縮されます。"
+    },
+    {
+      "id": "qt_quotation_007_10",
+      "order": 10,
+      "japanese": "今電話しろって。",
+      "korean": "지금 전화하래요.",
+      "alternativeAnswers": [],
+      "hint": "지금...",
+      "explanation": "要求された命令を口語伝聞で「-래요」と伝えます。"
+    }
+  ]
+}

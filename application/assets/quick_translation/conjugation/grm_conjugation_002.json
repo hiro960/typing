@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_002",
+  "grammarTitle": "ㄷ不規則",
+  "grammarSubtitle": "ㄷ→ㄹ 変化（듣다→들어요）",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_002_01",
+      "order": 1,
+      "japanese": "音楽を聴きます。",
+      "korean": "음악을 들어요.",
+      "alternativeAnswers": ["음악을 듣습니다."],
+      "hint": "음악을...",
+      "explanation": "「듣다」は母音語尾前で ㄷ→ㄹ となり「들어요」になります。"
+    },
+    {
+      "id": "qt_conjugation_002_02",
+      "order": 2,
+      "japanese": "昨日ニュースを聞きました。",
+      "korean": "어제 뉴스를 들었어요.",
+      "alternativeAnswers": ["어제 뉴스를 들었습니다."],
+      "hint": "어제...",
+      "explanation": "過去でも母音語尾前は ㄷ→ㄹ で「들었어요」になります。"
+    },
+    {
+      "id": "qt_conjugation_002_03",
+      "order": 3,
+      "japanese": "公園でゆっくり歩きます。",
+      "korean": "공원에서 천천히 걸어요.",
+      "alternativeAnswers": ["공원에서 걷습니다."],
+      "hint": "공원에서...",
+      "explanation": "「걷다」は母音語尾前で ㄷ→ㄹ になり「걸어요」になります。"
+    },
+    {
+      "id": "qt_conjugation_002_04",
+      "order": 4,
+      "japanese": "今日はたくさん歩きました。",
+      "korean": "오늘은 많이 걸었어요.",
+      "alternativeAnswers": ["오늘은 많이 걸었습니다."],
+      "hint": "오늘은...",
+      "explanation": "過去形でも ㄷ→ㄹ で「걸었어요」になります。"
+    },
+    {
+      "id": "qt_conjugation_002_05",
+      "order": 5,
+      "japanese": "遠くまで歩くつもりです。",
+      "korean": "멀리까지 걸을 거예요.",
+      "alternativeAnswers": ["멀리까지 걸을 겁니다."],
+      "hint": "멀리까지...",
+      "explanation": "未来連体形でも母音が続き ㄷ→ㄹ で「걸을」になります。"
+    },
+    {
+      "id": "qt_conjugation_002_06",
+      "order": 6,
+      "japanese": "先生に尋ねます。",
+      "korean": "선생님께 물어요.",
+      "alternativeAnswers": ["선생님께 묻습니다."],
+      "hint": "선생님...",
+      "explanation": "「묻다(尋ねる)」は母音語尾前で ㄷ→ㄹ となり「물어요」になります。"
+    },
+    {
+      "id": "qt_conjugation_002_07",
+      "order": 7,
+      "japanese": "住所を友達に聞きました。",
+      "korean": "친구에게 주소를 물었어요.",
+      "alternativeAnswers": ["친구에게 주소를 물었습니다."],
+      "hint": "친구에게...",
+      "explanation": "過去形でも母音語尾前で ㄷ→ㄹ となり「물었어요」になります。"
+    },
+    {
+      "id": "qt_conjugation_002_08",
+      "order": 8,
+      "japanese": "音楽を聞いて勉強します。",
+      "korean": "음악을 듣고 공부해요.",
+      "alternativeAnswers": ["음악을 듣고 공부합니다."],
+      "hint": "음악을...",
+      "explanation": "「-고」は子音始まりなので ㄷ を維持し「듣고」になります。"
+    },
+    {
+      "id": "qt_conjugation_002_09",
+      "order": 9,
+      "japanese": "よく聞き取れません。",
+      "korean": "잘 못 들어요.",
+      "alternativeAnswers": ["잘 못 듣습니다."],
+      "hint": "잘 못...",
+      "explanation": "母音語尾「-어요」が続くので ㄷ→ㄹ で「들어요」になります。"
+    },
+    {
+      "id": "qt_conjugation_002_10",
+      "order": 10,
+      "japanese": "今日は歩かずにバスで行きます。",
+      "korean": "오늘은 안 걷고 버스로 가요.",
+      "alternativeAnswers": ["오늘은 걷지 않고 버스로 가요."],
+      "hint": "오늘은...",
+      "explanation": "「-고/지 않고」は子音始まりで ㄷ を維持し「걷고」「걷지」になります。"
+    }
+  ]
+}

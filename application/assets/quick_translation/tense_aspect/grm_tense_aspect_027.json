@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_027",
+  "grammarTitle": "-아/어야 되다",
+  "grammarSubtitle": "義務・必要（〜しないといけない）",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_027_01",
+      "order": 1,
+      "japanese": "今出なければいけません。",
+      "korean": "지금 떠나야 돼요.",
+      "alternativeAnswers": [
+        "지금 떠나야 됩니다."
+      ],
+      "hint": "지금...",
+      "explanation": "口語でよく使う義務表現で、急ぐ必要を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_027_02",
+      "order": 2,
+      "japanese": "宿題を提出しないといけません。",
+      "korean": "숙제를 내야 돼요.",
+      "alternativeAnswers": [
+        "숙제를 내야 됩니다."
+      ],
+      "hint": "숙제를...",
+      "explanation": "提出の必要性を日常的な口調で表します。"
+    },
+    {
+      "id": "qt_tense_aspect_027_03",
+      "order": 3,
+      "japanese": "電話しないといけません。",
+      "korean": "전화해야 돼요.",
+      "alternativeAnswers": [
+        "전화해야 됩니다."
+      ],
+      "hint": "전화해야...",
+      "explanation": "義務的な連絡の必要を「-아/어야 되다」で示します。"
+    },
+    {
+      "id": "qt_tense_aspect_027_04",
+      "order": 4,
+      "japanese": "ご飯を食べないといけません。",
+      "korean": "밥을 먹어야 돼요.",
+      "alternativeAnswers": [
+        "밥을 먹어야 됩니다."
+      ],
+      "hint": "밥을...",
+      "explanation": "しなければならない行為を柔らかく表す形です。"
+    },
+    {
+      "id": "qt_tense_aspect_027_05",
+      "order": 5,
+      "japanese": "お金を節約しないといけません。",
+      "korean": "돈을 아껴야 돼요.",
+      "alternativeAnswers": [
+        "돈을 아껴야 됩니다."
+      ],
+      "hint": "돈을...",
+      "explanation": "必要な行動を促す口語の義務表現です。"
+    },
+    {
+      "id": "qt_tense_aspect_027_06",
+      "order": 6,
+      "japanese": "急がないといけません。",
+      "korean": "서둘러야 돼요.",
+      "alternativeAnswers": [
+        "서둘러야 됩니다."
+      ],
+      "hint": "서둘러...",
+      "explanation": "急務を表すときに使う義務の言い方です。"
+    },
+    {
+      "id": "qt_tense_aspect_027_07",
+      "order": 7,
+      "japanese": "暗証番号を覚えないといけません。",
+      "korean": "비밀번호를 기억해야 돼요.",
+      "alternativeAnswers": [
+        "비밀번호를 기억해야 됩니다."
+      ],
+      "hint": "비밀번호를...",
+      "explanation": "覚える必要を柔らかく言う義務表現です。"
+    },
+    {
+      "id": "qt_tense_aspect_027_08",
+      "order": 8,
+      "japanese": "傘を持って行かないといけません。",
+      "korean": "우산을 가져가야 돼요.",
+      "alternativeAnswers": [
+        "우산을 가져가야 됩니다."
+      ],
+      "hint": "우산을...",
+      "explanation": "必要な持ち物を忘れない義務を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_027_09",
+      "order": 9,
+      "japanese": "早く起きないといけません。",
+      "korean": "일찍 일어나야 돼요.",
+      "alternativeAnswers": [
+        "일찍 일어나야 됩니다."
+      ],
+      "hint": "일찍...",
+      "explanation": "習慣化したい義務を口語的に示します。"
+    },
+    {
+      "id": "qt_tense_aspect_027_10",
+      "order": 10,
+      "japanese": "少し待たないといけません。",
+      "korean": "조금 기다려야 돼요.",
+      "alternativeAnswers": [
+        "조금 기다려야 됩니다."
+      ],
+      "hint": "조금...",
+      "explanation": "避けられない待機の必要を表すときに用います。"
+    }
+  ]
+}

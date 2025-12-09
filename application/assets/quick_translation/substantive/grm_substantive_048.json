@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_048",
+  "grammarTitle": "무슨",
+  "grammarSubtitle": "疑問連体詞（何の）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_048_01",
+      "order": 1,
+      "japanese": "何の本を読んでいますか？",
+      "korean": "무슨 책을 읽어요?",
+      "alternativeAnswers": ["무슨 책을 읽습니까?"],
+      "hint": "무슨 ...",
+      "explanation": "対象の種類を尋ねるとき 무슨 + 名詞 を使います。"
+    },
+    {
+      "id": "qt_substantive_048_02",
+      "order": 2,
+      "japanese": "何の音ですか？",
+      "korean": "무슨 소리예요?",
+      "alternativeAnswers": ["무슨 소리입니까?"],
+      "hint": "무슨 소...",
+      "explanation": "正体を問うとき 무슨 소리예요? と聞きます。"
+    },
+    {
+      "id": "qt_substantive_048_03",
+      "order": 3,
+      "japanese": "今日は何曜日ですか？",
+      "korean": "오늘 무슨 요일이에요?",
+      "alternativeAnswers": ["오늘 무슨 요일입니까?"],
+      "hint": "오늘 ...",
+      "explanation": "曜日を尋ねる決まり表現も 무슨 요일 です。"
+    },
+    {
+      "id": "qt_substantive_048_04",
+      "order": 4,
+      "japanese": "何の話をしましたか？",
+      "korean": "무슨 이야기를 했어요?",
+      "alternativeAnswers": ["무슨 이야기를 했습니까?"],
+      "hint": "무슨 이...",
+      "explanation": "話題を尋ねるとき 무슨 이야기 를使います。"
+    },
+    {
+      "id": "qt_substantive_048_05",
+      "order": 5,
+      "japanese": "何の料理が好きですか？",
+      "korean": "무슨 음식을 좋아해요?",
+      "alternativeAnswers": ["무슨 음식을 좋아합니까?"],
+      "hint": "무슨 음...",
+      "explanation": "具体的な種類を聞くとき 무슨 을用います。"
+    },
+    {
+      "id": "qt_substantive_048_06",
+      "order": 6,
+      "japanese": "何の色が好きですか？",
+      "korean": "무슨 색을 좋아해요?",
+      "alternativeAnswers": ["무슨 색을 좋아합니까?"],
+      "hint": "무슨 색...",
+      "explanation": "色の種類を尋ねる際도 무슨 색 을使います。"
+    },
+    {
+      "id": "qt_substantive_048_07",
+      "order": 7,
+      "japanese": "何の映画を見ましたか？",
+      "korean": "무슨 영화를 봤어요?",
+      "alternativeAnswers": ["무슨 영화를 봤습니까?"],
+      "hint": "무슨 영...",
+      "explanation": "題名やジャンルを尋ねるとき 무슨 영화 라고言います。"
+    },
+    {
+      "id": "qt_substantive_048_08",
+      "order": 8,
+      "japanese": "何の歌を聴きますか？",
+      "korean": "무슨 노래 들어요?",
+      "alternativeAnswers": ["무슨 노래 들습니까?"],
+      "hint": "무슨 노...",
+      "explanation": "曲の種類を尋ねるとき도 무슨 노래 를使います。"
+    },
+    {
+      "id": "qt_substantive_048_09",
+      "order": 9,
+      "japanese": "何の問題がありますか？",
+      "korean": "무슨 문제가 있어요?",
+      "alternativeAnswers": ["무슨 문제가 있습니까?"],
+      "hint": "무슨 문...",
+      "explanation": "問題の種類を尋ねるとき 무슨 문제 로聞きます。"
+    },
+    {
+      "id": "qt_substantive_048_10",
+      "order": 10,
+      "japanese": "これは何のプレゼントですか？",
+      "korean": "이건 무슨 선물이에요?",
+      "alternativeAnswers": ["이것은 무슨 선물입니까?"],
+      "hint": "이건 ...",
+      "explanation": "目的や内容を尋ねるとき 무슨 선물 と表します。"
+    }
+  ]
+}

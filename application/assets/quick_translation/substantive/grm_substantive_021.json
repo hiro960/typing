@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_021",
+  "grammarTitle": "개",
+  "grammarSubtitle": "助数詞（個）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_021_01",
+      "order": 1,
+      "japanese": "りんごを一つください。",
+      "korean": "사과 한 개 주세요.",
+      "alternativeAnswers": [],
+      "hint": "사과 하...",
+      "explanation": "개は物の個数に使う助数詞です。"
+    },
+    {
+      "id": "qt_substantive_021_02",
+      "order": 2,
+      "japanese": "パンを二つ買いました。",
+      "korean": "빵 두 개 샀어요.",
+      "alternativeAnswers": [],
+      "hint": "빵 두...",
+      "explanation": "固有数詞＋개で物の数を言います。"
+    },
+    {
+      "id": "qt_substantive_021_03",
+      "order": 3,
+      "japanese": "ボールが三つあります。",
+      "korean": "공이 세 개 있어요.",
+      "alternativeAnswers": [],
+      "hint": "공이 세...",
+      "explanation": "「세 개」のように連体形＋개を使います。"
+    },
+    {
+      "id": "qt_substantive_021_04",
+      "order": 4,
+      "japanese": "キャンディーを四つ食べました。",
+      "korean": "사탕 네 개 먹었어요.",
+      "alternativeAnswers": [],
+      "hint": "사탕 네...",
+      "explanation": "4個は「네 개」と短縮します。"
+    },
+    {
+      "id": "qt_substantive_021_05",
+      "order": 5,
+      "japanese": "鉛筆が五つあります。",
+      "korean": "연필 다섯 개 있어요.",
+      "alternativeAnswers": [],
+      "hint": "연필 다...",
+      "explanation": "助数詞 개は様々な物に使えます。"
+    },
+    {
+      "id": "qt_substantive_021_06",
+      "order": 6,
+      "japanese": "牛乳を六つ買いました。",
+      "korean": "우유 여섯 개 샀어요.",
+      "alternativeAnswers": [],
+      "hint": "우유 여...",
+      "explanation": "여섯 개 のように固有数詞を合わせます。"
+    },
+    {
+      "id": "qt_substantive_021_07",
+      "order": 7,
+      "japanese": "お菓子が七つ残りました。",
+      "korean": "과자 일곱 개 남았어요.",
+      "alternativeAnswers": [],
+      "hint": "과자 일...",
+      "explanation": "残量も「일곱 개」などで表します。"
+    },
+    {
+      "id": "qt_substantive_021_08",
+      "order": 8,
+      "japanese": "コーラを八つ注文しました。",
+      "korean": "콜라 여덟 개 주문했어요.",
+      "alternativeAnswers": [],
+      "hint": "콜라 여...",
+      "explanation": "注文でも個数を 개 で指定します。"
+    },
+    {
+      "id": "qt_substantive_021_09",
+      "order": 9,
+      "japanese": "果物を九つ入れました。",
+      "korean": "과일 아홉 개 담았어요.",
+      "alternativeAnswers": [],
+      "hint": "과일 아...",
+      "explanation": "아홉 개 と助数詞を合わせます。"
+    },
+    {
+      "id": "qt_substantive_021_10",
+      "order": 10,
+      "japanese": "卵が十個必要です。",
+      "korean": "계란 열 개 필요해요.",
+      "alternativeAnswers": [],
+      "hint": "계란 열...",
+      "explanation": "10個は「열 개」と固有数詞を使います。"
+    }
+  ]
+}

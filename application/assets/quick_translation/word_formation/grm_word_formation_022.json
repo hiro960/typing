@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_word_formation_022",
+  "grammarTitle": "체언형 I-기",
+  "grammarSubtitle": "体言形 I-기",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_022_01",
+      "order": 1,
+      "japanese": "本を読むのが好きです。",
+      "korean": "책 읽기가 좋아요.",
+      "alternativeAnswers": [],
+      "hint": "책 읽기...",
+      "explanation": "動詞に-기を付け名詞化し「読むのが好き」を表します。"
+    },
+    {
+      "id": "qt_word_formation_022_02",
+      "order": 2,
+      "japanese": "料理を作るのは難しいです。",
+      "korean": "요리하기가 어려워요.",
+      "alternativeAnswers": [],
+      "hint": "요리하기...",
+      "explanation": "行動を名詞にして主語にし「作るのは難しい」と言います。"
+    },
+    {
+      "id": "qt_word_formation_022_03",
+      "order": 3,
+      "japanese": "早起きするのが大変です。",
+      "korean": "일찍 일어나기가 힘들어요.",
+      "alternativeAnswers": [],
+      "hint": "일찍...",
+      "explanation": "「일어나다」に-기を付け行動自体を名詞として扱います。"
+    },
+    {
+      "id": "qt_word_formation_022_04",
+      "order": 4,
+      "japanese": "韓国語を話すのは楽しいです。",
+      "korean": "한국어 말하기가 재미있어요.",
+      "alternativeAnswers": [],
+      "hint": "한국어...",
+      "explanation": "話すという行為を名詞化し楽しさの主語にしています。"
+    },
+    {
+      "id": "qt_word_formation_022_05",
+      "order": 5,
+      "japanese": "運動するのが好きです。",
+      "korean": "운동하기를 좋아해요.",
+      "alternativeAnswers": [],
+      "hint": "운동하기...",
+      "explanation": "目的語としても-기形を使い「運動すること」を指します。"
+    },
+    {
+      "id": "qt_word_formation_022_06",
+      "order": 6,
+      "japanese": "勉強するのは大事です。",
+      "korean": "공부하기가 중요해요.",
+      "alternativeAnswers": [],
+      "hint": "공부하기...",
+      "explanation": "行為を名詞化し重要性を述べるときに使います。"
+    },
+    {
+      "id": "qt_word_formation_022_07",
+      "order": 7,
+      "japanese": "文章を書くのが遅いです。",
+      "korean": "글 쓰기가 느려요.",
+      "alternativeAnswers": [],
+      "hint": "글 쓰기...",
+      "explanation": "「쓰다」を-기で名詞化し速度の評価をしています。"
+    },
+    {
+      "id": "qt_word_formation_022_08",
+      "order": 8,
+      "japanese": "バスに乗るのが便利です。",
+      "korean": "버스 타기가 편해요.",
+      "alternativeAnswers": [],
+      "hint": "버스 타기...",
+      "explanation": "乗る行為を名詞化し便利さの主語として用います。"
+    },
+    {
+      "id": "qt_word_formation_022_09",
+      "order": 9,
+      "japanese": "歌うのが恥ずかしいです。",
+      "korean": "노래 부르기가 부끄러워요.",
+      "alternativeAnswers": [],
+      "hint": "노래...",
+      "explanation": "行為名詞を主語にし感情を述べる形です。"
+    },
+    {
+      "id": "qt_word_formation_022_10",
+      "order": 10,
+      "japanese": "片付けるのが面倒です。",
+      "korean": "정리하기가 귀찮아요.",
+      "alternativeAnswers": [],
+      "hint": "정리하기...",
+      "explanation": "-기で名詞化した行動に対して感情を述べています。"
+    }
+  ]
+}

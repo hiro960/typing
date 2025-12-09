@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_sentence_ending_006",
+  "grammarTitle": "-지요?/-죠?",
+  "grammarSubtitle": "確認・同意（〜ですよね）",
+  "category": "sentence_ending",
+  "questions": [
+    {
+      "id": "qt_sentence_ending_006_01",
+      "order": 1,
+      "japanese": "ここは図書館ですよね？",
+      "korean": "여기는 도서관이지요?",
+      "alternativeAnswers": ["여기는 도서관이죠?"],
+      "hint": "여기는...",
+      "explanation": "名詞述語も「이지요/이죠」で確認を取ります。"
+    },
+    {
+      "id": "qt_sentence_ending_006_02",
+      "order": 2,
+      "japanese": "今日、雨が降りますよね？",
+      "korean": "오늘 비가 오지요?",
+      "alternativeAnswers": ["오늘 비가 오죠?"],
+      "hint": "오늘...",
+      "explanation": "既に共有している情報を確認するときに「-지요?/ -죠?」を使います。"
+    },
+    {
+      "id": "qt_sentence_ending_006_03",
+      "order": 3,
+      "japanese": "この映画は面白いですよね？",
+      "korean": "이 영화 재미있지요?",
+      "alternativeAnswers": ["이 영화 재미있죠?"],
+      "hint": "이 영화...",
+      "explanation": "同意を求めるとき形容詞述語に「-지요」を付けます。"
+    },
+    {
+      "id": "qt_sentence_ending_006_04",
+      "order": 4,
+      "japanese": "明日会いますよね？",
+      "korean": "내일 만나요, 그렇지요?",
+      "alternativeAnswers": ["내일 만나죠?"],
+      "hint": "내일...",
+      "explanation": "共有の予定を再確認するとき「-지요?/죠?」で柔らかく尋ねます。"
+    },
+    {
+      "id": "qt_sentence_ending_006_05",
+      "order": 5,
+      "japanese": "とても寒いですね。",
+      "korean": "정말 춥지요.",
+      "alternativeAnswers": ["정말 춥죠."],
+      "hint": "정말...",
+      "explanation": "感想を共有しながら同意を求めるときも「-지요/죠」を使います。"
+    },
+    {
+      "id": "qt_sentence_ending_006_06",
+      "order": 6,
+      "japanese": "彼が先生ですよね？",
+      "korean": "그 사람이 선생님이지요?",
+      "alternativeAnswers": ["그 사람이 선생님이죠?"],
+      "hint": "그 사람이...",
+      "explanation": "名詞述語の確認でも「이지요/이죠」で柔らかく尋ねます。"
+    },
+    {
+      "id": "qt_sentence_ending_006_07",
+      "order": 7,
+      "japanese": "駅は近いですよね？",
+      "korean": "역이 가깝지요?",
+      "alternativeAnswers": ["역이 가깝죠?"],
+      "hint": "역이...",
+      "explanation": "相手の同意を求める確認表現として「-지요」を使います。"
+    },
+    {
+      "id": "qt_sentence_ending_006_08",
+      "order": 8,
+      "japanese": "ここで待ちますよね？",
+      "korean": "여기서 기다리죠?",
+      "alternativeAnswers": ["여기서 기다리지요?"],
+      "hint": "여기서...",
+      "explanation": "動作の約束を確認する際も「-죠/지요」で問います。"
+    },
+    {
+      "id": "qt_sentence_ending_006_09",
+      "order": 9,
+      "japanese": "宿題終わりましたよね？",
+      "korean": "숙제 끝났지요?",
+      "alternativeAnswers": ["숙제 끝났죠?"],
+      "hint": "숙제...",
+      "explanation": "過去の事実確認でも「-지요/죠」で柔らかい確認になります。"
+    },
+    {
+      "id": "qt_sentence_ending_006_10",
+      "order": 10,
+      "japanese": "ここは静かですね。",
+      "korean": "여기는 조용하지요.",
+      "alternativeAnswers": ["여기는 조용하죠."],
+      "hint": "여기는...",
+      "explanation": "感想に相手の同意を求めるとき「-지요」を付けます。"
+    }
+  ]
+}

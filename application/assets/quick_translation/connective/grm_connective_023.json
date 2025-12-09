@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_connective_023",
+  "grammarTitle": "-느라고",
+  "grammarSubtitle": "〜するのに忙しくて",
+  "category": "connective",
+  "questions": [
+    {
+      "id": "qt_connective_023_01",
+      "order": 1,
+      "japanese": "宿題をしていて遅れました。",
+      "korean": "숙제하느라고 늦었어요.",
+      "alternativeAnswers": ["숙제하느라고 늦었습니다."],
+      "hint": "숙제하...",
+      "explanation": "ある行為に集中して他のことが遅れた例です。"
+    },
+    {
+      "id": "qt_connective_023_02",
+      "order": 2,
+      "japanese": "仕事をしていて昼ご飯を食べられませんでした。",
+      "korean": "일하느라고 점심을 못 먹었어요.",
+      "alternativeAnswers": ["일하느라고 점심을 못 먹었습니다."],
+      "hint": "일하...",
+      "explanation": "前件のせいで後件をできなかったことを示します。"
+    },
+    {
+      "id": "qt_connective_023_03",
+      "order": 3,
+      "japanese": "電話をしていて聞けませんでした。",
+      "korean": "전화하느라고 못 들었어요.",
+      "alternativeAnswers": ["전화하느라고 못 들었습니다."],
+      "hint": "전화하...",
+      "explanation": "前件で忙しく後件の聞き取りができなかった例です。"
+    },
+    {
+      "id": "qt_connective_023_04",
+      "order": 4,
+      "japanese": "運転していて電話を受けられません。",
+      "korean": "운전하느라고 전화를 못 받아요.",
+      "alternativeAnswers": ["운전하느라고 전화를 못 받습니다."],
+      "hint": "운전하...",
+      "explanation": "進行中の行為が原因で他の行為を断る形です。"
+    },
+    {
+      "id": "qt_connective_023_05",
+      "order": 5,
+      "japanese": "勉強していて休めませんでした。",
+      "korean": "공부하느라고 못 쉬었어요.",
+      "alternativeAnswers": ["공부하느라고 못 쉬었습니다."],
+      "hint": "공부하...",
+      "explanation": "前件のため休息できなかった否定的結果です。"
+    },
+    {
+      "id": "qt_connective_023_06",
+      "order": 6,
+      "japanese": "ゲームをしていて夜を明かしました。",
+      "korean": "게임하느라고 밤을 샜어요.",
+      "alternativeAnswers": ["게임하느라고 밤을 샜습니다."],
+      "hint": "게임하...",
+      "explanation": "他のことをせず夢中になった様子を表します。"
+    },
+    {
+      "id": "qt_connective_023_07",
+      "order": 7,
+      "japanese": "皿洗いをしていて手が濡れました。",
+      "korean": "설거지하느라고 손이 젖었어요.",
+      "alternativeAnswers": ["설거지하느라고 손이 젖었습니다."],
+      "hint": "설거지...",
+      "explanation": "前の作業の結果として望ましくない状態を述べます。"
+    },
+    {
+      "id": "qt_connective_023_08",
+      "order": 8,
+      "japanese": "友達に会っていて家に遅く帰りました。",
+      "korean": "친구 만나느라고 집에 늦게 갔어요.",
+      "alternativeAnswers": ["친구 만나느라고 집에 늦게 갔습니다."],
+      "hint": "친구...",
+      "explanation": "別の用事のため帰りが遅れたことを示します。"
+    },
+    {
+      "id": "qt_connective_023_09",
+      "order": 9,
+      "japanese": "掃除をしていて腰が痛いです。",
+      "korean": "청소하느라고 허리가 아파요.",
+      "alternativeAnswers": ["청소하느라고 허리가 아픕니다."],
+      "hint": "청소하...",
+      "explanation": "前件作業で生じた否定的結果を述べています。"
+    },
+    {
+      "id": "qt_connective_023_10",
+      "order": 10,
+      "japanese": "ラーメンを作っていて匂いがします。",
+      "korean": "라면 끓이느라고 냄새가 나요.",
+      "alternativeAnswers": ["라면 끓이느라고 냄새가 납니다."],
+      "hint": "라면...",
+      "explanation": "進行中の行為が原因の現象を伝える例です。"
+    }
+  ]
+}

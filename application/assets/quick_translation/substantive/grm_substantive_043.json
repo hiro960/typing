@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_043",
+  "grammarTitle": "어떻게",
+  "grammarSubtitle": "疑問副詞（どのように）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_043_01",
+      "order": 1,
+      "japanese": "どうやって行きますか？",
+      "korean": "어떻게 가요?",
+      "alternativeAnswers": ["어떻게 갑니까?"],
+      "hint": "어떻게...",
+      "explanation": "方法を尋ねる基本形は 어떻게 + 動詞 です。"
+    },
+    {
+      "id": "qt_substantive_043_02",
+      "order": 2,
+      "japanese": "どう作りますか？",
+      "korean": "어떻게 만들어요?",
+      "alternativeAnswers": ["어떻게 만듭니까?"],
+      "hint": "어떻게...",
+      "explanation": "手順を聞くとき도 어떻게 + 동사 를使います。"
+    },
+    {
+      "id": "qt_substantive_043_03",
+      "order": 3,
+      "japanese": "どうすればいいですか？",
+      "korean": "어떻게 하면 돼요?",
+      "alternativeAnswers": ["어떻게 하면 됩니까?"],
+      "hint": "어떻게...",
+      "explanation": "方法を求めるとき는 어떻게 하면 ~? で聞きます。"
+    },
+    {
+      "id": "qt_substantive_043_04",
+      "order": 4,
+      "japanese": "どう食べますか？",
+      "korean": "어떻게 먹어요?",
+      "alternativeAnswers": ["어떻게 먹습니까?"],
+      "hint": "어떻게...",
+      "explanation": "食べ方なども 어떻게 로尋ねます。"
+    },
+    {
+      "id": "qt_substantive_043_05",
+      "order": 5,
+      "japanese": "韓国語でどう言いますか？",
+      "korean": "한국어로 어떻게 말해요?",
+      "alternativeAnswers": ["한국어로 어떻게 말합니까?"],
+      "hint": "한국...",
+      "explanation": "言い方を尋ねるとき는 한국어로 어떻게 ~? と言います。"
+    },
+    {
+      "id": "qt_substantive_043_06",
+      "order": 6,
+      "japanese": "どうしてそんなに速いですか？",
+      "korean": "어떻게 이렇게 빨라요?",
+      "alternativeAnswers": ["어떻게 이렇게 빠릅니까?"],
+      "hint": "어떻게...",
+      "explanation": "状態の理由を方法の観点で尋ねます。"
+    },
+    {
+      "id": "qt_substantive_043_07",
+      "order": 7,
+      "japanese": "どう書きますか？",
+      "korean": "어떻게 써요?",
+      "alternativeAnswers": ["어떻게 씁니까?"],
+      "hint": "어떻게...",
+      "explanation": "書き方を尋ねるとき도 어떻게 를使います。"
+    },
+    {
+      "id": "qt_substantive_043_08",
+      "order": 8,
+      "japanese": "どう着ますか？",
+      "korean": "어떻게 입어요?",
+      "alternativeAnswers": ["어떻게 입습니까?"],
+      "hint": "어떻게...",
+      "explanation": "着方も 어떻게 + 동사 로聞きます。"
+    },
+    {
+      "id": "qt_substantive_043_09",
+      "order": 9,
+      "japanese": "どう直しましたか？",
+      "korean": "어떻게 고쳤어요?",
+      "alternativeAnswers": ["어떻게 고쳤습니까?"],
+      "hint": "어떻게...",
+      "explanation": "修理方法も 어떻게 + 過去形 で尋ねます。"
+    },
+    {
+      "id": "qt_substantive_043_10",
+      "order": 10,
+      "japanese": "休日はどう過ごしますか？",
+      "korean": "휴일에 어떻게 지내요?",
+      "alternativeAnswers": ["휴일에 어떻게 지냅니까?"],
+      "hint": "휴일...",
+      "explanation": "過ごし方を聞くとき도 어떻게 를用います。"
+    }
+  ]
+}

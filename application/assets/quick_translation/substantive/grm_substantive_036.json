@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_036",
+  "grammarTitle": "살",
+  "grammarSubtitle": "助数詞（〜歳）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_036_01",
+      "order": 1,
+      "japanese": "私は二十歳です。",
+      "korean": "저는 스무 살이에요.",
+      "alternativeAnswers": ["저는 스무 살입니다."],
+      "hint": "저는...",
+      "explanation": "年齢は固有数詞＋살で、20歳は 스무 살 です。"
+    },
+    {
+      "id": "qt_substantive_036_02",
+      "order": 2,
+      "japanese": "弟は八歳です。",
+      "korean": "남동생은 여덟 살이에요.",
+      "alternativeAnswers": ["남동생은 여덟 살입니다."],
+      "hint": "남동...",
+      "explanation": "8歳は 여덟 살 と固有数詞を用います。"
+    },
+    {
+      "id": "qt_substantive_036_03",
+      "order": 3,
+      "japanese": "あなたは何歳ですか？",
+      "korean": "몇 살이에요?",
+      "alternativeAnswers": ["몇 살입니까?"],
+      "hint": "몇 살...",
+      "explanation": "몇 살 で年齢を尋ねます。"
+    },
+    {
+      "id": "qt_substantive_036_04",
+      "order": 4,
+      "japanese": "父は五十歳です。",
+      "korean": "아버지는 쉰 살이에요.",
+      "alternativeAnswers": ["아버지는 쉰 살입니다."],
+      "hint": "아버...",
+      "explanation": "50歳は 쉰 살 と固有数詞を使います。"
+    },
+    {
+      "id": "qt_substantive_036_05",
+      "order": 5,
+      "japanese": "子どもは三歳です。",
+      "korean": "아이는 세 살이에요.",
+      "alternativeAnswers": ["아이는 세 살입니다."],
+      "hint": "아이는...",
+      "explanation": "幼い年齢も固有数詞＋살 で数えます。"
+    },
+    {
+      "id": "qt_substantive_036_06",
+      "order": 6,
+      "japanese": "姉は三十歳です。",
+      "korean": "누나는 서른 살이에요.",
+      "alternativeAnswers": ["누나는 서른 살입니다."],
+      "hint": "누나는...",
+      "explanation": "30歳は 서른 살 で表します。"
+    },
+    {
+      "id": "qt_substantive_036_07",
+      "order": 7,
+      "japanese": "祖母は七十五歳です。",
+      "korean": "할머니는 일흔다섯 살이에요.",
+      "alternativeAnswers": ["할머니는 일흔다섯 살입니다."],
+      "hint": "할머...",
+      "explanation": "70代も固有数詞で 일흔다섯 살 と言います。"
+    },
+    {
+      "id": "qt_substantive_036_08",
+      "order": 8,
+      "japanese": "この猫は一歳です。",
+      "korean": "이 고양이는 한 살이에요.",
+      "alternativeAnswers": ["이 고양이는 한 살입니다."],
+      "hint": "이 고...",
+      "explanation": "1歳は 한 살 と言い、固有数詞を使います。"
+    },
+    {
+      "id": "qt_substantive_036_09",
+      "order": 9,
+      "japanese": "友達は十七歳です。",
+      "korean": "친구는 열일곱 살이에요.",
+      "alternativeAnswers": ["친구는 열일곱 살입니다."],
+      "hint": "친구...",
+      "explanation": "10代も固有数詞で 열일곱 살 と表します。"
+    },
+    {
+      "id": "qt_substantive_036_10",
+      "order": 10,
+      "japanese": "兄は二十五歳です。",
+      "korean": "형은 스물다섯 살이에요.",
+      "alternativeAnswers": ["형은 스물다섯 살입니다."],
+      "hint": "형은...",
+      "explanation": "25歳は 스물다섯 살 と固有数詞＋살 で数えます。"
+    }
+  ]
+}

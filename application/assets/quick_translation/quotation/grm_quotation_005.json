@@ -1,0 +1,104 @@
+{
+  "grammarRef": "grm_quotation_005",
+  "grammarTitle": "-(느)냐고 하다",
+  "grammarSubtitle": "〜かと聞く・疑問",
+  "category": "quotation",
+  "questions": [
+    {
+      "id": "qt_quotation_005_01",
+      "order": 1,
+      "japanese": "友達がどこに行くかと聞きました。",
+      "korean": "친구가 어디 가느냐고 물었어요.",
+      "alternativeAnswers": [
+        "친구가 어디 가냐고 물었어요."
+      ],
+      "hint": "친구가...",
+      "explanation": "動詞の疑問を間接引用するとき「-느냐고 하다」を使います。"
+    },
+    {
+      "id": "qt_quotation_005_02",
+      "order": 2,
+      "japanese": "母がご飯を食べたかと聞きました。",
+      "korean": "엄마가 밥 먹었냐고 물었어요.",
+      "alternativeAnswers": [
+        "엄마가 밥 먹었느냐고 물었어요."
+      ],
+      "hint": "엄마가...",
+      "explanation": "過去の事実を尋ねる間接疑問で「-았/었느냐고」を用います。"
+    },
+    {
+      "id": "qt_quotation_005_03",
+      "order": 3,
+      "japanese": "先生が宿題があるかと聞きました。",
+      "korean": "선생님이 숙제가 있느냐고 물었어요.",
+      "alternativeAnswers": [],
+      "hint": "선생님이...",
+      "explanation": "存在を問う疑問を間接で伝える際「있느냐고 하다」を使います。"
+    },
+    {
+      "id": "qt_quotation_005_04",
+      "order": 4,
+      "japanese": "友達が忙しいかと聞きました。",
+      "korean": "친구가 바쁘냐고 물었어요.",
+      "alternativeAnswers": [],
+      "hint": "친구가...",
+      "explanation": "形容詞の疑問を間接引用する場合も「-냐고 하다」を用います。"
+    },
+    {
+      "id": "qt_quotation_005_05",
+      "order": 5,
+      "japanese": "彼がいつ来るかと聞きました。",
+      "korean": "그가 언제 오느냐고 물었어요.",
+      "alternativeAnswers": [],
+      "hint": "그가...",
+      "explanation": "時を問う疑問文を「-느냐고 하다」で伝えます。"
+    },
+    {
+      "id": "qt_quotation_005_06",
+      "order": 6,
+      "japanese": "母が誰と行くかと聞きました。",
+      "korean": "엄마가 누구랑 가느냐고 물었어요.",
+      "alternativeAnswers": [],
+      "hint": "엄마가...",
+      "explanation": "同行者を尋ねる疑問を間接で表す際「-느냐고 하다」を使用。"
+    },
+    {
+      "id": "qt_quotation_005_07",
+      "order": 7,
+      "japanese": "先生が何を買うかと聞きました。",
+      "korean": "선생님이 무엇을 사느냐고 물었어요.",
+      "alternativeAnswers": [
+        "선생님이 뭐 사느냐고 물었어요."
+      ],
+      "hint": "선생님이...",
+      "explanation": "何を買うかという疑問を「-느냐고 하다」で伝えます。"
+    },
+    {
+      "id": "qt_quotation_005_08",
+      "order": 8,
+      "japanese": "兄がよく寝たかと聞きました。",
+      "korean": "형이 잘 잤느냐고 물었어요.",
+      "alternativeAnswers": [],
+      "hint": "형이...",
+      "explanation": "過去の状態を問うとき「-았/었느냐고 하다」を使います。"
+    },
+    {
+      "id": "qt_quotation_005_09",
+      "order": 9,
+      "japanese": "友達が暇かと聞きました。",
+      "korean": "친구가 한가하냐고 물었어요.",
+      "alternativeAnswers": [],
+      "hint": "친구가...",
+      "explanation": "形容詞疑問も簡略形「-냐고 하다」で間接引用します。"
+    },
+    {
+      "id": "qt_quotation_005_10",
+      "order": 10,
+      "japanese": "母がどこにいるかと聞きました。",
+      "korean": "엄마가 어디 있느냐고 물었어요.",
+      "alternativeAnswers": [],
+      "hint": "엄마가...",
+      "explanation": "存在場所を問う疑問を「-느냐고 하다」で伝えます。"
+    }
+  ]
+}

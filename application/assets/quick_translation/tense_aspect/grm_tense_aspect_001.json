@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_tense_aspect_001",
+  "grammarTitle": "-았/었-",
+  "grammarSubtitle": "過去時制",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_001_01",
+      "order": 1,
+      "japanese": "昨日映画を見ました。",
+      "korean": "어제 영화를 봤어요.",
+      "alternativeAnswers": ["어제 영화를 봤습니다."],
+      "hint": "어제...",
+      "explanation": "過去の動作を表すので語幹に-았/었-を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_001_02",
+      "order": 2,
+      "japanese": "朝ご飯を食べました。",
+      "korean": "아침을 먹었어요.",
+      "alternativeAnswers": ["아침을 먹었습니다."],
+      "hint": "아침을...",
+      "explanation": "食べた事実を伝える過去で-었어요を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_001_03",
+      "order": 3,
+      "japanese": "友達に会いました。",
+      "korean": "친구를 만났어요.",
+      "alternativeAnswers": ["친구를 만났습니다."],
+      "hint": "친구를...",
+      "explanation": "会った動作の完了を-았어요で表します。"
+    },
+    {
+      "id": "qt_tense_aspect_001_04",
+      "order": 4,
+      "japanese": "宿題を終えました。",
+      "korean": "숙제를 끝냈어요.",
+      "alternativeAnswers": ["숙제를 끝냈습니다."],
+      "hint": "숙제를...",
+      "explanation": "完了した過去の出来事に-었어요を用います。"
+    },
+    {
+      "id": "qt_tense_aspect_001_05",
+      "order": 5,
+      "japanese": "今日は学校に行きました。",
+      "korean": "오늘 학교에 갔어요.",
+      "alternativeAnswers": ["오늘 학교에 갔습니다."],
+      "hint": "오늘...",
+      "explanation": "行ったという過去事実を-았어요で示します。"
+    },
+    {
+      "id": "qt_tense_aspect_001_06",
+      "order": 6,
+      "japanese": "昨日早く寝ました。",
+      "korean": "어제 일찍 잤어요.",
+      "alternativeAnswers": ["어제 일찍 잤습니다."],
+      "hint": "어제...",
+      "explanation": "寝たことを過去形-았어요で表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_001_07",
+      "order": 7,
+      "japanese": "本を読みました。",
+      "korean": "책을 읽었어요.",
+      "alternativeAnswers": ["책을 읽었습니다."],
+      "hint": "책을...",
+      "explanation": "読んだという完了を-었어요で示します。"
+    },
+    {
+      "id": "qt_tense_aspect_001_08",
+      "order": 8,
+      "japanese": "雨が降りました。",
+      "korean": "비가 왔어요.",
+      "alternativeAnswers": ["비가 왔습니다."],
+      "hint": "비가...",
+      "explanation": "起こった事実を伝えるため-았어요を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_001_09",
+      "order": 9,
+      "japanese": "テストが終わりました。",
+      "korean": "시험이 끝났어요.",
+      "alternativeAnswers": ["시험이 끝났습니다."],
+      "hint": "시험이...",
+      "explanation": "終わった状態を過去形-았어요で表します。"
+    },
+    {
+      "id": "qt_tense_aspect_001_10",
+      "order": 10,
+      "japanese": "週末に旅行に行きました。",
+      "korean": "주말에 여행을 갔어요.",
+      "alternativeAnswers": ["주말에 여행을 갔습니다."],
+      "hint": "주말에...",
+      "explanation": "済んだ出来事を述べるので-았어요を付けます。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_adnominal_009",
+  "grammarTitle": "-기",
+  "grammarSubtitle": "名詞化",
+  "category": "adnominal",
+  "questions": [
+    {
+      "id": "qt_adnominal_009_01",
+      "order": 1,
+      "japanese": "走ることが好きです。",
+      "korean": "달리기가 좋아요.",
+      "alternativeAnswers": ["달리기를 좋아합니다."],
+      "hint": "달리기...",
+      "explanation": "動詞語幹＋기で「〜すること」を表します。"
+    },
+    {
+      "id": "qt_adnominal_009_02",
+      "order": 2,
+      "japanese": "勉強することが大事です。",
+      "korean": "공부하기가 중요해요.",
+      "alternativeAnswers": ["공부하기가 중요합니다."],
+      "hint": "공부하...",
+      "explanation": "行為を名詞化し重要性を述べる例です。"
+    },
+    {
+      "id": "qt_adnominal_009_03",
+      "order": 3,
+      "japanese": "早く起きることが難しいです。",
+      "korean": "일찍 일어나기가 어려워요.",
+      "alternativeAnswers": ["일찍 일어나기가 어렵습니다."],
+      "hint": "일찍...",
+      "explanation": "名詞化して難しさの評価をつけています。"
+    },
+    {
+      "id": "qt_adnominal_009_04",
+      "order": 4,
+      "japanese": "友達に会うことが楽しいです。",
+      "korean": "친구 만나기가 즐거워요.",
+      "alternativeAnswers": ["친구 만나기가 즐겁습니다."],
+      "hint": "친구...",
+      "explanation": "名詞化した行為を主語にして感情を述べます。"
+    },
+    {
+      "id": "qt_adnominal_009_05",
+      "order": 5,
+      "japanese": "韓国語を書くことが面白いです。",
+      "korean": "한국어 쓰기가 재미있어요.",
+      "alternativeAnswers": ["한국어 쓰기가 재미있습니다."],
+      "hint": "한국어...",
+      "explanation": "書く行為を名詞化し楽しさを表す例です。"
+    },
+    {
+      "id": "qt_adnominal_009_06",
+      "order": 6,
+      "japanese": "たくさん食べることが大変です。",
+      "korean": "많이 먹기가 힘들어요.",
+      "alternativeAnswers": ["많이 먹기가 힘듭니다."],
+      "hint": "많이...",
+      "explanation": "行為を名詞化して負担感を述べています。"
+    },
+    {
+      "id": "qt_adnominal_009_07",
+      "order": 7,
+      "japanese": "料理することは難しくありません。",
+      "korean": "요리하기가 어렵지 않아요.",
+      "alternativeAnswers": ["요리하기가 어렵지 않습니다."],
+      "hint": "요리하...",
+      "explanation": "名詞化した行為に否定を付けて評価します。"
+    },
+    {
+      "id": "qt_adnominal_009_08",
+      "order": 8,
+      "japanese": "旅行することが好きです。",
+      "korean": "여행하기가 좋아요.",
+      "alternativeAnswers": ["여행하기가 좋습니다."],
+      "hint": "여행하...",
+      "explanation": "行為そのものへの好みを名詞化して述べます。"
+    },
+    {
+      "id": "qt_adnominal_009_09",
+      "order": 9,
+      "japanese": "運転することが怖いです。",
+      "korean": "운전하기가 무서워요.",
+      "alternativeAnswers": ["운전하기가 무섭습니다."],
+      "hint": "운전하...",
+      "explanation": "名詞化した行為に感情を付けています。"
+    },
+    {
+      "id": "qt_adnominal_009_10",
+      "order": 10,
+      "japanese": "歌うことが楽しいです。",
+      "korean": "노래 부르기가 즐거워요.",
+      "alternativeAnswers": ["노래 부르기가 즐겁습니다."],
+      "hint": "노래...",
+      "explanation": "名詞化し主語にして喜びを伝える形です。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_011",
+  "grammarTitle": "-(으)ㄴ/는 편이다",
+  "grammarSubtitle": "〜するほうだ",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_011_01",
+      "order": 1,
+      "japanese": "私は朝ごはんをよく食べるほうです。",
+      "korean": "저는 아침을 잘 먹는 편이에요.",
+      "alternativeAnswers": ["저는 아침을 잘 먹는 편입니다."],
+      "hint": "저는...",
+      "explanation": "習慣の傾向を言うとき「-는 편이다」を使います。"
+    },
+    {
+      "id": "qt_expression_011_02",
+      "order": 2,
+      "japanese": "友達は静かなほうです。",
+      "korean": "친구는 조용한 편이에요.",
+      "alternativeAnswers": ["친구는 조용한 편입니다."],
+      "hint": "친구는...",
+      "explanation": "性質の傾向は形容詞に「-은 편이다」で表します。"
+    },
+    {
+      "id": "qt_expression_011_03",
+      "order": 3,
+      "japanese": "このカフェは広いほうです。",
+      "korean": "이 카페는 넓을 편이에요.",
+      "alternativeAnswers": ["이 카페는 넓을 편입니다."],
+      "hint": "이 카페...",
+      "explanation": "程度をやや控えめに言うとき使う表現です。"
+    },
+    {
+      "id": "qt_expression_011_04",
+      "order": 4,
+      "japanese": "その映画は短いほうです。",
+      "korean": "그 영화는 짧은 편이에요.",
+      "alternativeAnswers": ["그 영화는 짧은 편입니다."],
+      "hint": "그 영화...",
+      "explanation": "特徴を穏やかに述べる際「-은 편이다」を用います。"
+    },
+    {
+      "id": "qt_expression_011_05",
+      "order": 5,
+      "japanese": "彼は甘いものをあまり食べないほうです。",
+      "korean": "그는 단 것을 잘 안 먹는 편이에요.",
+      "alternativeAnswers": ["그는 단 것을 잘 안 먹는 편입니다."],
+      "hint": "그는...",
+      "explanation": "頻度の傾向を柔らかく示す形です。"
+    },
+    {
+      "id": "qt_expression_011_06",
+      "order": 6,
+      "japanese": "私の家は駅から近いほうです。",
+      "korean": "우리 집은 역에서 가까운 편이에요.",
+      "alternativeAnswers": ["우리 집은 역에서 가까운 편입니다."],
+      "hint": "우리 집...",
+      "explanation": "比較的そうだと控えめに言うとき使います。"
+    },
+    {
+      "id": "qt_expression_011_07",
+      "order": 7,
+      "japanese": "彼女は早く起きるほうです。",
+      "korean": "그녀는 일찍 일어나는 편이에요.",
+      "alternativeAnswers": ["그녀는 일찍 일어나는 편입니다."],
+      "hint": "그녀는...",
+      "explanation": "習慣の傾向を「-는 편이다」で表します。"
+    },
+    {
+      "id": "qt_expression_011_08",
+      "order": 8,
+      "japanese": "この服は値段が高いほうです。",
+      "korean": "이 옷은 가격이 비싼 편이에요.",
+      "alternativeAnswers": ["이 옷은 가격이 비싼 편입니다."],
+      "hint": "이 옷...",
+      "explanation": "程度を少し高めと述べる際に用います。"
+    },
+    {
+      "id": "qt_expression_011_09",
+      "order": 9,
+      "japanese": "夏は雨が少ないほうです。",
+      "korean": "여름에는 비가 적은 편이에요.",
+      "alternativeAnswers": ["여름에는 비가 적은 편입니다."],
+      "hint": "여름에는...",
+      "explanation": "そういう傾向があると控えめに述べる表現です。"
+    },
+    {
+      "id": "qt_expression_011_10",
+      "order": 10,
+      "japanese": "私は映画をよく見るほうです。",
+      "korean": "저는 영화를 자주 보는 편이에요.",
+      "alternativeAnswers": ["저는 영화를 자주 보는 편입니다."],
+      "hint": "저는...",
+      "explanation": "行動の頻度が高いことを穏やかに伝える形です。"
+    }
+  ]
+}

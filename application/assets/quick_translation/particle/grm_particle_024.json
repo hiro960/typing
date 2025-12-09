@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_024",
+  "grammarTitle": "조차",
+  "grammarSubtitle": "極端助詞（〜さえ）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_024_01",
+      "order": 1,
+      "japanese": "水一杯さえありません。",
+      "korean": "물 한 컵조차 없어요.",
+      "alternativeAnswers": ["물 한 컵조차 없습니다."],
+      "hint": "물 한 컵조차...",
+      "explanation": "最低限のものすらないと強調する助詞が「조차」です。"
+    },
+    {
+      "id": "qt_particle_024_02",
+      "order": 2,
+      "japanese": "時間さえありません。",
+      "korean": "시간조차 없어요.",
+      "alternativeAnswers": ["시간조차 없습니다."],
+      "hint": "시간조차...",
+      "explanation": "予想外に不足しているものを挙げて強調します。"
+    },
+    {
+      "id": "qt_particle_024_03",
+      "order": 3,
+      "japanese": "ご飯さえ食べられませんでした。",
+      "korean": "밥조차 못 먹었어요.",
+      "alternativeAnswers": ["밥조차 못 먹었습니다."],
+      "hint": "밥조차...",
+      "explanation": "当然あるべきものすらできない状況を表します。"
+    },
+    {
+      "id": "qt_particle_024_04",
+      "order": 4,
+      "japanese": "友達さえ会えません。",
+      "korean": "친구조차 못 만나요.",
+      "alternativeAnswers": ["친구조차 못 만납니다."],
+      "hint": "친구조차...",
+      "explanation": "会うのが当然の相手すら会えないとき「조차」を使います。"
+    },
+    {
+      "id": "qt_particle_024_05",
+      "order": 5,
+      "japanese": "名前さえ知りません。",
+      "korean": "이름조차 몰라요.",
+      "alternativeAnswers": ["이름조차 모릅니다."],
+      "hint": "이름조차...",
+      "explanation": "基本情報すらない状況を否定文とともに表します。"
+    },
+    {
+      "id": "qt_particle_024_06",
+      "order": 6,
+      "japanese": "電話さえしていません。",
+      "korean": "전화조차 안 했어요.",
+      "alternativeAnswers": ["전화조차 안 했습니다."],
+      "hint": "전화조차...",
+      "explanation": "行うべき簡単なことすらしていないと強調します。"
+    },
+    {
+      "id": "qt_particle_024_07",
+      "order": 7,
+      "japanese": "宿題さえしていません。",
+      "korean": "숙제조차 안 했어요.",
+      "alternativeAnswers": ["숙제조차 안 했습니다."],
+      "hint": "숙제조차...",
+      "explanation": "最低限の義務すら果たせていない状況を述べます。"
+    },
+    {
+      "id": "qt_particle_024_08",
+      "order": 8,
+      "japanese": "コーヒーさえ飲みませんでした。",
+      "korean": "커피조차 안 마셨어요.",
+      "alternativeAnswers": ["커피조차 안 마셨습니다."],
+      "hint": "커피조차...",
+      "explanation": "普段飲む物ですら飲まなかったことを強調します。"
+    },
+    {
+      "id": "qt_particle_024_09",
+      "order": 9,
+      "japanese": "夢さえ見られませんでした。",
+      "korean": "꿈조차 못 꿨어요.",
+      "alternativeAnswers": ["꿈조차 못 꿨습니다."],
+      "hint": "꿈조차...",
+      "explanation": "ごく小さなことすらできなかったという極端さを示します。"
+    },
+    {
+      "id": "qt_particle_024_10",
+      "order": 10,
+      "japanese": "挨拶さえできませんでした。",
+      "korean": "인사조차 못 했어요.",
+      "alternativeAnswers": ["인사조차 못 했습니다."],
+      "hint": "인사조차...",
+      "explanation": "簡単な行為すらできなかったことを「조차」で強調します。"
+    }
+  ]
+}

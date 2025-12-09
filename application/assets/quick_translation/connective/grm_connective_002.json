@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_connective_002",
+  "grammarTitle": "-(으)니까",
+  "grammarSubtitle": "理由・根拠（〜ので／〜だから）",
+  "category": "connective",
+  "questions": [
+    {
+      "id": "qt_connective_002_01",
+      "order": 1,
+      "japanese": "雨が降るから傘を持ってください。",
+      "korean": "비가 오니까 우산 가져가세요.",
+      "alternativeAnswers": ["비가 오니까 우산 가져가요."],
+      "hint": "비가...",
+      "explanation": "先に理由を示し命令や依頼を続けるとき -(으)니까 を使います。"
+    },
+    {
+      "id": "qt_connective_002_02",
+      "order": 2,
+      "japanese": "時間がないので急ぎましょう。",
+      "korean": "시간이 없으니까 서둘러요.",
+      "alternativeAnswers": ["시간이 없으니까 서둡시다."],
+      "hint": "시간이...",
+      "explanation": "原因を述べて次の行動を促す接続表現です。"
+    },
+    {
+      "id": "qt_connective_002_03",
+      "order": 3,
+      "japanese": "今日は日曜日だから学校に行きません。",
+      "korean": "오늘은 일요일이니까 학교에 안 가요.",
+      "alternativeAnswers": [],
+      "hint": "오늘은...",
+      "explanation": "事実を理由に続く結果を述べるとき使います。"
+    },
+    {
+      "id": "qt_connective_002_04",
+      "order": 4,
+      "japanese": "お腹が空いたからご飯を食べましょう。",
+      "korean": "배고프니까 밥 먹어요.",
+      "alternativeAnswers": ["배고프니까 밥 먹읍시다."],
+      "hint": "배고...",
+      "explanation": "理由を挙げて提案する場面の「〜だから」に相当します。"
+    },
+    {
+      "id": "qt_connective_002_05",
+      "order": 5,
+      "japanese": "もう遅いので帰ります。",
+      "korean": "벌써 늦으니까 돌아갈게요.",
+      "alternativeAnswers": ["벌써 늦으니까 갈게요."],
+      "hint": "벌써...",
+      "explanation": "状況を理由に自分の行動を述べるときの接続形です。"
+    },
+    {
+      "id": "qt_connective_002_06",
+      "order": 6,
+      "japanese": "疲れたから少し休んでください。",
+      "korean": "피곤하니까 좀 쉬세요.",
+      "alternativeAnswers": ["피곤하니까 조금 쉬세요."],
+      "hint": "피곤...",
+      "explanation": "体調を理由に相手へ提案・依頼するとき -니까 を用います。"
+    },
+    {
+      "id": "qt_connective_002_07",
+      "order": 7,
+      "japanese": "安いからこれを買います。",
+      "korean": "싸니까 이걸 살게요.",
+      "alternativeAnswers": ["싸니까 이거 살게요."],
+      "hint": "싸니까...",
+      "explanation": "理由を示して選択の根拠にする接続表現です。"
+    },
+    {
+      "id": "qt_connective_002_08",
+      "order": 8,
+      "japanese": "天気がいいから散歩しましょう。",
+      "korean": "날씨가 좋으니까 산책해요.",
+      "alternativeAnswers": ["날씨가 좋으니까 산책합시다."],
+      "hint": "날씨가...",
+      "explanation": "前文で理由を伝え後の行動を提案する形です。"
+    },
+    {
+      "id": "qt_connective_002_09",
+      "order": 9,
+      "japanese": "今日仕事があるから行きません。",
+      "korean": "오늘 일이 있으니까 안 가요.",
+      "alternativeAnswers": [],
+      "hint": "오늘...",
+      "explanation": "理由を述べて予定を断るとき -(으)니까 を使います。"
+    },
+    {
+      "id": "qt_connective_002_10",
+      "order": 10,
+      "japanese": "暑いので水をたくさん飲んでください。",
+      "korean": "더우니까 물을 많이 드세요.",
+      "alternativeAnswers": ["더우니까 물을 많이 마시세요."],
+      "hint": "더우니까...",
+      "explanation": "気候などを理由に勧告する場面の接続表現です。"
+    }
+  ]
+}

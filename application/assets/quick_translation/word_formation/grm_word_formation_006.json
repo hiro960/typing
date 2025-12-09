@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_word_formation_006",
+  "grammarTitle": "-스럽다",
+  "grammarSubtitle": "接尾辞（〜らしい）",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_006_01",
+      "order": 1,
+      "japanese": "その子はとても愛らしいです。",
+      "korean": "그 아이는 아주 사랑스러워요.",
+      "alternativeAnswers": [],
+      "hint": "그 아이는...",
+      "explanation": "名詞に「-스럽다」を付けて愛らしい性質を表します。"
+    },
+    {
+      "id": "qt_word_formation_006_02",
+      "order": 2,
+      "japanese": "父がとても誇らしいです。",
+      "korean": "아버지가 정말 자랑스러워요.",
+      "alternativeAnswers": [],
+      "hint": "아버지가...",
+      "explanation": "自慢に思う気持ちを表す派生形「자랑스럽다」を使います。"
+    },
+    {
+      "id": "qt_word_formation_006_03",
+      "order": 3,
+      "japanese": "その話し方は自然です。",
+      "korean": "그 말투가 자연스러워요.",
+      "alternativeAnswers": [],
+      "hint": "그 말투가...",
+      "explanation": "自然な様子を表す形容詞「자연스럽다」を使いました。"
+    },
+    {
+      "id": "qt_word_formation_006_04",
+      "order": 4,
+      "japanese": "表情が心配そうです。",
+      "korean": "표정이 걱정스러워요.",
+      "alternativeAnswers": [],
+      "hint": "표정이...",
+      "explanation": "心配する気持ちを表す「걱정스럽다」で様子を描写します。"
+    },
+    {
+      "id": "qt_word_formation_006_05",
+      "order": 5,
+      "japanese": "この友達は頼もしいです。",
+      "korean": "이 친구는 믿음직스러워요.",
+      "alternativeAnswers": [],
+      "hint": "이 친구는...",
+      "explanation": "信じられる感じを「믿음직스럽다」で表現しています。"
+    },
+    {
+      "id": "qt_word_formation_006_06",
+      "order": 6,
+      "japanese": "彼はとても優しそうです。",
+      "korean": "그는 아주 다정스러워요.",
+      "alternativeAnswers": [],
+      "hint": "그는...",
+      "explanation": "優しさを示す派生形「다정스럽다」を使います。"
+    },
+    {
+      "id": "qt_word_formation_006_07",
+      "order": 7,
+      "japanese": "結果に満足しています。",
+      "korean": "결과가 만족스러워요.",
+      "alternativeAnswers": [],
+      "hint": "결과가...",
+      "explanation": "満足の気持ちを「만족스럽다」で表します。"
+    },
+    {
+      "id": "qt_word_formation_006_08",
+      "order": 8,
+      "japanese": "この値段は負担です。",
+      "korean": "이 가격이 부담스러워요.",
+      "alternativeAnswers": [],
+      "hint": "이 가격이...",
+      "explanation": "重さを感じるとき「부담스럽다」で負担感を表現します。"
+    },
+    {
+      "id": "qt_word_formation_006_09",
+      "order": 9,
+      "japanese": "その言葉は感動的です。",
+      "korean": "그 말이 감동스러워요.",
+      "alternativeAnswers": [],
+      "hint": "그 말이...",
+      "explanation": "感動を与える様子を「감동스럽다」で述べています。"
+    },
+    {
+      "id": "qt_word_formation_006_10",
+      "order": 10,
+      "japanese": "表情が不満そうです。",
+      "korean": "표정이 불만스러워요.",
+      "alternativeAnswers": [],
+      "hint": "표정이...",
+      "explanation": "不満の気配を表す派生形「불만스럽다」を使います。"
+    }
+  ]
+}

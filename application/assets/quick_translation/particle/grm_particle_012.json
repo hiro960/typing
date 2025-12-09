@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_012",
+  "grammarTitle": "부터",
+  "grammarSubtitle": "起点助詞（〜から）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_012_01",
+      "order": 1,
+      "japanese": "朝から忙しいです。",
+      "korean": "아침부터 바빠요.",
+      "alternativeAnswers": ["아침부터 바쁩니다."],
+      "hint": "아침부터...",
+      "explanation": "時間の起点を示すとき「부터」を使います。"
+    },
+    {
+      "id": "qt_particle_012_02",
+      "order": 2,
+      "japanese": "月曜日から働きます。",
+      "korean": "월요일부터 일해요.",
+      "alternativeAnswers": ["월요일부터 일합니다."],
+      "hint": "월요일부터...",
+      "explanation": "日にちの始まりを表す助詞が「부터」です。"
+    },
+    {
+      "id": "qt_particle_012_03",
+      "order": 3,
+      "japanese": "今から勉強します。",
+      "korean": "지금부터 공부해요.",
+      "alternativeAnswers": ["지금부터 공부합니다."],
+      "hint": "지금부터...",
+      "explanation": "開始のタイミングを強調する表現として使えます。"
+    },
+    {
+      "id": "qt_particle_012_04",
+      "order": 4,
+      "japanese": "明日から運動します。",
+      "korean": "내일부터 운동해요.",
+      "alternativeAnswers": ["내일부터 운동합니다."],
+      "hint": "내일부터...",
+      "explanation": "未来の起点にも「부터」を付けて『〜から』を表します。"
+    },
+    {
+      "id": "qt_particle_012_05",
+      "order": 5,
+      "japanese": "三時から会います。",
+      "korean": "세 시부터 만나요.",
+      "alternativeAnswers": ["세 시부터 만납니다."],
+      "hint": "세 시부터...",
+      "explanation": "具体的な時刻にも「부터」を付けて開始時間を示します。"
+    },
+    {
+      "id": "qt_particle_012_06",
+      "order": 6,
+      "japanese": "ここから並びます。",
+      "korean": "여기부터 줄 서요.",
+      "alternativeAnswers": ["여기부터 줄 섭니다."],
+      "hint": "여기부터...",
+      "explanation": "場所の起点にも「부터」を使い順番を示します。"
+    },
+    {
+      "id": "qt_particle_012_07",
+      "order": 7,
+      "japanese": "今日から早く寝ます。",
+      "korean": "오늘부터 일찍 자요.",
+      "alternativeAnswers": ["오늘부터 일찍 잡니다."],
+      "hint": "오늘부터...",
+      "explanation": "習慣を変える起点を「부터」で明確にします。"
+    },
+    {
+      "id": "qt_particle_012_08",
+      "order": 8,
+      "japanese": "来週から学校に行きます。",
+      "korean": "다음 주부터 학교에 가요.",
+      "alternativeAnswers": ["다음 주부터 학교에 갑니다."],
+      "hint": "다음 주부터...",
+      "explanation": "期間名詞+부터でその期間の始まりを示します。"
+    },
+    {
+      "id": "qt_particle_012_09",
+      "order": 9,
+      "japanese": "昨日から風邪をひいています。",
+      "korean": "어제부터 감기에 걸렸어요.",
+      "alternativeAnswers": ["어제부터 감기에 걸렸습니다."],
+      "hint": "어제부터...",
+      "explanation": "体調の変化が始まった時点も「부터」で表します。"
+    },
+    {
+      "id": "qt_particle_012_10",
+      "order": 10,
+      "japanese": "春から暖かいです。",
+      "korean": "봄부터 따뜻해요.",
+      "alternativeAnswers": ["봄부터 따뜻합니다."],
+      "hint": "봄부터...",
+      "explanation": "季節の始まりを示しその後の状態を述べるときに使います。"
+    }
+  ]
+}

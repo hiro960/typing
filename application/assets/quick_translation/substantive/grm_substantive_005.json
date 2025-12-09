@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_substantive_005",
+  "grammarTitle": "이것/그것/저것",
+  "grammarSubtitle": "指示代名詞（これ/それ/あれ）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_005_01",
+      "order": 1,
+      "japanese": "これは本です。",
+      "korean": "이것은 책이에요.",
+      "alternativeAnswers": [
+        "이건 책이에요."
+      ],
+      "hint": "이것...",
+      "explanation": "話し手近くの物は「이것」や縮約「이건」。"
+    },
+    {
+      "id": "qt_substantive_005_02",
+      "order": 2,
+      "japanese": "それは私のかばんです。",
+      "korean": "그것은 제 가방이에요.",
+      "alternativeAnswers": [
+        "그건 제 가방이에요."
+      ],
+      "hint": "그것...",
+      "explanation": "聞き手近くの物は「그것」/「그건」を使います。"
+    },
+    {
+      "id": "qt_substantive_005_03",
+      "order": 3,
+      "japanese": "あれは山です。",
+      "korean": "저것은 산이에요.",
+      "alternativeAnswers": [
+        "저건 산이에요."
+      ],
+      "hint": "저것...",
+      "explanation": "話し手にも聞き手にも遠い物は「저것」。"
+    },
+    {
+      "id": "qt_substantive_005_04",
+      "order": 4,
+      "japanese": "これは私のコーヒーです。",
+      "korean": "이것은 제 커피예요.",
+      "alternativeAnswers": [
+        "이건 제 커피예요."
+      ],
+      "hint": "이것...",
+      "explanation": "自分の物を指すときも近ければ「이것」。"
+    },
+    {
+      "id": "qt_substantive_005_05",
+      "order": 5,
+      "japanese": "それは何ですか。",
+      "korean": "그것은 뭐예요?",
+      "alternativeAnswers": [
+        "그건 뭐예요?"
+      ],
+      "hint": "그것...",
+      "explanation": "相手側の物を尋ねるとき「그것」＋은/는。"
+    },
+    {
+      "id": "qt_substantive_005_06",
+      "order": 6,
+      "japanese": "あれは誰の家ですか。",
+      "korean": "저것은 누구 집이에요?",
+      "alternativeAnswers": [
+        "저건 누구 집이에요?"
+      ],
+      "hint": "저것...",
+      "explanation": "遠くの対象を示すなら「저것」＋은/는。"
+    },
+    {
+      "id": "qt_substantive_005_07",
+      "order": 7,
+      "japanese": "これはおいしいです。",
+      "korean": "이것은 맛있어요.",
+      "alternativeAnswers": [
+        "이건 맛있어요."
+      ],
+      "hint": "이것...",
+      "explanation": "味を述べるときも主題化に「이것은」。"
+    },
+    {
+      "id": "qt_substantive_005_08",
+      "order": 8,
+      "japanese": "それは重いです。",
+      "korean": "그것은 무거워요.",
+      "alternativeAnswers": [
+        "그건 무거워요."
+      ],
+      "hint": "그것...",
+      "explanation": "相手側の物の性質を言うとき「그것」。"
+    },
+    {
+      "id": "qt_substantive_005_09",
+      "order": 9,
+      "japanese": "あれは古い建物です。",
+      "korean": "저것은 오래된 건물이에요.",
+      "alternativeAnswers": [
+        "저건 오래된 건물이에요."
+      ],
+      "hint": "저것...",
+      "explanation": "遠くの物の説明でも「저것은」を使います。"
+    },
+    {
+      "id": "qt_substantive_005_10",
+      "order": 10,
+      "japanese": "これは私の番号です。",
+      "korean": "이것은 제 번호예요.",
+      "alternativeAnswers": [
+        "이건 제 번호예요."
+      ],
+      "hint": "이것...",
+      "explanation": "番号などを示すときも近い物なら「이것은」。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_tense_aspect_019",
+  "grammarTitle": "-아/어 놓다/두다",
+  "grammarSubtitle": "完了・準備",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_019_01",
+      "order": 1,
+      "japanese": "窓を開けておきました。",
+      "korean": "창문을 열어 놨어요.",
+      "alternativeAnswers": ["창문을 열어 두었어요.", "창문을 열어 놓았습니다."],
+      "hint": "창문을...",
+      "explanation": "動作を済ませたままにする意味で-아/어 놓다を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_019_02",
+      "order": 2,
+      "japanese": "宿題をしておきました。",
+      "korean": "숙제를 해 놨어요.",
+      "alternativeAnswers": ["숙제를 해 두었어요.", "숙제를 해 놓았습니다."],
+      "hint": "숙제를...",
+      "explanation": "準備の完了を表し하다に-어 놓다/두다を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_019_03",
+      "order": 3,
+      "japanese": "ご飯を作っておきました。",
+      "korean": "밥을 만들어 놨어요.",
+      "alternativeAnswers": ["밥을 만들어 두었어요.", "밥을 만들어 놓았습니다."],
+      "hint": "밥을...",
+      "explanation": "後のために用意しておくとき-어 놓다を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_019_04",
+      "order": 4,
+      "japanese": "薬を買っておきました。",
+      "korean": "약을 사 뒀어요.",
+      "alternativeAnswers": ["약을 사 두었어요.", "약을 사 놓았습니다."],
+      "hint": "약을...",
+      "explanation": "先に準備する意味で過去形-아/어 두다を用いています。"
+    },
+    {
+      "id": "qt_tense_aspect_019_05",
+      "order": 5,
+      "japanese": "電話番号を書いておきました。",
+      "korean": "전화번호를 적어 놨어요.",
+      "alternativeAnswers": ["전화번호를 적어 두었어요.", "전화번호를 적어 놓았습니다."],
+      "hint": "전화번호를...",
+      "explanation": "後で使うため記録したことを-어 놓다で表現。"
+    },
+    {
+      "id": "qt_tense_aspect_019_06",
+      "order": 6,
+      "japanese": "水を冷蔵庫に入れておきました。",
+      "korean": "물을 냉장고에 넣어 놨어요.",
+      "alternativeAnswers": ["물을 냉장고에 넣어 두었어요.", "물을 냉장고에 넣어 놓았습니다."],
+      "hint": "물을...",
+      "explanation": "準備で入れておく動作に-어 놓다/두다を用います。"
+    },
+    {
+      "id": "qt_tense_aspect_019_07",
+      "order": 7,
+      "japanese": "ドアに鍵をかけておきました。",
+      "korean": "문을 잠가 놨어요.",
+      "alternativeAnswers": ["문을 잠가 두었어요.", "문을 잠가 놓았습니다."],
+      "hint": "문을...",
+      "explanation": "そのままにしておく完了動作を-아/어 놓다で示します。"
+    },
+    {
+      "id": "qt_tense_aspect_019_08",
+      "order": 8,
+      "japanese": "靴を並べておきました。",
+      "korean": "신발을 정리해 놨어요.",
+      "alternativeAnswers": ["신발을 정리해 두었어요.", "신발을 정리해 놓았습니다."],
+      "hint": "신발을...",
+      "explanation": "整えてそのままにする意味で-해 놓다を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_019_09",
+      "order": 9,
+      "japanese": "席を取っておきました。",
+      "korean": "자리를 잡아 놨어요.",
+      "alternativeAnswers": ["자리를 잡아 두었어요.", "자리를 잡아 놓았습니다."],
+      "hint": "자리를...",
+      "explanation": "確保しておく状態を-아/어 놓다で表します。"
+    },
+    {
+      "id": "qt_tense_aspect_019_10",
+      "order": 10,
+      "japanese": "部屋を掃除しておきました。",
+      "korean": "방을 청소해 놨어요.",
+      "alternativeAnswers": ["방을 청소해 두었어요.", "방을 청소해 놓았습니다."],
+      "hint": "방을...",
+      "explanation": "完了させたままにする掃除を-해 놓다/두다で表現します。"
+    }
+  ]
+}

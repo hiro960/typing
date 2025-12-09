@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_connective_008",
+  "grammarTitle": "-(으)면서",
+  "grammarSubtitle": "同時進行（〜しながら）",
+  "category": "connective",
+  "questions": [
+    {
+      "id": "qt_connective_008_01",
+      "order": 1,
+      "japanese": "音楽を聴きながら勉強します。",
+      "korean": "음악 들으면서 공부해요.",
+      "alternativeAnswers": [],
+      "hint": "음악...",
+      "explanation": "二つの行動を同時に行うとき動詞に -(으)면서 を付けます。"
+    },
+    {
+      "id": "qt_connective_008_02",
+      "order": 2,
+      "japanese": "歩きながら電話します。",
+      "korean": "걸으면서 통화해요.",
+      "alternativeAnswers": [],
+      "hint": "걸으...",
+      "explanation": "同時動作を並べる接続形で「〜しながら」を表します。"
+    },
+    {
+      "id": "qt_connective_008_03",
+      "order": 3,
+      "japanese": "料理しながら話します。",
+      "korean": "요리하면서 이야기해요.",
+      "alternativeAnswers": ["요리하면서 얘기해요."],
+      "hint": "요리...",
+      "explanation": "一方の動作ともう一方を同時に進めるときに使います。"
+    },
+    {
+      "id": "qt_connective_008_04",
+      "order": 4,
+      "japanese": "ご飯を食べながらテレビを見ます。",
+      "korean": "밥을 먹으면서 TV를 봐요.",
+      "alternativeAnswers": ["밥 먹으면서 TV 봐요."],
+      "hint": "밥을...",
+      "explanation": "食事と鑑賞の同時進行を表す接続表現です。"
+    },
+    {
+      "id": "qt_connective_008_05",
+      "order": 5,
+      "japanese": "バスを待ちながら本を読みます。",
+      "korean": "버스를 기다리면서 책을 읽어요.",
+      "alternativeAnswers": [],
+      "hint": "버스를...",
+      "explanation": "待つ動作と読む動作を同時にする場面で使います。"
+    },
+    {
+      "id": "qt_connective_008_06",
+      "order": 6,
+      "japanese": "コーヒーを飲みながら話しましょう。",
+      "korean": "커피 마시면서 이야기해요.",
+      "alternativeAnswers": ["커피 마시면서 얘기해요."],
+      "hint": "커피...",
+      "explanation": "談話と飲む行為を同時に行うことを表します。"
+    },
+    {
+      "id": "qt_connective_008_07",
+      "order": 7,
+      "japanese": "笑いながら話します。",
+      "korean": "웃으면서 말해요.",
+      "alternativeAnswers": [],
+      "hint": "웃으...",
+      "explanation": "先行動作と並行する別の動作を示す接続形です。"
+    },
+    {
+      "id": "qt_connective_008_08",
+      "order": 8,
+      "japanese": "音楽を聴きながら走ります。",
+      "korean": "음악 들으면서 뛰어요.",
+      "alternativeAnswers": [],
+      "hint": "음악...",
+      "explanation": "二つの行動を同時進行で行うことを示します。"
+    },
+    {
+      "id": "qt_connective_008_09",
+      "order": 9,
+      "japanese": "仕事をしながら韓国語を勉強します。",
+      "korean": "일을 하면서 한국어를 공부해요.",
+      "alternativeAnswers": [],
+      "hint": "일을...",
+      "explanation": "並行して進める二つの行動を接続する表現です。"
+    },
+    {
+      "id": "qt_connective_008_10",
+      "order": 10,
+      "japanese": "掃除しながら歌を歌います。",
+      "korean": "청소하면서 노래해요.",
+      "alternativeAnswers": ["청소하면서 노래를 해요."],
+      "hint": "청소...",
+      "explanation": "同時進行の動作を表現する「〜しながら」の形です。"
+    }
+  ]
+}

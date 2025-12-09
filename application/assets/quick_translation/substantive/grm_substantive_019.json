@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_019",
+  "grammarTitle": "일, 이, 삼...",
+  "grammarSubtitle": "漢数詞（1〜10）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_019_01",
+      "order": 1,
+      "japanese": "一月です。",
+      "korean": "지금 일월이에요.",
+      "alternativeAnswers": [],
+      "hint": "지금 일...",
+      "explanation": "月は漢数詞で「일월, 이월」などと言います。"
+    },
+    {
+      "id": "qt_substantive_019_02",
+      "order": 2,
+      "japanese": "二階です。",
+      "korean": "여기는 이 층이에요.",
+      "alternativeAnswers": [],
+      "hint": "여기는...",
+      "explanation": "階数は漢数詞＋층で表します。"
+    },
+    {
+      "id": "qt_substantive_019_03",
+      "order": 3,
+      "japanese": "三番のバスに乗ります。",
+      "korean": "삼 번 버스를 타요.",
+      "alternativeAnswers": [],
+      "hint": "삼 번...",
+      "explanation": "番号は漢数詞＋번で言います。"
+    },
+    {
+      "id": "qt_substantive_019_04",
+      "order": 4,
+      "japanese": "四月に旅行します。",
+      "korean": "사월에 여행해요.",
+      "alternativeAnswers": [],
+      "hint": "사월...",
+      "explanation": "月を言うとき漢数詞＋월を使います。"
+    },
+    {
+      "id": "qt_substantive_019_05",
+      "order": 5,
+      "japanese": "五分だけ待ってください。",
+      "korean": "오 분만 기다려 주세요.",
+      "alternativeAnswers": [],
+      "hint": "오 분...",
+      "explanation": "分や秒などは漢数詞を使います。"
+    },
+    {
+      "id": "qt_substantive_019_06",
+      "order": 6,
+      "japanese": "六年待ちました。",
+      "korean": "육 년을 기다렸어요.",
+      "alternativeAnswers": [],
+      "hint": "육 년...",
+      "explanation": "年数も漢数詞＋년で表します。"
+    },
+    {
+      "id": "qt_substantive_019_07",
+      "order": 7,
+      "japanese": "七日休みます。",
+      "korean": "칠 일 동안 쉬어요.",
+      "alternativeAnswers": [],
+      "hint": "칠 일...",
+      "explanation": "日数を数えるとき漢数詞＋일を使います。"
+    },
+    {
+      "id": "qt_substantive_019_08",
+      "order": 8,
+      "japanese": "八月は暑いです。",
+      "korean": "팔월은 더워요.",
+      "alternativeAnswers": [],
+      "hint": "팔월...",
+      "explanation": "八月も漢数詞「팔」＋월で言います。"
+    },
+    {
+      "id": "qt_substantive_019_09",
+      "order": 9,
+      "japanese": "九番目の問題です。",
+      "korean": "구 번째 문제예요.",
+      "alternativeAnswers": [],
+      "hint": "구 번...",
+      "explanation": "順序には漢数詞＋번째を使います。"
+    },
+    {
+      "id": "qt_substantive_019_10",
+      "order": 10,
+      "japanese": "十階に行きます。",
+      "korean": "십 층으로 가요.",
+      "alternativeAnswers": [],
+      "hint": "십 층...",
+      "explanation": "10階など位取りも漢数詞です。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_word_formation_023",
+  "grammarTitle": "체언형 Ⅱ-ㅁ",
+  "grammarSubtitle": "体言形 Ⅱ-ㅁ",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_023_01",
+      "order": 1,
+      "japanese": "夢があります。",
+      "korean": "꿈이 있어요.",
+      "alternativeAnswers": [],
+      "hint": "꿈이...",
+      "explanation": "動詞「꾸다」に-ㅁが付いた名詞「꿈」を使った例です。"
+    },
+    {
+      "id": "qt_word_formation_023_02",
+      "order": 2,
+      "japanese": "人生は長いです。",
+      "korean": "삶이 길어요.",
+      "alternativeAnswers": [],
+      "hint": "삶이...",
+      "explanation": "「살다」の第Ⅱ語基に-ㅁを付けた名詞「삶」を用います。"
+    },
+    {
+      "id": "qt_word_formation_023_03",
+      "order": 3,
+      "japanese": "信頼が大事です。",
+      "korean": "믿음이 중요해요.",
+      "alternativeAnswers": [],
+      "hint": "믿음이...",
+      "explanation": "「믿다」に-음を付けた派生名詞で信頼を表します。"
+    },
+    {
+      "id": "qt_word_formation_023_04",
+      "order": 4,
+      "japanese": "助けが必要です。",
+      "korean": "도움이 필요해요.",
+      "alternativeAnswers": [],
+      "hint": "도움이...",
+      "explanation": "「돕다」に-움が付いた名詞で援助を意味します。"
+    },
+    {
+      "id": "qt_word_formation_023_05",
+      "order": 5,
+      "japanese": "笑いが止まりません。",
+      "korean": "웃음이 멈추지 않아요.",
+      "alternativeAnswers": [],
+      "hint": "웃음이...",
+      "explanation": "「웃다」に-음を付けた名詞「웃음」で笑いそのものを表現します。"
+    },
+    {
+      "id": "qt_word_formation_023_06",
+      "order": 6,
+      "japanese": "泣き声が大きいです。",
+      "korean": "울음이 커요.",
+      "alternativeAnswers": [],
+      "hint": "울음이...",
+      "explanation": "「울다」に-음を付けた名詞で泣くことを表します。"
+    },
+    {
+      "id": "qt_word_formation_023_07",
+      "order": 7,
+      "japanese": "踊りが好きです。",
+      "korean": "춤을 좋아해요.",
+      "alternativeAnswers": [],
+      "hint": "춤을...",
+      "explanation": "「추다」の語幹に-ㅁを付けた名詞「춤」で踊りを表現します。"
+    },
+    {
+      "id": "qt_word_formation_023_08",
+      "order": 8,
+      "japanese": "休みが必要です。",
+      "korean": "쉼이 필요해요.",
+      "alternativeAnswers": [],
+      "hint": "쉼이...",
+      "explanation": "「쉬다」に-ㅁが付いた名詞「쉼」で休息そのものを指します。"
+    },
+    {
+      "id": "qt_word_formation_023_09",
+      "order": 9,
+      "japanese": "眠りが深いです。",
+      "korean": "잠이 깊어요.",
+      "alternativeAnswers": [],
+      "hint": "잠이...",
+      "explanation": "動作から派生した名詞「잠」を使い睡眠の状態を述べます。"
+    },
+    {
+      "id": "qt_word_formation_023_10",
+      "order": 10,
+      "japanese": "感じが変です。",
+      "korean": "느낌이 이상해요.",
+      "alternativeAnswers": [],
+      "hint": "느낌이...",
+      "explanation": "「느끼다」に-ㅁが付いた名詞で感覚そのものを名詞化しています。"
+    }
+  ]
+}

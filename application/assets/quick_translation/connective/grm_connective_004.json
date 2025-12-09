@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_connective_004",
+  "grammarTitle": "-(으)면",
+  "grammarSubtitle": "条件・仮定（〜たら／〜なら）",
+  "category": "connective",
+  "questions": [
+    {
+      "id": "qt_connective_004_01",
+      "order": 1,
+      "japanese": "雨が降ったら家にいます。",
+      "korean": "비가 오면 집에 있어요.",
+      "alternativeAnswers": [],
+      "hint": "비가...",
+      "explanation": "条件を示すとき語幹に -(으)면 を付け「〜なら」を表します。"
+    },
+    {
+      "id": "qt_connective_004_02",
+      "order": 2,
+      "japanese": "時間があれば電話してください。",
+      "korean": "시간이 있으면 전화하세요.",
+      "alternativeAnswers": ["시간 있으면 전화하세요."],
+      "hint": "시간이...",
+      "explanation": "条件のあとに依頼を続ける基本形です。"
+    },
+    {
+      "id": "qt_connective_004_03",
+      "order": 3,
+      "japanese": "早く寝れば元気になります。",
+      "korean": "일찍 자면 건강해져요.",
+      "alternativeAnswers": [],
+      "hint": "일찍...",
+      "explanation": "仮定の条件で結果を述べるとき -(으)면 を使います。"
+    },
+    {
+      "id": "qt_connective_004_04",
+      "order": 4,
+      "japanese": "暇なら一緒に行きましょう。",
+      "korean": "한가하면 같이 가요.",
+      "alternativeAnswers": [],
+      "hint": "한가...",
+      "explanation": "条件が満たされれば勧誘する場面の接続表現です。"
+    },
+    {
+      "id": "qt_connective_004_05",
+      "order": 5,
+      "japanese": "家に着いたら連絡しますね。",
+      "korean": "집에 가면 연락할게요.",
+      "alternativeAnswers": [],
+      "hint": "집에...",
+      "explanation": "条件成立後の予定を伝えるとき -(으)면 を用います。"
+    },
+    {
+      "id": "qt_connective_004_06",
+      "order": 6,
+      "japanese": "大変なら言ってください。",
+      "korean": "힘들면 말해 주세요.",
+      "alternativeAnswers": ["힘들면 말하세요."],
+      "hint": "힘들...",
+      "explanation": "問題が起きた場合の対応を依頼する条件表現です。"
+    },
+    {
+      "id": "qt_connective_004_07",
+      "order": 7,
+      "japanese": "安ければこれを買います。",
+      "korean": "싸면 이걸 살게요.",
+      "alternativeAnswers": ["싸면 이거 살게요."],
+      "hint": "싸면...",
+      "explanation": "条件に基づいて選択を決めるときの形です。"
+    },
+    {
+      "id": "qt_connective_004_08",
+      "order": 8,
+      "japanese": "天気が良ければ散歩します。",
+      "korean": "날씨가 좋으면 산책해요.",
+      "alternativeAnswers": ["날씨 좋으면 산책해요."],
+      "hint": "날씨가...",
+      "explanation": "状況次第で行動を決めるとき -(으)면 を使います。"
+    },
+    {
+      "id": "qt_connective_004_09",
+      "order": 9,
+      "japanese": "準備ができたら始めましょう。",
+      "korean": "준비되면 시작합시다.",
+      "alternativeAnswers": ["준비되면 시작해요."],
+      "hint": "준비...",
+      "explanation": "準備完了を条件に勧誘する接続表現です。"
+    },
+    {
+      "id": "qt_connective_004_10",
+      "order": 10,
+      "japanese": "たくさん食べると太ります。",
+      "korean": "많이 먹으면 살쪄요.",
+      "alternativeAnswers": [],
+      "hint": "많이...",
+      "explanation": "条件が結果を招く一般的な因果を述べるときの形です。"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_039",
+  "grammarTitle": "-(으)ㄹ락 말락 하다",
+  "grammarSubtitle": "〜しそうでしない",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_039_01",
+      "order": 1,
+      "japanese": "雨が降りそうで降りません。",
+      "korean": "비가 올락 말락 해요.",
+      "alternativeAnswers": [
+        "비가 올락 말락 합니다."
+      ],
+      "hint": "비가...",
+      "explanation": "起こりそうで起こらない曖昧な様子を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_039_02",
+      "order": 2,
+      "japanese": "眠りそうで眠れません。",
+      "korean": "잠이 들락 말락 해요.",
+      "alternativeAnswers": [
+        "잠이 들락 말락 합니다."
+      ],
+      "hint": "잠이...",
+      "explanation": "もう少しで起こりそうだが続かない状態を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_039_03",
+      "order": 3,
+      "japanese": "バスが出そうで出ません。",
+      "korean": "버스가 출발할락 말락 해요.",
+      "alternativeAnswers": [
+        "버스가 출발할락 말락 합니다."
+      ],
+      "hint": "버스가...",
+      "explanation": "開始しそうで止まる様子を表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_039_04",
+      "order": 4,
+      "japanese": "扉が閉まりそうで閉まりません。",
+      "korean": "문이 닫힐락 말락 해요.",
+      "alternativeAnswers": [
+        "문이 닫힐락 말락 합니다."
+      ],
+      "hint": "문이...",
+      "explanation": "起こりかけて止まる動きを伝えます。"
+    },
+    {
+      "id": "qt_tense_aspect_039_05",
+      "order": 5,
+      "japanese": "友だちが言いそうで言いません。",
+      "korean": "친구가 말할락 말락 해요.",
+      "alternativeAnswers": [
+        "친구가 말할락 말락 합니다."
+      ],
+      "hint": "친구가...",
+      "explanation": "行為が起こりそうで止まる様子を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_039_06",
+      "order": 6,
+      "japanese": "涙が出そうで出ません。",
+      "korean": "눈물이 날락 말락 해요.",
+      "alternativeAnswers": [
+        "눈물이 날락 말락 합니다."
+      ],
+      "hint": "눈물이...",
+      "explanation": "感情がこみ上げるがこぼれない状態を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_039_07",
+      "order": 7,
+      "japanese": "笑いそうで笑いません。",
+      "korean": "웃을락 말락 해요.",
+      "alternativeAnswers": [
+        "웃을락 말락 합니다."
+      ],
+      "hint": "웃을락...",
+      "explanation": "動作が起こりそうでやめる曖昧さを表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_039_08",
+      "order": 8,
+      "japanese": "車が止まりそうで止まりません。",
+      "korean": "차가 멈출락 말락 해요.",
+      "alternativeAnswers": [
+        "차가 멈출락 말락 합니다."
+      ],
+      "hint": "차가...",
+      "explanation": "停止しそうでしない揺れる状態を伝えます。"
+    },
+    {
+      "id": "qt_tense_aspect_039_09",
+      "order": 9,
+      "japanese": "電話が切れそうで切れません。",
+      "korean": "전화가 끊길락 말락 해요.",
+      "alternativeAnswers": [
+        "전화가 끊길락 말락 합니다."
+      ],
+      "hint": "전화가...",
+      "explanation": "接続が不安定で途切れそうな様子を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_039_10",
+      "order": 10,
+      "japanese": "雨がやみそうでやみません。",
+      "korean": "비가 그칠락 말락 해요.",
+      "alternativeAnswers": [
+        "비가 그칠락 말락 합니다."
+      ],
+      "hint": "비가...",
+      "explanation": "やみそうで続く曖昧な状態を表します。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_044",
+  "grammarTitle": "얼마",
+  "grammarSubtitle": "疑問代名詞（いくら）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_044_01",
+      "order": 1,
+      "japanese": "これはいくらですか？",
+      "korean": "이거 얼마예요?",
+      "alternativeAnswers": ["이거 얼마입니까?"],
+      "hint": "이거 ...",
+      "explanation": "価格を尋ねる基本表現は 얼마예요? です。"
+    },
+    {
+      "id": "qt_substantive_044_02",
+      "order": 2,
+      "japanese": "全部でいくらですか？",
+      "korean": "합쳐서 얼마예요?",
+      "alternativeAnswers": ["합쳐서 얼마입니까?"],
+      "hint": "합쳐...",
+      "explanation": "合計金額を聞くとき도 얼마 를使います。"
+    },
+    {
+      "id": "qt_substantive_044_03",
+      "order": 3,
+      "japanese": "家賃はいくらですか？",
+      "korean": "월세가 얼마예요?",
+      "alternativeAnswers": ["월세가 얼마입니까?"],
+      "hint": "월세...",
+      "explanation": "料金を尋ねるとき는 名詞＋얼마예요? を用います。"
+    },
+    {
+      "id": "qt_substantive_044_04",
+      "order": 4,
+      "japanese": "時間はどれくらいかかりますか？",
+      "korean": "시간이 얼마 걸려요?",
+      "alternativeAnswers": ["시간이 얼마 걸립니까?"],
+      "hint": "시간...",
+      "explanation": "所要時間も 얼마 를使って尋ねられます。"
+    },
+    {
+      "id": "qt_substantive_044_05",
+      "order": 5,
+      "japanese": "お金をいくら持っていますか？",
+      "korean": "돈을 얼마 가지고 있어요?",
+      "alternativeAnswers": ["돈을 얼마 가지고 있습니까?"],
+      "hint": "돈을...",
+      "explanation": "所持金額を尋ねるとき도 얼마 を使います。"
+    },
+    {
+      "id": "qt_substantive_044_06",
+      "order": 6,
+      "japanese": "一か月にいくら使いますか？",
+      "korean": "한 달에 얼마 써요?",
+      "alternativeAnswers": ["한 달에 얼마 씁니까?"],
+      "hint": "한 달...",
+      "explanation": "期間を指定して支出を尋ねるとき도 얼마 를用います。"
+    },
+    {
+      "id": "qt_substantive_044_07",
+      "order": 7,
+      "japanese": "牛乳はどれくらい残っていますか？",
+      "korean": "우유가 얼마 남았어요?",
+      "alternativeAnswers": ["우유가 얼마 남았습니까?"],
+      "hint": "우유...",
+      "explanation": "残量を尋ねるときも 얼마 를使って量を聞きます。"
+    },
+    {
+      "id": "qt_substantive_044_08",
+      "order": 8,
+      "japanese": "チケットはいくらでしたか？",
+      "korean": "표가 얼마였어요?",
+      "alternativeAnswers": ["표가 얼마였습니까?"],
+      "hint": "표가...",
+      "explanation": "過去の価格も 얼마였어요? で確認します。"
+    },
+    {
+      "id": "qt_substantive_044_09",
+      "order": 9,
+      "japanese": "この服はいくらでしたか？",
+      "korean": "이 옷은 얼마였어요?",
+      "alternativeAnswers": ["이 옷은 얼마였습니까?"],
+      "hint": "이 옷...",
+      "explanation": "品物の値段を聞くとき는 얼마 였어요? を使います。"
+    },
+    {
+      "id": "qt_substantive_044_10",
+      "order": 10,
+      "japanese": "あとどれくらい待ちますか？",
+      "korean": "얼마 더 기다려요?",
+      "alternativeAnswers": ["얼마 더 기다립니까?"],
+      "hint": "얼마 ...",
+      "explanation": "残り量や時間も 얼마 더 ~? と尋ねられます。"
+    }
+  ]
+}

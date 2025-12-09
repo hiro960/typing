@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_041",
+  "grammarTitle": "-기는요",
+  "grammarSubtitle": "〜だなんてとんでもない（否定・謙遜）",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_041_01",
+      "order": 1,
+      "japanese": "上手だなんて、とんでもないです。",
+      "korean": "잘하기는요, 아직 멀었어요.",
+      "alternativeAnswers": [],
+      "hint": "잘하기...",
+      "explanation": "相手の褒めに謙遜して否定する「-기는요」を使います。"
+    },
+    {
+      "id": "qt_expression_041_02",
+      "order": 2,
+      "japanese": "忙しいだなんて、大丈夫です。",
+      "korean": "바쁘기는요, 괜찮아요.",
+      "alternativeAnswers": [],
+      "hint": "바쁘기는...",
+      "explanation": "相手の配慮を否定し大丈夫と伝える際「-기는요」を用います。"
+    },
+    {
+      "id": "qt_expression_041_03",
+      "order": 3,
+      "japanese": "疲れただなんて、まだやれます。",
+      "korean": "피곤하기는요, 아직 할 수 있어요.",
+      "alternativeAnswers": [],
+      "hint": "피곤하기...",
+      "explanation": "疲労を否定してやる気を示すとき「-기는요」を使います。"
+    },
+    {
+      "id": "qt_expression_041_04",
+      "order": 4,
+      "japanese": "かわいいだなんて、普通です。",
+      "korean": "예쁘기는요, 보통이에요.",
+      "alternativeAnswers": [],
+      "hint": "예쁘기는...",
+      "explanation": "褒めを軽く受け流す謙遜表現として「-기는요」を用います。"
+    },
+    {
+      "id": "qt_expression_041_05",
+      "order": 5,
+      "japanese": "難しいだなんて、簡単です。",
+      "korean": "어렵기는요, 쉬워요.",
+      "alternativeAnswers": [],
+      "hint": "어렵기는...",
+      "explanation": "否定的評価を打ち消す際に「-기는요」を使います。"
+    },
+    {
+      "id": "qt_expression_041_06",
+      "order": 6,
+      "japanese": "寒いだなんて、暖かいです。",
+      "korean": "춥기는요, 따뜻해요.",
+      "alternativeAnswers": [],
+      "hint": "춥기는...",
+      "explanation": "相手の心配を否定し暖かいと伝える表現です。"
+    },
+    {
+      "id": "qt_expression_041_07",
+      "order": 7,
+      "japanese": "高いだなんて、安いです。",
+      "korean": "비싸기는요, 싸요.",
+      "alternativeAnswers": [],
+      "hint": "비싸기는...",
+      "explanation": "価格に関する評価を否定するため「-기는요」を用います。"
+    },
+    {
+      "id": "qt_expression_041_08",
+      "order": 8,
+      "japanese": "うれしいだなんて、心配です。",
+      "korean": "기쁘기는요, 걱정돼요.",
+      "alternativeAnswers": [],
+      "hint": "기쁘기는...",
+      "explanation": "予想と逆の感情を示す際、否定的に「-기는요」を使います。"
+    },
+    {
+      "id": "qt_expression_041_09",
+      "order": 9,
+      "japanese": "暇だなんて、忙しいです。",
+      "korean": "한가하기는요, 바빠요.",
+      "alternativeAnswers": [],
+      "hint": "한가하기...",
+      "explanation": "暇だという評価を否定し忙しさを示す表現です。"
+    },
+    {
+      "id": "qt_expression_041_10",
+      "order": 10,
+      "japanese": "知っているだなんて、よく知りません。",
+      "korean": "알기는요, 잘 몰라요.",
+      "alternativeAnswers": [],
+      "hint": "알기는...",
+      "explanation": "知識を謙遜して否定するとき「-기는요」を使います。"
+    }
+  ]
+}

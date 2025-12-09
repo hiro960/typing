@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_040",
+  "grammarTitle": "어디",
+  "grammarSubtitle": "疑問副詞（どこ）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_040_01",
+      "order": 1,
+      "japanese": "どこに行きますか？",
+      "korean": "어디에 가요?",
+      "alternativeAnswers": ["어디 가요?", "어디에 갑니까?"],
+      "hint": "어디...",
+      "explanation": "行き先を尋ねるとき는 어디(에) 를使います。"
+    },
+    {
+      "id": "qt_substantive_040_02",
+      "order": 2,
+      "japanese": "あなたの家はどこですか？",
+      "korean": "집이 어디예요?",
+      "alternativeAnswers": ["집이 어디입니까?"],
+      "hint": "집이...",
+      "explanation": "所在を尋ねる基本形は 어디예요? です。"
+    },
+    {
+      "id": "qt_substantive_040_03",
+      "order": 3,
+      "japanese": "学校はどこにありますか？",
+      "korean": "학교가 어디에 있어요?",
+      "alternativeAnswers": ["학교가 어디에 있습니까?"],
+      "hint": "학교...",
+      "explanation": "어디에 있어요? で場所の存在を聞きます。"
+    },
+    {
+      "id": "qt_substantive_040_04",
+      "order": 4,
+      "japanese": "どこで会いますか？",
+      "korean": "어디서 만나요?",
+      "alternativeAnswers": ["어디에서 만나요?", "어디서 만납니까?"],
+      "hint": "어디서...",
+      "explanation": "場所での行為は 어디서/어디에서 を使います。"
+    },
+    {
+      "id": "qt_substantive_040_05",
+      "order": 5,
+      "japanese": "鍵がどこにありますか？",
+      "korean": "열쇠가 어디에 있어요?",
+      "alternativeAnswers": ["열쇠가 어디에 있습니까?"],
+      "hint": "열쇠...",
+      "explanation": "物の所在を尋ねるとき도 어디에 있어요? を用います。"
+    },
+    {
+      "id": "qt_substantive_040_06",
+      "order": 6,
+      "japanese": "休む場所はどこですか？",
+      "korean": "쉬는 곳이 어디예요?",
+      "alternativeAnswers": ["쉬는 곳이 어디입니까?"],
+      "hint": "쉬는...",
+      "explanation": "場所を名詞で聞くとき는 어디예요? を使います。"
+    },
+    {
+      "id": "qt_substantive_040_07",
+      "order": 7,
+      "japanese": "出身はどこですか？",
+      "korean": "고향이 어디예요?",
+      "alternativeAnswers": ["고향이 어디입니까?"],
+      "hint": "고향...",
+      "explanation": "出身地を尋ねる定番表現も 어디 を使います。"
+    },
+    {
+      "id": "qt_substantive_040_08",
+      "order": 8,
+      "japanese": "トイレはどこですか？",
+      "korean": "화장실이 어디예요?",
+      "alternativeAnswers": ["화장실이 어디입니까?"],
+      "hint": "화장...",
+      "explanation": "場所を簡潔に尋ねるとき도 어디예요? です。"
+    },
+    {
+      "id": "qt_substantive_040_09",
+      "order": 9,
+      "japanese": "バス停はどこにありますか？",
+      "korean": "버스정류장이 어디에 있어요?",
+      "alternativeAnswers": ["버스정류장이 어디에 있습니까?"],
+      "hint": "버스...",
+      "explanation": "公共施設の所在も 어디에 있어요? で尋ねます。"
+    },
+    {
+      "id": "qt_substantive_040_10",
+      "order": 10,
+      "japanese": "今どこにいますか？",
+      "korean": "지금 어디에 있어요?",
+      "alternativeAnswers": ["지금 어디에 있습니까?"],
+      "hint": "지금...",
+      "explanation": "現在地を聞くとき는 지금 어디에 있어요? と言います。"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "grammarRef": "grm_quotation_002",
+  "grammarTitle": "-다고 하다",
+  "grammarSubtitle": "〜と言う・平叙文",
+  "category": "quotation",
+  "questions": [
+    {
+      "id": "qt_quotation_002_01",
+      "order": 1,
+      "japanese": "友達が来ると言いました。",
+      "korean": "친구가 온다고 했어요.",
+      "alternativeAnswers": [
+        "친구가 온다고 말했어요."
+      ],
+      "hint": "친구가...",
+      "explanation": "動詞の平叙文を間接引用するとき「-다고 하다」を使います。"
+    },
+    {
+      "id": "qt_quotation_002_02",
+      "order": 2,
+      "japanese": "母が大丈夫だと言いました。",
+      "korean": "엄마가 괜찮다고 했어요.",
+      "alternativeAnswers": [],
+      "hint": "엄마가...",
+      "explanation": "形容詞述語も平叙の間接引用なので「-다고 하다」を用います。"
+    },
+    {
+      "id": "qt_quotation_002_03",
+      "order": 3,
+      "japanese": "彼は忙しいと言いました。",
+      "korean": "그는 바쁘다고 했어요.",
+      "alternativeAnswers": [],
+      "hint": "그는...",
+      "explanation": "形容詞の内容を伝達するとき「-다고 하다」で引用します。"
+    },
+    {
+      "id": "qt_quotation_002_04",
+      "order": 4,
+      "japanese": "雨が降ると言いました。",
+      "korean": "비가 온다고 했어요.",
+      "alternativeAnswers": [],
+      "hint": "비가...",
+      "explanation": "未来の事実を平叙で伝える際も「-다고 하다」を使います。"
+    },
+    {
+      "id": "qt_quotation_002_05",
+      "order": 5,
+      "japanese": "今日は時間がないと言いました。",
+      "korean": "오늘은 시간이 없다고 했어요.",
+      "alternativeAnswers": [],
+      "hint": "오늘은...",
+      "explanation": "否定文の内容も平叙間接引用なので「-다고 하다」を付けます。"
+    },
+    {
+      "id": "qt_quotation_002_06",
+      "order": 6,
+      "japanese": "先生が宿題があると言いました。",
+      "korean": "선생님이 숙제가 있다고 했어요.",
+      "alternativeAnswers": [],
+      "hint": "선생님이...",
+      "explanation": "存在を述べる平叙文を「있다고 하다」で引用します。"
+    },
+    {
+      "id": "qt_quotation_002_07",
+      "order": 7,
+      "japanese": "父が早く帰ると言いました。",
+      "korean": "아빠가 일찍 온다고 했어요.",
+      "alternativeAnswers": [],
+      "hint": "아빠가...",
+      "explanation": "予定を伝達する間接引用も「-다고 하다」を使います。"
+    },
+    {
+      "id": "qt_quotation_002_08",
+      "order": 8,
+      "japanese": "彼女はその映画が面白いと言いました。",
+      "korean": "그녀는 그 영화가 재미있다고 했어요.",
+      "alternativeAnswers": [],
+      "hint": "그녀는...",
+      "explanation": "評価の平叙文を間接的に伝えるので「재미있다고 하다」を使用。"
+    },
+    {
+      "id": "qt_quotation_002_09",
+      "order": 9,
+      "japanese": "友達がその店が安いと言いました。",
+      "korean": "친구가 그 가게가 싸다고 했어요.",
+      "alternativeAnswers": [],
+      "hint": "친구가...",
+      "explanation": "形容詞「싸다」を引用するときも「-다고 하다」を付けます。"
+    },
+    {
+      "id": "qt_quotation_002_10",
+      "order": 10,
+      "japanese": "兄がとても疲れたと言いました。",
+      "korean": "형이 많이 피곤했다고 했어요.",
+      "alternativeAnswers": [],
+      "hint": "형이...",
+      "explanation": "過去の状態を伝えるので過去形＋「-다고 하다」を使います。"
+    }
+  ]
+}

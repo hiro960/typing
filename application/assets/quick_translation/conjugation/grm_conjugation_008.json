@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_008",
+  "grammarTitle": "러不規則",
+  "grammarSubtitle": "러語幹（푸르다→푸르러요）",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_008_01",
+      "order": 1,
+      "japanese": "空がとても青いです。",
+      "korean": "하늘이 정말 푸르러요.",
+      "alternativeAnswers": ["하늘이 정말 푸릅니다."],
+      "hint": "하늘이...",
+      "explanation": "푸르다 はヘヨ体で「푸르러요」、格式体は「푸릅니다」と活用します。"
+    },
+    {
+      "id": "qt_conjugation_008_02",
+      "order": 2,
+      "japanese": "山が青いです。",
+      "korean": "산이 푸르러요.",
+      "alternativeAnswers": ["산이 푸릅니다."],
+      "hint": "산이...",
+      "explanation": "母音語尾前で 러 を付け「푸르러요」、-ㅂ니다 では 푸릅니다 になります。"
+    },
+    {
+      "id": "qt_conjugation_008_03",
+      "order": 3,
+      "japanese": "青い海が見えます。",
+      "korean": "푸른 바다가 보여요.",
+      "alternativeAnswers": ["푸른 바다가 보입니다."],
+      "hint": "푸른...",
+      "explanation": "連体形は例外的に規則形「푸른」を使い名詞を修飾します。"
+    },
+    {
+      "id": "qt_conjugation_008_04",
+      "order": 4,
+      "japanese": "青い森を歩きます。",
+      "korean": "푸른 숲을 걸어요.",
+      "alternativeAnswers": ["푸른 숲을 걷습니다."],
+      "hint": "푸른...",
+      "explanation": "名詞修飾では「푸른」を使い、その後は規則活用で続けます。"
+    },
+    {
+      "id": "qt_conjugation_008_05",
+      "order": 5,
+      "japanese": "だんだん青くなっています。",
+      "korean": "점점 푸르러지고 있어요.",
+      "alternativeAnswers": ["점점 푸르러지고 있습니다."],
+      "hint": "점점...",
+      "explanation": "変化を表すときも語幹＋러で「푸르러지고」になります。"
+    },
+    {
+      "id": "qt_conjugation_008_06",
+      "order": 6,
+      "japanese": "秋の空が高く青いです。",
+      "korean": "가을 하늘이 높고 푸르러요.",
+      "alternativeAnswers": ["가을 하늘이 높고 푸릅니다."],
+      "hint": "가을...",
+      "explanation": "基本活用で 러 を付け「푸르러요」、格式体は 푸릅니다 です。"
+    },
+    {
+      "id": "qt_conjugation_008_07",
+      "order": 7,
+      "japanese": "青い草原が広がります。",
+      "korean": "푸른 초원이 펼쳐져요.",
+      "alternativeAnswers": ["푸른 초원이 펼쳐집니다."],
+      "hint": "푸른...",
+      "explanation": "連体形は「푸른」で規則形を使い、その後の動詞は通常活用します。"
+    },
+    {
+      "id": "qt_conjugation_008_08",
+      "order": 8,
+      "japanese": "青い光がきれいです。",
+      "korean": "푸른 빛이 예뻐요.",
+      "alternativeAnswers": ["푸른 빛이 예쁩니다."],
+      "hint": "푸른...",
+      "explanation": "名詞を修飾するときは「푸른」を使い、述語は規則活用です。"
+    },
+    {
+      "id": "qt_conjugation_008_09",
+      "order": 9,
+      "japanese": "青い夢を語ります。",
+      "korean": "푸른 꿈을 이야기해요.",
+      "alternativeAnswers": ["푸른 꿈을 이야기합니다."],
+      "hint": "푸른...",
+      "explanation": "連体形「푸른」を使い、後ろの動詞は通常の形で続けます。"
+    },
+    {
+      "id": "qt_conjugation_008_10",
+      "order": 10,
+      "japanese": "今日は空があまり青くありません。",
+      "korean": "오늘은 하늘이 푸르지 않아요.",
+      "alternativeAnswers": ["오늘은 하늘이 푸르지 않습니다."],
+      "hint": "오늘은...",
+      "explanation": "子音始まりの「-지」では 러 を付けず語幹「푸르지」を使います。"
+    }
+  ]
+}

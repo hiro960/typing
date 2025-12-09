@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_017",
+  "grammarTitle": "규칙용언 제Ⅰ어기",
+  "grammarSubtitle": "規則用言の第Ⅰ語基活用",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_017_01",
+      "order": 1,
+      "japanese": "ご飯を食べて学校へ行きます。",
+      "korean": "밥을 먹고 학교에 가요.",
+      "alternativeAnswers": ["밥을 먹고 학교에 갑니다."],
+      "hint": "밥을...",
+      "explanation": "規則用言の第Ⅰ語基に子音語尾「-고」を付けて並列します。"
+    },
+    {
+      "id": "qt_conjugation_017_02",
+      "order": 2,
+      "japanese": "高いけど買いたいです。",
+      "korean": "비싸지만 사고 싶어요.",
+      "alternativeAnswers": [],
+      "hint": "비싸지만...",
+      "explanation": "形容詞・動詞の第Ⅰ語基に「-지만」を付けて逆接を表します。"
+    },
+    {
+      "id": "qt_conjugation_017_03",
+      "order": 3,
+      "japanese": "今日は行きません。",
+      "korean": "오늘은 가지 않아요.",
+      "alternativeAnswers": ["오늘은 가지 않습니다."],
+      "hint": "오늘은...",
+      "explanation": "第Ⅰ語基「가」に否定表現「-지 않다」を付けた規則活用です。"
+    },
+    {
+      "id": "qt_conjugation_017_04",
+      "order": 4,
+      "japanese": "知っていますが話せません。",
+      "korean": "알지만 말 못해요.",
+      "alternativeAnswers": ["알지만 말 못합니다."],
+      "hint": "알지만...",
+      "explanation": "規則用言は語幹をそのまま使い「-지만」「-지 못하다」などを続けます。"
+    },
+    {
+      "id": "qt_conjugation_017_05",
+      "order": 5,
+      "japanese": "ソウルに住んでいます。",
+      "korean": "서울에서 살아요.",
+      "alternativeAnswers": ["서울에서 삽니다."],
+      "hint": "서울에서...",
+      "explanation": "ㄹ語幹「살다」は 해요体で「살아요」、-ㅂ니다体ではㄹが脱落して「삽니다」になります。"
+    },
+    {
+      "id": "qt_conjugation_017_06",
+      "order": 6,
+      "japanese": "知っている人です。",
+      "korean": "아는 사람이에요.",
+      "alternativeAnswers": ["아는 사람입니다."],
+      "hint": "아는...",
+      "explanation": "ㄹ語幹「알다」は連体形「-는」の前でㄹが落ち「아는」になります。"
+    },
+    {
+      "id": "qt_conjugation_017_07",
+      "order": 7,
+      "japanese": "机を作ります。",
+      "korean": "책상을 만들어요.",
+      "alternativeAnswers": ["책상을 만듭니다."],
+      "hint": "책상을...",
+      "explanation": "ㄹ語幹「만들다」は 해요体なら「만들어요」、-ㅂ니다体ではㄹが落ちて「만듭니다」になります。"
+    },
+    {
+      "id": "qt_conjugation_017_08",
+      "order": 8,
+      "japanese": "きれいで優しいです。",
+      "korean": "예쁘고 착해요.",
+      "alternativeAnswers": ["예쁘고 착합니다."],
+      "hint": "예쁘고...",
+      "explanation": "規則用言の第Ⅰ語基に「-고」を付けて性質を並列させています。"
+    },
+    {
+      "id": "qt_conjugation_017_09",
+      "order": 9,
+      "japanese": "食べられません。",
+      "korean": "먹지 못해요.",
+      "alternativeAnswers": ["먹지 못합니다."],
+      "hint": "먹지...",
+      "explanation": "語幹に否定補助「-지 못하다」を付ける規則活用です。"
+    },
+    {
+      "id": "qt_conjugation_017_10",
+      "order": 10,
+      "japanese": "見ても分かりません。",
+      "korean": "봐도 몰라요.",
+      "alternativeAnswers": ["봐도 모릅니다."],
+      "hint": "봐도...",
+      "explanation": "規則用言の語幹に連結語尾「-도」を付け、後続の規則活用と結んでいます。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_026",
+  "grammarTitle": "대",
+  "grammarSubtitle": "助数詞（台/機械の数）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_026_01",
+      "order": 1,
+      "japanese": "車が一台あります。",
+      "korean": "자동차 한 대 있어요.",
+      "alternativeAnswers": [],
+      "hint": "자동차...",
+      "explanation": "機械や車両は 助数詞 대 로数えます。"
+    },
+    {
+      "id": "qt_substantive_026_02",
+      "order": 2,
+      "japanese": "自転車を二台借りました。",
+      "korean": "자전거 두 대 빌렸어요.",
+      "alternativeAnswers": [],
+      "hint": "자전거...",
+      "explanation": "대 は車や自転車にも使います。"
+    },
+    {
+      "id": "qt_substantive_026_03",
+      "order": 3,
+      "japanese": "コンピューターが三台あります。",
+      "korean": "컴퓨터 세 대 있어요.",
+      "alternativeAnswers": [],
+      "hint": "컴퓨터...",
+      "explanation": "電子機器の台数も 대 로 셉니다."
+    },
+    {
+      "id": "qt_substantive_026_04",
+      "order": 4,
+      "japanese": "携帯電話を四台売りました。",
+      "korean": "휴대폰 네 대 팔았어요.",
+      "alternativeAnswers": [],
+      "hint": "휴대폰...",
+      "explanation": "売買でも 대 를 붙여台数を示します。"
+    },
+    {
+      "id": "qt_substantive_026_05",
+      "order": 5,
+      "japanese": "バスが五台来ました。",
+      "korean": "버스 다섯 대 왔어요.",
+      "alternativeAnswers": [],
+      "hint": "버스...",
+      "explanation": "乗り物の台数を表すとき 대 를 사용します。"
+    },
+    {
+      "id": "qt_substantive_026_06",
+      "order": 6,
+      "japanese": "トラックが六台並びました。",
+      "korean": "트럭 여섯 대 줄 섰어요.",
+      "alternativeAnswers": [],
+      "hint": "트럭...",
+      "explanation": "台数を列として表すときも 대 를使います。"
+    },
+    {
+      "id": "qt_substantive_026_07",
+      "order": 7,
+      "japanese": "バイクが七台停まっています。",
+      "korean": "오토바이 일곱 대 세워 뒀어요.",
+      "alternativeAnswers": [],
+      "hint": "오토바...",
+      "explanation": "대 는オートバイなどにも使われます。"
+    },
+    {
+      "id": "qt_substantive_026_08",
+      "order": 8,
+      "japanese": "冷蔵庫を八台注文しました。",
+      "korean": "냉장고 여덟 대 주문했어요.",
+      "alternativeAnswers": [],
+      "hint": "냉장고...",
+      "explanation": "家電の台数も 대 로 표현합니다."
+    },
+    {
+      "id": "qt_substantive_026_09",
+      "order": 9,
+      "japanese": "扇風機が九台必要です。",
+      "korean": "선풍기 아홉 대 필요해요.",
+      "alternativeAnswers": [],
+      "hint": "선풍기...",
+      "explanation": "必要台数を言うとき도 대 를 붙입니다."
+    },
+    {
+      "id": "qt_substantive_026_10",
+      "order": 10,
+      "japanese": "テレビを十台設置します。",
+      "korean": "텔레비전 열 대 설치해요.",
+      "alternativeAnswers": [],
+      "hint": "텔레비...",
+      "explanation": "多台の設置も 대 를使って表します。"
+    }
+  ]
+}

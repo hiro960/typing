@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_021",
+  "grammarTitle": "-(으)려면",
+  "grammarSubtitle": "〜しようとするなら",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_021_01",
+      "order": 1,
+      "japanese": "韓国語が上手になりたいなら毎日練習してください。",
+      "korean": "한국어를 잘하려면 매일 연습하세요.",
+      "alternativeAnswers": ["한국어를 잘하려면 매일 연습하십시오."],
+      "hint": "한국어...",
+      "explanation": "目的を達成する条件を言うとき「-려면」を使います。"
+    },
+    {
+      "id": "qt_expression_021_02",
+      "order": 2,
+      "japanese": "早く起きたいなら早く寝てください。",
+      "korean": "일찍 일어나려면 일찍 자요.",
+      "alternativeAnswers": ["일찍 일어나려면 일찍 주무세요."],
+      "hint": "일찍...",
+      "explanation": "〜するにはどうするべきか示す表現です。"
+    },
+    {
+      "id": "qt_expression_021_03",
+      "order": 3,
+      "japanese": "健康になりたいなら運動をしなければなりません。",
+      "korean": "건강해지려면 운동을 해야 해요.",
+      "alternativeAnswers": ["건강해지려면 운동을 해야 합니다."],
+      "hint": "건강...",
+      "explanation": "目標のための条件提示に「-려면」を用います。"
+    },
+    {
+      "id": "qt_expression_021_04",
+      "order": 4,
+      "japanese": "試験に合格したいならよく勉強してください。",
+      "korean": "시험에 합격하려면 열심히 공부하세요.",
+      "alternativeAnswers": ["시험에 합격하려면 열심히 공부하십시오."],
+      "hint": "시험에...",
+      "explanation": "目的達成の手段を示すとき「-려면」を使います。"
+    },
+    {
+      "id": "qt_expression_021_05",
+      "order": 5,
+      "japanese": "いい席に座りたいなら早く行かなければなりません。",
+      "korean": "좋은 자리에 앉으려면 일찍 가야 해요.",
+      "alternativeAnswers": ["좋은 자리에 앉으려면 일찍 가야 합니다."],
+      "hint": "좋은...",
+      "explanation": "条件を提示する形「-려면」で助言します。"
+    },
+    {
+      "id": "qt_expression_021_06",
+      "order": 6,
+      "japanese": "バスに乗りたいならカードが必要です。",
+      "korean": "버스를 타려면 카드가 필요해요.",
+      "alternativeAnswers": ["버스를 타려면 카드가 필요합니다."],
+      "hint": "버스를...",
+      "explanation": "何かをするのに必要な条件を述べます。"
+    },
+    {
+      "id": "qt_expression_021_07",
+      "order": 7,
+      "japanese": "韓国に行きたいならパスポートが必要です。",
+      "korean": "한국에 가려면 여권이 필요해요.",
+      "alternativeAnswers": ["한국에 가려면 여권이 필요합니다."],
+      "hint": "한국에...",
+      "explanation": "目的地へ行く条件を言うとき「-려면」を使います。"
+    },
+    {
+      "id": "qt_expression_021_08",
+      "order": 8,
+      "japanese": "料理が上手になりたいならよく作ってみてください。",
+      "korean": "요리를 잘하려면 자주 만들어 보세요.",
+      "alternativeAnswers": ["요리를 잘하려면 자주 만들어 보십시오."],
+      "hint": "요리를...",
+      "explanation": "習得の条件を提示する表現です。"
+    },
+    {
+      "id": "qt_expression_021_09",
+      "order": 9,
+      "japanese": "風邪を治したいなら薬を飲んでください。",
+      "korean": "감기를 낫게 하려면 약을 드세요.",
+      "alternativeAnswers": ["감기를 낫게 하려면 약을 드십시오."],
+      "hint": "감기를...",
+      "explanation": "望む結果に必要な行動を「-려면」で示します。"
+    },
+    {
+      "id": "qt_expression_021_10",
+      "order": 10,
+      "japanese": "友達に会いたいなら先に連絡してください。",
+      "korean": "친구를 만나려면 미리 연락하세요.",
+      "alternativeAnswers": ["친구를 만나려면 미리 연락하십시오."],
+      "hint": "친구를...",
+      "explanation": "何かを実現する条件を述べる際の定型表現です。"
+    }
+  ]
+}

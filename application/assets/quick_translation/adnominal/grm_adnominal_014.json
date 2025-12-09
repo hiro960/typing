@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_adnominal_014",
+  "grammarTitle": "-(으)ㄴ/는 줄 알다/모르다",
+  "grammarSubtitle": "〜と思う/知らない",
+  "category": "adnominal",
+  "questions": [
+    {
+      "id": "qt_adnominal_014_01",
+      "order": 1,
+      "japanese": "来ると思っていました。",
+      "korean": "오는 줄 알았어요.",
+      "alternativeAnswers": ["오는 줄 알았습니다."],
+      "hint": "오는...",
+      "explanation": "現在進行と想定したことを 줄 알다 で表します。"
+    },
+    {
+      "id": "qt_adnominal_014_02",
+      "order": 2,
+      "japanese": "行かないと思っていました。",
+      "korean": "안 가는 줄 알았어요.",
+      "alternativeAnswers": ["안 가는 줄 알았습니다."],
+      "hint": "안 가...",
+      "explanation": "否定の状態をそうだと思っていた例です。"
+    },
+    {
+      "id": "qt_adnominal_014_03",
+      "order": 3,
+      "japanese": "今日は休みだと思いました。",
+      "korean": "오늘 쉬는 줄 알았어요.",
+      "alternativeAnswers": ["오늘 쉬는 줄 알았습니다."],
+      "hint": "오늘...",
+      "explanation": "状態を誤って推測したときに使います。"
+    },
+    {
+      "id": "qt_adnominal_014_04",
+      "order": 4,
+      "japanese": "先生だと思っていました。",
+      "korean": "선생님인 줄 알았어요.",
+      "alternativeAnswers": ["선생님인 줄 알았습니다."],
+      "hint": "선생님...",
+      "explanation": "名詞＋인 줄 알다 で人物をそう思っていた例です。"
+    },
+    {
+      "id": "qt_adnominal_014_05",
+      "order": 5,
+      "japanese": "遅れていることを知りませんでした。",
+      "korean": "늦는 줄 몰랐어요.",
+      "alternativeAnswers": ["늦는 줄 몰랐습니다."],
+      "hint": "늦는...",
+      "explanation": "事実を知らなかった場合 줄 모르다 を使います。"
+    },
+    {
+      "id": "qt_adnominal_014_06",
+      "order": 6,
+      "japanese": "雨が降ると思っていました。",
+      "korean": "비가 오는 줄 알았어요.",
+      "alternativeAnswers": ["비가 오는 줄 알았습니다."],
+      "hint": "비가...",
+      "explanation": "天気をそう予想したことを表します。"
+    },
+    {
+      "id": "qt_adnominal_014_07",
+      "order": 7,
+      "japanese": "友達が学生だと思っていました。",
+      "korean": "친구가 학생인 줄 알았어요.",
+      "alternativeAnswers": ["친구가 학생인 줄 알았습니다."],
+      "hint": "친구가...",
+      "explanation": "名詞句をそう信じていたときの表現です。"
+    },
+    {
+      "id": "qt_adnominal_014_08",
+      "order": 8,
+      "japanese": "明日会うと思っていました。",
+      "korean": "내일 만날 줄 알았어요.",
+      "alternativeAnswers": ["내일 만날 줄 알았습니다."],
+      "hint": "내일...",
+      "explanation": "未来の予定だと誤って思っていた例です。"
+    },
+    {
+      "id": "qt_adnominal_014_09",
+      "order": 9,
+      "japanese": "値段が高いと思っていました。",
+      "korean": "값이 비싼 줄 알았어요.",
+      "alternativeAnswers": ["값이 비싼 줄 알았습니다."],
+      "hint": "값이...",
+      "explanation": "形容詞連体形＋줄 알다 で勘違いを表します。"
+    },
+    {
+      "id": "qt_adnominal_014_10",
+      "order": 10,
+      "japanese": "知らないと思っていました。",
+      "korean": "모르는 줄 알았어요.",
+      "alternativeAnswers": ["모르는 줄 알았습니다."],
+      "hint": "모르는...",
+      "explanation": "相手が知らないと誤解していたことを示します。"
+    }
+  ]
+}

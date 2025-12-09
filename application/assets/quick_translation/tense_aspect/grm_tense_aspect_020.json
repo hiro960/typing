@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_tense_aspect_020",
+  "grammarTitle": "-아/어 버리다",
+  "grammarSubtitle": "完了・残念/すっきり",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_020_01",
+      "order": 1,
+      "japanese": "宿題を終えてしまいました。",
+      "korean": "숙제를 끝내 버렸어요.",
+      "alternativeAnswers": ["숙제를 끝내 버렸습니다."],
+      "hint": "숙제를...",
+      "explanation": "完全にやり終えたニュアンスで動詞に-어 버리다を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_020_02",
+      "order": 2,
+      "japanese": "コーヒーをこぼしてしまいました。",
+      "korean": "커피를 쏟아 버렸어요.",
+      "alternativeAnswers": ["커피를 쏟아 버렸습니다."],
+      "hint": "커피를...",
+      "explanation": "望ましくない完了も-아/어 버리다で「〜してしまう」を表現。"
+    },
+    {
+      "id": "qt_tense_aspect_020_03",
+      "order": 3,
+      "japanese": "バスを逃してしまいました。",
+      "korean": "버스를 놓쳐 버렸어요.",
+      "alternativeAnswers": ["버스를 놓쳐 버렸습니다."],
+      "hint": "버스를...",
+      "explanation": "後悔を込めた完了に-어 버리다を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_020_04",
+      "order": 4,
+      "japanese": "全部忘れてしまいました。",
+      "korean": "다 잊어버렸어요.",
+      "alternativeAnswers": ["다 잊어버렸습니다."],
+      "hint": "다 잊...",
+      "explanation": "「잊어버리다」は忘れてしまうの意味で-아/어 버리다を含みます。"
+    },
+    {
+      "id": "qt_tense_aspect_020_05",
+      "order": 5,
+      "japanese": "すぐ食べてしまいました。",
+      "korean": "금방 먹어 버렸어요.",
+      "alternativeAnswers": ["금방 먹어 버렸습니다."],
+      "hint": "금방...",
+      "explanation": "あっという間の完了を強調し-어 버리다を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_020_06",
+      "order": 6,
+      "japanese": "財布をなくしてしまいました。",
+      "korean": "지갑을 잃어버렸어요.",
+      "alternativeAnswers": ["지갑을 잃어버렸습니다."],
+      "hint": "지갑을...",
+      "explanation": "望ましくない喪失を-아/어 버리다含む形で表します。"
+    },
+    {
+      "id": "qt_tense_aspect_020_07",
+      "order": 7,
+      "japanese": "バスの中で寝てしまいました。",
+      "korean": "버스에서 잠들어 버렸어요.",
+      "alternativeAnswers": ["버스에서 잠들어 버렸습니다."],
+      "hint": "버스에서...",
+      "explanation": "意図せずそうなった完了を-어 버리다で表現。"
+    },
+    {
+      "id": "qt_tense_aspect_020_08",
+      "order": 8,
+      "japanese": "雨がすぐ止んでしまいました。",
+      "korean": "비가 금방 그쳐 버렸어요.",
+      "alternativeAnswers": ["비가 금방 그쳐 버렸습니다."],
+      "hint": "비가...",
+      "explanation": "想定外の完了にも-어 버리다を付けて強調します。"
+    },
+    {
+      "id": "qt_tense_aspect_020_09",
+      "order": 9,
+      "japanese": "嫌な話を忘れてしまいましょう。",
+      "korean": "싫은 이야기는 잊어 버려요.",
+      "alternativeAnswers": ["싫은 이야기는 잊어 버립시다."],
+      "hint": "싫은...",
+      "explanation": "思い切ってする感じで命令にも-아/어 버리다を使えます。"
+    },
+    {
+      "id": "qt_tense_aspect_020_10",
+      "order": 10,
+      "japanese": "手紙を全部読んでしまいました。",
+      "korean": "편지를 다 읽어 버렸어요.",
+      "alternativeAnswers": ["편지를 다 읽어 버렸습니다."],
+      "hint": "편지를...",
+      "explanation": "最後までやり切ったことを-어 버리다で表します。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_020",
+  "grammarTitle": "십, 백, 천, 만",
+  "grammarSubtitle": "漢数詞の位",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_020_01",
+      "order": 1,
+      "japanese": "十分かかります。",
+      "korean": "십 분 걸려요.",
+      "alternativeAnswers": [],
+      "hint": "십 분...",
+      "explanation": "10分は漢数詞「십」＋분で表します。"
+    },
+    {
+      "id": "qt_substantive_020_02",
+      "order": 2,
+      "japanese": "百円です。",
+      "korean": "백 원이에요.",
+      "alternativeAnswers": [],
+      "hint": "백 원...",
+      "explanation": "100は「백」で金額も漢数詞を使います。"
+    },
+    {
+      "id": "qt_substantive_020_03",
+      "order": 3,
+      "japanese": "千円あります。",
+      "korean": "천 원 있어요.",
+      "alternativeAnswers": [],
+      "hint": "천 원...",
+      "explanation": "1000は「천」で金額や数量を表します。"
+    },
+    {
+      "id": "qt_substantive_020_04",
+      "order": 4,
+      "japanese": "一万円ください。",
+      "korean": "만 원 주세요.",
+      "alternativeAnswers": [],
+      "hint": "만 원...",
+      "explanation": "10000は「만」で韓国通貨でも使われます。"
+    },
+    {
+      "id": "qt_substantive_020_05",
+      "order": 5,
+      "japanese": "十万円は高いです。",
+      "korean": "십만 원은 비싸요.",
+      "alternativeAnswers": [],
+      "hint": "십만...",
+      "explanation": "位をつなげて「십만 원」などと数えます。"
+    },
+    {
+      "id": "qt_substantive_020_06",
+      "order": 6,
+      "japanese": "百万円が必要です。",
+      "korean": "백만 원이 필요해요.",
+      "alternativeAnswers": [],
+      "hint": "백만...",
+      "explanation": "大きな数でも「백만」など位を並べます。"
+    },
+    {
+      "id": "qt_substantive_020_07",
+      "order": 7,
+      "japanese": "千万円は多すぎます。",
+      "korean": "천만 원은 너무 많아요.",
+      "alternativeAnswers": [],
+      "hint": "천만...",
+      "explanation": "「천만」など位取りを続けて表現します。"
+    },
+    {
+      "id": "qt_substantive_020_08",
+      "order": 8,
+      "japanese": "百ページ読みました。",
+      "korean": "백 쪽을 읽었어요.",
+      "alternativeAnswers": [],
+      "hint": "백 쪽...",
+      "explanation": "ページなど数量にも位の漢数詞を使います。"
+    },
+    {
+      "id": "qt_substantive_020_09",
+      "order": 9,
+      "japanese": "十階に上がります。",
+      "korean": "십 층으로 올라가요.",
+      "alternativeAnswers": [],
+      "hint": "십 층...",
+      "explanation": "階数にも「십」など位の数詞を使います。"
+    },
+    {
+      "id": "qt_substantive_020_10",
+      "order": 10,
+      "japanese": "一万人が集まりました。",
+      "korean": "만 명이 모였어요.",
+      "alternativeAnswers": [],
+      "hint": "만 명...",
+      "explanation": "人の大きな数は漢数詞＋명を用います。"
+    }
+  ]
+}

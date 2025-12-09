@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_005",
+  "grammarTitle": "-(으)ㄹ 것 같다",
+  "grammarSubtitle": "推測・予想（〜しそうだ）",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_005_01",
+      "order": 1,
+      "japanese": "今日は雨が降りそうです。",
+      "korean": "오늘 비가 올 것 같아요.",
+      "alternativeAnswers": ["오늘 비가 올 것 같습니다."],
+      "hint": "오늘...",
+      "explanation": "未来やこれからの推測に「-ㄹ 것 같다」を使います。"
+    },
+    {
+      "id": "qt_expression_005_02",
+      "order": 2,
+      "japanese": "すぐ終わりそうです。",
+      "korean": "곧 끝날 것 같아요.",
+      "alternativeAnswers": ["곧 끝날 것 같습니다."],
+      "hint": "곧...",
+      "explanation": "これから起きそうなことを予想するときの形です。"
+    },
+    {
+      "id": "qt_expression_005_03",
+      "order": 3,
+      "japanese": "彼は遅れそうです。",
+      "korean": "그는 늦을 것 같아요.",
+      "alternativeAnswers": ["그는 늦을 것 같습니다."],
+      "hint": "그는...",
+      "explanation": "未来の可能性を言うとき「-을 것 같아요」を使います。"
+    },
+    {
+      "id": "qt_expression_005_04",
+      "order": 4,
+      "japanese": "この料理は辛そうです。",
+      "korean": "이 음식이 매울 것 같아요.",
+      "alternativeAnswers": ["이 음식이 매울 것 같습니다."],
+      "hint": "이 음식...",
+      "explanation": "まだ食べていない味を予想して「-을 것 같다」を使います。"
+    },
+    {
+      "id": "qt_expression_005_05",
+      "order": 5,
+      "japanese": "明日は寒くなりそうです。",
+      "korean": "내일은 추울 것 같아요.",
+      "alternativeAnswers": ["내일은 추울 것 같습니다."],
+      "hint": "내일은...",
+      "explanation": "未来の天気を予想する際も「-을 것 같다」を用います。"
+    },
+    {
+      "id": "qt_expression_005_06",
+      "order": 6,
+      "japanese": "今夜は人が多そうです。",
+      "korean": "오늘 밤에는 사람이 많을 것 같아요.",
+      "alternativeAnswers": ["오늘 밤에는 사람이 많을 것 같습니다."],
+      "hint": "오늘 밤...",
+      "explanation": "これからの様子を推測するとき「-을 것 같다」を使います。"
+    },
+    {
+      "id": "qt_expression_005_07",
+      "order": 7,
+      "japanese": "バスがすぐ来そうです。",
+      "korean": "버스가 금방 올 것 같아요.",
+      "alternativeAnswers": ["버스가 금방 올 것 같습니다."],
+      "hint": "버스가...",
+      "explanation": "近い未来の出来事を予想して「-ㄹ 것 같다」を使います。"
+    },
+    {
+      "id": "qt_expression_005_08",
+      "order": 8,
+      "japanese": "試験は難しそうです。",
+      "korean": "시험이 어려울 것 같아요.",
+      "alternativeAnswers": ["시험이 어려울 것 같습니다."],
+      "hint": "시험이...",
+      "explanation": "まだ経験していないことを予想する形です。"
+    },
+    {
+      "id": "qt_expression_005_09",
+      "order": 9,
+      "japanese": "彼女はきっと喜びそうです。",
+      "korean": "그녀가 분명 기뻐할 것 같아요.",
+      "alternativeAnswers": ["그녀가 기뻐할 것 같습니다."],
+      "hint": "그녀가...",
+      "explanation": "相手の反応を未来形で推測するとき「-ㄹ 것 같다」を使います。"
+    },
+    {
+      "id": "qt_expression_005_10",
+      "order": 10,
+      "japanese": "もうすぐ雨がやみそうです。",
+      "korean": "곧 비가 그칠 것 같아요.",
+      "alternativeAnswers": ["곧 비가 그칠 것 같습니다."],
+      "hint": "곧...",
+      "explanation": "これから起こる変化を予想して「-을 것 같다」を用います。"
+    }
+  ]
+}

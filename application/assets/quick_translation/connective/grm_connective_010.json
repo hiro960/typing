@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_connective_010",
+  "grammarTitle": "-아/어도",
+  "grammarSubtitle": "譲歩（〜しても）",
+  "category": "connective",
+  "questions": [
+    {
+      "id": "qt_connective_010_01",
+      "order": 1,
+      "japanese": "雨が降っても行きます。",
+      "korean": "비가 와도 갈게요.",
+      "alternativeAnswers": [],
+      "hint": "비가...",
+      "explanation": "逆条件を出しても後件が変わらないとき -아/어도 を使います。"
+    },
+    {
+      "id": "qt_connective_010_02",
+      "order": 2,
+      "japanese": "疲れても勉強します。",
+      "korean": "피곤해도 공부해요.",
+      "alternativeAnswers": [],
+      "hint": "피곤...",
+      "explanation": "譲歩しつつ意思を示す場面の接続表現です。"
+    },
+    {
+      "id": "qt_connective_010_03",
+      "order": 3,
+      "japanese": "遅くなっても電話してください。",
+      "korean": "늦어도 전화하세요.",
+      "alternativeAnswers": [],
+      "hint": "늦어...",
+      "explanation": "条件を許容し依頼を続けるときに用います。"
+    },
+    {
+      "id": "qt_connective_010_04",
+      "order": 4,
+      "japanese": "高くても買います。",
+      "korean": "비싸도 살게요.",
+      "alternativeAnswers": [],
+      "hint": "비싸...",
+      "explanation": "不利な条件でも結果が変わらないことを表します。"
+    },
+    {
+      "id": "qt_connective_010_05",
+      "order": 5,
+      "japanese": "寒くても散歩します。",
+      "korean": "추워도 산책해요.",
+      "alternativeAnswers": [],
+      "hint": "추워...",
+      "explanation": "譲歩の意味で「〜しても」を表す接続形です。"
+    },
+    {
+      "id": "qt_connective_010_06",
+      "order": 6,
+      "japanese": "忙しくてもご飯は食べてください。",
+      "korean": "바빠도 밥은 드세요.",
+      "alternativeAnswers": ["바빠도 밥은 꼭 드세요."],
+      "hint": "바빠...",
+      "explanation": "逆条件の下でもするべきことを勧めるとき -아/어도 を使います。"
+    },
+    {
+      "id": "qt_connective_010_07",
+      "order": 7,
+      "japanese": "小さくても便利です。",
+      "korean": "작아도 편해요.",
+      "alternativeAnswers": [],
+      "hint": "작아...",
+      "explanation": "欠点があっても利点を述べる譲歩表現です。"
+    },
+    {
+      "id": "qt_connective_010_08",
+      "order": 8,
+      "japanese": "時間がなくても少し休んでください。",
+      "korean": "시간이 없어도 조금 쉬세요.",
+      "alternativeAnswers": [],
+      "hint": "시간이...",
+      "explanation": "不足を認めつつ必要な行動を促すとき -아/어도 を使います。"
+    },
+    {
+      "id": "qt_connective_010_09",
+      "order": 9,
+      "japanese": "見なくても分かります。",
+      "korean": "안 봐도 알아요.",
+      "alternativeAnswers": ["보지 않아도 알아요."],
+      "hint": "안 봐...",
+      "explanation": "条件がなくても結果が同じことを述べる譲歩表現です。"
+    },
+    {
+      "id": "qt_connective_010_10",
+      "order": 10,
+      "japanese": "難しくてもあきらめません。",
+      "korean": "어려워도 포기 안 해요.",
+      "alternativeAnswers": ["어려워도 포기하지 않아요."],
+      "hint": "어려...",
+      "explanation": "困難を認めても意志が変わらないことを表します。"
+    }
+  ]
+}

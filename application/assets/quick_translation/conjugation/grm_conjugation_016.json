@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_016",
+  "grammarTitle": "제Ⅲ어기",
+  "grammarSubtitle": "第Ⅲ語基",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_016_01",
+      "order": 1,
+      "japanese": "学校へ行きます。",
+      "korean": "학교에 가요.",
+      "alternativeAnswers": ["학교에 갑니다."],
+      "hint": "학교에...",
+      "explanation": "陽母音語幹「가」は「-아요」を取り「가요」と縮約します。"
+    },
+    {
+      "id": "qt_conjugation_016_02",
+      "order": 2,
+      "japanese": "家に来ます。",
+      "korean": "집에 와요.",
+      "alternativeAnswers": ["집에 옵니다."],
+      "hint": "집에...",
+      "explanation": "「오다」はㅗ+아で縮約し「와요」となり、陽母音に「아」系を選びます。"
+    },
+    {
+      "id": "qt_conjugation_016_03",
+      "order": 3,
+      "japanese": "ご飯を食べます。",
+      "korean": "밥을 먹어요.",
+      "alternativeAnswers": ["밥을 먹습니다."],
+      "hint": "밥을...",
+      "explanation": "陰母音語幹「먹」に「-어요」を付けて「먹어요」になります。"
+    },
+    {
+      "id": "qt_conjugation_016_04",
+      "order": 4,
+      "japanese": "手紙を書きます。",
+      "korean": "편지를 써요.",
+      "alternativeAnswers": ["편지를 씁니다."],
+      "hint": "편지를...",
+      "explanation": "「쓰다」は으脱落後に陰母音系「-어요」を付け「써요」となります。"
+    },
+    {
+      "id": "qt_conjugation_016_05",
+      "order": 5,
+      "japanese": "お茶を飲みます。",
+      "korean": "차를 마셔요.",
+      "alternativeAnswers": ["차를 마십니다."],
+      "hint": "차를...",
+      "explanation": "語幹「마시」の母音は陰母音なので「-어요」を選び「마셔요」になります。"
+    },
+    {
+      "id": "qt_conjugation_016_06",
+      "order": 6,
+      "japanese": "明日勉強します。",
+      "korean": "내일 공부해요.",
+      "alternativeAnswers": ["내일 공부합니다."],
+      "hint": "내일...",
+      "explanation": "하다用言は 하여→해 に縮約し「해요」となります。"
+    },
+    {
+      "id": "qt_conjugation_016_07",
+      "order": 7,
+      "japanese": "暑くて水を飲みます。",
+      "korean": "더워서 물을 마셔요.",
+      "alternativeAnswers": [],
+      "hint": "더워서...",
+      "explanation": "理由の「-아서/어서」は語幹末の母音で選び、「더워서」「마셔요」となります。"
+    },
+    {
+      "id": "qt_conjugation_016_08",
+      "order": 8,
+      "japanese": "手紙を書きました。",
+      "korean": "편지를 썼어요.",
+      "alternativeAnswers": ["편지를 썼습니다."],
+      "hint": "편지를...",
+      "explanation": "過去も第Ⅲ語基に「-었-」を付け、쓰다 は「썼어요」になります。"
+    },
+    {
+      "id": "qt_conjugation_016_09",
+      "order": 9,
+      "japanese": "昨日会いました。",
+      "korean": "어제 만났어요.",
+      "alternativeAnswers": ["어제 만났습니다."],
+      "hint": "어제...",
+      "explanation": "陽母音語幹「만나」に過去「-았-」が付き「만났어요」になります。"
+    },
+    {
+      "id": "qt_conjugation_016_10",
+      "order": 10,
+      "japanese": "読んでください。",
+      "korean": "읽어 주세요.",
+      "alternativeAnswers": ["읽어 주십시오."],
+      "hint": "읽어...",
+      "explanation": "陰母音語幹「읽」に「-어」を付け「읽어」で補助動詞と結びます。"
+    }
+  ]
+}

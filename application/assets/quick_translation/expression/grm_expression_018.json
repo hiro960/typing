@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_018",
+  "grammarTitle": "-(으)ㄴ/는 탓에",
+  "grammarSubtitle": "〜のせいで（悪い原因）",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_018_01",
+      "order": 1,
+      "japanese": "雨のせいで道が滑ります。",
+      "korean": "비가 오는 탓에 길이 미끄러워요.",
+      "alternativeAnswers": ["비가 오는 탓에 길이 미끄럽습니다."],
+      "hint": "비가...",
+      "explanation": "望ましくない原因を述べるとき「-는 탓에」を使います。"
+    },
+    {
+      "id": "qt_expression_018_02",
+      "order": 2,
+      "japanese": "風邪のせいで仕事に行けません。",
+      "korean": "감기에 걸린 탓에 일을 못 가요.",
+      "alternativeAnswers": ["감기에 걸린 탓에 일을 못 갑니다."],
+      "hint": "감기에...",
+      "explanation": "悪い結果の理由を言うとき「-ㄴ 탓에」を用います。"
+    },
+    {
+      "id": "qt_expression_018_03",
+      "order": 3,
+      "japanese": "渋滞のせいで遅れました。",
+      "korean": "길이 막힌 탓에 늦었어요.",
+      "alternativeAnswers": ["길이 막힌 탓에 늦었습니다."],
+      "hint": "길이...",
+      "explanation": "好ましくない原因を示す表現です。"
+    },
+    {
+      "id": "qt_expression_018_04",
+      "order": 4,
+      "japanese": "寝坊のせいで朝ごはんを食べられませんでした。",
+      "korean": "늦잠 잔 탓에 아침을 못 먹었어요.",
+      "alternativeAnswers": ["늦잠 잔 탓에 아침을 못 먹었습니다."],
+      "hint": "늦잠...",
+      "explanation": "自分の失敗を原因として言うとき使います。"
+    },
+    {
+      "id": "qt_expression_018_05",
+      "order": 5,
+      "japanese": "勉強しなかったせいで点数が低いです。",
+      "korean": "공부 안 한 탓에 점수가 낮아요.",
+      "alternativeAnswers": ["공부 안 한 탓에 점수가 낮습니다."],
+      "hint": "공부...",
+      "explanation": "不足や怠慢が原因のとき「-ㄴ 탓에」を用います。"
+    },
+    {
+      "id": "qt_expression_018_06",
+      "order": 6,
+      "japanese": "寒いせいで風邪をひきました。",
+      "korean": "추운 탓에 감기에 걸렸어요.",
+      "alternativeAnswers": ["추운 탓에 감기에 걸렸습니다."],
+      "hint": "추운...",
+      "explanation": "環境の悪条件を理由にするとき使います。"
+    },
+    {
+      "id": "qt_expression_018_07",
+      "order": 7,
+      "japanese": "忙しいせいで友達に会えません。",
+      "korean": "바쁜 탓에 친구를 못 만나요.",
+      "alternativeAnswers": ["바쁜 탓에 친구를 못 만납니다."],
+      "hint": "바쁜...",
+      "explanation": "状況が悪い方向に働くとき「-은 탓에」を使います。"
+    },
+    {
+      "id": "qt_expression_018_08",
+      "order": 8,
+      "japanese": "夜更かしのせいでとても眠いです。",
+      "korean": "늦게 잔 탓에 너무 졸려요.",
+      "alternativeAnswers": ["늦게 잔 탓에 너무 졸립니다."],
+      "hint": "늦게...",
+      "explanation": "過去の原因を示す形「-ㄴ 탓에」です。"
+    },
+    {
+      "id": "qt_expression_018_09",
+      "order": 9,
+      "japanese": "電車が遅れたせいで会議に遅れました。",
+      "korean": "기차가 늦은 탓에 회의에 늦었어요.",
+      "alternativeAnswers": ["기차가 늦은 탓에 회의에 늦었습니다."],
+      "hint": "기차가...",
+      "explanation": "好ましくない結果を招いた原因を述べます。"
+    },
+    {
+      "id": "qt_expression_018_10",
+      "order": 10,
+      "japanese": "携帯を忘れたせいで連絡できません。",
+      "korean": "휴대폰을 잊은 탓에 연락을 못 해요.",
+      "alternativeAnswers": ["휴대폰을 잊은 탓에 연락을 못 합니다."],
+      "hint": "휴대폰...",
+      "explanation": "自分のミスを理由にして結果を伝える表現です。"
+    }
+  ]
+}

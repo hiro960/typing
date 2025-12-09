@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_015",
+  "grammarTitle": "제Ⅱ어기",
+  "grammarSubtitle": "第Ⅱ語基",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_015_01",
+      "order": 1,
+      "japanese": "食べれば元気が出ます。",
+      "korean": "먹으면 힘이 나요.",
+      "alternativeAnswers": ["먹으면 힘이 납니다."],
+      "hint": "먹으면...",
+      "explanation": "子音語幹「먹」に「-으면」を付ける第Ⅱ語基の形です。"
+    },
+    {
+      "id": "qt_conjugation_015_02",
+      "order": 2,
+      "japanese": "行けばすぐ分かります。",
+      "korean": "가면 바로 알아요.",
+      "alternativeAnswers": ["가면 바로 압니다."],
+      "hint": "가면...",
+      "explanation": "母音語幹「가」には「-면」が直接付き「가면」となります。"
+    },
+    {
+      "id": "qt_conjugation_015_03",
+      "order": 3,
+      "japanese": "読んだ本です。",
+      "korean": "읽은 책이에요.",
+      "alternativeAnswers": ["읽은 책입니다."],
+      "hint": "읽은...",
+      "explanation": "子音語幹「읽」に連体形「-은」が付き「읽은」で過去連体形を作ります。"
+    },
+    {
+      "id": "qt_conjugation_015_04",
+      "order": 4,
+      "japanese": "行く予定の場所です。",
+      "korean": "갈 곳이에요.",
+      "alternativeAnswers": ["갈 곳입니다."],
+      "hint": "갈...",
+      "explanation": "母音語幹「가」に未来連体形「-ㄹ」が付き「갈」を作ります。"
+    },
+    {
+      "id": "qt_conjugation_015_05",
+      "order": 5,
+      "japanese": "作ろうと思います。",
+      "korean": "만들려고 해요.",
+      "alternativeAnswers": ["만들려고 합니다."],
+      "hint": "만들...",
+      "explanation": "子音語幹「만들」に意図の語尾「-려고」が付き「만들려고」になります。"
+    },
+    {
+      "id": "qt_conjugation_015_06",
+      "order": 6,
+      "japanese": "買おうとして出ました。",
+      "korean": "사려고 나왔어요.",
+      "alternativeAnswers": ["사려고 나왔습니다."],
+      "hint": "사려고...",
+      "explanation": "母音語幹「사」は「-려고」と直接結合し「사려고」になります。"
+    },
+    {
+      "id": "qt_conjugation_015_07",
+      "order": 7,
+      "japanese": "時間がないから急ぎましょう。",
+      "korean": "시간이 없으니까 빨리 해요.",
+      "alternativeAnswers": ["시간이 없으니까 빨리 합시다."],
+      "hint": "시간이...",
+      "explanation": "理由表現「-으니까」に続けて、カジュアルなら「빨리 해요」、より格式的には「-ㅂ시다」を使います。"
+    },
+    {
+      "id": "qt_conjugation_015_08",
+      "order": 8,
+      "japanese": "雨が降るから傘を持ちます。",
+      "korean": "비가 오니까 우산을 가져요.",
+      "alternativeAnswers": ["비가 오니까 우산을 가져갑니다."],
+      "hint": "비가...",
+      "explanation": "母音語幹「오」は「-니까」とそのまま結合し「오니까」になります。"
+    },
+    {
+      "id": "qt_conjugation_015_09",
+      "order": 9,
+      "japanese": "住めば楽しいです。",
+      "korean": "살면 재미있어요.",
+      "alternativeAnswers": ["살면 재미있습니다."],
+      "hint": "살면...",
+      "explanation": "ㄹ語幹「살다」はㄹを残し、第Ⅱ語基に「-면」を付け「살면」となります。"
+    },
+    {
+      "id": "qt_conjugation_015_10",
+      "order": 10,
+      "japanese": "する予定です。",
+      "korean": "할 거예요.",
+      "alternativeAnswers": ["할 겁니다."],
+      "hint": "할...",
+      "explanation": "「하다」は未来連体形で語幹に「-ㄹ」を付け「할 거예요」となります。"
+    }
+  ]
+}

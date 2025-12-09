@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_010",
+  "grammarTitle": "자기/자신",
+  "grammarSubtitle": "再帰代名詞（自分/自身）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_010_01",
+      "order": 1,
+      "japanese": "自分を信じます。",
+      "korean": "자신을 믿어요.",
+      "alternativeAnswers": [],
+      "hint": "자신...",
+      "explanation": "「자신」 は自分自身を指す強調表現です。"
+    },
+    {
+      "id": "qt_substantive_010_02",
+      "order": 2,
+      "japanese": "自分の名前を書いてください。",
+      "korean": "자기 이름을 써 주세요.",
+      "alternativeAnswers": [],
+      "hint": "자기...",
+      "explanation": "所有を表すとき「자기+名詞」。"
+    },
+    {
+      "id": "qt_substantive_010_03",
+      "order": 3,
+      "japanese": "自己紹介をしてください。",
+      "korean": "자기 소개를 해 주세요.",
+      "alternativeAnswers": [],
+      "hint": "자기...",
+      "explanation": "慣用で 자기 소개 と言います。"
+    },
+    {
+      "id": "qt_substantive_010_04",
+      "order": 4,
+      "japanese": "自分の部屋を片付けます。",
+      "korean": "자기 방을 치워요.",
+      "alternativeAnswers": [],
+      "hint": "자기...",
+      "explanation": "自分の部屋など所有に「자기」を付けます。"
+    },
+    {
+      "id": "qt_substantive_010_05",
+      "order": 5,
+      "japanese": "自分だけ考えないでください。",
+      "korean": "자기만 생각하지 마세요.",
+      "alternativeAnswers": [],
+      "hint": "자기만...",
+      "explanation": "「-만」で自分だけを強調できます。"
+    },
+    {
+      "id": "qt_substantive_010_06",
+      "order": 6,
+      "japanese": "自分に嘘をつかないでください。",
+      "korean": "자신에게 거짓말하지 마요.",
+      "alternativeAnswers": [],
+      "hint": "자신에...",
+      "explanation": "「자신에게」で自分自身に向けた行為を示します。"
+    },
+    {
+      "id": "qt_substantive_010_07",
+      "order": 7,
+      "japanese": "自分の時間を大切にします。",
+      "korean": "자기 시간을 아껴요.",
+      "alternativeAnswers": [],
+      "hint": "자기 시...",
+      "explanation": "時間なども所有を「자기」+名詞で表します。"
+    },
+    {
+      "id": "qt_substantive_010_08",
+      "order": 8,
+      "japanese": "自分を世話しなければなりません。",
+      "korean": "자신을 돌봐야 해요.",
+      "alternativeAnswers": [],
+      "hint": "자신을...",
+      "explanation": "「자신을 돌보다」で自分を世話する意を表します。"
+    },
+    {
+      "id": "qt_substantive_010_09",
+      "order": 9,
+      "japanese": "自分の失敗を認めます。",
+      "korean": "자기 실수를 인정해요.",
+      "alternativeAnswers": [],
+      "hint": "자기 실...",
+      "explanation": "所有＋名詞を述べるとき「자기 실수」。"
+    },
+    {
+      "id": "qt_substantive_010_10",
+      "order": 10,
+      "japanese": "自分を愛してください。",
+      "korean": "자신을 사랑하세요.",
+      "alternativeAnswers": [],
+      "hint": "자신을...",
+      "explanation": "命令でも再帰を強調するなら「자신을」。"
+    }
+  ]
+}

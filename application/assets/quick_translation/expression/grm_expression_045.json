@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_045",
+  "grammarTitle": "-(으)나 마나",
+  "grammarSubtitle": "〜しても無駄／〜するまでもなく",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_045_01",
+      "order": 1,
+      "japanese": "言っても無駄です、みんな知っています。",
+      "korean": "말하나 마나 다 알아요.",
+      "alternativeAnswers": [],
+      "hint": "말하나...",
+      "explanation": "行為の無駄を示す慣用表現「-나 마나」を使います。"
+    },
+    {
+      "id": "qt_expression_045_02",
+      "order": 2,
+      "japanese": "行っても無駄です、店は閉まっています。",
+      "korean": "가나 마나 가게는 닫았어요.",
+      "alternativeAnswers": [],
+      "hint": "가나...",
+      "explanation": "結果が変わらない無意味さを「-나 마나」で表します。"
+    },
+    {
+      "id": "qt_expression_045_03",
+      "order": 3,
+      "japanese": "見ても無駄です、つまらないです。",
+      "korean": "보나 마나 재미없어요.",
+      "alternativeAnswers": [],
+      "hint": "보나...",
+      "explanation": "行動の結果が予想できるとき「-나 마나」を使います。"
+    },
+    {
+      "id": "qt_expression_045_04",
+      "order": 4,
+      "japanese": "食べても食べなくてもお腹いっぱいです。",
+      "korean": "먹으나 마나 배불러요.",
+      "alternativeAnswers": [],
+      "hint": "먹으나...",
+      "explanation": "行為の有無で変わらない状況を「-나 마나」で表します。"
+    },
+    {
+      "id": "qt_expression_045_05",
+      "order": 5,
+      "japanese": "待っても無駄です、来ません。",
+      "korean": "기다리나 마나 안 와요.",
+      "alternativeAnswers": [],
+      "hint": "기다리나...",
+      "explanation": "待つ行為が無意味であることを「-나 마나」で示します。"
+    },
+    {
+      "id": "qt_expression_045_06",
+      "order": 6,
+      "japanese": "聞かなくても同じ答えです。",
+      "korean": "물어보나 마나 같은 답이에요.",
+      "alternativeAnswers": [],
+      "hint": "물어보나...",
+      "explanation": "問いかけても結果が同じである無駄を表す表現です。"
+    },
+    {
+      "id": "qt_expression_045_07",
+      "order": 7,
+      "japanese": "探しても無駄です、ありません。",
+      "korean": "찾으나 마나 없어요.",
+      "alternativeAnswers": [],
+      "hint": "찾으나...",
+      "explanation": "探索しても結果が変わらないことを「-나 마나」で示します。"
+    },
+    {
+      "id": "qt_expression_045_08",
+      "order": 8,
+      "japanese": "読まなくてもわかります。",
+      "korean": "읽으나 마나 알겠어요.",
+      "alternativeAnswers": [],
+      "hint": "읽으나...",
+      "explanation": "読む必要がないと感じるとき「-나 마나」を使います。"
+    },
+    {
+      "id": "qt_expression_045_09",
+      "order": 9,
+      "japanese": "しても無駄です、難しいです。",
+      "korean": "해 보나 마나 어려워요.",
+      "alternativeAnswers": [],
+      "hint": "해 보나...",
+      "explanation": "挑戦しても結果が明らかである無意味さを「-나 마나」で表します。"
+    },
+    {
+      "id": "qt_expression_045_10",
+      "order": 10,
+      "japanese": "会っても無駄です、忙しいでしょう。",
+      "korean": "만나나 마나 바쁠 거예요.",
+      "alternativeAnswers": [],
+      "hint": "만나나...",
+      "explanation": "会っても結果が同じと予想するとき「-나 마나」を使います。"
+    }
+  ]
+}

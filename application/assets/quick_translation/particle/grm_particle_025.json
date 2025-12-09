@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_025",
+  "grammarTitle": "커녕",
+  "grammarSubtitle": "否定強調助詞（〜どころか）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_025_01",
+      "order": 1,
+      "japanese": "ご飯どころか水も飲めませんでした。",
+      "korean": "밥은커녕 물도 못 마셨어요.",
+      "alternativeAnswers": ["밥은커녕 물도 못 마셨습니다."],
+      "hint": "밥은커녕...",
+      "explanation": "期待されるものを否定しさらに後続で不足を強調します。"
+    },
+    {
+      "id": "qt_particle_025_02",
+      "order": 2,
+      "japanese": "休むどころかもっと働きました。",
+      "korean": "쉬기는커녕 더 일했어요.",
+      "alternativeAnswers": ["쉬기는커녕 더 일했습니다."],
+      "hint": "쉬기는커녕...",
+      "explanation": "動詞語幹+기는커녕で期待と反対の結果を示します。"
+    },
+    {
+      "id": "qt_particle_025_03",
+      "order": 3,
+      "japanese": "映画どころかテレビも見られませんでした。",
+      "korean": "영화는커녕 TV도 못 봤어요.",
+      "alternativeAnswers": ["영화는커녕 TV도 못 봤습니다."],
+      "hint": "영화는커녕...",
+      "explanation": "名詞+은커녕で上位のものを否定し下位も否定します。"
+    },
+    {
+      "id": "qt_particle_025_04",
+      "order": 4,
+      "japanese": "旅行どころか家からも出られませんでした。",
+      "korean": "여행은커녕 집도 못 나갔어요.",
+      "alternativeAnswers": ["여행은커녕 집도 못 나갔습니다."],
+      "hint": "여행은커녕...",
+      "explanation": "期待した行動を否定しさらに小さな行動も否定します。"
+    },
+    {
+      "id": "qt_particle_025_05",
+      "order": 5,
+      "japanese": "休憩どころか寝ることもできませんでした。",
+      "korean": "휴식은커녕 잠도 못 잤어요.",
+      "alternativeAnswers": ["휴식은커녕 잠도 못 잤습니다."],
+      "hint": "휴식은커녕...",
+      "explanation": "想定より低い動作も否定して不足を強調します。"
+    },
+    {
+      "id": "qt_particle_025_06",
+      "order": 6,
+      "japanese": "本どころかニュースも読めませんでした。",
+      "korean": "책은커녕 뉴스도 못 읽었어요.",
+      "alternativeAnswers": ["책은커녕 뉴스도 못 읽었습니다."],
+      "hint": "책은커녕...",
+      "explanation": "より簡単なものもできなかったことを示します。"
+    },
+    {
+      "id": "qt_particle_025_07",
+      "order": 7,
+      "japanese": "運動どころか外にも出ませんでした。",
+      "korean": "운동은커녕 밖에도 안 나갔어요.",
+      "alternativeAnswers": ["운동은커녕 밖에도 안 나갔습니다."],
+      "hint": "운동은커녕...",
+      "explanation": "期待した行動よりも低い行動まで否定して強調します。"
+    },
+    {
+      "id": "qt_particle_025_08",
+      "order": 8,
+      "japanese": "手紙どころかメッセージさえ送れませんでした。",
+      "korean": "편지는커녕 메시지도 못 보냈어요.",
+      "alternativeAnswers": ["편지는커녕 메시지도 못 보냈습니다."],
+      "hint": "편지는커녕...",
+      "explanation": "上位の行為を否定し下位の行為も否定する表現です。"
+    },
+    {
+      "id": "qt_particle_025_09",
+      "order": 9,
+      "japanese": "お金どころか時間もありません。",
+      "korean": "돈은커녕 시간도 없어요.",
+      "alternativeAnswers": ["돈은커녕 시간도 없습니다."],
+      "hint": "돈은커녕...",
+      "explanation": "不足を強調するため『〜どころか〜もない』形にします。"
+    },
+    {
+      "id": "qt_particle_025_10",
+      "order": 10,
+      "japanese": "約束どころか挨拶もできませんでした。",
+      "korean": "약속은커녕 인사도 못 했어요.",
+      "alternativeAnswers": ["약속은커녕 인사도 못 했습니다."],
+      "hint": "약속은커녕...",
+      "explanation": "本来すべきことすらできなかったことを強調します。"
+    }
+  ]
+}

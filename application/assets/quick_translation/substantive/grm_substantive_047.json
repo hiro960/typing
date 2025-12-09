@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_047",
+  "grammarTitle": "어떤",
+  "grammarSubtitle": "疑問連体詞（どんな）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_047_01",
+      "order": 1,
+      "japanese": "どんな映画が好きですか？",
+      "korean": "어떤 영화를 좋아해요?",
+      "alternativeAnswers": ["어떤 영화를 좋아합니까?"],
+      "hint": "어떤 ...",
+      "explanation": "性質を尋ねるとき는 어떤 + 名詞 を使います。"
+    },
+    {
+      "id": "qt_substantive_047_02",
+      "order": 2,
+      "japanese": "彼はどんな人ですか？",
+      "korean": "그는 어떤 사람이에요?",
+      "alternativeAnswers": ["그는 어떤 사람입니까?"],
+      "hint": "그는 ...",
+      "explanation": "人物の性格やタイプを聞くとき 어떤 을用います。"
+    },
+    {
+      "id": "qt_substantive_047_03",
+      "order": 3,
+      "japanese": "どんな食べ物が好きですか？",
+      "korean": "어떤 음식을 좋아해요?",
+      "alternativeAnswers": ["어떤 음식을 좋아합니까?"],
+      "hint": "어떤 음...",
+      "explanation": "好みの種類を尋ねるとき도 어떤 を使います。"
+    },
+    {
+      "id": "qt_substantive_047_04",
+      "order": 4,
+      "japanese": "どんな家に住みたいですか？",
+      "korean": "어떤 집에 살고 싶어요?",
+      "alternativeAnswers": ["어떤 집에 살고 싶습니다."],
+      "hint": "어떤 집...",
+      "explanation": "希望するタイプを聞くとき 어떤 + 名詞 를使います。"
+    },
+    {
+      "id": "qt_substantive_047_05",
+      "order": 5,
+      "japanese": "今日はどんな日ですか？",
+      "korean": "오늘은 어떤 날이에요?",
+      "alternativeAnswers": ["오늘은 어떤 날입니까?"],
+      "hint": "오늘은...",
+      "explanation": "日の性質を尋ねるとき도 어떤 날 と言います。"
+    },
+    {
+      "id": "qt_substantive_047_06",
+      "order": 6,
+      "japanese": "どんな仕事をしますか？",
+      "korean": "어떤 일을 해요?",
+      "alternativeAnswers": ["어떤 일을 합니까?"],
+      "hint": "어떤 일...",
+      "explanation": "仕事内容の種類を尋ねるとき 어떤 を使います。"
+    },
+    {
+      "id": "qt_substantive_047_07",
+      "order": 7,
+      "japanese": "どんな服が似合いますか？",
+      "korean": "어떤 옷이 어울려요?",
+      "alternativeAnswers": ["어떤 옷이 어울립니까?"],
+      "hint": "어떤 옷...",
+      "explanation": "合う種類を聞くとき도 어떤 옷 을使います。"
+    },
+    {
+      "id": "qt_substantive_047_08",
+      "order": 8,
+      "japanese": "どんな歌を聞きますか？",
+      "korean": "어떤 노래 들어요?",
+      "alternativeAnswers": ["어떤 노래 들습니까?"],
+      "hint": "어떤 노...",
+      "explanation": "ジャンルを尋ねるとき도 어떤 노래 로聞きます。"
+    },
+    {
+      "id": "qt_substantive_047_09",
+      "order": 9,
+      "japanese": "どんな問題でしたか？",
+      "korean": "어떤 문제였어요?",
+      "alternativeAnswers": ["어떤 문제였습니까?"],
+      "hint": "어떤 문...",
+      "explanation": "性質を問う過去形でも 어떤 を使います。"
+    },
+    {
+      "id": "qt_substantive_047_10",
+      "order": 10,
+      "japanese": "どんな味が好きですか？",
+      "korean": "어떤 맛을 좋아해요?",
+      "alternativeAnswers": ["어떤 맛을 좋아합니까?"],
+      "hint": "어떤 맛...",
+      "explanation": "味のタイプを尋ねるとき도 어떤 맛 을使います。"
+    }
+  ]
+}

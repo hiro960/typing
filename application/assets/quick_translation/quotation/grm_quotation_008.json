@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_quotation_008",
+  "grammarTitle": "-재요",
+  "grammarSubtitle": "〜しようって・伝聞勧誘",
+  "category": "quotation",
+  "questions": [
+    {
+      "id": "qt_quotation_008_01",
+      "order": 1,
+      "japanese": "友達が一緒にご飯を食べようって。",
+      "korean": "친구가 같이 밥 먹재요.",
+      "alternativeAnswers": [],
+      "hint": "친구가...",
+      "explanation": "勧誘「먹자고 해요」が口語で「먹재요」になります。"
+    },
+    {
+      "id": "qt_quotation_008_02",
+      "order": 2,
+      "japanese": "週末に映画を見ようって。",
+      "korean": "주말에 영화 보재요.",
+      "alternativeAnswers": [],
+      "hint": "주말에...",
+      "explanation": "一緒に見ようという誘いを伝える簡略形「-재요」を使います。"
+    },
+    {
+      "id": "qt_quotation_008_03",
+      "order": 3,
+      "japanese": "明日早く会おうって。",
+      "korean": "내일 일찍 만나재요.",
+      "alternativeAnswers": [],
+      "hint": "내일...",
+      "explanation": "勧誘の伝聞を表す「-자고 해요」の縮約形です。"
+    },
+    {
+      "id": "qt_quotation_008_04",
+      "order": 4,
+      "japanese": "公園で散歩しようって。",
+      "korean": "공원에서 산책하재요.",
+      "alternativeAnswers": [],
+      "hint": "공원에서...",
+      "explanation": "散歩の誘いを伝える際に「-재요」を用います。"
+    },
+    {
+      "id": "qt_quotation_008_05",
+      "order": 5,
+      "japanese": "勉強を一緒にしようって。",
+      "korean": "같이 공부하재요.",
+      "alternativeAnswers": [],
+      "hint": "같이...",
+      "explanation": "勧誘表現「하자고 해요」が口語で「하재요」となります。"
+    },
+    {
+      "id": "qt_quotation_008_06",
+      "order": 6,
+      "japanese": "旅行に行こうって。",
+      "korean": "여행 가재요.",
+      "alternativeAnswers": [],
+      "hint": "여행...",
+      "explanation": "同行提案の伝聞を短く言うと「-재요」を使います。"
+    },
+    {
+      "id": "qt_quotation_008_07",
+      "order": 7,
+      "japanese": "今出かけようって。",
+      "korean": "지금 나가재요.",
+      "alternativeAnswers": [],
+      "hint": "지금...",
+      "explanation": "勧誘形の伝聞縮約で「나가자고 해요」が「나가재요」になります。"
+    },
+    {
+      "id": "qt_quotation_008_08",
+      "order": 8,
+      "japanese": "ゲームをしようって。",
+      "korean": "게임하재요.",
+      "alternativeAnswers": [],
+      "hint": "게임...",
+      "explanation": "遊びへの誘いも「-재요」で伝聞できます。"
+    },
+    {
+      "id": "qt_quotation_008_09",
+      "order": 9,
+      "japanese": "歌を歌おうって。",
+      "korean": "노래 부르재요.",
+      "alternativeAnswers": [],
+      "hint": "노래...",
+      "explanation": "誘いの間接引用を口語で表す「-재요」を使います。"
+    },
+    {
+      "id": "qt_quotation_008_10",
+      "order": 10,
+      "japanese": "早く行こうって。",
+      "korean": "빨리 가재요.",
+      "alternativeAnswers": [],
+      "hint": "빨리...",
+      "explanation": "一緒に行く誘いを縮約形「-재요」で伝えています。"
+    }
+  ]
+}

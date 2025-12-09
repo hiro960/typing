@@ -1,0 +1,100 @@
+{
+  "grammarRef": "grm_word_formation_004",
+  "grammarTitle": "잘/못",
+  "grammarSubtitle": "様態副詞（上手に／うまくできない）",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_004_01",
+      "order": 1,
+      "japanese": "韓国語を上手に話します。",
+      "korean": "한국어를 잘 말해요.",
+      "alternativeAnswers": [],
+      "hint": "한국어를...",
+      "explanation": "動作の上手さを副詞「잘」で表します。"
+    },
+    {
+      "id": "qt_word_formation_004_02",
+      "order": 2,
+      "japanese": "泳ぐのがうまくできません。",
+      "korean": "수영을 잘 못해요.",
+      "alternativeAnswers": [],
+      "hint": "수영을...",
+      "explanation": "できなさを「잘 못」で柔らかく否定します。"
+    },
+    {
+      "id": "qt_word_formation_004_03",
+      "order": 3,
+      "japanese": "料理をよく作ります。",
+      "korean": "요리를 잘해요.",
+      "alternativeAnswers": [],
+      "hint": "요리를...",
+      "explanation": "能力を示すとき動詞前に「잘」を置きます。"
+    },
+    {
+      "id": "qt_word_formation_004_04",
+      "order": 4,
+      "japanese": "運転がうまくできません。",
+      "korean": "운전을 못해요.",
+      "alternativeAnswers": [
+        "운전을 잘 못해요."
+      ],
+      "hint": "운전을...",
+      "explanation": "できないときは副詞「못」を動詞前に付けます。"
+    },
+    {
+      "id": "qt_word_formation_004_05",
+      "order": 5,
+      "japanese": "歌を上手に歌います。",
+      "korean": "노래를 잘 불러요.",
+      "alternativeAnswers": [],
+      "hint": "노래를...",
+      "explanation": "様態を示す副詞「잘」で歌の上手さを表現します。"
+    },
+    {
+      "id": "qt_word_formation_004_06",
+      "order": 6,
+      "japanese": "朝早く起きるのが苦手です。",
+      "korean": "아침에 일찍 일어나는 걸 잘 못해요.",
+      "alternativeAnswers": [],
+      "hint": "아침에...",
+      "explanation": "苦手さを表すとき「잘 못」構造で柔らかく否定します。"
+    },
+    {
+      "id": "qt_word_formation_004_07",
+      "order": 7,
+      "japanese": "聞き取るのがうまくできません。",
+      "korean": "잘 못 들어요.",
+      "alternativeAnswers": [],
+      "hint": "잘 못...",
+      "explanation": "動詞前に「잘 못」を置き聞き取りの不得手を示します。"
+    },
+    {
+      "id": "qt_word_formation_004_08",
+      "order": 8,
+      "japanese": "運動をよくします。",
+      "korean": "운동을 잘해요.",
+      "alternativeAnswers": [],
+      "hint": "운동을...",
+      "explanation": "頻度や上手さを副詞「잘」で表現しています。"
+    },
+    {
+      "id": "qt_word_formation_004_09",
+      "order": 9,
+      "japanese": "字をきれいに書けません。",
+      "korean": "글씨를 잘 못 써요.",
+      "alternativeAnswers": [],
+      "hint": "글씨를...",
+      "explanation": "不得手さをやわらかく言うため「잘 못」＋動詞を使います。"
+    },
+    {
+      "id": "qt_word_formation_004_10",
+      "order": 10,
+      "japanese": "ダンスが上手です。",
+      "korean": "춤을 잘 춰요.",
+      "alternativeAnswers": [],
+      "hint": "춤을...",
+      "explanation": "動作の上手さを副詞「잘」で修飾しています。"
+    }
+  ]
+}

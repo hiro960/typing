@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_expression_025",
+  "grammarTitle": "-(으)ㄹ 테니까",
+  "grammarSubtitle": "〜するつもりだから／〜だろうから（理由）",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_025_01",
+      "order": 1,
+      "japanese": "私がするつもりだから心配しないでください。",
+      "korean": "제가 할 테니까 걱정하지 마세요.",
+      "alternativeAnswers": [
+        "제가 할 테니까 걱정하지 마십시오."
+      ],
+      "hint": "제가...",
+      "explanation": "自分がやる意志を「-ㄹ 테니까」で示し、相手に安心を求めます。"
+    },
+    {
+      "id": "qt_expression_025_02",
+      "order": 2,
+      "japanese": "私が払うから一緒に行きましょう。",
+      "korean": "제가 살 테니까 같이 가요.",
+      "alternativeAnswers": [
+        "제가 살 테니까 같이 갑시다."
+      ],
+      "hint": "제가...",
+      "explanation": "支払う意志を理由に誘うので「-ㄹ 테니까」を使います。"
+    },
+    {
+      "id": "qt_expression_025_03",
+      "order": 3,
+      "japanese": "雨が降るだろうから傘を持って行きます。",
+      "korean": "비가 올 테니까 우산 가져가요.",
+      "alternativeAnswers": [
+        "비가 올 테니까 우산을 가져가요."
+      ],
+      "hint": "비가...",
+      "explanation": "天気の予想を理由にする仮定で「-ㄹ 테니까」を用います。"
+    },
+    {
+      "id": "qt_expression_025_04",
+      "order": 4,
+      "japanese": "遅れるから先に召し上がってください。",
+      "korean": "늦을 테니까 먼저 드세요.",
+      "alternativeAnswers": [
+        "늦을 테니까 먼저 드십시오."
+      ],
+      "hint": "늦을...",
+      "explanation": "遅れを見込んで依頼するために理由の「-ㄹ 테니까」を使います。"
+    },
+    {
+      "id": "qt_expression_025_05",
+      "order": 5,
+      "japanese": "今忙しいだろうから後で電話します。",
+      "korean": "지금 바쁠 테니까 나중에 전화할게요.",
+      "alternativeAnswers": [
+        "지금 바쁠 테니까 나중에 전화하겠습니다."
+      ],
+      "hint": "지금...",
+      "explanation": "相手の状態を予想し「-ㄹ 테니까」で理由を述べています。"
+    },
+    {
+      "id": "qt_expression_025_06",
+      "order": 6,
+      "japanese": "寒いだろうから暖かく着てください。",
+      "korean": "추울 테니까 따뜻하게 입어요.",
+      "alternativeAnswers": [
+        "추울 테니까 따뜻하게 입으세요."
+      ],
+      "hint": "추울...",
+      "explanation": "気温の予想を理由にするので「-ㄹ 테니까」を使います。"
+    },
+    {
+      "id": "qt_expression_025_07",
+      "order": 7,
+      "japanese": "私が先に行くからゆっくり来てください。",
+      "korean": "제가 먼저 갈 테니까 천천히 오세요.",
+      "alternativeAnswers": [
+        "제가 먼저 갈 테니까 천천히 오십시오."
+      ],
+      "hint": "제가...",
+      "explanation": "自分の行動予定を示し相手に指示する形で「-ㄹ 테니까」を用います。"
+    },
+    {
+      "id": "qt_expression_025_08",
+      "order": 8,
+      "japanese": "今日は大変だろうから早く寝ましょう。",
+      "korean": "오늘 힘들 테니까 일찍 자요.",
+      "alternativeAnswers": [
+        "오늘 힘들 테니까 일찍 잡시다."
+      ],
+      "hint": "오늘...",
+      "explanation": "疲れを予想する理由を「-ㄹ 테니까」で示し、提案しています。"
+    },
+    {
+      "id": "qt_expression_025_09",
+      "order": 9,
+      "japanese": "おいしいだろうから一度召し上がってみてください。",
+      "korean": "맛있을 테니까 드셔 보세요.",
+      "alternativeAnswers": [
+        "맛있을 테니까 한번 드셔 보세요."
+      ],
+      "hint": "맛있을...",
+      "explanation": "味の予想を理由に勧めるので「-ㄹ 테니까」を使います。"
+    },
+    {
+      "id": "qt_expression_025_10",
+      "order": 10,
+      "japanese": "すぐに戻るから待ってください。",
+      "korean": "금방 올 테니까 기다려 주세요.",
+      "alternativeAnswers": [
+        "금방 올 테니까 기다려 주십시오."
+      ],
+      "hint": "금방...",
+      "explanation": "戻る予定を理由に頼むとき「-ㄹ 테니까」で意志を表します。"
+    }
+  ]
+}

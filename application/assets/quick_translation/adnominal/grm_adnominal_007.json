@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_adnominal_007",
+  "grammarTitle": "-는 것",
+  "grammarSubtitle": "名詞化・現在",
+  "category": "adnominal",
+  "questions": [
+    {
+      "id": "qt_adnominal_007_01",
+      "order": 1,
+      "japanese": "勉強することが好きです。",
+      "korean": "공부하는 것을 좋아해요.",
+      "alternativeAnswers": ["공부하는 것을 좋아합니다."],
+      "hint": "공부하...",
+      "explanation": "現在の行為を「こと」として名詞化する形です。"
+    },
+    {
+      "id": "qt_adnominal_007_02",
+      "order": 2,
+      "japanese": "走ることが楽しいです。",
+      "korean": "달리는 것이 재미있어요.",
+      "alternativeAnswers": ["달리는 것이 재미있습니다."],
+      "hint": "달리는...",
+      "explanation": "進行する動作を名詞化し主語にしています。"
+    },
+    {
+      "id": "qt_adnominal_007_03",
+      "order": 3,
+      "japanese": "本を読むのが趣味です。",
+      "korean": "책 읽는 것이 취미예요.",
+      "alternativeAnswers": ["책 읽는 것이 취미입니다."],
+      "hint": "책 읽...",
+      "explanation": "動作を「〜するのが〜だ」と述べる時に使います。"
+    },
+    {
+      "id": "qt_adnominal_007_04",
+      "order": 4,
+      "japanese": "料理するのが難しいです。",
+      "korean": "요리하는 것이 어려워요.",
+      "alternativeAnswers": ["요리하는 것이 어렵습니다."],
+      "hint": "요리하...",
+      "explanation": "行為を名詞化し評価を続ける構造です。"
+    },
+    {
+      "id": "qt_adnominal_007_05",
+      "order": 5,
+      "japanese": "友達と話すのが好きです。",
+      "korean": "친구와 이야기하는 것을 좋아해요.",
+      "alternativeAnswers": ["친구와 이야기하는 것을 좋아합니다."],
+      "hint": "친구와...",
+      "explanation": "会話する行為を名詞化して好みを述べます。"
+    },
+    {
+      "id": "qt_adnominal_007_06",
+      "order": 6,
+      "japanese": "早く起きるのが大変です。",
+      "korean": "빨리 일어나는 것이 힘들어요.",
+      "alternativeAnswers": ["빨리 일어나는 것이 힘듭니다."],
+      "hint": "빨리...",
+      "explanation": "現在の習慣的行為を名詞化して難しさを言います。"
+    },
+    {
+      "id": "qt_adnominal_007_07",
+      "order": 7,
+      "japanese": "歌うのが楽しいです。",
+      "korean": "노래하는 것이 즐거워요.",
+      "alternativeAnswers": ["노래하는 것이 즐겁습니다."],
+      "hint": "노래하...",
+      "explanation": "進行する行為を名詞化して感情を表します。"
+    },
+    {
+      "id": "qt_adnominal_007_08",
+      "order": 8,
+      "japanese": "運動するのが健康に良いです。",
+      "korean": "운동하는 것이 건강에 좋아요.",
+      "alternativeAnswers": ["운동하는 것이 건강에 좋습니다."],
+      "hint": "운동하...",
+      "explanation": "動作を名詞化し一般的な効用を述べる形です。"
+    },
+    {
+      "id": "qt_adnominal_007_09",
+      "order": 9,
+      "japanese": "メモを書くのが役に立ちます。",
+      "korean": "메모를 쓰는 것이 도움이 돼요.",
+      "alternativeAnswers": ["메모를 쓰는 것이 도움이 됩니다."],
+      "hint": "메모를...",
+      "explanation": "行為を名詞化して効果を示す表現です。"
+    },
+    {
+      "id": "qt_adnominal_007_10",
+      "order": 10,
+      "japanese": "水を飲むのが習慣です。",
+      "korean": "물을 마시는 것이 습관이에요.",
+      "alternativeAnswers": ["물을 마시는 것이 습관입니다."],
+      "hint": "물을...",
+      "explanation": "習慣的行為を名詞化し状態を述べる例です。"
+    }
+  ]
+}

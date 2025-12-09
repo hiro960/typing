@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_word_formation_020",
+  "grammarTitle": "부사형 -리/-이/-히",
+  "grammarSubtitle": "副詞形 -리、-이、-히",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_020_01",
+      "order": 1,
+      "japanese": "遠くまで歩きました。",
+      "korean": "멀리 걸어갔어요.",
+      "alternativeAnswers": [],
+      "hint": "멀리...",
+      "explanation": "形容詞「멀다」に-리を付けた副詞で「遠く」を表します。"
+    },
+    {
+      "id": "qt_word_formation_020_02",
+      "order": 2,
+      "japanese": "静かにしてください。",
+      "korean": "조용히 해 주세요.",
+      "alternativeAnswers": [],
+      "hint": "조용히...",
+      "explanation": "「조용하다」に-히を付けて静かにという様態を示します。"
+    },
+    {
+      "id": "qt_word_formation_020_03",
+      "order": 3,
+      "japanese": "きれいに洗います。",
+      "korean": "깨끗이 씻어요.",
+      "alternativeAnswers": [],
+      "hint": "깨끗이...",
+      "explanation": "「깨끗하다」の語幹に-이を付け副詞化しています。"
+    },
+    {
+      "id": "qt_word_formation_020_04",
+      "order": 4,
+      "japanese": "正直に話してください。",
+      "korean": "솔직히 말해 주세요.",
+      "alternativeAnswers": [],
+      "hint": "솔직히...",
+      "explanation": "「솔직하다」に-히を付け「正直に話す」と依頼します。"
+    },
+    {
+      "id": "qt_word_formation_020_05",
+      "order": 5,
+      "japanese": "正確に書いてください。",
+      "korean": "정확히 써 주세요.",
+      "alternativeAnswers": [],
+      "hint": "정확히...",
+      "explanation": "正確さを求めるとき「정확하다」＋-히で副詞にします。"
+    },
+    {
+      "id": "qt_word_formation_020_06",
+      "order": 6,
+      "japanese": "一生懸命勉強します。",
+      "korean": "열심히 공부해요.",
+      "alternativeAnswers": [],
+      "hint": "열심히...",
+      "explanation": "「열심하다」に-히を付け努力の様子を表します。"
+    },
+    {
+      "id": "qt_word_formation_020_07",
+      "order": 7,
+      "japanese": "深く考えます。",
+      "korean": "깊이 생각해요.",
+      "alternativeAnswers": [],
+      "hint": "깊이...",
+      "explanation": "「깊다」の語幹に-이を付けて深さを副詞化します。"
+    },
+    {
+      "id": "qt_word_formation_020_08",
+      "order": 8,
+      "japanese": "勤勉に働きます。",
+      "korean": "부지런히 일해요.",
+      "alternativeAnswers": [],
+      "hint": "부지런히...",
+      "explanation": "「부지런하다」に-히を付けて「勤勉に」を表現します。"
+    },
+    {
+      "id": "qt_word_formation_020_09",
+      "order": 9,
+      "japanese": "静かに寝ました。",
+      "korean": "조용히 잤어요.",
+      "alternativeAnswers": [],
+      "hint": "조용히...",
+      "explanation": "副詞化した「조용히」で静かな様子のまま寝たことを示します。"
+    },
+    {
+      "id": "qt_word_formation_020_10",
+      "order": 10,
+      "japanese": "楽に休んでください。",
+      "korean": "편히 쉬세요.",
+      "alternativeAnswers": [],
+      "hint": "편히...",
+      "explanation": "「편하다」の語幹に-히を付けた副詞で楽に休むよう促します。"
+    }
+  ]
+}

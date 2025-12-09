@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_022",
+  "grammarTitle": "-다 보니까",
+  "grammarSubtitle": "〜していたら（結果の発見）",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_022_01",
+      "order": 1,
+      "japanese": "勉強していたら眠くなりました。",
+      "korean": "공부하다 보니까 졸렸어요.",
+      "alternativeAnswers": ["공부하다 보니까 졸렸습니다."],
+      "hint": "공부...",
+      "explanation": "繰り返すうちに気付いた結果を「-다 보니까」で表します。"
+    },
+    {
+      "id": "qt_expression_022_02",
+      "order": 2,
+      "japanese": "韓国ドラマを見ていたら言葉を覚えました。",
+      "korean": "드라마를 보다 보니까 단어를 외우게 됐어요.",
+      "alternativeAnswers": ["드라마를 보다 보니까 단어를 외우게 됐습니다."],
+      "hint": "드라마...",
+      "explanation": "続けた結果得た変化を述べる表現です。"
+    },
+    {
+      "id": "qt_expression_022_03",
+      "order": 3,
+      "japanese": "話していたら時間が過ぎました。",
+      "korean": "이야기하다 보니까 시간이 갔어요.",
+      "alternativeAnswers": ["이야기하다 보니까 시간이 갔습니다."],
+      "hint": "이야기...",
+      "explanation": "何かをしているうちに起きた結果を示します。"
+    },
+    {
+      "id": "qt_expression_022_04",
+      "order": 4,
+      "japanese": "歩いていたら道に迷いました。",
+      "korean": "걷다 보니까 길을 잃었어요.",
+      "alternativeAnswers": ["걷다 보니까 길을 잃었습니다."],
+      "hint": "걷다...",
+      "explanation": "動作を続けた結果を「-다 보니(까)」で表現します。"
+    },
+    {
+      "id": "qt_expression_022_05",
+      "order": 5,
+      "japanese": "走っていたら息が切れました。",
+      "korean": "달리다 보니까 숨이 찼어요.",
+      "alternativeAnswers": ["달리다 보니까 숨이 찼습니다."],
+      "hint": "달리...",
+      "explanation": "継続の結果起きた変化を述べる形です。"
+    },
+    {
+      "id": "qt_expression_022_06",
+      "order": 6,
+      "japanese": "仕事をしていたら夜になりました。",
+      "korean": "일하다 보니까 밤이 됐어요.",
+      "alternativeAnswers": ["일하다 보니까 밤이 됐습니다."],
+      "hint": "일하...",
+      "explanation": "気付いたときの結果を「-다 보니까」で表します。"
+    },
+    {
+      "id": "qt_expression_022_07",
+      "order": 7,
+      "japanese": "運動していたらお腹が空きました。",
+      "korean": "운동하다 보니까 배가 고파졌어요.",
+      "alternativeAnswers": ["운동하다 보니까 배가 고파졌습니다."],
+      "hint": "운동...",
+      "explanation": "続けた結果の変化を示す表現です。"
+    },
+    {
+      "id": "qt_expression_022_08",
+      "order": 8,
+      "japanese": "本を読んでいたら涙が出ました。",
+      "korean": "책을 읽다 보니까 눈물이 났어요.",
+      "alternativeAnswers": ["책을 읽다 보니까 눈물이 났습니다."],
+      "hint": "책을...",
+      "explanation": "継続の中で起こった感情の変化を言います。"
+    },
+    {
+      "id": "qt_expression_022_09",
+      "order": 9,
+      "japanese": "料理をしていたら時間がかかりました。",
+      "korean": "요리하다 보니까 시간이 오래 걸렸어요.",
+      "alternativeAnswers": ["요리하다 보니까 시간이 오래 걸렸습니다."],
+      "hint": "요리...",
+      "explanation": "続けるうちに分かった結果を述べる形です。"
+    },
+    {
+      "id": "qt_expression_022_10",
+      "order": 10,
+      "japanese": "音楽を聴いていたら気分がよくなりました。",
+      "korean": "음악을 듣다 보니까 기분이 좋아졌어요.",
+      "alternativeAnswers": ["음악을 듣다 보니까 기분이 좋아졌습니다."],
+      "hint": "음악을...",
+      "explanation": "継続した結果の変化を「-다 보니까」で表現します。"
+    }
+  ]
+}

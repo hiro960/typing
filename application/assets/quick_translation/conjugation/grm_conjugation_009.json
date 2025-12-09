@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_009",
+  "grammarTitle": "여不規則",
+  "grammarSubtitle": "하다→해요 変化",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_009_01",
+      "order": 1,
+      "japanese": "今、韓国語を勉強します。",
+      "korean": "지금 한국어를 공부해요.",
+      "alternativeAnswers": ["지금 한국어를 공부합니다."],
+      "hint": "지금 한...",
+      "explanation": "하다 は하여요が縮約し「해요」、格式体では縮約せず 공부합니다 です。"
+    },
+    {
+      "id": "qt_conjugation_009_02",
+      "order": 2,
+      "japanese": "昨日運動しました。",
+      "korean": "어제 운동했어요.",
+      "alternativeAnswers": ["어제 운동했습니다."],
+      "hint": "어제...",
+      "explanation": "過去も 하여→해로縮約し「했어요」、格式体では 운동했습니다 を使います。"
+    },
+    {
+      "id": "qt_conjugation_009_03",
+      "order": 3,
+      "japanese": "毎日掃除します。",
+      "korean": "매일 청소해요.",
+      "alternativeAnswers": ["매일 청소합니다."],
+      "hint": "매일...",
+      "explanation": "하다 合成語は 아/어系で「해요」、-ㅂ니다 では 청소합니다 となります。"
+    },
+    {
+      "id": "qt_conjugation_009_04",
+      "order": 4,
+      "japanese": "今日の夕食を作ってください。",
+      "korean": "오늘 저녁 요리해 주세요.",
+      "alternativeAnswers": ["오늘 저녁 요리해 주십시오."],
+      "hint": "오늘...",
+      "explanation": "依頼でも 하여→해に縮約し「요리해 주세요」となります。"
+    },
+    {
+      "id": "qt_conjugation_009_05",
+      "order": 5,
+      "japanese": "一緒に仕事します。",
+      "korean": "같이 일해요.",
+      "alternativeAnswers": ["같이 일합니다."],
+      "hint": "같이...",
+      "explanation": "「일하다」は丁寧形で「일해요」、格式体では 일합니다 です。"
+    },
+    {
+      "id": "qt_conjugation_009_06",
+      "order": 6,
+      "japanese": "宿題をして寝ます。",
+      "korean": "숙제해서 자요.",
+      "alternativeAnswers": ["숙제하고 자요."],
+      "hint": "숙제해...",
+      "explanation": "接続「-아서/어서」も 하여→해で「숙제해서」になります。"
+    },
+    {
+      "id": "qt_conjugation_009_07",
+      "order": 7,
+      "japanese": "今、会議をしています。",
+      "korean": "지금 회의하고 있어요.",
+      "alternativeAnswers": ["지금 회의합니다."],
+      "hint": "지금 회...",
+      "explanation": "進行形では「하고 있어요」を使い、格式体では 회의합니다 と縮約しません。"
+    },
+    {
+      "id": "qt_conjugation_009_08",
+      "order": 8,
+      "japanese": "結婚しましたか？",
+      "korean": "결혼했어요?",
+      "alternativeAnswers": ["결혼했습니까?", "결혼했습니다."],
+      "hint": "결혼...",
+      "explanation": "過去の 해요体は 하여→해で「결혼했어요?」、格式体の疑問は縮約後に「-습니까」を付けます。"
+    },
+    {
+      "id": "qt_conjugation_009_09",
+      "order": 9,
+      "japanese": "運動しません。",
+      "korean": "운동하지 않아요.",
+      "alternativeAnswers": ["운동하지 않습니다."],
+      "hint": "운동하...",
+      "explanation": "否定「-지」など子音始まりでは 하- を維持し「하지 않아요」になります。"
+    },
+    {
+      "id": "qt_conjugation_009_10",
+      "order": 10,
+      "japanese": "友達に電話します。",
+      "korean": "친구에게 전화해요.",
+      "alternativeAnswers": ["친구에게 전화합니다."],
+      "hint": "친구에게...",
+      "explanation": "「전화하다」は縮約して「전화해요」、格式体では 전화합니다 を使います。"
+    }
+  ]
+}

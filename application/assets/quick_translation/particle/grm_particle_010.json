@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_010",
+  "grammarTitle": "도",
+  "grammarSubtitle": "添加助詞（〜も）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_010_01",
+      "order": 1,
+      "japanese": "私も学生です。",
+      "korean": "저도 학생이에요.",
+      "alternativeAnswers": ["저도 학생입니다."],
+      "hint": "저도...",
+      "explanation": "同じ性質を共有する場合名詞の後ろに「도」を付けます。"
+    },
+    {
+      "id": "qt_particle_010_02",
+      "order": 2,
+      "japanese": "コーヒーも好きです。",
+      "korean": "커피도 좋아해요.",
+      "alternativeAnswers": ["커피도 좋아합니다."],
+      "hint": "커피도...",
+      "explanation": "追加の対象を示す添加助詞が「도」です。"
+    },
+    {
+      "id": "qt_particle_010_03",
+      "order": 3,
+      "japanese": "今日も忙しいです。",
+      "korean": "오늘도 바빠요.",
+      "alternativeAnswers": ["오늘도 바쁩니다."],
+      "hint": "오늘도...",
+      "explanation": "繰り返しの状況に対し「오늘도」で『今日も』を表します。"
+    },
+    {
+      "id": "qt_particle_010_04",
+      "order": 4,
+      "japanese": "友達も来ました。",
+      "korean": "친구도 왔어요.",
+      "alternativeAnswers": ["친구도 왔습니다."],
+      "hint": "친구도...",
+      "explanation": "他の人に加えて来たことを示すので「도」を付けます。"
+    },
+    {
+      "id": "qt_particle_010_05",
+      "order": 5,
+      "japanese": "水もください。",
+      "korean": "물도 주세요.",
+      "alternativeAnswers": ["물도 주십시오."],
+      "hint": "물도...",
+      "explanation": "注文で追加をお願いするときも「도」を使います。"
+    },
+    {
+      "id": "qt_particle_010_06",
+      "order": 6,
+      "japanese": "本も読みます。",
+      "korean": "책도 읽어요.",
+      "alternativeAnswers": ["책도 읽습니다."],
+      "hint": "책도...",
+      "explanation": "複数の行動の一つとして追加するときに「도」を使います。"
+    },
+    {
+      "id": "qt_particle_010_07",
+      "order": 7,
+      "japanese": "韓国語も勉強します。",
+      "korean": "한국어도 공부해요.",
+      "alternativeAnswers": ["한국어도 공부합니다."],
+      "hint": "한국어도...",
+      "explanation": "他の科目に加えて韓国語もすることを示します。"
+    },
+    {
+      "id": "qt_particle_010_08",
+      "order": 8,
+      "japanese": "時間もありません。",
+      "korean": "시간도 없어요.",
+      "alternativeAnswers": ["시간도 없습니다."],
+      "hint": "시간도...",
+      "explanation": "不足を並べて述べるときにも添加助詞を使えます。"
+    },
+    {
+      "id": "qt_particle_010_09",
+      "order": 9,
+      "japanese": "昨日も働きました。",
+      "korean": "어제도 일했어요.",
+      "alternativeAnswers": ["어제도 일했습니다."],
+      "hint": "어제도...",
+      "explanation": "他の日に加えて昨日も同じ行動をしたと示します。"
+    },
+    {
+      "id": "qt_particle_010_10",
+      "order": 10,
+      "japanese": "映画も見たいです。",
+      "korean": "영화도 보고 싶어요.",
+      "alternativeAnswers": ["영화도 보고 싶습니다."],
+      "hint": "영화도...",
+      "explanation": "希望する対象を追加するときも「도」で列挙します。"
+    }
+  ]
+}

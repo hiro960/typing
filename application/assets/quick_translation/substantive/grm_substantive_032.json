@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_032",
+  "grammarTitle": "년, 월, 일",
+  "grammarSubtitle": "日付の数え方",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_032_01",
+      "order": 1,
+      "japanese": "今日は5月3日です。",
+      "korean": "오늘은 5월 3일이에요.",
+      "alternativeAnswers": ["오늘은 5월 3일입니다."],
+      "hint": "오늘은...",
+      "explanation": "月日は 숫자＋월＋일 の順で表します。"
+    },
+    {
+      "id": "qt_substantive_032_02",
+      "order": 2,
+      "japanese": "誕生日は6月1日です。",
+      "korean": "생일은 6월 1일이에요.",
+      "alternativeAnswers": ["생일은 6월 1일입니다."],
+      "hint": "생일...",
+      "explanation": "日付でも数字の後に 월・일 を付けます。"
+    },
+    {
+      "id": "qt_substantive_032_03",
+      "order": 3,
+      "japanese": "2024年に卒業します。",
+      "korean": "2024년에 졸업해요.",
+      "alternativeAnswers": ["2024년에 졸업합니다."],
+      "hint": "2024...",
+      "explanation": "年は 숫자＋년 とし、에 を付けて時点を示します。"
+    },
+    {
+      "id": "qt_substantive_032_04",
+      "order": 4,
+      "japanese": "来年3月に韓国へ行きます。",
+      "korean": "내년 3월에 한국에 가요.",
+      "alternativeAnswers": ["내년 3월에 한국에 갑니다."],
+      "hint": "내년...",
+      "explanation": "月にも 에 を付けて予定の時期を表します。"
+    },
+    {
+      "id": "qt_substantive_032_05",
+      "order": 5,
+      "japanese": "2010年4月15日に生まれました。",
+      "korean": "2010년 4월 15일에 태어났어요.",
+      "alternativeAnswers": ["2010년 4월 15일에 태어났습니다."],
+      "hint": "2010...",
+      "explanation": "年・月・日を並べ、最後に 에 を付けて日付を示します。"
+    },
+    {
+      "id": "qt_substantive_032_06",
+      "order": 6,
+      "japanese": "今日は何年何月何日ですか？",
+      "korean": "오늘은 몇 년 몇 월 며칠이에요?",
+      "alternativeAnswers": ["오늘은 몇 년 몇 월 며칠입니까?"],
+      "hint": "오늘은...",
+      "explanation": "몇 년 몇 월 며칠 로日付を尋ねます。"
+    },
+    {
+      "id": "qt_substantive_032_07",
+      "order": 7,
+      "japanese": "今月は7月です。",
+      "korean": "이번 달은 7월이에요.",
+      "alternativeAnswers": ["이번 달은 7월입니다."],
+      "hint": "이번...",
+      "explanation": "月のみでも 숫자＋월 を使って表現します。"
+    },
+    {
+      "id": "qt_substantive_032_08",
+      "order": 8,
+      "japanese": "去年12月に引っ越しました。",
+      "korean": "작년 12월에 이사했어요.",
+      "alternativeAnswers": ["작년 12월에 이사했습니다."],
+      "hint": "작년...",
+      "explanation": "過去の月でも 숫자＋월＋에 で表します。"
+    },
+    {
+      "id": "qt_substantive_032_09",
+      "order": 9,
+      "japanese": "今日は15日です。",
+      "korean": "오늘은 15일이에요.",
+      "alternativeAnswers": ["오늘은 15일입니다."],
+      "hint": "오늘은...",
+      "explanation": "日付だけでも 숫자＋일 で伝えられます。"
+    },
+    {
+      "id": "qt_substantive_032_10",
+      "order": 10,
+      "japanese": "会議は9月20日です。",
+      "korean": "회의는 9월 20일이에요.",
+      "alternativeAnswers": ["회의는 9월 20일입니다."],
+      "hint": "회의...",
+      "explanation": "予定日も 숫자＋월＋일 の形で示します。"
+    }
+  ]
+}

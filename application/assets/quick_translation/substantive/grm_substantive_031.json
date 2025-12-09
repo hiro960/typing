@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_031",
+  "grammarTitle": "시, 분, 초",
+  "grammarSubtitle": "時間の数え方",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_031_01",
+      "order": 1,
+      "japanese": "今は三時です。",
+      "korean": "지금 세 시예요.",
+      "alternativeAnswers": ["지금 세 시입니다."],
+      "hint": "지금...",
+      "explanation": "時刻は固有数詞＋시で表し「三時」は 세 시 です。"
+    },
+    {
+      "id": "qt_substantive_031_02",
+      "order": 2,
+      "japanese": "会議は四時半です。",
+      "korean": "회의는 네 시 반이에요.",
+      "alternativeAnswers": ["회의는 네 시 반입니다."],
+      "hint": "회의...",
+      "explanation": "30分は 반 を付けて「〜시 반」と言います。"
+    },
+    {
+      "id": "qt_substantive_031_03",
+      "order": 3,
+      "japanese": "映画は七時十分に始まります。",
+      "korean": "영화는 일곱 시 십 분에 시작해요.",
+      "alternativeAnswers": ["영화는 일곱 시 십 분에 시작합니다."],
+      "hint": "영화...",
+      "explanation": "分は漢数詞＋분で具体的な時刻を示します。"
+    },
+    {
+      "id": "qt_substantive_031_04",
+      "order": 4,
+      "japanese": "五分だけ待ってください。",
+      "korean": "5분만 기다려 주세요.",
+      "alternativeAnswers": ["5분만 기다려 주십시오."],
+      "hint": "5분...",
+      "explanation": "분 に만を付けて「〜分だけ」と限定します。"
+    },
+    {
+      "id": "qt_substantive_031_05",
+      "order": 5,
+      "japanese": "電車は八時五十五分に来ます。",
+      "korean": "기차는 여덟 시 오십오 분에 와요.",
+      "alternativeAnswers": ["기차는 여덟 시 오십오 분에 옵니다."],
+      "hint": "기차...",
+      "explanation": "55分は 오십오 분 のように漢数詞を重ねます。"
+    },
+    {
+      "id": "qt_substantive_031_06",
+      "order": 6,
+      "japanese": "今は何時何分ですか？",
+      "korean": "지금 몇 시 몇 분이에요?",
+      "alternativeAnswers": ["지금 몇 시 몇 분입니까?"],
+      "hint": "지금...",
+      "explanation": "몇 시 몇 분 で正確な時刻を尋ねます。"
+    },
+    {
+      "id": "qt_substantive_031_07",
+      "order": 7,
+      "japanese": "十秒だけ待ってください。",
+      "korean": "10초만 기다려 주세요.",
+      "alternativeAnswers": ["10초만 기다려 주십시오."],
+      "hint": "10초...",
+      "explanation": "秒は漢数詞＋초で表し、短い時間も数えます。"
+    },
+    {
+      "id": "qt_substantive_031_08",
+      "order": 8,
+      "japanese": "授業は九時からです。",
+      "korean": "수업은 아홉 시부터예요.",
+      "alternativeAnswers": ["수업은 아홉 시부터입니다."],
+      "hint": "수업...",
+      "explanation": "開始時刻に부터 を付けて「〜時から」と言います。"
+    },
+    {
+      "id": "qt_substantive_031_09",
+      "order": 9,
+      "japanese": "バスは六時に終わります。",
+      "korean": "버스는 여섯 시에 끝나요.",
+      "alternativeAnswers": ["버스는 여섯 시에 끝납니다."],
+      "hint": "버스...",
+      "explanation": "시 뒤に 에 を付けて終わる時間を示します。"
+    },
+    {
+      "id": "qt_substantive_031_10",
+      "order": 10,
+      "japanese": "今は十二時三十分です。",
+      "korean": "지금 열두 시 삼십 분이에요.",
+      "alternativeAnswers": ["지금 열두 시 삼십 분입니다."],
+      "hint": "지금...",
+      "explanation": "30分は 반の代わりに 숫자＋분 でも表せます。"
+    }
+  ]
+}

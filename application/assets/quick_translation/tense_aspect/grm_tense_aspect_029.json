@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_029",
+  "grammarTitle": "-아/어도 되다",
+  "grammarSubtitle": "許可（〜してもよい）",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_029_01",
+      "order": 1,
+      "japanese": "ここに座ってもいいですか。",
+      "korean": "여기 앉아도 돼요?",
+      "alternativeAnswers": [
+        "여기 앉아도 됩니까?"
+      ],
+      "hint": "여기...",
+      "explanation": "相手の許可を求めるとき「-아/어도 되다」を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_029_02",
+      "order": 2,
+      "japanese": "窓を開けてもいいですか。",
+      "korean": "창문 열어도 돼요?",
+      "alternativeAnswers": [
+        "창문 열어도 됩니까?"
+      ],
+      "hint": "창문...",
+      "explanation": "動作の許可を丁寧に尋ねる表現です。"
+    },
+    {
+      "id": "qt_tense_aspect_029_03",
+      "order": 3,
+      "japanese": "水を飲んでもいいですか。",
+      "korean": "물 좀 마셔도 돼요?",
+      "alternativeAnswers": [
+        "물 좀 마셔도 됩니까?"
+      ],
+      "hint": "물 좀...",
+      "explanation": "軽い許可を求める日常的な言い方です。"
+    },
+    {
+      "id": "qt_tense_aspect_029_04",
+      "order": 4,
+      "japanese": "質問してもいいですか。",
+      "korean": "질문해도 돼요?",
+      "alternativeAnswers": [
+        "질문해도 됩니까?"
+      ],
+      "hint": "질문해...",
+      "explanation": "行為が許されるか確認するときの表現です。"
+    },
+    {
+      "id": "qt_tense_aspect_029_05",
+      "order": 5,
+      "japanese": "遅く行ってもいいですか。",
+      "korean": "늦게 가도 돼요?",
+      "alternativeAnswers": [
+        "늦게 가도 됩니까?"
+      ],
+      "hint": "늦게...",
+      "explanation": "時間に関する許可を求める場面で使います。"
+    },
+    {
+      "id": "qt_tense_aspect_029_06",
+      "order": 6,
+      "japanese": "写真を撮ってもいいですか。",
+      "korean": "사진 찍어도 돼요?",
+      "alternativeAnswers": [
+        "사진 찍어도 됩니까?"
+      ],
+      "hint": "사진...",
+      "explanation": "行動の可否を尋ねるときの許可表現です。"
+    },
+    {
+      "id": "qt_tense_aspect_029_07",
+      "order": 7,
+      "japanese": "電話してもいいですか。",
+      "korean": "전화해도 돼요?",
+      "alternativeAnswers": [
+        "전화해도 됩니까?"
+      ],
+      "hint": "전화해...",
+      "explanation": "相手の許可を得て行動する際に使います。"
+    },
+    {
+      "id": "qt_tense_aspect_029_08",
+      "order": 8,
+      "japanese": "先に行ってもいいですか。",
+      "korean": "먼저 가도 돼요?",
+      "alternativeAnswers": [
+        "먼저 가도 됩니까?"
+      ],
+      "hint": "먼저...",
+      "explanation": "先行してよいか尋ねる許可表現です。"
+    },
+    {
+      "id": "qt_tense_aspect_029_09",
+      "order": 9,
+      "japanese": "靴を脱いでもいいですか。",
+      "korean": "신발을 벗어도 돼요?",
+      "alternativeAnswers": [
+        "신발을 벗어도 됩니까?"
+      ],
+      "hint": "신발을...",
+      "explanation": "行動の許可を求める基本的な形です。"
+    },
+    {
+      "id": "qt_tense_aspect_029_10",
+      "order": 10,
+      "japanese": "音楽をかけてもいいですか。",
+      "korean": "음악 틀어도 돼요?",
+      "alternativeAnswers": [
+        "음악 틀어도 됩니까?"
+      ],
+      "hint": "음악...",
+      "explanation": "してよいか確認する丁寧な許可表現です。"
+    }
+  ]
+}

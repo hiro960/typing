@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_012",
+  "grammarTitle": "-(으)ㄴ/는 척하다",
+  "grammarSubtitle": "〜するふりをする",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_012_01",
+      "order": 1,
+      "japanese": "彼は知らないふりをします。",
+      "korean": "그는 모르는 척해요.",
+      "alternativeAnswers": ["그는 모르는 척합니다."],
+      "hint": "그는...",
+      "explanation": "知らないふりは「모르다 + 는 척하다」で表します。"
+    },
+    {
+      "id": "qt_expression_012_02",
+      "order": 2,
+      "japanese": "子どもが寝たふりをしています。",
+      "korean": "아이가 자는 척해요.",
+      "alternativeAnswers": ["아이가 자는 척합니다."],
+      "hint": "아이가...",
+      "explanation": "進行中の動作に「-는 척하다」を付けてふりを示します。"
+    },
+    {
+      "id": "qt_expression_012_03",
+      "order": 3,
+      "japanese": "私は聞こえないふりをしました。",
+      "korean": "저는 못 들은 척했어요.",
+      "alternativeAnswers": ["저는 못 들은 척했습니다."],
+      "hint": "저는...",
+      "explanation": "過去のふりは「-은 척했다」で表現します。"
+    },
+    {
+      "id": "qt_expression_012_04",
+      "order": 4,
+      "japanese": "友達は勉強するふりをします。",
+      "korean": "친구는 공부하는 척해요.",
+      "alternativeAnswers": ["친구는 공부하는 척합니다."],
+      "hint": "친구는...",
+      "explanation": "動作の進行に対し「-는 척하다」を付けます。"
+    },
+    {
+      "id": "qt_expression_012_05",
+      "order": 5,
+      "japanese": "笑ったふりをしないでください。",
+      "korean": "웃는 척하지 마세요.",
+      "alternativeAnswers": ["웃는 척하지 마십시오."],
+      "hint": "웃는...",
+      "explanation": "禁止でも「-는 척하다」の形をそのまま使います。"
+    },
+    {
+      "id": "qt_expression_012_06",
+      "order": 6,
+      "japanese": "彼は平気なふりをします。",
+      "korean": "그는 괜찮은 척해요.",
+      "alternativeAnswers": ["그는 괜찮은 척합니다."],
+      "hint": "그는...",
+      "explanation": "感情のふりも形容詞に「-은 척하다」で表します。"
+    },
+    {
+      "id": "qt_expression_012_07",
+      "order": 7,
+      "japanese": "忙しいふりをしました。",
+      "korean": "바쁜 척했어요.",
+      "alternativeAnswers": ["바쁜 척했습니다."],
+      "hint": "바쁜...",
+      "explanation": "形容詞でも「-은 척하다」でふりを示します。"
+    },
+    {
+      "id": "qt_expression_012_08",
+      "order": 8,
+      "japanese": "見なかったふりをしました。",
+      "korean": "못 본 척했어요.",
+      "alternativeAnswers": ["못 본 척했습니다."],
+      "hint": "못 본...",
+      "explanation": "過去形のふりは「-ㄴ 척했다」で表現します。"
+    },
+    {
+      "id": "qt_expression_012_09",
+      "order": 9,
+      "japanese": "彼女は泣かないふりをしています。",
+      "korean": "그녀는 안 우는 척해요.",
+      "alternativeAnswers": ["그녀는 안 우는 척합니다."],
+      "hint": "그녀는...",
+      "explanation": "否定形でも「-는 척하다」をそのまま付けます。"
+    },
+    {
+      "id": "qt_expression_012_10",
+      "order": 10,
+      "japanese": "私は聞いているふりをします。",
+      "korean": "저는 듣는 척해요.",
+      "alternativeAnswers": ["저는 듣는 척합니다."],
+      "hint": "저는...",
+      "explanation": "現在の動作のふりを「-는 척하다」で言います。"
+    }
+  ]
+}

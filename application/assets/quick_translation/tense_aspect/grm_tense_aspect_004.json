@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_tense_aspect_004",
+  "grammarTitle": "-고 있다",
+  "grammarSubtitle": "進行",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_004_01",
+      "order": 1,
+      "japanese": "今ご飯を食べています。",
+      "korean": "지금 밥을 먹고 있어요.",
+      "alternativeAnswers": ["지금 밥을 먹고 있습니다."],
+      "hint": "지금...",
+      "explanation": "進行中の動作を表すので動詞語幹に-고 있어요を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_004_02",
+      "order": 2,
+      "japanese": "友達を待っています。",
+      "korean": "친구를 기다리고 있어요.",
+      "alternativeAnswers": ["친구를 기다리고 있습니다."],
+      "hint": "친구를...",
+      "explanation": "待っている最中を示し-고 있어요で進行を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_004_03",
+      "order": 3,
+      "japanese": "本を読んでいます。",
+      "korean": "책을 읽고 있어요.",
+      "alternativeAnswers": ["책을 읽고 있습니다."],
+      "hint": "책을...",
+      "explanation": "現在行っている動作に-고 있다形を用います。"
+    },
+    {
+      "id": "qt_tense_aspect_004_04",
+      "order": 4,
+      "japanese": "雨が降っています。",
+      "korean": "비가 오고 있어요.",
+      "alternativeAnswers": ["비가 오고 있습니다."],
+      "hint": "비가...",
+      "explanation": "継続的な出来事を示すため-고 있어요を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_004_05",
+      "order": 5,
+      "japanese": "音楽を聞いています。",
+      "korean": "음악을 듣고 있어요.",
+      "alternativeAnswers": ["음악을 듣고 있습니다."],
+      "hint": "음악을...",
+      "explanation": "進行形で「〜している」を表現し-고 있어요を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_004_06",
+      "order": 6,
+      "japanese": "韓国語を勉強しています。",
+      "korean": "한국어를 공부하고 있어요.",
+      "alternativeAnswers": ["한국어를 공부하고 있습니다."],
+      "hint": "한국어를...",
+      "explanation": "勉強中を示し하다に-고 있어요を続けます。"
+    },
+    {
+      "id": "qt_tense_aspect_004_07",
+      "order": 7,
+      "japanese": "バスに乗っています。",
+      "korean": "버스를 타고 있어요.",
+      "alternativeAnswers": ["버스를 타고 있습니다."],
+      "hint": "버스를...",
+      "explanation": "乗車中という進行を-고 있다構文で表します。"
+    },
+    {
+      "id": "qt_tense_aspect_004_08",
+      "order": 8,
+      "japanese": "宿題をしています。",
+      "korean": "숙제를 하고 있어요.",
+      "alternativeAnswers": ["숙제를 하고 있습니다."],
+      "hint": "숙제를...",
+      "explanation": "今している動作に-고 있어요を付け進行を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_004_09",
+      "order": 9,
+      "japanese": "公園で歩いています。",
+      "korean": "공원에서 걷고 있어요.",
+      "alternativeAnswers": ["공원에서 걷고 있습니다."],
+      "hint": "공원에서...",
+      "explanation": "歩行中を表すので걷다の語幹に-고 있어요を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_004_10",
+      "order": 10,
+      "japanese": "写真を撮っています。",
+      "korean": "사진을 찍고 있어요.",
+      "alternativeAnswers": ["사진을 찍고 있습니다."],
+      "hint": "사진을...",
+      "explanation": "現在進行を伝える形で-고 있다を用います。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_028",
+  "grammarTitle": "벌",
+  "grammarSubtitle": "助数詞（服・セット）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_028_01",
+      "order": 1,
+      "japanese": "服を一着買いました。",
+      "korean": "옷 한 벌 샀어요.",
+      "alternativeAnswers": [],
+      "hint": "옷 한...",
+      "explanation": "衣服のセットは 助数詞 벌 로 셉니다."
+    },
+    {
+      "id": "qt_substantive_028_02",
+      "order": 2,
+      "japanese": "制服が二着あります。",
+      "korean": "교복 두 벌 있어요.",
+      "alternativeAnswers": [],
+      "hint": "교복 두...",
+      "explanation": "制服の数も 벌 로 나타냅니다."
+    },
+    {
+      "id": "qt_substantive_028_03",
+      "order": 3,
+      "japanese": "パジャマを三着準備しました。",
+      "korean": "잠옷 세 벌 준비했어요.",
+      "alternativeAnswers": [],
+      "hint": "잠옷 세...",
+      "explanation": "寝間着も 벌 로 数えます。"
+    },
+    {
+      "id": "qt_substantive_028_04",
+      "order": 4,
+      "japanese": "スーツを四着借りました。",
+      "korean": "양복 네 벌 빌렸어요.",
+      "alternativeAnswers": [],
+      "hint": "양복 네...",
+      "explanation": "スーツの数え方も 벌 입니다。"
+    },
+    {
+      "id": "qt_substantive_028_05",
+      "order": 5,
+      "japanese": "Tシャツを五着干しました。",
+      "korean": "티셔츠 다섯 벌 말렸어요.",
+      "alternativeAnswers": [],
+      "hint": "티셔츠...",
+      "explanation": "服の枚数をまとめて 벌 로 세요."
+    },
+    {
+      "id": "qt_substantive_028_06",
+      "order": 6,
+      "japanese": "服を六着洗いました。",
+      "korean": "옷 여섯 벌 빨았어요.",
+      "alternativeAnswers": [],
+      "hint": "옷 여...",
+      "explanation": "洗濯数も 벌 로 표현します."
+    },
+    {
+      "id": "qt_substantive_028_07",
+      "order": 7,
+      "japanese": "韓服を七着見物しました。",
+      "korean": "한복 일곱 벌 구경했어요.",
+      "alternativeAnswers": [],
+      "hint": "한복 일...",
+      "explanation": "韓服のような衣装も 벌 로 셉니다."
+    },
+    {
+      "id": "qt_substantive_028_08",
+      "order": 8,
+      "japanese": "服を八着整理しました。",
+      "korean": "옷 여덟 벌 정리했어요.",
+      "alternativeAnswers": [],
+      "hint": "옷 여...",
+      "explanation": "整理する数も 벌 로 표시します."
+    },
+    {
+      "id": "qt_substantive_028_09",
+      "order": 9,
+      "japanese": "運動服が九着必要です。",
+      "korean": "운동복 아홉 벌 필요해요.",
+      "alternativeAnswers": [],
+      "hint": "운동복...",
+      "explanation": "必要数も 벌 로 표현します."
+    },
+    {
+      "id": "qt_substantive_028_10",
+      "order": 10,
+      "japanese": "服を十着プレゼントしました。",
+      "korean": "옷 열 벌 선물했어요.",
+      "alternativeAnswers": [],
+      "hint": "옷 열...",
+      "explanation": "贈る枚数も 벌 を使います。"
+    }
+  ]
+}

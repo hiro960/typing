@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_001",
+  "grammarTitle": "이/가",
+  "grammarSubtitle": "主格助詞（〜が）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_001_01",
+      "order": 1,
+      "japanese": "犬が寝ています。",
+      "korean": "개가 자고 있어요.",
+      "alternativeAnswers": ["개가 자요.", "개가 자고 있습니다."],
+      "hint": "개가...",
+      "explanation": "「개」は母音で終わるので「가」を付けて主語を示します。"
+    },
+    {
+      "id": "qt_particle_001_02",
+      "order": 2,
+      "japanese": "本が机の上にあります。",
+      "korean": "책이 책상 위에 있어요.",
+      "alternativeAnswers": ["책이 책상 위에 있습니다."],
+      "hint": "책이...",
+      "explanation": "「책」はパッチムありなので「이」を使って主語を示します。"
+    },
+    {
+      "id": "qt_particle_001_03",
+      "order": 3,
+      "japanese": "誰がここにいますか？",
+      "korean": "누가 여기 있어요?",
+      "alternativeAnswers": ["누가 여기 있습니까?"],
+      "hint": "누가...",
+      "explanation": "疑問詞「누구+가」は「누가」に縮約し、疑問は이/가を使います。"
+    },
+    {
+      "id": "qt_particle_001_04",
+      "order": 4,
+      "japanese": "私が払います。",
+      "korean": "제가 낼게요.",
+      "alternativeAnswers": ["제가 계산할게요.", "제가 내겠습니다."],
+      "hint": "제가...",
+      "explanation": "「나+가」は「내가」、丁寧形は「제가」で主語を強調します。"
+    },
+    {
+      "id": "qt_particle_001_05",
+      "order": 5,
+      "japanese": "時間が足りません。",
+      "korean": "시간이 부족해요.",
+      "alternativeAnswers": ["시간이 부족합니다."],
+      "hint": "시간이...",
+      "explanation": "パッチムのある「시간」には「이」を付けて主語を示します。"
+    },
+    {
+      "id": "qt_particle_001_06",
+      "order": 6,
+      "japanese": "雨が止みました。",
+      "korean": "비가 그쳤어요.",
+      "alternativeAnswers": ["비가 멈췄어요.", "비가 그쳤습니다."],
+      "hint": "비가...",
+      "explanation": "新しい出来事を伝える文で、母音語幹「비」に「가」を使います。"
+    },
+    {
+      "id": "qt_particle_001_07",
+      "order": 7,
+      "japanese": "ここが会社です。",
+      "korean": "여기가 회사예요.",
+      "alternativeAnswers": ["여기가 회사입니다."],
+      "hint": "여기가...",
+      "explanation": "場所を指して新情報を示すので「여기+가」を使います。"
+    },
+    {
+      "id": "qt_particle_001_08",
+      "order": 8,
+      "japanese": "その映画が面白いです。",
+      "korean": "그 영화가 재미있어요.",
+      "alternativeAnswers": ["그 영화가 재미있습니다."],
+      "hint": "그 영화...",
+      "explanation": "特定の映画を主語にするため「영화」後に「가」を付けます。"
+    },
+    {
+      "id": "qt_particle_001_09",
+      "order": 9,
+      "japanese": "何が必要ですか？",
+      "korean": "뭐가 필요해요?",
+      "alternativeAnswers": ["무엇이 필요해요?", "뭐가 필요합니까?"],
+      "hint": "뭐가...",
+      "explanation": "疑問詞「무엇+이」は会話で「뭐가」となり、主語に이/가を使います。"
+    },
+    {
+      "id": "qt_particle_001_10",
+      "order": 10,
+      "japanese": "友達が二人います。",
+      "korean": "친구가 두 명 있어요.",
+      "alternativeAnswers": ["친구가 두 명 있습니다."],
+      "hint": "친구가...",
+      "explanation": "人数を伝える主語「친구」にはパッチムなしで「가」を付けます。"
+    }
+  ]
+}

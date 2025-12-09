@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_orthography_013",
+  "grammarTitle": "받침의 중화",
+  "grammarSubtitle": "終声の中和",
+  "category": "orthography",
+  "questions": [
+    {
+      "id": "qt_orthography_013_01",
+      "order": 1,
+      "japanese": "「밖은」は[바큰]に近いです。",
+      "korean": "밖은 [바큰]처럼 들려요.",
+      "alternativeAnswers": ["밖은 [바큰]처럼 들립니다."],
+      "hint": "밖은...",
+      "explanation": "ㄲパッチムは終声で[ㄱ]に中和し、母音が続くと[ㅋ]で連音します。"
+    },
+    {
+      "id": "qt_orthography_013_02",
+      "order": 2,
+      "japanese": "「옷 한 벌」は[오탄 벌]です。",
+      "korean": "옷 한 벌은 [오탄 벌]이에요.",
+      "alternativeAnswers": ["옷 한 벌은 [오탄 벌]입니다."],
+      "hint": "옷 한...",
+      "explanation": "ㅅパッチムは終声で[ㄷ]に中和し、ㅎと合わさると[ㅌ]になります。"
+    },
+    {
+      "id": "qt_orthography_013_03",
+      "order": 3,
+      "japanese": "「낮에」は[나제]に聞こえます。",
+      "korean": "낮에는 [나제]로 들려요.",
+      "alternativeAnswers": ["낮에는 [나제]로 들립니다."],
+      "hint": "낮에...",
+      "explanation": "ㅈパッチムは[ㄷ]に中和し、母音前で[ㅈ]として連音します。"
+    },
+    {
+      "id": "qt_orthography_013_04",
+      "order": 4,
+      "japanese": "「꽃이」は[꼬치]になります。",
+      "korean": "꽃이는 [꼬치]로 말해요.",
+      "alternativeAnswers": ["꽃이는 [꼬치]로 말합니다."],
+      "hint": "꽃이...",
+      "explanation": "ㅊパッチムも[ㄷ]に中和し、母音前で[ㅊ]として続きます。"
+    },
+    {
+      "id": "qt_orthography_013_05",
+      "order": 5,
+      "japanese": "「부엌은」は[부억은]です。",
+      "korean": "부엌은 [부억은]이에요.",
+      "alternativeAnswers": ["부엌은 [부억은]입니다."],
+      "hint": "부엌...",
+      "explanation": "ㅋパッチムは終声で[ㄱ]に中和して発音されます。"
+    },
+    {
+      "id": "qt_orthography_013_06",
+      "order": 6,
+      "japanese": "「닭도」は[닥또]に聞こえます。",
+      "korean": "닭도 [닥또]로 들려요.",
+      "alternativeAnswers": ["닭도 [닥또]로 들립니다."],
+      "hint": "닭도...",
+      "explanation": "ㄺパッチムは単独で[ㄱ]に中和し、後のㄷを濃音化させます。"
+    },
+    {
+      "id": "qt_orthography_013_07",
+      "order": 7,
+      "japanese": "「앉아서」は[안자서]です。",
+      "korean": "앉아서는 [안자서]예요.",
+      "alternativeAnswers": ["앉아서는 [안자서]입니다."],
+      "hint": "앉아...",
+      "explanation": "ㄵパッチムは[ㄴ]に中和し、母音前で[안자]のように連音します。"
+    },
+    {
+      "id": "qt_orthography_013_08",
+      "order": 8,
+      "japanese": "「사람이 많아요。」は[마나요]です。",
+      "korean": "사람이 많아요. [마나요]예요.",
+      "alternativeAnswers": ["사람이 많습니다."],
+      "hint": "사람이...",
+      "explanation": "ㄶパッチムは[ㄴ]に中和し、母音前で[나]になります。"
+    },
+    {
+      "id": "qt_orthography_013_09",
+      "order": 9,
+      "japanese": "「값이」は[갑씨]と発音します。",
+      "korean": "값이 [갑씨]로 발음돼요.",
+      "alternativeAnswers": ["값이 [갑씨]로 발음됩니다."],
+      "hint": "값이...",
+      "explanation": "ㄳパッチムは[ㄱ]に中和し、後続ㅅが濃音化して[씨]になります。"
+    },
+    {
+      "id": "qt_orthography_013_10",
+      "order": 10,
+      "japanese": "「삶이」は[살미]に変わります。",
+      "korean": "삶이 [살미]로 바뀌어요.",
+      "alternativeAnswers": ["삶이 [살미]로 바뀝니다."],
+      "hint": "삶이...",
+      "explanation": "ㄻパッチムは単独で[ㅁ]に中和し、母音前でㄹが生き[살미]と発音します。"
+    }
+  ]
+}

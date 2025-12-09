@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_sentence_ending_013",
+  "grammarTitle": "-더라고요",
+  "grammarSubtitle": "回想・伝聞（〜でしたよ）",
+  "category": "sentence_ending",
+  "questions": [
+    {
+      "id": "qt_sentence_ending_013_01",
+      "order": 1,
+      "japanese": "その店、静かでしたよ。",
+      "korean": "그 가게 조용하더라고요.",
+      "alternativeAnswers": ["그 가게가 조용하더라고요."],
+      "hint": "그 가...",
+      "explanation": "実際に行って感じたことを回想的に伝える語尾です。"
+    },
+    {
+      "id": "qt_sentence_ending_013_02",
+      "order": 2,
+      "japanese": "映画がとても面白かったですよ。",
+      "korean": "영화가 정말 재미있더라고요.",
+      "alternativeAnswers": [],
+      "hint": "영화가...",
+      "explanation": "自分の体験から得た感想を報告するとき -더라고요 を使います。"
+    },
+    {
+      "id": "qt_sentence_ending_013_03",
+      "order": 3,
+      "japanese": "駅まで近かったですよ。",
+      "korean": "역까지 가깝더라고요.",
+      "alternativeAnswers": ["역이 가깝더라고요."],
+      "hint": "역까...",
+      "explanation": "実際に行って分かった事実を回想的に述べる終止形です。"
+    },
+    {
+      "id": "qt_sentence_ending_013_04",
+      "order": 4,
+      "japanese": "雨が急に降っていましたよ。",
+      "korean": "비가 갑자기 오더라고요.",
+      "alternativeAnswers": ["비가 갑자기 내리더라고요."],
+      "hint": "비가...",
+      "explanation": "直接見た出来事を報告するニュアンスで -더라고요 を付けます。"
+    },
+    {
+      "id": "qt_sentence_ending_013_05",
+      "order": 5,
+      "japanese": "その友達、韓国人でしたよ。",
+      "korean": "그 친구가 한국 사람이더라고요.",
+      "alternativeAnswers": ["그 친구는 한국 사람이더라고요."],
+      "hint": "그 친...",
+      "explanation": "知って意外だった事実を共有するときの表現です。"
+    },
+    {
+      "id": "qt_sentence_ending_013_06",
+      "order": 6,
+      "japanese": "昨日、とても寒かったですよ。",
+      "korean": "어제 아주 춥더라고요.",
+      "alternativeAnswers": [],
+      "hint": "어제...",
+      "explanation": "過去の体験を思い出して伝えるとき -더라고요 を使います。"
+    },
+    {
+      "id": "qt_sentence_ending_013_07",
+      "order": 7,
+      "japanese": "その方、先生でしたよ。",
+      "korean": "그분이 선생님이더라고요.",
+      "alternativeAnswers": [],
+      "hint": "그분...",
+      "explanation": "名詞に 이어「〜だったですよ」と報告する形です。"
+    },
+    {
+      "id": "qt_sentence_ending_013_08",
+      "order": 8,
+      "japanese": "夜は道が混んでいましたよ。",
+      "korean": "밤에 길이 막히더라고요.",
+      "alternativeAnswers": ["저녁에 길이 막히더라고요."],
+      "hint": "밤에...",
+      "explanation": "実際に経験した交通状況を共有する用法です。"
+    },
+    {
+      "id": "qt_sentence_ending_013_09",
+      "order": 9,
+      "japanese": "そのカフェ、コーヒーが安かったですよ。",
+      "korean": "그 카페 커피가 싸더라고요.",
+      "alternativeAnswers": [],
+      "hint": "그 카...",
+      "explanation": "自分の体験を報告しながら情報提供する表現です。"
+    },
+    {
+      "id": "qt_sentence_ending_013_10",
+      "order": 10,
+      "japanese": "公園の花がきれいでしたよ。",
+      "korean": "공원 꽃이 예쁘더라고요.",
+      "alternativeAnswers": [],
+      "hint": "공원...",
+      "explanation": "見て感じた印象を回想して伝えるとき -더라고요 を使います。"
+    }
+  ]
+}

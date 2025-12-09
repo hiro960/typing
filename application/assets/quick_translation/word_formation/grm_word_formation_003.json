@@ -1,0 +1,104 @@
+{
+  "grammarRef": "grm_word_formation_003",
+  "grammarTitle": "아주/매우/너무",
+  "grammarSubtitle": "程度副詞（とても）",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_003_01",
+      "order": 1,
+      "japanese": "今日はとても寒いです。",
+      "korean": "오늘 아주 추워요.",
+      "alternativeAnswers": [
+        "오늘 너무 추워요."
+      ],
+      "hint": "오늘...",
+      "explanation": "程度を強める副詞「아주」で寒さを強調します。"
+    },
+    {
+      "id": "qt_word_formation_003_02",
+      "order": 2,
+      "japanese": "この映画は非常に面白いです。",
+      "korean": "이 영화는 매우 재미있어요.",
+      "alternativeAnswers": [],
+      "hint": "이 영화는...",
+      "explanation": "ややフォーマルな強調に「매우」を使い面白さを示します。"
+    },
+    {
+      "id": "qt_word_formation_003_03",
+      "order": 3,
+      "japanese": "このケーキはとても甘いです。",
+      "korean": "이 케이크는 아주 달아요.",
+      "alternativeAnswers": [],
+      "hint": "이 케이크는...",
+      "explanation": "肯定的な強調として「아주」で甘さを表現しています。"
+    },
+    {
+      "id": "qt_word_formation_003_04",
+      "order": 4,
+      "japanese": "宿題がとても多いです。",
+      "korean": "숙제가 아주 많아요.",
+      "alternativeAnswers": [
+        "숙제가 너무 많아요."
+      ],
+      "hint": "숙제가...",
+      "explanation": "量を強調するため「아주」を使っています。"
+    },
+    {
+      "id": "qt_word_formation_003_05",
+      "order": 5,
+      "japanese": "彼はとても親切です。",
+      "korean": "그는 매우 친절해요.",
+      "alternativeAnswers": [],
+      "hint": "그는...",
+      "explanation": "丁寧な強調に「매우」を用いて親切さを述べます。"
+    },
+    {
+      "id": "qt_word_formation_003_06",
+      "order": 6,
+      "japanese": "今日はとても忙しいです。",
+      "korean": "오늘 아주 바빠요.",
+      "alternativeAnswers": [],
+      "hint": "오늘...",
+      "explanation": "忙しさを過不足なく伝えるため「아주」を使います。"
+    },
+    {
+      "id": "qt_word_formation_003_07",
+      "order": 7,
+      "japanese": "景色が非常に美しいです。",
+      "korean": "경치가 매우 아름다워요.",
+      "alternativeAnswers": [],
+      "hint": "경치가...",
+      "explanation": "美しさの強調にフォーマルな「매우」を使います。"
+    },
+    {
+      "id": "qt_word_formation_003_08",
+      "order": 8,
+      "japanese": "友達がとても多いです。",
+      "korean": "친구가 아주 많아요.",
+      "alternativeAnswers": [],
+      "hint": "친구가...",
+      "explanation": "多さを強める副詞として「아주」を用います。"
+    },
+    {
+      "id": "qt_word_formation_003_09",
+      "order": 9,
+      "japanese": "そのカフェはとても静かです。",
+      "korean": "그 카페는 아주 조용해요.",
+      "alternativeAnswers": [],
+      "hint": "그 카페는...",
+      "explanation": "静かさを肯定的に強調するとき「아주」を使います。"
+    },
+    {
+      "id": "qt_word_formation_003_10",
+      "order": 10,
+      "japanese": "この本はとても役に立ちます。",
+      "korean": "이 책은 매우 도움이 돼요.",
+      "alternativeAnswers": [
+        "이 책은 아주 도움이 돼요."
+      ],
+      "hint": "이 책은...",
+      "explanation": "程度副詞を使い有用性を強調しています。"
+    }
+  ]
+}

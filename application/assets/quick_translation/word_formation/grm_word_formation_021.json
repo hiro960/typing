@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_word_formation_021",
+  "grammarTitle": "부사형 I-게",
+  "grammarSubtitle": "副詞形 I-게",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_021_01",
+      "order": 1,
+      "japanese": "きれいに片付けます。",
+      "korean": "깨끗하게 정리해요.",
+      "alternativeAnswers": [],
+      "hint": "깨끗하게...",
+      "explanation": "形容詞に-게を付け副詞化し「きれいに片付ける」と言います。"
+    },
+    {
+      "id": "qt_word_formation_021_02",
+      "order": 2,
+      "japanese": "大きく書いてください。",
+      "korean": "크게 써 주세요.",
+      "alternativeAnswers": [],
+      "hint": "크게...",
+      "explanation": "大きさを表す形容詞「크다」を-게で副詞化しています。"
+    },
+    {
+      "id": "qt_word_formation_021_03",
+      "order": 3,
+      "japanese": "優しく話してください。",
+      "korean": "친절하게 말해 주세요.",
+      "alternativeAnswers": [],
+      "hint": "친절하게...",
+      "explanation": "態度を表す形容詞に-게を付け「優しく話す」を作ります。"
+    },
+    {
+      "id": "qt_word_formation_021_04",
+      "order": 4,
+      "japanese": "楽に座ってください。",
+      "korean": "편하게 앉으세요.",
+      "alternativeAnswers": [],
+      "hint": "편하게...",
+      "explanation": "「편하다」に-게を付け楽な様子で座るよう促します。"
+    },
+    {
+      "id": "qt_word_formation_021_05",
+      "order": 5,
+      "japanese": "安全に運転してください。",
+      "korean": "안전하게 운전하세요.",
+      "alternativeAnswers": [],
+      "hint": "안전하게...",
+      "explanation": "名詞系の形容詞にも-게を付けて安全な様態を表現します。"
+    },
+    {
+      "id": "qt_word_formation_021_06",
+      "order": 6,
+      "japanese": "静かに歩きます。",
+      "korean": "조용하게 걸어요.",
+      "alternativeAnswers": [],
+      "hint": "조용하게...",
+      "explanation": "形容詞の副詞化で「静かに歩く」という様態を示します。"
+    },
+    {
+      "id": "qt_word_formation_021_07",
+      "order": 7,
+      "japanese": "かわいく笑います。",
+      "korean": "예쁘게 웃어요.",
+      "alternativeAnswers": [],
+      "hint": "예쁘게...",
+      "explanation": "見た目を形容する形容詞も-게で副詞化し様子を伝えます。"
+    },
+    {
+      "id": "qt_word_formation_021_08",
+      "order": 8,
+      "japanese": "早く走ります。",
+      "korean": "빠르게 달려요.",
+      "alternativeAnswers": [],
+      "hint": "빠르게...",
+      "explanation": "「빠르다」を-게で副詞化し速度を示します。"
+    },
+    {
+      "id": "qt_word_formation_021_09",
+      "order": 9,
+      "japanese": "安く買いました。",
+      "korean": "싸게 샀어요.",
+      "alternativeAnswers": [],
+      "hint": "싸게...",
+      "explanation": "価格を表す形容詞を-게で副詞化し「安く買った」です。"
+    },
+    {
+      "id": "qt_word_formation_021_10",
+      "order": 10,
+      "japanese": "簡単に説明してください。",
+      "korean": "쉽게 설명해 주세요.",
+      "alternativeAnswers": [],
+      "hint": "쉽게...",
+      "explanation": "難易度を示す形容詞「쉽다」に-게を付け副詞として使います。"
+    }
+  ]
+}

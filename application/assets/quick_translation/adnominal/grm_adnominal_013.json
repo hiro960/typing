@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_adnominal_013",
+  "grammarTitle": "-(으)ㄴ/는/(으)ㄹ 사람",
+  "grammarSubtitle": "〜する人",
+  "category": "adnominal",
+  "questions": [
+    {
+      "id": "qt_adnominal_013_01",
+      "order": 1,
+      "japanese": "勉強している人は学生です。",
+      "korean": "공부하는 사람은 학생이에요.",
+      "alternativeAnswers": ["공부하는 사람은 학생입니다."],
+      "hint": "공부하...",
+      "explanation": "現在行為をする人を -는 사람 で表します。"
+    },
+    {
+      "id": "qt_adnominal_013_02",
+      "order": 2,
+      "japanese": "昨日会った人は先生です。",
+      "korean": "어제 만난 사람은 선생님이에요.",
+      "alternativeAnswers": ["어제 만난 사람은 선생님입니다."],
+      "hint": "어제...",
+      "explanation": "過去に会った相手を -(으)ㄴ 사람 で修飾します。"
+    },
+    {
+      "id": "qt_adnominal_013_03",
+      "order": 3,
+      "japanese": "明日会う人は友達です。",
+      "korean": "내일 만날 사람은 친구예요.",
+      "alternativeAnswers": ["내일 만날 사람은 친구입니다."],
+      "hint": "내일...",
+      "explanation": "未来に会う予定の人を -(으)ㄹ 사람 で表します。"
+    },
+    {
+      "id": "qt_adnominal_013_04",
+      "order": 4,
+      "japanese": "料理する人は父です。",
+      "korean": "요리하는 사람은 아빠예요.",
+      "alternativeAnswers": ["요리하는 사람은 아빠입니다."],
+      "hint": "요리하...",
+      "explanation": "現在行う役割の人を連体形で示します。"
+    },
+    {
+      "id": "qt_adnominal_013_05",
+      "order": 5,
+      "japanese": "手伝ってくれる人に感謝します。",
+      "korean": "도와주는 사람에게 감사해요.",
+      "alternativeAnswers": ["도와주는 사람에게 감사합니다."],
+      "hint": "도와주...",
+      "explanation": "継続して助ける人を -는 사람 で表します。"
+    },
+    {
+      "id": "qt_adnominal_013_06",
+      "order": 6,
+      "japanese": "本を読む人が多いです。",
+      "korean": "책을 읽는 사람이 많아요.",
+      "alternativeAnswers": ["책을 읽는 사람이 많습니다."],
+      "hint": "책을...",
+      "explanation": "現在の習慣的行為をする人を示します。"
+    },
+    {
+      "id": "qt_adnominal_013_07",
+      "order": 7,
+      "japanese": "運動する人は健康です。",
+      "korean": "운동하는 사람이 건강해요.",
+      "alternativeAnswers": ["운동하는 사람이 건강합니다."],
+      "hint": "운동하...",
+      "explanation": "行為と性質を結びつけて名詞を修飾します。"
+    },
+    {
+      "id": "qt_adnominal_013_08",
+      "order": 8,
+      "japanese": "歌が上手な人です。",
+      "korean": "노래를 잘하는 사람이에요.",
+      "alternativeAnswers": ["노래를 잘하는 사람입니다."],
+      "hint": "노래를...",
+      "explanation": "能力を表す行為で人を修飾する例です。"
+    },
+    {
+      "id": "qt_adnominal_013_09",
+      "order": 9,
+      "japanese": "親切な人が好きです。",
+      "korean": "친절한 사람을 좋아해요.",
+      "alternativeAnswers": ["친절한 사람을 좋아합니다."],
+      "hint": "친절한...",
+      "explanation": "形容詞連体形で性格を表し人を修飾します。"
+    },
+    {
+      "id": "qt_adnominal_013_10",
+      "order": 10,
+      "japanese": "一緒に行く人がいません。",
+      "korean": "같이 갈 사람이 없어요.",
+      "alternativeAnswers": ["같이 갈 사람이 없습니다."],
+      "hint": "같이...",
+      "explanation": "未来に同行する予定の人を -(으)ㄹ 사람 で示します。"
+    }
+  ]
+}

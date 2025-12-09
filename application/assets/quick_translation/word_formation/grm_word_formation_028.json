@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_word_formation_028",
+  "grammarTitle": "수량 접미사",
+  "grammarSubtitle": "数量に関する接尾辞",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_028_01",
+      "order": 1,
+      "japanese": "二日目に会います。",
+      "korean": "둘째 날에 만나요.",
+      "alternativeAnswers": [],
+      "hint": "둘째...",
+      "explanation": "序数を表す-째を使い「二日目」を作っています。"
+    },
+    {
+      "id": "qt_word_formation_028_02",
+      "order": 2,
+      "japanese": "三人ずつ入ります。",
+      "korean": "세 명씩 들어가요.",
+      "alternativeAnswers": [],
+      "hint": "세 명씩...",
+      "explanation": "分配を表す接尾辞-씩で「三人ずつ」を示します。"
+    },
+    {
+      "id": "qt_word_formation_028_03",
+      "order": 3,
+      "japanese": "一つずつください。",
+      "korean": "하나씩 주세요.",
+      "alternativeAnswers": [],
+      "hint": "하나씩...",
+      "explanation": "数量の後に-씩を付けて「〜ずつ」を表現します。"
+    },
+    {
+      "id": "qt_word_formation_028_04",
+      "order": 4,
+      "japanese": "毎日一回ずつ運動します。",
+      "korean": "매일 한 번씩 운동해요.",
+      "alternativeAnswers": [],
+      "hint": "매일...",
+      "explanation": "回数詞に-씩を付けて習慣的な分配を示します。"
+    },
+    {
+      "id": "qt_word_formation_028_05",
+      "order": 5,
+      "japanese": "部屋を一部屋ずつ掃除します。",
+      "korean": "방을 하나씩 청소해요.",
+      "alternativeAnswers": [],
+      "hint": "방을...",
+      "explanation": "対象を一つずつ扱うときも-씩を用います。"
+    },
+    {
+      "id": "qt_word_formation_028_06",
+      "order": 6,
+      "japanese": "五ページ目を読みます。",
+      "korean": "다섯째 페이지를 읽어요.",
+      "alternativeAnswers": [],
+      "hint": "다섯째...",
+      "explanation": "順番を示す-째を付け「五番目のページ」と言います。"
+    },
+    {
+      "id": "qt_word_formation_028_07",
+      "order": 7,
+      "japanese": "一段階ずつ進みます。",
+      "korean": "한 단계씩 가요.",
+      "alternativeAnswers": [],
+      "hint": "한 단계씩...",
+      "explanation": "段階を表す名詞にも-씩を付け少しずつ進む様子を示します。"
+    },
+    {
+      "id": "qt_word_formation_028_08",
+      "order": 8,
+      "japanese": "週に二回ずつ勉強します。",
+      "korean": "일주일에 두 번씩 공부해요.",
+      "alternativeAnswers": [],
+      "hint": "일주일에...",
+      "explanation": "期間と一緒に使い「週に〜回ずつ」を表現します。"
+    },
+    {
+      "id": "qt_word_formation_028_09",
+      "order": 9,
+      "japanese": "四番目の子です。",
+      "korean": "넷째 아이예요.",
+      "alternativeAnswers": [],
+      "hint": "넷째...",
+      "explanation": "家族の順番にも-째を付け「四番目の子」と言います。"
+    },
+    {
+      "id": "qt_word_formation_028_10",
+      "order": 10,
+      "japanese": "三杯ずつ飲みました。",
+      "korean": "세 잔씩 마셨어요.",
+      "alternativeAnswers": [],
+      "hint": "세 잔씩...",
+      "explanation": "容器の単位の後にも-씩を付けて分ける数を示します。"
+    }
+  ]
+}

@@ -169,6 +169,75 @@ enum JapaneseOnIndex {
   }
 }
 
+/// 韓国語初声インデックス（ㄱ〜ㅎ）
+enum KoreanChoseongIndex {
+  giyeok('ㄱ', 0x1100), // ᄀ
+  nieun('ㄴ', 0x1102), // ᄂ
+  digeut('ㄷ', 0x1103), // ᄃ
+  rieul('ㄹ', 0x1105), // ᄅ
+  mieum('ㅁ', 0x1106), // ᄆ
+  bieup('ㅂ', 0x1107), // ᄇ
+  siot('ㅅ', 0x1109), // ᄉ
+  ieung('ㅇ', 0x110B), // ᄋ
+  jieut('ㅈ', 0x110C), // ᄌ
+  chieut('ㅊ', 0x110E), // ᄎ
+  kieuk('ㅋ', 0x110F), // ᄏ
+  tieut('ㅌ', 0x1110), // ᄐ
+  pieup('ㅍ', 0x1111), // ᄑ
+  hieut('ㅎ', 0x1112); // ᄒ
+
+  const KoreanChoseongIndex(this.label, this.choseongCode);
+
+  final String label;
+  final int choseongCode;
+
+  /// この初声インデックスに含まれる初声インデックスのリスト
+  /// 韓国語の初声インデックス（0〜18）:
+  /// ㄱ=0, ㄲ=1, ㄴ=2, ㄷ=3, ㄸ=4, ㄹ=5, ㅁ=6, ㅂ=7, ㅃ=8, ㅅ=9, ㅆ=10, ㅇ=11, ㅈ=12, ㅉ=13, ㅊ=14, ㅋ=15, ㅌ=16, ㅍ=17, ㅎ=18
+  List<int> get choseongIndices {
+    switch (this) {
+      case KoreanChoseongIndex.giyeok:
+        return [0, 1]; // ㄱ, ㄲ
+      case KoreanChoseongIndex.nieun:
+        return [2]; // ㄴ
+      case KoreanChoseongIndex.digeut:
+        return [3, 4]; // ㄷ, ㄸ
+      case KoreanChoseongIndex.rieul:
+        return [5]; // ㄹ
+      case KoreanChoseongIndex.mieum:
+        return [6]; // ㅁ
+      case KoreanChoseongIndex.bieup:
+        return [7, 8]; // ㅂ, ㅃ
+      case KoreanChoseongIndex.siot:
+        return [9, 10]; // ㅅ, ㅆ
+      case KoreanChoseongIndex.ieung:
+        return [11]; // ㅇ
+      case KoreanChoseongIndex.jieut:
+        return [12, 13]; // ㅈ, ㅉ
+      case KoreanChoseongIndex.chieut:
+        return [14]; // ㅊ
+      case KoreanChoseongIndex.kieuk:
+        return [15]; // ㅋ
+      case KoreanChoseongIndex.tieut:
+        return [16]; // ㅌ
+      case KoreanChoseongIndex.pieup:
+        return [17]; // ㅍ
+      case KoreanChoseongIndex.hieut:
+        return [18]; // ㅎ
+    }
+  }
+
+  /// 韓国語の読みがこの初声に属するかどうか
+  bool matches(String korean) {
+    if (korean.isEmpty) return false;
+    final firstChar = korean.codeUnitAt(0);
+    // ハングル音節範囲: AC00 ~ D7A3
+    if (firstChar < 0xAC00 || firstChar > 0xD7A3) return false;
+    final choseongIndex = (firstChar - 0xAC00) ~/ 588; // 588 = 21 * 28
+    return choseongIndices.contains(choseongIndex);
+  }
+}
+
 class HanjaFilterState {
   const HanjaFilterState({
     this.searchQuery = '',
@@ -176,6 +245,7 @@ class HanjaFilterState {
     this.selectedCategory,
     this.searchType = HanjaSearchType.all,
     this.japaneseOnIndex,
+    this.koreanChoseongIndex,
   });
 
   final String searchQuery;
@@ -183,6 +253,7 @@ class HanjaFilterState {
   final HanjaWordCategory? selectedCategory;
   final HanjaSearchType searchType;
   final JapaneseOnIndex? japaneseOnIndex;
+  final KoreanChoseongIndex? koreanChoseongIndex;
 
   HanjaFilterState copyWith({
     String? searchQuery,
@@ -190,9 +261,11 @@ class HanjaFilterState {
     HanjaWordCategory? selectedCategory,
     HanjaSearchType? searchType,
     JapaneseOnIndex? japaneseOnIndex,
+    KoreanChoseongIndex? koreanChoseongIndex,
     bool clearLevel = false,
     bool clearCategory = false,
     bool clearJapaneseOnIndex = false,
+    bool clearKoreanChoseongIndex = false,
   }) {
     return HanjaFilterState(
       searchQuery: searchQuery ?? this.searchQuery,
@@ -200,6 +273,7 @@ class HanjaFilterState {
       selectedCategory: clearCategory ? null : (selectedCategory ?? this.selectedCategory),
       searchType: searchType ?? this.searchType,
       japaneseOnIndex: clearJapaneseOnIndex ? null : (japaneseOnIndex ?? this.japaneseOnIndex),
+      koreanChoseongIndex: clearKoreanChoseongIndex ? null : (koreanChoseongIndex ?? this.koreanChoseongIndex),
     );
   }
 
@@ -207,7 +281,8 @@ class HanjaFilterState {
       searchQuery.isNotEmpty ||
       selectedLevel != null ||
       selectedCategory != null ||
-      japaneseOnIndex != null;
+      japaneseOnIndex != null ||
+      koreanChoseongIndex != null;
 }
 
 enum HanjaSearchType {
@@ -252,6 +327,18 @@ class HanjaFilterNotifier extends _$HanjaFilterNotifier {
       selectedCategory: state.selectedCategory,
       searchType: state.searchType,
       japaneseOnIndex: index,
+      koreanChoseongIndex: null, // 日本語インデックス選択時は韓国語をクリア
+    );
+  }
+
+  void setKoreanChoseongIndex(KoreanChoseongIndex? index) {
+    state = HanjaFilterState(
+      searchQuery: state.searchQuery,
+      selectedLevel: state.selectedLevel,
+      selectedCategory: state.selectedCategory,
+      searchType: state.searchType,
+      japaneseOnIndex: null, // 韓国語インデックス選択時は日本語をクリア
+      koreanChoseongIndex: index,
     );
   }
 
@@ -313,8 +400,36 @@ Future<HanjaSearchResult> filteredHanjaSearch(Ref ref) async {
         words = words.where((w) => w.category == filter.selectedCategory).toList();
       }
     }
+  } else if (filter.koreanChoseongIndex != null) {
+    // 韓国語初声インデックスフィルターがある場合
+    final choseongIndices = filter.koreanChoseongIndex!.choseongIndices;
+
+    if (showCharacters) {
+      characters = await repository.filterCharactersByKoreanChoseong(choseongIndices);
+      // 追加のフィルター適用
+      if (filter.searchQuery.isNotEmpty) {
+        characters = characters.where((c) => c.matchesSearch(filter.searchQuery)).toList();
+      }
+      if (filter.selectedLevel != null) {
+        characters = characters.where((c) => c.level == filter.selectedLevel).toList();
+      }
+    }
+
+    if (showWords) {
+      words = await repository.filterWordsByKoreanChoseong(choseongIndices);
+      // 追加のフィルター適用
+      if (filter.searchQuery.isNotEmpty) {
+        words = words.where((w) => w.matchesSearch(filter.searchQuery)).toList();
+      }
+      if (filter.selectedLevel != null) {
+        words = words.where((w) => w.level == filter.selectedLevel).toList();
+      }
+      if (filter.selectedCategory != null) {
+        words = words.where((w) => w.category == filter.selectedCategory).toList();
+      }
+    }
   } else {
-    // 五十音インデックスフィルターがない場合（従来の検索）
+    // インデックスフィルターがない場合（従来の検索）
     if (showCharacters) {
       characters = await repository.searchCharacters(filter.searchQuery);
       if (filter.selectedLevel != null) {

@@ -1,0 +1,102 @@
+{
+  "grammarRef": "grm_expression_033",
+  "grammarTitle": "-(으)ㄹ수록",
+  "grammarSubtitle": "〜すればするほど",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_033_01",
+      "order": 1,
+      "japanese": "見れば見るほどきれいです。",
+      "korean": "볼수록 예뻐요.",
+      "alternativeAnswers": [],
+      "hint": "볼수록...",
+      "explanation": "反復による変化を示す「-ㄹ수록」で見るほど美しく感じることを表します。"
+    },
+    {
+      "id": "qt_expression_033_02",
+      "order": 2,
+      "japanese": "聞けば聞くほど好きになります。",
+      "korean": "들을수록 좋아요.",
+      "alternativeAnswers": [
+        "들을수록 좋아집니다."
+      ],
+      "hint": "들을수록...",
+      "explanation": "聞く回数が増えるほど好感が増すことを「-ㄹ수록」で表現します。"
+    },
+    {
+      "id": "qt_expression_033_03",
+      "order": 3,
+      "japanese": "勉強すればするほど難しいです。",
+      "korean": "배울수록 어려워요.",
+      "alternativeAnswers": [],
+      "hint": "배울수록...",
+      "explanation": "程度が深まるほど難しくなることを「-ㄹ수록」で示します。"
+    },
+    {
+      "id": "qt_expression_033_04",
+      "order": 4,
+      "japanese": "練習すればするほど速くなります。",
+      "korean": "연습할수록 빨라요.",
+      "alternativeAnswers": [],
+      "hint": "연습할...",
+      "explanation": "練習量に比例した変化を「-ㄹ수록」で表します。"
+    },
+    {
+      "id": "qt_expression_033_05",
+      "order": 5,
+      "japanese": "考えれば考えるほど面白いです。",
+      "korean": "생각할수록 재미있어요.",
+      "alternativeAnswers": [],
+      "hint": "생각할...",
+      "explanation": "考えるほど面白さが増すことを「-ㄹ수록」で示します。"
+    },
+    {
+      "id": "qt_expression_033_06",
+      "order": 6,
+      "japanese": "会えば会うほど楽です。",
+      "korean": "만날수록 편해요.",
+      "alternativeAnswers": [],
+      "hint": "만날...",
+      "explanation": "会う頻度が増えるほど気楽になることを「-ㄹ수록」で表現します。"
+    },
+    {
+      "id": "qt_expression_033_07",
+      "order": 7,
+      "japanese": "歩けば歩くほど健康になります。",
+      "korean": "걸을수록 건강해요.",
+      "alternativeAnswers": [
+        "걸을수록 건강합니다."
+      ],
+      "hint": "걸을...",
+      "explanation": "歩行量と健康の比例を「-ㄹ수록」で示します。"
+    },
+    {
+      "id": "qt_expression_033_08",
+      "order": 8,
+      "japanese": "働けば働くほど疲れます。",
+      "korean": "일할수록 피곤해요.",
+      "alternativeAnswers": [],
+      "hint": "일할...",
+      "explanation": "仕事量に比例して疲れることを「-ㄹ수록」で表現します。"
+    },
+    {
+      "id": "qt_expression_033_09",
+      "order": 9,
+      "japanese": "寒ければ寒いほど温かいお茶が好きです。",
+      "korean": "추울수록 따뜻한 차가 좋아요.",
+      "alternativeAnswers": [],
+      "hint": "추울수록...",
+      "explanation": "条件が強まるほど別の欲求が増す関係を「-ㄹ수록」で示します。"
+    },
+    {
+      "id": "qt_expression_033_10",
+      "order": 10,
+      "japanese": "見れば見るほど不思議です。",
+      "korean": "볼수록 신기해요.",
+      "alternativeAnswers": [],
+      "hint": "볼수록...",
+      "explanation": "反復しても感覚が増す状況を「-ㄹ수록」で表します。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_039",
+  "grammarTitle": "무엇/뭐",
+  "grammarSubtitle": "疑問代名詞（何）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_039_01",
+      "order": 1,
+      "japanese": "何を食べますか？",
+      "korean": "뭐 먹어요?",
+      "alternativeAnswers": ["무엇을 먹어요?", "무엇을 먹습니까?"],
+      "hint": "뭐 ...",
+      "explanation": "目的語に 무엇/뭐 を置いて対象を尋ねます。"
+    },
+    {
+      "id": "qt_substantive_039_02",
+      "order": 2,
+      "japanese": "何がありますか？",
+      "korean": "뭐가 있어요?",
+      "alternativeAnswers": ["무엇이 있어요?", "무엇이 있습니까?"],
+      "hint": "뭐가...",
+      "explanation": "主語でも 뭐가/무엇이 を用いて存在を聞きます。"
+    },
+    {
+      "id": "qt_substantive_039_03",
+      "order": 3,
+      "japanese": "これは何ですか？",
+      "korean": "이건 뭐예요?",
+      "alternativeAnswers": ["이것은 무엇이에요?", "이것은 무엇입니까?"],
+      "hint": "이건...",
+      "explanation": "正体を聞くとき 〜은 무엇/뭐예요? を使います。"
+    },
+    {
+      "id": "qt_substantive_039_04",
+      "order": 4,
+      "japanese": "何を買いましたか？",
+      "korean": "뭐 샀어요?",
+      "alternativeAnswers": ["무엇을 샀어요?", "무엇을 샀습니까?"],
+      "hint": "뭐 ...",
+      "explanation": "行為の対象を尋ねるときも 무엇/뭐 を使います。"
+    },
+    {
+      "id": "qt_substantive_039_05",
+      "order": 5,
+      "japanese": "何を聞いていますか？",
+      "korean": "뭐 듣고 있어요?",
+      "alternativeAnswers": ["무엇을 듣고 있어요?"],
+      "hint": "뭐 든...",
+      "explanation": "進行中の行為でも 무엇/뭐 + 動詞形 を置きます。"
+    },
+    {
+      "id": "qt_substantive_039_06",
+      "order": 6,
+      "japanese": "何が必要ですか？",
+      "korean": "뭐가 필요해요?",
+      "alternativeAnswers": ["무엇이 필요해요?", "무엇이 필요합니까?"],
+      "hint": "뭐가...",
+      "explanation": "必要な物を尋ねるとき 뭐가 필요해요? と言います。"
+    },
+    {
+      "id": "qt_substantive_039_07",
+      "order": 7,
+      "japanese": "あなたの趣味は何ですか？",
+      "korean": "취미가 뭐예요?",
+      "alternativeAnswers": ["취미가 무엇이에요?", "취미가 무엇입니까?"],
+      "hint": "취미...",
+      "explanation": "名詞の内容を聞くとき도 무엇/뭐 を用います。"
+    },
+    {
+      "id": "qt_substantive_039_08",
+      "order": 8,
+      "japanese": "今何をしていますか？",
+      "korean": "지금 뭐 해요?",
+      "alternativeAnswers": ["지금 무엇을 해요?", "지금 무엇을 합니까?"],
+      "hint": "지금 ...",
+      "explanation": "現在の行動を問うとき도 무엇/뭐 を使います。"
+    },
+    {
+      "id": "qt_substantive_039_09",
+      "order": 9,
+      "japanese": "昨日何を見ましたか？",
+      "korean": "어제 뭐 봤어요?",
+      "alternativeAnswers": ["어제 무엇을 봤어요?"],
+      "hint": "어제 ...",
+      "explanation": "過去の対象も 무엇/뭐 で尋ねます。"
+    },
+    {
+      "id": "qt_substantive_039_10",
+      "order": 10,
+      "japanese": "何の音ですか？",
+      "korean": "이 소리가 뭐예요?",
+      "alternativeAnswers": ["이 소리가 무엇이에요?"],
+      "hint": "이 소...",
+      "explanation": "音の正体も 무엇/뭐 로確認します。"
+    }
+  ]
+}

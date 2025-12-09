@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_051",
+  "grammarTitle": "저희",
+  "grammarSubtitle": "우리の謙譲語（私ども）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_051_01",
+      "order": 1,
+      "japanese": "私たちの会社は小さいです。",
+      "korean": "저희 회사는 작아요.",
+      "alternativeAnswers": ["저희 회사는 작습니다."],
+      "hint": "저희...",
+      "explanation": "謙譲の複数形は 저희 를使い丁寧に表します。"
+    },
+    {
+      "id": "qt_substantive_051_02",
+      "order": 2,
+      "japanese": "私たちは三人です。",
+      "korean": "저희는 세 명이에요.",
+      "alternativeAnswers": ["저희는 세 명입니다."],
+      "hint": "저희...",
+      "explanation": "人数を言うとき도 주어を 저희 で謙譲します。"
+    },
+    {
+      "id": "qt_substantive_051_03",
+      "order": 3,
+      "japanese": "私たちの家は近いです。",
+      "korean": "저희 집은 가까워요.",
+      "alternativeAnswers": ["저희 집은 가깝습니다."],
+      "hint": "저희 집...",
+      "explanation": "所有を表すとき 저희 + 名詞 で丁寧に言います。"
+    },
+    {
+      "id": "qt_substantive_051_04",
+      "order": 4,
+      "japanese": "私たちの先生は親切です。",
+      "korean": "저희 선생님은 친절해요.",
+      "alternativeAnswers": ["저희 선생님은 친절합니다."],
+      "hint": "저희 선...",
+      "explanation": "関係者を言うとき도 저희 를使って敬意を示します。"
+    },
+    {
+      "id": "qt_substantive_051_05",
+      "order": 5,
+      "japanese": "私たちの家族は五人です。",
+      "korean": "저희 가족은 다섯 명이에요.",
+      "alternativeAnswers": ["저희 가족은 다섯 명입니다."],
+      "hint": "저희 가...",
+      "explanation": "家族を紹介するとき 주어を 저희 で謙譲します。"
+    },
+    {
+      "id": "qt_substantive_051_06",
+      "order": 6,
+      "japanese": "私たちが行きます。",
+      "korean": "저희가 갈게요.",
+      "alternativeAnswers": ["저희가 가겠습니다."],
+      "hint": "저희가...",
+      "explanation": "우리 대신 저희가 で丁寧に主体を表します。"
+    },
+    {
+      "id": "qt_substantive_051_07",
+      "order": 7,
+      "japanese": "私たちの学校は有名です。",
+      "korean": "저희 학교는 유명해요.",
+      "alternativeAnswers": ["저희 학교는 유명합니다."],
+      "hint": "저희 학...",
+      "explanation": "所属を示すとき도 저희 + 名詞 を用います。"
+    },
+    {
+      "id": "qt_substantive_051_08",
+      "order": 8,
+      "japanese": "私たちの席はここです。",
+      "korean": "저희 자리는 여기예요.",
+      "alternativeAnswers": ["저희 자리는 여기입니다."],
+      "hint": "저희 자...",
+      "explanation": "座席などの所有も 저희 로丁寧に伝えます。"
+    },
+    {
+      "id": "qt_substantive_051_09",
+      "order": 9,
+      "japanese": "私たちの店は駅の前です。",
+      "korean": "저희 가게는 역 앞이에요.",
+      "alternativeAnswers": ["저희 가게는 역 앞입니다."],
+      "hint": "저희 가...",
+      "explanation": "店などの所有でも 저희 を使いへりくだります。"
+    },
+    {
+      "id": "qt_substantive_051_10",
+      "order": 10,
+      "japanese": "私たちのチームは十人です。",
+      "korean": "저희 팀은 열 명이에요.",
+      "alternativeAnswers": ["저희 팀은 열 명입니다."],
+      "hint": "저희 팀...",
+      "explanation": "団体を紹介するとき 우리 대신 저희 를使います。"
+    }
+  ]
+}

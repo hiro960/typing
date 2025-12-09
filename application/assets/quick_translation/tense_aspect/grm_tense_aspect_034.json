@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_034",
+  "grammarTitle": "-기로 하다",
+  "grammarSubtitle": "決定（〜することにする）",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_034_01",
+      "order": 1,
+      "japanese": "友だちと運動することにしました。",
+      "korean": "친구랑 운동하기로 했어요.",
+      "alternativeAnswers": [
+        "친구랑 운동하기로 했습니다."
+      ],
+      "hint": "친구랑...",
+      "explanation": "ある行動をすると決めた意思を「-기로 하다」で表します。"
+    },
+    {
+      "id": "qt_tense_aspect_034_02",
+      "order": 2,
+      "japanese": "明日から早起きすることにしました。",
+      "korean": "내일부터 일찍 일어나기로 했어요.",
+      "alternativeAnswers": [
+        "내일부터 일찍 일어나기로 했습니다."
+      ],
+      "hint": "내일부터...",
+      "explanation": "自分で決めた計画や約束を述べる形です。"
+    },
+    {
+      "id": "qt_tense_aspect_034_03",
+      "order": 3,
+      "japanese": "今日はバスに乗ることにしました。",
+      "korean": "오늘은 버스를 타기로 했어요.",
+      "alternativeAnswers": [
+        "오늘은 버스를 타기로 했습니다."
+      ],
+      "hint": "오늘은...",
+      "explanation": "その場で決めた選択を表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_034_04",
+      "order": 4,
+      "japanese": "週末は休むことにしました。",
+      "korean": "주말에는 쉬기로 했어요.",
+      "alternativeAnswers": [
+        "주말에는 쉬기로 했습니다."
+      ],
+      "hint": "주말에는...",
+      "explanation": "自分の方針や予定を決めたことを示します。"
+    },
+    {
+      "id": "qt_tense_aspect_034_05",
+      "order": 5,
+      "japanese": "コーヒーを減らすことにしました。",
+      "korean": "커피를 줄이기로 했어요.",
+      "alternativeAnswers": [
+        "커피를 줄이기로 했습니다."
+      ],
+      "hint": "커피를...",
+      "explanation": "習慣を変える決心を表すときに使います。"
+    },
+    {
+      "id": "qt_tense_aspect_034_06",
+      "order": 6,
+      "japanese": "韓国語の本を読むことにしました。",
+      "korean": "한국어 책을 읽기로 했어요.",
+      "alternativeAnswers": [
+        "한국어 책을 읽기로 했습니다."
+      ],
+      "hint": "한국어 책을...",
+      "explanation": "やると決めた具体的な行動を伝えます。"
+    },
+    {
+      "id": "qt_tense_aspect_034_07",
+      "order": 7,
+      "japanese": "約束を守ることにしました。",
+      "korean": "약속을 지키기로 했어요.",
+      "alternativeAnswers": [
+        "약속을 지키기로 했습니다."
+      ],
+      "hint": "약속을...",
+      "explanation": "守ると決めた意志を表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_034_08",
+      "order": 8,
+      "japanese": "薬を必ず飲むことにしました。",
+      "korean": "약을 꼭 먹기로 했어요.",
+      "alternativeAnswers": [
+        "약을 꼭 먹기로 했습니다."
+      ],
+      "hint": "약을...",
+      "explanation": "決意をこめて行動を定めるとき使います。"
+    },
+    {
+      "id": "qt_tense_aspect_034_09",
+      "order": 9,
+      "japanese": "毎日運動することにしました。",
+      "korean": "매일 운동하기로 했어요.",
+      "alternativeAnswers": [
+        "매일 운동하기로 했습니다."
+      ],
+      "hint": "매일...",
+      "explanation": "習慣を作る決心を伝える用法です。"
+    },
+    {
+      "id": "qt_tense_aspect_034_10",
+      "order": 10,
+      "japanese": "来月旅行に行くことにしました。",
+      "korean": "다음 달에 여행 가기로 했어요.",
+      "alternativeAnswers": [
+        "다음 달에 여행 가기로 했습니다."
+      ],
+      "hint": "다음 달에...",
+      "explanation": "予定を決めた事実を「-기로 하다」で表します。"
+    }
+  ]
+}

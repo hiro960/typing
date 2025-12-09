@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_012",
+  "grammarTitle": "어간과 어미",
+  "grammarSubtitle": "語幹・語尾・接尾辞",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_012_01",
+      "order": 1,
+      "japanese": "本を読みます。",
+      "korean": "책을 읽어요.",
+      "alternativeAnswers": ["책을 읽습니다."],
+      "hint": "책을...",
+      "explanation": "語幹「읽」に終結語尾「-어요/-ㅂ니다」が付いて活用します。"
+    },
+    {
+      "id": "qt_conjugation_012_02",
+      "order": 2,
+      "japanese": "昨日ご飯を食べました。",
+      "korean": "어제 밥을 먹었어요.",
+      "alternativeAnswers": ["어제 밥을 먹었습니다."],
+      "hint": "어제...",
+      "explanation": "語幹「먹」に過去接尾辞「-었-」と語尾「-어요」を付けています。"
+    },
+    {
+      "id": "qt_conjugation_012_03",
+      "order": 3,
+      "japanese": "明日行くつもりです。",
+      "korean": "내일 갈 거예요.",
+      "alternativeAnswers": ["내일 가겠습니다."],
+      "hint": "내일...",
+      "explanation": "語幹「가」に未来連体形「-ㄹ」＋「거예요」、格式体では「-겠-」を用います。"
+    },
+    {
+      "id": "qt_conjugation_012_04",
+      "order": 4,
+      "japanese": "先生が来られます。",
+      "korean": "선생님이 오세요.",
+      "alternativeAnswers": ["선생님이 오십니다."],
+      "hint": "선생님이...",
+      "explanation": "語幹「오」に尊敬接尾辞「-시-」と終結語尾が付いています。"
+    },
+    {
+      "id": "qt_conjugation_012_05",
+      "order": 5,
+      "japanese": "コーヒーを飲んで勉強します。",
+      "korean": "커피를 마시고 공부해요.",
+      "alternativeAnswers": ["커피를 마시고 공부합니다."],
+      "hint": "커피를...",
+      "explanation": "語幹「마시」に連結語尾「-고」を付け、後ろに終結語尾が続きます。"
+    },
+    {
+      "id": "qt_conjugation_012_06",
+      "order": 6,
+      "japanese": "いい天気ですね。",
+      "korean": "날씨가 좋네요.",
+      "alternativeAnswers": ["날씨가 좋습니다."],
+      "hint": "날씨가...",
+      "explanation": "語幹「좋」に終結語尾「-네요」で感嘆を表しています。"
+    },
+    {
+      "id": "qt_conjugation_012_07",
+      "order": 7,
+      "japanese": "今宿題をしています。",
+      "korean": "지금 숙제하고 있어요.",
+      "alternativeAnswers": ["지금 숙제하고 있습니다."],
+      "hint": "지금...",
+      "explanation": "語幹「숙제하」に連結語尾「-고」＋進行形「있어요」が付いています。"
+    },
+    {
+      "id": "qt_conjugation_012_08",
+      "order": 8,
+      "japanese": "背が伸びました。",
+      "korean": "키가 컸어요.",
+      "alternativeAnswers": ["키가 컸습니다."],
+      "hint": "키가...",
+      "explanation": "語幹「크」に過去接尾辞「-었-」と終結語尾が結合し「컸어요」になります。"
+    },
+    {
+      "id": "qt_conjugation_012_09",
+      "order": 9,
+      "japanese": "早く起きましょう。",
+      "korean": "우리 빨리 일어나요.",
+      "alternativeAnswers": ["빨리 일어납시다."],
+      "hint": "빨리...",
+      "explanation": "勧誘は 해요体なら「우리 일어나요」、より格式的には終結語尾「-ㅂ시다」を使います。"
+    },
+    {
+      "id": "qt_conjugation_012_10",
+      "order": 10,
+      "japanese": "勉強する人を探します。",
+      "korean": "공부하는 사람을 찾아요.",
+      "alternativeAnswers": ["공부하는 사람을 찾습니다."],
+      "hint": "공부하...",
+      "explanation": "語幹「공부하」に連体形語尾「-는」を付け名詞を修飾し、後続述語に終結語尾を付けます。"
+    }
+  ]
+}

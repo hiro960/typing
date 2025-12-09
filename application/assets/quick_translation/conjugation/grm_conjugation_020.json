@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_020",
+  "grammarTitle": "지정사의 활용",
+  "grammarSubtitle": "指定詞の活用",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_020_01",
+      "order": 1,
+      "japanese": "私は学生です。",
+      "korean": "저는 학생이에요.",
+      "alternativeAnswers": ["저는 학생입니다."],
+      "hint": "저는...",
+      "explanation": "パッチムありの名詞「학생」には指定詞「이에요/입니다」が付きます。"
+    },
+    {
+      "id": "qt_conjugation_020_02",
+      "order": 2,
+      "japanese": "これは本です。",
+      "korean": "이것은 책이에요.",
+      "alternativeAnswers": ["이것은 책입니다."],
+      "hint": "이것은...",
+      "explanation": "パッチムありの「책」に「이에요」を付けて名詞述語文を作ります。"
+    },
+    {
+      "id": "qt_conjugation_020_03",
+      "order": 3,
+      "japanese": "彼は先生です。",
+      "korean": "그는 선생님이에요.",
+      "alternativeAnswers": ["그는 선생님입니다.", "그분은 선생님이세요."],
+      "hint": "그는...",
+      "explanation": "名詞に指定詞を付けて「〜です」を表し、丁寧・格式体も可能です。"
+    },
+    {
+      "id": "qt_conjugation_020_04",
+      "order": 4,
+      "japanese": "私は会社員ではありません。",
+      "korean": "저는 회사원이 아니에요.",
+      "alternativeAnswers": ["저는 회사원이 아닙니다."],
+      "hint": "저는...",
+      "explanation": "否定の指定詞「아니다」は助詞「이/가」と共に「아니에요/아닙니다」と活用します。"
+    },
+    {
+      "id": "qt_conjugation_020_05",
+      "order": 5,
+      "japanese": "今日は月曜日です。",
+      "korean": "오늘은 월요일이에요.",
+      "alternativeAnswers": ["오늘은 월요일입니다."],
+      "hint": "오늘은...",
+      "explanation": "パッチムありの名詞にも「이에요/입니다」を付けます。"
+    },
+    {
+      "id": "qt_conjugation_020_06",
+      "order": 6,
+      "japanese": "これは私の本ではありません。",
+      "korean": "이것은 제 책이 아니에요.",
+      "alternativeAnswers": ["이것은 제 책이 아닙니다."],
+      "hint": "이것은...",
+      "explanation": "否定文では名詞＋이/가 + 아니에요 の形をとります。"
+    },
+    {
+      "id": "qt_conjugation_020_07",
+      "order": 7,
+      "japanese": "医者である父です。",
+      "korean": "의사인 아버지예요.",
+      "alternativeAnswers": ["의사인 아버지입니다."],
+      "hint": "의사인...",
+      "explanation": "指定詞の連体形は「인」で、名詞を修飾してから指定詞を続けます。"
+    },
+    {
+      "id": "qt_conjugation_020_08",
+      "order": 8,
+      "japanese": "韓国人である友達です。",
+      "korean": "한국인인 친구예요.",
+      "alternativeAnswers": ["한국인인 친구입니다."],
+      "hint": "한국인인...",
+      "explanation": "名詞に「인」を付けて「〜である」を連体形にし、指定詞の活用を続けます。"
+    },
+    {
+      "id": "qt_conjugation_020_09",
+      "order": 9,
+      "japanese": "それは猫です。",
+      "korean": "그것은 고양이에요.",
+      "alternativeAnswers": ["그것은 고양이입니다."],
+      "hint": "그것은...",
+      "explanation": "パッチムなしの名詞でも「이에요/예요」を使い分けて指定詞を付けます。"
+    },
+    {
+      "id": "qt_conjugation_020_10",
+      "order": 10,
+      "japanese": "ここはカフェではありません。",
+      "korean": "여기는 카페가 아니에요.",
+      "alternativeAnswers": ["여기는 카페가 아닙니다."],
+      "hint": "여기는...",
+      "explanation": "否定の指定詞では名詞＋이/가＋아니에요 の形を用います。"
+    }
+  ]
+}

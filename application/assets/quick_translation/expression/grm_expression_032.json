@@ -1,0 +1,104 @@
+{
+  "grammarRef": "grm_expression_032",
+  "grammarTitle": "-(으)ㄴ/는 만큼",
+  "grammarSubtitle": "〜するだけ／〜するほど",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_032_01",
+      "order": 1,
+      "japanese": "練習した分だけ上達しました。",
+      "korean": "연습한 만큼 늘었어요.",
+      "alternativeAnswers": [
+        "연습한 만큼 늘었습니다."
+      ],
+      "hint": "연습한...",
+      "explanation": "前件の程度に比例する結果を「-ㄴ 만큼」で示します。"
+    },
+    {
+      "id": "qt_expression_032_02",
+      "order": 2,
+      "japanese": "食べた分だけお腹がいっぱいです。",
+      "korean": "먹은 만큼 배불러요.",
+      "alternativeAnswers": [],
+      "hint": "먹은...",
+      "explanation": "量に応じた状態を表すため「먹은 만큼」を使います。"
+    },
+    {
+      "id": "qt_expression_032_03",
+      "order": 3,
+      "japanese": "待った分だけうれしいです。",
+      "korean": "기다린 만큼 기뻐요.",
+      "alternativeAnswers": [],
+      "hint": "기다린...",
+      "explanation": "努力に比例した感情を「-ㄴ 만큼」で表現します。"
+    },
+    {
+      "id": "qt_expression_032_04",
+      "order": 4,
+      "japanese": "欲しいだけ持っていってください。",
+      "korean": "원하는 만큼 가져가세요.",
+      "alternativeAnswers": [],
+      "hint": "원하는...",
+      "explanation": "希望量に合わせるとき現在連体形「-는 만큼」を使います。"
+    },
+    {
+      "id": "qt_expression_032_05",
+      "order": 5,
+      "japanese": "好きなだけ話してください。",
+      "korean": "좋아하는 만큼 말하세요.",
+      "alternativeAnswers": [
+        "좋아하는 만큼 말씀하세요."
+      ],
+      "hint": "좋아하는...",
+      "explanation": "程度に応じた自由を与える形で「-는 만큼」を用います。"
+    },
+    {
+      "id": "qt_expression_032_06",
+      "order": 6,
+      "japanese": "勉強した分点数が出ました。",
+      "korean": "공부한 만큼 점수가 나왔어요.",
+      "alternativeAnswers": [
+        "공부한 만큼 점수가 나왔습니다."
+      ],
+      "hint": "공부한...",
+      "explanation": "努力量と結果の対応を「-ㄴ 만큼」で示します。"
+    },
+    {
+      "id": "qt_expression_032_07",
+      "order": 7,
+      "japanese": "時間がない分、急いでください。",
+      "korean": "시간이 없는 만큼 빨리 하세요.",
+      "alternativeAnswers": [],
+      "hint": "시간이...",
+      "explanation": "不足量を理由にする際「없는 만큼」で急ぐことを促します。"
+    },
+    {
+      "id": "qt_expression_032_08",
+      "order": 8,
+      "japanese": "友達だから率直に話します。",
+      "korean": "친구인 만큼 솔직히 말해요.",
+      "alternativeAnswers": [],
+      "hint": "친구인...",
+      "explanation": "関係性を理由にして「인 만큼」で率直さを示します。"
+    },
+    {
+      "id": "qt_expression_032_09",
+      "order": 9,
+      "japanese": "暑くないだけ快適です。",
+      "korean": "덥지 않은 만큼 괜찮아요.",
+      "alternativeAnswers": [],
+      "hint": "덥지...",
+      "explanation": "否定形連体形「-지 않은 만큼」で条件に応じた快適さを表します。"
+    },
+    {
+      "id": "qt_expression_032_10",
+      "order": 10,
+      "japanese": "助けた分だけ感謝しています。",
+      "korean": "도와준 만큼 고마워요.",
+      "alternativeAnswers": [],
+      "hint": "도와준...",
+      "explanation": "与えた助けに応じた感謝を「-ㄴ 만큼」で述べます。"
+    }
+  ]
+}

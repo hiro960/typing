@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_orthography_006",
+  "grammarTitle": "격음",
+  "grammarSubtitle": "激音",
+  "category": "orthography",
+  "questions": [
+    {
+      "id": "qt_orthography_006_01",
+      "order": 1,
+      "japanese": "「카」は強い息で発音します。",
+      "korean": "카는 숨을 세게 내요.",
+      "alternativeAnswers": ["카는 숨을 세게 냅니다."],
+      "hint": "카는...",
+      "explanation": "激音ㅋは強い息を前に出す有気音です。"
+    },
+    {
+      "id": "qt_orthography_006_02",
+      "order": 2,
+      "japanese": "「타」も大きく息を出します。",
+      "korean": "타는 숨을 크게 내요.",
+      "alternativeAnswers": ["타는 숨을 크게 냅니다."],
+      "hint": "타는...",
+      "explanation": "激音ㅌは強い息を伴う[tʰ]で、日本語タ行より息が強いです。"
+    },
+    {
+      "id": "qt_orthography_006_03",
+      "order": 3,
+      "japanese": "「파」は唇を強く開けます。",
+      "korean": "파는 입술을 세게 터뜨려요.",
+      "alternativeAnswers": ["파는 입술을 세게 터뜨립니다."],
+      "hint": "파는...",
+      "explanation": "激音ㅍは両唇を閉じてから強く開ける有気音です。"
+    },
+    {
+      "id": "qt_orthography_006_04",
+      "order": 4,
+      "japanese": "「차」は息を一気に出します。",
+      "korean": "차는 바람을 확 내보내요.",
+      "alternativeAnswers": ["차는 바람을 확 내보냅니다."],
+      "hint": "차는...",
+      "explanation": "激音ㅊは破擦音で、息を強く吹き出してはっきり発音します。"
+    },
+    {
+      "id": "qt_orthography_006_05",
+      "order": 5,
+      "japanese": "「커피」のㅋは濁りません。",
+      "korean": "커피의 ㅋ은 안 울려요.",
+      "alternativeAnswers": ["커피의 ㅋ은 안 울립니다."],
+      "hint": "커피...",
+      "explanation": "激音は語中でも有声化せず、ㅋは常に無声音で発音されます。"
+    },
+    {
+      "id": "qt_orthography_006_06",
+      "order": 6,
+      "japanese": "「토끼」のㅌも濁りません。",
+      "korean": "토끼의 ㅌ도 안 울려요.",
+      "alternativeAnswers": ["토끼의 ㅌ도 안 울립니다."],
+      "hint": "토끼...",
+      "explanation": "激音ㅌも位置に関係なく無声音を保ち、濁音になりません。"
+    },
+    {
+      "id": "qt_orthography_006_07",
+      "order": 7,
+      "japanese": "「좋다」は[조타]に変わります。",
+      "korean": "좋다는 [조타]로 들려요.",
+      "alternativeAnswers": ["좋다는 [조타]로 들립니다."],
+      "hint": "좋다...",
+      "explanation": "ㅎとㄷが隣接して激音化し、ㄷがㅌの強い息に変わります。"
+    },
+    {
+      "id": "qt_orthography_006_08",
+      "order": 8,
+      "japanese": "「입학」は[이팍]に近いです。",
+      "korean": "입학은 [이팍]으로 나요.",
+      "alternativeAnswers": ["입학은 [이팍]으로 납니다."],
+      "hint": "입학...",
+      "explanation": "ㅂの後ろにㅎが来て激音化し、ㅂがㅍに変わって強い息が出ます。"
+    },
+    {
+      "id": "qt_orthography_006_09",
+      "order": 9,
+      "japanese": "「차」と言うと紙がよく動きます。",
+      "korean": "차 하고 말하면 종이가 날려요.",
+      "alternativeAnswers": ["차 하고 말하면 종이가 날립니다."],
+      "hint": "차 하...",
+      "explanation": "激音は息が強く、ティッシュが大きく動くほど空気が出ます。"
+    },
+    {
+      "id": "qt_orthography_006_10",
+      "order": 10,
+      "japanese": "激音は中でも強い息のままです。",
+      "korean": "ㅋ ㅌ ㅍ ㅊ은 중간에서도 세요.",
+      "alternativeAnswers": ["ㅋ ㅌ ㅍ ㅊ은 중간에서도 셉니다."],
+      "hint": "ㅋ ㅌ...",
+      "explanation": "激音は語頭でも語中でも濁らず、常に強い息で発音します。"
+    }
+  ]
+}

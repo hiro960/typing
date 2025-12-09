@@ -1,0 +1,100 @@
+{
+  "grammarRef": "grm_word_formation_012",
+  "grammarTitle": "천천히",
+  "grammarSubtitle": "様態副詞（ゆっくり）",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_012_01",
+      "order": 1,
+      "japanese": "ゆっくり話してください。",
+      "korean": "천천히 말해 주세요.",
+      "alternativeAnswers": [],
+      "hint": "천천히...",
+      "explanation": "速度を落としてほしいとき動詞の前に「천천히」を置きます。"
+    },
+    {
+      "id": "qt_word_formation_012_02",
+      "order": 2,
+      "japanese": "ゆっくり食べてください。",
+      "korean": "천천히 드세요.",
+      "alternativeAnswers": [
+        "천천히 먹어 주세요."
+      ],
+      "hint": "천천히...",
+      "explanation": "食事動作に付けて「ゆっくり食べて」を丁寧に伝えます。"
+    },
+    {
+      "id": "qt_word_formation_012_03",
+      "order": 3,
+      "japanese": "ゆっくり歩きます。",
+      "korean": "천천히 걸어요.",
+      "alternativeAnswers": [],
+      "hint": "천천히...",
+      "explanation": "歩く速度を示し「ゆっくり歩く」と言います。"
+    },
+    {
+      "id": "qt_word_formation_012_04",
+      "order": 4,
+      "japanese": "ゆっくり読んでください。",
+      "korean": "천천히 읽어 주세요.",
+      "alternativeAnswers": [],
+      "hint": "천천히...",
+      "explanation": "読み上げる速度を落とすよう依頼する表現です。"
+    },
+    {
+      "id": "qt_word_formation_012_05",
+      "order": 5,
+      "japanese": "ゆっくり書きます。",
+      "korean": "천천히 써요.",
+      "alternativeAnswers": [],
+      "hint": "천천히...",
+      "explanation": "書く動作の前で様態を示し「ゆっくり書く」です。"
+    },
+    {
+      "id": "qt_word_formation_012_06",
+      "order": 6,
+      "japanese": "ゆっくり休んでください。",
+      "korean": "천천히 쉬세요.",
+      "alternativeAnswers": [],
+      "hint": "천천히...",
+      "explanation": "休む動作にも付けて急がなくてよいことを伝えます。"
+    },
+    {
+      "id": "qt_word_formation_012_07",
+      "order": 7,
+      "japanese": "ゆっくり行きましょう。",
+      "korean": "천천히 가요.",
+      "alternativeAnswers": [],
+      "hint": "천천히...",
+      "explanation": "移動の前で「ゆっくり行こう」と提案する形です。"
+    },
+    {
+      "id": "qt_word_formation_012_08",
+      "order": 8,
+      "japanese": "ゆっくり考えてください。",
+      "korean": "천천히 생각해 보세요.",
+      "alternativeAnswers": [],
+      "hint": "천천히...",
+      "explanation": "考える動作を急がせないよう「천천히」を添えます。"
+    },
+    {
+      "id": "qt_word_formation_012_09",
+      "order": 9,
+      "japanese": "ゆっくり運転してください。",
+      "korean": "천천히 운전해 주세요.",
+      "alternativeAnswers": [],
+      "hint": "천천히...",
+      "explanation": "運転の速度を抑えるよう丁寧に依頼する表現です。"
+    },
+    {
+      "id": "qt_word_formation_012_10",
+      "order": 10,
+      "japanese": "ゆっくり起きました。",
+      "korean": "천천히 일어났어요.",
+      "alternativeAnswers": [],
+      "hint": "천천히...",
+      "explanation": "起き上がる動作に付け「ゆっくり起きた」と述べます。"
+    }
+  ]
+}

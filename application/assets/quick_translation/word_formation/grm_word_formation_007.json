@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_word_formation_007",
+  "grammarTitle": "-답다",
+  "grammarSubtitle": "接尾辞（〜らしい）",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_007_01",
+      "order": 1,
+      "japanese": "あなたは本当に友達らしいです。",
+      "korean": "당신은 정말 친구답네요.",
+      "alternativeAnswers": [],
+      "hint": "당신은...",
+      "explanation": "名詞に「-답다」を付けてそのらしさを表します。"
+    },
+    {
+      "id": "qt_word_formation_007_02",
+      "order": 2,
+      "japanese": "彼は学生らしくよく勉強します。",
+      "korean": "그는 학생답게 공부를 잘해요.",
+      "alternativeAnswers": [],
+      "hint": "그는...",
+      "explanation": "学生らしい様子を表すため「학생답게」を使います。"
+    },
+    {
+      "id": "qt_word_formation_007_03",
+      "order": 3,
+      "japanese": "先生らしい言葉でした。",
+      "korean": "선생님다운 말이었어요.",
+      "alternativeAnswers": [],
+      "hint": "선생님다운...",
+      "explanation": "職業らしさを表すため名詞＋다운（-답다由来）を用います。"
+    },
+    {
+      "id": "qt_word_formation_007_04",
+      "order": 4,
+      "japanese": "大人らしく行動してください。",
+      "korean": "어른답게 행동하세요.",
+      "alternativeAnswers": [],
+      "hint": "어른답게...",
+      "explanation": "名詞に「답게」を付け、そのらしい行動を求めます。"
+    },
+    {
+      "id": "qt_word_formation_007_05",
+      "order": 5,
+      "japanese": "プロらしいプレーでした。",
+      "korean": "프로답게 잘했어요.",
+      "alternativeAnswers": [],
+      "hint": "프로답게...",
+      "explanation": "専門家らしい様子を名詞＋답게で示し、上手さを述べます。"
+    },
+    {
+      "id": "qt_word_formation_007_06",
+      "order": 6,
+      "japanese": "春らしい暖かさです。",
+      "korean": "봄답게 따뜻해요.",
+      "alternativeAnswers": [],
+      "hint": "봄답게...",
+      "explanation": "季節らしさを示すため「봄답게」を使っています。"
+    },
+    {
+      "id": "qt_word_formation_007_07",
+      "order": 7,
+      "japanese": "リーダーらしく決めてください。",
+      "korean": "리더답게 결정해 주세요.",
+      "alternativeAnswers": [],
+      "hint": "리더답게...",
+      "explanation": "役割らしい行動を促すとき名詞＋답게を用います。"
+    },
+    {
+      "id": "qt_word_formation_007_08",
+      "order": 8,
+      "japanese": "子どもらしい笑顔です。",
+      "korean": "아이답게 웃어요.",
+      "alternativeAnswers": [],
+      "hint": "아이답게...",
+      "explanation": "子どもらしさを表すため「아이답게」を使います。"
+    },
+    {
+      "id": "qt_word_formation_007_09",
+      "order": 9,
+      "japanese": "あなたは本当にあなたらしいです。",
+      "korean": "당신은 정말 당신다워요.",
+      "alternativeAnswers": [],
+      "hint": "당신은...",
+      "explanation": "自分らしさを強調するため「-답다」変形の「-다워요」を使用。"
+    },
+    {
+      "id": "qt_word_formation_007_10",
+      "order": 10,
+      "japanese": "春の花らしくきれいです。",
+      "korean": "봄꽃답게 예뻐요.",
+      "alternativeAnswers": [],
+      "hint": "봄꽃답게...",
+      "explanation": "そのものらしさを示す接尾辞「-답다」で表現しています。"
+    }
+  ]
+}

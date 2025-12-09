@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_016",
+  "grammarTitle": "-기 때문에",
+  "grammarSubtitle": "理由（〜だから）",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_016_01",
+      "order": 1,
+      "japanese": "雨だから傘を持っていきます。",
+      "korean": "비가 오기 때문에 우산을 가져가요.",
+      "alternativeAnswers": ["비가 오기 때문에 우산을 가져갑니다."],
+      "hint": "비가...",
+      "explanation": "理由を明確に言うとき「-기 때문에」を使います。"
+    },
+    {
+      "id": "qt_expression_016_02",
+      "order": 2,
+      "japanese": "疲れているので休みます。",
+      "korean": "피곤하기 때문에 쉬어요.",
+      "alternativeAnswers": ["피곤하기 때문에 쉽니다."],
+      "hint": "피곤하...",
+      "explanation": "状態が理由のとき形容詞に「-기 때문에」を付けます。"
+    },
+    {
+      "id": "qt_expression_016_03",
+      "order": 3,
+      "japanese": "時間がないので急ぎます。",
+      "korean": "시간이 없기 때문에 서둘러요.",
+      "alternativeAnswers": ["시간이 없기 때문에 서둡니다."],
+      "hint": "시간이...",
+      "explanation": "不足が原因のときも「-기 때문에」で理由を示します。"
+    },
+    {
+      "id": "qt_expression_016_04",
+      "order": 4,
+      "japanese": "学生だからお金がありません。",
+      "korean": "학생이기 때문에 돈이 없어요.",
+      "alternativeAnswers": ["학생이기 때문에 돈이 없습니다."],
+      "hint": "학생이...",
+      "explanation": "名詞に「이기 때문에」を付けて理由を言います。"
+    },
+    {
+      "id": "qt_expression_016_05",
+      "order": 5,
+      "japanese": "韓国語が好きだから勉強します。",
+      "korean": "한국어를 좋아하기 때문에 공부해요.",
+      "alternativeAnswers": ["한국어를 좋아하기 때문에 공부합니다."],
+      "hint": "한국어...",
+      "explanation": "動作の理由を明示するときの表現です。"
+    },
+    {
+      "id": "qt_expression_016_06",
+      "order": 6,
+      "japanese": "今日は休みだから家にいます。",
+      "korean": "오늘 쉬는 날이기 때문에 집에 있어요.",
+      "alternativeAnswers": ["오늘 쉬는 날이기 때문에 집에 있습니다."],
+      "hint": "오늘...",
+      "explanation": "事実を理由にするとき名詞＋이기 때문에を使います。"
+    },
+    {
+      "id": "qt_expression_016_07",
+      "order": 7,
+      "japanese": "風邪をひいたので薬を飲みます。",
+      "korean": "감기에 걸렸기 때문에 약을 먹어요.",
+      "alternativeAnswers": ["감기에 걸렸기 때문에 약을 먹습니다."],
+      "hint": "감기에...",
+      "explanation": "過去の出来事を理由にする場合も「-기 때문에」を用います。"
+    },
+    {
+      "id": "qt_expression_016_08",
+      "order": 8,
+      "japanese": "家が遠いのでバスに乗ります。",
+      "korean": "집이 멀기 때문에 버스를 타요.",
+      "alternativeAnswers": ["집이 멀기 때문에 버스를 탑니다."],
+      "hint": "집이...",
+      "explanation": "形容詞に付けて距離を理由にする言い方です。"
+    },
+    {
+      "id": "qt_expression_016_09",
+      "order": 9,
+      "japanese": "安いのでよく買います。",
+      "korean": "싸기 때문에 자주 사요.",
+      "alternativeAnswers": ["싸기 때문에 자주 삽니다."],
+      "hint": "싸기...",
+      "explanation": "価格が理由のときも「-기 때문에」で説明します。"
+    },
+    {
+      "id": "qt_expression_016_10",
+      "order": 10,
+      "japanese": "静かなのでここで勉強します。",
+      "korean": "조용하기 때문에 여기서 공부해요.",
+      "alternativeAnswers": ["조용하기 때문에 여기서 공부합니다."],
+      "hint": "조용하...",
+      "explanation": "静かな環境を理由に述べる際の表現です。"
+    }
+  ]
+}

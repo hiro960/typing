@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_sentence_ending_008",
+  "grammarTitle": "-군요/구나",
+  "grammarSubtitle": "感嘆・詠嘆（〜だなあ）",
+  "category": "sentence_ending",
+  "questions": [
+    {
+      "id": "qt_sentence_ending_008_01",
+      "order": 1,
+      "japanese": "ここが有名な店なんですね。",
+      "korean": "여기가 유명한 가게군요.",
+      "alternativeAnswers": ["여기가 유명한 가게구나."],
+      "hint": "여기가...",
+      "explanation": "初めて知った事実に感嘆して「-군요/구나」で述べます。"
+    },
+    {
+      "id": "qt_sentence_ending_008_02",
+      "order": 2,
+      "japanese": "本当に静かなんだなあ。",
+      "korean": "정말 조용하구나.",
+      "alternativeAnswers": ["정말 조용하군요."],
+      "hint": "정말...",
+      "explanation": "形容詞の感嘆も語幹＋구나/군요で表現します。"
+    },
+    {
+      "id": "qt_sentence_ending_008_03",
+      "order": 3,
+      "japanese": "この料理は辛いんですね。",
+      "korean": "이 음식이 맵군요.",
+      "alternativeAnswers": ["이 음식이 맵구나."],
+      "hint": "이 음식이...",
+      "explanation": "新たに感じた味への気づきを「-군요」で伝えます。"
+    },
+    {
+      "id": "qt_sentence_ending_008_04",
+      "order": 4,
+      "japanese": "雨がたくさん降るんだね。",
+      "korean": "비가 많이 오는구나.",
+      "alternativeAnswers": ["비가 많이 오는군요."],
+      "hint": "비가...",
+      "explanation": "動詞連体形＋구나/군요で動作への感嘆を表します。"
+    },
+    {
+      "id": "qt_sentence_ending_008_05",
+      "order": 5,
+      "japanese": "もう春なんですね。",
+      "korean": "벌써 봄이군요.",
+      "alternativeAnswers": ["벌써 봄이구나."],
+      "hint": "벌써...",
+      "explanation": "名詞述語も指定詞＋군요/구나で驚きを表現します。"
+    },
+    {
+      "id": "qt_sentence_ending_008_06",
+      "order": 6,
+      "japanese": "時間がこんなにないんだな。",
+      "korean": "시간이 이렇게 없구나.",
+      "alternativeAnswers": ["시간이 이렇게 없군요."],
+      "hint": "시간이...",
+      "explanation": "否定的な気づきにも「-구나/군요」で感情を込めます。"
+    },
+    {
+      "id": "qt_sentence_ending_008_07",
+      "order": 7,
+      "japanese": "韓国語が上手なんですね。",
+      "korean": "한국어를 잘하시는군요.",
+      "alternativeAnswers": ["한국어를 잘하시는구나."],
+      "hint": "한국어를...",
+      "explanation": "尊敬表現にも「-군요」を付けて感嘆を示せます。"
+    },
+    {
+      "id": "qt_sentence_ending_008_08",
+      "order": 8,
+      "japanese": "こんなに遠いんだなあ。",
+      "korean": "이렇게 멀구나.",
+      "alternativeAnswers": ["이렇게 멀군요."],
+      "hint": "이렇게...",
+      "explanation": "形容詞で距離に驚くときも「-구나/군요」で締めます。"
+    },
+    {
+      "id": "qt_sentence_ending_008_09",
+      "order": 9,
+      "japanese": "ここは初めてなんですね。",
+      "korean": "여기는 처음이군요.",
+      "alternativeAnswers": ["여기는 처음이구나."],
+      "hint": "여기는...",
+      "explanation": "初めての事実に気づいた際「-군요/구나」で表現します。"
+    },
+    {
+      "id": "qt_sentence_ending_008_10",
+      "order": 10,
+      "japanese": "友達が多いんだね。",
+      "korean": "친구가 많구나.",
+      "alternativeAnswers": ["친구가 많군요."],
+      "hint": "친구가...",
+      "explanation": "名詞＋形容詞述語でも気づきを表し「-구나/군요」を使います。"
+    }
+  ]
+}

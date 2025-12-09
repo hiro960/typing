@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_032",
+  "grammarTitle": "-(으)ㄹ 줄 알다/모르다",
+  "grammarSubtitle": "能力・方法（〜することができる/できない）",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_032_01",
+      "order": 1,
+      "japanese": "私は料理ができます。",
+      "korean": "저는 요리할 줄 알아요.",
+      "alternativeAnswers": [
+        "저는 요리할 줄 압니다."
+      ],
+      "hint": "저는...",
+      "explanation": "方法を知っていてできるとき「-ㄹ 줄 알다」を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_032_02",
+      "order": 2,
+      "japanese": "彼は自転車に乗れます。",
+      "korean": "그는 자전거를 탈 줄 알아요.",
+      "alternativeAnswers": [
+        "그는 자전거를 탈 줄 압니다."
+      ],
+      "hint": "그는...",
+      "explanation": "動作のやり方を知る能力を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_032_03",
+      "order": 3,
+      "japanese": "私は泳げません。",
+      "korean": "저는 수영할 줄 몰라요.",
+      "alternativeAnswers": [
+        "저는 수영할 줄 모릅니다."
+      ],
+      "hint": "저는...",
+      "explanation": "方法を知らずできないとき「-ㄹ 줄 모르다」を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_032_04",
+      "order": 4,
+      "japanese": "韓国語を読むことができます。",
+      "korean": "한국어를 읽을 줄 알아요.",
+      "alternativeAnswers": [
+        "한국어를 읽을 줄 압니다."
+      ],
+      "hint": "한국어를...",
+      "explanation": "技能としての読み方を知っていることを示します。"
+    },
+    {
+      "id": "qt_tense_aspect_032_05",
+      "order": 5,
+      "japanese": "ピアノは弾けません。",
+      "korean": "피아노는 칠 줄 몰라요.",
+      "alternativeAnswers": [
+        "피아노는 칠 줄 모릅니다."
+      ],
+      "hint": "피아노는...",
+      "explanation": "技能がないことを否定形で表します。"
+    },
+    {
+      "id": "qt_tense_aspect_032_06",
+      "order": 6,
+      "japanese": "パソコンを直すことはできません。",
+      "korean": "컴퓨터를 고칠 줄 몰라요.",
+      "alternativeAnswers": [
+        "컴퓨터를 고칠 줄 모릅니다."
+      ],
+      "hint": "컴퓨터를...",
+      "explanation": "やり方を知らずできない場合の否定表現です。"
+    },
+    {
+      "id": "qt_tense_aspect_032_07",
+      "order": 7,
+      "japanese": "キンパプを作れます。",
+      "korean": "김밥을 만들 줄 알아요.",
+      "alternativeAnswers": [
+        "김밥을 만들 줄 압니다."
+      ],
+      "hint": "김밥을...",
+      "explanation": "作り方を知っている能力を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_032_08",
+      "order": 8,
+      "japanese": "歌を上手に歌えません。",
+      "korean": "노래를 잘 부를 줄 몰라요.",
+      "alternativeAnswers": [
+        "노래를 잘 부를 줄 모릅니다."
+      ],
+      "hint": "노래를...",
+      "explanation": "方法やコツを知らずできない場合を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_032_09",
+      "order": 9,
+      "japanese": "メッセージを送れます。",
+      "korean": "문자를 보낼 줄 알아요.",
+      "alternativeAnswers": [
+        "문자를 보낼 줄 압니다."
+      ],
+      "hint": "문자를...",
+      "explanation": "やり方を知ってできる動作を表す形です。"
+    },
+    {
+      "id": "qt_tense_aspect_032_10",
+      "order": 10,
+      "japanese": "字をきれいに書けません。",
+      "korean": "글씨를 예쁘게 쓸 줄 몰라요.",
+      "alternativeAnswers": [
+        "글씨를 예쁘게 쓸 줄 모릅니다."
+      ],
+      "hint": "글씨를...",
+      "explanation": "できない技能を否定で伝えるときに使います。"
+    }
+  ]
+}

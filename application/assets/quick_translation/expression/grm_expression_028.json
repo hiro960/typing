@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_expression_028",
+  "grammarTitle": "-던데",
+  "grammarSubtitle": "〜だったが／〜だったよ（経験提示）",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_028_01",
+      "order": 1,
+      "japanese": "昨日は雨がたくさん降っていましたよ。",
+      "korean": "어제 비가 많이 오던데요.",
+      "alternativeAnswers": [
+        "어제 비가 많이 오던데."
+      ],
+      "hint": "어제...",
+      "explanation": "過去の観察を伝えるとき「-던데요」で経験を共有します。"
+    },
+    {
+      "id": "qt_expression_028_02",
+      "order": 2,
+      "japanese": "あの店おいしかったですよ、一緒に行きましょうか。",
+      "korean": "그 식당 맛있던데 같이 갈까요?",
+      "alternativeAnswers": [
+        "그 식당 맛있던데요, 같이 갈래요?"
+      ],
+      "hint": "그 식당...",
+      "explanation": "自分の経験を背景に誘う形で「-던데」を使います。"
+    },
+    {
+      "id": "qt_expression_028_03",
+      "order": 3,
+      "japanese": "映画が面白かったですよ。",
+      "korean": "영화가 재미있던데요.",
+      "alternativeAnswers": [
+        "영화가 재미있던데."
+      ],
+      "hint": "영화가...",
+      "explanation": "体験談として感想を述べるときに「-던데요」を付けます。"
+    },
+    {
+      "id": "qt_expression_028_04",
+      "order": 4,
+      "japanese": "部屋が思ったより狭かったですよ。",
+      "korean": "방이 생각보다 작던데요.",
+      "alternativeAnswers": [
+        "방이 생각보다 작던데."
+      ],
+      "hint": "방이...",
+      "explanation": "予想と違った経験を共有する際に「-던데요」を用います。"
+    },
+    {
+      "id": "qt_expression_028_05",
+      "order": 5,
+      "japanese": "市場に人が多かったですよ、早く行きましょう。",
+      "korean": "시장에 사람이 많던데 빨리 가요.",
+      "alternativeAnswers": [
+        "시장에 사람이 많던데 빨리 갑시다."
+      ],
+      "hint": "시장에...",
+      "explanation": "目撃した情報を理由に提案する形で「-던데」を使います。"
+    },
+    {
+      "id": "qt_expression_028_06",
+      "order": 6,
+      "japanese": "道が混んでいましたよ、地下鉄に乗りましょう。",
+      "korean": "길이 막히던데 지하철 타요.",
+      "alternativeAnswers": [
+        "길이 막히던데 지하철 탑시다."
+      ],
+      "hint": "길이...",
+      "explanation": "過去に見た状況を「-던데」で述べ、別案を提示します。"
+    },
+    {
+      "id": "qt_expression_028_07",
+      "order": 7,
+      "japanese": "今日は寒かったですよ、暖かく着てください。",
+      "korean": "날씨가 춥던데 따뜻하게 입어요.",
+      "alternativeAnswers": [
+        "날씨가 춥던데 따뜻하게 입으세요."
+      ],
+      "hint": "날씨가...",
+      "explanation": "体験を伝えながら助言するとき「-던데」を使います。"
+    },
+    {
+      "id": "qt_expression_028_08",
+      "order": 8,
+      "japanese": "カフェが静かでしたよ、勉強しやすいです。",
+      "korean": "카페가 조용하던데 공부하기 좋아요.",
+      "alternativeAnswers": [
+        "카페가 조용하던데 공부하기 좋더라고요."
+      ],
+      "hint": "카페가...",
+      "explanation": "経験した場所の状態を共有するために「-던데」を用います。"
+    },
+    {
+      "id": "qt_expression_028_09",
+      "order": 9,
+      "japanese": "値段が安かったですよ、早く買いましょう。",
+      "korean": "가격이 싸던데 빨리 사요.",
+      "alternativeAnswers": [
+        "가격이 싸던데 빨리 삽시다."
+      ],
+      "hint": "가격이...",
+      "explanation": "価格に関する経験を示し、行動を促すとき「-던데」を使います。"
+    },
+    {
+      "id": "qt_expression_028_10",
+      "order": 10,
+      "japanese": "公園がきれいでしたよ、一緒に行きましょう。",
+      "korean": "공원이 예쁘던데 같이 가요.",
+      "alternativeAnswers": [
+        "공원이 예쁘던데 같이 갑시다."
+      ],
+      "hint": "공원이...",
+      "explanation": "見た感想を背景に誘う際に経験提示の「-던데」を使います。"
+    }
+  ]
+}

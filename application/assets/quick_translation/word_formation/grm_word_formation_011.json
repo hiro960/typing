@@ -1,0 +1,106 @@
+{
+  "grammarRef": "grm_word_formation_011",
+  "grammarTitle": "빨리",
+  "grammarSubtitle": "様態副詞（早く/速く）",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_011_01",
+      "order": 1,
+      "japanese": "早く来てください。",
+      "korean": "빨리 와 주세요.",
+      "alternativeAnswers": [
+        "빨리 오세요."
+      ],
+      "hint": "빨리...",
+      "explanation": "行動を促すとき動詞の前に置き「早く来て」を表します。"
+    },
+    {
+      "id": "qt_word_formation_011_02",
+      "order": 2,
+      "japanese": "早く走ります。",
+      "korean": "빨리 달려요.",
+      "alternativeAnswers": [],
+      "hint": "빨리...",
+      "explanation": "動作の速さを示し「速く走る」と伝えます。"
+    },
+    {
+      "id": "qt_word_formation_011_03",
+      "order": 3,
+      "japanese": "早く食べてください。",
+      "korean": "빨리 먹어 주세요.",
+      "alternativeAnswers": [
+        "빨리 드세요."
+      ],
+      "hint": "빨리...",
+      "explanation": "丁寧な依頼でも副詞を先に置き速さを求めます。"
+    },
+    {
+      "id": "qt_word_formation_011_04",
+      "order": 4,
+      "japanese": "早く決めてください。",
+      "korean": "빨리 정해 주세요.",
+      "alternativeAnswers": [],
+      "hint": "빨리...",
+      "explanation": "意思決定を急がせるとき「빨리」＋動詞で表します。"
+    },
+    {
+      "id": "qt_word_formation_011_05",
+      "order": 5,
+      "japanese": "早く終わりました。",
+      "korean": "빨리 끝났어요.",
+      "alternativeAnswers": [],
+      "hint": "빨리...",
+      "explanation": "予想より早い完了を副詞で示します。"
+    },
+    {
+      "id": "qt_word_formation_011_06",
+      "order": 6,
+      "japanese": "早く宿題をします。",
+      "korean": "빨리 숙제해요.",
+      "alternativeAnswers": [
+        "빨리 숙제를 해요."
+      ],
+      "hint": "빨리...",
+      "explanation": "名詞＋하다型の前にも置き「早く宿題する」を表現します。"
+    },
+    {
+      "id": "qt_word_formation_011_07",
+      "order": 7,
+      "japanese": "早く起きました。",
+      "korean": "빨리 일어났어요.",
+      "alternativeAnswers": [],
+      "hint": "빨리...",
+      "explanation": "起床の動作に付け「早く起きた」と過去を述べます。"
+    },
+    {
+      "id": "qt_word_formation_011_08",
+      "order": 8,
+      "japanese": "早く答えてください。",
+      "korean": "빨리 대답해 주세요.",
+      "alternativeAnswers": [
+        "빨리 답해 주세요."
+      ],
+      "hint": "빨리...",
+      "explanation": "返答を急がせるときも副詞を前に置きます。"
+    },
+    {
+      "id": "qt_word_formation_011_09",
+      "order": 9,
+      "japanese": "早く歩きます。",
+      "korean": "빨리 걸어요.",
+      "alternativeAnswers": [],
+      "hint": "빨리...",
+      "explanation": "歩く速度を示し「速く歩く」と伝えます。"
+    },
+    {
+      "id": "qt_word_formation_011_10",
+      "order": 10,
+      "japanese": "早く仕事が終わります。",
+      "korean": "일이 빨리 끝나요.",
+      "alternativeAnswers": [],
+      "hint": "일이...",
+      "explanation": "対象の名詞を主語に取り「仕事が早く終わる」と言います。"
+    }
+  ]
+}

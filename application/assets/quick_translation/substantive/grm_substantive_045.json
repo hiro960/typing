@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_045",
+  "grammarTitle": "몇",
+  "grammarSubtitle": "疑問連体詞（いくつ）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_045_01",
+      "order": 1,
+      "japanese": "何人来ますか？",
+      "korean": "몇 명 와요?",
+      "alternativeAnswers": ["몇 명 옵니까?"],
+      "hint": "몇 명...",
+      "explanation": "人数を尋ねるとき는 몇 명 で聞きます。"
+    },
+    {
+      "id": "qt_substantive_045_02",
+      "order": 2,
+      "japanese": "りんごを何個買いましたか？",
+      "korean": "사과를 몇 개 샀어요?",
+      "alternativeAnswers": ["사과를 몇 개 샀습니까?"],
+      "hint": "사과...",
+      "explanation": "個数は 몇 개 と助数詞 개 を組み合わせます。"
+    },
+    {
+      "id": "qt_substantive_045_03",
+      "order": 3,
+      "japanese": "何時に起きますか？",
+      "korean": "몇 시에 일어나요?",
+      "alternativeAnswers": ["몇 시에 일어납니까?"],
+      "hint": "몇 시...",
+      "explanation": "時刻を尋ねるとき는 몇 시에 ~? と言います。"
+    },
+    {
+      "id": "qt_substantive_045_04",
+      "order": 4,
+      "japanese": "今日は何日ですか？",
+      "korean": "오늘은 며칠이에요?",
+      "alternativeAnswers": ["오늘은 며칠입니까?"],
+      "hint": "오늘은...",
+      "explanation": "日付を聞く決まり表現は 며칠이에요? です。"
+    },
+    {
+      "id": "qt_substantive_045_05",
+      "order": 5,
+      "japanese": "何冊読みましたか？",
+      "korean": "책을 몇 권 읽었어요?",
+      "alternativeAnswers": ["책을 몇 권 읽었습니까?"],
+      "hint": "책을...",
+      "explanation": "本の数は 몇 권 と助数詞 권 を使います。"
+    },
+    {
+      "id": "qt_substantive_045_06",
+      "order": 6,
+      "japanese": "水を何本持っていますか？",
+      "korean": "물을 몇 병 가지고 있어요?",
+      "alternativeAnswers": ["물을 몇 병 가지고 있습니까?"],
+      "hint": "물을...",
+      "explanation": "瓶は 몇 병 と助数詞 병 を合わせます。"
+    },
+    {
+      "id": "qt_substantive_045_07",
+      "order": 7,
+      "japanese": "何番のバスに乗りますか？",
+      "korean": "몇 번 버스를 타요?",
+      "alternativeAnswers": ["몇 번 버스를 탑니까?"],
+      "hint": "몇 번...",
+      "explanation": "番号を尋ねるとき 몇 번 을使います。"
+    },
+    {
+      "id": "qt_substantive_045_08",
+      "order": 8,
+      "japanese": "何回練習しましたか？",
+      "korean": "몇 번 연습했어요?",
+      "alternativeAnswers": ["몇 번 연습했습니까?"],
+      "hint": "몇 번...",
+      "explanation": "回数を問うとき는 몇 번 で尋ねます。"
+    },
+    {
+      "id": "qt_substantive_045_09",
+      "order": 9,
+      "japanese": "何階に住みますか？",
+      "korean": "몇 층에 살아요?",
+      "alternativeAnswers": ["몇 층에 삽니까?"],
+      "hint": "몇 층...",
+      "explanation": "階数は 몇 층 に 층 を付けて聞きます。"
+    },
+    {
+      "id": "qt_substantive_045_10",
+      "order": 10,
+      "japanese": "何年生ですか？",
+      "korean": "몇 학년이에요?",
+      "alternativeAnswers": ["몇 학년입니까?"],
+      "hint": "몇 학...",
+      "explanation": "学年を尋ねるとき는 몇 학년 이라고言います。"
+    }
+  ]
+}

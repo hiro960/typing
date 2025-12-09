@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_tense_aspect_015",
+  "grammarTitle": "-이/히/리/기/우/구/추-",
+  "grammarSubtitle": "使役接辞",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_015_01",
+      "order": 1,
+      "japanese": "母が子にご飯を食べさせます。",
+      "korean": "엄마가 아이에게 밥을 먹여요.",
+      "alternativeAnswers": ["엄마가 아이에게 밥을 먹입니다."],
+      "hint": "엄마가...",
+      "explanation": "먹다に使役-이-が付いた먹이다で「食べさせる」を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_015_02",
+      "order": 2,
+      "japanese": "先生が学生を座らせました。",
+      "korean": "선생님이 학생을 앉혔어요.",
+      "alternativeAnswers": ["선생님이 학생을 앉혔습니다."],
+      "hint": "선생님이...",
+      "explanation": "앉히다は-히-使役で「座らせる」を意味します。"
+    },
+    {
+      "id": "qt_tense_aspect_015_03",
+      "order": 3,
+      "japanese": "私は弟に本を読ませました。",
+      "korean": "저는 동생에게 책을 읽혔어요.",
+      "alternativeAnswers": ["저는 동생에게 책을 읽혔습니다."],
+      "hint": "저는...",
+      "explanation": "읽히다は-히-使役で「読ませる」形になります。"
+    },
+    {
+      "id": "qt_tense_aspect_015_04",
+      "order": 4,
+      "japanese": "音楽が子どもを泣かせました。",
+      "korean": "음악이 아이를 울렸어요.",
+      "alternativeAnswers": ["음악이 아이를 울렸습니다."],
+      "hint": "음악이...",
+      "explanation": "울리다は-리-使役で「泣かせる」意味を持ちます。"
+    },
+    {
+      "id": "qt_tense_aspect_015_05",
+      "order": 5,
+      "japanese": "父が子どもを洗ってあげました。",
+      "korean": "아빠가 아이를 씻겼어요.",
+      "alternativeAnswers": ["아빠가 아이를 씻겼습니다."],
+      "hint": "아빠가...",
+      "explanation": "씻기다は-기-使役で「洗わせる・洗ってあげる」を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_015_06",
+      "order": 6,
+      "japanese": "母が赤ちゃんを寝かせました。",
+      "korean": "엄마가 아기를 재웠어요.",
+      "alternativeAnswers": ["엄마가 아기를 재웠습니다."],
+      "hint": "엄마가...",
+      "explanation": "자다の使役재우다は-우-で「寝かせる」を意味します。"
+    },
+    {
+      "id": "qt_tense_aspect_015_07",
+      "order": 7,
+      "japanese": "父が音を小さくしました。",
+      "korean": "아버지가 소리를 낮췄어요.",
+      "alternativeAnswers": ["아버지가 소리를 낮췄습니다."],
+      "hint": "아버지가...",
+      "explanation": "낮추다は-추-使役で「低くする・下げる」表現です。"
+    },
+    {
+      "id": "qt_tense_aspect_015_08",
+      "order": 8,
+      "japanese": "雨が出発を遅らせました。",
+      "korean": "비가 출발을 늦췄어요.",
+      "alternativeAnswers": ["비가 출발을 늦췄습니다."],
+      "hint": "비가...",
+      "explanation": "늦추다は-추-使役で「遅らせる」を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_015_09",
+      "order": 9,
+      "japanese": "両親が私を育てました。",
+      "korean": "부모님이 저를 키웠어요.",
+      "alternativeAnswers": ["부모님이 저를 키웠습니다."],
+      "hint": "부모님이...",
+      "explanation": "크다の使役형키우다は-우-で「育てる」を意味します。"
+    },
+    {
+      "id": "qt_tense_aspect_015_10",
+      "order": 10,
+      "japanese": "先生が学生を立たせました。",
+      "korean": "선생님이 학생을 세웠어요.",
+      "alternativeAnswers": ["선생님이 학생을 세웠습니다."],
+      "hint": "선생님이...",
+      "explanation": "서다の使役세우다は-우-で「立たせる」を表現します。"
+    }
+  ]
+}

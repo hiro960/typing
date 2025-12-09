@@ -1,0 +1,106 @@
+{
+  "grammarRef": "grm_quotation_009",
+  "grammarTitle": "-냬요",
+  "grammarSubtitle": "〜かって・伝聞疑問",
+  "category": "quotation",
+  "questions": [
+    {
+      "id": "qt_quotation_009_01",
+      "order": 1,
+      "japanese": "友達がどこに行くかって。",
+      "korean": "친구가 어디 가냬요.",
+      "alternativeAnswers": [
+        "친구가 어디 가냐고 해요."
+      ],
+      "hint": "친구가...",
+      "explanation": "疑問引用「가느냐고 해요」を口語で縮約した形が「가냬요」です。"
+    },
+    {
+      "id": "qt_quotation_009_02",
+      "order": 2,
+      "japanese": "母がご飯を食べたかって。",
+      "korean": "엄마가 밥 먹었냬요.",
+      "alternativeAnswers": [
+        "엄마가 밥 먹었냐고 해요."
+      ],
+      "hint": "엄마가...",
+      "explanation": "過去疑問の伝聞も「-냐고 해요」が縮まって「-냬요」になります。"
+    },
+    {
+      "id": "qt_quotation_009_03",
+      "order": 3,
+      "japanese": "先生が宿題があるかって。",
+      "korean": "선생님이 숙제가 있냬요.",
+      "alternativeAnswers": [
+        "선생님이 숙제가 있냐고 해요."
+      ],
+      "hint": "선생님이...",
+      "explanation": "存在を問う疑問も口語縮約形「-냬요」で伝えます。"
+    },
+    {
+      "id": "qt_quotation_009_04",
+      "order": 4,
+      "japanese": "友達が忙しいかって。",
+      "korean": "친구가 바쁘냬요.",
+      "alternativeAnswers": [],
+      "hint": "친구가...",
+      "explanation": "形容詞疑問の間接引用を短く表す形が「-냬요」です。"
+    },
+    {
+      "id": "qt_quotation_009_05",
+      "order": 5,
+      "japanese": "彼がいつ来るかって。",
+      "korean": "그가 언제 오냬요.",
+      "alternativeAnswers": [],
+      "hint": "그가...",
+      "explanation": "時を問う疑問引用「오느냐고 해요」が縮約して「오냬요」。"
+    },
+    {
+      "id": "qt_quotation_009_06",
+      "order": 6,
+      "japanese": "母が誰と行くかって。",
+      "korean": "엄마가 누구랑 가냬요.",
+      "alternativeAnswers": [],
+      "hint": "엄마가...",
+      "explanation": "同行者を問う疑問の伝聞を口語形「-냬요」で表します。"
+    },
+    {
+      "id": "qt_quotation_009_07",
+      "order": 7,
+      "japanese": "友達が何を買うかって。",
+      "korean": "친구가 뭐 사냬요.",
+      "alternativeAnswers": [
+        "친구가 무엇을 사냬요."
+      ],
+      "hint": "친구가...",
+      "explanation": "疑問内容の伝聞を縮約形「-냬요」で伝えます。"
+    },
+    {
+      "id": "qt_quotation_009_08",
+      "order": 8,
+      "japanese": "姉がよく寝たかって。",
+      "korean": "누나가 잘 잤냬요.",
+      "alternativeAnswers": [],
+      "hint": "누나가...",
+      "explanation": "過去疑問の伝聞を簡略に言うため「-냬요」を使います。"
+    },
+    {
+      "id": "qt_quotation_009_09",
+      "order": 9,
+      "japanese": "友達が暇かって。",
+      "korean": "친구가 한가하냬요.",
+      "alternativeAnswers": [],
+      "hint": "친구가...",
+      "explanation": "形容詞疑問の引用を口語で短く表現しています。"
+    },
+    {
+      "id": "qt_quotation_009_10",
+      "order": 10,
+      "japanese": "母がどこにいるかって。",
+      "korean": "엄마가 어디 있냬요.",
+      "alternativeAnswers": [],
+      "hint": "엄마가...",
+      "explanation": "場所を問う疑問も「있냐고 해요」が縮まって「있냬요」になります。"
+    }
+  ]
+}

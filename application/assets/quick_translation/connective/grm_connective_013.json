@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_connective_013",
+  "grammarTitle": "-기 전에",
+  "grammarSubtitle": "〜する前に",
+  "category": "connective",
+  "questions": [
+    {
+      "id": "qt_connective_013_01",
+      "order": 1,
+      "japanese": "寝る前に歯を磨きます。",
+      "korean": "자기 전에 이를 닦아요.",
+      "alternativeAnswers": [],
+      "hint": "자기...",
+      "explanation": "動作の名詞形に 전에 を付け「〜する前に」を表します。"
+    },
+    {
+      "id": "qt_connective_013_02",
+      "order": 2,
+      "japanese": "学校に行く前に朝ご飯を食べます。",
+      "korean": "학교 가기 전에 아침을 먹어요.",
+      "alternativeAnswers": [],
+      "hint": "학교...",
+      "explanation": "行動の順序で前にすることを示す接続表現です。"
+    },
+    {
+      "id": "qt_connective_013_03",
+      "order": 3,
+      "japanese": "出かける前に電話してください。",
+      "korean": "나가기 전에 전화하세요.",
+      "alternativeAnswers": [],
+      "hint": "나가기...",
+      "explanation": "先に行う行動を指定するとき -기 전에 を使います。"
+    },
+    {
+      "id": "qt_connective_013_04",
+      "order": 4,
+      "japanese": "仕事をする前にコーヒーを飲みます。",
+      "korean": "일하기 전에 커피를 마셔요.",
+      "alternativeAnswers": [],
+      "hint": "일하...",
+      "explanation": "後の行為の前段階を示す接続表現です。"
+    },
+    {
+      "id": "qt_connective_013_05",
+      "order": 5,
+      "japanese": "会う前に連絡してください。",
+      "korean": "만나기 전에 연락하세요.",
+      "alternativeAnswers": ["만나기 전에 꼭 연락하세요.", "만나기 전에 연락해요."],
+      "hint": "만나...",
+      "explanation": "約束の前に必要な行為を示すとき使います。"
+    },
+    {
+      "id": "qt_connective_013_06",
+      "order": 6,
+      "japanese": "運動する前にストレッチします。",
+      "korean": "운동하기 전에 스트레칭해요.",
+      "alternativeAnswers": ["운동하기 전에 몸을 풀어요."],
+      "hint": "운동...",
+      "explanation": "本格的な行為の前段準備を表す接続形です。"
+    },
+    {
+      "id": "qt_connective_013_07",
+      "order": 7,
+      "japanese": "テレビを見る前に宿題をします。",
+      "korean": "TV 보기 전에 숙제해요.",
+      "alternativeAnswers": ["티비 보기 전에 숙제해요."],
+      "hint": "TV 보...",
+      "explanation": "後の楽しみの前にすることを示すとき -기 전에 を用います。"
+    },
+    {
+      "id": "qt_connective_013_08",
+      "order": 8,
+      "japanese": "電話する前に時間を確認してください。",
+      "korean": "전화하기 전에 시간을 확인하세요.",
+      "alternativeAnswers": [],
+      "hint": "전화...",
+      "explanation": "行動前の確認を促す場面で使う接続表現です。"
+    },
+    {
+      "id": "qt_connective_013_09",
+      "order": 9,
+      "japanese": "雨が降る前に家に帰ります。",
+      "korean": "비 오기 전에 집에 가요.",
+      "alternativeAnswers": [],
+      "hint": "비 오...",
+      "explanation": "ある事態が起こる前に行動することを示します。"
+    },
+    {
+      "id": "qt_connective_013_10",
+      "order": 10,
+      "japanese": "食べる前に手を洗います。",
+      "korean": "먹기 전에 손을 씻어요.",
+      "alternativeAnswers": [],
+      "hint": "먹기...",
+      "explanation": "次の行動の前に行う準備を表す接続形です。"
+    }
+  ]
+}

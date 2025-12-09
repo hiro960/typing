@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_connective_007",
+  "grammarTitle": "-거나",
+  "grammarSubtitle": "選択（〜するか）",
+  "category": "connective",
+  "questions": [
+    {
+      "id": "qt_connective_007_01",
+      "order": 1,
+      "japanese": "本を読むか音楽を聴きます。",
+      "korean": "책을 읽거나 음악을 들어요.",
+      "alternativeAnswers": [],
+      "hint": "책을...",
+      "explanation": "二つ以上の行為を選択するとき動詞に -거나 を付けます。"
+    },
+    {
+      "id": "qt_connective_007_02",
+      "order": 2,
+      "japanese": "バスに乗るか地下鉄で行きます。",
+      "korean": "버스를 타거나 지하철을 타요.",
+      "alternativeAnswers": [],
+      "hint": "버스를...",
+      "explanation": "どちらかの方法を提示する接続表現です。"
+    },
+    {
+      "id": "qt_connective_007_03",
+      "order": 3,
+      "japanese": "週末に映画を見るか散歩します。",
+      "korean": "주말에 영화를 보거나 산책해요.",
+      "alternativeAnswers": [],
+      "hint": "주말에...",
+      "explanation": "選択肢を並べて可能な行動を示すときに使います。"
+    },
+    {
+      "id": "qt_connective_007_04",
+      "order": 4,
+      "japanese": "休むか寝ます。",
+      "korean": "쉬거나 자요.",
+      "alternativeAnswers": [],
+      "hint": "쉬거나...",
+      "explanation": "動作のどちらかを選ぶ単純な選択表現です。"
+    },
+    {
+      "id": "qt_connective_007_05",
+      "order": 5,
+      "japanese": "ご飯を食べるかパンを食べます。",
+      "korean": "밥을 먹거나 빵을 먹어요.",
+      "alternativeAnswers": [],
+      "hint": "밥을...",
+      "explanation": "複数の行動を提示するときに -거나 を用います。"
+    },
+    {
+      "id": "qt_connective_007_06",
+      "order": 6,
+      "japanese": "時間があれば友達に会うか家にいます。",
+      "korean": "시간이 있으면 친구를 만나거나 집에 있어요.",
+      "alternativeAnswers": [],
+      "hint": "시간이...",
+      "explanation": "条件節の中でも選択を並べるとき -거나 を使います。"
+    },
+    {
+      "id": "qt_connective_007_07",
+      "order": 7,
+      "japanese": "夜はテレビを見るか本を読みます。",
+      "korean": "밤에는 TV를 보거나 책을 읽어요.",
+      "alternativeAnswers": ["밤에는 티비를 보거나 책을 읽어요."],
+      "hint": "밤에는...",
+      "explanation": "日常の選択的行動を並べて述べる接続形です。"
+    },
+    {
+      "id": "qt_connective_007_08",
+      "order": 8,
+      "japanese": "コーヒーを飲むか水を飲みます。",
+      "korean": "커피를 마시거나 물을 마셔요.",
+      "alternativeAnswers": [],
+      "hint": "커피...",
+      "explanation": "どちらかを選ぶ可能性を示すとき -거나 を付けます。"
+    },
+    {
+      "id": "qt_connective_007_09",
+      "order": 9,
+      "japanese": "家に帰ってご飯を食べるかシャワーを浴びます。",
+      "korean": "집에 가서 밥을 먹거나 샤워해요.",
+      "alternativeAnswers": [],
+      "hint": "집에...",
+      "explanation": "帰宅後にどちらかの行動をするという選択を示します。"
+    },
+    {
+      "id": "qt_connective_007_10",
+      "order": 10,
+      "japanese": "今日は家で勉強するかカフェに行きます。",
+      "korean": "오늘은 집에서 공부하거나 카페에 가요.",
+      "alternativeAnswers": [],
+      "hint": "오늘은...",
+      "explanation": "選択肢を挙げて予定を述べるときの接続表現です。"
+    }
+  ]
+}

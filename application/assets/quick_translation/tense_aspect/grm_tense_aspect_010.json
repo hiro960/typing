@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_tense_aspect_010",
+  "grammarTitle": "-지 못하다",
+  "grammarSubtitle": "不可能・長形",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_010_01",
+      "order": 1,
+      "japanese": "私は泳げません。",
+      "korean": "저는 수영을 하지 못해요.",
+      "alternativeAnswers": ["저는 수영을 하지 못합니다."],
+      "hint": "저는...",
+      "explanation": "できないことを丁寧に述べるため-지 못해요を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_010_02",
+      "order": 2,
+      "japanese": "時間がなくて行けません。",
+      "korean": "시간이 없어서 가지 못해요.",
+      "alternativeAnswers": ["시간이 없어서 가지 못합니다."],
+      "hint": "시간이...",
+      "explanation": "事情で行けない不可能を文章的に-지 못하다で表現。"
+    },
+    {
+      "id": "qt_tense_aspect_010_03",
+      "order": 3,
+      "japanese": "昨日よく眠れませんでした。",
+      "korean": "어제 잠을 자지 못했어요.",
+      "alternativeAnswers": ["어제 잠을 자지 못했습니다."],
+      "hint": "어제...",
+      "explanation": "過去の不可能形は-지 못했어요を用いて丁寧に言います。"
+    },
+    {
+      "id": "qt_tense_aspect_010_04",
+      "order": 4,
+      "japanese": "約束を守れませんでした。",
+      "korean": "약속을 지키지 못했어요.",
+      "alternativeAnswers": ["약속을 지키지 못했습니다."],
+      "hint": "약속을...",
+      "explanation": "遂行できなかったことを-지 못하다で示します。"
+    },
+    {
+      "id": "qt_tense_aspect_010_05",
+      "order": 5,
+      "japanese": "字が読めません。",
+      "korean": "글을 읽지 못해요.",
+      "alternativeAnswers": ["글을 읽지 못합니다."],
+      "hint": "글을...",
+      "explanation": "能力不足の否定を丁寧に-지 못해요で表します。"
+    },
+    {
+      "id": "qt_tense_aspect_010_06",
+      "order": 6,
+      "japanese": "遠くてよく行けません。",
+      "korean": "멀어서 자주 가지 못해요.",
+      "alternativeAnswers": ["멀어서 자주 가지 못합니다."],
+      "hint": "멀어서...",
+      "explanation": "距離の理由で行けないことを-지 못하다で言います。"
+    },
+    {
+      "id": "qt_tense_aspect_010_07",
+      "order": 7,
+      "japanese": "声が聞こえませんでした。",
+      "korean": "소리를 듣지 못했어요.",
+      "alternativeAnswers": ["소리를 듣지 못했습니다."],
+      "hint": "소리를...",
+      "explanation": "聞くことができなかった過去を-지 못했어요で表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_010_08",
+      "order": 8,
+      "japanese": "今日は運動できません。",
+      "korean": "오늘은 운동하지 못해요.",
+      "alternativeAnswers": ["오늘은 운동하지 못합니다."],
+      "hint": "오늘은...",
+      "explanation": "事情でできないことも-지 못해요を付けて丁寧に否定。"
+    },
+    {
+      "id": "qt_tense_aspect_010_09",
+      "order": 9,
+      "japanese": "雨で遊べません。",
+      "korean": "비가 와서 놀지 못해요.",
+      "alternativeAnswers": ["비가 와서 놀지 못합니다."],
+      "hint": "비가...",
+      "explanation": "環境で不可能な時も-지 못해요を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_010_10",
+      "order": 10,
+      "japanese": "疲れて勉強できませんでした。",
+      "korean": "피곤해서 공부하지 못했어요.",
+      "alternativeAnswers": ["피곤해서 공부하지 못했습니다."],
+      "hint": "피곤해서...",
+      "explanation": "できなかった理由を添え-지 못했어요形で述べます。"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_026",
+  "grammarTitle": "-아/어야 하다",
+  "grammarSubtitle": "義務・必要（〜しなければならない）",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_026_01",
+      "order": 1,
+      "japanese": "宿題をしなければなりません。",
+      "korean": "숙제를 해야 해요.",
+      "alternativeAnswers": [
+        "숙제를 해야 합니다."
+      ],
+      "hint": "숙제를...",
+      "explanation": "必要な義務を表し、「〜しなければならない」意味です。"
+    },
+    {
+      "id": "qt_tense_aspect_026_02",
+      "order": 2,
+      "japanese": "薬を飲まなければなりません。",
+      "korean": "약을 먹어야 해요.",
+      "alternativeAnswers": [
+        "약을 먹어야 합니다."
+      ],
+      "hint": "약을...",
+      "explanation": "体調管理など必須の行為を示すときに使います。"
+    },
+    {
+      "id": "qt_tense_aspect_026_03",
+      "order": 3,
+      "japanese": "早く寝なければなりません。",
+      "korean": "일찍 자야 해요.",
+      "alternativeAnswers": [
+        "일찍 자야 합니다."
+      ],
+      "hint": "일찍...",
+      "explanation": "習慣づけたい義務を述べるときに用います。"
+    },
+    {
+      "id": "qt_tense_aspect_026_04",
+      "order": 4,
+      "japanese": "バスに乗らなければなりません。",
+      "korean": "버스를 타야 해요.",
+      "alternativeAnswers": [
+        "버스를 타야 합니다."
+      ],
+      "hint": "버스를...",
+      "explanation": "目的達成のため必須の行動を表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_026_05",
+      "order": 5,
+      "japanese": "試験の準備をしなければなりません。",
+      "korean": "시험을 준비해야 해요.",
+      "alternativeAnswers": [
+        "시험을 준비해야 합니다."
+      ],
+      "hint": "시험을...",
+      "explanation": "義務感を伴う準備の必要性を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_026_06",
+      "order": 6,
+      "japanese": "会社に行かなければなりません。",
+      "korean": "회사에 가야 해요.",
+      "alternativeAnswers": [
+        "회사에 가야 합니다."
+      ],
+      "hint": "회사에...",
+      "explanation": "外せない予定として行く必要を述べます。"
+    },
+    {
+      "id": "qt_tense_aspect_026_07",
+      "order": 7,
+      "japanese": "水をたくさん飲まなければなりません。",
+      "korean": "물을 많이 마셔야 해요.",
+      "alternativeAnswers": [
+        "물을 많이 마셔야 합니다."
+      ],
+      "hint": "물을...",
+      "explanation": "健康のために必要な行為を示す義務表現です。"
+    },
+    {
+      "id": "qt_tense_aspect_026_08",
+      "order": 8,
+      "japanese": "部屋を掃除しなければなりません。",
+      "korean": "방을 청소해야 해요.",
+      "alternativeAnswers": [
+        "방을 청소해야 합니다."
+      ],
+      "hint": "방을...",
+      "explanation": "片付けの義務を伝える際に用います。"
+    },
+    {
+      "id": "qt_tense_aspect_026_09",
+      "order": 9,
+      "japanese": "運動をしなければなりません。",
+      "korean": "운동을 해야 해요.",
+      "alternativeAnswers": [
+        "운동을 해야 합니다."
+      ],
+      "hint": "운동을...",
+      "explanation": "健康維持のための必要行為を述べます。"
+    },
+    {
+      "id": "qt_tense_aspect_026_10",
+      "order": 10,
+      "japanese": "約束を守らなければなりません。",
+      "korean": "약속을 지켜야 해요.",
+      "alternativeAnswers": [
+        "약속을 지켜야 합니다."
+      ],
+      "hint": "약속을...",
+      "explanation": "義務や責任を果たす必要を示す表現です。"
+    }
+  ]
+}

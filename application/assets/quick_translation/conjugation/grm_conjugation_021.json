@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_021",
+  "grammarTitle": "특수 활용",
+  "grammarSubtitle": "そのほかの特殊な活用",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_021_01",
+      "order": 1,
+      "japanese": "赤いりんごです。",
+      "korean": "빨간 사과예요.",
+      "alternativeAnswers": ["빨간 사과입니다."],
+      "hint": "빨간...",
+      "explanation": "ㅎ語幹形容詞「빨갛다」は連体形でㅎが落ち「빨간」となります。"
+    },
+    {
+      "id": "qt_conjugation_021_02",
+      "order": 2,
+      "japanese": "青い空です。",
+      "korean": "파란 하늘이에요.",
+      "alternativeAnswers": ["파란 하늘입니다."],
+      "hint": "파란...",
+      "explanation": "ㅎ語幹の連体形はㅎ脱落で「파란」を用い名詞を修飾します。"
+    },
+    {
+      "id": "qt_conjugation_021_03",
+      "order": 3,
+      "japanese": "白い壁です。",
+      "korean": "하얀 벽이에요.",
+      "alternativeAnswers": ["하얀 벽입니다."],
+      "hint": "하얀...",
+      "explanation": "「하얗다」も連体形でㅎが消え「하얀」になります。"
+    },
+    {
+      "id": "qt_conjugation_021_04",
+      "order": 4,
+      "japanese": "面白い映画です。",
+      "korean": "재미있는 영화예요.",
+      "alternativeAnswers": ["재미있는 영화입니다."],
+      "hint": "재미있는...",
+      "explanation": "存在詞 있다 の連体形「있는」で性質を表し「재미있는 영화」となります。"
+    },
+    {
+      "id": "qt_conjugation_021_05",
+      "order": 5,
+      "japanese": "時間がない人です。",
+      "korean": "시간이 없는 사람이에요.",
+      "alternativeAnswers": ["시간이 없는 사람입니다."],
+      "hint": "시간이...",
+      "explanation": "否定存在詞 없다 は連体形「없는」で名詞を修飾します。"
+    },
+    {
+      "id": "qt_conjugation_021_06",
+      "order": 6,
+      "japanese": "空が青いです。",
+      "korean": "하늘이 푸르러요.",
+      "alternativeAnswers": ["하늘이 푸릅니다."],
+      "hint": "하늘이...",
+      "explanation": "푸르다 は特殊活用で「푸르러요」、格式体は 푸릅니다 を使います。"
+    },
+    {
+      "id": "qt_conjugation_021_07",
+      "order": 7,
+      "japanese": "青い海を見ました。",
+      "korean": "푸른 바다를 봤어요.",
+      "alternativeAnswers": ["푸른 바다를 봤습니다."],
+      "hint": "푸른...",
+      "explanation": "푸르다 の連体形は規則形「푸른」で名詞を修飾します。"
+    },
+    {
+      "id": "qt_conjugation_021_08",
+      "order": 8,
+      "japanese": "家にいます。",
+      "korean": "집에 있어요.",
+      "alternativeAnswers": ["집에 있습니다."],
+      "hint": "집에...",
+      "explanation": "存在詞 있다 は所在を示す動詞的用法で丁寧形「있어요」を取ります。"
+    },
+    {
+      "id": "qt_conjugation_021_09",
+      "order": 9,
+      "japanese": "本がありません。",
+      "korean": "책이 없어요.",
+      "alternativeAnswers": ["책이 없습니다."],
+      "hint": "책이...",
+      "explanation": "없다 は存在の否定を表し、丁寧形では「없어요」と活用します。"
+    },
+    {
+      "id": "qt_conjugation_021_10",
+      "order": 10,
+      "japanese": "どこ行くの？",
+      "korean": "어디 가?",
+      "alternativeAnswers": ["어디에 가?", "어디에 가요?"],
+      "hint": "어디...",
+      "explanation": "会話で「어디에 가?」が縮約し「어디 가?」となる特殊な口語形です。"
+    }
+  ]
+}

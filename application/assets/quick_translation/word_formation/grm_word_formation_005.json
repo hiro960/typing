@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_word_formation_005",
+  "grammarTitle": "-적",
+  "grammarSubtitle": "接尾辞（〜的）",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_005_01",
+      "order": 1,
+      "japanese": "これは個人的な考えです。",
+      "korean": "이건 개인적인 생각이에요.",
+      "alternativeAnswers": [],
+      "hint": "이건...",
+      "explanation": "名詞に「-적」を付け「個人的な」という性質を作ります。"
+    },
+    {
+      "id": "qt_word_formation_005_02",
+      "order": 2,
+      "japanese": "文化的な行事です。",
+      "korean": "문화적인 행사예요.",
+      "alternativeAnswers": [],
+      "hint": "문화적인...",
+      "explanation": "文化＋적で文化的な性格を示しています。"
+    },
+    {
+      "id": "qt_word_formation_005_03",
+      "order": 3,
+      "japanese": "伝統的な料理です。",
+      "korean": "전통적인 음식이에요.",
+      "alternativeAnswers": [],
+      "hint": "전통적인...",
+      "explanation": "「전통적」も-적で性質を表し伝統的と訳します。"
+    },
+    {
+      "id": "qt_word_formation_005_04",
+      "order": 4,
+      "japanese": "経済的に大変です。",
+      "korean": "경제적으로 힘들어요.",
+      "alternativeAnswers": [],
+      "hint": "경제적으로...",
+      "explanation": "-적＋-으로で副詞化し経済的にを表現します。"
+    },
+    {
+      "id": "qt_word_formation_005_05",
+      "order": 5,
+      "japanese": "感情的な話はやめましょう。",
+      "korean": "감정적인 이야기는 그만해요.",
+      "alternativeAnswers": [],
+      "hint": "감정적인...",
+      "explanation": "感情＋적で感情的という性質を作り話の種類を示します。"
+    },
+    {
+      "id": "qt_word_formation_005_06",
+      "order": 6,
+      "japanese": "科学的な方法です。",
+      "korean": "과학적인 방법이에요.",
+      "alternativeAnswers": [],
+      "hint": "과학적인...",
+      "explanation": "名詞「과학」に-적を付け科学的な性質を表します。"
+    },
+    {
+      "id": "qt_word_formation_005_07",
+      "order": 7,
+      "japanese": "社会的な問題です。",
+      "korean": "사회적인 문제예요.",
+      "alternativeAnswers": [],
+      "hint": "사회적인...",
+      "explanation": "-적は性質を示す接尾辞で社会的な問題を表現します。"
+    },
+    {
+      "id": "qt_word_formation_005_08",
+      "order": 8,
+      "japanese": "積極的な性格です。",
+      "korean": "적극적인 성격이에요.",
+      "alternativeAnswers": [],
+      "hint": "적극적인...",
+      "explanation": "性格を説明するため「적극적」を使い積極的と述べます。"
+    },
+    {
+      "id": "qt_word_formation_005_09",
+      "order": 9,
+      "japanese": "日常的な話です。",
+      "korean": "일상적인 이야기예요.",
+      "alternativeAnswers": [],
+      "hint": "일상적인...",
+      "explanation": "日常＋적で日常的という形容詞的表現を作ります。"
+    },
+    {
+      "id": "qt_word_formation_005_10",
+      "order": 10,
+      "japanese": "基本的な質問です。",
+      "korean": "기본적인 질문이에요.",
+      "alternativeAnswers": [],
+      "hint": "기본적인...",
+      "explanation": "基礎に-적を付け基本的という性質を表します。"
+    }
+  ]
+}

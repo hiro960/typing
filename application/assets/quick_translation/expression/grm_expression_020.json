@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_020",
+  "grammarTitle": "-기 위해서",
+  "grammarSubtitle": "目的（〜するために）",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_020_01",
+      "order": 1,
+      "japanese": "韓国語を学ぶために毎日勉強します。",
+      "korean": "한국어를 배우기 위해서 매일 공부해요.",
+      "alternativeAnswers": ["한국어를 배우기 위해서 매일 공부합니다."],
+      "hint": "한국어...",
+      "explanation": "目的を示すとき動詞＋기 위해서を使います。"
+    },
+    {
+      "id": "qt_expression_020_02",
+      "order": 2,
+      "japanese": "健康を守るために運動します。",
+      "korean": "건강을 지키기 위해서 운동해요.",
+      "alternativeAnswers": ["건강을 지키기 위해서 운동합니다."],
+      "hint": "건강을...",
+      "explanation": "目的語に合わせて「-기 위해서」を付けます。"
+    },
+    {
+      "id": "qt_expression_020_03",
+      "order": 3,
+      "japanese": "試験に合格するために早く起きます。",
+      "korean": "시험에 합격하기 위해서 일찍 일어나요.",
+      "alternativeAnswers": ["시험에 합격하기 위해서 일찍 일어납니다."],
+      "hint": "시험에...",
+      "explanation": "目的のために行動することを示す表現です。"
+    },
+    {
+      "id": "qt_expression_020_04",
+      "order": 4,
+      "japanese": "友達に会うために駅に行きます。",
+      "korean": "친구를 만나기 위해서 역에 가요.",
+      "alternativeAnswers": ["친구를 만나기 위해서 역에 갑니다."],
+      "hint": "친구를...",
+      "explanation": "会う目的で移動するとき「-기 위해서」を使います。"
+    },
+    {
+      "id": "qt_expression_020_05",
+      "order": 5,
+      "japanese": "旅行に行くためにお金を貯めます。",
+      "korean": "여행을 가기 위해서 돈을 모아요.",
+      "alternativeAnswers": ["여행을 가기 위해서 돈을 모읍니다."],
+      "hint": "여행을...",
+      "explanation": "未来の行動のための準備を表します。"
+    },
+    {
+      "id": "qt_expression_020_06",
+      "order": 6,
+      "japanese": "仕事を終わらせるために夜まで働きます。",
+      "korean": "일을 끝내기 위해서 밤까지 일해요.",
+      "alternativeAnswers": ["일을 끝내기 위해서 밤까지 일합니다."],
+      "hint": "일을...",
+      "explanation": "目的達成のための手段を示す形です。"
+    },
+    {
+      "id": "qt_expression_020_07",
+      "order": 7,
+      "japanese": "プレゼントを買うために店に行きます。",
+      "korean": "선물을 사기 위해서 가게에 가요.",
+      "alternativeAnswers": ["선물을 사기 위해서 가게에 갑니다."],
+      "hint": "선물을...",
+      "explanation": "買う目的で移動するとき「-기 위해서」を使います。"
+    },
+    {
+      "id": "qt_expression_020_08",
+      "order": 8,
+      "japanese": "時間を節約するためにバスに乗ります。",
+      "korean": "시간을 아끼기 위해서 버스를 타요.",
+      "alternativeAnswers": ["시간을 아끼기 위해서 버스를 탑니다."],
+      "hint": "시간을...",
+      "explanation": "効率の目的を示す場合にも用います。"
+    },
+    {
+      "id": "qt_expression_020_09",
+      "order": 9,
+      "japanese": "写真を撮るためにカメラを持っていきます。",
+      "korean": "사진을 찍기 위해서 카메라를 가져가요.",
+      "alternativeAnswers": ["사진을 찍기 위해서 카메라를 가져갑니다."],
+      "hint": "사진을...",
+      "explanation": "道具を持つ目的を明確にするときの表現です。"
+    },
+    {
+      "id": "qt_expression_020_10",
+      "order": 10,
+      "japanese": "いい大学に入るために勉強します。",
+      "korean": "좋은 학교에 들어가기 위해서 공부해요.",
+      "alternativeAnswers": ["좋은 학교에 들어가기 위해서 공부합니다."],
+      "hint": "좋은...",
+      "explanation": "望む結果のために努力する際「-기 위해서」を使います。"
+    }
+  ]
+}

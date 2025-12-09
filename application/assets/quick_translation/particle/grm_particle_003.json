@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_003",
+  "grammarTitle": "을/를",
+  "grammarSubtitle": "目的格助詞（〜を）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_003_01",
+      "order": 1,
+      "japanese": "ご飯を食べます。",
+      "korean": "밥을 먹어요.",
+      "alternativeAnswers": ["밥을 먹습니다."],
+      "hint": "밥을...",
+      "explanation": "目的語「밥」にパッチムがあり「을」を付けます。"
+    },
+    {
+      "id": "qt_particle_003_02",
+      "order": 2,
+      "japanese": "水を飲みます。",
+      "korean": "물을 마셔요.",
+      "alternativeAnswers": ["물을 마십니다."],
+      "hint": "물을...",
+      "explanation": "パッチムなしの「물」なので「을→를」が付き「물을」になります。"
+    },
+    {
+      "id": "qt_particle_003_03",
+      "order": 3,
+      "japanese": "本を読みます。",
+      "korean": "책을 읽어요.",
+      "alternativeAnswers": ["책을 읽습니다."],
+      "hint": "책을...",
+      "explanation": "動作の対象を示す目的格助詞「을/를」を使います。"
+    },
+    {
+      "id": "qt_particle_003_04",
+      "order": 4,
+      "japanese": "音楽を聞きます。",
+      "korean": "음악을 들어요.",
+      "alternativeAnswers": ["음악을 듣습니다."],
+      "hint": "음악을...",
+      "explanation": "パッチムありの名詞でも発音は連音化し「을」を付けます。"
+    },
+    {
+      "id": "qt_particle_003_05",
+      "order": 5,
+      "japanese": "友達を待ちます。",
+      "korean": "친구를 기다려요.",
+      "alternativeAnswers": ["친구를 기다립니다."],
+      "hint": "친구를...",
+      "explanation": "パッチムなしの「친구」に「를」を付けて目的語を示します。"
+    },
+    {
+      "id": "qt_particle_003_06",
+      "order": 6,
+      "japanese": "猫を見ます。",
+      "korean": "고양이를 봐요.",
+      "alternativeAnswers": ["고양이를 봅니다."],
+      "hint": "고양이를...",
+      "explanation": "見る対象「고양이」に目的格「를」を付けます。"
+    },
+    {
+      "id": "qt_particle_003_07",
+      "order": 7,
+      "japanese": "手紙を書きます。",
+      "korean": "편지를 써요.",
+      "alternativeAnswers": ["편지를 씁니다."],
+      "hint": "편지를...",
+      "explanation": "パッチムなしの名詞は「를」が付き「편지를」となります。"
+    },
+    {
+      "id": "qt_particle_003_08",
+      "order": 8,
+      "japanese": "映画を見ました。",
+      "korean": "영화를 봤어요.",
+      "alternativeAnswers": ["영화를 봤습니다."],
+      "hint": "영화를...",
+      "explanation": "過去でも目的語標示は「을/를」で変わりません。"
+    },
+    {
+      "id": "qt_particle_003_09",
+      "order": 9,
+      "japanese": "誰を呼びますか？",
+      "korean": "누구를 불러요?",
+      "alternativeAnswers": ["누굴 불러요?", "누구를 부릅니까?"],
+      "hint": "누구를...",
+      "explanation": "疑問詞も目的語なら「누구+를」で標示し口語では「누굴」と縮約します。"
+    },
+    {
+      "id": "qt_particle_003_10",
+      "order": 10,
+      "japanese": "バスに乗ります。",
+      "korean": "버스를 타요.",
+      "alternativeAnswers": ["버스를 탑니다."],
+      "hint": "버스를...",
+      "explanation": "乗る対象を明示するため「버스+를」で目的格を付けます。"
+    }
+  ]
+}

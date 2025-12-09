@@ -1,0 +1,121 @@
+{
+  "grammarRef": "grm_substantive_002",
+  "grammarTitle": "너/당신",
+  "grammarSubtitle": "二人称代名詞（あなた）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_002_01",
+      "order": 1,
+      "japanese": "あなたは学生ですか。",
+      "korean": "당신은 학생이에요?",
+      "alternativeAnswers": [
+        "당신은 학생입니까?"
+      ],
+      "hint": "당신은...",
+      "explanation": "丁寧に相手を呼ぶとき「당신」を使いますが頻度は低いです。"
+    },
+    {
+      "id": "qt_substantive_002_02",
+      "order": 2,
+      "japanese": "あなたは今時間がありますか。",
+      "korean": "너는 지금 시간 있어요?",
+      "alternativeAnswers": [
+        "너 지금 시간 있어요?",
+        "당신은 지금 시간 있으세요?"
+      ],
+      "hint": "너는...",
+      "explanation": "親しい相手には「너」を使い、丁寧体で終えます。"
+    },
+    {
+      "id": "qt_substantive_002_03",
+      "order": 3,
+      "japanese": "あなたの名前は何ですか。",
+      "korean": "당신 이름이 뭐예요?",
+      "alternativeAnswers": [
+        "이름이 뭐예요?"
+      ],
+      "hint": "당신...",
+      "explanation": "相手を特定するとき「당신」＋名詞を置けますが省略も多いです。"
+    },
+    {
+      "id": "qt_substantive_002_04",
+      "order": 4,
+      "japanese": "あなたは何を食べますか。",
+      "korean": "너는 뭐 먹어요?",
+      "alternativeAnswers": [
+        "너 뭐 먹어요?",
+        "당신은 무엇을 드세요?"
+      ],
+      "hint": "너는...",
+      "explanation": "友人には「너」を使い、丁寧な語尾を付けます。"
+    },
+    {
+      "id": "qt_substantive_002_05",
+      "order": 5,
+      "japanese": "あなたも来ますか。",
+      "korean": "당신도 와요?",
+      "alternativeAnswers": [
+        "너도 와요?"
+      ],
+      "hint": "당신도...",
+      "explanation": "「도」で相手を含め、丁寧なら「당신」を使えます。"
+    },
+    {
+      "id": "qt_substantive_002_06",
+      "order": 6,
+      "japanese": "あなたはどこに住んでいますか。",
+      "korean": "너는 어디에 살아요?",
+      "alternativeAnswers": [
+        "너 어디에 살아요?",
+        "당신은 어디에 사세요?"
+      ],
+      "hint": "너는...",
+      "explanation": "親しい関係では「너」＋는 で主題を示します。"
+    },
+    {
+      "id": "qt_substantive_002_07",
+      "order": 7,
+      "japanese": "あなたはコーヒーが好きですか。",
+      "korean": "당신은 커피를 좋아해요?",
+      "alternativeAnswers": [
+        "너는 커피 좋아해요?"
+      ],
+      "hint": "당신은...",
+      "explanation": "丁寧に聞くなら「당신은」を使い、話し相手次第で省きます。"
+    },
+    {
+      "id": "qt_substantive_002_08",
+      "order": 8,
+      "japanese": "あなたが決めてください。",
+      "korean": "당신이 정해 주세요.",
+      "alternativeAnswers": [
+        "네가 정해 줘요."
+      ],
+      "hint": "당신이...",
+      "explanation": "主格が相手なら「당신이/네가」で示します。"
+    },
+    {
+      "id": "qt_substantive_002_09",
+      "order": 9,
+      "japanese": "あなたの家はどこですか。",
+      "korean": "네 집은 어디예요?",
+      "alternativeAnswers": [
+        "당신 집은 어디예요?"
+      ],
+      "hint": "네 집...",
+      "explanation": "所有を表すとき「네(あなたの)」を使います。"
+    },
+    {
+      "id": "qt_substantive_002_10",
+      "order": 10,
+      "japanese": "あなたと一緒に行きたいです。",
+      "korean": "당신과 같이 가고 싶어요.",
+      "alternativeAnswers": [
+        "너와 같이 가고 싶어요."
+      ],
+      "hint": "당신과...",
+      "explanation": "相手と一緒を表すとき「당신과/너와」を使います。"
+    }
+  ]
+}

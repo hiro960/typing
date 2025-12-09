@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_025",
+  "grammarTitle": "-고 말다",
+  "grammarSubtitle": "結局〜してしまう",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_025_01",
+      "order": 1,
+      "japanese": "ケーキを全部食べてしまいました。",
+      "korean": "케이크를 다 먹고 말았어요.",
+      "alternativeAnswers": [
+        "케이크를 다 먹고 말았습니다."
+      ],
+      "hint": "케이크를...",
+      "explanation": "思わず完了してしまった結果を強調する表現です。"
+    },
+    {
+      "id": "qt_tense_aspect_025_02",
+      "order": 2,
+      "japanese": "バスを逃してしまいました。",
+      "korean": "버스를 놓치고 말았어요.",
+      "alternativeAnswers": [
+        "버스를 놓치고 말았습니다."
+      ],
+      "hint": "버스를...",
+      "explanation": "望ましくない結果に至ったことを表します。"
+    },
+    {
+      "id": "qt_tense_aspect_025_03",
+      "order": 3,
+      "japanese": "また寝坊してしまいました。",
+      "korean": "또 늦잠을 자고 말았어요.",
+      "alternativeAnswers": [
+        "또 늦잠을 자고 말았습니다."
+      ],
+      "hint": "또 늦잠을...",
+      "explanation": "やってしまったという残念さを含めて述べます。"
+    },
+    {
+      "id": "qt_tense_aspect_025_04",
+      "order": 4,
+      "japanese": "約束を忘れてしまいました。",
+      "korean": "약속을 잊어버리고 말았어요.",
+      "alternativeAnswers": [
+        "약속을 잊어버리고 말았습니다."
+      ],
+      "hint": "약속을...",
+      "explanation": "意図せず結果が起きたことを強調します。"
+    },
+    {
+      "id": "qt_tense_aspect_025_05",
+      "order": 5,
+      "japanese": "雨に濡れてしまいました。",
+      "korean": "비에 젖고 말았어요.",
+      "alternativeAnswers": [
+        "비에 젖고 말았습니다."
+      ],
+      "hint": "비에...",
+      "explanation": "避けたかった結果を「-고 말다」で示します。"
+    },
+    {
+      "id": "qt_tense_aspect_025_06",
+      "order": 6,
+      "japanese": "試験に遅れてしまいました。",
+      "korean": "시험에 늦고 말았어요.",
+      "alternativeAnswers": [
+        "시험에 늦고 말았습니다."
+      ],
+      "hint": "시험에...",
+      "explanation": "望まない結果に至ったニュアンスを表します。"
+    },
+    {
+      "id": "qt_tense_aspect_025_07",
+      "order": 7,
+      "japanese": "財布を失くしてしまいました。",
+      "korean": "지갑을 잃어버리고 말았어요.",
+      "alternativeAnswers": [
+        "지갑을 잃어버리고 말았습니다."
+      ],
+      "hint": "지갑을...",
+      "explanation": "後悔や残念さを込めて完了結果を述べます。"
+    },
+    {
+      "id": "qt_tense_aspect_025_08",
+      "order": 8,
+      "japanese": "風邪をひいてしまいました。",
+      "korean": "감기에 걸리고 말았어요.",
+      "alternativeAnswers": [
+        "감기에 걸리고 말았습니다."
+      ],
+      "hint": "감기에...",
+      "explanation": "好ましくない状態になってしまったことを示します。"
+    },
+    {
+      "id": "qt_tense_aspect_025_09",
+      "order": 9,
+      "japanese": "眠ってしまいました。",
+      "korean": "잠이 들고 말았어요.",
+      "alternativeAnswers": [
+        "잠이 들고 말았습니다."
+      ],
+      "hint": "잠이...",
+      "explanation": "意図せず眠りに落ちた結果を表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_025_10",
+      "order": 10,
+      "japanese": "友だちとけんかしてしまいました。",
+      "korean": "친구와 싸우고 말았어요.",
+      "alternativeAnswers": [
+        "친구와 싸우고 말았습니다."
+      ],
+      "hint": "친구와...",
+      "explanation": "避けたかった結果として喧嘩してしまったことを示します。"
+    }
+  ]
+}

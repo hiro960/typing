@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_007",
+  "grammarTitle": "와/과",
+  "grammarSubtitle": "並列助詞・フォーマル（〜と）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_007_01",
+      "order": 1,
+      "japanese": "ご飯とキムチがおいしいです。",
+      "korean": "밥과 김치가 맛있어요.",
+      "alternativeAnswers": ["밥과 김치가 맛있습니다."],
+      "hint": "밥과...",
+      "explanation": "パッチムありの名詞には「과」を付けて並列します。"
+    },
+    {
+      "id": "qt_particle_007_02",
+      "order": 2,
+      "japanese": "友達と私は学校に行きます。",
+      "korean": "친구와 저는 학교에 가요.",
+      "alternativeAnswers": ["친구와 저는 학교에 갑니다."],
+      "hint": "친구와...",
+      "explanation": "パッチムなしの名詞「친구」には「와」を付けて「〜と」と言います。"
+    },
+    {
+      "id": "qt_particle_007_03",
+      "order": 3,
+      "japanese": "本とノートを買いました。",
+      "korean": "책과 노트를 샀어요.",
+      "alternativeAnswers": ["책과 노트를 샀습니다."],
+      "hint": "책과...",
+      "explanation": "並列する名詞同士に「과/와」を付けて列挙します。"
+    },
+    {
+      "id": "qt_particle_007_04",
+      "order": 4,
+      "japanese": "お母さんとお父さんが来ます。",
+      "korean": "어머니와 아버지가 와요.",
+      "alternativeAnswers": ["어머니와 아버지가 옵니다."],
+      "hint": "어머니와...",
+      "explanation": "家族など複数主語を丁寧に並べるときに「와/과」を使います。"
+    },
+    {
+      "id": "qt_particle_007_05",
+      "order": 5,
+      "japanese": "コーヒーとお茶をください。",
+      "korean": "커피와 차를 주세요.",
+      "alternativeAnswers": ["커피와 차를 주십시오."],
+      "hint": "커피와...",
+      "explanation": "注文など丁寧な場面では「하고」より「와/과」が適します。"
+    },
+    {
+      "id": "qt_particle_007_06",
+      "order": 6,
+      "japanese": "猫と犬が好きです。",
+      "korean": "고양이와 강아지를 좋아해요.",
+      "alternativeAnswers": ["고양이와 강아지를 좋아합니다."],
+      "hint": "고양이와...",
+      "explanation": "目的語が複数でも各名詞に並列助詞を付けてまとめます。"
+    },
+    {
+      "id": "qt_particle_007_07",
+      "order": 7,
+      "japanese": "昼ご飯と夕ご飯を外で食べます。",
+      "korean": "점심과 저녁을 밖에서 먹어요.",
+      "alternativeAnswers": ["점심과 저녁을 밖에서 먹습니다."],
+      "hint": "점심과...",
+      "explanation": "二つの時間帯を「과」で並列し同じ動作を述べます。"
+    },
+    {
+      "id": "qt_particle_007_08",
+      "order": 8,
+      "japanese": "バスと地下鉄が便利です。",
+      "korean": "버스와 지하철이 편해요.",
+      "alternativeAnswers": ["버스와 지하철이 편합니다."],
+      "hint": "버스와...",
+      "explanation": "交通手段を列挙する際もフォーマルな並列「와/과」を使えます。"
+    },
+    {
+      "id": "qt_particle_007_09",
+      "order": 9,
+      "japanese": "水とジュースを持ってきました。",
+      "korean": "물과 주스를 가져왔어요.",
+      "alternativeAnswers": ["물과 주스를 가져왔습니다."],
+      "hint": "물과...",
+      "explanation": "持ってきた物を列挙して説明するときに使います。"
+    },
+    {
+      "id": "qt_particle_007_10",
+      "order": 10,
+      "japanese": "先生と学生が話します。",
+      "korean": "선생님과 학생이 이야기해요.",
+      "alternativeAnswers": ["선생님과 학생이 이야기합니다."],
+      "hint": "선생님과...",
+      "explanation": "フォーマルな場面の「〜と」は「하고」より「와/과」が自然です。"
+    }
+  ]
+}

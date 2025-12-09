@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_021",
+  "grammarTitle": "(이)나",
+  "grammarSubtitle": "選択助詞（〜か／〜でも）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_021_01",
+      "order": 1,
+      "japanese": "コーヒーかお茶を飲みます。",
+      "korean": "커피나 차를 마셔요.",
+      "alternativeAnswers": ["커피나 차를 마십니다."],
+      "hint": "커피나...",
+      "explanation": "パッチムなしの名詞に「나」を付けて『〜か』を表します。"
+    },
+    {
+      "id": "qt_particle_021_02",
+      "order": 2,
+      "japanese": "バスか地下鉄に乗ります。",
+      "korean": "버스나 지하철을 타요.",
+      "alternativeAnswers": ["버스나 지하철을 탑니다."],
+      "hint": "버스나...",
+      "explanation": "選択肢を列挙するとき各名詞に「(이)나」を付けます。"
+    },
+    {
+      "id": "qt_particle_021_03",
+      "order": 3,
+      "japanese": "学校か家で勉強します。",
+      "korean": "학교나 집에서 공부해요.",
+      "alternativeAnswers": ["학교나 집에서 공부합니다."],
+      "hint": "학교나...",
+      "explanation": "場所の選択にも同じ形で『〜か』を表します。"
+    },
+    {
+      "id": "qt_particle_021_04",
+      "order": 4,
+      "japanese": "今日か明日会いましょう。",
+      "korean": "오늘이나 내일 만나요.",
+      "alternativeAnswers": ["오늘이나 내일 만납시다."],
+      "hint": "오늘이나...",
+      "explanation": "時間の選択にも「이나/나」を使います。"
+    },
+    {
+      "id": "qt_particle_021_05",
+      "order": 5,
+      "japanese": "この本かあの本を読みます。",
+      "korean": "이 책이나 저 책을 읽어요.",
+      "alternativeAnswers": ["이 책이나 저 책을 읽습니다."],
+      "hint": "이 책이나...",
+      "explanation": "パッチムの有無に合わせて「이나/나」を選びます。"
+    },
+    {
+      "id": "qt_particle_021_06",
+      "order": 6,
+      "japanese": "十分も待ちました。",
+      "korean": "열 분이나 기다렸어요.",
+      "alternativeAnswers": ["열 분이나 기다렸습니다."],
+      "hint": "열 분이나...",
+      "explanation": "数詞＋이나で『〜も』の多さを強調する用法もあります。"
+    },
+    {
+      "id": "qt_particle_021_07",
+      "order": 7,
+      "japanese": "キムパプかラーメンを食べます。",
+      "korean": "김밥이나 라면을 먹어요.",
+      "alternativeAnswers": ["김밥이나 라면을 먹습니다."],
+      "hint": "김밥이나...",
+      "explanation": "食べ物の選択を示す際にも「(이)나」を使います。"
+    },
+    {
+      "id": "qt_particle_021_08",
+      "order": 8,
+      "japanese": "週末にでも旅行に行きます。",
+      "korean": "주말에나 여행 가요.",
+      "alternativeAnswers": ["주말에나 여행 갑니다."],
+      "hint": "주말에나...",
+      "explanation": "「〜でも」のニュアンスで時点に「이나/나」を付けます。"
+    },
+    {
+      "id": "qt_particle_021_09",
+      "order": 9,
+      "japanese": "友達か家族に話します。",
+      "korean": "친구나 가족에게 말해요.",
+      "alternativeAnswers": ["친구나 가족에게 말합니다."],
+      "hint": "친구나...",
+      "explanation": "相手の選択肢にも「(이)나」を使えます。"
+    },
+    {
+      "id": "qt_particle_021_10",
+      "order": 10,
+      "japanese": "昼ご飯でも一緒に食べましょう。",
+      "korean": "점심이나 같이 먹어요.",
+      "alternativeAnswers": ["점심이나 같이 먹읍시다."],
+      "hint": "점심이나...",
+      "explanation": "提案で気軽に誘うとき「〜でも」の意味で使います。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_011",
+  "grammarTitle": "만",
+  "grammarSubtitle": "限定助詞（〜だけ）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_011_01",
+      "order": 1,
+      "japanese": "今日だけ休みます。",
+      "korean": "오늘만 쉬어요.",
+      "alternativeAnswers": ["오늘만 쉽니다."],
+      "hint": "오늘만...",
+      "explanation": "時間を限定するとき名詞に「만」を付けます。"
+    },
+    {
+      "id": "qt_particle_011_02",
+      "order": 2,
+      "japanese": "水だけ飲みます。",
+      "korean": "물만 마셔요.",
+      "alternativeAnswers": ["물만 마십니다."],
+      "hint": "물만...",
+      "explanation": "対象を限定して『〜だけ』とするとき「만」を使います。"
+    },
+    {
+      "id": "qt_particle_011_03",
+      "order": 3,
+      "japanese": "一人だけ来ました。",
+      "korean": "한 사람만 왔어요.",
+      "alternativeAnswers": ["한 사람만 왔습니다."],
+      "hint": "한 사람만...",
+      "explanation": "数量詞の後にも「만」を付け限定を示します。"
+    },
+    {
+      "id": "qt_particle_011_04",
+      "order": 4,
+      "japanese": "私だけ知りませんでした。",
+      "korean": "저만 몰랐어요.",
+      "alternativeAnswers": ["저만 몰랐습니다."],
+      "hint": "저만...",
+      "explanation": "主語を限定する場合もその名詞に「만」を付けます。"
+    },
+    {
+      "id": "qt_particle_011_05",
+      "order": 5,
+      "japanese": "ご飯だけ少し食べます。",
+      "korean": "밥만 조금 먹어요.",
+      "alternativeAnswers": ["밥만 조금 먹습니다."],
+      "hint": "밥만...",
+      "explanation": "他を除外しある一つだけを取るとき「만」を使います。"
+    },
+    {
+      "id": "qt_particle_011_06",
+      "order": 6,
+      "japanese": "その本だけあります。",
+      "korean": "그 책만 있어요.",
+      "alternativeAnswers": ["그 책만 있습니다."],
+      "hint": "그 책만...",
+      "explanation": "所持品を限定する場合も同様に「만」を付けます。"
+    },
+    {
+      "id": "qt_particle_011_07",
+      "order": 7,
+      "japanese": "学校でだけ勉強します。",
+      "korean": "학교에서만 공부해요.",
+      "alternativeAnswers": ["학교에서만 공부합니다."],
+      "hint": "학교에서만...",
+      "explanation": "場所にも「만」を重ねてその場に限定できます。"
+    },
+    {
+      "id": "qt_particle_011_08",
+      "order": 8,
+      "japanese": "友達だけ信じます。",
+      "korean": "친구만 믿어요.",
+      "alternativeAnswers": ["친구만 믿습니다."],
+      "hint": "친구만...",
+      "explanation": "信頼の対象を一つに絞るときも「만」を使います。"
+    },
+    {
+      "id": "qt_particle_011_09",
+      "order": 9,
+      "japanese": "昼ご飯だけ食べました。",
+      "korean": "점심만 먹었어요.",
+      "alternativeAnswers": ["점심만 먹었습니다."],
+      "hint": "점심만...",
+      "explanation": "食べた物を限定する表現でも「만」を用います。"
+    },
+    {
+      "id": "qt_particle_011_10",
+      "order": 10,
+      "japanese": "週末だけ会います。",
+      "korean": "주말에만 만나요.",
+      "alternativeAnswers": ["주말에만 만납니다."],
+      "hint": "주말에만...",
+      "explanation": "時間名詞+에+만で時点を限定することができます。"
+    }
+  ]
+}

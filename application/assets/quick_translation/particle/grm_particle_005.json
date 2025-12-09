@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_005",
+  "grammarTitle": "에서",
+  "grammarSubtitle": "場所助詞・動作（〜で）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_005_01",
+      "order": 1,
+      "japanese": "家でご飯を食べます。",
+      "korean": "집에서 밥을 먹어요.",
+      "alternativeAnswers": ["집에서 밥을 먹습니다."],
+      "hint": "집에서...",
+      "explanation": "動作が行われる場所を示すとき「에서」を使います。"
+    },
+    {
+      "id": "qt_particle_005_02",
+      "order": 2,
+      "japanese": "学校で勉強します。",
+      "korean": "학교에서 공부해요.",
+      "alternativeAnswers": ["학교에서 공부합니다."],
+      "hint": "학교에서...",
+      "explanation": "行為の場所には「에」ではなく「에서」を付けます。"
+    },
+    {
+      "id": "qt_particle_005_03",
+      "order": 3,
+      "japanese": "会社で働きます。",
+      "korean": "회사에서 일해요.",
+      "alternativeAnswers": ["회사에서 일합니다."],
+      "hint": "회사에서...",
+      "explanation": "働く場所も動作場所なので「에서」を使います。"
+    },
+    {
+      "id": "qt_particle_005_04",
+      "order": 4,
+      "japanese": "公園で走ります。",
+      "korean": "공원에서 뛰어요.",
+      "alternativeAnswers": ["공원에서 뜁니다."],
+      "hint": "공원에서...",
+      "explanation": "運動など動作の場所を示す際の標準形が「에서」です。"
+    },
+    {
+      "id": "qt_particle_005_05",
+      "order": 5,
+      "japanese": "カフェで友達に会います。",
+      "korean": "카페에서 친구를 만나요.",
+      "alternativeAnswers": ["카페에서 친구를 만납니다."],
+      "hint": "카페에서...",
+      "explanation": "会う行為が行われる場所を「에서」で示します。"
+    },
+    {
+      "id": "qt_particle_005_06",
+      "order": 6,
+      "japanese": "駅でバスを待ちます。",
+      "korean": "역에서 버스를 기다려요.",
+      "alternativeAnswers": ["역에서 버스를 기다립니다."],
+      "hint": "역에서...",
+      "explanation": "待つ動作の場所も「에서」で表します。"
+    },
+    {
+      "id": "qt_particle_005_07",
+      "order": 7,
+      "japanese": "どこから来ましたか？",
+      "korean": "어디에서 왔어요?",
+      "alternativeAnswers": ["어디에서 왔습니까?", "어디서 왔어요?"],
+      "hint": "어디에서...",
+      "explanation": "出発点や起点も「에서/서」で表し口語では縮約形を使います。"
+    },
+    {
+      "id": "qt_particle_005_08",
+      "order": 8,
+      "japanese": "家から学校まで歩きます。",
+      "korean": "집에서 학교까지 걸어요.",
+      "alternativeAnswers": ["집에서 학교까지 걷습니다."],
+      "hint": "집에서...",
+      "explanation": "出発点を「에서」、終点を「까지」で組み合わせます。"
+    },
+    {
+      "id": "qt_particle_005_09",
+      "order": 9,
+      "japanese": "病院で薬をもらいます。",
+      "korean": "병원에서 약을 받아요.",
+      "alternativeAnswers": ["병원에서 약을 받습니다."],
+      "hint": "병원에서...",
+      "explanation": "受け取る場所も動作場所なので「에서」を付けます。"
+    },
+    {
+      "id": "qt_particle_005_10",
+      "order": 10,
+      "japanese": "食堂で昼ご飯を買います。",
+      "korean": "식당에서 점심을 사요.",
+      "alternativeAnswers": ["식당에서 점심을 삽니다."],
+      "hint": "식당에서...",
+      "explanation": "買う行為の場所を示すため「에서」で標示します。"
+    }
+  ]
+}

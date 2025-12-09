@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_tense_aspect_003",
+  "grammarTitle": "-(으)ㄹ 것이다",
+  "grammarSubtitle": "未来推量",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_003_01",
+      "order": 1,
+      "japanese": "明日は晴れるでしょう。",
+      "korean": "내일은 맑을 거예요.",
+      "alternativeAnswers": ["내일은 맑을 것입니다."],
+      "hint": "내일은...",
+      "explanation": "未来の推量を表し語幹に-(으)ㄹ 거예요を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_003_02",
+      "order": 2,
+      "japanese": "夜に電話するつもりです。",
+      "korean": "밤에 전화할 거예요.",
+      "alternativeAnswers": ["밤에 전화할 것입니다."],
+      "hint": "밤에...",
+      "explanation": "予定を述べる際に動詞語幹+ㄹ 거예요を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_003_03",
+      "order": 3,
+      "japanese": "家で休むつもりです。",
+      "korean": "집에서 쉴 거예요.",
+      "alternativeAnswers": ["집에서 쉴 것입니다."],
+      "hint": "집에서...",
+      "explanation": "未来の計画を示す形で語幹に-ㄹ 거예요を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_003_04",
+      "order": 4,
+      "japanese": "来年韓国に行く予定です。",
+      "korean": "내년에 한국에 갈 거예요.",
+      "alternativeAnswers": ["내년에 한국에 갈 것입니다."],
+      "hint": "내년에...",
+      "explanation": "未然の予定を表すので갈 거예요の形を取ります。"
+    },
+    {
+      "id": "qt_tense_aspect_003_05",
+      "order": 5,
+      "japanese": "雨は降らないでしょう。",
+      "korean": "비는 안 올 거예요.",
+      "alternativeAnswers": ["비는 안 올 것입니다."],
+      "hint": "비는...",
+      "explanation": "否定の未来推量でも-(으)ㄹ 거예요を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_003_06",
+      "order": 6,
+      "japanese": "友達がすぐ来るでしょう。",
+      "korean": "친구가 금방 올 거예요.",
+      "alternativeAnswers": ["친구가 금방 올 것입니다."],
+      "hint": "친구가...",
+      "explanation": "到着を予想する文で未来推量-(으)ㄹ 거예요を使用。"
+    },
+    {
+      "id": "qt_tense_aspect_003_07",
+      "order": 7,
+      "japanese": "その本は面白いでしょう。",
+      "korean": "그 책이 재미있을 거예요.",
+      "alternativeAnswers": ["그 책이 재미있을 것입니다."],
+      "hint": "그 책이...",
+      "explanation": "形容詞の未来推量でも-ㄹ 거예요を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_003_08",
+      "order": 8,
+      "japanese": "早く終わると思います。",
+      "korean": "빨리 끝날 거예요.",
+      "alternativeAnswers": ["빨리 끝날 것입니다."],
+      "hint": "빨리...",
+      "explanation": "見込みを伝えるため끝나다の連体形-ㄹ 거예요を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_003_09",
+      "order": 9,
+      "japanese": "夕方にご飯を食べる予定です。",
+      "korean": "저녁에 밥을 먹을 거예요.",
+      "alternativeAnswers": ["저녁에 밥을 먹을 것입니다."],
+      "hint": "저녁에...",
+      "explanation": "未来の予定に-(으)ㄹ 거예요を付けて表します。"
+    },
+    {
+      "id": "qt_tense_aspect_003_10",
+      "order": 10,
+      "japanese": "今日は家にいるつもりです。",
+      "korean": "오늘은 집에 있을 거예요.",
+      "alternativeAnswers": ["오늘은 집에 있을 것입니다."],
+      "hint": "오늘은...",
+      "explanation": "未来の意向を述べるので있다に-을 거예요を付けます。"
+    }
+  ]
+}

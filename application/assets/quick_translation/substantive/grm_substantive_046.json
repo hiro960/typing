@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_046",
+  "grammarTitle": "어느",
+  "grammarSubtitle": "疑問連体詞（どの）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_046_01",
+      "order": 1,
+      "japanese": "どの家ですか？",
+      "korean": "어느 집이에요?",
+      "alternativeAnswers": ["어느 집입니까?"],
+      "hint": "어느 ...",
+      "explanation": "複数から選ぶとき는 어느 + 名詞 を使います。"
+    },
+    {
+      "id": "qt_substantive_046_02",
+      "order": 2,
+      "japanese": "どのバスに乗りますか？",
+      "korean": "어느 버스를 타요?",
+      "alternativeAnswers": ["어느 버스를 탑니까?"],
+      "hint": "어느 버...",
+      "explanation": "選択肢がある乗り物にも 어느 를付けます。"
+    },
+    {
+      "id": "qt_substantive_046_03",
+      "order": 3,
+      "japanese": "どの先生のクラスですか？",
+      "korean": "어느 선생님 반이에요?",
+      "alternativeAnswers": ["어느 선생님 반입니까?"],
+      "hint": "어느 선...",
+      "explanation": "所有を示すとき도 어느 + 名詞で限定します。"
+    },
+    {
+      "id": "qt_substantive_046_04",
+      "order": 4,
+      "japanese": "あなたはどの会社ですか？",
+      "korean": "어느 회사예요?",
+      "alternativeAnswers": ["어느 회사입니까?"],
+      "hint": "어느 회...",
+      "explanation": "所属先を尋ねるとき 어느 회사 라고言います。"
+    },
+    {
+      "id": "qt_substantive_046_05",
+      "order": 5,
+      "japanese": "どの本が好きですか？",
+      "korean": "어느 책을 좋아해요?",
+      "alternativeAnswers": ["어느 책을 좋아합니까?"],
+      "hint": "어느 책...",
+      "explanation": "複数の中から好みを問うとき도 어느 를用います。"
+    },
+    {
+      "id": "qt_substantive_046_06",
+      "order": 6,
+      "japanese": "どの国から来ましたか？",
+      "korean": "어느 나라에서 왔어요?",
+      "alternativeAnswers": ["어느 나라에서 왔습니까?"],
+      "hint": "어느 나...",
+      "explanation": "出身国を選択式で聞くとき 어느 나라 를使います。"
+    },
+    {
+      "id": "qt_substantive_046_07",
+      "order": 7,
+      "japanese": "どの部屋が空いていますか？",
+      "korean": "어느 방이 비었어요?",
+      "alternativeAnswers": ["어느 방이 비었습니까?"],
+      "hint": "어느 방...",
+      "explanation": "候補の中から空き部屋を尋ねるときも 어느 を使います。"
+    },
+    {
+      "id": "qt_substantive_046_08",
+      "order": 8,
+      "japanese": "どの色にしますか？",
+      "korean": "어느 색으로 해요?",
+      "alternativeAnswers": ["어느 색으로 합니까?"],
+      "hint": "어느 색...",
+      "explanation": "色を選ぶときにも 어느 색 으로 を用います。"
+    },
+    {
+      "id": "qt_substantive_046_09",
+      "order": 9,
+      "japanese": "どの道に行きますか？",
+      "korean": "어느 길로 가요?",
+      "alternativeAnswers": ["어느 길로 갑니까?"],
+      "hint": "어느 길...",
+      "explanation": "経路を選ぶとき 어느 길로 ~? と尋ねます。"
+    },
+    {
+      "id": "qt_substantive_046_10",
+      "order": 10,
+      "japanese": "どの時間がいいですか？",
+      "korean": "어느 시간이 좋아요?",
+      "alternativeAnswers": ["어느 시간이 좋습니까?"],
+      "hint": "어느 시...",
+      "explanation": "候補時間から選ぶとき도 어느 시간 을使います。"
+    }
+  ]
+}

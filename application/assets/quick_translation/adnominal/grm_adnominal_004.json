@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_adnominal_004",
+  "grammarTitle": "-던",
+  "grammarSubtitle": "回想連体形",
+  "category": "adnominal",
+  "questions": [
+    {
+      "id": "qt_adnominal_004_01",
+      "order": 1,
+      "japanese": "よく行っていたカフェです。",
+      "korean": "자주 가던 카페예요.",
+      "alternativeAnswers": ["자주 가던 카페입니다."],
+      "hint": "자주...",
+      "explanation": "過去に繰り返した行為を回想して名詞を修飾します。"
+    },
+    {
+      "id": "qt_adnominal_004_02",
+      "order": 2,
+      "japanese": "昨日していた話を続けましょう。",
+      "korean": "어제 하던 이야기를 이어요.",
+      "alternativeAnswers": ["어제 하던 이야기를 잇습니다."],
+      "hint": "어제...",
+      "explanation": "途中だった行動を思い出して示す形です。"
+    },
+    {
+      "id": "qt_adnominal_004_03",
+      "order": 3,
+      "japanese": "小さい頃遊んでいた公園です。",
+      "korean": "어릴 때 놀던 공원이에요.",
+      "alternativeAnswers": ["어릴 때 놀던 공원입니다."],
+      "hint": "어릴...",
+      "explanation": "過去に経験した場所を回想連体形で表します。"
+    },
+    {
+      "id": "qt_adnominal_004_04",
+      "order": 4,
+      "japanese": "いつも飲んでいたコーヒーです。",
+      "korean": "항상 마시던 커피예요.",
+      "alternativeAnswers": ["항상 마시던 커피입니다."],
+      "hint": "항상...",
+      "explanation": "以前の習慣だった行為を名詞にかけています。"
+    },
+    {
+      "id": "qt_adnominal_004_05",
+      "order": 5,
+      "japanese": "使っていたペンをなくしました。",
+      "korean": "쓰던 펜을 잃어버렸어요.",
+      "alternativeAnswers": ["쓰던 펜을 잃어버렸습니다."],
+      "hint": "쓰던...",
+      "explanation": "以前使っていた物を回想して述べる例です。"
+    },
+    {
+      "id": "qt_adnominal_004_06",
+      "order": 6,
+      "japanese": "聞いていた歌が思い出せません。",
+      "korean": "듣던 노래가 생각 안 나요.",
+      "alternativeAnswers": ["듣던 노래가 생각 안 납니다."],
+      "hint": "듣던...",
+      "explanation": "過去に聞いた途中だった歌を回想します。"
+    },
+    {
+      "id": "qt_adnominal_004_07",
+      "order": 7,
+      "japanese": "好きだった本をもう一度読みます。",
+      "korean": "좋아하던 책을 다시 읽어요.",
+      "alternativeAnswers": ["좋아하던 책을 다시 읽습니다."],
+      "hint": "좋아하...",
+      "explanation": "以前好きだった状態を回想し名詞を修飾します。"
+    },
+    {
+      "id": "qt_adnominal_004_08",
+      "order": 8,
+      "japanese": "住んでいた家が恋しいです。",
+      "korean": "살던 집이 그리워요.",
+      "alternativeAnswers": ["살던 집이 그립습니다."],
+      "hint": "살던...",
+      "explanation": "過去に住んだ経験を回想し名詞に付けます。"
+    },
+    {
+      "id": "qt_adnominal_004_09",
+      "order": 9,
+      "japanese": "勉強していた教室です。",
+      "korean": "공부하던 교실이에요.",
+      "alternativeAnswers": ["공부하던 교실입니다."],
+      "hint": "공부하...",
+      "explanation": "以前学んだ場所を回想連体形で示します。"
+    },
+    {
+      "id": "qt_adnominal_004_10",
+      "order": 10,
+      "japanese": "笑っていた顔が浮かびます。",
+      "korean": "웃던 얼굴이 떠올라요.",
+      "alternativeAnswers": ["웃던 얼굴이 떠오릅니다."],
+      "hint": "웃던...",
+      "explanation": "過去の一場面を思い出して名詞を修飾する形です。"
+    }
+  ]
+}

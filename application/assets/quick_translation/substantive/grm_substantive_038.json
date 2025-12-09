@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_038",
+  "grammarTitle": "누구",
+  "grammarSubtitle": "疑問代名詞（誰）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_038_01",
+      "order": 1,
+      "japanese": "誰が来ますか？",
+      "korean": "누가 와요?",
+      "alternativeAnswers": ["누가 옵니까?"],
+      "hint": "누가...",
+      "explanation": "누구＋가 は 누가 に縮約され主語を尋ねます。"
+    },
+    {
+      "id": "qt_substantive_038_02",
+      "order": 2,
+      "japanese": "そこにいるのは誰ですか？",
+      "korean": "거기 있는 사람은 누구예요?",
+      "alternativeAnswers": ["거기 있는 사람은 누구입니까?"],
+      "hint": "거기...",
+      "explanation": "人物を指して正体を聞くとき 누구예요? を使います。"
+    },
+    {
+      "id": "qt_substantive_038_03",
+      "order": 3,
+      "japanese": "電話したのは誰ですか？",
+      "korean": "전화한 사람은 누구예요?",
+      "alternativeAnswers": ["전화한 사람은 누구입니까?"],
+      "hint": "전화...",
+      "explanation": "行為者を尋ねるとき도 누구 を使います。"
+    },
+    {
+      "id": "qt_substantive_038_04",
+      "order": 4,
+      "japanese": "誰に会いましたか？",
+      "korean": "누구를 만났어요?",
+      "alternativeAnswers": ["누구를 만났습니까?"],
+      "hint": "누구를...",
+      "explanation": "目的語にも 누구를 を置きます。"
+    },
+    {
+      "id": "qt_substantive_038_05",
+      "order": 5,
+      "japanese": "これは誰のかばんですか？",
+      "korean": "누구 가방이에요?",
+      "alternativeAnswers": ["누구의 가방이에요?", "누구의 가방입니까?"],
+      "hint": "누구 ...",
+      "explanation": "所持を尋ねるとき는 누구(의)+名詞 を使います。"
+    },
+    {
+      "id": "qt_substantive_038_06",
+      "order": 6,
+      "japanese": "この歌手は誰ですか？",
+      "korean": "이 가수가 누구예요?",
+      "alternativeAnswers": ["이 가수가 누구입니까?"],
+      "hint": "이 가...",
+      "explanation": "主語位置で人物の正体を尋ねるときも 누구 입니다。"
+    },
+    {
+      "id": "qt_substantive_038_07",
+      "order": 7,
+      "japanese": "誰と行きますか？",
+      "korean": "누구랑 가요?",
+      "alternativeAnswers": ["누구와 가요?", "누구와 갑니까?"],
+      "hint": "누구랑...",
+      "explanation": "同行者を聞くとき는 누구랑/누구와 を使います。"
+    },
+    {
+      "id": "qt_substantive_038_08",
+      "order": 8,
+      "japanese": "先生は誰ですか？",
+      "korean": "선생님이 누구예요?",
+      "alternativeAnswers": ["선생님이 누구입니까?"],
+      "hint": "선생...",
+      "explanation": "担当者を尋ねるときも 누구 + 이/가 を用います。"
+    },
+    {
+      "id": "qt_substantive_038_09",
+      "order": 9,
+      "japanese": "さっき来たのは誰でしたか？",
+      "korean": "아까 온 사람은 누구였어요?",
+      "alternativeAnswers": ["아까 온 사람은 누구였습니까?"],
+      "hint": "아까 ...",
+      "explanation": "過去形は 누구였어요? を使って尋ねます。"
+    },
+    {
+      "id": "qt_substantive_038_10",
+      "order": 10,
+      "japanese": "チームのリーダーは誰ですか？",
+      "korean": "팀 리더는 누구예요?",
+      "alternativeAnswers": ["팀 리더는 누구입니까?"],
+      "hint": "팀 리...",
+      "explanation": "役割の担当者も 누구 로質問します。"
+    }
+  ]
+}

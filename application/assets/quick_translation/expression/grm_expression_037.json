@@ -1,0 +1,101 @@
+{
+  "grammarRef": "grm_expression_037",
+  "grammarTitle": "-(으)ㄴ/는 한",
+  "grammarSubtitle": "〜する限り",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_037_01",
+      "order": 1,
+      "japanese": "時間がある限り手伝います。",
+      "korean": "시간이 있는 한 도울게요.",
+      "alternativeAnswers": [
+        "시간이 있는 한 도와드릴게요."
+      ],
+      "hint": "시간이...",
+      "explanation": "条件が続く間を示すとき「-는 한」で手助けを約束します。"
+    },
+    {
+      "id": "qt_expression_037_02",
+      "order": 2,
+      "japanese": "雨が降る限り行けません。",
+      "korean": "비가 오는 한 못 가요.",
+      "alternativeAnswers": [],
+      "hint": "비가...",
+      "explanation": "状態が続く間の制限を「오는 한」で表します。"
+    },
+    {
+      "id": "qt_expression_037_03",
+      "order": 3,
+      "japanese": "健康な限り働きます。",
+      "korean": "건강한 한 계속 일해요.",
+      "alternativeAnswers": [],
+      "hint": "건강한...",
+      "explanation": "条件が満たされる間続ける意志を「-ㄴ 한」で示します。"
+    },
+    {
+      "id": "qt_expression_037_04",
+      "order": 4,
+      "japanese": "約束した限り守らなければなりません。",
+      "korean": "약속한 한 지켜야 해요.",
+      "alternativeAnswers": [],
+      "hint": "약속한...",
+      "explanation": "約束がある限り守るべきと述べるため「-ㄴ 한」を使います。"
+    },
+    {
+      "id": "qt_expression_037_05",
+      "order": 5,
+      "japanese": "待つ限りいつか来ます。",
+      "korean": "기다리는 한 언젠가 와요.",
+      "alternativeAnswers": [],
+      "hint": "기다리는...",
+      "explanation": "継続する行為を条件に結果を述べる際「-는 한」を用います。"
+    },
+    {
+      "id": "qt_expression_037_06",
+      "order": 6,
+      "japanese": "練習する限り上達します。",
+      "korean": "연습하는 한 늘어요.",
+      "alternativeAnswers": [],
+      "hint": "연습하는...",
+      "explanation": "行為の継続を条件に成果を述べるため「-는 한」を使います。"
+    },
+    {
+      "id": "qt_expression_037_07",
+      "order": 7,
+      "japanese": "努力する限りあきらめません。",
+      "korean": "노력하는 한 포기 안 해요.",
+      "alternativeAnswers": [],
+      "hint": "노력하는...",
+      "explanation": "努力が続く条件を示し「-는 한」で意思を表現します。"
+    },
+    {
+      "id": "qt_expression_037_08",
+      "order": 8,
+      "japanese": "笑う限り大丈夫です。",
+      "korean": "웃는 한 괜찮아요.",
+      "alternativeAnswers": [],
+      "hint": "웃는...",
+      "explanation": "状態が続く間の安心を「-는 한」で示します。"
+    },
+    {
+      "id": "qt_expression_037_09",
+      "order": 9,
+      "japanese": "一緒にいる限り寂しくありません。",
+      "korean": "함께 있는 한 외롭지 않아요.",
+      "alternativeAnswers": [],
+      "hint": "함께...",
+      "explanation": "存在が条件であることを「있는 한」で述べます。"
+    },
+    {
+      "id": "qt_expression_037_10",
+      "order": 10,
+      "japanese": "互いに信じる限り問題ありません。",
+      "korean": "서로 믿는 한 문제없어요.",
+      "alternativeAnswers": [],
+      "hint": "서로...",
+      "explanation": "信頼が続く条件を「믿는 한」で表します。"
+    }
+  ]
+}
+

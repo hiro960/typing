@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_042",
+  "grammarTitle": "왜",
+  "grammarSubtitle": "疑問副詞（なぜ）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_042_01",
+      "order": 1,
+      "japanese": "なぜ遅れましたか？",
+      "korean": "왜 늦었어요?",
+      "alternativeAnswers": ["왜 늦었습니까?"],
+      "hint": "왜 늦...",
+      "explanation": "理由を尋ねる基本形は 왜 + 動詞/形容詞 です。"
+    },
+    {
+      "id": "qt_substantive_042_02",
+      "order": 2,
+      "japanese": "なぜ泣いていますか？",
+      "korean": "왜 울어요?",
+      "alternativeAnswers": ["왜 웁니까?"],
+      "hint": "왜 울...",
+      "explanation": "感情の理由も 왜 で尋ねます。"
+    },
+    {
+      "id": "qt_substantive_042_03",
+      "order": 3,
+      "japanese": "なぜ行かないのですか？",
+      "korean": "왜 안 가요?",
+      "alternativeAnswers": ["왜 안 갑니까?"],
+      "hint": "왜 안...",
+      "explanation": "否定文でも 왜 と 함께理由を聞きます。"
+    },
+    {
+      "id": "qt_substantive_042_04",
+      "order": 4,
+      "japanese": "なぜ勉強しますか？",
+      "korean": "왜 공부해요?",
+      "alternativeAnswers": ["왜 공부합니까?"],
+      "hint": "왜 공...",
+      "explanation": "目的や理由を尋ねるとき도 왜 を使います。"
+    },
+    {
+      "id": "qt_substantive_042_05",
+      "order": 5,
+      "japanese": "なぜそんなに高いですか？",
+      "korean": "왜 그렇게 비싸요?",
+      "alternativeAnswers": ["왜 그렇게 비쌉니까?"],
+      "hint": "왜 그...",
+      "explanation": "状態の理由を問いただすとき 왜 그렇게 ~? と言います。"
+    },
+    {
+      "id": "qt_substantive_042_06",
+      "order": 6,
+      "japanese": "なぜ笑いますか？",
+      "korean": "왜 웃어요?",
+      "alternativeAnswers": ["왜 웃습니까?"],
+      "hint": "왜 웃...",
+      "explanation": "感情表現にも 왜 を付けて理由を尋ねます。"
+    },
+    {
+      "id": "qt_substantive_042_07",
+      "order": 7,
+      "japanese": "なぜここにいますか？",
+      "korean": "왜 여기 있어요?",
+      "alternativeAnswers": ["왜 여기 있습니까?"],
+      "hint": "왜 여...",
+      "explanation": "場所にいる理由も 왜 로質問します。"
+    },
+    {
+      "id": "qt_substantive_042_08",
+      "order": 8,
+      "japanese": "なぜ急いで行きますか？",
+      "korean": "왜 빨리 가요?",
+      "alternativeAnswers": ["왜 빨리 갑니까?"],
+      "hint": "왜 빨...",
+      "explanation": "動作を急ぐ理由も 왜 + 動詞 で尋ねます。"
+    },
+    {
+      "id": "qt_substantive_042_09",
+      "order": 9,
+      "japanese": "なぜ寒いですか？",
+      "korean": "왜 추워요?",
+      "alternativeAnswers": ["왜 춥습니까?"],
+      "hint": "왜 추...",
+      "explanation": "状態の原因を問うとき도 왜 を使います。"
+    },
+    {
+      "id": "qt_substantive_042_10",
+      "order": 10,
+      "japanese": "なぜそこに座りますか？",
+      "korean": "왜 거기에 앉아요?",
+      "alternativeAnswers": ["왜 거기에 앉습니까?"],
+      "hint": "왜 거...",
+      "explanation": "行動の理由を尋ねる際も 왜 + 動詞 を用います。"
+    }
+  ]
+}

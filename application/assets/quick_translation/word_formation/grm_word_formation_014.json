@@ -1,0 +1,108 @@
+{
+  "grammarRef": "grm_word_formation_014",
+  "grammarTitle": "같이/함께",
+  "grammarSubtitle": "様態副詞（一緒に）",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_014_01",
+      "order": 1,
+      "japanese": "一緒にご飯を食べましょう。",
+      "korean": "같이 밥 먹어요.",
+      "alternativeAnswers": [
+        "함께 밥 먹어요."
+      ],
+      "hint": "같이...",
+      "explanation": "同行や共同行為を表し「一緒に食べよう」と誘います。"
+    },
+    {
+      "id": "qt_word_formation_014_02",
+      "order": 2,
+      "japanese": "一緒に映画を見ます。",
+      "korean": "같이 영화 봐요.",
+      "alternativeAnswers": [
+        "함께 영화 봐요."
+      ],
+      "hint": "같이...",
+      "explanation": "動作の前で共に行うことを表現します。"
+    },
+    {
+      "id": "qt_word_formation_014_03",
+      "order": 3,
+      "japanese": "一緒に行きましょう。",
+      "korean": "같이 가요.",
+      "alternativeAnswers": [
+        "함께 가요."
+      ],
+      "hint": "같이...",
+      "explanation": "移動を共にする提案でも同じ副詞を使います。"
+    },
+    {
+      "id": "qt_word_formation_014_04",
+      "order": 4,
+      "japanese": "一緒に勉強します。",
+      "korean": "같이 공부해요.",
+      "alternativeAnswers": [
+        "함께 공부해요."
+      ],
+      "hint": "같이...",
+      "explanation": "学習行為を共にする様子を「같이」や「함께」で示します。"
+    },
+    {
+      "id": "qt_word_formation_014_05",
+      "order": 5,
+      "japanese": "一緒に写真を撮ります。",
+      "korean": "같이 사진 찍어요.",
+      "alternativeAnswers": [],
+      "hint": "같이...",
+      "explanation": "撮影の前に置き「一緒に写真を撮る」と言います。"
+    },
+    {
+      "id": "qt_word_formation_014_06",
+      "order": 6,
+      "japanese": "一緒に歩きます。",
+      "korean": "같이 걸어요.",
+      "alternativeAnswers": [],
+      "hint": "같이...",
+      "explanation": "移動動作でも共同行為を副詞で表現します。"
+    },
+    {
+      "id": "qt_word_formation_014_07",
+      "order": 7,
+      "japanese": "一緒に遊びます。",
+      "korean": "같이 놀아요.",
+      "alternativeAnswers": [],
+      "hint": "같이...",
+      "explanation": "娯楽の場面でも「一緒に〜する」を示す副詞です。"
+    },
+    {
+      "id": "qt_word_formation_014_08",
+      "order": 8,
+      "japanese": "一緒に住んでいます。",
+      "korean": "같이 살아요.",
+      "alternativeAnswers": [],
+      "hint": "같이...",
+      "explanation": "継続的な生活も共にしていることを表します。"
+    },
+    {
+      "id": "qt_word_formation_014_09",
+      "order": 9,
+      "japanese": "一緒に仕事します。",
+      "korean": "같이 일해요.",
+      "alternativeAnswers": [
+        "함께 일해요."
+      ],
+      "hint": "같이...",
+      "explanation": "職場などで協働する状況も同じ副詞で表現します。"
+    },
+    {
+      "id": "qt_word_formation_014_10",
+      "order": 10,
+      "japanese": "一緒に帰りましょう。",
+      "korean": "같이 집에 가요.",
+      "alternativeAnswers": [],
+      "hint": "같이...",
+      "explanation": "帰宅の提案でも「같이」を用いて同行を誘います。"
+    }
+  ]
+}

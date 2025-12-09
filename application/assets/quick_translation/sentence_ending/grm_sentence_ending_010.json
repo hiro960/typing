@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_sentence_ending_010",
+  "grammarTitle": "-잖아요",
+  "grammarSubtitle": "既知の事実（〜じゃないですか）",
+  "category": "sentence_ending",
+  "questions": [
+    {
+      "id": "qt_sentence_ending_010_01",
+      "order": 1,
+      "japanese": "今、雨が降ってるじゃないですか。",
+      "korean": "지금 비가 오잖아요.",
+      "alternativeAnswers": [],
+      "hint": "지금...",
+      "explanation": "相手も知っている事実を確認する語尾が -잖아요 です。"
+    },
+    {
+      "id": "qt_sentence_ending_010_02",
+      "order": 2,
+      "japanese": "私たち友達じゃないですか。",
+      "korean": "우리 친구잖아요.",
+      "alternativeAnswers": [],
+      "hint": "우리...",
+      "explanation": "共通認識を前提に思い出させるとき -잖아요 を使います。"
+    },
+    {
+      "id": "qt_sentence_ending_010_03",
+      "order": 3,
+      "japanese": "昨日会ったじゃないですか。",
+      "korean": "어제 만났잖아요.",
+      "alternativeAnswers": [],
+      "hint": "어제...",
+      "explanation": "既に起こった事実を確認して伝える用法です。"
+    },
+    {
+      "id": "qt_sentence_ending_010_04",
+      "order": 4,
+      "japanese": "ここ静かじゃないですか。",
+      "korean": "여기 조용하잖아요.",
+      "alternativeAnswers": [],
+      "hint": "여기...",
+      "explanation": "相手も感じている状態を指摘するとき -잖아요 を使います。"
+    },
+    {
+      "id": "qt_sentence_ending_010_05",
+      "order": 5,
+      "japanese": "時間ないじゃないですか。",
+      "korean": "시간 없잖아요.",
+      "alternativeAnswers": ["시간이 없잖아요."],
+      "hint": "시간...",
+      "explanation": "不足を確認するニュアンスで -잖아요 を付けます。"
+    },
+    {
+      "id": "qt_sentence_ending_010_06",
+      "order": 6,
+      "japanese": "今疲れているじゃないですか。",
+      "korean": "지금 피곤하잖아요.",
+      "alternativeAnswers": [],
+      "hint": "지금...",
+      "explanation": "相手もわかる状態を指摘し控えめに注意する表現です。"
+    },
+    {
+      "id": "qt_sentence_ending_010_07",
+      "order": 7,
+      "japanese": "今は春じゃないですか。",
+      "korean": "지금 봄이잖아요.",
+      "alternativeAnswers": [],
+      "hint": "지금...",
+      "explanation": "共有している季節などの事実を再確認するときに使います。"
+    },
+    {
+      "id": "qt_sentence_ending_010_08",
+      "order": 8,
+      "japanese": "これ安いじゃないですか。",
+      "korean": "이거 싸잖아요.",
+      "alternativeAnswers": ["이건 싸잖아요."],
+      "hint": "이거...",
+      "explanation": "相手に同意を求める形で既知の事実を述べます。"
+    },
+    {
+      "id": "qt_sentence_ending_010_09",
+      "order": 9,
+      "japanese": "昨日休みだったじゃないですか。",
+      "korean": "어제 쉬었잖아요.",
+      "alternativeAnswers": [],
+      "hint": "어제...",
+      "explanation": "過去の既知の予定を思い出させるとき -잖아요 を用います。"
+    },
+    {
+      "id": "qt_sentence_ending_010_10",
+      "order": 10,
+      "japanese": "駅、近いじゃないですか。",
+      "korean": "역이 가깝잖아요.",
+      "alternativeAnswers": ["역이 바로 가깝잖아요."],
+      "hint": "역이...",
+      "explanation": "誰もが知る状況を確認するニュアンスの終止形です。"
+    }
+  ]
+}

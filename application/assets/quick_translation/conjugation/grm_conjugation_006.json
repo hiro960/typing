@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_006",
+  "grammarTitle": "르不規則",
+  "grammarSubtitle": "르→ㄹㄹ 変化（모르다→몰라요）",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_006_01",
+      "order": 1,
+      "japanese": "よく分かりません。",
+      "korean": "저는 잘 몰라요.",
+      "alternativeAnswers": ["저는 잘 모릅니다."],
+      "hint": "저는...",
+      "explanation": "「모르다」は母音語尾前でㄹを挿入し「몰라요」、-ㅂ니다前では 모릅니다 になります。"
+    },
+    {
+      "id": "qt_conjugation_006_02",
+      "order": 2,
+      "japanese": "昨日は知りませんでした。",
+      "korean": "어제는 몰랐어요.",
+      "alternativeAnswers": ["어제는 몰랐습니다."],
+      "hint": "어제는...",
+      "explanation": "過去でもㄹを挿入し「몰랐어요」、格式体は 몰랐습니다 です。"
+    },
+    {
+      "id": "qt_conjugation_006_03",
+      "order": 3,
+      "japanese": "知らなくて行けませんでした。",
+      "korean": "몰라서 못 갔어요.",
+      "alternativeAnswers": [],
+      "hint": "몰라서...",
+      "explanation": "母音語尾「-아서」でㄹを足し「몰라서」になります。"
+    },
+    {
+      "id": "qt_conjugation_006_04",
+      "order": 4,
+      "japanese": "ベルを押してください。",
+      "korean": "벨을 눌러 주세요.",
+      "alternativeAnswers": ["벨을 눌러 주십시오."],
+      "hint": "벨을...",
+      "explanation": "「누르다」はㄹを挿入し「눌러요/눌러 주세요」と活用します。"
+    },
+    {
+      "id": "qt_conjugation_006_05",
+      "order": 5,
+      "japanese": "地下鉄は速いです。",
+      "korean": "지하철이 빨라요.",
+      "alternativeAnswers": ["지하철이 빠릅니다."],
+      "hint": "지하철이...",
+      "explanation": "「빠르다」はㅏ母音なので ㄹ追加＋라 で「빨라요」、格式体は 빠릅니다 です。"
+    },
+    {
+      "id": "qt_conjugation_006_06",
+      "order": 6,
+      "japanese": "走るのが速すぎます。",
+      "korean": "뛰는 게 너무 빨라요.",
+      "alternativeAnswers": [],
+      "hint": "뛰는 게...",
+      "explanation": "빠르다 は ㄹ追加＋라 で「빨라요」となり速さを表します。"
+    },
+    {
+      "id": "qt_conjugation_006_07",
+      "order": 7,
+      "japanese": "その味は違います。",
+      "korean": "그 맛은 달라요.",
+      "alternativeAnswers": ["그 맛은 다릅니다."],
+      "hint": "그 맛은...",
+      "explanation": "「다르다」はㄹを足し「달라요」、格式体では 다릅니다 です。"
+    },
+    {
+      "id": "qt_conjugation_006_08",
+      "order": 8,
+      "japanese": "名前を呼んでください。",
+      "korean": "이름을 불러 주세요.",
+      "alternativeAnswers": ["이름을 불러 주십시오."],
+      "hint": "이름을...",
+      "explanation": "「부르다」は母音語尾でㄹ追加＋러となり「불러 주세요」になります。"
+    },
+    {
+      "id": "qt_conjugation_006_09",
+      "order": 9,
+      "japanese": "その方法は知りません。",
+      "korean": "그 방법은 모릅니다.",
+      "alternativeAnswers": ["그 방법은 몰라요."],
+      "hint": "그 방법은...",
+      "explanation": "子音始まりの「-ㅂ니다」で 르 を維持し「모릅니다」、丁寧体は 몰라요 です。"
+    },
+    {
+      "id": "qt_conjugation_006_10",
+      "order": 10,
+      "japanese": "ボタンを押してから話してください。",
+      "korean": "버튼을 누르고 말씀하세요.",
+      "alternativeAnswers": ["버튼을 누르고 말해 주세요."],
+      "hint": "버튼을...",
+      "explanation": "接続語尾「-고」は子音始まりなので 르 を維持し「누르고」になります。"
+    }
+  ]
+}

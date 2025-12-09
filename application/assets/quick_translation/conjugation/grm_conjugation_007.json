@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_007",
+  "grammarTitle": "으不規則",
+  "grammarSubtitle": "으脱落（쓰다→써요）",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_007_01",
+      "order": 1,
+      "japanese": "日記を書きます。",
+      "korean": "일기를 써요.",
+      "alternativeAnswers": ["일기를 씁니다."],
+      "hint": "일기를...",
+      "explanation": "「쓰다」は母音語尾前で 으 を落とし「써요」、-ㅂ니다前では 씁니다 になります。"
+    },
+    {
+      "id": "qt_conjugation_007_02",
+      "order": 2,
+      "japanese": "昨日手紙を書きました。",
+      "korean": "어제 편지를 썼어요.",
+      "alternativeAnswers": ["어제 편지를 썼습니다."],
+      "hint": "어제...",
+      "explanation": "過去形も 으 脱落後に「썼어요」と活用します。"
+    },
+    {
+      "id": "qt_conjugation_007_03",
+      "order": 3,
+      "japanese": "このカバンは大きいです。",
+      "korean": "이 가방이 커요.",
+      "alternativeAnswers": ["이 가방이 큽니다."],
+      "hint": "이 가방이...",
+      "explanation": "「크다」は 으 を落として「커요」、-ㅂ니다 では 큽니다 です。"
+    },
+    {
+      "id": "qt_conjugation_007_04",
+      "order": 4,
+      "japanese": "この花はきれいです。",
+      "korean": "이 꽃이 예뻐요.",
+      "alternativeAnswers": ["이 꽃이 예쁩니다."],
+      "hint": "이 꽃이...",
+      "explanation": "「예쁘다」は 으 脱落で「예뻐요」、格式体は 예쁩니다 になります。"
+    },
+    {
+      "id": "qt_conjugation_007_05",
+      "order": 5,
+      "japanese": "今日はとても忙しいです。",
+      "korean": "오늘 아주 바빠요.",
+      "alternativeAnswers": ["오늘 바쁩니다."],
+      "hint": "오늘...",
+      "explanation": "「바쁘다」は 으 を落とし「바빠요」、子音始まりの語尾では 바쁩니다 です。"
+    },
+    {
+      "id": "qt_conjugation_007_06",
+      "order": 6,
+      "japanese": "頭が痛いです。",
+      "korean": "머리가 아파요.",
+      "alternativeAnswers": ["머리가 아픕니다."],
+      "hint": "머리가...",
+      "explanation": "「아프다」は 으 脱落で「아파요」、-ㅂ니다 では 아픕니다 になります。"
+    },
+    {
+      "id": "qt_conjugation_007_07",
+      "order": 7,
+      "japanese": "苦い薬を飲みました。",
+      "korean": "쓴 약을 먹었어요.",
+      "alternativeAnswers": ["쓴 약을 먹었습니다."],
+      "hint": "쓴 약...",
+      "explanation": "連体形「-ㄴ」は子音始まりなので 으 を維持し「쓴」を使います。"
+    },
+    {
+      "id": "qt_conjugation_007_08",
+      "order": 8,
+      "japanese": "手紙を書いて寝ます。",
+      "korean": "편지를 쓰고 자요.",
+      "alternativeAnswers": ["편지를 쓰고 잡니다."],
+      "hint": "편지를...",
+      "explanation": "接続語尾「-고」は子音始まりで 으 を残し「쓰고」になります。"
+    },
+    {
+      "id": "qt_conjugation_007_09",
+      "order": 9,
+      "japanese": "明日使う資料です。",
+      "korean": "내일 쓸 자료예요.",
+      "alternativeAnswers": ["내일 쓸 자료입니다."],
+      "hint": "내일...",
+      "explanation": "未来連体形は 으 脱落＋ㄹで「쓸 자료」になります。"
+    },
+    {
+      "id": "qt_conjugation_007_10",
+      "order": 10,
+      "japanese": "部屋は大きくありません。",
+      "korean": "방이 크지 않아요.",
+      "alternativeAnswers": ["방이 크지 않습니다."],
+      "hint": "방이...",
+      "explanation": "「-지」は子音始まりなので 으 を維持し「크지」になります。"
+    }
+  ]
+}

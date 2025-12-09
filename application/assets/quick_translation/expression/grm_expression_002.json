@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_002",
+  "grammarTitle": "-고 싶어하다",
+  "grammarSubtitle": "第三者の願望（〜したがる）",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_002_01",
+      "order": 1,
+      "japanese": "友達が旅行に行きたがっています。",
+      "korean": "친구가 여행을 가고 싶어해요.",
+      "alternativeAnswers": ["친구가 여행을 가고 싶어합니다."],
+      "hint": "친구가...",
+      "explanation": "第三者の願望なので「-고 싶어하다」で表します。"
+    },
+    {
+      "id": "qt_expression_002_02",
+      "order": 2,
+      "japanese": "弟はラーメンを食べたがっています。",
+      "korean": "동생이 라면을 먹고 싶어해요.",
+      "alternativeAnswers": ["동생이 라면을 먹고 싶어합니다."],
+      "hint": "동생이...",
+      "explanation": "他人の願望を述べるときは「-고 싶어해요」を使います。"
+    },
+    {
+      "id": "qt_expression_002_03",
+      "order": 3,
+      "japanese": "彼女は新しい本を読みたがっています。",
+      "korean": "그녀는 새 책을 읽고 싶어해요.",
+      "alternativeAnswers": ["그녀는 새 책을 읽고 싶어합니다."],
+      "hint": "그녀는...",
+      "explanation": "自分以外の人の「〜たい」は「-고 싶어하다」を使います。"
+    },
+    {
+      "id": "qt_expression_002_04",
+      "order": 4,
+      "japanese": "子どもが公園で遊びたがっています。",
+      "korean": "아이가 공원에서 놀고 싶어해요.",
+      "alternativeAnswers": ["아이가 공원에서 놀고 싶어합니다."],
+      "hint": "아이가...",
+      "explanation": "子どもの願望も「놀고 싶어해요」で言い表します。"
+    },
+    {
+      "id": "qt_expression_002_05",
+      "order": 5,
+      "japanese": "彼は早く帰りたがっています。",
+      "korean": "그는 빨리 집에 가고 싶어해요.",
+      "alternativeAnswers": ["그는 빨리 집에 가고 싶어합니다."],
+      "hint": "그는...",
+      "explanation": "帰りたいという他人の気持ちに「-고 싶어해요」を使います。"
+    },
+    {
+      "id": "qt_expression_002_06",
+      "order": 6,
+      "japanese": "姉は韓国料理を作りたがっています。",
+      "korean": "누나는 한국 음식을 만들고 싶어해요.",
+      "alternativeAnswers": ["누나는 한국 음식을 만들고 싶어합니다."],
+      "hint": "누나는...",
+      "explanation": "作りたいという第三者の願望を「-고 싶어해요」で表現します。"
+    },
+    {
+      "id": "qt_expression_002_07",
+      "order": 7,
+      "japanese": "学生たちは映画を見たがっています。",
+      "korean": "학생들이 영화를 보고 싶어해요.",
+      "alternativeAnswers": ["학생들이 영화를 보고 싶어합니다."],
+      "hint": "학생들이...",
+      "explanation": "複数の第三者でも「-고 싶어하다」を用います。"
+    },
+    {
+      "id": "qt_expression_002_08",
+      "order": 8,
+      "japanese": "母はカフェで休みたがっています。",
+      "korean": "어머니가 카페에서 쉬고 싶어해요.",
+      "alternativeAnswers": ["어머니가 카페에서 쉬고 싶어합니다."],
+      "hint": "어머니가...",
+      "explanation": "休みたい第三者の気持ちは「쉬고 싶어해요」で言います。"
+    },
+    {
+      "id": "qt_expression_002_09",
+      "order": 9,
+      "japanese": "彼は水を飲みたがっています。",
+      "korean": "그는 물을 마시고 싶어해요.",
+      "alternativeAnswers": ["그는 물을 마시고 싶어합니다."],
+      "hint": "그는...",
+      "explanation": "飲みたいのが他人なら「마시고 싶어해요」を使います。"
+    },
+    {
+      "id": "qt_expression_002_10",
+      "order": 10,
+      "japanese": "子どもが犬を飼いたがっています。",
+      "korean": "아이가 강아지를 키우고 싶어해요.",
+      "alternativeAnswers": ["아이가 강아지를 키우고 싶어합니다."],
+      "hint": "아이가...",
+      "explanation": "第三者の「飼いたい」を「키우고 싶어해요」で示します。"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_024",
+  "grammarTitle": "-고 나서",
+  "grammarSubtitle": "〜してから",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_024_01",
+      "order": 1,
+      "japanese": "ご飯を食べてから散歩します。",
+      "korean": "밥을 먹고 나서 산책해요.",
+      "alternativeAnswers": [
+        "밥을 먹고 나서 산책합니다."
+      ],
+      "hint": "밥을...",
+      "explanation": "一つの行為を終えた後に次の行為を続けるとき使います。"
+    },
+    {
+      "id": "qt_tense_aspect_024_02",
+      "order": 2,
+      "japanese": "仕事を終えてから家に帰ります。",
+      "korean": "일을 끝내고 나서 집에 가요.",
+      "alternativeAnswers": [
+        "일을 끝내고 나서 집에 갑니다."
+      ],
+      "hint": "일을...",
+      "explanation": "完了した後に別の動作へ移る順序を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_024_03",
+      "order": 3,
+      "japanese": "授業が終わってから友だちに会います。",
+      "korean": "수업이 끝나고 나서 친구를 만나요.",
+      "alternativeAnswers": [
+        "수업이 끝나고 나서 친구를 만납니다."
+      ],
+      "hint": "수업이...",
+      "explanation": "前の出来事が終わった後の次の行動を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_024_04",
+      "order": 4,
+      "japanese": "体を洗ってから寝ます。",
+      "korean": "씻고 나서 자요.",
+      "alternativeAnswers": [
+        "씻고 나서 잡니다."
+      ],
+      "hint": "씻고...",
+      "explanation": "先に済ませるべき動作の後に休む順序を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_024_05",
+      "order": 5,
+      "japanese": "宿題をしてからテレビを見ます。",
+      "korean": "숙제를 하고 나서 TV를 봐요.",
+      "alternativeAnswers": [
+        "숙제를 하고 나서 TV를 봅니다."
+      ],
+      "hint": "숙제를...",
+      "explanation": "完了後の次の行動をつなぐ典型的な用法です。"
+    },
+    {
+      "id": "qt_tense_aspect_024_06",
+      "order": 6,
+      "japanese": "運動してから水を飲みます。",
+      "korean": "운동하고 나서 물을 마셔요.",
+      "alternativeAnswers": [
+        "운동하고 나서 물을 마십니다."
+      ],
+      "hint": "운동하고...",
+      "explanation": "順序を明確にし、続く行動を示す形です。"
+    },
+    {
+      "id": "qt_tense_aspect_024_07",
+      "order": 7,
+      "japanese": "薬を飲んでから休みます。",
+      "korean": "약을 먹고 나서 쉬어요.",
+      "alternativeAnswers": [
+        "약을 먹고 나서 쉽니다."
+      ],
+      "hint": "약을...",
+      "explanation": "前の動作完了後に休む順番を表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_024_08",
+      "order": 8,
+      "japanese": "手紙を書いてから送りました。",
+      "korean": "편지를 쓰고 나서 보냈어요.",
+      "alternativeAnswers": [
+        "편지를 쓰고 나서 보냈습니다."
+      ],
+      "hint": "편지를...",
+      "explanation": "書く行為を終えた後の送付動作を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_024_09",
+      "order": 9,
+      "japanese": "掃除してから窓を開けました。",
+      "korean": "청소하고 나서 창문을 열었어요.",
+      "alternativeAnswers": [
+        "청소하고 나서 창문을 열었습니다."
+      ],
+      "hint": "청소하고...",
+      "explanation": "作業完了後に続けて行う行動の順序を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_024_10",
+      "order": 10,
+      "japanese": "買い物をしてからコーヒーを飲みます。",
+      "korean": "쇼핑하고 나서 커피를 마셔요.",
+      "alternativeAnswers": [
+        "쇼핑하고 나서 커피를 마십니다."
+      ],
+      "hint": "쇼핑하고...",
+      "explanation": "先行動作の完了後に次の行動へ移る場面で用います。"
+    }
+  ]
+}

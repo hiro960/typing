@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_adnominal_006",
+  "grammarTitle": "-(으)ㄴ 것",
+  "grammarSubtitle": "名詞化・過去",
+  "category": "adnominal",
+  "questions": [
+    {
+      "id": "qt_adnominal_006_01",
+      "order": 1,
+      "japanese": "昨日食べたことを思い出します。",
+      "korean": "어제 먹은 것을 생각해요.",
+      "alternativeAnswers": ["어제 먹은 것을 생각합니다."],
+      "hint": "어제...",
+      "explanation": "過去の動作を「〜したこと」として名詞化します。"
+    },
+    {
+      "id": "qt_adnominal_006_02",
+      "order": 2,
+      "japanese": "見たことを話してください。",
+      "korean": "본 것을 말해 주세요.",
+      "alternativeAnswers": ["본 것을 말씀해 주세요."],
+      "hint": "본 것...",
+      "explanation": "経験した内容を名詞「こと」として表します。"
+    },
+    {
+      "id": "qt_adnominal_006_03",
+      "order": 3,
+      "japanese": "買ったものを見せてください。",
+      "korean": "산 것을 보여 주세요.",
+      "alternativeAnswers": ["산 것을 보여 주십시오."],
+      "hint": "산 것...",
+      "explanation": "完了した購入を名詞化し目的語にしています。"
+    },
+    {
+      "id": "qt_adnominal_006_04",
+      "order": 4,
+      "japanese": "友達が言ったことを覚えています。",
+      "korean": "친구가 말한 것을 기억해요.",
+      "alternativeAnswers": ["친구가 말한 것을 기억합니다."],
+      "hint": "친구가...",
+      "explanation": "過去に聞いた内容を名詞化して示します。"
+    },
+    {
+      "id": "qt_adnominal_006_05",
+      "order": 5,
+      "japanese": "聞いたことをもう一度書きます。",
+      "korean": "들은 것을 다시 써요.",
+      "alternativeAnswers": ["들은 것을 다시 씁니다."],
+      "hint": "들은...",
+      "explanation": "既に聞いた内容を「こと」として扱う例です。"
+    },
+    {
+      "id": "qt_adnominal_006_06",
+      "order": 6,
+      "japanese": "見つけたものを持ってきてください。",
+      "korean": "찾은 것을 가져오세요.",
+      "alternativeAnswers": ["찾은 것을 가져오십시오."],
+      "hint": "찾은...",
+      "explanation": "過去の結果を名詞化し指示する使い方です。"
+    },
+    {
+      "id": "qt_adnominal_006_07",
+      "order": 7,
+      "japanese": "昨日したことを全部覚えています。",
+      "korean": "어제 한 것을 다 기억해요.",
+      "alternativeAnswers": ["어제 한 것을 다 기억합니다."],
+      "hint": "어제 한...",
+      "explanation": "過去に行った内容を名詞化し覚えている状態を述べます。"
+    },
+    {
+      "id": "qt_adnominal_006_08",
+      "order": 8,
+      "japanese": "作ったものが少ないです。",
+      "korean": "만든 것이 적어요.",
+      "alternativeAnswers": ["만든 것이 적습니다."],
+      "hint": "만든...",
+      "explanation": "完了した結果の量を名詞化して表します。"
+    },
+    {
+      "id": "qt_adnominal_006_09",
+      "order": 9,
+      "japanese": "撮ったものが多いです。",
+      "korean": "찍은 것이 많아요.",
+      "alternativeAnswers": ["찍은 것이 많습니다."],
+      "hint": "찍은...",
+      "explanation": "過去に撮影した結果を名詞として扱う例です。"
+    },
+    {
+      "id": "qt_adnominal_006_10",
+      "order": 10,
+      "japanese": "読んだことが役に立ちました。",
+      "korean": "읽은 것이 도움이 됐어요.",
+      "alternativeAnswers": ["읽은 것이 도움이 됐습니다."],
+      "hint": "읽은...",
+      "explanation": "読了経験を名詞化して評価する使い方です。"
+    }
+  ]
+}

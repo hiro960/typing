@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_connective_021",
+  "grammarTitle": "-기는커녕",
+  "grammarSubtitle": "〜どころか",
+  "category": "connective",
+  "questions": [
+    {
+      "id": "qt_connective_021_01",
+      "order": 1,
+      "japanese": "休むどころか一晩中働きました。",
+      "korean": "쉬기는커녕 밤새 일했어요.",
+      "alternativeAnswers": ["쉬기는커녕 밤새 일했습니다."],
+      "hint": "쉬기는...",
+      "explanation": "期待とは反対に休めなかったことを強調します。"
+    },
+    {
+      "id": "qt_connective_021_02",
+      "order": 2,
+      "japanese": "ご飯どころか水も飲めませんでした。",
+      "korean": "밥 먹기는커녕 물도 못 마셨어요.",
+      "alternativeAnswers": ["밥 먹기는커녕 물도 못 마셨습니다."],
+      "hint": "밥 먹...",
+      "explanation": "本来より簡単なことすらできない状況を示します。"
+    },
+    {
+      "id": "qt_connective_021_03",
+      "order": 3,
+      "japanese": "休むどころかもっと忙しかったです。",
+      "korean": "쉬기는커녕 더 바빴어요.",
+      "alternativeAnswers": ["쉬기는커녕 더 바빴습니다."],
+      "hint": "쉬기는...",
+      "explanation": "逆に忙しくなった点を -기는커녕 で強調します。"
+    },
+    {
+      "id": "qt_connective_021_04",
+      "order": 4,
+      "japanese": "本を読むどころかテレビも見られませんでした。",
+      "korean": "책 읽기는커녕 TV도 못 봤어요.",
+      "alternativeAnswers": ["책 읽기는커녕 TV도 못 봤습니다."],
+      "hint": "책 읽...",
+      "explanation": "より簡単な行為さえできなかったことを示します。"
+    },
+    {
+      "id": "qt_connective_021_05",
+      "order": 5,
+      "japanese": "友達に会うどころか電話もできませんでした。",
+      "korean": "친구 만나기는커녕 전화도 못 했어요.",
+      "alternativeAnswers": ["친구 만나기는커녕 전화도 못 했습니다."],
+      "hint": "친구 만...",
+      "explanation": "期待より低い行動さえできない状況の例です。"
+    },
+    {
+      "id": "qt_connective_021_06",
+      "order": 6,
+      "japanese": "遊ぶどころか宿題も終わっていません。",
+      "korean": "놀기는커녕 숙제도 못 했어요.",
+      "alternativeAnswers": ["놀기는커녕 숙제도 못 했습니다."],
+      "hint": "놀기는...",
+      "explanation": "望む行為の前段階すらできない点を示します。"
+    },
+    {
+      "id": "qt_connective_021_07",
+      "order": 7,
+      "japanese": "運動どころか歩くこともできません。",
+      "korean": "운동하기는커녕 걷지도 못해요.",
+      "alternativeAnswers": ["운동하기는커녕 걷지도 못합니다."],
+      "hint": "운동하...",
+      "explanation": "より軽い行動もできない否定強調です。"
+    },
+    {
+      "id": "qt_connective_021_08",
+      "order": 8,
+      "japanese": "旅行どころか家からも出ませんでした。",
+      "korean": "여행 가기는커녕 집에서도 못 나갔어요.",
+      "alternativeAnswers": ["여행 가기는커녕 집에서도 못 나갔습니다."],
+      "hint": "여행...",
+      "explanation": "望む行為よりずっと控えめな行動もできない例です。"
+    },
+    {
+      "id": "qt_connective_021_09",
+      "order": 9,
+      "japanese": "コーヒーを飲むどころか時間もありません。",
+      "korean": "커피 마시기는커녕 시간도 없어요.",
+      "alternativeAnswers": ["커피 마시기는커녕 시간도 없습니다."],
+      "hint": "커피 마...",
+      "explanation": "小さな余裕すらない状況を強調します。"
+    },
+    {
+      "id": "qt_connective_021_10",
+      "order": 10,
+      "japanese": "休むどころか食事も抜きました。",
+      "korean": "쉬기는커녕 밥도 굶었어요.",
+      "alternativeAnswers": ["쉬기는커녕 밥도 굶었습니다."],
+      "hint": "쉬기는...",
+      "explanation": "休めず食事まで抜いた否定の強調です。"
+    }
+  ]
+}

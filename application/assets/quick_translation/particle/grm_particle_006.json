@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_006",
+  "grammarTitle": "의",
+  "grammarSubtitle": "所有格助詞（〜の）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_006_01",
+      "order": 1,
+      "japanese": "友達の家です。",
+      "korean": "친구의 집이에요.",
+      "alternativeAnswers": ["친구의 집입니다."],
+      "hint": "친구의...",
+      "explanation": "所有を表す「〜の」は名詞の後ろに「의」を付けます。"
+    },
+    {
+      "id": "qt_particle_006_02",
+      "order": 2,
+      "japanese": "私の名前はミンスです。",
+      "korean": "저의 이름은 민수예요.",
+      "alternativeAnswers": ["제 이름은 민수예요.", "저의 이름은 민수입니다."],
+      "hint": "저의 이름...",
+      "explanation": "「저의」は会話で「제」と縮約し所有を示します。"
+    },
+    {
+      "id": "qt_particle_006_03",
+      "order": 3,
+      "japanese": "弟の学校は遠いです。",
+      "korean": "동생의 학교는 멀어요.",
+      "alternativeAnswers": ["동생의 학교는 멉니다."],
+      "hint": "동생의...",
+      "explanation": "所有格「의」で弟の学校という関係を示します。"
+    },
+    {
+      "id": "qt_particle_006_04",
+      "order": 4,
+      "japanese": "父のかばんです。",
+      "korean": "아버지의 가방이에요.",
+      "alternativeAnswers": ["아버지의 가방입니다."],
+      "hint": "아버지의...",
+      "explanation": "持ち主を明確にするため名詞+의でつなぎます。"
+    },
+    {
+      "id": "qt_particle_006_05",
+      "order": 5,
+      "japanese": "今日の天気がいいです。",
+      "korean": "오늘의 날씨가 좋아요.",
+      "alternativeAnswers": ["오늘의 날씨가 좋습니다."],
+      "hint": "오늘의...",
+      "explanation": "時間名詞にも「의」を付けて「〜の」の意味を作れます。"
+    },
+    {
+      "id": "qt_particle_006_06",
+      "order": 6,
+      "japanese": "冬の夜は長いです。",
+      "korean": "겨울의 밤이 길어요.",
+      "alternativeAnswers": ["겨울의 밤이 깁니다."],
+      "hint": "겨울의...",
+      "explanation": "季節と名詞を所有格で結び性質を述べます。"
+    },
+    {
+      "id": "qt_particle_006_07",
+      "order": 7,
+      "japanese": "この町の公園が大きいです。",
+      "korean": "이 동네의 공원이 커요.",
+      "alternativeAnswers": ["이 동네의 공원이 큽니다."],
+      "hint": "이 동네의...",
+      "explanation": "場所同士も「의」で所有・所属関係を表します。"
+    },
+    {
+      "id": "qt_particle_006_08",
+      "order": 8,
+      "japanese": "韓国の料理はおいしいです。",
+      "korean": "한국의 음식은 맛있어요.",
+      "alternativeAnswers": ["한국의 음식은 맛있습니다."],
+      "hint": "한국의...",
+      "explanation": "国名と名詞をつなぎ出所・所属を示します。"
+    },
+    {
+      "id": "qt_particle_006_09",
+      "order": 9,
+      "japanese": "友達の猫がかわいいです。",
+      "korean": "친구의 고양이가 귀여워요.",
+      "alternativeAnswers": ["친구의 고양이가 귀엽습니다."],
+      "hint": "친구의...",
+      "explanation": "所有者を明示しその名詞を主語にするときも「의」を使います。"
+    },
+    {
+      "id": "qt_particle_006_10",
+      "order": 10,
+      "japanese": "先生の本です。",
+      "korean": "선생님의 책이에요.",
+      "alternativeAnswers": ["선생님의 책입니다."],
+      "hint": "선생님의...",
+      "explanation": "敬称を含む名詞にも「의」を付けて所有を表します。"
+    }
+  ]
+}

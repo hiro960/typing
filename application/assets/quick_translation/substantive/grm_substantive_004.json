@@ -1,0 +1,114 @@
+{
+  "grammarRef": "grm_substantive_004",
+  "grammarTitle": "우리/저희",
+  "grammarSubtitle": "複数人称代名詞（私たち）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_004_01",
+      "order": 1,
+      "japanese": "私たちは家族です。",
+      "korean": "우리는 가족이에요.",
+      "alternativeAnswers": [
+        "저희는 가족이에요."
+      ],
+      "hint": "우리는...",
+      "explanation": "「우리」は普通の私たち、「저희」は丁寧です。"
+    },
+    {
+      "id": "qt_substantive_004_02",
+      "order": 2,
+      "japanese": "私たちは学校に行きます。",
+      "korean": "우리는 학교에 가요.",
+      "alternativeAnswers": [
+        "저희는 학교에 갑니다."
+      ],
+      "hint": "우리는...",
+      "explanation": "行動を述べるときも人数を「우리/저희」で示します。"
+    },
+    {
+      "id": "qt_substantive_004_03",
+      "order": 3,
+      "japanese": "私たちの家はここです。",
+      "korean": "우리 집은 여기예요.",
+      "alternativeAnswers": [],
+      "hint": "우리 집...",
+      "explanation": "所有を表すとき「우리」＋名詞で自然です。"
+    },
+    {
+      "id": "qt_substantive_004_04",
+      "order": 4,
+      "japanese": "私たちの会社はソウルにあります。",
+      "korean": "우리 회사는 서울에 있어요.",
+      "alternativeAnswers": [
+        "저희 회사는 서울에 있어요."
+      ],
+      "hint": "우리 회...",
+      "explanation": "丁寧に自分側をへりくだるとき「저희 회사」とします。"
+    },
+    {
+      "id": "qt_substantive_004_05",
+      "order": 5,
+      "japanese": "私たちは今日は忙しいです。",
+      "korean": "저희는 오늘 바빠요.",
+      "alternativeAnswers": [
+        "우리는 오늘 바빠요."
+      ],
+      "hint": "저희는...",
+      "explanation": "丁寧に自分側を指すなら「저희」を選びます。"
+    },
+    {
+      "id": "qt_substantive_004_06",
+      "order": 6,
+      "japanese": "私たちは一緒にご飯を食べます。",
+      "korean": "우리는 같이 밥을 먹어요.",
+      "alternativeAnswers": [
+        "저희는 같이 밥을 먹어요."
+      ],
+      "hint": "우리는...",
+      "explanation": "共同動作は「우리/저희」＋는 で表します。"
+    },
+    {
+      "id": "qt_substantive_004_07",
+      "order": 7,
+      "japanese": "私たちの先生は親切です。",
+      "korean": "우리 선생님은 친절해요.",
+      "alternativeAnswers": [],
+      "hint": "우리 선...",
+      "explanation": "敬意を込めて先生も「우리 선생님」と言います。"
+    },
+    {
+      "id": "qt_substantive_004_08",
+      "order": 8,
+      "japanese": "私たちの計画は旅行です。",
+      "korean": "우리 계획은 여행이에요.",
+      "alternativeAnswers": [
+        "저희 계획은 여행이에요."
+      ],
+      "hint": "우리 계...",
+      "explanation": "所属を示すとき「우리/저희 계획」などとします。"
+    },
+    {
+      "id": "qt_substantive_004_09",
+      "order": 9,
+      "japanese": "私たちは明日会います。",
+      "korean": "우리는 내일 만날 거예요.",
+      "alternativeAnswers": [
+        "저희는 내일 만날 거예요."
+      ],
+      "hint": "우리는...",
+      "explanation": "未来予定も「우리/저희」＋는 で主題化します。"
+    },
+    {
+      "id": "qt_substantive_004_10",
+      "order": 10,
+      "japanese": "私たちの両親は元気です。",
+      "korean": "우리 부모님은 건강해요.",
+      "alternativeAnswers": [
+        "저희 부모님은 건강해요."
+      ],
+      "hint": "우리 부...",
+      "explanation": "家族を指すときも「우리/저희」を使います。"
+    }
+  ]
+}

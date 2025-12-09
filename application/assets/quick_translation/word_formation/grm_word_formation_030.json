@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_word_formation_030",
+  "grammarTitle": "용언 접미사",
+  "grammarSubtitle": "用言接尾辞",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_030_01",
+      "order": 1,
+      "japanese": "運動します。",
+      "korean": "운동해요.",
+      "alternativeAnswers": [],
+      "hint": "운동해요...",
+      "explanation": "名詞「운동」に-하다を付けて動作を作ります。"
+    },
+    {
+      "id": "qt_word_formation_030_02",
+      "order": 2,
+      "japanese": "勉強します。",
+      "korean": "공부해요.",
+      "alternativeAnswers": [],
+      "hint": "공부해요...",
+      "explanation": "漢字語名詞＋-하다で動詞化する基本パターンです。"
+    },
+    {
+      "id": "qt_word_formation_030_03",
+      "order": 3,
+      "japanese": "準備しました。",
+      "korean": "준비했어요.",
+      "alternativeAnswers": [],
+      "hint": "준비했어요...",
+      "explanation": "名詞「준비」に-하다を付けた動詞の過去形です。"
+    },
+    {
+      "id": "qt_word_formation_030_04",
+      "order": 4,
+      "japanese": "連絡します。",
+      "korean": "연락해요.",
+      "alternativeAnswers": [],
+      "hint": "연락해요...",
+      "explanation": "名詞「연락」に-하다を付け連絡する動作を表します。"
+    },
+    {
+      "id": "qt_word_formation_030_05",
+      "order": 5,
+      "japanese": "会議が始まります。",
+      "korean": "회의가 시작돼요.",
+      "alternativeAnswers": [],
+      "hint": "회의가...",
+      "explanation": "名詞「시작」に-되다を付け受動的に始まることを示します。"
+    },
+    {
+      "id": "qt_word_formation_030_06",
+      "order": 6,
+      "japanese": "問題が解決されました。",
+      "korean": "문제가 해결됐어요.",
+      "alternativeAnswers": [],
+      "hint": "문제가...",
+      "explanation": "名詞「해결」に-되다を付け受け身的な解決を表します。"
+    },
+    {
+      "id": "qt_word_formation_030_07",
+      "order": 7,
+      "japanese": "約束がキャンセルされました。",
+      "korean": "약속이 취소됐어요.",
+      "alternativeAnswers": [],
+      "hint": "약속이...",
+      "explanation": "名詞「취소」に-되다を付け「取り消された」を表現します。"
+    },
+    {
+      "id": "qt_word_formation_030_08",
+      "order": 8,
+      "japanese": "ご飯ができました。",
+      "korean": "밥이 준비됐어요.",
+      "alternativeAnswers": [],
+      "hint": "밥이...",
+      "explanation": "準備の受動形「준비되다」で料理が出来上がったと言います。"
+    },
+    {
+      "id": "qt_word_formation_030_09",
+      "order": 9,
+      "japanese": "健康です。",
+      "korean": "건강해요.",
+      "alternativeAnswers": [],
+      "hint": "건강해요...",
+      "explanation": "名詞＋-하다型の形容詞で状態を表します。"
+    },
+    {
+      "id": "qt_word_formation_030_10",
+      "order": 10,
+      "japanese": "必要です。",
+      "korean": "필요해요.",
+      "alternativeAnswers": [],
+      "hint": "필요해요...",
+      "explanation": "名詞「필요」に-하다を付けた形容詞で必要性を示します。"
+    }
+  ]
+}

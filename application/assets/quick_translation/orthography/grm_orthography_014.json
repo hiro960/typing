@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_orthography_014",
+  "grammarTitle": "연음화",
+  "grammarSubtitle": "連音化",
+  "category": "orthography",
+  "questions": [
+    {
+      "id": "qt_orthography_014_01",
+      "order": 1,
+      "japanese": "「옷이」は[오시]と続きます。",
+      "korean": "'옷이'는 [오시]로 이어져요.",
+      "alternativeAnswers": ["'옷이'는 [오시]로 이어집니다."],
+      "hint": "옷이...",
+      "explanation": "ㅅパッチムが母音の前に移って[시]として連音します。"
+    },
+    {
+      "id": "qt_orthography_014_02",
+      "order": 2,
+      "japanese": "「꽃을」は[꼬츨]に聞こえます。",
+      "korean": "꽃을 [꼬츨]처럼 말해요.",
+      "alternativeAnswers": ["꽃을 [꼬츨]처럼 말합니다."],
+      "hint": "꽃을...",
+      "explanation": "ㅊパッチムが母音の前に出て、次の音節の初声[ㅊ]になります。"
+    },
+    {
+      "id": "qt_orthography_014_03",
+      "order": 3,
+      "japanese": "「밥을」は[바블]です。",
+      "korean": "밥을 [바블]로 말해요.",
+      "alternativeAnswers": ["밥을 [바블]로 말합니다."],
+      "hint": "밥을...",
+      "explanation": "ㅂパッチムが後ろの母音に連なり、[브]としてつながります。"
+    },
+    {
+      "id": "qt_orthography_014_04",
+      "order": 4,
+      "japanese": "「한국어를」は[한구거를]です。",
+      "korean": "'한국어를'은 [한구거를]라고 해요.",
+      "alternativeAnswers": ["'한국어를'은 [한구거를]라고 합니다."],
+      "hint": "한국...",
+      "explanation": "국のㄱが後続の母音と連なり[구거]となって、全体が[한구거를]と発音されます。"
+    },
+    {
+      "id": "qt_orthography_014_05",
+      "order": 5,
+      "japanese": "「물안에」は[무라네]になります。",
+      "korean": "'물안에'는 [무라네]로 들려요.",
+      "alternativeAnswers": ["'물안에'는 [무라네]로 들립니다."],
+      "hint": "물안...",
+      "explanation": "ㄹパッチムが後ろの母音に移って[라]として連音する例です。"
+    },
+    {
+      "id": "qt_orthography_014_06",
+      "order": 6,
+      "japanese": "「읽어요」は[일거요]です。",
+      "korean": "'읽어요'는 [일거요]예요.",
+      "alternativeAnswers": ["'읽어요'는 [일거요]입니다."],
+      "hint": "읽어...",
+      "explanation": "ㄺパッチムが[ㄱ]に中和されたあと母音へ移り、[거]で発音されます。"
+    },
+    {
+      "id": "qt_orthography_014_07",
+      "order": 7,
+      "japanese": "「같아요」は[가타요]に聞こえます。",
+      "korean": "'같아요'는 [가타요]로 들려요.",
+      "alternativeAnswers": ["'같아요'는 [가타요]로 들립니다."],
+      "hint": "같아...",
+      "explanation": "ㅌに中和されたパッチムが母音とつながり[타]になります。"
+    },
+    {
+      "id": "qt_orthography_014_08",
+      "order": 8,
+      "japanese": "「많아요」は[마나요]です。",
+      "korean": "'많아요'는 [마나요]예요.",
+      "alternativeAnswers": ["'많아요'는 [마나요]입니다."],
+      "hint": "많아...",
+      "explanation": "ㄶが[ㄴ]に中和されたあと母音と連なり、[나]になります。"
+    },
+    {
+      "id": "qt_orthography_014_09",
+      "order": 9,
+      "japanese": "「읽은」は[일근]に変わります。",
+      "korean": "'읽은'은 [일근]으로 바뀌어요.",
+      "alternativeAnswers": ["'읽은'은 [일근]으로 바뀝니다."],
+      "hint": "읽은...",
+      "explanation": "母音が続くとㄺパッチムが[ㄱ]に中和し、連音して[일근]になります。"
+    },
+    {
+      "id": "qt_orthography_014_10",
+      "order": 10,
+      "japanese": "「옛아이」は[예다이]に聞こえます。",
+      "korean": "옛아이는 [예다이]로 들려요.",
+      "alternativeAnswers": ["옛아이는 [예다이]로 들립니다."],
+      "hint": "옛아...",
+      "explanation": "ㅅパッチムが母音の前で移動し、[예다이]のように連音されます。"
+    }
+  ]
+}

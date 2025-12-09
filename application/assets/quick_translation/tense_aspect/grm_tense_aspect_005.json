@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_tense_aspect_005",
+  "grammarTitle": "-아/어 있다",
+  "grammarSubtitle": "状態持続",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_005_01",
+      "order": 1,
+      "japanese": "人が座っています。",
+      "korean": "사람이 앉아 있어요.",
+      "alternativeAnswers": ["사람이 앉아 있습니다."],
+      "hint": "사람이...",
+      "explanation": "結果状態「座っている」を表し-아 있다を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_005_02",
+      "order": 2,
+      "japanese": "子どもが立っています。",
+      "korean": "아이가 서 있어요.",
+      "alternativeAnswers": ["아이가 서 있습니다."],
+      "hint": "아이가...",
+      "explanation": "動作後の状態継続を示し서 있다形で言います。"
+    },
+    {
+      "id": "qt_tense_aspect_005_03",
+      "order": 3,
+      "japanese": "窓が開いています。",
+      "korean": "창문이 열려 있어요.",
+      "alternativeAnswers": ["창문이 열려 있습니다."],
+      "hint": "창문이...",
+      "explanation": "開けた結果が続いているので-어 있다を用います。"
+    },
+    {
+      "id": "qt_tense_aspect_005_04",
+      "order": 4,
+      "japanese": "ドアが閉まっています。",
+      "korean": "문이 닫혀 있어요.",
+      "alternativeAnswers": ["문이 닫혀 있습니다."],
+      "hint": "문이...",
+      "explanation": "閉じた状態の持続を-아/어 있다で表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_005_05",
+      "order": 5,
+      "japanese": "電気がついています。",
+      "korean": "불이 켜져 있어요.",
+      "alternativeAnswers": ["불이 켜져 있습니다."],
+      "hint": "불이...",
+      "explanation": "点けた後の状態が続くので켜져 있다を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_005_06",
+      "order": 6,
+      "japanese": "本が机に置いてあります。",
+      "korean": "책이 책상에 놓여 있어요.",
+      "alternativeAnswers": ["책이 책상에 놓여 있습니다."],
+      "hint": "책이...",
+      "explanation": "置かれた状態が続くとき-어 있다を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_005_07",
+      "order": 7,
+      "japanese": "カバンが椅子にかけてあります。",
+      "korean": "가방이 의자에 걸려 있어요.",
+      "alternativeAnswers": ["가방이 의자에 걸려 있습니다."],
+      "hint": "가방이...",
+      "explanation": "かけた結果の状態を示し-어 있다で表します。"
+    },
+    {
+      "id": "qt_tense_aspect_005_08",
+      "order": 8,
+      "japanese": "携帯の電源が切れています。",
+      "korean": "휴대폰이 꺼져 있어요.",
+      "alternativeAnswers": ["휴대폰이 꺼져 있습니다."],
+      "hint": "휴대폰이...",
+      "explanation": "電源を切った後の状態を-어 있다形で示します。"
+    },
+    {
+      "id": "qt_tense_aspect_005_09",
+      "order": 9,
+      "japanese": "部屋が空いています。",
+      "korean": "방이 비어 있어요.",
+      "alternativeAnswers": ["방이 비어 있습니다."],
+      "hint": "방이...",
+      "explanation": "空になった状態が続くので-아 있다を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_005_10",
+      "order": 10,
+      "japanese": "コートが掛けてあります。",
+      "korean": "코트가 걸려 있어요.",
+      "alternativeAnswers": ["코트가 걸려 있습니다."],
+      "hint": "코트가...",
+      "explanation": "掛けたままの状態継続を-어 있다で表します。"
+    }
+  ]
+}

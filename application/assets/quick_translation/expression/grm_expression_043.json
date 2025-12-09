@@ -1,0 +1,101 @@
+{
+  "grammarRef": "grm_expression_043",
+  "grammarTitle": "-든지 -든지",
+  "grammarSubtitle": "〜しようと〜しようと（どちらでも）",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_043_01",
+      "order": 1,
+      "japanese": "行っても行かなくても連絡してください。",
+      "korean": "가든지 안 가든지 연락하세요.",
+      "alternativeAnswers": [
+        "가든 안 가든 연락하세요."
+      ],
+      "hint": "가든지...",
+      "explanation": "どちらの選択でも同じ要求をする際「-든지 -든지」を使います。"
+    },
+    {
+      "id": "qt_expression_043_02",
+      "order": 2,
+      "japanese": "食べても飲んでも自由です。",
+      "korean": "먹든지 마시든지 자유예요.",
+      "alternativeAnswers": [],
+      "hint": "먹든지...",
+      "explanation": "どちらも許容する意味で並列表現「-든지 -든지」を用います。"
+    },
+    {
+      "id": "qt_expression_043_03",
+      "order": 3,
+      "japanese": "バスに乗っても歩いてもいいです。",
+      "korean": "버스를 타든지 걷든지 괜찮아요.",
+      "alternativeAnswers": [],
+      "hint": "버스를...",
+      "explanation": "二択どちらでも良いことを「-든지 -든지」で示します。"
+    },
+    {
+      "id": "qt_expression_043_04",
+      "order": 4,
+      "japanese": "家にいても出かけても構いません。",
+      "korean": "집에 있든지 나가든지 상관없어요.",
+      "alternativeAnswers": [],
+      "hint": "집에...",
+      "explanation": "どちらも差がないことを「-든지 -든지」で表現します。"
+    },
+    {
+      "id": "qt_expression_043_05",
+      "order": 5,
+      "japanese": "英語を習っても中国語を習っても選んでください。",
+      "korean": "영어를 배우든지 중국어를 배우든지 선택하세요.",
+      "alternativeAnswers": [],
+      "hint": "영어를...",
+      "explanation": "複数の選択肢を並べるとき「-든지 -든지」を使います。"
+    },
+    {
+      "id": "qt_expression_043_06",
+      "order": 6,
+      "japanese": "コーヒーを飲んでもお茶を飲んでも一緒にしましょう。",
+      "korean": "커피를 마시든지 차를 마시든지 같이 해요.",
+      "alternativeAnswers": [],
+      "hint": "커피를...",
+      "explanation": "どちらでも同行することを示し「-든지 -든지」を用います。"
+    },
+    {
+      "id": "qt_expression_043_07",
+      "order": 7,
+      "japanese": "寝ても勉強しても静かにしてください。",
+      "korean": "자든지 공부하든지 조용히 해요.",
+      "alternativeAnswers": [],
+      "hint": "자든지...",
+      "explanation": "どの行動でも条件を付けるとき「-든지 -든지」を使います。"
+    },
+    {
+      "id": "qt_expression_043_08",
+      "order": 8,
+      "japanese": "雨が降っても雪が降っても行きます。",
+      "korean": "비가 오든지 눈이 오든지 갈 거예요.",
+      "alternativeAnswers": [],
+      "hint": "비가...",
+      "explanation": "状況に関係なく行動する意思を「-든지 -든지」で表します。"
+    },
+    {
+      "id": "qt_expression_043_09",
+      "order": 9,
+      "japanese": "早く行っても遅く行っても知らせてください。",
+      "korean": "일찍 가든지 늦게 가든지 알려 주세요.",
+      "alternativeAnswers": [],
+      "hint": "일찍...",
+      "explanation": "時間の違いにかかわらず連絡を求める表現です。"
+    },
+    {
+      "id": "qt_expression_043_10",
+      "order": 10,
+      "japanese": "音楽を聞いても本を読んでも休んでください。",
+      "korean": "노래를 듣든지 책을 읽든지 쉬세요.",
+      "alternativeAnswers": [],
+      "hint": "노래를...",
+      "explanation": "どの活動でも休むことを促すため「-든지 -든지」を使います。"
+    }
+  ]
+}
+

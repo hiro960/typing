@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_015",
+  "grammarTitle": "이쪽/그쪽/저쪽",
+  "grammarSubtitle": "指示代名詞（こちら/そちら/あちら）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_015_01",
+      "order": 1,
+      "japanese": "こちらに来てください。",
+      "korean": "이쪽으로 오세요.",
+      "alternativeAnswers": [],
+      "hint": "이쪽으...",
+      "explanation": "方向は「-쪽으로」で表します。"
+    },
+    {
+      "id": "qt_substantive_015_02",
+      "order": 2,
+      "japanese": "そちらが正しいです。",
+      "korean": "그쪽이 맞아요.",
+      "alternativeAnswers": [],
+      "hint": "그쪽이...",
+      "explanation": "相手側を指すとき「그쪽」。"
+    },
+    {
+      "id": "qt_substantive_015_03",
+      "order": 3,
+      "japanese": "あちらは静かです。",
+      "korean": "저쪽은 조용해요.",
+      "alternativeAnswers": [],
+      "hint": "저쪽은...",
+      "explanation": "遠い方向を主題化して説明します。"
+    },
+    {
+      "id": "qt_substantive_015_04",
+      "order": 4,
+      "japanese": "こちらの席が空いています。",
+      "korean": "이쪽 자리가 비었어요.",
+      "alternativeAnswers": [],
+      "hint": "이쪽 자...",
+      "explanation": "場所を指すとき名詞に直接「이쪽」を付けます。"
+    },
+    {
+      "id": "qt_substantive_015_05",
+      "order": 5,
+      "japanese": "そちらのドアを閉めてください。",
+      "korean": "그쪽 문을 닫아 주세요.",
+      "alternativeAnswers": [],
+      "hint": "그쪽 문...",
+      "explanation": "相手近くのものは「그쪽」＋名詞。"
+    },
+    {
+      "id": "qt_substantive_015_06",
+      "order": 6,
+      "japanese": "あちらの道に行きます。",
+      "korean": "저쪽 길로 가요.",
+      "alternativeAnswers": [],
+      "hint": "저쪽 길...",
+      "explanation": "方向を示すとき「-쪽 길로」を使えます。"
+    },
+    {
+      "id": "qt_substantive_015_07",
+      "order": 7,
+      "japanese": "こちらに座ってもいいですか。",
+      "korean": "이쪽에 앉아도 돼요?",
+      "alternativeAnswers": [],
+      "hint": "이쪽에...",
+      "explanation": "場所に「-에」を付けて着席位置を示します。"
+    },
+    {
+      "id": "qt_substantive_015_08",
+      "order": 8,
+      "japanese": "そちらに電話しました。",
+      "korean": "그쪽에 전화했어요.",
+      "alternativeAnswers": [],
+      "hint": "그쪽에...",
+      "explanation": "連絡先として方向語を使うことがあります。"
+    },
+    {
+      "id": "qt_substantive_015_09",
+      "order": 9,
+      "japanese": "あちらのほうが近いです。",
+      "korean": "저쪽이 더 가까워요.",
+      "alternativeAnswers": [],
+      "hint": "저쪽이...",
+      "explanation": "比較でも方向語を主語にします。"
+    },
+    {
+      "id": "qt_substantive_015_10",
+      "order": 10,
+      "japanese": "こちらのチームは準備できました。",
+      "korean": "이쪽 팀은 준비됐어요.",
+      "alternativeAnswers": [],
+      "hint": "이쪽 팀...",
+      "explanation": "所属を示すとき「이쪽 팀」などと表現。"
+    }
+  ]
+}

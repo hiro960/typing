@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_035",
+  "grammarTitle": "-기 시작하다",
+  "grammarSubtitle": "開始（〜し始める）",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_035_01",
+      "order": 1,
+      "japanese": "韓国語を学び始めました。",
+      "korean": "한국어를 배우기 시작했어요.",
+      "alternativeAnswers": [
+        "한국어를 배우기 시작했습니다."
+      ],
+      "hint": "한국어를...",
+      "explanation": "ある行動を始めたことを「-기 시작하다」で表します。"
+    },
+    {
+      "id": "qt_tense_aspect_035_02",
+      "order": 2,
+      "japanese": "運動を始めました。",
+      "korean": "운동을 하기 시작했어요.",
+      "alternativeAnswers": [
+        "운동을 하기 시작했습니다."
+      ],
+      "hint": "운동을...",
+      "explanation": "これから続ける行動の開始を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_035_03",
+      "order": 3,
+      "japanese": "雨が降り始めました。",
+      "korean": "비가 오기 시작했어요.",
+      "alternativeAnswers": [
+        "비가 오기 시작했습니다."
+      ],
+      "hint": "비가...",
+      "explanation": "現象が始まる瞬間を表す用法です。"
+    },
+    {
+      "id": "qt_tense_aspect_035_04",
+      "order": 4,
+      "japanese": "仕事が増え始めました。",
+      "korean": "일이 늘기 시작했어요.",
+      "alternativeAnswers": [
+        "일이 늘기 시작했습니다."
+      ],
+      "hint": "일이...",
+      "explanation": "量が増える方向への開始を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_035_05",
+      "order": 5,
+      "japanese": "寒くなり始めました。",
+      "korean": "추워지기 시작했어요.",
+      "alternativeAnswers": [
+        "추워지기 시작했습니다."
+      ],
+      "hint": "추워...",
+      "explanation": "状態変化が始まることを表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_035_06",
+      "order": 6,
+      "japanese": "笑い始めました。",
+      "korean": "웃기 시작했어요.",
+      "alternativeAnswers": [
+        "웃기 시작했습니다."
+      ],
+      "hint": "웃기...",
+      "explanation": "動作が始まった瞬間を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_035_07",
+      "order": 7,
+      "japanese": "泣き始めました。",
+      "korean": "울기 시작했어요.",
+      "alternativeAnswers": [
+        "울기 시작했습니다."
+      ],
+      "hint": "울기...",
+      "explanation": "新しく始まった行動を表す形です。"
+    },
+    {
+      "id": "qt_tense_aspect_035_08",
+      "order": 8,
+      "japanese": "バスが動き始めました。",
+      "korean": "버스가 움직이기 시작했어요.",
+      "alternativeAnswers": [
+        "버스가 움직이기 시작했습니다."
+      ],
+      "hint": "버스가...",
+      "explanation": "静止から動き出す開始を述べます。"
+    },
+    {
+      "id": "qt_tense_aspect_035_09",
+      "order": 9,
+      "japanese": "授業を聞き始めました。",
+      "korean": "수업을 듣기 시작했어요.",
+      "alternativeAnswers": [
+        "수업을 듣기 시작했습니다."
+      ],
+      "hint": "수업을...",
+      "explanation": "学習行動の開始を表す例です。"
+    },
+    {
+      "id": "qt_tense_aspect_035_10",
+      "order": 10,
+      "japanese": "本を読み始めました。",
+      "korean": "책을 읽기 시작했어요.",
+      "alternativeAnswers": [
+        "책을 읽기 시작했습니다."
+      ],
+      "hint": "책을...",
+      "explanation": "新しく読み始めた場面で使う表現です。"
+    }
+  ]
+}

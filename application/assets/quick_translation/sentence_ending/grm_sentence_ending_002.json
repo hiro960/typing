@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_sentence_ending_002",
+  "grammarTitle": "-습니다/ㅂ니다",
+  "grammarSubtitle": "格式体（〜です/ます）",
+  "category": "sentence_ending",
+  "questions": [
+    {
+      "id": "qt_sentence_ending_002_01",
+      "order": 1,
+      "japanese": "私は会社員です。",
+      "korean": "저는 회사원입니다.",
+      "alternativeAnswers": ["저는 회사원이에요."],
+      "hint": "저는...",
+      "explanation": "フォーマルな名詞述語は「입니다」で終わります。"
+    },
+    {
+      "id": "qt_sentence_ending_002_02",
+      "order": 2,
+      "japanese": "ただいま発表を始めます。",
+      "korean": "지금부터 발표를 시작합니다.",
+      "alternativeAnswers": [],
+      "hint": "지금부터...",
+      "explanation": "パッチムなし語幹は「-ㅂ니다」で格式体を作ります。"
+    },
+    {
+      "id": "qt_sentence_ending_002_03",
+      "order": 3,
+      "japanese": "ご飯を食べます。",
+      "korean": "밥을 먹습니다.",
+      "alternativeAnswers": ["밥을 먹어요."],
+      "hint": "밥을...",
+      "explanation": "パッチムあり語幹は「-습니다」を付けて丁寧に言います。"
+    },
+    {
+      "id": "qt_sentence_ending_002_04",
+      "order": 4,
+      "japanese": "毎日運動します。",
+      "korean": "매일 운동합니다.",
+      "alternativeAnswers": ["매일 운동해요."],
+      "hint": "매일...",
+      "explanation": "하다動詞の格式体は「합니다」の形になります。"
+    },
+    {
+      "id": "qt_sentence_ending_002_05",
+      "order": 5,
+      "japanese": "今ソウルに住んでいます。",
+      "korean": "지금 서울에 삽니다.",
+      "alternativeAnswers": ["지금 서울에 살아요."],
+      "hint": "지금...",
+      "explanation": "ㄹ語幹はㄹ脱落で「-ㅂ니다」を付け「삽니다」となります。"
+    },
+    {
+      "id": "qt_sentence_ending_002_06",
+      "order": 6,
+      "japanese": "この映画はとても面白いです。",
+      "korean": "이 영화는 아주 재미있습니다.",
+      "alternativeAnswers": ["이 영화는 아주 재미있어요."],
+      "hint": "이 영화는...",
+      "explanation": "形容詞述語も「-습니다/ㅂ니다」で格式を表します。"
+    },
+    {
+      "id": "qt_sentence_ending_002_07",
+      "order": 7,
+      "japanese": "毎朝六時に起きます。",
+      "korean": "매일 아침 여섯 시에 일어납니다.",
+      "alternativeAnswers": ["매일 아침 여섯 시에 일어나요."],
+      "hint": "매일...",
+      "explanation": "習慣をフォーマルに述べるときも「-ㅂ니다」を使います。"
+    },
+    {
+      "id": "qt_sentence_ending_002_08",
+      "order": 8,
+      "japanese": "私は日本人です。",
+      "korean": "저는 일본인입니다.",
+      "alternativeAnswers": ["저는 일본인이에요."],
+      "hint": "저는...",
+      "explanation": "指定表現も格式体では「입니다」を用います。"
+    },
+    {
+      "id": "qt_sentence_ending_002_09",
+      "order": 9,
+      "japanese": "ここは図書館です。",
+      "korean": "여기는 도서관입니다.",
+      "alternativeAnswers": ["여기는 도서관이에요."],
+      "hint": "여기는...",
+      "explanation": "場所を説明するときも格式体で「입니다」と結びます。"
+    },
+    {
+      "id": "qt_sentence_ending_002_10",
+      "order": 10,
+      "japanese": "よろしくお願いします。",
+      "korean": "잘 부탁드립니다.",
+      "alternativeAnswers": [],
+      "hint": "잘 부...",
+      "explanation": "あいさつも格式体で結ぶとより丁寧になります。"
+    }
+  ]
+}

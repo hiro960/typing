@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_orthography_018",
+  "grammarTitle": "비음화",
+  "grammarSubtitle": "鼻音化",
+  "category": "orthography",
+  "questions": [
+    {
+      "id": "qt_orthography_018_01",
+      "order": 1,
+      "japanese": "韓国語は難しいです。",
+      "korean": "한국말이 어려워요.",
+      "alternativeAnswers": ["한국말이 어렵습니다."],
+      "hint": "한국말이...",
+      "explanation": "한국말はㄱ+ㅁでㅇに変わり[한궁말]と発音します。"
+    },
+    {
+      "id": "qt_orthography_018_02",
+      "order": 2,
+      "japanese": "スープが熱いです。",
+      "korean": "국물이 뜨거워요.",
+      "alternativeAnswers": ["국물이 뜨겁습니다."],
+      "hint": "국물이...",
+      "explanation": "국물はㄱ+ㅁが鼻音化して[궁물]と発音されます。"
+    },
+    {
+      "id": "qt_orthography_018_03",
+      "order": 3,
+      "japanese": "食べるのが好きです。",
+      "korean": "먹는 걸 좋아해요.",
+      "alternativeAnswers": ["먹는 것을 좋아해요.", "먹는 것을 좋아합니다."],
+      "hint": "먹는...",
+      "explanation": "먹는はㄱ+ㄴがㅇ+ㄴとなり[멍는]と発音します。"
+    },
+    {
+      "id": "qt_orthography_018_04",
+      "order": 4,
+      "japanese": "玄関を閉めます。",
+      "korean": "앞문을 닫아요.",
+      "alternativeAnswers": ["앞문을 닫습니다."],
+      "hint": "앞문을...",
+      "explanation": "앞문はㅂ+ㅁでㅁㅁになり[암문]と発音されます。"
+    },
+    {
+      "id": "qt_orthography_018_05",
+      "order": 5,
+      "japanese": "十万ウォンが必要です。",
+      "korean": "십만 원이 필요해요.",
+      "alternativeAnswers": ["십만 원이 필요합니다."],
+      "hint": "십만...",
+      "explanation": "십만はㅂ+ㅁがㅁㅁになり[심만]と発音します。"
+    },
+    {
+      "id": "qt_orthography_018_06",
+      "order": 6,
+      "japanese": "休みの日はないですか？",
+      "korean": "쉬는 날은 없나요?",
+      "alternativeAnswers": ["쉬는 날은 없습니까?"],
+      "hint": "쉬는...",
+      "explanation": "없나요はㅂパッチムがㄴの前でㅁになり[엄나요]と発音されます。"
+    },
+    {
+      "id": "qt_orthography_018_07",
+      "order": 7,
+      "japanese": "読んでいる本が面白いです。",
+      "korean": "읽는 책이 재미있어요.",
+      "alternativeAnswers": ["읽는 책이 재미있습니다."],
+      "hint": "읽는...",
+      "explanation": "읽는はㄺ+ㄴでㄱが鼻音化し[잉는]と発音します。"
+    },
+    {
+      "id": "qt_orthography_018_08",
+      "order": 8,
+      "japanese": "受け取る手紙が来ました。",
+      "korean": "받는 편지가 왔어요.",
+      "alternativeAnswers": ["받는 편지가 왔습니다."],
+      "hint": "받는...",
+      "explanation": "받는はㄷ+ㄴがㄴㄴになり[반는]と発音されます。"
+    },
+    {
+      "id": "qt_orthography_018_09",
+      "order": 9,
+      "japanese": "国内旅行に行きます。",
+      "korean": "국내 여행을 가요.",
+      "alternativeAnswers": ["국내 여행을 갑니다."],
+      "hint": "국내...",
+      "explanation": "국내はㄱ+ㄴがㅇ+ㄴになり[궁내]と発音します。"
+    },
+    {
+      "id": "qt_orthography_018_10",
+      "order": 10,
+      "japanese": "扉を閉める人がいません。",
+      "korean": "문을 닫는 사람이 없어요.",
+      "alternativeAnswers": ["문을 닫는 사람이 없습니다."],
+      "hint": "문을...",
+      "explanation": "닫는はㄷ+ㄴがㄴㄴになり[단는]と発音されます。"
+    }
+  ]
+}

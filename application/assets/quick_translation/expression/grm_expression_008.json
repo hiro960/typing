@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_008",
+  "grammarTitle": "-(으)ㄹ 리가 없다",
+  "grammarSubtitle": "〜はずがない",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_008_01",
+      "order": 1,
+      "japanese": "彼が嘘をつくはずがありません。",
+      "korean": "그가 거짓말할 리가 없어요.",
+      "alternativeAnswers": ["그가 거짓말할 리가 없습니다."],
+      "hint": "그가...",
+      "explanation": "絶対に起きないと思うとき「-ㄹ 리가 없다」を使います。"
+    },
+    {
+      "id": "qt_expression_008_02",
+      "order": 2,
+      "japanese": "この時間に店が開いているはずがありません。",
+      "korean": "이 시간에 가게가 열릴 리가 없어요.",
+      "alternativeAnswers": ["이 시간에 가게가 열릴 리가 없습니다."],
+      "hint": "이 시간...",
+      "explanation": "ありえないと断定するとき「-ㄹ 리가 없다」を用います。"
+    },
+    {
+      "id": "qt_expression_008_03",
+      "order": 3,
+      "japanese": "彼女が知らないはずがありません。",
+      "korean": "그녀가 모를 리가 없어요.",
+      "alternativeAnswers": ["그녀가 모를 리가 없습니다."],
+      "hint": "그녀가...",
+      "explanation": "必ず知っていると思うときも「-ㄹ 리가 없다」で否定します。"
+    },
+    {
+      "id": "qt_expression_008_04",
+      "order": 4,
+      "japanese": "こんなに安いはずがありません。",
+      "korean": "이렇게 쌀 리가 없어요.",
+      "alternativeAnswers": ["이렇게 쌀 리가 없습니다."],
+      "hint": "이렇게...",
+      "explanation": "値段に疑いを持つとき「-ㄹ 리가 없다」を使います。"
+    },
+    {
+      "id": "qt_expression_008_05",
+      "order": 5,
+      "japanese": "その人が遅れるはずがありません。",
+      "korean": "그 사람이 늦을 리가 없어요.",
+      "alternativeAnswers": ["그 사람이 늦을 리가 없습니다."],
+      "hint": "그 사...",
+      "explanation": "信頼していて起きないと思う時に用いる表現です。"
+    },
+    {
+      "id": "qt_expression_008_06",
+      "order": 6,
+      "japanese": "試験が簡単なはずがありません。",
+      "korean": "시험이 쉬울 리가 없어요.",
+      "alternativeAnswers": ["시험이 쉬울 리가 없습니다."],
+      "hint": "시험이...",
+      "explanation": "ありえない内容を強く否定して言うとき使います。"
+    },
+    {
+      "id": "qt_expression_008_07",
+      "order": 7,
+      "japanese": "その話が本当なはずがありません。",
+      "korean": "그 이야기가 진짜일 리가 없어요.",
+      "alternativeAnswers": ["그 이야기가 진짜일 리가 없습니다."],
+      "hint": "그 이야...",
+      "explanation": "事実である可能性を否定して「-ㄹ 리가 없다」を使います。"
+    },
+    {
+      "id": "qt_expression_008_08",
+      "order": 8,
+      "japanese": "友達が忘れるはずがありません。",
+      "korean": "친구가 잊을 리가 없어요.",
+      "alternativeAnswers": ["친구가 잊을 리가 없습니다."],
+      "hint": "친구가...",
+      "explanation": "起きないと信じるとき「-ㄹ 리가 없다」で断言します。"
+    },
+    {
+      "id": "qt_expression_008_09",
+      "order": 9,
+      "japanese": "もうバスが出たはずがありません。",
+      "korean": "버스가 벌써 갔을 리가 없어요.",
+      "alternativeAnswers": ["버스가 벌써 갔을 리가 없습니다."],
+      "hint": "버스가...",
+      "explanation": "過去の出来事もありえないと否定するとき使います。"
+    },
+    {
+      "id": "qt_expression_008_10",
+      "order": 10,
+      "japanese": "彼が怒るはずがありません。",
+      "korean": "그가 화낼 리가 없어요.",
+      "alternativeAnswers": ["그가 화낼 리가 없습니다."],
+      "hint": "그가...",
+      "explanation": "起こるはずがないと強く否定して伝える形です。"
+    }
+  ]
+}

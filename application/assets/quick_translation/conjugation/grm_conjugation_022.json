@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_022",
+  "grammarTitle": "비표준 활용",
+  "grammarSubtitle": "規則に従わない非標準的活用形",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_022_01",
+      "order": 1,
+      "japanese": "何してるの？",
+      "korean": "뭐 해?",
+      "alternativeAnswers": ["무엇을 해?", "뭐 해요?"],
+      "hint": "뭐...",
+      "explanation": "「무엇을 해?」が口語で縮約した非標準形「뭐 해?」です。"
+    },
+    {
+      "id": "qt_conjugation_022_02",
+      "order": 2,
+      "japanese": "どこ行くの？",
+      "korean": "어디 가?",
+      "alternativeAnswers": ["어디에 가?", "어디에 가요?"],
+      "hint": "어디...",
+      "explanation": "「어디에 가?」を口語で縮めた形で、カジュアルな非標準表現です。"
+    },
+    {
+      "id": "qt_conjugation_022_03",
+      "order": 3,
+      "japanese": "だから急いで！",
+      "korean": "그니까 서둘러!",
+      "alternativeAnswers": ["그러니까 서둘러요."],
+      "hint": "그니까...",
+      "explanation": "「그러니까」を縮約した口語「그니까」を使った例です。"
+    },
+    {
+      "id": "qt_conjugation_022_04",
+      "order": 4,
+      "japanese": "どうしよう？",
+      "korean": "어떡해?",
+      "alternativeAnswers": ["어떻게 해?", "어떡하죠?"],
+      "hint": "어떡...",
+      "explanation": "「어떻게 해?」が縮約して「어떡해?」となる非標準的な会話形です。"
+    },
+    {
+      "id": "qt_conjugation_022_05",
+      "order": 5,
+      "japanese": "ありがとう〜。",
+      "korean": "고마워~",
+      "alternativeAnswers": ["고마워요.", "고마워용~"],
+      "hint": "고마워...",
+      "explanation": "カジュアルなら「고마워~」、かわいさを強めたいときは非標準の語尾「-용」を付けることもあります。"
+    },
+    {
+      "id": "qt_conjugation_022_06",
+      "order": 6,
+      "japanese": "分かったよ。",
+      "korean": "알았어.",
+      "alternativeAnswers": ["알았엉.", "알았습니다."],
+      "hint": "알았...",
+      "explanation": "標準の반말「알았어」に対し、可愛い語尾「-엉」を付けるとさらに非標準になります。"
+    },
+    {
+      "id": "qt_conjugation_022_07",
+      "order": 7,
+      "japanese": "行かないわけではありません。（＝行きます）",
+      "korean": "안 가는 건 아니에요.",
+      "alternativeAnswers": ["안 갈 건 아니에요.", "갈게요."],
+      "hint": "안 가...",
+      "explanation": "二重否定で婉曲に「行かないわけではない」ことを伝えるには「안 가는 건 아니에요」と言います。"
+    },
+    {
+      "id": "qt_conjugation_022_08",
+      "order": 8,
+      "japanese": "おいしいよ〜。",
+      "korean": "맛있어~.",
+      "alternativeAnswers": ["맛있당.", "맛있어요."],
+      "hint": "맛있...",
+      "explanation": "カジュアルな感嘆は「맛있어~」、ネットでは語尾「-당」を付ける非標準のかわいい言い方もあります。"
+    },
+    {
+      "id": "qt_conjugation_022_09",
+      "order": 9,
+      "japanese": "それは違うよ。",
+      "korean": "그건 아니야.",
+      "alternativeAnswers": ["그건 아냐.", "그건 아닙니다."],
+      "hint": "그건...",
+      "explanation": "標準の반말「아니야」に、さらに縮約した「아냐」など非標準形が用いられます。"
+    },
+    {
+      "id": "qt_conjugation_022_10",
+      "order": 10,
+      "japanese": "何だって？（方言風）",
+      "korean": "뭐라카노?",
+      "alternativeAnswers": ["뭐라고요?", "뭐라카니?"],
+      "hint": "뭐라...",
+      "explanation": "慶尚道方言の非標準形「뭐라카노?」で、標準形は「뭐라고요?」です。"
+    }
+  ]
+}

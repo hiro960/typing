@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_003",
+  "grammarTitle": "ㅎ不規則",
+  "grammarSubtitle": "ㅎ脱落（빨갛다→빨개요）",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_003_01",
+      "order": 1,
+      "japanese": "空が青いです。",
+      "korean": "하늘이 파래요.",
+      "alternativeAnswers": ["하늘이 파랗습니다."],
+      "hint": "하늘이...",
+      "explanation": "「파랗다」は母音語尾前でㅎが脱落し「파래요」になります。"
+    },
+    {
+      "id": "qt_conjugation_003_02",
+      "order": 2,
+      "japanese": "りんごが赤いです。",
+      "korean": "사과가 빨개요.",
+      "alternativeAnswers": ["사과가 빨갛습니다."],
+      "hint": "사과가...",
+      "explanation": "「빨갛다」はㅎ脱落で「빨개요」、子音語尾では 빨갛습니다 です。"
+    },
+    {
+      "id": "qt_conjugation_003_03",
+      "order": 3,
+      "japanese": "壁が白いです。",
+      "korean": "벽이 하얘요.",
+      "alternativeAnswers": ["벽이 하얗습니다."],
+      "hint": "벽이...",
+      "explanation": "「하얗다」は母音語尾前でㅎが落ち「하얘요」になります。"
+    },
+    {
+      "id": "qt_conjugation_003_04",
+      "order": 4,
+      "japanese": "その猫は黒いです。",
+      "korean": "그 고양이는 까매요.",
+      "alternativeAnswers": ["그 고양이는 까맣습니다."],
+      "hint": "그 고양...",
+      "explanation": "「까맣다」はㅎ脱落で「까매요」、格式体では 까맣습니다 です。"
+    },
+    {
+      "id": "qt_conjugation_003_05",
+      "order": 5,
+      "japanese": "葉っぱが黄色いです。",
+      "korean": "나뭇잎이 노래요.",
+      "alternativeAnswers": ["나뭇잎이 노랗습니다."],
+      "hint": "나뭇잎이...",
+      "explanation": "「노랗다」はㅎ脱落で「노래요」、子音語尾では 노랗습니다 となります。"
+    },
+    {
+      "id": "qt_conjugation_003_06",
+      "order": 6,
+      "japanese": "青くてきれいです。",
+      "korean": "파래서 예뻐요.",
+      "alternativeAnswers": [],
+      "hint": "파래서...",
+      "explanation": "「-아서/어서」も母音語尾なのでㅎが落ち「파래서」になります。"
+    },
+    {
+      "id": "qt_conjugation_003_07",
+      "order": 7,
+      "japanese": "暗くてよく見えません。",
+      "korean": "까매서 잘 안 보여요.",
+      "alternativeAnswers": [],
+      "hint": "까매서...",
+      "explanation": "母音語尾「-어서」でㅎが脱落し「까매서」になります。"
+    },
+    {
+      "id": "qt_conjugation_003_08",
+      "order": 8,
+      "japanese": "白い服を着ます。",
+      "korean": "하얀 옷을 입어요.",
+      "alternativeAnswers": ["하얀 옷을 입습니다."],
+      "hint": "하얀...",
+      "explanation": "連体形でもㅎが落ち「하얀」になり名詞を修飾します。"
+    },
+    {
+      "id": "qt_conjugation_003_09",
+      "order": 9,
+      "japanese": "赤くなって恥ずかしいです。",
+      "korean": "빨개서 부끄러워요.",
+      "alternativeAnswers": [],
+      "hint": "빨개서...",
+      "explanation": "「빨갛다」は母音語尾前でㅎが脱落し「빨개서」になります。"
+    },
+    {
+      "id": "qt_conjugation_003_10",
+      "order": 10,
+      "japanese": "青い空が好きです。",
+      "korean": "파란 하늘을 좋아해요.",
+      "alternativeAnswers": ["파란 하늘을 좋아합니다.", "파란 하늘이 좋아요."],
+      "hint": "파란...",
+      "explanation": "連体形ではㅎが落ち「파란」を使い名詞を修飾します。"
+    }
+  ]
+}

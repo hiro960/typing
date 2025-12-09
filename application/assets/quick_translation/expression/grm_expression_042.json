@@ -1,0 +1,107 @@
+{
+  "grammarRef": "grm_expression_042",
+  "grammarTitle": "-(으)ㄴ/는 대로",
+  "grammarSubtitle": "〜次第／〜するままに",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_042_01",
+      "order": 1,
+      "japanese": "着いたら電話してください。",
+      "korean": "도착하는 대로 전화하세요.",
+      "alternativeAnswers": [
+        "도착하는 대로 전화해 주세요."
+      ],
+      "hint": "도착하는...",
+      "explanation": "動作後すぐの依頼を「-는 대로」で表します。"
+    },
+    {
+      "id": "qt_expression_042_02",
+      "order": 2,
+      "japanese": "見たら言ってください。",
+      "korean": "보는 대로 말해 주세요.",
+      "alternativeAnswers": [],
+      "hint": "보는...",
+      "explanation": "見たままをすぐ伝えるよう依頼する表現です。"
+    },
+    {
+      "id": "qt_expression_042_03",
+      "order": 3,
+      "japanese": "考えたらすぐ書きましょう。",
+      "korean": "생각나는 대로 적어요.",
+      "alternativeAnswers": [],
+      "hint": "생각나는...",
+      "explanation": "思いつくと同時に書くことを「-는 대로」で指示します。"
+    },
+    {
+      "id": "qt_expression_042_04",
+      "order": 4,
+      "japanese": "聞いたとおり話しました。",
+      "korean": "들은 대로 말했어요.",
+      "alternativeAnswers": [
+        "들은 대로 말했습니다."
+      ],
+      "hint": "들은...",
+      "explanation": "受け取った情報をそのまま伝える際「-은 대로」を使います。"
+    },
+    {
+      "id": "qt_expression_042_05",
+      "order": 5,
+      "japanese": "終わり次第行きます。",
+      "korean": "끝나는 대로 갈게요.",
+      "alternativeAnswers": [
+        "끝나는 대로 가겠습니다."
+      ],
+      "hint": "끝나는...",
+      "explanation": "完了直後の行動を約束する「-는 대로」です。"
+    },
+    {
+      "id": "qt_expression_042_06",
+      "order": 6,
+      "japanese": "学んだとおりにやってみてください。",
+      "korean": "배운 대로 해 보세요.",
+      "alternativeAnswers": [],
+      "hint": "배운...",
+      "explanation": "教わった内容の再現を指示する際「-은 대로」を用います。"
+    },
+    {
+      "id": "qt_expression_042_07",
+      "order": 7,
+      "japanese": "感じたとおり話してください。",
+      "korean": "느끼는 대로 말하세요.",
+      "alternativeAnswers": [],
+      "hint": "느끼는...",
+      "explanation": "感情の即時表出を促す表現として「-는 대로」を使います。"
+    },
+    {
+      "id": "qt_expression_042_08",
+      "order": 8,
+      "japanese": "約束したとおりに来ます。",
+      "korean": "약속한 대로 올게요.",
+      "alternativeAnswers": [
+        "약속한 대로 오겠습니다."
+      ],
+      "hint": "약속한...",
+      "explanation": "事前の取り決めに従うことを「-ㄴ 대로」で示します。"
+    },
+    {
+      "id": "qt_expression_042_09",
+      "order": 9,
+      "japanese": "座ったらすぐ始めます。",
+      "korean": "앉는 대로 시작해요.",
+      "alternativeAnswers": [],
+      "hint": "앉는...",
+      "explanation": "ある動作の直後に開始することを「-는 대로」で表します。"
+    },
+    {
+      "id": "qt_expression_042_10",
+      "order": 10,
+      "japanese": "見たとおりこの道は近いです。",
+      "korean": "본 대로 이 길이 가까워요.",
+      "alternativeAnswers": [],
+      "hint": "본...",
+      "explanation": "確認した内容に基づき説明するため「-은 대로」を使います。"
+    }
+  ]
+}
+

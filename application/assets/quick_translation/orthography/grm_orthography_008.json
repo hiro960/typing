@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_orthography_008",
+  "grammarTitle": "비음",
+  "grammarSubtitle": "鼻音",
+  "category": "orthography",
+  "questions": [
+    {
+      "id": "qt_orthography_008_01",
+      "order": 1,
+      "japanese": "ㄴは鼻から息を出します。",
+      "korean": "ㄴ은 코로 소리를 내요.",
+      "alternativeAnswers": ["ㄴ은 코로 소리를 냅니다."],
+      "hint": "ㄴ은...",
+      "explanation": "ㄴは歯茎で息を止め鼻から出す鼻音で、日本語ナ行に近いです。"
+    },
+    {
+      "id": "qt_orthography_008_02",
+      "order": 2,
+      "japanese": "ㅁは唇を閉じて鼻で出します。",
+      "korean": "ㅁ은 입 닫고 코로 내요.",
+      "alternativeAnswers": ["ㅁ은 입 닫고 코로 냅니다."],
+      "hint": "ㅁ은...",
+      "explanation": "ㅁは両唇を閉じて鼻から息を出す両唇鼻音です。"
+    },
+    {
+      "id": "qt_orthography_008_03",
+      "order": 3,
+      "japanese": "パッチムのㅇは鼻に響きます。",
+      "korean": "받침 ㅇ은 코로 울려요.",
+      "alternativeAnswers": ["받침 ㅇ은 코로 울립니다."],
+      "hint": "받침...",
+      "explanation": "終声ㅇは舌の奥で塞ぎ鼻から抜ける[ŋ]音になります。"
+    },
+    {
+      "id": "qt_orthography_008_04",
+      "order": 4,
+      "japanese": "初声のㅇは音がありません。",
+      "korean": "첫 ㅇ은 소리가 없어요.",
+      "alternativeAnswers": ["첫 ㅇ은 소리가 없습니다."],
+      "hint": "첫 ㅇ...",
+      "explanation": "初声ㅇはゼロ子音で、母音だけを立てるための位置記号です。"
+    },
+    {
+      "id": "qt_orthography_008_05",
+      "order": 5,
+      "japanese": "「눈」のㄴはナ行に似ています。",
+      "korean": "눈의 ㄴ은 '나'처럼 들려요.",
+      "alternativeAnswers": ["눈의 ㄴ은 '나'처럼 들립니다."],
+      "hint": "눈의...",
+      "explanation": "語頭のㄴは日本語ナ行と同じく舌先を歯茎に当てて出します。"
+    },
+    {
+      "id": "qt_orthography_008_06",
+      "order": 6,
+      "japanese": "「마음」のㅁは唇をしっかり閉じます。",
+      "korean": "마음의 ㅁ은 입을 꼭 닫아요.",
+      "alternativeAnswers": ["마음의 ㅁ은 입을 꼭 닫습니다."],
+      "hint": "마음...",
+      "explanation": "ㅁは唇を閉じたまま鼻で響かせるので閉じる力が重要です。"
+    },
+    {
+      "id": "qt_orthography_008_07",
+      "order": 7,
+      "japanese": "「방」のㅇは口を開けて鼻で終わります。",
+      "korean": "방의 ㅇ은 입 벌리고 코로 끝나요.",
+      "alternativeAnswers": ["방의 ㅇ은 입 벌리고 코로 끝납니다."],
+      "hint": "방의...",
+      "explanation": "終声ㅇは口を開けたまま鼻で閉じる軟口蓋鼻音です。"
+    },
+    {
+      "id": "qt_orthography_008_08",
+      "order": 8,
+      "japanese": "「아이」のㅇは無音で始まります。",
+      "korean": "아이의 ㅇ은 소리 없이 시작해요.",
+      "alternativeAnswers": ["아이의 ㅇ은 소리 없이 시작합니다."],
+      "hint": "아이의...",
+      "explanation": "初声ㅇは音を持たず、母音だけを表す役割の記号です。"
+    },
+    {
+      "id": "qt_orthography_008_09",
+      "order": 9,
+      "japanese": "「산」と「삼」は終わりの鼻音が違います。",
+      "korean": "산과 삼은 끝소리가 달라요.",
+      "alternativeAnswers": ["산과 삼은 끝소리가 다릅니다."],
+      "hint": "산과...",
+      "explanation": "산は終声ㄴ[n]、삼は終声ㅁ[m]で調音位置が異なります。"
+    },
+    {
+      "id": "qt_orthography_008_10",
+      "order": 10,
+      "japanese": "「공」のㅇは[옹]のように聞こえます。",
+      "korean": "공의 ㅇ은 [옹]처럼 들려요.",
+      "alternativeAnswers": ["공의 ㅇ은 [옹]처럼 들립니다."],
+      "hint": "공의...",
+      "explanation": "終声ㅇは[ŋ]で、日本語の「ん」（キンギョのン）に近い鼻音です。"
+    }
+  ]
+}

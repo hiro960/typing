@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_word_formation_026",
+  "grammarTitle": "한자어 접두사",
+  "grammarSubtitle": "漢字語の接頭辞",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_026_01",
+      "order": 1,
+      "japanese": "新製品を試しました。",
+      "korean": "신제품을 써 봤어요.",
+      "alternativeAnswers": [],
+      "hint": "신제품을...",
+      "explanation": "漢字語の接頭辞「신-」で新しい製品を表します。"
+    },
+    {
+      "id": "qt_word_formation_026_02",
+      "order": 2,
+      "japanese": "新入生です。",
+      "korean": "신입생이에요.",
+      "alternativeAnswers": [],
+      "hint": "신입생...",
+      "explanation": "新しく入ったことを示す「신-」で「新入生」を作ります。"
+    },
+    {
+      "id": "qt_word_formation_026_03",
+      "order": 3,
+      "japanese": "新記録を立てました。",
+      "korean": "신기록을 세웠어요.",
+      "alternativeAnswers": [],
+      "hint": "신기록을...",
+      "explanation": "「신-」は最新を表し「신기록」で新記録になります。"
+    },
+    {
+      "id": "qt_word_formation_026_04",
+      "order": 4,
+      "japanese": "古い型の電話を使います。",
+      "korean": "구형 휴대폰을 써요.",
+      "alternativeAnswers": [],
+      "hint": "구형...",
+      "explanation": "接頭辞「구-」で古い型を表し「구형」＋名詞で使います。"
+    },
+    {
+      "id": "qt_word_formation_026_05",
+      "order": 5,
+      "japanese": "古い考えです。",
+      "korean": "구식 생각이에요.",
+      "alternativeAnswers": [],
+      "hint": "구식...",
+      "explanation": "「구-」を使った「구식」で時代遅れの様子を示します。"
+    },
+    {
+      "id": "qt_word_formation_026_06",
+      "order": 6,
+      "japanese": "初心者なのでゆっくりします。",
+      "korean": "초보자라서 천천히 해요.",
+      "alternativeAnswers": [],
+      "hint": "초보자라서...",
+      "explanation": "接頭辞「초-」で最初や初歩を表し「초보자」を作ります。"
+    },
+    {
+      "id": "qt_word_formation_026_07",
+      "order": 7,
+      "japanese": "初期の計画を見直します。",
+      "korean": "초기 계획을 다시 봐요.",
+      "alternativeAnswers": [],
+      "hint": "초기...",
+      "explanation": "「초-」は最初を表し「초기 계획」で初期計画と言います。"
+    },
+    {
+      "id": "qt_word_formation_026_08",
+      "order": 8,
+      "japanese": "小学生です。",
+      "korean": "초등학생이에요.",
+      "alternativeAnswers": [],
+      "hint": "초등학생...",
+      "explanation": "基礎段階を示す「초-」で「초등학생（小学生）」を作ります。"
+    },
+    {
+      "id": "qt_word_formation_026_09",
+      "order": 9,
+      "japanese": "新婚の家を探しました。",
+      "korean": "신혼집을 구했어요.",
+      "alternativeAnswers": [],
+      "hint": "신혼집을...",
+      "explanation": "新しい状態を表す「신-」で新婚の家を意味する合成語です。"
+    },
+    {
+      "id": "qt_word_formation_026_10",
+      "order": 10,
+      "japanese": "古い制服を着ています。",
+      "korean": "구교복을 입어요.",
+      "alternativeAnswers": [],
+      "hint": "구교복을...",
+      "explanation": "「구-」で以前のものを指し「古い制服」と表現します。"
+    }
+  ]
+}

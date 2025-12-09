@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_connective_018",
+  "grammarTitle": "-(으)ㄹ 테니까",
+  "grammarSubtitle": "〜するつもりだから",
+  "category": "connective",
+  "questions": [
+    {
+      "id": "qt_connective_018_01",
+      "order": 1,
+      "japanese": "私が料理するつもりだから少し休んでください。",
+      "korean": "제가 요리할 테니까 조금 쉬세요.",
+      "alternativeAnswers": ["제가 요리할 테니까 조금 쉬십시오."],
+      "hint": "제가...",
+      "explanation": "話し手の意志を理由に依頼を続ける形です。"
+    },
+    {
+      "id": "qt_connective_018_02",
+      "order": 2,
+      "japanese": "私が説明するからよく聞いてください。",
+      "korean": "제가 설명할 테니까 잘 들으세요.",
+      "alternativeAnswers": ["제가 설명할 테니까 잘 들으십시오."],
+      "hint": "제가 설...",
+      "explanation": "意志＋依頼の組み合わせで自然な文です。"
+    },
+    {
+      "id": "qt_connective_018_03",
+      "order": 3,
+      "japanese": "私が買うつもりだから心配しないでください。",
+      "korean": "제가 살 테니까 걱정하지 마세요.",
+      "alternativeAnswers": ["제가 살 테니까 걱정하지 마십시오."],
+      "hint": "제가 살...",
+      "explanation": "自分の意志を示し後件で安心させる例です。"
+    },
+    {
+      "id": "qt_connective_018_04",
+      "order": 4,
+      "japanese": "雨が降るだろうから傘を持っていってください。",
+      "korean": "비가 올 테니까 우산을 챙기세요.",
+      "alternativeAnswers": ["비가 올 테니까 우산을 챙기십시오."],
+      "hint": "비가...",
+      "explanation": "推量を根拠に助言を続ける用法です。"
+    },
+    {
+      "id": "qt_connective_018_05",
+      "order": 5,
+      "japanese": "遅れそうだから先に行ってください。",
+      "korean": "늦을 테니까 먼저 가세요.",
+      "alternativeAnswers": ["늦을 테니까 먼저 가십시오."],
+      "hint": "늦을...",
+      "explanation": "自分の状況予測を理由に提案しています。"
+    },
+    {
+      "id": "qt_connective_018_06",
+      "order": 6,
+      "japanese": "道が混むだろうから早く出ましょう。",
+      "korean": "길이 막힐 테니까 일찍 출발해요.",
+      "alternativeAnswers": ["길이 막힐 테니까 일찍 출발합시다."],
+      "hint": "길이...",
+      "explanation": "推量＋一緒にしようの形に接続する例です。"
+    },
+    {
+      "id": "qt_connective_018_07",
+      "order": 7,
+      "japanese": "私が電話するから待っていてください。",
+      "korean": "제가 전화할 테니까 기다려 주세요.",
+      "alternativeAnswers": ["제가 전화할 테니까 기다려 주십시오."],
+      "hint": "제가 전...",
+      "explanation": "意志を示し相手に待機を頼む形です。"
+    },
+    {
+      "id": "qt_connective_018_08",
+      "order": 8,
+      "japanese": "私が手伝うから心配しないでください。",
+      "korean": "제가 도울 테니까 걱정하지 마세요.",
+      "alternativeAnswers": ["제가 도울 테니까 걱정하지 마십시오."],
+      "hint": "제가 도...",
+      "explanation": "助ける意志を理由に安心させる文です。"
+    },
+    {
+      "id": "qt_connective_018_09",
+      "order": 9,
+      "japanese": "私が運転するつもりだから楽に座ってください。",
+      "korean": "제가 운전할 테니까 편하게 앉으세요.",
+      "alternativeAnswers": ["제가 운전할 테니까 편하게 앉으십시오."],
+      "hint": "제가 운...",
+      "explanation": "自分が担当すると言って相手を促す表現です。"
+    },
+    {
+      "id": "qt_connective_018_10",
+      "order": 10,
+      "japanese": "寒いだろうから暖かく着てください。",
+      "korean": "추울 테니까 따뜻하게 입으세요.",
+      "alternativeAnswers": ["추울 테니까 따뜻하게 입으십시오."],
+      "hint": "추울...",
+      "explanation": "状況の予測を理由に助言する定番の形です。"
+    }
+  ]
+}

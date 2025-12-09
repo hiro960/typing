@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_008",
+  "grammarTitle": "하고",
+  "grammarSubtitle": "並列助詞・カジュアル（〜と）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_008_01",
+      "order": 1,
+      "japanese": "友達と映画を見ます。",
+      "korean": "친구하고 영화를 봐요.",
+      "alternativeAnswers": ["친구하고 영화를 봅니다."],
+      "hint": "친구하고...",
+      "explanation": "会話でよく使う並列助詞「하고」で同行者を示します。"
+    },
+    {
+      "id": "qt_particle_008_02",
+      "order": 2,
+      "japanese": "お母さんと市場に行きます。",
+      "korean": "엄마하고 시장에 가요.",
+      "alternativeAnswers": ["엄마하고 시장에 갑니다."],
+      "hint": "엄마하고...",
+      "explanation": "同行・並列どちらにもカジュアルに「하고」を使えます。"
+    },
+    {
+      "id": "qt_particle_008_03",
+      "order": 3,
+      "japanese": "兄と一緒に運動します。",
+      "korean": "형하고 같이 운동해요.",
+      "alternativeAnswers": ["형하고 같이 운동합니다."],
+      "hint": "형하고...",
+      "explanation": "「같이」と合わせて同行者を示すことが多いです。"
+    },
+    {
+      "id": "qt_particle_008_04",
+      "order": 4,
+      "japanese": "弟とご飯を食べます。",
+      "korean": "동생하고 밥을 먹어요.",
+      "alternativeAnswers": ["동생하고 밥을 먹습니다."],
+      "hint": "동생하고...",
+      "explanation": "パッチム有無に関係なく同じ形「하고」を使います。"
+    },
+    {
+      "id": "qt_particle_008_05",
+      "order": 5,
+      "japanese": "先生と話します。",
+      "korean": "선생님하고 이야기해요.",
+      "alternativeAnswers": ["선생님하고 이야기합니다."],
+      "hint": "선생님하고...",
+      "explanation": "目上にも使えるがフォーマルでは「와/과」「께」などを選びます。"
+    },
+    {
+      "id": "qt_particle_008_06",
+      "order": 6,
+      "japanese": "友達と写真を撮ります。",
+      "korean": "친구하고 사진 찍어요.",
+      "alternativeAnswers": ["친구하고 사진 찍습니다."],
+      "hint": "친구하고...",
+      "explanation": "同行する相手を示す口語的表現です。"
+    },
+    {
+      "id": "qt_particle_008_07",
+      "order": 7,
+      "japanese": "家族と旅行に行きます。",
+      "korean": "가족하고 여행 가요.",
+      "alternativeAnswers": ["가족하고 여행 갑니다."],
+      "hint": "가족하고...",
+      "explanation": "並列助詞「하고」で同行者と行き先をつなぎます。"
+    },
+    {
+      "id": "qt_particle_008_08",
+      "order": 8,
+      "japanese": "友達とコーヒーを飲みます。",
+      "korean": "친구하고 커피 마셔요.",
+      "alternativeAnswers": ["친구하고 커피 마십니다."],
+      "hint": "친구하고...",
+      "explanation": "飲む対象と相手を「하고」でカジュアルに繋げます。"
+    },
+    {
+      "id": "qt_particle_008_09",
+      "order": 9,
+      "japanese": "お姉さんと買い物します。",
+      "korean": "언니하고 쇼핑해요.",
+      "alternativeAnswers": ["언니하고 쇼핑합니다."],
+      "hint": "언니하고...",
+      "explanation": "カジュアルな場面の同行・並列に最もよく使われます。"
+    },
+    {
+      "id": "qt_particle_008_10",
+      "order": 10,
+      "japanese": "お父さんと散歩します。",
+      "korean": "아빠하고 산책해요.",
+      "alternativeAnswers": ["아빠하고 산책합니다."],
+      "hint": "아빠하고...",
+      "explanation": "家族との行動でも口語なら「하고」が自然です。"
+    }
+  ]
+}

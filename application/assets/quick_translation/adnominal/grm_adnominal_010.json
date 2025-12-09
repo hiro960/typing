@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_adnominal_010",
+  "grammarTitle": "-(으)ㅁ",
+  "grammarSubtitle": "名詞化・文語",
+  "category": "adnominal",
+  "questions": [
+    {
+      "id": "qt_adnominal_010_01",
+      "order": 1,
+      "japanese": "遅れたことを謝ります。",
+      "korean": "늦었음을 사과해요.",
+      "alternativeAnswers": ["늦었음을 사과합니다."],
+      "hint": "늦었...",
+      "explanation": "過去の事実を文語的に名詞化する形です。"
+    },
+    {
+      "id": "qt_adnominal_010_02",
+      "order": 2,
+      "japanese": "到着したことを知らせます。",
+      "korean": "도착했음을 알려요.",
+      "alternativeAnswers": ["도착했음을 알립니다."],
+      "hint": "도착했...",
+      "explanation": "事実を知らせるとき -ㅁ 名詞化を使えます。"
+    },
+    {
+      "id": "qt_adnominal_010_03",
+      "order": 3,
+      "japanese": "準備したことを話しました。",
+      "korean": "준비했음을 말했어요.",
+      "alternativeAnswers": ["준비했음을 말했습니다."],
+      "hint": "준비했...",
+      "explanation": "完了した事実を文語的に名詞化しています。"
+    },
+    {
+      "id": "qt_adnominal_010_04",
+      "order": 4,
+      "japanese": "忘れたことを認めます。",
+      "korean": "잊었음을 인정해요.",
+      "alternativeAnswers": ["잊었음을 인정합니다."],
+      "hint": "잊었...",
+      "explanation": "事実認定に -(으)ㅁ を用いる例です。"
+    },
+    {
+      "id": "qt_adnominal_010_05",
+      "order": 5,
+      "japanese": "静けさが必要です。",
+      "korean": "조용함이 필요해요.",
+      "alternativeAnswers": ["조용함이 필요합니다."],
+      "hint": "조용함...",
+      "explanation": "形容詞を -ㅁ で名詞化し状態を表します。"
+    },
+    {
+      "id": "qt_adnominal_010_06",
+      "order": 6,
+      "japanese": "清潔さが好きです。",
+      "korean": "깨끗함을 좋아해요.",
+      "alternativeAnswers": ["깨끗함을 좋아합니다."],
+      "hint": "깨끗함...",
+      "explanation": "形容詞の性質を名詞化して好みを述べます。"
+    },
+    {
+      "id": "qt_adnominal_010_07",
+      "order": 7,
+      "japanese": "暖かさを感じます。",
+      "korean": "따뜻함을 느껴요.",
+      "alternativeAnswers": ["따뜻함을 느낍니다."],
+      "hint": "따뜻함...",
+      "explanation": "感じる対象として形容詞を名詞化しています。"
+    },
+    {
+      "id": "qt_adnominal_010_08",
+      "order": 8,
+      "japanese": "新しさが好きです。",
+      "korean": "새로움이 좋아요.",
+      "alternativeAnswers": ["새로움이 좋습니다."],
+      "hint": "새로움...",
+      "explanation": "새롭다 を -ㅁ で名詞化した例です。"
+    },
+    {
+      "id": "qt_adnominal_010_09",
+      "order": 9,
+      "japanese": "空であることを確認します。",
+      "korean": "비었음을 확인해요.",
+      "alternativeAnswers": ["비었음을 확인합니다."],
+      "hint": "비었...",
+      "explanation": "空である事実を -(으)ㅁ で名詞化して示します。"
+    },
+    {
+      "id": "qt_adnominal_010_10",
+      "order": 10,
+      "japanese": "愛していることを伝えます。",
+      "korean": "사랑함을 전해요.",
+      "alternativeAnswers": ["사랑함을 전합니다."],
+      "hint": "사랑함...",
+      "explanation": "感情を -(으)ㅁ で名詞化して伝える例です。"
+    }
+  ]
+}

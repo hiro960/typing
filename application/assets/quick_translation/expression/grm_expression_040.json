@@ -1,0 +1,99 @@
+{
+  "grammarRef": "grm_expression_040",
+  "grammarTitle": "-(으)ㄹ 수밖에 없다",
+  "grammarSubtitle": "〜せざるを得ない／〜するしかない",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_040_01",
+      "order": 1,
+      "japanese": "遅れるしかありませんでした。",
+      "korean": "늦을 수밖에 없었어요.",
+      "alternativeAnswers": [],
+      "hint": "늦을...",
+      "explanation": "他の選択肢がなかった過去を「-ㄹ 수밖에 없었다」で表します。"
+    },
+    {
+      "id": "qt_expression_040_02",
+      "order": 2,
+      "japanese": "行くしかありません。",
+      "korean": "갈 수밖에 없어요.",
+      "alternativeAnswers": [],
+      "hint": "갈...",
+      "explanation": "必然的な選択として「-ㄹ 수밖에 없다」を使います。"
+    },
+    {
+      "id": "qt_expression_040_03",
+      "order": 3,
+      "japanese": "笑うしかありません。",
+      "korean": "웃을 수밖에 없어요.",
+      "alternativeAnswers": [],
+      "hint": "웃을...",
+      "explanation": "他に対応がない状況を「-ㄹ 수밖에 없다」で示します。"
+    },
+    {
+      "id": "qt_expression_040_04",
+      "order": 4,
+      "japanese": "食べるしかありません。",
+      "korean": "먹을 수밖에 없어요.",
+      "alternativeAnswers": [],
+      "hint": "먹을...",
+      "explanation": "選択肢がなく食べる必要があることを表します。"
+    },
+    {
+      "id": "qt_expression_040_05",
+      "order": 5,
+      "japanese": "信じるしかありません。",
+      "korean": "믿을 수밖에 없어요.",
+      "alternativeAnswers": [],
+      "hint": "믿을...",
+      "explanation": "他に方法がなく信じる必要を「-ㄹ 수밖에 없다」で表します。"
+    },
+    {
+      "id": "qt_expression_040_06",
+      "order": 6,
+      "japanese": "離れるしかありませんでした。",
+      "korean": "떠날 수밖에 없었어요.",
+      "alternativeAnswers": [],
+      "hint": "떠날...",
+      "explanation": "避けられない過去の選択を「-ㄹ 수밖에 없었다」で述べます。"
+    },
+    {
+      "id": "qt_expression_040_07",
+      "order": 7,
+      "japanese": "忘れるしかありませんでした。",
+      "korean": "잊을 수밖에 없었어요.",
+      "alternativeAnswers": [],
+      "hint": "잊을...",
+      "explanation": "やむを得ず忘れた状況を「-ㄹ 수밖에 없었다」で表現します。"
+    },
+    {
+      "id": "qt_expression_040_08",
+      "order": 8,
+      "japanese": "待つしかありません。",
+      "korean": "기다릴 수밖에 없어요.",
+      "alternativeAnswers": [],
+      "hint": "기다릴...",
+      "explanation": "待つ以外に手段がないとき「-ㄹ 수밖에 없다」を使います。"
+    },
+    {
+      "id": "qt_expression_040_09",
+      "order": 9,
+      "japanese": "泣くしかありませんでした。",
+      "korean": "울 수밖에 없었어요.",
+      "alternativeAnswers": [],
+      "hint": "울...",
+      "explanation": "感情的に他の選択がなかったとき「-ㄹ 수밖에 없었다」を用います。"
+    },
+    {
+      "id": "qt_expression_040_10",
+      "order": 10,
+      "japanese": "借りるしかありません。",
+      "korean": "빌릴 수밖에 없어요.",
+      "alternativeAnswers": [],
+      "hint": "빌릴...",
+      "explanation": "他に手段がないため借りる必要を「-ㄹ 수밖에 없다」で表します。"
+    }
+  ]
+}
+

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_030",
+  "grammarTitle": "번",
+  "grammarSubtitle": "助数詞（回/番）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_030_01",
+      "order": 1,
+      "japanese": "一回だけ見ました。",
+      "korean": "한 번만 봤어요.",
+      "alternativeAnswers": ["한 번만 봤습니다."],
+      "hint": "한 번...",
+      "explanation": "回数は固有数詞＋번で表し、一回は 한 번 です。"
+    },
+    {
+      "id": "qt_substantive_030_02",
+      "order": 2,
+      "japanese": "三回電話しました。",
+      "korean": "세 번 전화했어요.",
+      "alternativeAnswers": ["세 번 전화했습니다."],
+      "hint": "세 번...",
+      "explanation": "回数を言うときは固有数詞に 번 を付けます。"
+    },
+    {
+      "id": "qt_substantive_030_03",
+      "order": 3,
+      "japanese": "毎日二回薬を飲みます。",
+      "korean": "매일 두 번 약을 먹어요.",
+      "alternativeAnswers": ["매일 두 번 약을 먹습니다."],
+      "hint": "매일...",
+      "explanation": "頻度も固有数詞＋번で\"〜回\"を表します。"
+    },
+    {
+      "id": "qt_substantive_030_04",
+      "order": 4,
+      "japanese": "一度も行ったことがありません。",
+      "korean": "한 번도 안 가 봤어요.",
+      "alternativeAnswers": ["한 번도 안 가 봤습니다."],
+      "hint": "한 번...",
+      "explanation": "否定のときは 한 번도 + 부정 で\"一度も〜ない\"です。"
+    },
+    {
+      "id": "qt_substantive_030_05",
+      "order": 5,
+      "japanese": "五番バスに乗ってください。",
+      "korean": "5번 버스를 타세요.",
+      "alternativeAnswers": ["5번 버스를 타십시오."],
+      "hint": "5번...",
+      "explanation": "番号にも 숫자＋번 を付けて\"〜番\"を示します。"
+    },
+    {
+      "id": "qt_substantive_030_06",
+      "order": 6,
+      "japanese": "今日は何回練習しますか？",
+      "korean": "오늘 몇 번 연습해요?",
+      "alternativeAnswers": ["오늘 몇 번 연습합니까?"],
+      "hint": "오늘...",
+      "explanation": "回数を尋ねるときは 몇 번 으로質問します。"
+    },
+    {
+      "id": "qt_substantive_030_07",
+      "order": 7,
+      "japanese": "その店に二回行きました。",
+      "korean": "그 가게에 두 번 갔어요.",
+      "alternativeAnswers": ["그 가게에 두 번 갔습니다."],
+      "hint": "그 가...",
+      "explanation": "経験回数も 固有数詞＋번 で表します。"
+    },
+    {
+      "id": "qt_substantive_030_08",
+      "order": 8,
+      "japanese": "番号を三番にしてください。",
+      "korean": "번호를 3번으로 해 주세요.",
+      "alternativeAnswers": [],
+      "hint": "번호...",
+      "explanation": "指定する番号にも 숫자＋번 을使って示します。"
+    },
+    {
+      "id": "qt_substantive_030_09",
+      "order": 9,
+      "japanese": "もう一回言ってください。",
+      "korean": "한 번 더 말해 주세요.",
+      "alternativeAnswers": ["한 번 더 말해 주십시오."],
+      "hint": "한 번...",
+      "explanation": "もう一度は 한 번 더 と言い、번 を用います。"
+    },
+    {
+      "id": "qt_substantive_030_10",
+      "order": 10,
+      "japanese": "この歌を何回も聞きます。",
+      "korean": "이 노래를 여러 번 들어요.",
+      "alternativeAnswers": [],
+      "hint": "이 노...",
+      "explanation": "複数回は 여러 번 で回数を示します。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_022",
+  "grammarTitle": "께/께서",
+  "grammarSubtitle": "尊敬助詞",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_022_01",
+      "order": 1,
+      "japanese": "先生がおいでになります。",
+      "korean": "선생님께서 오세요.",
+      "alternativeAnswers": ["선생님께서 옵니다."],
+      "hint": "선생님께서...",
+      "explanation": "目上の主語には尊敬の主格助詞「께서」を使います。"
+    },
+    {
+      "id": "qt_particle_022_02",
+      "order": 2,
+      "japanese": "おばあさんが寝ています。",
+      "korean": "할머니께서 주무세요.",
+      "alternativeAnswers": ["할머니께서 주무십니다."],
+      "hint": "할머니께서...",
+      "explanation": "敬語動詞と合わせ主語に「께서」を付けます。"
+    },
+    {
+      "id": "qt_particle_022_03",
+      "order": 3,
+      "japanese": "お父さんが運転しています。",
+      "korean": "아버지께서 운전하세요.",
+      "alternativeAnswers": ["아버지께서 운전하십니다."],
+      "hint": "아버지께서...",
+      "explanation": "目上の行為者には「이/가」ではなく「께서」を使うと丁寧です。"
+    },
+    {
+      "id": "qt_particle_022_04",
+      "order": 4,
+      "japanese": "ご両親がお元気です。",
+      "korean": "부모님께서 건강하세요.",
+      "alternativeAnswers": ["부모님께서 건강하십니다."],
+      "hint": "부모님께서...",
+      "explanation": "複数の尊敬対象にも主格助詞「께서」を使います。"
+    },
+    {
+      "id": "qt_particle_022_05",
+      "order": 5,
+      "japanese": "先生に電話を差し上げました。",
+      "korean": "선생님께 전화드렸어요.",
+      "alternativeAnswers": ["선생님께 전화드렸습니다."],
+      "hint": "선생님께...",
+      "explanation": "目上への方向・受け手には与格の尊敬形「께」を使います。"
+    },
+    {
+      "id": "qt_particle_022_06",
+      "order": 6,
+      "japanese": "おじいさんから手紙をいただきました。",
+      "korean": "할아버지께서 편지를 보내 주셨어요.",
+      "alternativeAnswers": ["할아버지께서 편지를 보내 주셨습니다."],
+      "hint": "할아버지께서...",
+      "explanation": "敬意を払う主語には「께서」を付け尊敬の語尾と合わせます。"
+    },
+    {
+      "id": "qt_particle_022_07",
+      "order": 7,
+      "japanese": "お母さんがご飯を作ってくださいました。",
+      "korean": "어머니께서 밥을 해 주셨어요.",
+      "alternativeAnswers": ["어머니께서 밥을 해 주셨습니다."],
+      "hint": "어머니께서...",
+      "explanation": "尊敬すべき主体には「께서」を使い行為を高めます。"
+    },
+    {
+      "id": "qt_particle_022_08",
+      "order": 8,
+      "japanese": "社長がお見えになります。",
+      "korean": "사장님께서 오세요.",
+      "alternativeAnswers": ["사장님께서 옵니다."],
+      "hint": "사장님께서...",
+      "explanation": "会社などで目上を主語にするとき「께서」を使います。"
+    },
+    {
+      "id": "qt_particle_022_09",
+      "order": 9,
+      "japanese": "先生がお話しになりました。",
+      "korean": "선생님께서 말씀하셨어요.",
+      "alternativeAnswers": ["선생님께서 말씀하셨습니다."],
+      "hint": "선생님께서...",
+      "explanation": "尊敬動詞とともに主語の助詞を敬語形にします。"
+    },
+    {
+      "id": "qt_particle_022_10",
+      "order": 10,
+      "japanese": "おばあさんにプレゼントを差し上げます。",
+      "korean": "할머니께 선물을 드려요.",
+      "alternativeAnswers": ["할머니께 선물을 드립니다."],
+      "hint": "할머니께...",
+      "explanation": "受け手が目上の場合与格は「께」に変えて敬意を示します。"
+    }
+  ]
+}

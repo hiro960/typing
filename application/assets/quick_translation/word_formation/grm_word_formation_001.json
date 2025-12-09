@@ -1,0 +1,102 @@
+{
+  "grammarRef": "grm_word_formation_001",
+  "grammarTitle": "-게",
+  "grammarSubtitle": "副詞形（〜く）",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_001_01",
+      "order": 1,
+      "japanese": "速く走ります。",
+      "korean": "빠르게 달려요.",
+      "alternativeAnswers": [],
+      "hint": "빠르게...",
+      "explanation": "形容詞に「-게」を付けて副詞化し「速く走る」を表します。"
+    },
+    {
+      "id": "qt_word_formation_001_02",
+      "order": 2,
+      "japanese": "静かに話してください。",
+      "korean": "조용하게 말해 주세요.",
+      "alternativeAnswers": [
+        "조용히 말해 주세요."
+      ],
+      "hint": "조용하게...",
+      "explanation": "様態を表すため形容詞「조용하다」に「-게」を付けました。"
+    },
+    {
+      "id": "qt_word_formation_001_03",
+      "order": 3,
+      "japanese": "楽に座ってください。",
+      "korean": "편하게 앉으세요.",
+      "alternativeAnswers": [],
+      "hint": "편하게...",
+      "explanation": "状態を副詞化し「편하게」で楽にを示しています。"
+    },
+    {
+      "id": "qt_word_formation_001_04",
+      "order": 4,
+      "japanese": "きれいに整理してください。",
+      "korean": "깨끗하게 정리하세요.",
+      "alternativeAnswers": [],
+      "hint": "깨끗하게...",
+      "explanation": "形容詞を副詞化して整理の様態を表す「-게」です。"
+    },
+    {
+      "id": "qt_word_formation_001_05",
+      "order": 5,
+      "japanese": "簡単に説明します。",
+      "korean": "쉽게 설명할게요.",
+      "alternativeAnswers": [],
+      "hint": "쉽게...",
+      "explanation": "「쉽다」に「-게」を付けて簡単にという副詞を作ります。"
+    },
+    {
+      "id": "qt_word_formation_001_06",
+      "order": 6,
+      "japanese": "落ち着いて話しました。",
+      "korean": "차분하게 말했어요.",
+      "alternativeAnswers": [],
+      "hint": "차분하게...",
+      "explanation": "形容詞「차분하다」に「-게」を付け落ち着いて話す様子を示します。"
+    },
+    {
+      "id": "qt_word_formation_001_07",
+      "order": 7,
+      "japanese": "自然に笑いました。",
+      "korean": "자연스럽게 웃었어요.",
+      "alternativeAnswers": [],
+      "hint": "자연스럽게...",
+      "explanation": "形容詞「자연스럽다」を副詞化し自然に笑ったと述べます。"
+    },
+    {
+      "id": "qt_word_formation_001_08",
+      "order": 8,
+      "japanese": "正確に書いてください。",
+      "korean": "정확하게 써 주세요.",
+      "alternativeAnswers": [],
+      "hint": "정확하게...",
+      "explanation": "正確さを副詞化するため「정확하게」を使います。"
+    },
+    {
+      "id": "qt_word_formation_001_09",
+      "order": 9,
+      "japanese": "優しく話しました。",
+      "korean": "부드럽게 말했어요.",
+      "alternativeAnswers": [],
+      "hint": "부드럽게...",
+      "explanation": "形容詞「부드럽다」に「-게」を付けて優しく話す様子を示します。"
+    },
+    {
+      "id": "qt_word_formation_001_10",
+      "order": 10,
+      "japanese": "静かに音楽を聞きます。",
+      "korean": "조용하게 음악을 들어요.",
+      "alternativeAnswers": [
+        "조용히 음악을 들어요."
+      ],
+      "hint": "조용하게...",
+      "explanation": "聞く様子を副詞で示すため形容詞＋「-게」を用います。"
+    }
+  ]
+}

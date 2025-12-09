@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_connective_012",
+  "grammarTitle": "-(으)러",
+  "grammarSubtitle": "目的・移動（〜しに）",
+  "category": "connective",
+  "questions": [
+    {
+      "id": "qt_connective_012_01",
+      "order": 1,
+      "japanese": "水を飲みにカフェに行きます。",
+      "korean": "물 마시러 카페에 가요.",
+      "alternativeAnswers": [],
+      "hint": "물 마...",
+      "explanation": "移動の目的を表すとき動作の語幹に -(으)러 を付けます。"
+    },
+    {
+      "id": "qt_connective_012_02",
+      "order": 2,
+      "japanese": "友達に会いに学校へ行きます。",
+      "korean": "친구 만나러 학교에 가요.",
+      "alternativeAnswers": [],
+      "hint": "친구...",
+      "explanation": "行く・来るなどの移動動詞とともに目的を示す形です。"
+    },
+    {
+      "id": "qt_connective_012_03",
+      "order": 3,
+      "japanese": "映画を見に映画館に行きます。",
+      "korean": "영화 보러 영화관에 가요.",
+      "alternativeAnswers": [],
+      "hint": "영화...",
+      "explanation": "移動の目的が見ることだと示す接続表現です。"
+    },
+    {
+      "id": "qt_connective_012_04",
+      "order": 4,
+      "japanese": "本を借りに図書館へ行きます。",
+      "korean": "책 빌리러 도서관에 가요.",
+      "alternativeAnswers": [],
+      "hint": "책 빌...",
+      "explanation": "借りる目的で移動する際に -(으)러 を用います。"
+    },
+    {
+      "id": "qt_connective_012_05",
+      "order": 5,
+      "japanese": "ご飯を食べに食堂に行きます。",
+      "korean": "밥 먹으러 식당에 가요.",
+      "alternativeAnswers": [],
+      "hint": "밥 먹...",
+      "explanation": "食事という目的を明示して移動を表すときの形です。"
+    },
+    {
+      "id": "qt_connective_012_06",
+      "order": 6,
+      "japanese": "先生に聞きに教室へ行きます。",
+      "korean": "선생님께 물으러 교실에 가요.",
+      "alternativeAnswers": ["선생님께 물어보러 교실에 가요."],
+      "hint": "선생...",
+      "explanation": "質問という目的で移動する場合も -(으)러 を使います。"
+    },
+    {
+      "id": "qt_connective_012_07",
+      "order": 7,
+      "japanese": "散歩しに公園に行きます。",
+      "korean": "산책하러 공원에 가요.",
+      "alternativeAnswers": [],
+      "hint": "산책...",
+      "explanation": "行動の目的を伴う移動を表す接続形です。"
+    },
+    {
+      "id": "qt_connective_012_08",
+      "order": 8,
+      "japanese": "バスに乗りに駅へ行きます。",
+      "korean": "버스 타러 역에 가요.",
+      "alternativeAnswers": [],
+      "hint": "버스...",
+      "explanation": "乗る目的で移動することを示す「〜しに」の表現です。"
+    },
+    {
+      "id": "qt_connective_012_09",
+      "order": 9,
+      "japanese": "仕事をしに会社に行きます。",
+      "korean": "일하러 회사에 가요.",
+      "alternativeAnswers": [],
+      "hint": "일하...",
+      "explanation": "移動の目的が働くことだと述べるとき -(으)러 を使います。"
+    },
+    {
+      "id": "qt_connective_012_10",
+      "order": 10,
+      "japanese": "家族を迎えに空港に行きます。",
+      "korean": "가족 맞으러 공항에 가요.",
+      "alternativeAnswers": ["가족 맞으러 공항으로 가요."],
+      "hint": "가족...",
+      "explanation": "迎える目的で移動することを表す接続表現です。"
+    }
+  ]
+}

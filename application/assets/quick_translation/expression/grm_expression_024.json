@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_expression_024",
+  "grammarTitle": "-ㄴ/는다면",
+  "grammarSubtitle": "〜だとすれば（仮定）",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_024_01",
+      "order": 1,
+      "japanese": "雨なら家にいます。",
+      "korean": "비가 온다면 집에 있을게요.",
+      "alternativeAnswers": [
+        "비가 온다면 집에 있겠습니다."
+      ],
+      "hint": "비가...",
+      "explanation": "仮定条件を示す「-ㄴ/는다면」で雨なら家にいることを表します。"
+    },
+    {
+      "id": "qt_expression_024_02",
+      "order": 2,
+      "japanese": "友達が行くなら私も行きます。",
+      "korean": "친구가 간다면 저도 갈게요.",
+      "alternativeAnswers": [
+        "친구가 간다면 저도 가겠습니다."
+      ],
+      "hint": "친구가...",
+      "explanation": "行動の条件を「-ㄴ다면」で示し、友達が行けば自分も行くと述べます。"
+    },
+    {
+      "id": "qt_expression_024_03",
+      "order": 3,
+      "japanese": "今日時間があるなら映画を見ましょう。",
+      "korean": "오늘 시간이 된다면 영화 봐요.",
+      "alternativeAnswers": [
+        "오늘 시간이 된다면 영화 봅시다."
+      ],
+      "hint": "오늘...",
+      "explanation": "予定を条件にする仮定表現「된다면」で時間がある場合を示します。"
+    },
+    {
+      "id": "qt_expression_024_04",
+      "order": 4,
+      "japanese": "遅れるなら電話してください。",
+      "korean": "늦는다면 전화해 주세요.",
+      "alternativeAnswers": [
+        "늦는다면 전화하십시오."
+      ],
+      "hint": "늦는다면...",
+      "explanation": "遅れるという仮定条件に「-는다면」を付けて依頼をしています。"
+    },
+    {
+      "id": "qt_expression_024_05",
+      "order": 5,
+      "japanese": "雨が降らないなら散歩します。",
+      "korean": "비가 오지 않는다면 산책해요.",
+      "alternativeAnswers": [
+        "비가 오지 않는다면 산책합니다."
+      ],
+      "hint": "비가 오지...",
+      "explanation": "否定形「오지 않다」に付けて、降らない場合の行動を示します。"
+    },
+    {
+      "id": "qt_expression_024_06",
+      "order": 6,
+      "japanese": "助けが必要なら手伝います。",
+      "korean": "도움이 필요하다면 도와줄게요.",
+      "alternativeAnswers": [
+        "도움이 필요하다면 도와주겠습니다."
+      ],
+      "hint": "도움이...",
+      "explanation": "必要という条件を「-다면」で表し、その場合手伝う意志を述べます。"
+    },
+    {
+      "id": "qt_expression_024_07",
+      "order": 7,
+      "japanese": "時間がたくさんあるなら旅行したいです。",
+      "korean": "시간이 많다면 여행하고 싶어요.",
+      "alternativeAnswers": [
+        "시간이 많다면 여행하고 싶습니다."
+      ],
+      "hint": "시간이...",
+      "explanation": "形容詞「많다」に「-다면」を付け、もし多いならと仮定します。"
+    },
+    {
+      "id": "qt_expression_024_08",
+      "order": 8,
+      "japanese": "その人を見たなら教えてください。",
+      "korean": "그 사람을 본다면 알려 주세요.",
+      "alternativeAnswers": [
+        "그 사람을 본다면 알려 주십시오."
+      ],
+      "hint": "그 사람...",
+      "explanation": "見る場合を仮定する「-ㄴ다면」で、そのとき知らせてほしいと頼みます。"
+    },
+    {
+      "id": "qt_expression_024_09",
+      "order": 9,
+      "japanese": "試験に合格するなら家族に電話します。",
+      "korean": "시험에 합격한다면 가족에게 전화할게요.",
+      "alternativeAnswers": [
+        "시험에 합격한다면 가족에게 전화하겠습니다."
+      ],
+      "hint": "시험에...",
+      "explanation": "合格するという仮定条件を「-ㄴ다면」で示し、その後の行動を述べます。"
+    },
+    {
+      "id": "qt_expression_024_10",
+      "order": 10,
+      "japanese": "寒いなら窓を閉めましょう。",
+      "korean": "추운다면 창문을 닫아요.",
+      "alternativeAnswers": [
+        "추운다면 창문을 닫읍시다."
+      ],
+      "hint": "추운다면...",
+      "explanation": "形容詞「춥다」に「-운다면」を付け、寒い場合の提案をしています。"
+    }
+  ]
+}

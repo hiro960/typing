@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_adnominal_008",
+  "grammarTitle": "-(으)ㄹ 것",
+  "grammarSubtitle": "名詞化・未来",
+  "category": "adnominal",
+  "questions": [
+    {
+      "id": "qt_adnominal_008_01",
+      "order": 1,
+      "japanese": "明日行くことが楽しみです。",
+      "korean": "내일 갈 것이 기대돼요.",
+      "alternativeAnswers": ["내일 갈 것이 기대됩니다."],
+      "hint": "내일...",
+      "explanation": "これからの予定を「〜すること」と名詞化します。"
+    },
+    {
+      "id": "qt_adnominal_008_02",
+      "order": 2,
+      "japanese": "食べるものを準備しました。",
+      "korean": "먹을 것을 준비했어요.",
+      "alternativeAnswers": ["먹을 것을 준비했습니다."],
+      "hint": "먹을...",
+      "explanation": "未来に食べる予定の対象を名詞化しています。"
+    },
+    {
+      "id": "qt_adnominal_008_03",
+      "order": 3,
+      "japanese": "見るものが多いです。",
+      "korean": "볼 것이 많아요.",
+      "alternativeAnswers": ["볼 것이 많습니다."],
+      "hint": "볼...",
+      "explanation": "今後見る予定のものを「こと／もの」で表します。"
+    },
+    {
+      "id": "qt_adnominal_008_04",
+      "order": 4,
+      "japanese": "買うものがありません。",
+      "korean": "살 것이 없어요.",
+      "alternativeAnswers": ["살 것이 없습니다."],
+      "hint": "살...",
+      "explanation": "これから買う対象を名詞化した否定文です。"
+    },
+    {
+      "id": "qt_adnominal_008_05",
+      "order": 5,
+      "japanese": "することが多くて忙しいです。",
+      "korean": "할 것이 많아서 바빠요.",
+      "alternativeAnswers": ["할 것이 많아서 바쁩니다."],
+      "hint": "할...",
+      "explanation": "未来の作業量を名詞化して状態を述べます。"
+    },
+    {
+      "id": "qt_adnominal_008_06",
+      "order": 6,
+      "japanese": "話すことがあります。",
+      "korean": "얘기할 것이 있어요.",
+      "alternativeAnswers": ["얘기할 것이 있습니다."],
+      "hint": "얘기할...",
+      "explanation": "これから話す予定を「こと」で示します。"
+    },
+    {
+      "id": "qt_adnominal_008_07",
+      "order": 7,
+      "japanese": "聞くことが重要です。",
+      "korean": "들을 것이 중요해요.",
+      "alternativeAnswers": ["들을 것이 중요합니다."],
+      "hint": "들을...",
+      "explanation": "今後聞く内容の重要さを名詞化して述べます。"
+    },
+    {
+      "id": "qt_adnominal_008_08",
+      "order": 8,
+      "japanese": "探すものが残っています。",
+      "korean": "찾을 것이 남았어요.",
+      "alternativeAnswers": ["찾을 것이 남았습니다."],
+      "hint": "찾을...",
+      "explanation": "まだ探す予定の対象を「もの」として表します。"
+    },
+    {
+      "id": "qt_adnominal_008_09",
+      "order": 9,
+      "japanese": "読むものが残っています。",
+      "korean": "읽을 것이 남았어요.",
+      "alternativeAnswers": ["읽을 것이 남았습니다."],
+      "hint": "읽을...",
+      "explanation": "未来に読む対象を名詞化して残量を示します。"
+    },
+    {
+      "id": "qt_adnominal_008_10",
+      "order": 10,
+      "japanese": "着るものがありません。",
+      "korean": "입을 것이 없어요.",
+      "alternativeAnswers": ["입을 것이 없습니다."],
+      "hint": "입을...",
+      "explanation": "これから着る予定のものがないことを表します。"
+    }
+  ]
+}

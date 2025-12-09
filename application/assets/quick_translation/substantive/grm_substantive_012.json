@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_012",
+  "grammarTitle": "누구나/아무나",
+  "grammarSubtitle": "不定代名詞（誰でも/誰でもかまわない）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_012_01",
+      "order": 1,
+      "japanese": "誰でもできます。",
+      "korean": "누구나 할 수 있어요.",
+      "alternativeAnswers": [],
+      "hint": "누구나...",
+      "explanation": "「누구나」で誰でもの意味を表します。"
+    },
+    {
+      "id": "qt_substantive_012_02",
+      "order": 2,
+      "japanese": "誰でも入ってください。",
+      "korean": "아무나 들어오세요.",
+      "alternativeAnswers": [],
+      "hint": "아무나...",
+      "explanation": "許可を与えるとき「아무나」を使います。"
+    },
+    {
+      "id": "qt_substantive_012_03",
+      "order": 3,
+      "japanese": "誰でも好きになります。",
+      "korean": "누구나 좋아해요.",
+      "alternativeAnswers": [],
+      "hint": "누구나...",
+      "explanation": "一般的な傾向を言うとき「누구나」。"
+    },
+    {
+      "id": "qt_substantive_012_04",
+      "order": 4,
+      "japanese": "誰でも使える部屋です。",
+      "korean": "누구나 쓸 수 있는 방이에요.",
+      "alternativeAnswers": [],
+      "hint": "누구나...",
+      "explanation": "可能表現と合わせて誰でも利用可を示します。"
+    },
+    {
+      "id": "qt_substantive_012_05",
+      "order": 5,
+      "japanese": "誰でも来れば歓迎します。",
+      "korean": "아무나 오면 환영해요.",
+      "alternativeAnswers": [],
+      "hint": "아무나...",
+      "explanation": "条件文でも「아무나」を置けます。"
+    },
+    {
+      "id": "qt_substantive_012_06",
+      "order": 6,
+      "japanese": "誰でも間違えることがあります。",
+      "korean": "누구나 틀릴 수 있어요.",
+      "alternativeAnswers": [],
+      "hint": "누구나...",
+      "explanation": "可能形で誰にでも起こることを表します。"
+    },
+    {
+      "id": "qt_substantive_012_07",
+      "order": 7,
+      "japanese": "誰でも質問していいです。",
+      "korean": "누구나 질문해도 돼요.",
+      "alternativeAnswers": [],
+      "hint": "누구나...",
+      "explanation": "許可を表す形ともよく使います。"
+    },
+    {
+      "id": "qt_substantive_012_08",
+      "order": 8,
+      "japanese": "誰でも見ることができます。",
+      "korean": "아무나 볼 수 있어요.",
+      "alternativeAnswers": [],
+      "hint": "아무나...",
+      "explanation": "「아무나」で不特定多数を表します。"
+    },
+    {
+      "id": "qt_substantive_012_09",
+      "order": 9,
+      "japanese": "誰でも友だちになれます。",
+      "korean": "누구나 친구가 될 수 있어요.",
+      "alternativeAnswers": [],
+      "hint": "누구나...",
+      "explanation": "変化を表す文でも主語に「누구나」。"
+    },
+    {
+      "id": "qt_substantive_012_10",
+      "order": 10,
+      "japanese": "誰でも参加できます。",
+      "korean": "누구나 참여할 수 있어요.",
+      "alternativeAnswers": [],
+      "hint": "누구나...",
+      "explanation": "参加可能を示すとき「누구나」＋可能表現。"
+    }
+  ]
+}

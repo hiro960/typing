@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_018",
+  "grammarTitle": "규칙용언 제Ⅱ어기",
+  "grammarSubtitle": "規則用言の第Ⅱ語基活用",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_018_01",
+      "order": 1,
+      "japanese": "時間があれば遊びます。",
+      "korean": "시간이 있으면 놀아요.",
+      "alternativeAnswers": ["시간이 있으면 놉니다."],
+      "hint": "시간이...",
+      "explanation": "子音語幹「있」に「-으면」が付き、続く動詞は通常活用します。"
+    },
+    {
+      "id": "qt_conjugation_018_02",
+      "order": 2,
+      "japanese": "雨なら家にいます。",
+      "korean": "비가 오면 집에 있어요.",
+      "alternativeAnswers": ["비가 오면 집에 있습니다."],
+      "hint": "비가...",
+      "explanation": "母音語幹「오」は「-면」と直接結合し「오면」になります。"
+    },
+    {
+      "id": "qt_conjugation_018_03",
+      "order": 3,
+      "japanese": "おいしいからたくさん食べてください。",
+      "korean": "맛있으니까 많이 드세요.",
+      "alternativeAnswers": ["맛있으니까 많이 드십시오."],
+      "hint": "맛있으...",
+      "explanation": "子音語幹「있」に理由語尾「-으니까」が付き「맛있으니까」となります。"
+    },
+    {
+      "id": "qt_conjugation_018_04",
+      "order": 4,
+      "japanese": "よく知っているから大丈夫です。",
+      "korean": "잘 아니까 괜찮아요.",
+      "alternativeAnswers": [],
+      "hint": "잘 아...",
+      "explanation": "母音語幹「알다」は「-니까」で「아니까」となり、으は入りません。"
+    },
+    {
+      "id": "qt_conjugation_018_05",
+      "order": 5,
+      "japanese": "韓国語を学ぼうと思います。",
+      "korean": "한국어를 배우려고 해요.",
+      "alternativeAnswers": ["한국어를 배우려고 합니다."],
+      "hint": "한국어를...",
+      "explanation": "母音語幹「배우」に意図語尾「-려고」が直接付き「배우려고」になります。"
+    },
+    {
+      "id": "qt_conjugation_018_06",
+      "order": 6,
+      "japanese": "本を読もうと図書館に行きました。",
+      "korean": "책을 읽으려고 도서관에 갔어요.",
+      "alternativeAnswers": ["책을 읽으려고 도서관에 갔습니다."],
+      "hint": "책을...",
+      "explanation": "子音語幹「읽」に「-으려고」が付き「읽으려고」となります。"
+    },
+    {
+      "id": "qt_conjugation_018_07",
+      "order": 7,
+      "japanese": "明日見る映画です。",
+      "korean": "내일 볼 영화예요.",
+      "alternativeAnswers": ["내일 볼 영화입니다."],
+      "hint": "내일...",
+      "explanation": "母音語幹「보」に未来連体形「-ㄹ」を付け「볼」になります。"
+    },
+    {
+      "id": "qt_conjugation_018_08",
+      "order": 8,
+      "japanese": "昨日食べたご飯です。",
+      "korean": "어제 먹은 밥이에요.",
+      "alternativeAnswers": ["어제 먹은 밥입니다."],
+      "hint": "어제...",
+      "explanation": "子音語幹「먹」に過去連体形「-은」が付き「먹은」で名詞を修飾します。"
+    },
+    {
+      "id": "qt_conjugation_018_09",
+      "order": 9,
+      "japanese": "住む家を探しています。",
+      "korean": "살 집을 찾고 있어요.",
+      "alternativeAnswers": ["살 집을 찾고 있습니다."],
+      "hint": "살 집...",
+      "explanation": "ㄹ語幹「살다」は未来連体形でㄹを維持し「살 집」となります。"
+    },
+    {
+      "id": "qt_conjugation_018_10",
+      "order": 10,
+      "japanese": "忙しいなら電話してください。",
+      "korean": "바쁘면 전화하세요.",
+      "alternativeAnswers": ["바쁘면 전화하십시오."],
+      "hint": "바쁘면...",
+      "explanation": "母音語幹「바쁘」に「-면」が付き「바쁘면」となり、規則用言の第Ⅱ語基を示します。"
+    }
+  ]
+}

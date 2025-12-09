@@ -1,0 +1,120 @@
+{
+  "grammarRef": "grm_substantive_001",
+  "grammarTitle": "나/저",
+  "grammarSubtitle": "一人称代名詞（私）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_001_01",
+      "order": 1,
+      "japanese": "私は学生です。",
+      "korean": "저는 학생이에요.",
+      "alternativeAnswers": [
+        "저는 학생입니다.",
+        "나는 학생이에요."
+      ],
+      "hint": "저는...",
+      "explanation": "丁寧な場面では「저」、くだけて「나」を使います。"
+    },
+    {
+      "id": "qt_substantive_001_02",
+      "order": 2,
+      "japanese": "私は会社に行きます。",
+      "korean": "저는 회사에 가요.",
+      "alternativeAnswers": [
+        "저는 회사에 갑니다."
+      ],
+      "hint": "저는...",
+      "explanation": "自分を丁寧に言うときは「저」を付けます。"
+    },
+    {
+      "id": "qt_substantive_001_03",
+      "order": 3,
+      "japanese": "私はコーヒーが好きです。",
+      "korean": "저는 커피를 좋아해요.",
+      "alternativeAnswers": [
+        "저는 커피를 좋아합니다."
+      ],
+      "hint": "저는...",
+      "explanation": "好みを丁寧に言うなら「저」＋는 を使います。"
+    },
+    {
+      "id": "qt_substantive_001_04",
+      "order": 4,
+      "japanese": "私は韓国語を勉強します。",
+      "korean": "저는 한국어를 배워요.",
+      "alternativeAnswers": [
+        "저는 한국어를 배웁니다."
+      ],
+      "hint": "저는...",
+      "explanation": "自己を述べるとき丁寧なら「저」＋는 で主題を示します。"
+    },
+    {
+      "id": "qt_substantive_001_05",
+      "order": 5,
+      "japanese": "私は週末に家にいます。",
+      "korean": "나는 주말에 집에 있어요.",
+      "alternativeAnswers": [
+        "저는 주말에 집에 있어요."
+      ],
+      "hint": "나는...",
+      "explanation": "親しい場面では「나」を使い分けます。"
+    },
+    {
+      "id": "qt_substantive_001_06",
+      "order": 6,
+      "japanese": "私は今日暇ではありません。",
+      "korean": "저는 오늘 안 바빠요.",
+      "alternativeAnswers": [
+        "저는 오늘 바쁘지 않아요."
+      ],
+      "hint": "저는...",
+      "explanation": "否定文でも丁寧なら「저」を使います。"
+    },
+    {
+      "id": "qt_substantive_001_07",
+      "order": 7,
+      "japanese": "私も行きます。",
+      "korean": "저도 가요.",
+      "alternativeAnswers": [
+        "저도 갑니다.",
+        "나도 가요."
+      ],
+      "hint": "저도...",
+      "explanation": "「도」で追加し、一人称は丁寧なら「저」を選びます。"
+    },
+    {
+      "id": "qt_substantive_001_08",
+      "order": 8,
+      "japanese": "私は名前がミナです。",
+      "korean": "저는 이름이 미나예요.",
+      "alternativeAnswers": [
+        "제 이름은 미나예요."
+      ],
+      "hint": "저는...",
+      "explanation": "自己紹介では「저는/제 이름은」で始めます。"
+    },
+    {
+      "id": "qt_substantive_001_09",
+      "order": 9,
+      "japanese": "私は先に行きますね。",
+      "korean": "저는 먼저 갈게요.",
+      "alternativeAnswers": [
+        "저는 먼저 가겠습니다."
+      ],
+      "hint": "저는...",
+      "explanation": "意志表現でも丁寧なら「저」を添えます。"
+    },
+    {
+      "id": "qt_substantive_001_10",
+      "order": 10,
+      "japanese": "私は夜に本を読みます。",
+      "korean": "나는 밤에 책을 읽어요.",
+      "alternativeAnswers": [
+        "저는 밤에 책을 읽어요."
+      ],
+      "hint": "나는...",
+      "explanation": "日常会話で親しければ「나」を使います。"
+    }
+  ]
+}

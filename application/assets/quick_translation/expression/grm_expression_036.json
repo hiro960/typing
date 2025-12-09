@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_036",
+  "grammarTitle": "-(이)라도",
+  "grammarSubtitle": "〜でも／せめて〜",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_036_01",
+      "order": 1,
+      "japanese": "水でも飲みましょう。",
+      "korean": "물이라도 마셔요.",
+      "alternativeAnswers": [],
+      "hint": "물이라도...",
+      "explanation": "代案や最低限を示すとき「-이라도」を使います。"
+    },
+    {
+      "id": "qt_expression_036_02",
+      "order": 2,
+      "japanese": "パンでも食べますか。",
+      "korean": "빵이라도 먹을래요?",
+      "alternativeAnswers": [],
+      "hint": "빵이라도...",
+      "explanation": "完全でなくてもよい選択を提案する「-이라도」です。"
+    },
+    {
+      "id": "qt_expression_036_03",
+      "order": 3,
+      "japanese": "タクシーでも乗りましょうか。",
+      "korean": "택시라도 탈까요?",
+      "alternativeAnswers": [],
+      "hint": "택시라도...",
+      "explanation": "代替案を示すとき名詞に「-라도」を付けます。"
+    },
+    {
+      "id": "qt_expression_036_04",
+      "order": 4,
+      "japanese": "小さい部屋でも大丈夫です。",
+      "korean": "작은 방이라도 괜찮아요.",
+      "alternativeAnswers": [],
+      "hint": "작은...",
+      "explanation": "妥協を示す表現として「-이라도」を用います。"
+    },
+    {
+      "id": "qt_expression_036_05",
+      "order": 5,
+      "japanese": "今日でも会いましょうか。",
+      "korean": "오늘이라도 만날까요?",
+      "alternativeAnswers": [],
+      "hint": "오늘이라도...",
+      "explanation": "日付の選択肢として「오늘이라도」で早い提案をします。"
+    },
+    {
+      "id": "qt_expression_036_06",
+      "order": 6,
+      "japanese": "コーヒーでも一杯しましょう。",
+      "korean": "커피라도 한잔 하죠.",
+      "alternativeAnswers": [],
+      "hint": "커피라도...",
+      "explanation": "軽い提案を「-라도」で表し、何でもいい感じを出します。"
+    },
+    {
+      "id": "qt_expression_036_07",
+      "order": 7,
+      "japanese": "友達でも呼びましょうか。",
+      "korean": "친구라도 부를까요?",
+      "alternativeAnswers": [],
+      "hint": "친구라도...",
+      "explanation": "誰かを呼ぶ代案として名詞に「-라도」を付けます。"
+    },
+    {
+      "id": "qt_expression_036_08",
+      "order": 8,
+      "japanese": "メッセージでも送ってください。",
+      "korean": "문자라도 보내 주세요.",
+      "alternativeAnswers": [],
+      "hint": "문자라도...",
+      "explanation": "最低限の手段を勧める際「-라도」を使います。"
+    },
+    {
+      "id": "qt_expression_036_09",
+      "order": 9,
+      "japanese": "席でも取っておきますね。",
+      "korean": "자리라도 잡아 둘게요.",
+      "alternativeAnswers": [],
+      "hint": "자리라도...",
+      "explanation": "部分的な準備を示す表現として「-라도」を用います。"
+    },
+    {
+      "id": "qt_expression_036_10",
+      "order": 10,
+      "japanese": "仕事でも少し手伝います。",
+      "korean": "일이라도 조금 도와줄게요.",
+      "alternativeAnswers": [],
+      "hint": "일이라도...",
+      "explanation": "できる範囲で助ける気持ちを「-라도」で表します。"
+    }
+  ]
+}

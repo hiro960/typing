@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_013",
+  "grammarTitle": "자음어간과 모음어간",
+  "grammarSubtitle": "子音語幹用言と母音語幹用言",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_013_01",
+      "order": 1,
+      "japanese": "ご飯を食べると眠くなります。",
+      "korean": "밥을 먹으면 졸려요.",
+      "alternativeAnswers": ["밥을 먹으면 졸립니다."],
+      "hint": "밥을...",
+      "explanation": "「먹다」は子音語幹で条件形に子音始まりの語尾が付き「먹+으면」となり 으 が挿入されます。"
+    },
+    {
+      "id": "qt_conjugation_013_02",
+      "order": 2,
+      "japanese": "家に行けば休みます。",
+      "korean": "집에 가면 쉬어요.",
+      "alternativeAnswers": ["집에 가면 쉽니다."],
+      "hint": "집에...",
+      "explanation": "「가다」は母音語幹で子音始まりの語尾にそのまま結合し「가면」になります。"
+    },
+    {
+      "id": "qt_conjugation_013_03",
+      "order": 3,
+      "japanese": "本を読んでください。",
+      "korean": "책을 읽어 주세요.",
+      "alternativeAnswers": ["책을 읽어 주십시오."],
+      "hint": "책을...",
+      "explanation": "子音語幹「읽」に母音語尾が続き「읽어」になり 으 は挿入されません。"
+    },
+    {
+      "id": "qt_conjugation_013_04",
+      "order": 4,
+      "japanese": "映画を見ます。",
+      "korean": "영화를 봐요.",
+      "alternativeAnswers": ["영화를 봅니다."],
+      "hint": "영화를...",
+      "explanation": "母音語幹「보」は母音語尾と縮約し「봐요」になります（으 挿入なし）。"
+    },
+    {
+      "id": "qt_conjugation_013_05",
+      "order": 5,
+      "japanese": "電話を受けたら知らせてください。",
+      "korean": "전화를 받으면 알려 주세요.",
+      "alternativeAnswers": ["전화를 받으면 알려 주십시오."],
+      "hint": "전화를...",
+      "explanation": "子音語幹「받」に条件語尾が付き「받으면」と 으 が挿入されます。"
+    },
+    {
+      "id": "qt_conjugation_013_06",
+      "order": 6,
+      "japanese": "時間があれば会いましょう。",
+      "korean": "시간이 있으면 만나요.",
+      "alternativeAnswers": ["시간이 있으면 만납시다."],
+      "hint": "시간이...",
+      "explanation": "子音語幹「있」に子音始まりの語尾が付き「있으면」と 으 が入ります。"
+    },
+    {
+      "id": "qt_conjugation_013_07",
+      "order": 7,
+      "japanese": "雨が降れば傘をさします。",
+      "korean": "비가 오면 우산을 써요.",
+      "alternativeAnswers": ["비가 오면 우산을 씁니다."],
+      "hint": "비가...",
+      "explanation": "母音語幹「오」はそのまま「오면」、語幹「쓰」は母音語尾で 으 を脱落し「써요」になります。"
+    },
+    {
+      "id": "qt_conjugation_013_08",
+      "order": 8,
+      "japanese": "道を探そうと地図を見ます。",
+      "korean": "길을 찾으려고 지도를 봐요.",
+      "alternativeAnswers": [],
+      "hint": "길을...",
+      "explanation": "子音語幹「찾」に子音始まりの「-려고」が続き「찾으려고」と 으 が挿入されます。"
+    },
+    {
+      "id": "qt_conjugation_013_09",
+      "order": 9,
+      "japanese": "名前を書けば終わりです。",
+      "korean": "이름을 쓰면 끝이에요.",
+      "alternativeAnswers": ["이름을 쓰면 끝입니다."],
+      "hint": "이름을...",
+      "explanation": "母音語幹「쓰」は条件語尾で 으 を挿入せず「쓰면」となります。"
+    },
+    {
+      "id": "qt_conjugation_013_10",
+      "order": 10,
+      "japanese": "見る人が多いです。",
+      "korean": "보는 사람이 많아요.",
+      "alternativeAnswers": ["보는 사람이 많습니다."],
+      "hint": "보는...",
+      "explanation": "母音語幹「보」に連体形「-는」が直接付き「보는」で名詞を修飾します。"
+    }
+  ]
+}

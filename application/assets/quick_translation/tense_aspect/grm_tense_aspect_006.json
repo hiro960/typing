@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_tense_aspect_006",
+  "grammarTitle": "-았/었었-",
+  "grammarSubtitle": "大過去",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_006_01",
+      "order": 1,
+      "japanese": "以前ソウルに住んでいました。",
+      "korean": "예전에 서울에 살았었어요.",
+      "alternativeAnswers": ["예전에 서울에 살았었습니다."],
+      "hint": "예전에...",
+      "explanation": "今は違う過去の経験を強調し-았었어요を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_006_02",
+      "order": 2,
+      "japanese": "前にその映画を見ていました。",
+      "korean": "전에 그 영화를 봤었어요.",
+      "alternativeAnswers": ["전에 그 영화를 봤었습니다."],
+      "hint": "전에...",
+      "explanation": "過去のある時点より前に済ませた経験を-었었어요で表現。"
+    },
+    {
+      "id": "qt_tense_aspect_006_03",
+      "order": 3,
+      "japanese": "昔ここで働いていました。",
+      "korean": "예전에 여기서 일했었어요.",
+      "alternativeAnswers": ["예전에 여기서 일했었습니다."],
+      "hint": "예전에...",
+      "explanation": "以前の状態を示し、今は違う含みで-었었어요を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_006_04",
+      "order": 4,
+      "japanese": "学生の時ピアノを習っていました。",
+      "korean": "학생 때 피아노를 배웠었어요.",
+      "alternativeAnswers": ["학생 때 피아노를 배웠었습니다."],
+      "hint": "학생 때...",
+      "explanation": "当時の経験を述べるとき-았었어요で過去のさらに過去を表現。"
+    },
+    {
+      "id": "qt_tense_aspect_006_05",
+      "order": 5,
+      "japanese": "昔その人を知っていました。",
+      "korean": "예전에 그 사람을 알았었어요.",
+      "alternativeAnswers": [],
+      "hint": "예전에...",
+      "explanation": "以前は知っていたが今は違う含みで-었었어요を用います。"
+    },
+    {
+      "id": "qt_tense_aspect_006_06",
+      "order": 6,
+      "japanese": "前に日本へ行ったことがあります。",
+      "korean": "전에 일본에 갔었어요.",
+      "alternativeAnswers": ["전에 일본에 갔었습니다."],
+      "hint": "전에...",
+      "explanation": "過去の経験を強調するため過去完了-았었어요を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_006_07",
+      "order": 7,
+      "japanese": "昔よくその店に行っていました。",
+      "korean": "예전에 그 가게에 자주 갔었어요.",
+      "alternativeAnswers": [],
+      "hint": "예전에...",
+      "explanation": "以前頻繁だった習慣を今は違う含みで-았었어요を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_006_08",
+      "order": 8,
+      "japanese": "さっき雨が降っていました。",
+      "korean": "아까 비가 왔었어요.",
+      "alternativeAnswers": ["아까 비가 왔었습니다."],
+      "hint": "아까...",
+      "explanation": "少し前の完了した雨を強調し-았었어요を用います。"
+    },
+    {
+      "id": "qt_tense_aspect_006_09",
+      "order": 9,
+      "japanese": "前に携帯をなくしていました。",
+      "korean": "전에 휴대폰을 잃어버렸었어요.",
+      "alternativeAnswers": [],
+      "hint": "전에...",
+      "explanation": "過去の経験として済んだ出来事に-었었어요を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_006_10",
+      "order": 10,
+      "japanese": "昨日すでに宿題を終えていました。",
+      "korean": "어제 벌써 숙제를 끝냈었어요.",
+      "alternativeAnswers": ["어제 벌써 숙제를 끝냈었습니다."],
+      "hint": "어제...",
+      "explanation": "ある時点までに完了していたことを-았었어요で表現します。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_connective_020",
+  "grammarTitle": "-(으)ㄹ지라도",
+  "grammarSubtitle": "〜だとしても",
+  "category": "connective",
+  "questions": [
+    {
+      "id": "qt_connective_020_01",
+      "order": 1,
+      "japanese": "たとえ辛くても諦めないでください。",
+      "korean": "힘들지라도 포기하지 마세요.",
+      "alternativeAnswers": ["힘들지라도 포기하지 마십시오."],
+      "hint": "힘들...",
+      "explanation": "逆の条件を示しても後件の意志が変わらない形です。"
+    },
+    {
+      "id": "qt_connective_020_02",
+      "order": 2,
+      "japanese": "雨が降っても行きます。",
+      "korean": "비가 올지라도 갈 거예요.",
+      "alternativeAnswers": ["비가 올지라도 갈 겁니다."],
+      "hint": "비가...",
+      "explanation": "逆条件でも行動を続ける意思を表します。"
+    },
+    {
+      "id": "qt_connective_020_03",
+      "order": 3,
+      "japanese": "遅くても連絡してください。",
+      "korean": "늦을지라도 연락하세요.",
+      "alternativeAnswers": ["늦을지라도 연락하십시오."],
+      "hint": "늦을...",
+      "explanation": "望ましくない条件でも義務を促す例です。"
+    },
+    {
+      "id": "qt_connective_020_04",
+      "order": 4,
+      "japanese": "少し痛くても病院に行きます。",
+      "korean": "조금 아플지라도 병원에 가요.",
+      "alternativeAnswers": ["조금 아플지라도 병원에 갑니다."],
+      "hint": "조금...",
+      "explanation": "逆の体調条件でも行動する意志を示します。"
+    },
+    {
+      "id": "qt_connective_020_05",
+      "order": 5,
+      "japanese": "一人だとしても心配しません。",
+      "korean": "혼자일지라도 걱정하지 않아요.",
+      "alternativeAnswers": ["혼자일지라도 걱정하지 않습니다."],
+      "hint": "혼자...",
+      "explanation": "不利でも心配しない態度を表す用法です。"
+    },
+    {
+      "id": "qt_connective_020_06",
+      "order": 6,
+      "japanese": "間違えても話してみてください。",
+      "korean": "틀릴지라도 말해 보세요.",
+      "alternativeAnswers": ["틀릴지라도 말해 보십시오."],
+      "hint": "틀릴...",
+      "explanation": "失敗の可能性を許容し発言を促す例です。"
+    },
+    {
+      "id": "qt_connective_020_07",
+      "order": 7,
+      "japanese": "少なくても分けてください。",
+      "korean": "적을지라도 나누세요.",
+      "alternativeAnswers": ["적을지라도 나누십시오."],
+      "hint": "적을...",
+      "explanation": "量が少なくても行動を求める表現です。"
+    },
+    {
+      "id": "qt_connective_020_08",
+      "order": 8,
+      "japanese": "遠くても一度行ってみましょう。",
+      "korean": "멀지라도 한 번 가 봐요.",
+      "alternativeAnswers": ["멀지라도 한 번 가 봅시다."],
+      "hint": "멀지...",
+      "explanation": "距離の不利を認めつつ提案する形です。"
+    },
+    {
+      "id": "qt_connective_020_09",
+      "order": 9,
+      "japanese": "忙しくても食事はしてください。",
+      "korean": "바쁠지라도 식사는 하세요.",
+      "alternativeAnswers": ["바쁠지라도 식사는 하십시오."],
+      "hint": "바쁠...",
+      "explanation": "忙しさを逆条件に取り健康行動を促します。"
+    },
+    {
+      "id": "qt_connective_020_10",
+      "order": 10,
+      "japanese": "難しくても続けます。",
+      "korean": "어려울지라도 계속 해요.",
+      "alternativeAnswers": ["어려울지라도 계속 합니다."],
+      "hint": "어려울...",
+      "explanation": "困難を認めても継続する意志を表します。"
+    }
+  ]
+}

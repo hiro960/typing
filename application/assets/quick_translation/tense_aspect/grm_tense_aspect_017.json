@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_tense_aspect_017",
+  "grammarTitle": "-아/어 드리다",
+  "grammarSubtitle": "恩恵・謙譲",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_017_01",
+      "order": 1,
+      "japanese": "お手伝いします。",
+      "korean": "도와 드릴게요.",
+      "alternativeAnswers": ["도와 드리겠습니다."],
+      "hint": "도와...",
+      "explanation": "目上へ丁寧にしてあげるとき動詞に-아/어 드리다を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_017_02",
+      "order": 2,
+      "japanese": "荷物をお持ちします。",
+      "korean": "짐을 들어 드릴게요.",
+      "alternativeAnswers": ["짐을 들어 드리겠습니다."],
+      "hint": "짐을...",
+      "explanation": "謙譲で相手を助ける動作に-어 드리다を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_017_03",
+      "order": 3,
+      "japanese": "もう一度お伝えします。",
+      "korean": "다시 말해 드릴게요.",
+      "alternativeAnswers": ["다시 말씀드릴게요."],
+      "hint": "다시...",
+      "explanation": "丁寧にしてあげる意味で말하다+어 드리다を用います。"
+    },
+    {
+      "id": "qt_tense_aspect_017_04",
+      "order": 4,
+      "japanese": "お茶をお入れします。",
+      "korean": "차를 타 드릴게요.",
+      "alternativeAnswers": ["차를 타 드리겠습니다."],
+      "hint": "차를...",
+      "explanation": "目上にしてあげる行為を-아/어 드리다で表現。"
+    },
+    {
+      "id": "qt_tense_aspect_017_05",
+      "order": 5,
+      "japanese": "ドアを開けます。",
+      "korean": "문을 열어 드릴게요.",
+      "alternativeAnswers": ["문을 열어 드리겠습니다."],
+      "hint": "문을...",
+      "explanation": "相手のためにする動作に謙譲の-어 드리다を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_017_06",
+      "order": 6,
+      "japanese": "案内いたします。",
+      "korean": "안내해 드리겠습니다.",
+      "alternativeAnswers": ["안내해 드릴게요."],
+      "hint": "안내해...",
+      "explanation": "フォーマルな場面でしてあげるとき-어 드리겠습니다を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_017_07",
+      "order": 7,
+      "japanese": "すぐ電話いたします。",
+      "korean": "곧 전화 드리겠습니다.",
+      "alternativeAnswers": ["곧 전화 드릴게요."],
+      "hint": "곧...",
+      "explanation": "謙譲語では주다を省略し電話 드리다で丁寧に伝えます。"
+    },
+    {
+      "id": "qt_tense_aspect_017_08",
+      "order": 8,
+      "japanese": "席を用意します。",
+      "korean": "자리를 준비해 드릴게요.",
+      "alternativeAnswers": ["자리를 준비해 드리겠습니다."],
+      "hint": "자리를...",
+      "explanation": "相手のために準備する動作に-어 드리다を用います。"
+    },
+    {
+      "id": "qt_tense_aspect_017_09",
+      "order": 9,
+      "japanese": "後で連絡します。",
+      "korean": "나중에 연락드릴게요.",
+      "alternativeAnswers": ["나중에 연락드리겠습니다."],
+      "hint": "나중에...",
+      "explanation": "連絡する謙譲語では주다を省略し-드리다形を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_017_10",
+      "order": 10,
+      "japanese": "写真を送ります。",
+      "korean": "사진을 보내 드릴게요.",
+      "alternativeAnswers": ["사진을 보내 드리겠습니다."],
+      "hint": "사진을...",
+      "explanation": "相手にしてあげる送付を丁寧に-어 드리다で表現します。"
+    }
+  ]
+}

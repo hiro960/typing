@@ -116,6 +116,34 @@ extension GrammarCategoryX on GrammarCategory {
 
   String get key => name;
 
+  /// JSONファイルで使用されるキー（スネークケース）
+  String get jsonKey {
+    switch (this) {
+      case GrammarCategory.orthography:
+        return 'orthography';
+      case GrammarCategory.substantive:
+        return 'substantive';
+      case GrammarCategory.particle:
+        return 'particle';
+      case GrammarCategory.conjugation:
+        return 'conjugation';
+      case GrammarCategory.sentenceEnding:
+        return 'sentence_ending';
+      case GrammarCategory.connective:
+        return 'connective';
+      case GrammarCategory.adnominal:
+        return 'adnominal';
+      case GrammarCategory.tenseAspect:
+        return 'tense_aspect';
+      case GrammarCategory.expression:
+        return 'expression';
+      case GrammarCategory.quotation:
+        return 'quotation';
+      case GrammarCategory.wordFormation:
+        return 'word_formation';
+    }
+  }
+
   static GrammarCategory? fromKey(String value) {
     for (final category in GrammarCategory.values) {
       if (category.name == value) {

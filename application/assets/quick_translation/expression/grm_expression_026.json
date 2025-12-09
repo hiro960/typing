@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_expression_026",
+  "grammarTitle": "-아/어야지",
+  "grammarSubtitle": "〜しなきゃ／〜するべきだ",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_026_01",
+      "order": 1,
+      "japanese": "もう寝なきゃ。",
+      "korean": "이제 자야지요.",
+      "alternativeAnswers": [
+        "이제 자야죠."
+      ],
+      "hint": "이제...",
+      "explanation": "自分への決意を表す「-아/어야지」で寝る必要を示します。"
+    },
+    {
+      "id": "qt_expression_026_02",
+      "order": 2,
+      "japanese": "薬を飲まなきゃ。",
+      "korean": "약을 먹어야지요.",
+      "alternativeAnswers": [
+        "약을 먹어야죠."
+      ],
+      "hint": "약을...",
+      "explanation": "義務感を込めて「먹어야지」で薬を飲むべきだと述べます。"
+    },
+    {
+      "id": "qt_expression_026_03",
+      "order": 3,
+      "japanese": "宿題をしなきゃ。",
+      "korean": "숙제를 해야지요.",
+      "alternativeAnswers": [
+        "숙제를 해야죠."
+      ],
+      "hint": "숙제를...",
+      "explanation": "やるべき課題を「해야지」で示し、自分に言い聞かせます。"
+    },
+    {
+      "id": "qt_expression_026_04",
+      "order": 4,
+      "japanese": "早く起きなきゃ。",
+      "korean": "일찍 일어나야지요.",
+      "alternativeAnswers": [
+        "일찍 일어나야죠."
+      ],
+      "hint": "일찍...",
+      "explanation": "必要性を示す「-아/어야지」で早起きの義務を表します。"
+    },
+    {
+      "id": "qt_expression_026_05",
+      "order": 5,
+      "japanese": "運動しなきゃ。",
+      "korean": "운동을 해야지요.",
+      "alternativeAnswers": [
+        "운동을 해야죠."
+      ],
+      "hint": "운동을...",
+      "explanation": "健康のための決意を「해야지」で表し、運動の必要を示します。"
+    },
+    {
+      "id": "qt_expression_026_06",
+      "order": 6,
+      "japanese": "友達に連絡しなきゃ。",
+      "korean": "친구에게 연락해야지요.",
+      "alternativeAnswers": [
+        "친구에게 연락해야죠."
+      ],
+      "hint": "친구에게...",
+      "explanation": "連絡義務を自分に言い聞かせる形で「-아/어야지」を使います。"
+    },
+    {
+      "id": "qt_expression_026_07",
+      "order": 7,
+      "japanese": "お金を節約しなきゃ。",
+      "korean": "돈을 아껴야지요.",
+      "alternativeAnswers": [
+        "돈을 아껴야죠."
+      ],
+      "hint": "돈을...",
+      "explanation": "節約の必要を感じたときに決意を示す「아껴야지」です。"
+    },
+    {
+      "id": "qt_expression_026_08",
+      "order": 8,
+      "japanese": "約束を守らなきゃ。",
+      "korean": "약속을 지켜야지요.",
+      "alternativeAnswers": [
+        "약속을 지켜야죠."
+      ],
+      "hint": "약속을...",
+      "explanation": "守るべきことを「지켜야지」で自分に言い聞かせます。"
+    },
+    {
+      "id": "qt_expression_026_09",
+      "order": 9,
+      "japanese": "時間を守らなきゃ。",
+      "korean": "시간을 지켜야지요.",
+      "alternativeAnswers": [
+        "시간을 지켜야죠."
+      ],
+      "hint": "시간을...",
+      "explanation": "時間厳守の義務を示す決意表現として「-아/어야지」を使います。"
+    },
+    {
+      "id": "qt_expression_026_10",
+      "order": 10,
+      "japanese": "今日は必ず休まなきゃ。",
+      "korean": "오늘은 꼭 쉬어야지요.",
+      "alternativeAnswers": [
+        "오늘은 꼭 쉬어야죠."
+      ],
+      "hint": "오늘은...",
+      "explanation": "休む必要を強調する決意として「쉬어야지」を用います。"
+    }
+  ]
+}

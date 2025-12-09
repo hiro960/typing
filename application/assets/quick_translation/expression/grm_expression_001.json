@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_001",
+  "grammarTitle": "-고 싶다",
+  "grammarSubtitle": "願望（〜したい）",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_001_01",
+      "order": 1,
+      "japanese": "韓国に行きたいです。",
+      "korean": "한국에 가고 싶어요.",
+      "alternativeAnswers": ["한국에 가고 싶습니다."],
+      "hint": "한국에...",
+      "explanation": "「-고 싶다」で自分のしたい気持ちを表します。"
+    },
+    {
+      "id": "qt_expression_001_02",
+      "order": 2,
+      "japanese": "おいしいラーメンが食べたいです。",
+      "korean": "맛있는 라면을 먹고 싶어요.",
+      "alternativeAnswers": ["맛있는 라면을 먹고 싶습니다."],
+      "hint": "맛있는...",
+      "explanation": "動詞語幹に「-고 싶다」を付けて願望を言います。"
+    },
+    {
+      "id": "qt_expression_001_03",
+      "order": 3,
+      "japanese": "今日は早く寝たいです。",
+      "korean": "오늘은 일찍 자고 싶어요.",
+      "alternativeAnswers": ["오늘은 일찍 자고 싶습니다."],
+      "hint": "오늘은...",
+      "explanation": "寝たい気持ちも「자다 + -고 싶다」で表現します。"
+    },
+    {
+      "id": "qt_expression_001_04",
+      "order": 4,
+      "japanese": "友達に会いたいです。",
+      "korean": "친구를 만나고 싶어요.",
+      "alternativeAnswers": ["친구를 만나고 싶습니다."],
+      "hint": "친구를...",
+      "explanation": "会いたいときも「만나다 + -고 싶다」を使います。"
+    },
+    {
+      "id": "qt_expression_001_05",
+      "order": 5,
+      "japanese": "休みの日に映画を見たいです。",
+      "korean": "쉬는 날에 영화를 보고 싶어요.",
+      "alternativeAnswers": ["쉬는 날에 영화를 보고 싶습니다."],
+      "hint": "쉬는...",
+      "explanation": "見る願望は「보다 + -고 싶다」で自然に言えます。"
+    },
+    {
+      "id": "qt_expression_001_06",
+      "order": 6,
+      "japanese": "旅行に行きたいです。",
+      "korean": "여행을 가고 싶어요.",
+      "alternativeAnswers": ["여행을 가고 싶습니다."],
+      "hint": "여행을...",
+      "explanation": "動作の前に目的語を置き「-고 싶다」で願望を示します。"
+    },
+    {
+      "id": "qt_expression_001_07",
+      "order": 7,
+      "japanese": "水を飲みたいです。",
+      "korean": "물을 마시고 싶어요.",
+      "alternativeAnswers": ["물을 마시고 싶습니다."],
+      "hint": "물을...",
+      "explanation": "「마시다」に「-고 싶다」を付けて飲みたいと表します。"
+    },
+    {
+      "id": "qt_expression_001_08",
+      "order": 8,
+      "japanese": "新しい本を読みたいです。",
+      "korean": "새 책을 읽고 싶어요.",
+      "alternativeAnswers": ["새 책을 읽고 싶습니다."],
+      "hint": "새 책...",
+      "explanation": "「읽다 + -고 싶다」で読みたい願望を言います。"
+    },
+    {
+      "id": "qt_expression_001_09",
+      "order": 9,
+      "japanese": "静かに休みたいです。",
+      "korean": "조용히 쉬고 싶어요.",
+      "alternativeAnswers": ["조용히 쉬고 싶습니다."],
+      "hint": "조용히...",
+      "explanation": "「쉬다」に「-고 싶다」を付けて休みたい気持ちを伝えます。"
+    },
+    {
+      "id": "qt_expression_001_10",
+      "order": 10,
+      "japanese": "夕飯に何を食べたいですか？",
+      "korean": "저녁에 뭐 먹고 싶어요?",
+      "alternativeAnswers": ["저녁에 무엇을 먹고 싶습니까?"],
+      "hint": "저녁에...",
+      "explanation": "相手の願望を聞くときも「-고 싶다」をそのまま使います。"
+    }
+  ]
+}

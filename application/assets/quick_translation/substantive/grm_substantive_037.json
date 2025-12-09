@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_037",
+  "grammarTitle": "인분",
+  "grammarSubtitle": "助数詞（〜人前）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_037_01",
+      "order": 1,
+      "japanese": "キムチチゲ二人前ください。",
+      "korean": "김치찌개 두 인분 주세요.",
+      "alternativeAnswers": ["김치찌개 두 인분 주십시오."],
+      "hint": "김치...",
+      "explanation": "料理の量は 固有数詞＋인분 で注文します。"
+    },
+    {
+      "id": "qt_substantive_037_02",
+      "order": 2,
+      "japanese": "サムギョプサルを三人前頼みました。",
+      "korean": "삼겹살을 세 인분 시켰어요.",
+      "alternativeAnswers": ["삼겹살을 세 인분 시켰습니다."],
+      "hint": "삼겹...",
+      "explanation": "注文数も 固有数詞＋인분 を使います。"
+    },
+    {
+      "id": "qt_substantive_037_03",
+      "order": 3,
+      "japanese": "今日は一人前だけ食べます。",
+      "korean": "오늘은 한 인분만 먹어요.",
+      "alternativeAnswers": ["오늘은 한 인분만 먹습니다."],
+      "hint": "오늘은...",
+      "explanation": "만 を付けて 한 인분만 のように限定します。"
+    },
+    {
+      "id": "qt_substantive_037_04",
+      "order": 4,
+      "japanese": "何人前が必要ですか？",
+      "korean": "몇 인분 필요해요?",
+      "alternativeAnswers": ["몇 인분 필요합니까?"],
+      "hint": "몇 인...",
+      "explanation": "몇 인분 で必要な人前を尋ねます。"
+    },
+    {
+      "id": "qt_substantive_037_05",
+      "order": 5,
+      "japanese": "ビビンバ四人前です。",
+      "korean": "비빔밥 네 인분이에요.",
+      "alternativeAnswers": ["비빔밥 네 인분입니다."],
+      "hint": "비빔...",
+      "explanation": "数量を述べるとき도 숫자＋인분 で言います。"
+    },
+    {
+      "id": "qt_substantive_037_06",
+      "order": 6,
+      "japanese": "テイクアウトは二人前です。",
+      "korean": "포장은 두 인분이에요.",
+      "alternativeAnswers": ["포장은 두 인분입니다."],
+      "hint": "포장...",
+      "explanation": "持ち帰りでも 同じく 숫자＋인분 を使います。"
+    },
+    {
+      "id": "qt_substantive_037_07",
+      "order": 7,
+      "japanese": "私たちは四人前を注文します。",
+      "korean": "우리는 네 인분을 주문해요.",
+      "alternativeAnswers": ["우리는 네 인분을 주문합니다."],
+      "hint": "우리는...",
+      "explanation": "人数に合わせて 인분 을付けて注文します。"
+    },
+    {
+      "id": "qt_substantive_037_08",
+      "order": 8,
+      "japanese": "辛いのを一人前ください。",
+      "korean": "매운맛 한 인분 주세요.",
+      "alternativeAnswers": ["매운맛 한 인분 주십시오."],
+      "hint": "매운...",
+      "explanation": "味を指定して도 한 인분 のように数えます。"
+    },
+    {
+      "id": "qt_substantive_037_09",
+      "order": 9,
+      "japanese": "追加で一人前ください。",
+      "korean": "한 인분 더 주세요.",
+      "alternativeAnswers": ["한 인분 더 주십시오."],
+      "hint": "한 인...",
+      "explanation": "더 를加えて追加の人前を頼みます。"
+    },
+    {
+      "id": "qt_substantive_037_10",
+      "order": 10,
+      "japanese": "今日は五人前準備しました。",
+      "korean": "오늘 준비는 다섯 인분이에요.",
+      "alternativeAnswers": ["오늘 준비는 다섯 인분입니다."],
+      "hint": "오늘...",
+      "explanation": "用意した量も 숫자＋인분 で伝えます。"
+    }
+  ]
+}

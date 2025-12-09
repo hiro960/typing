@@ -1,0 +1,100 @@
+{
+  "grammarRef": "grm_word_formation_009",
+  "grammarTitle": "별로",
+  "grammarSubtitle": "頻度副詞（あまり〜ない）",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_009_01",
+      "order": 1,
+      "japanese": "あまりおいしくないです。",
+      "korean": "별로 안 맛있어요.",
+      "alternativeAnswers": [
+        "별로 맛없어요."
+      ],
+      "hint": "별로...",
+      "explanation": "「별로」は否定と一緒に使い、味がよくないと言います。"
+    },
+    {
+      "id": "qt_word_formation_009_02",
+      "order": 2,
+      "japanese": "あまり忙しくありません。",
+      "korean": "별로 안 바빠요.",
+      "alternativeAnswers": [],
+      "hint": "별로...",
+      "explanation": "否定表現と組み合わせて「あまり忙しくない」を表します。"
+    },
+    {
+      "id": "qt_word_formation_009_03",
+      "order": 3,
+      "japanese": "あまり大きくない家です。",
+      "korean": "별로 안 큰 집이에요.",
+      "alternativeAnswers": [],
+      "hint": "별로...",
+      "explanation": "形容詞の前に置き「별로 안 큰」で大きくない家を示します。"
+    },
+    {
+      "id": "qt_word_formation_009_04",
+      "order": 4,
+      "japanese": "あまり行きたくありません。",
+      "korean": "별로 가고 싶지 않아요.",
+      "alternativeAnswers": [],
+      "hint": "별로...",
+      "explanation": "希望を表す「-고 싶다」に否定を付けて「あまり行きたくない」です。"
+    },
+    {
+      "id": "qt_word_formation_009_05",
+      "order": 5,
+      "japanese": "あまり見ません。",
+      "korean": "별로 안 봐요.",
+      "alternativeAnswers": [],
+      "hint": "별로...",
+      "explanation": "動詞の前に「별로 안」を置いて頻度が少ないことを示します。"
+    },
+    {
+      "id": "qt_word_formation_009_06",
+      "order": 6,
+      "japanese": "あまり時間がありません。",
+      "korean": "시간이 별로 없어요.",
+      "alternativeAnswers": [],
+      "hint": "시간이...",
+      "explanation": "存在を表す「없어요」と組み合わせ「あまりない」を表現します。"
+    },
+    {
+      "id": "qt_word_formation_009_07",
+      "order": 7,
+      "japanese": "あまり食べません。",
+      "korean": "별로 안 먹어요.",
+      "alternativeAnswers": [],
+      "hint": "별로...",
+      "explanation": "否定とセットで「별로 안 먹어요」と頻度の低さを示します。"
+    },
+    {
+      "id": "qt_word_formation_009_08",
+      "order": 8,
+      "japanese": "あまり天気がよくないです。",
+      "korean": "날씨가 별로 안 좋아요.",
+      "alternativeAnswers": [],
+      "hint": "날씨가...",
+      "explanation": "評価の形容詞「좋다」に否定を付けて「あまり良くない」と言います。"
+    },
+    {
+      "id": "qt_word_formation_009_09",
+      "order": 9,
+      "japanese": "あまり眠くありません。",
+      "korean": "별로 안 졸려요.",
+      "alternativeAnswers": [],
+      "hint": "별로...",
+      "explanation": "状態を表す「졸리다」に否定を加え「あまり眠くない」です。"
+    },
+    {
+      "id": "qt_word_formation_009_10",
+      "order": 10,
+      "japanese": "あまり難しくありません。",
+      "korean": "별로 안 어려워요.",
+      "alternativeAnswers": [],
+      "hint": "별로...",
+      "explanation": "難易度の形容詞にも「별로 안」を付けて頻度副詞の用法を示します。"
+    }
+  ]
+}

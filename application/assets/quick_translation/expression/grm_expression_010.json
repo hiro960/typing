@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_010",
+  "grammarTitle": "-기 쉽다/어렵다",
+  "grammarSubtitle": "〜しやすい／しにくい",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_010_01",
+      "order": 1,
+      "japanese": "この本は読みやすいです。",
+      "korean": "이 책은 읽기 쉬워요.",
+      "alternativeAnswers": ["이 책은 읽기 쉽습니다."],
+      "hint": "이 책...",
+      "explanation": "動詞を名詞化して「-기 쉽다」で易しさを表します。"
+    },
+    {
+      "id": "qt_expression_010_02",
+      "order": 2,
+      "japanese": "韓国語の発音は身に付けにくいです。",
+      "korean": "한국어 발음은 익히기 어려워요.",
+      "alternativeAnswers": ["한국어 발음은 익히기 어렵습니다."],
+      "hint": "한국어...",
+      "explanation": "難しさは「-기 어렵다」で表現します。"
+    },
+    {
+      "id": "qt_expression_010_03",
+      "order": 3,
+      "japanese": "この問題は解きやすいです。",
+      "korean": "이 문제는 풀기 쉬워요.",
+      "alternativeAnswers": ["이 문제는 풀기 쉽습니다."],
+      "hint": "이 문제...",
+      "explanation": "名詞化＋쉽다で「解きやすい」を表します。"
+    },
+    {
+      "id": "qt_expression_010_04",
+      "order": 4,
+      "japanese": "朝早く起きるのは難しいです。",
+      "korean": "아침에 일찍 일어나기 어려워요.",
+      "alternativeAnswers": ["아침에 일찍 일어나기 어렵습니다."],
+      "hint": "아침에...",
+      "explanation": "動作のしにくさを「-기 어렵다」で伝えます。"
+    },
+    {
+      "id": "qt_expression_010_05",
+      "order": 5,
+      "japanese": "この歌は覚えやすいです。",
+      "korean": "이 노래는 외우기 쉬워요.",
+      "alternativeAnswers": ["이 노래는 외우기 쉽습니다."],
+      "hint": "이 노래...",
+      "explanation": "覚えやすいと評価するとき「-기 쉽다」を使います。"
+    },
+    {
+      "id": "qt_expression_010_06",
+      "order": 6,
+      "japanese": "この地図なら道を見つけやすいです。",
+      "korean": "이 지도면 길 찾기 쉬워요.",
+      "alternativeAnswers": ["이 지도면 길 찾기 쉽습니다."],
+      "hint": "이 지도...",
+      "explanation": "名詞化した動作に쉽다を付けて容易さを示します。"
+    },
+    {
+      "id": "qt_expression_010_07",
+      "order": 7,
+      "japanese": "冬は風邪をひきやすいです。",
+      "korean": "겨울에는 감기 걸리기 쉬워요.",
+      "alternativeAnswers": ["겨울에는 감기 걸리기 쉽습니다."],
+      "hint": "겨울에는...",
+      "explanation": "状況に対し「-기 쉽다」でなりやすさを表します。"
+    },
+    {
+      "id": "qt_expression_010_08",
+      "order": 8,
+      "japanese": "熱いスープは飲みにくいです。",
+      "korean": "뜨거운 국은 마시기 어려워요.",
+      "alternativeAnswers": ["뜨거운 국은 마시기 어렵습니다."],
+      "hint": "뜨거운...",
+      "explanation": "しづらさを「-기 어렵다」で自然に言います。"
+    },
+    {
+      "id": "qt_expression_010_09",
+      "order": 9,
+      "japanese": "小さい字は読みづらいです。",
+      "korean": "작은 글씨는 읽기 어려워요.",
+      "alternativeAnswers": ["작은 글씨는 읽기 어렵습니다."],
+      "hint": "작은...",
+      "explanation": "読みづらさも名詞化＋어렵다で表現します。"
+    },
+    {
+      "id": "qt_expression_010_10",
+      "order": 10,
+      "japanese": "このアプリは使いやすいです。",
+      "korean": "이 앱은 쓰기 쉬워요.",
+      "alternativeAnswers": ["이 앱은 쓰기 쉽습니다.", "이 앱은 사용하기 쉬워요."],
+      "hint": "이 앱은...",
+      "explanation": "道具の使いやすさを「-기 쉽다」で評価します。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_016",
+  "grammarTitle": "하나, 둘, 셋...",
+  "grammarSubtitle": "固有数詞（1〜10）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_016_01",
+      "order": 1,
+      "japanese": "りんごを一つください。",
+      "korean": "사과 하나 주세요.",
+      "alternativeAnswers": [],
+      "hint": "사과 하...",
+      "explanation": "数え方は固有数詞「하나」を使います。"
+    },
+    {
+      "id": "qt_substantive_016_02",
+      "order": 2,
+      "japanese": "二人で行きます。",
+      "korean": "둘이서 가요.",
+      "alternativeAnswers": [],
+      "hint": "둘이...",
+      "explanation": "人数を言うとき固有数詞「둘」＋이서。"
+    },
+    {
+      "id": "qt_substantive_016_03",
+      "order": 3,
+      "japanese": "私たちは三人です。",
+      "korean": "우리는 셋이에요.",
+      "alternativeAnswers": [],
+      "hint": "우리는...",
+      "explanation": "人数をそのまま言うとき固有数詞を名詞化します。"
+    },
+    {
+      "id": "qt_substantive_016_04",
+      "order": 4,
+      "japanese": "今は四時です。",
+      "korean": "지금 네 시예요.",
+      "alternativeAnswers": [],
+      "hint": "지금...",
+      "explanation": "時刻の時間部分は固有数詞を使います。"
+    },
+    {
+      "id": "qt_substantive_016_05",
+      "order": 5,
+      "japanese": "りんごが五個あります。",
+      "korean": "사과 다섯 개 있어요.",
+      "alternativeAnswers": [],
+      "hint": "사과 다...",
+      "explanation": "固有数詞＋개で物の数を言います。"
+    },
+    {
+      "id": "qt_substantive_016_06",
+      "order": 6,
+      "japanese": "六人来ました。",
+      "korean": "여섯 명 왔어요.",
+      "alternativeAnswers": [],
+      "hint": "여섯...",
+      "explanation": "人数を数えるとき固有数詞＋명を用います。"
+    },
+    {
+      "id": "qt_substantive_016_07",
+      "order": 7,
+      "japanese": "七時に起きます。",
+      "korean": "일곱 시에 일어나요.",
+      "alternativeAnswers": [],
+      "hint": "일곱...",
+      "explanation": "時間を言うとき固有数詞を使います。"
+    },
+    {
+      "id": "qt_substantive_016_08",
+      "order": 8,
+      "japanese": "八歳です。",
+      "korean": "여덟 살이에요.",
+      "alternativeAnswers": [],
+      "hint": "여덟...",
+      "explanation": "年齢も固有数詞＋살で表します。"
+    },
+    {
+      "id": "qt_substantive_016_09",
+      "order": 9,
+      "japanese": "ボールが九個残っています。",
+      "korean": "공이 아홉 개 남았어요.",
+      "alternativeAnswers": [],
+      "hint": "공이...",
+      "explanation": "残数も固有数詞＋助数詞で言います。"
+    },
+    {
+      "id": "qt_substantive_016_10",
+      "order": 10,
+      "japanese": "十時に寝ます。",
+      "korean": "열 시에 자요.",
+      "alternativeAnswers": [],
+      "hint": "열 시...",
+      "explanation": "10時など時間も固有数詞で表現します。"
+    }
+  ]
+}

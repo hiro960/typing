@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_030",
+  "grammarTitle": "-(으)ㄹ 필요가 있다/없다",
+  "grammarSubtitle": "必要性（〜する必要がある/ない）",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_030_01",
+      "order": 1,
+      "japanese": "今行く必要はありません。",
+      "korean": "지금 갈 필요가 없어요.",
+      "alternativeAnswers": [
+        "지금 갈 필요가 없습니다."
+      ],
+      "hint": "지금...",
+      "explanation": "行為の必要性がないことを「필요가 없다」で表します。"
+    },
+    {
+      "id": "qt_tense_aspect_030_02",
+      "order": 2,
+      "japanese": "この本を読む必要があります。",
+      "korean": "이 책을 읽을 필요가 있어요.",
+      "alternativeAnswers": [
+        "이 책을 읽을 필요가 있습니다."
+      ],
+      "hint": "이 책을...",
+      "explanation": "ある行動が必要だと述べる形です。"
+    },
+    {
+      "id": "qt_tense_aspect_030_03",
+      "order": 3,
+      "japanese": "謝る必要はありません。",
+      "korean": "미안할 필요가 없어요.",
+      "alternativeAnswers": [
+        "미안할 필요가 없습니다."
+      ],
+      "hint": "미안할...",
+      "explanation": "しなくてもよい行為を否定して伝えます。"
+    },
+    {
+      "id": "qt_tense_aspect_030_04",
+      "order": 4,
+      "japanese": "急ぐ必要があります。",
+      "korean": "서둘 필요가 있어요.",
+      "alternativeAnswers": [
+        "서둘 필요가 있습니다."
+      ],
+      "hint": "서둘...",
+      "explanation": "必要性を強調して促すときに使います。"
+    },
+    {
+      "id": "qt_tense_aspect_030_05",
+      "order": 5,
+      "japanese": "準備する必要があります。",
+      "korean": "준비할 필요가 있어요.",
+      "alternativeAnswers": [
+        "준비할 필요가 있습니다."
+      ],
+      "hint": "준비할...",
+      "explanation": "必要な行為を具体的に示すときの表現です。"
+    },
+    {
+      "id": "qt_tense_aspect_030_06",
+      "order": 6,
+      "japanese": "お金を払う必要はありません。",
+      "korean": "돈을 낼 필요가 없어요.",
+      "alternativeAnswers": [
+        "돈을 낼 필요가 없습니다."
+      ],
+      "hint": "돈을...",
+      "explanation": "行為の不要を明確に伝えるときに使います。"
+    },
+    {
+      "id": "qt_tense_aspect_030_07",
+      "order": 7,
+      "japanese": "早く起きる必要があります。",
+      "korean": "일찍 일어날 필요가 있어요.",
+      "alternativeAnswers": [
+        "일찍 일어날 필요가 있습니다."
+      ],
+      "hint": "일찍...",
+      "explanation": "行動の必要性を述べる基本形です。"
+    },
+    {
+      "id": "qt_tense_aspect_030_08",
+      "order": 8,
+      "japanese": "傘を持って行く必要があります。",
+      "korean": "우산을 가져갈 필요가 있어요.",
+      "alternativeAnswers": [
+        "우산을 가져갈 필요가 있습니다."
+      ],
+      "hint": "우산을...",
+      "explanation": "特定の準備が必要であることを示します。"
+    },
+    {
+      "id": "qt_tense_aspect_030_09",
+      "order": 9,
+      "japanese": "心配する必要はありません。",
+      "korean": "걱정할 필요가 없어요.",
+      "alternativeAnswers": [
+        "걱정할 필요가 없습니다."
+      ],
+      "hint": "걱정할...",
+      "explanation": "不要な心配を止めるよう伝える言い方です。"
+    },
+    {
+      "id": "qt_tense_aspect_030_10",
+      "order": 10,
+      "japanese": "もう一度言う必要はありません。",
+      "korean": "다시 말할 필요가 없어요.",
+      "alternativeAnswers": [
+        "다시 말할 필요가 없습니다."
+      ],
+      "hint": "다시...",
+      "explanation": "繰り返しの必要がないことを表します。"
+    }
+  ]
+}

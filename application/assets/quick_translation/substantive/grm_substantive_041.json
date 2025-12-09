@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_041",
+  "grammarTitle": "언제",
+  "grammarSubtitle": "疑問副詞（いつ）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_041_01",
+      "order": 1,
+      "japanese": "いつ来ますか？",
+      "korean": "언제 와요?",
+      "alternativeAnswers": ["언제 옵니까?"],
+      "hint": "언제...",
+      "explanation": "時期を尋ねる基本形は 언제 + 動詞 です。"
+    },
+    {
+      "id": "qt_substantive_041_02",
+      "order": 2,
+      "japanese": "試験はいつですか？",
+      "korean": "시험이 언제예요?",
+      "alternativeAnswers": ["시험이 언제입니까?"],
+      "hint": "시험...",
+      "explanation": "予定日を聞くとき도 언제예요? を使います。"
+    },
+    {
+      "id": "qt_substantive_041_03",
+      "order": 3,
+      "japanese": "いつ韓国へ行きますか？",
+      "korean": "언제 한국에 가요?",
+      "alternativeAnswers": ["언제 한국에 갑니까?"],
+      "hint": "언제 ...",
+      "explanation": "行き先と合わせて時期を尋ねます。"
+    },
+    {
+      "id": "qt_substantive_041_04",
+      "order": 4,
+      "japanese": "授業はいつ始まりますか？",
+      "korean": "수업은 언제 시작해요?",
+      "alternativeAnswers": ["수업은 언제 시작합니까?"],
+      "hint": "수업...",
+      "explanation": "開始時刻を聞くとき도 언제 를用います。"
+    },
+    {
+      "id": "qt_substantive_041_05",
+      "order": 5,
+      "japanese": "いつ帰りますか？",
+      "korean": "언제 돌아가요?",
+      "alternativeAnswers": ["언제 돌아갑니까?"],
+      "hint": "언제...",
+      "explanation": "帰宅の時期も 언제 로尋ねます。"
+    },
+    {
+      "id": "qt_substantive_041_06",
+      "order": 6,
+      "japanese": "誕生日はいつですか？",
+      "korean": "생일이 언제예요?",
+      "alternativeAnswers": ["생일이 언제입니까?"],
+      "hint": "생일...",
+      "explanation": "個人の記念日にも 언제 を使います。"
+    },
+    {
+      "id": "qt_substantive_041_07",
+      "order": 7,
+      "japanese": "いつ会えますか？",
+      "korean": "언제 만날 수 있어요?",
+      "alternativeAnswers": ["언제 만날 수 있습니까?"],
+      "hint": "언제 ...",
+      "explanation": "可能表現と合わせて予定を尋ねます。"
+    },
+    {
+      "id": "qt_substantive_041_08",
+      "order": 8,
+      "japanese": "いつ寝ますか？",
+      "korean": "언제 자요?",
+      "alternativeAnswers": ["언제 잡니까?"],
+      "hint": "언제...",
+      "explanation": "日常の時刻も 언제 + 動詞 で聞きます。"
+    },
+    {
+      "id": "qt_substantive_041_09",
+      "order": 9,
+      "japanese": "いつ休みますか？",
+      "korean": "언제 쉬어요?",
+      "alternativeAnswers": ["언제 쉽니까?"],
+      "hint": "언제...",
+      "explanation": "休むタイミングも 언제 를使って質問します。"
+    },
+    {
+      "id": "qt_substantive_041_10",
+      "order": 10,
+      "japanese": "電車はいつ来ますか？",
+      "korean": "기차는 언제 와요?",
+      "alternativeAnswers": ["기차는 언제 옵니까?"],
+      "hint": "기차...",
+      "explanation": "交通機関の到着時期も 언제 로尋ねます。"
+    }
+  ]
+}

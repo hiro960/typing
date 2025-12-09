@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_sentence_ending_004",
+  "grammarTitle": "-아/어",
+  "grammarSubtitle": "パンマル（親しいカジュアル形）",
+  "category": "sentence_ending",
+  "questions": [
+    {
+      "id": "qt_sentence_ending_004_01",
+      "order": 1,
+      "japanese": "何してる？",
+      "korean": "뭐 해?",
+      "alternativeAnswers": ["무엇 해?", "뭐 해요?"],
+      "hint": "뭐...",
+      "explanation": "親しい間柄では終止を「-아/어」にしてカジュアルに尋ねます。"
+    },
+    {
+      "id": "qt_sentence_ending_004_02",
+      "order": 2,
+      "japanese": "一緒に行こう。",
+      "korean": "같이 가자.",
+      "alternativeAnswers": ["같이 가.", "같이 가요."],
+      "hint": "같이...",
+      "explanation": "勧誘のパンマルでは「-자」を付けて「〜しよう」の意味を表します。"
+    },
+    {
+      "id": "qt_sentence_ending_004_03",
+      "order": 3,
+      "japanese": "早く来て。",
+      "korean": "빨리 와.",
+      "alternativeAnswers": ["빨리 와요."],
+      "hint": "빨리...",
+      "explanation": "命令も親しい間柄では語幹＋아/어でシンプルに言います。"
+    },
+    {
+      "id": "qt_sentence_ending_004_04",
+      "order": 4,
+      "japanese": "もう食べた？",
+      "korean": "벌써 먹었어?",
+      "alternativeAnswers": ["벌써 먹었어요?"],
+      "hint": "벌써...",
+      "explanation": "過去のカジュアル疑問も「-었어/았어」で結びます。"
+    },
+    {
+      "id": "qt_sentence_ending_004_05",
+      "order": 5,
+      "japanese": "手伝って。",
+      "korean": "도와 줘.",
+      "alternativeAnswers": ["도와줘.", "도와줘요."],
+      "hint": "도와...",
+      "explanation": "依頼も親しい相手には語幹＋아/어で表現します。"
+    },
+    {
+      "id": "qt_sentence_ending_004_06",
+      "order": 6,
+      "japanese": "今行くよ。",
+      "korean": "나 지금 가.",
+      "alternativeAnswers": ["지금 가요."],
+      "hint": "지금...",
+      "explanation": "現在進行や意志をラフに述べるとき「-아/어」で「나 지금 가.」のように言います。"
+    },
+    {
+      "id": "qt_sentence_ending_004_07",
+      "order": 7,
+      "japanese": "それいいね。",
+      "korean": "그거 좋다.",
+      "alternativeAnswers": ["그거 좋아."],
+      "hint": "그거...",
+      "explanation": "形容詞もパンマルで語幹＋다/아/어と短く言います。"
+    },
+    {
+      "id": "qt_sentence_ending_004_08",
+      "order": 8,
+      "japanese": "忘れないで。",
+      "korean": "잊지 마.",
+      "alternativeAnswers": ["잊지 마라.", "잊지 마세요."],
+      "hint": "잊지...",
+      "explanation": "禁止形も「-지 마」でカジュアルな命令を表します。"
+    },
+    {
+      "id": "qt_sentence_ending_004_09",
+      "order": 9,
+      "japanese": "本当に？",
+      "korean": "정말이야?",
+      "alternativeAnswers": ["정말이냐?", "정말이에요?"],
+      "hint": "정말...",
+      "explanation": "名詞述語もパンマルで「이야/야?」と問いかけます。"
+    },
+    {
+      "id": "qt_sentence_ending_004_10",
+      "order": 10,
+      "japanese": "もう寝る。",
+      "korean": "나 이제 자.",
+      "alternativeAnswers": ["이제 자요."],
+      "hint": "이제...",
+      "explanation": "親しい間柄で自己宣言するときも短く「-아/어」で終わり、「나 이제 자.」と伝えます。"
+    }
+  ]
+}

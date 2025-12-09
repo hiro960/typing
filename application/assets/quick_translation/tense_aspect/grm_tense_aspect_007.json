@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_tense_aspect_007",
+  "grammarTitle": "안 + 動詞",
+  "grammarSubtitle": "否定・短形",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_007_01",
+      "order": 1,
+      "japanese": "今日は学校に行きません。",
+      "korean": "오늘은 학교에 안 가요.",
+      "alternativeAnswers": ["오늘은 학교에 가지 않아요."],
+      "hint": "오늘은...",
+      "explanation": "行かない意思を簡単に言うとき動詞前に「안」を置きます。"
+    },
+    {
+      "id": "qt_tense_aspect_007_02",
+      "order": 2,
+      "japanese": "肉を食べません。",
+      "korean": "고기를 안 먹어요.",
+      "alternativeAnswers": ["고기를 먹지 않아요."],
+      "hint": "고기를...",
+      "explanation": "短い否定は「안+動詞」で表し、ここでは食べないことを示します。"
+    },
+    {
+      "id": "qt_tense_aspect_007_03",
+      "order": 3,
+      "japanese": "コーヒーを飲みません。",
+      "korean": "커피를 안 마셔요.",
+      "alternativeAnswers": ["커피를 마시지 않아요."],
+      "hint": "커피를...",
+      "explanation": "飲まない簡潔な否定に副詞「안」を動詞前に置きます。"
+    },
+    {
+      "id": "qt_tense_aspect_007_04",
+      "order": 4,
+      "japanese": "テレビを見ません。",
+      "korean": "티비를 안 봐요.",
+      "alternativeAnswers": ["티비를 보지 않아요."],
+      "hint": "티비를...",
+      "explanation": "見る動作を否定し「안 봐요」と短く言います。"
+    },
+    {
+      "id": "qt_tense_aspect_007_05",
+      "order": 5,
+      "japanese": "朝早く起きません。",
+      "korean": "아침에 일찍 안 일어나요.",
+      "alternativeAnswers": ["아침에 일찍 일어나지 않아요."],
+      "hint": "아침에...",
+      "explanation": "起きないことを口語的に「안+일어나요」で表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_007_06",
+      "order": 6,
+      "japanese": "勉強しません。",
+      "korean": "공부 안 해요.",
+      "alternativeAnswers": ["공부하지 않아요."],
+      "hint": "공부...",
+      "explanation": "하다動詞も前に「안」を置いて簡単否定にします。"
+    },
+    {
+      "id": "qt_tense_aspect_007_07",
+      "order": 7,
+      "japanese": "走りません。",
+      "korean": "안 뛰어요.",
+      "alternativeAnswers": ["뛰지 않아요."],
+      "hint": "안 뛰...",
+      "explanation": "動詞の前に「안」を付けて走らないことを表します。"
+    },
+    {
+      "id": "qt_tense_aspect_007_08",
+      "order": 8,
+      "japanese": "友達に電話しません。",
+      "korean": "친구에게 전화 안 해요.",
+      "alternativeAnswers": ["친구에게 전화하지 않아요."],
+      "hint": "친구에게...",
+      "explanation": "電話する前に「안」を置き簡潔に否定します。"
+    },
+    {
+      "id": "qt_tense_aspect_007_09",
+      "order": 9,
+      "japanese": "今日は運動しません。",
+      "korean": "오늘은 운동 안 해요.",
+      "alternativeAnswers": ["오늘은 운동하지 않아요."],
+      "hint": "오늘은...",
+      "explanation": "口語の否定では「안」を先に置いて短く言います。"
+    },
+    {
+      "id": "qt_tense_aspect_007_10",
+      "order": 10,
+      "japanese": "夜は遅く寝ません。",
+      "korean": "밤에는 늦게 안 자요.",
+      "alternativeAnswers": ["밤에는 늦게 자지 않아요."],
+      "hint": "밤에는...",
+      "explanation": "寝ない習慣を表し「안 자요」で簡潔な否定にします。"
+    }
+  ]
+}

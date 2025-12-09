@@ -1,0 +1,106 @@
+{
+  "grammarRef": "grm_expression_030",
+  "grammarTitle": "-(으)ㄹ 셈이다",
+  "grammarSubtitle": "〜するつもりだ／〜する考えだ",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_030_01",
+      "order": 1,
+      "japanese": "週末は休むつもりです。",
+      "korean": "주말에는 쉴 셈이에요.",
+      "alternativeAnswers": [
+        "주말에는 쉴 셈입니다."
+      ],
+      "hint": "주말에는...",
+      "explanation": "計画中の意志を丁寧に示す「-ㄹ 셈이다」を使います。"
+    },
+    {
+      "id": "qt_expression_030_02",
+      "order": 2,
+      "japanese": "来年引っ越すつもりです。",
+      "korean": "내년에 이사할 셈이에요.",
+      "alternativeAnswers": [
+        "내년에 이사할 셈입니다."
+      ],
+      "hint": "내년에...",
+      "explanation": "予定している行動を表す計画表現「-ㄹ 셈이다」です。"
+    },
+    {
+      "id": "qt_expression_030_03",
+      "order": 3,
+      "japanese": "今日は家で勉強するつもりです。",
+      "korean": "오늘은 집에서 공부할 셈이에요.",
+      "alternativeAnswers": [
+        "오늘은 집에서 공부할 셈입니다."
+      ],
+      "hint": "오늘은...",
+      "explanation": "勉強の計画を述べる際に「-ㄹ 셈이에요」を用います。"
+    },
+    {
+      "id": "qt_expression_030_04",
+      "order": 4,
+      "japanese": "少しだけ食べるつもりです。",
+      "korean": "조금만 먹을 셈이에요.",
+      "alternativeAnswers": [],
+      "hint": "조금만...",
+      "explanation": "量を決めた意志を伝えるときに「먹을 셈이에요」を使います。"
+    },
+    {
+      "id": "qt_expression_030_05",
+      "order": 5,
+      "japanese": "バスに乗るつもりです。",
+      "korean": "버스를 탈 셈이에요.",
+      "alternativeAnswers": [],
+      "hint": "버스를...",
+      "explanation": "移動手段の予定を表す意志表現「-ㄹ 셈이다」です。"
+    },
+    {
+      "id": "qt_expression_030_06",
+      "order": 6,
+      "japanese": "友達と一緒に行くつもりです。",
+      "korean": "친구와 같이 갈 셈이에요.",
+      "alternativeAnswers": [
+        "친구와 함께 갈 셈이에요."
+      ],
+      "hint": "친구와...",
+      "explanation": "同行計画を述べるときに「갈 셈이다」で意志を示します。"
+    },
+    {
+      "id": "qt_expression_030_07",
+      "order": 7,
+      "japanese": "お金を貯めるつもりです。",
+      "korean": "돈을 모을 셈이에요.",
+      "alternativeAnswers": [],
+      "hint": "돈을...",
+      "explanation": "今後の方針として貯金する計画を「-ㄹ 셈이다」で表します。"
+    },
+    {
+      "id": "qt_expression_030_08",
+      "order": 8,
+      "japanese": "韓国語を続けて学ぶつもりです。",
+      "korean": "한국어를 계속 배울 셈이에요.",
+      "alternativeAnswers": [],
+      "hint": "한국어를...",
+      "explanation": "継続学習の意志を「배울 셈이에요」で丁寧に示します。"
+    },
+    {
+      "id": "qt_expression_030_09",
+      "order": 9,
+      "japanese": "明日は早く起きるつもりです。",
+      "korean": "내일은 일찍 일어날 셈이에요.",
+      "alternativeAnswers": [],
+      "hint": "내일은...",
+      "explanation": "翌日の計画を「-ㄹ 셈이다」で表現しています。"
+    },
+    {
+      "id": "qt_expression_030_10",
+      "order": 10,
+      "japanese": "来月旅行に行くつもりです。",
+      "korean": "다음 달에 여행 갈 셈이에요.",
+      "alternativeAnswers": [],
+      "hint": "다음 달에...",
+      "explanation": "旅行の予定を意志表現「갈 셈이다」で伝えます。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_adnominal_003",
+  "grammarTitle": "-(으)ㄹ",
+  "grammarSubtitle": "未来連体形",
+  "category": "adnominal",
+  "questions": [
+    {
+      "id": "qt_adnominal_003_01",
+      "order": 1,
+      "japanese": "明日食べるご飯を準備します。",
+      "korean": "내일 먹을 밥을 준비해요.",
+      "alternativeAnswers": ["내일 먹을 밥을 준비합니다."],
+      "hint": "내일...",
+      "explanation": "未来の予定を名詞の前で示す形です。"
+    },
+    {
+      "id": "qt_adnominal_003_02",
+      "order": 2,
+      "japanese": "会う人は友達です。",
+      "korean": "만날 사람은 친구예요.",
+      "alternativeAnswers": ["만날 사람은 친구입니다."],
+      "hint": "만날...",
+      "explanation": "これから出会う対象を -ㄹ で修飾します。"
+    },
+    {
+      "id": "qt_adnominal_003_03",
+      "order": 3,
+      "japanese": "見る映画は新しいです。",
+      "korean": "볼 영화는 새로워요.",
+      "alternativeAnswers": ["볼 영화는 새롭습니다."],
+      "hint": "볼...",
+      "explanation": "これから見る予定の対象を示す連体形です。"
+    },
+    {
+      "id": "qt_adnominal_003_04",
+      "order": 4,
+      "japanese": "買う服を決めました。",
+      "korean": "살 옷을 정했어요.",
+      "alternativeAnswers": ["살 옷을 정했습니다."],
+      "hint": "살 옷...",
+      "explanation": "今後行う行為の目的語を未来連体形で表します。"
+    },
+    {
+      "id": "qt_adnominal_003_05",
+      "order": 5,
+      "japanese": "行く場所が遠いです。",
+      "korean": "갈 곳이 멀어요.",
+      "alternativeAnswers": ["갈 곳이 멉니다."],
+      "hint": "갈...",
+      "explanation": "これから向かう場所を名詞にかけています。"
+    },
+    {
+      "id": "qt_adnominal_003_06",
+      "order": 6,
+      "japanese": "住む家を探しています。",
+      "korean": "살 집을 찾고 있어요.",
+      "alternativeAnswers": ["살 집을 찾고 있습니다."],
+      "hint": "살 집...",
+      "explanation": "これから住む予定の対象を -ㄹ で修飾します。"
+    },
+    {
+      "id": "qt_adnominal_003_07",
+      "order": 7,
+      "japanese": "乗るバスが来ました。",
+      "korean": "탈 버스가 왔어요.",
+      "alternativeAnswers": ["탈 버스가 왔습니다."],
+      "hint": "탈...",
+      "explanation": "これから乗る予定のバスを示す連体形です。"
+    },
+    {
+      "id": "qt_adnominal_003_08",
+      "order": 8,
+      "japanese": "聞く音楽を選びます。",
+      "korean": "들을 음악을 골라요.",
+      "alternativeAnswers": ["들을 음악을 고릅니다."],
+      "hint": "들을...",
+      "explanation": "未来に聞く対象を名詞の前で説明します。"
+    },
+    {
+      "id": "qt_adnominal_003_09",
+      "order": 9,
+      "japanese": "読む本が多いです。",
+      "korean": "읽을 책이 많아요.",
+      "alternativeAnswers": ["읽을 책이 많습니다."],
+      "hint": "읽을...",
+      "explanation": "これから読む予定の本を連体形で示します。"
+    },
+    {
+      "id": "qt_adnominal_003_10",
+      "order": 10,
+      "japanese": "作る料理は簡単です。",
+      "korean": "만들 음식이 쉬워요.",
+      "alternativeAnswers": ["만들 음식이 쉽습니다."],
+      "hint": "만들...",
+      "explanation": "これから作る対象を未来連体形で表します。"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_022",
+  "grammarTitle": "-아/어 오다",
+  "grammarSubtitle": "継続・変化（〜してきた）",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_022_01",
+      "order": 1,
+      "japanese": "ずっと韓国語を勉強してきました。",
+      "korean": "계속 한국어를 공부해 왔어요.",
+      "alternativeAnswers": [
+        "계속 한국어를 공부해 왔습니다."
+      ],
+      "hint": "계속...",
+      "explanation": "過去から今まで続く動作を「-아/어 오다」で表します。"
+    },
+    {
+      "id": "qt_tense_aspect_022_02",
+      "order": 2,
+      "japanese": "友達を待ち続けてきました。",
+      "korean": "친구를 계속 기다려 왔어요.",
+      "alternativeAnswers": [
+        "친구를 계속 기다려 왔습니다."
+      ],
+      "hint": "친구를...",
+      "explanation": "長く続けた待機の進行を今までの継続として示します。"
+    },
+    {
+      "id": "qt_tense_aspect_022_03",
+      "order": 3,
+      "japanese": "雨が降り続いてきました。",
+      "korean": "비가 계속 내려 왔어요.",
+      "alternativeAnswers": [
+        "비가 계속 내려 왔습니다."
+      ],
+      "hint": "비가...",
+      "explanation": "降る動作が今まで続いてきた経過を表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_022_04",
+      "order": 4,
+      "japanese": "人が少しずつ集まってきます。",
+      "korean": "사람들이 조금씩 모여 와요.",
+      "alternativeAnswers": [
+        "사람들이 조금씩 모여 옵니다."
+      ],
+      "hint": "사람들이...",
+      "explanation": "集まる動作が段階的に進んでくる様子を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_022_05",
+      "order": 5,
+      "japanese": "体が疲れてきました。",
+      "korean": "몸이 피곤해져 왔어요.",
+      "alternativeAnswers": [
+        "몸이 피곤해져 왔습니다."
+      ],
+      "hint": "몸이...",
+      "explanation": "状態変化が徐々に進み現在に至ることを表します。"
+    },
+    {
+      "id": "qt_tense_aspect_022_06",
+      "order": 6,
+      "japanese": "天気が暖かくなってきました。",
+      "korean": "날씨가 따뜻해져 왔어요.",
+      "alternativeAnswers": [
+        "날씨가 따뜻해져 왔습니다."
+      ],
+      "hint": "날씨가...",
+      "explanation": "変化が進んで現在に近づく様子を「-어 오다」で表します。"
+    },
+    {
+      "id": "qt_tense_aspect_022_07",
+      "order": 7,
+      "japanese": "笑い声が聞こえてきます。",
+      "korean": "웃음소리가 들려와요.",
+      "alternativeAnswers": [
+        "웃음소리가 들려옵니다."
+      ],
+      "hint": "웃음소리가...",
+      "explanation": "向こうからこちらへ近づく感覚的な伝来を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_022_08",
+      "order": 8,
+      "japanese": "問題が少しずつ起きてきました。",
+      "korean": "문제가 조금씩 생겨 왔어요.",
+      "alternativeAnswers": [
+        "문제가 조금씩 생겨 왔습니다."
+      ],
+      "hint": "문제가...",
+      "explanation": "発生が積み重なり現在に至るニュアンスを示します。"
+    },
+    {
+      "id": "qt_tense_aspect_022_09",
+      "order": 9,
+      "japanese": "この道を歩いてきました。",
+      "korean": "이 길을 걸어 왔어요.",
+      "alternativeAnswers": [
+        "이 길을 걸어 왔습니다."
+      ],
+      "hint": "이 길을...",
+      "explanation": "動作がこちらに向かって続いた経過を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_022_10",
+      "order": 10,
+      "japanese": "風邪が少しずつ良くなってきました。",
+      "korean": "감기가 조금씩 나아 왔어요.",
+      "alternativeAnswers": [
+        "감기가 조금씩 나아 왔습니다."
+      ],
+      "hint": "감기가...",
+      "explanation": "回復の変化が進み今に近づく状態を示します。"
+    }
+  ]
+}

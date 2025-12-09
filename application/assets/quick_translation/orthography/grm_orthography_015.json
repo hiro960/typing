@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_orthography_015",
+  "grammarTitle": "받침의 초음화",
+  "grammarSubtitle": "終声の初音化",
+  "category": "orthography",
+  "questions": [
+    {
+      "id": "qt_orthography_015_01",
+      "order": 1,
+      "japanese": "今日は気分がいいです。",
+      "korean": "오늘 기분이 좋아요.",
+      "alternativeAnswers": ["오늘 기분이 좋습니다."],
+      "hint": "오늘...",
+      "explanation": "좋아요はㅎが母音の前で脱落し[조아요]と発音されます。"
+    },
+    {
+      "id": "qt_orthography_015_02",
+      "order": 2,
+      "japanese": "机に本を置きます。",
+      "korean": "책을 책상에 놓아요.",
+      "alternativeAnswers": ["책을 책상에 놓습니다."],
+      "hint": "책을...",
+      "explanation": "놓아요はㅎが母音の前で落ちて[노아요]になります。"
+    },
+    {
+      "id": "qt_orthography_015_03",
+      "order": 3,
+      "japanese": "カバンにノートを入れます。",
+      "korean": "가방에 공책을 넣어요.",
+      "alternativeAnswers": ["가방에 공책을 넣습니다."],
+      "hint": "가방에...",
+      "explanation": "넣어요はㅎ脱落で[너어요]と発音しやすくなります。"
+    },
+    {
+      "id": "qt_orthography_015_04",
+      "order": 4,
+      "japanese": "宿題が多いです。",
+      "korean": "숙제가 많아요.",
+      "alternativeAnswers": ["숙제가 많습니다."],
+      "hint": "숙제가...",
+      "explanation": "많아요はㄶのㅎが消えてㄴが連音し[마나요]と発音します。"
+    },
+    {
+      "id": "qt_orthography_015_05",
+      "order": 5,
+      "japanese": "辛い料理は嫌です。",
+      "korean": "매운 음식은 싫어요.",
+      "alternativeAnswers": ["매운 음식은 싫습니다."],
+      "hint": "매운...",
+      "explanation": "싫어요はㅎが脱落して[시러요]と発音されます。"
+    },
+    {
+      "id": "qt_orthography_015_06",
+      "order": 6,
+      "japanese": "私は大丈夫です。",
+      "korean": "저는 괜찮아요.",
+      "alternativeAnswers": ["저는 괜찮습니다."],
+      "hint": "저는...",
+      "explanation": "괜찮아요はㄶのㅎが落ちて[괜차나요]と読みます。"
+    },
+    {
+      "id": "qt_orthography_015_07",
+      "order": 7,
+      "japanese": "財布をなくしました。",
+      "korean": "지갑을 잃어버렸어요.",
+      "alternativeAnswers": ["지갑을 잃어버렸습니다."],
+      "hint": "지갑을...",
+      "explanation": "잃어-はㅀのㅎが消えㄹが連音し[이러버렸어요]と発音します。"
+    },
+    {
+      "id": "qt_orthography_015_08",
+      "order": 8,
+      "japanese": "お湯が沸きます。",
+      "korean": "물이 끓어요.",
+      "alternativeAnswers": ["물이 끓습니다."],
+      "hint": "물이...",
+      "explanation": "끓어요はㅀのㅎが脱落し[끄러요]と発音されます。"
+    },
+    {
+      "id": "qt_orthography_015_09",
+      "order": 9,
+      "japanese": "猫が子を産みます。",
+      "korean": "고양이가 새끼를 낳아요.",
+      "alternativeAnswers": ["고양이가 새끼를 낳습니다."],
+      "hint": "고양이가...",
+      "explanation": "낳아요はㅎが母音の前で落ちて[나아요]と発音します。"
+    },
+    {
+      "id": "qt_orthography_015_10",
+      "order": 10,
+      "japanese": "私は行きません。",
+      "korean": "저는 가지 않아요.",
+      "alternativeAnswers": ["저는 가지 않습니다."],
+      "hint": "저는...",
+      "explanation": "않아요はㄶのㅎが脱落し[아나요]と発音されます。"
+    }
+  ]
+}

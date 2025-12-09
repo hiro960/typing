@@ -1,0 +1,106 @@
+{
+  "grammarRef": "grm_substantive_006",
+  "grammarTitle": "여기/거기/저기",
+  "grammarSubtitle": "指示代名詞（ここ/そこ/あそこ）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_006_01",
+      "order": 1,
+      "japanese": "ここに座ってください。",
+      "korean": "여기에 앉으세요.",
+      "alternativeAnswers": [],
+      "hint": "여기에...",
+      "explanation": "場所を示す副詞に「에」を付けて位置を示します。"
+    },
+    {
+      "id": "qt_substantive_006_02",
+      "order": 2,
+      "japanese": "そこに店があります。",
+      "korean": "거기에 가게가 있어요.",
+      "alternativeAnswers": [
+        "거기 가게가 있어요."
+      ],
+      "hint": "거기에...",
+      "explanation": "聞き手側の場所は「거기(에)」。"
+    },
+    {
+      "id": "qt_substantive_006_03",
+      "order": 3,
+      "japanese": "あそこに山が見えます。",
+      "korean": "저기에 산이 보여요.",
+      "alternativeAnswers": [],
+      "hint": "저기에...",
+      "explanation": "遠くの場所は「저기(에)」。"
+    },
+    {
+      "id": "qt_substantive_006_04",
+      "order": 4,
+      "japanese": "ここは静かです。",
+      "korean": "여기는 조용해요.",
+      "alternativeAnswers": [],
+      "hint": "여기는...",
+      "explanation": "場所を主題化するとき「-는」を付けます。"
+    },
+    {
+      "id": "qt_substantive_006_05",
+      "order": 5,
+      "japanese": "そこは危ないです。",
+      "korean": "거기는 위험해요.",
+      "alternativeAnswers": [],
+      "hint": "거기는...",
+      "explanation": "相手側の場所に主題助詞をつけて説明します。"
+    },
+    {
+      "id": "qt_substantive_006_06",
+      "order": 6,
+      "japanese": "あそこにバスが来ます。",
+      "korean": "저기에 버스가 와요.",
+      "alternativeAnswers": [],
+      "hint": "저기에...",
+      "explanation": "遠い場所に来る動作も「저기(에)」で表します。"
+    },
+    {
+      "id": "qt_substantive_006_07",
+      "order": 7,
+      "japanese": "ここで写真を撮ります。",
+      "korean": "여기에서 사진을 찍어요.",
+      "alternativeAnswers": [
+        "여기서 사진을 찍어요."
+      ],
+      "hint": "여기에서...",
+      "explanation": "場所＋에서 で動作の行われる所を示します。"
+    },
+    {
+      "id": "qt_substantive_006_08",
+      "order": 8,
+      "japanese": "そこに電話してください。",
+      "korean": "거기에 전화해 주세요.",
+      "alternativeAnswers": [],
+      "hint": "거기에...",
+      "explanation": "連絡先など相手側の場所を「거기에」と指します。"
+    },
+    {
+      "id": "qt_substantive_006_09",
+      "order": 9,
+      "japanese": "あそこに友達がいます。",
+      "korean": "저기에 친구가 있어요.",
+      "alternativeAnswers": [
+        "저기 친구가 있어요."
+      ],
+      "hint": "저기에...",
+      "explanation": "存在を述べるときも位置語「저기(에)」。"
+    },
+    {
+      "id": "qt_substantive_006_10",
+      "order": 10,
+      "japanese": "ここまで何分かかりますか。",
+      "korean": "여기까지 몇 분 걸려요?",
+      "alternativeAnswers": [
+        "여기까지 얼마나 걸려요?"
+      ],
+      "hint": "여기까...",
+      "explanation": "移動の終点は「-까지」で示します。"
+    }
+  ]
+}

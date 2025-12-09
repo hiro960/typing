@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_009",
+  "grammarTitle": "-(으)ㄹ 만하다",
+  "grammarSubtitle": "〜する価値がある",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_009_01",
+      "order": 1,
+      "japanese": "この映画は見る価値があります。",
+      "korean": "이 영화 볼 만해요.",
+      "alternativeAnswers": ["이 영화 볼 만합니다."],
+      "hint": "이 영화...",
+      "explanation": "「-ㄹ 만하다」でやってみる価値があると評価します。"
+    },
+    {
+      "id": "qt_expression_009_02",
+      "order": 2,
+      "japanese": "この店のご飯は食べる価値があります。",
+      "korean": "이 집 밥이 먹을 만해요.",
+      "alternativeAnswers": ["이 집 밥이 먹을 만합니다."],
+      "hint": "이 집...",
+      "explanation": "味が良く試す価値があるときに使います。"
+    },
+    {
+      "id": "qt_expression_009_03",
+      "order": 3,
+      "japanese": "この本は読む価値があります。",
+      "korean": "이 책 읽을 만해요.",
+      "alternativeAnswers": ["이 책 읽을 만합니다."],
+      "hint": "이 책...",
+      "explanation": "読む価値を伝えるとき「-ㄹ 만하다」を用います。"
+    },
+    {
+      "id": "qt_expression_009_04",
+      "order": 4,
+      "japanese": "この道は歩くのにちょうどいいです。",
+      "korean": "이 길은 걸을 만해요.",
+      "alternativeAnswers": ["이 길은 걸을 만합니다."],
+      "hint": "이 길은...",
+      "explanation": "無理なくできる程度を「-ㄹ 만하다」で示します。"
+    },
+    {
+      "id": "qt_expression_009_05",
+      "order": 5,
+      "japanese": "この歌は聴く価値があります。",
+      "korean": "이 노래 들을 만해요.",
+      "alternativeAnswers": ["이 노래 들을 만합니다."],
+      "hint": "이 노래...",
+      "explanation": "聞いてみる価値を伝える表現です。"
+    },
+    {
+      "id": "qt_expression_009_06",
+      "order": 6,
+      "japanese": "このカフェは行く価値があります。",
+      "korean": "이 카페는 갈 만해요.",
+      "alternativeAnswers": ["이 카페는 갈 만합니다."],
+      "hint": "이 카페...",
+      "explanation": "訪れる価値があるとき「-ㄹ 만하다」を使います。"
+    },
+    {
+      "id": "qt_expression_009_07",
+      "order": 7,
+      "japanese": "この仕事はやってみる価値があります。",
+      "korean": "이 일은 해 볼 만해요.",
+      "alternativeAnswers": ["이 일은 해 볼 만합니다."],
+      "hint": "이 일은...",
+      "explanation": "試してみる価値を述べるときの形です。"
+    },
+    {
+      "id": "qt_expression_009_08",
+      "order": 8,
+      "japanese": "この値段なら買う価値があります。",
+      "korean": "이 가격이면 살 만해요.",
+      "alternativeAnswers": ["이 가격이면 살 만합니다."],
+      "hint": "이 가격...",
+      "explanation": "条件が良く買ってもいいと思うとき使います。"
+    },
+    {
+      "id": "qt_expression_009_09",
+      "order": 9,
+      "japanese": "その景色は見る価値があります。",
+      "korean": "그 경치는 볼 만해요.",
+      "alternativeAnswers": ["그 경치는 볼 만합니다."],
+      "hint": "그 경...",
+      "explanation": "景色などをすすめるとき「-ㄹ 만하다」を用います。"
+    },
+    {
+      "id": "qt_expression_009_10",
+      "order": 10,
+      "japanese": "この椅子は座るのにいいです。",
+      "korean": "이 의자는 앉을 만해요.",
+      "alternativeAnswers": ["이 의자는 앉을 만합니다."],
+      "hint": "이 의자...",
+      "explanation": "無理なくできる程度を表す「-ㄹ 만하다」です。"
+    }
+  ]
+}

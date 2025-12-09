@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_019",
+  "grammarTitle": "규칙용언 제Ⅲ어기",
+  "grammarSubtitle": "規則用言の第Ⅲ語基活用",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_019_01",
+      "order": 1,
+      "japanese": "何を食べますか？",
+      "korean": "뭐 먹어요?",
+      "alternativeAnswers": ["뭐 먹습니까?"],
+      "hint": "뭐...",
+      "explanation": "陰母音語幹「먹」に「-어요」を付けた第Ⅲ語基の丁寧疑問です。"
+    },
+    {
+      "id": "qt_conjugation_019_02",
+      "order": 2,
+      "japanese": "どこに行きますか？",
+      "korean": "어디에 가요?",
+      "alternativeAnswers": ["어디에 갑니까?"],
+      "hint": "어디에...",
+      "explanation": "陽母音語幹「가」に「-아요」を付けて「가요」と縮約しています。"
+    },
+    {
+      "id": "qt_conjugation_019_03",
+      "order": 3,
+      "japanese": "昨日映画を見ました。",
+      "korean": "어제 영화를 봤어요.",
+      "alternativeAnswers": ["어제 영화를 봤습니다."],
+      "hint": "어제...",
+      "explanation": "「보다」はㅗ+아→ㅘ の縮約で「봐요」、過去は「봤어요」と活用します。"
+    },
+    {
+      "id": "qt_conjugation_019_04",
+      "order": 4,
+      "japanese": "宿題をしました。",
+      "korean": "숙제를 했어요.",
+      "alternativeAnswers": ["숙제를 했습니다."],
+      "hint": "숙제를...",
+      "explanation": "하다用言は 하여→해 となり過去は「했어요」となります。"
+    },
+    {
+      "id": "qt_conjugation_019_05",
+      "order": 5,
+      "japanese": "お腹が空いてご飯を食べました。",
+      "korean": "배가 고파서 밥을 먹었어요.",
+      "alternativeAnswers": ["배가 고파서 밥을 먹었습니다."],
+      "hint": "배가...",
+      "explanation": "理由の「-아서/어서」も第Ⅲ語基で、陽母音「고프다」は「고파서」となります。"
+    },
+    {
+      "id": "qt_conjugation_019_06",
+      "order": 6,
+      "japanese": "嬉しくて笑いました。",
+      "korean": "기뻐서 웃었어요.",
+      "alternativeAnswers": ["기뻐서 웃었습니다."],
+      "hint": "기뻐서...",
+      "explanation": "陰母音語幹「기쁘」は「-어서」を取り「기뻐서」、過去は「웃었어요」です。"
+    },
+    {
+      "id": "qt_conjugation_019_07",
+      "order": 7,
+      "japanese": "韓国語を習います。",
+      "korean": "한국어를 배워요.",
+      "alternativeAnswers": ["한국어를 배웁니다."],
+      "hint": "한국어를...",
+      "explanation": "「배우다」はㅜ+어→ㅝで縮約し「배워요」となります。"
+    },
+    {
+      "id": "qt_conjugation_019_08",
+      "order": 8,
+      "japanese": "本を読んでいます。",
+      "korean": "책을 읽어요.",
+      "alternativeAnswers": ["책을 읽습니다."],
+      "hint": "책을...",
+      "explanation": "陰母音語幹「읽」は「-어요」と結合し「읽어요」となります。"
+    },
+    {
+      "id": "qt_conjugation_019_09",
+      "order": 9,
+      "japanese": "暖かいので散歩します。",
+      "korean": "따뜻해서 산책해요.",
+      "alternativeAnswers": [],
+      "hint": "따뜻해서...",
+      "explanation": "形容詞も第Ⅲ語基で「-아서/어서」を取り「따뜻해서」と理由を表します。"
+    },
+    {
+      "id": "qt_conjugation_019_10",
+      "order": 10,
+      "japanese": "何をしますか？",
+      "korean": "뭘 해요?",
+      "alternativeAnswers": ["뭘 합니까?"],
+      "hint": "뭘...",
+      "explanation": "하다用言の第Ⅲ語基は「해」で、丁寧疑問「-요」と結合します。"
+    }
+  ]
+}

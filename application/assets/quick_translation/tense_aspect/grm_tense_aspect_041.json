@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_041",
+  "grammarTitle": "-곤 하다",
+  "grammarSubtitle": "習慣・反復（よく〜する）",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_041_01",
+      "order": 1,
+      "japanese": "週末にはよく散歩します。",
+      "korean": "주말이면 산책을 하곤 해요.",
+      "alternativeAnswers": [
+        "주말이면 산책을 하곤 합니다."
+      ],
+      "hint": "주말이면...",
+      "explanation": "繰り返す習慣的行動を「-곤 하다」で表します。"
+    },
+    {
+      "id": "qt_tense_aspect_041_02",
+      "order": 2,
+      "japanese": "疲れるとコーヒーをよく飲みます。",
+      "korean": "피곤하면 커피를 마시곤 해요.",
+      "alternativeAnswers": [
+        "피곤하면 커피를 마시곤 합니다."
+      ],
+      "hint": "피곤하면...",
+      "explanation": "条件のたびに繰り返す習慣を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_041_03",
+      "order": 3,
+      "japanese": "夜遅くまでよく勉強します。",
+      "korean": "밤늦게까지 공부하곤 해요.",
+      "alternativeAnswers": [
+        "밤늦게까지 공부하곤 합니다."
+      ],
+      "hint": "밤늦게까지...",
+      "explanation": "反復する行動を語るときに用います。"
+    },
+    {
+      "id": "qt_tense_aspect_041_04",
+      "order": 4,
+      "japanese": "冬になると風邪をひきがちです。",
+      "korean": "겨울이면 감기에 걸리곤 해요.",
+      "alternativeAnswers": [
+        "겨울이면 감기에 걸리곤 합니다."
+      ],
+      "hint": "겨울이면...",
+      "explanation": "時期ごとに起こる習慣的な傾向を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_041_05",
+      "order": 5,
+      "japanese": "雨の日は本をよく読みます。",
+      "korean": "비 오는 날에는 책을 읽곤 해요.",
+      "alternativeAnswers": [
+        "비 오는 날에는 책을 읽곤 합니다."
+      ],
+      "hint": "비 오는...",
+      "explanation": "特定の状況で繰り返す行為を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_041_06",
+      "order": 6,
+      "japanese": "寝る前によく音楽を聴きます。",
+      "korean": "자기 전에 음악을 듣곤 해요.",
+      "alternativeAnswers": [
+        "자기 전에 음악을 듣곤 합니다."
+      ],
+      "hint": "자기 전에...",
+      "explanation": "習慣的に行う前置き行動を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_041_07",
+      "order": 7,
+      "japanese": "週末に家をよく掃除します。",
+      "korean": "주말에 집을 청소하곤 해요.",
+      "alternativeAnswers": [
+        "주말에 집을 청소하곤 합니다."
+      ],
+      "hint": "주말에...",
+      "explanation": "定期的に繰り返す行為を述べます。"
+    },
+    {
+      "id": "qt_tense_aspect_041_08",
+      "order": 8,
+      "japanese": "友だちに会ってよく話します。",
+      "korean": "친구를 만나서 이야기하곤 해요.",
+      "alternativeAnswers": [
+        "친구를 만나서 이야기하곤 합니다."
+      ],
+      "hint": "친구를...",
+      "explanation": "習慣的によくする行動を表す用法です。"
+    },
+    {
+      "id": "qt_tense_aspect_041_09",
+      "order": 9,
+      "japanese": "バスに乗ると窓の外をよく見ます。",
+      "korean": "버스를 타면 창밖을 보곤 해요.",
+      "alternativeAnswers": [
+        "버스를 타면 창밖을 보곤 합니다."
+      ],
+      "hint": "버스를...",
+      "explanation": "特定の場面でいつもする行為を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_041_10",
+      "order": 10,
+      "japanese": "子どものころその歌をよく聴きました。",
+      "korean": "어릴 때 그 노래를 듣곤 했어요.",
+      "alternativeAnswers": [
+        "어릴 때 그 노래를 듣곤 했습니다."
+      ],
+      "hint": "어릴 때...",
+      "explanation": "過去によく繰り返した習慣を回想する形です。"
+    }
+  ]
+}

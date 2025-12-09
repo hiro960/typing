@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_word_formation_024",
+  "grammarTitle": "파생 명사",
+  "grammarSubtitle": "用言から派生した名詞",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_024_01",
+      "order": 1,
+      "japanese": "遊びが好きです。",
+      "korean": "놀이가 좋아요.",
+      "alternativeAnswers": [],
+      "hint": "놀이...",
+      "explanation": "動詞「놀다」に接尾辞-이を付けて作る名詞「놀이」の用例です。"
+    },
+    {
+      "id": "qt_word_formation_024_02",
+      "order": 2,
+      "japanese": "餌をあげます。",
+      "korean": "먹이를 줘요.",
+      "alternativeAnswers": [],
+      "hint": "먹이를...",
+      "explanation": "「먹다」＋-이でできた名詞「먹이」を使い餌を表します。"
+    },
+    {
+      "id": "qt_word_formation_024_03",
+      "order": 3,
+      "japanese": "読みの試験があります。",
+      "korean": "읽기 시험이 있어요.",
+      "alternativeAnswers": [],
+      "hint": "읽기...",
+      "explanation": "-기で派生した名詞が科目名として使われる例です。"
+    },
+    {
+      "id": "qt_word_formation_024_04",
+      "order": 4,
+      "japanese": "書く練習をします。",
+      "korean": "쓰기 연습을 해요.",
+      "alternativeAnswers": [],
+      "hint": "쓰기...",
+      "explanation": "「쓰다」に-기を付けた名詞を用い練習対象を示します。"
+    },
+    {
+      "id": "qt_word_formation_024_05",
+      "order": 5,
+      "japanese": "聞き取りが難しいです。",
+      "korean": "듣기는 어려워요.",
+      "alternativeAnswers": [],
+      "hint": "듣기는...",
+      "explanation": "-기派生名詞を主語にし技能の難しさを表現します。"
+    },
+    {
+      "id": "qt_word_formation_024_06",
+      "order": 6,
+      "japanese": "話す時間が短いです。",
+      "korean": "말하기 시간이 짧아요.",
+      "alternativeAnswers": [],
+      "hint": "말하기...",
+      "explanation": "派生名詞「말하기」を用い話す時間を数えています。"
+    },
+    {
+      "id": "qt_word_formation_024_07",
+      "order": 7,
+      "japanese": "走る競走があります。",
+      "korean": "달리기 경기가 있어요.",
+      "alternativeAnswers": [],
+      "hint": "달리기...",
+      "explanation": "「달리다」＋-기で作る名詞を競技名として用いた例です。"
+    },
+    {
+      "id": "qt_word_formation_024_08",
+      "order": 8,
+      "japanese": "歩きは運動になります。",
+      "korean": "걷기는 운동이 돼요.",
+      "alternativeAnswers": [],
+      "hint": "걷기는...",
+      "explanation": "-기派生名詞を主語にし歩くこと自体を取り上げています。"
+    },
+    {
+      "id": "qt_word_formation_024_09",
+      "order": 9,
+      "japanese": "作り方の授業を受けます。",
+      "korean": "만들기 수업을 들어요.",
+      "alternativeAnswers": [],
+      "hint": "만들기...",
+      "explanation": "「만들다」に-기を付けた名詞で工作の授業を指します。"
+    },
+    {
+      "id": "qt_word_formation_024_10",
+      "order": 10,
+      "japanese": "遊ぶことは楽しいです。",
+      "korean": "놀기는 재미있어요.",
+      "alternativeAnswers": [],
+      "hint": "놀기는...",
+      "explanation": "動詞を-기で名詞化し行為そのものが楽しいと述べます。"
+    }
+  ]
+}

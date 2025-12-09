@@ -1,0 +1,100 @@
+{
+  "grammarRef": "grm_word_formation_016",
+  "grammarTitle": "이미",
+  "grammarSubtitle": "時間副詞（すでに）",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_016_01",
+      "order": 1,
+      "japanese": "すでに食べました。",
+      "korean": "이미 먹었어요.",
+      "alternativeAnswers": [],
+      "hint": "이미...",
+      "explanation": "完了した事実に付け「すでに食べた」と過去完了を示します。"
+    },
+    {
+      "id": "qt_word_formation_016_02",
+      "order": 2,
+      "japanese": "すでに出発しました。",
+      "korean": "이미 출발했어요.",
+      "alternativeAnswers": [],
+      "hint": "이미...",
+      "explanation": "動作が終わったことを知らせる時間副詞です。"
+    },
+    {
+      "id": "qt_word_formation_016_03",
+      "order": 3,
+      "japanese": "すでに知っています。",
+      "korean": "이미 알아요.",
+      "alternativeAnswers": [],
+      "hint": "이미...",
+      "explanation": "情報を前から持っているとき「이미 알아요」と言います。"
+    },
+    {
+      "id": "qt_word_formation_016_04",
+      "order": 4,
+      "japanese": "すでに終わりました。",
+      "korean": "이미 끝났어요.",
+      "alternativeAnswers": [],
+      "hint": "이미...",
+      "explanation": "完了の動詞の前に置き「もう終わった」を表現します。"
+    },
+    {
+      "id": "qt_word_formation_016_05",
+      "order": 5,
+      "japanese": "すでに宿題をしました。",
+      "korean": "이미 숙제했어요.",
+      "alternativeAnswers": [
+        "이미 숙제를 했어요."
+      ],
+      "hint": "이미...",
+      "explanation": "名詞＋하다型にも付けて「もう宿題した」と言います。"
+    },
+    {
+      "id": "qt_word_formation_016_06",
+      "order": 6,
+      "japanese": "すでに買いました。",
+      "korean": "이미 샀어요.",
+      "alternativeAnswers": [],
+      "hint": "이미...",
+      "explanation": "購入を終えた事実を伝えるときに用います。"
+    },
+    {
+      "id": "qt_word_formation_016_07",
+      "order": 7,
+      "japanese": "すでに来ました。",
+      "korean": "이미 왔어요.",
+      "alternativeAnswers": [],
+      "hint": "이미...",
+      "explanation": "到着済みであることを短く知らせます。"
+    },
+    {
+      "id": "qt_word_formation_016_08",
+      "order": 8,
+      "japanese": "すでに話しました。",
+      "korean": "이미 말했어요.",
+      "alternativeAnswers": [],
+      "hint": "이미...",
+      "explanation": "発話を終えた事実に「이미」を付けて強調します。"
+    },
+    {
+      "id": "qt_word_formation_016_09",
+      "order": 9,
+      "japanese": "すでに決めました。",
+      "korean": "이미 정했어요.",
+      "alternativeAnswers": [],
+      "hint": "이미...",
+      "explanation": "決定済みであることを示す時間副詞の用法です。"
+    },
+    {
+      "id": "qt_word_formation_016_10",
+      "order": 10,
+      "japanese": "すでに予約しました。",
+      "korean": "이미 예약했어요.",
+      "alternativeAnswers": [],
+      "hint": "이미...",
+      "explanation": "完了済みの予約を伝えるとき「이미」を添えます。"
+    }
+  ]
+}

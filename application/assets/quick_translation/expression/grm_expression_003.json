@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_003",
+  "grammarTitle": "-(으)ㄴ/는 것 같다",
+  "grammarSubtitle": "推測・婉曲（〜のようだ）",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_003_01",
+      "order": 1,
+      "japanese": "雨が降っていそうです。",
+      "korean": "비가 오는 것 같아요.",
+      "alternativeAnswers": ["비가 오는 것 같습니다."],
+      "hint": "비가...",
+      "explanation": "進行中の動作の推測は「-는 것 같다」で言います。"
+    },
+    {
+      "id": "qt_expression_003_02",
+      "order": 2,
+      "japanese": "彼は今忙しいようです。",
+      "korean": "그는 지금 바쁜 것 같아요.",
+      "alternativeAnswers": ["그는 지금 바쁜 것 같습니다."],
+      "hint": "그는...",
+      "explanation": "形容詞は「-은 것 같다」で様子を推測します。"
+    },
+    {
+      "id": "qt_expression_003_03",
+      "order": 3,
+      "japanese": "この映画は面白そうです。",
+      "korean": "이 영화가 재미있는 것 같아요.",
+      "alternativeAnswers": ["이 영화가 재미있는 것 같습니다."],
+      "hint": "이 영화...",
+      "explanation": "現在の性質の推測にも「-는 것 같다」を使います。"
+    },
+    {
+      "id": "qt_expression_003_04",
+      "order": 4,
+      "japanese": "彼女は韓国人のようです。",
+      "korean": "그녀는 한국 사람인 것 같아요.",
+      "alternativeAnswers": ["그녀는 한국 사람인 것 같습니다."],
+      "hint": "그녀는...",
+      "explanation": "名詞の推測は「-인 것 같다」で表します。"
+    },
+    {
+      "id": "qt_expression_003_05",
+      "order": 5,
+      "japanese": "昨日は寒かったようです。",
+      "korean": "어제는 추웠던 것 같아요.",
+      "alternativeAnswers": ["어제는 추웠던 것 같습니다."],
+      "hint": "어제는...",
+      "explanation": "過去の様子を推測するときは「-았/었던 것 같다」を使います。"
+    },
+    {
+      "id": "qt_expression_003_06",
+      "order": 6,
+      "japanese": "彼は怒っているようです。",
+      "korean": "그는 화난 것 같아요.",
+      "alternativeAnswers": ["그는 화난 것 같습니다."],
+      "hint": "그는...",
+      "explanation": "状態を見て推測する言い方に「-은 것 같다」を使います。"
+    },
+    {
+      "id": "qt_expression_003_07",
+      "order": 7,
+      "japanese": "財布を忘れたみたいです。",
+      "korean": "지갑을 잊은 것 같아요.",
+      "alternativeAnswers": ["지갑을 잊은 것 같습니다."],
+      "hint": "지갑을...",
+      "explanation": "過去の動作の推測も「-은 것 같다」で表現します。"
+    },
+    {
+      "id": "qt_expression_003_08",
+      "order": 8,
+      "japanese": "ここは静かなようです。",
+      "korean": "여기는 조용한 것 같아요.",
+      "alternativeAnswers": ["여기는 조용한 것 같습니다."],
+      "hint": "여기는...",
+      "explanation": "性質の推測を婉曲に言うとき「-은 것 같다」を用います。"
+    },
+    {
+      "id": "qt_expression_003_09",
+      "order": 9,
+      "japanese": "今日は人が多いようです。",
+      "korean": "오늘은 사람이 많은 것 같아요.",
+      "alternativeAnswers": ["오늘은 사람이 많은 것 같습니다."],
+      "hint": "오늘은...",
+      "explanation": "観察からの推測に「-는 것 같다」を使います。"
+    },
+    {
+      "id": "qt_expression_003_10",
+      "order": 10,
+      "japanese": "その話は本当のようです。",
+      "korean": "그 이야기는 진짜인 것 같아요.",
+      "alternativeAnswers": ["그 이야기는 진짜인 것 같습니다."],
+      "hint": "그 이야...",
+      "explanation": "名詞の推測は「-인 것 같다」で柔らかく伝えます。"
+    }
+  ]
+}

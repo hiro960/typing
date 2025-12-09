@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_007",
+  "grammarTitle": "-(으)ㄹ 텐데",
+  "grammarSubtitle": "推測・心配（〜だろうから）",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_007_01",
+      "order": 1,
+      "japanese": "雨が降るだろうから傘を持ってください。",
+      "korean": "비가 올 텐데 우산 가져가세요.",
+      "alternativeAnswers": ["비가 올 텐데 우산 가져가십시오."],
+      "hint": "비가...",
+      "explanation": "推測と助言を一緒に言うとき「-ㄹ 텐데」を使います。"
+    },
+    {
+      "id": "qt_expression_007_02",
+      "order": 2,
+      "japanese": "遅くなるだろうから先に行きましょう。",
+      "korean": "늦을 텐데 먼저 가요.",
+      "alternativeAnswers": ["늦을 텐데 먼저 갑시다."],
+      "hint": "늦을...",
+      "explanation": "〜しそうだを前置きにして提案する形です。"
+    },
+    {
+      "id": "qt_expression_007_03",
+      "order": 3,
+      "japanese": "寒いだろうから暖かく着てください。",
+      "korean": "추울 텐데 따뜻하게 입으세요.",
+      "alternativeAnswers": ["추울 텐데 따뜻하게 입으십시오."],
+      "hint": "추울...",
+      "explanation": "推測した状況を理由にして助言するとき使います。"
+    },
+    {
+      "id": "qt_expression_007_04",
+      "order": 4,
+      "japanese": "お腹がすくだろうからご飯を食べましょう。",
+      "korean": "배고플 텐데 밥 먹어요.",
+      "alternativeAnswers": ["배고플 텐데 밥 먹읍시다."],
+      "hint": "배고플...",
+      "explanation": "〜しそうだからと誘うとき「-ㄹ 텐데」を用います。"
+    },
+    {
+      "id": "qt_expression_007_05",
+      "order": 5,
+      "japanese": "試験が明日だろうから早く寝てください。",
+      "korean": "시험이 내일일 텐데 일찍 자요.",
+      "alternativeAnswers": ["시험이 내일일 텐데 일찍 자세요."],
+      "hint": "시험이...",
+      "explanation": "推測する事実を先に言い、その上で助言します。"
+    },
+    {
+      "id": "qt_expression_007_06",
+      "order": 6,
+      "japanese": "彼は知らないだろうから教えてください。",
+      "korean": "그는 모를 텐데 알려 주세요.",
+      "alternativeAnswers": ["그는 모를 텐데 알려 주십시오."],
+      "hint": "그는...",
+      "explanation": "相手が知らないと推測し「-ㄹ 텐데」で理由を示します。"
+    },
+    {
+      "id": "qt_expression_007_07",
+      "order": 7,
+      "japanese": "道が混みそうだから早く出ましょう。",
+      "korean": "길이 막힐 텐데 일찍 나가요.",
+      "alternativeAnswers": ["길이 막힐 텐데 일찍 나갑시다."],
+      "hint": "길이...",
+      "explanation": "そうなりそうだという心配から提案するとき使います。"
+    },
+    {
+      "id": "qt_expression_007_08",
+      "order": 8,
+      "japanese": "眠くなるだろうからコーヒーを飲みましょう。",
+      "korean": "졸릴 텐데 커피 마셔요.",
+      "alternativeAnswers": ["졸릴 텐데 커피 마십시다."],
+      "hint": "졸릴...",
+      "explanation": "近い将来を予想し「-ㄹ 텐데」で理由を述べます。"
+    },
+    {
+      "id": "qt_expression_007_09",
+      "order": 9,
+      "japanese": "彼は家にいないだろうから電話しないでください。",
+      "korean": "그는 집에 없을 텐데 전화하지 마세요.",
+      "alternativeAnswers": ["그는 집에 없을 텐데 전화하지 마십시오."],
+      "hint": "그는...",
+      "explanation": "そうだろうという推測を前置きにして禁止を言います。"
+    },
+    {
+      "id": "qt_expression_007_10",
+      "order": 10,
+      "japanese": "高そうだから別の店を見ましょう。",
+      "korean": "비쌀 텐데 다른 가게를 봐요.",
+      "alternativeAnswers": ["비쌀 텐데 다른 가게를 봅시다."],
+      "hint": "비쌀...",
+      "explanation": "値段を予測して提案する際「-ㄹ 텐데」を使います。"
+    }
+  ]
+}

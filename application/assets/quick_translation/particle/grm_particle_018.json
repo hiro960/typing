@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_018",
+  "grammarTitle": "처럼/같이",
+  "grammarSubtitle": "比況助詞（〜のように）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_018_01",
+      "order": 1,
+      "japanese": "お母さんのように優しいです。",
+      "korean": "엄마처럼 착해요.",
+      "alternativeAnswers": ["엄마같이 착해요."],
+      "hint": "엄마처럼...",
+      "explanation": "比況で性質をなぞらえるとき「처럼/같이」を付けます。"
+    },
+    {
+      "id": "qt_particle_018_02",
+      "order": 2,
+      "japanese": "友達のようによく笑います。",
+      "korean": "친구처럼 잘 웃어요.",
+      "alternativeAnswers": ["친구같이 잘 웃어요."],
+      "hint": "친구처럼...",
+      "explanation": "行動を例える場合も名詞に「처럼/같이」を付けます。"
+    },
+    {
+      "id": "qt_particle_018_03",
+      "order": 3,
+      "japanese": "子どものように走ります。",
+      "korean": "아이처럼 달려요.",
+      "alternativeAnswers": ["아이같이 달려요."],
+      "hint": "아이처럼...",
+      "explanation": "様子や程度を比況する助詞が「처럼/같이」です。"
+    },
+    {
+      "id": "qt_particle_018_04",
+      "order": 4,
+      "japanese": "鳥のように歌います。",
+      "korean": "새처럼 노래해요.",
+      "alternativeAnswers": ["새같이 노래해요."],
+      "hint": "새처럼...",
+      "explanation": "動物などを例に出して様態を表すときに用います。"
+    },
+    {
+      "id": "qt_particle_018_05",
+      "order": 5,
+      "japanese": "春のように暖かいです。",
+      "korean": "봄처럼 따뜻해요.",
+      "alternativeAnswers": ["봄같이 따뜻해요."],
+      "hint": "봄처럼...",
+      "explanation": "季節をたとえにして気温を表現することもできます。"
+    },
+    {
+      "id": "qt_particle_018_06",
+      "order": 6,
+      "japanese": "海のように広いです。",
+      "korean": "바다처럼 넓어요.",
+      "alternativeAnswers": ["바다같이 넓어요."],
+      "hint": "바다처럼...",
+      "explanation": "広さを他のものに例えて述べるときに使います。"
+    },
+    {
+      "id": "qt_particle_018_07",
+      "order": 7,
+      "japanese": "絵のようにきれいです。",
+      "korean": "그림처럼 예뻐요.",
+      "alternativeAnswers": ["그림같이 예뻐요."],
+      "hint": "그림처럼...",
+      "explanation": "外見をたとえ表現する際に「처럼/같이」を付けます。"
+    },
+    {
+      "id": "qt_particle_018_08",
+      "order": 8,
+      "japanese": "風のように早く行きます。",
+      "korean": "바람처럼 빨리 가요.",
+      "alternativeAnswers": ["바람같이 빨리 가요."],
+      "hint": "바람처럼...",
+      "explanation": "速さをたとえるときにも比況助詞を使います。"
+    },
+    {
+      "id": "qt_particle_018_09",
+      "order": 9,
+      "japanese": "家族のように楽です。",
+      "korean": "가족같이 편해요.",
+      "alternativeAnswers": ["가족처럼 편해요."],
+      "hint": "가족같이...",
+      "explanation": "親しさを例える場合「같이」「처럼」どちらも使えます。"
+    },
+    {
+      "id": "qt_particle_018_10",
+      "order": 10,
+      "japanese": "友達のように頑張ります。",
+      "korean": "친구처럼 열심히 할게요.",
+      "alternativeAnswers": ["친구같이 열심히 할게요."],
+      "hint": "친구처럼...",
+      "explanation": "手本にしたい対象に「처럼/같이」を付けて表します。"
+    }
+  ]
+}

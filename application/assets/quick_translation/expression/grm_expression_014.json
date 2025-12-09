@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_014",
+  "grammarTitle": "-(으)ㄹ 정도로",
+  "grammarSubtitle": "〜するほど",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_014_01",
+      "order": 1,
+      "japanese": "足が痛いほど歩きました。",
+      "korean": "발이 아플 정도로 걸었어요.",
+      "alternativeAnswers": ["발이 아플 정도로 걸었습니다."],
+      "hint": "발이...",
+      "explanation": "程度の強さを示すとき「-ㄹ 정도로」を使います。"
+    },
+    {
+      "id": "qt_expression_014_02",
+      "order": 2,
+      "japanese": "とてもお腹が空いて倒れそうです。",
+      "korean": "너무 배고파서 쓰러질 정도예요.",
+      "alternativeAnswers": ["너무 배고파서 쓰러질 정도입니다."],
+      "hint": "너무...",
+      "explanation": "〜しそうなくらいの程度を「-ㄹ 정도로」で表します。"
+    },
+    {
+      "id": "qt_expression_014_03",
+      "order": 3,
+      "japanese": "雨が強くて前が見えないほどです。",
+      "korean": "비が 많이 와서 앞이 안 보일 정도예요.",
+      "alternativeAnswers": ["비가 많이 와서 앞이 안 보일 정도입니다."],
+      "hint": "비가...",
+      "explanation": "結果が出るほどの強さを「-ㄹ 정도로」で示します。"
+    },
+    {
+      "id": "qt_expression_014_04",
+      "order": 4,
+      "japanese": "寒すぎて手が凍るほどです。",
+      "korean": "너무 추워서 손이 얼 정도예요.",
+      "alternativeAnswers": ["너무 추워서 손이 얼 정도입니다."],
+      "hint": "너무...",
+      "explanation": "程度の高さを強調するとき用いる表現です。"
+    },
+    {
+      "id": "qt_expression_014_05",
+      "order": 5,
+      "japanese": "笑いすぎて涙が出るほどです。",
+      "korean": "너무 웃어서 눈물이 날 정도예요.",
+      "alternativeAnswers": ["너무 웃어서 눈물이 날 정도입니다."],
+      "hint": "너무...",
+      "explanation": "ある結果が出るほどの度合いを表します。"
+    },
+    {
+      "id": "qt_expression_014_06",
+      "order": 6,
+      "japanese": "眠すぎて目が開きません。",
+      "korean": "너무 졸려서 눈을 못 뜰 정도예요.",
+      "alternativeAnswers": ["너무 졸려서 눈을 못 뜰 정도입니다."],
+      "hint": "너무...",
+      "explanation": "限界に近い程度を「-ㄹ 정도로」で示します。"
+    },
+    {
+      "id": "qt_expression_014_07",
+      "order": 7,
+      "japanese": "忙しくてご飯を食べる時間もないほどです。",
+      "korean": "바빠서 밥 먹을 시간도 없을 정도예요.",
+      "alternativeAnswers": ["바빠서 밥 먹을 시간도 없을 정도입니다."],
+      "hint": "바빠서...",
+      "explanation": "足りなさの程度を言うときにも使います。"
+    },
+    {
+      "id": "qt_expression_014_08",
+      "order": 8,
+      "japanese": "音楽が大きくて耳が痛いほどです。",
+      "korean": "음악이 커서 귀가 아플 정도예요.",
+      "alternativeAnswers": ["음악이 커서 귀가 아플 정도입니다."],
+      "hint": "음악이...",
+      "explanation": "強さの結果を伴って「-ㄹ 정도로」を用います。"
+    },
+    {
+      "id": "qt_expression_014_09",
+      "order": 9,
+      "japanese": "宿題が多くて眠れないほどです。",
+      "korean": "숙제가 많아서 잠을 못 잘 정도예요.",
+      "alternativeAnswers": ["숙제가 많아서 잠을 못 잘 정도입니다."],
+      "hint": "숙제가...",
+      "explanation": "量が多く他ができない程度を表す形です。"
+    },
+    {
+      "id": "qt_expression_014_10",
+      "order": 10,
+      "japanese": "道が遠くて足が痛いほどです。",
+      "korean": "길이 멀어서 다리가 아플 정도예요.",
+      "alternativeAnswers": ["길이 멀어서 다리가 아플 정도입니다."],
+      "hint": "길이...",
+      "explanation": "程度を「〜するほど」と示すとき「-ㄹ 정도로」を使います。"
+    }
+  ]
+}

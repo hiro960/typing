@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_034",
+  "grammarTitle": "층/호",
+  "grammarSubtitle": "助数詞（階/号室）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_034_01",
+      "order": 1,
+      "japanese": "部屋は301号です。",
+      "korean": "방은 301호예요.",
+      "alternativeAnswers": ["방은 301호입니다."],
+      "hint": "방은...",
+      "explanation": "号室は 숫자＋호 로表します。"
+    },
+    {
+      "id": "qt_substantive_034_02",
+      "order": 2,
+      "japanese": "私は五階に住みます。",
+      "korean": "저는 5층에 살아요.",
+      "alternativeAnswers": ["저는 5층에 삽니다."],
+      "hint": "저는...",
+      "explanation": "階は 숫자＋층 で\"〜階\"を表します。"
+    },
+    {
+      "id": "qt_substantive_034_03",
+      "order": 3,
+      "japanese": "教室は二階にあります。",
+      "korean": "교실은 2층에 있어요.",
+      "alternativeAnswers": ["교실은 2층에 있습니다."],
+      "hint": "교실...",
+      "explanation": "所在を示すとき 층 に 에 を付けて言います。"
+    },
+    {
+      "id": "qt_substantive_034_04",
+      "order": 4,
+      "japanese": "トイレは三階ですか？",
+      "korean": "화장실이 3층이에요?",
+      "alternativeAnswers": ["화장실이 3층입니까?"],
+      "hint": "화장...",
+      "explanation": "階を尋ねるとき도 숫자＋층 を使います。"
+    },
+    {
+      "id": "qt_substantive_034_05",
+      "order": 5,
+      "japanese": "彼の部屋は1205号です。",
+      "korean": "그 방은 1205호예요.",
+      "alternativeAnswers": ["그 방은 1205호입니다."],
+      "hint": "그 방...",
+      "explanation": "号室を示すとき 숫자 뒤に 호 を付けます。"
+    },
+    {
+      "id": "qt_substantive_034_06",
+      "order": 6,
+      "japanese": "エレベーターで七階に行きます。",
+      "korean": "엘리베이터로 7층에 가요.",
+      "alternativeAnswers": ["엘리베이터로 7층에 갑니다."],
+      "hint": "엘리...",
+      "explanation": "移動先の階も 숫자＋층 で言います。"
+    },
+    {
+      "id": "qt_substantive_034_07",
+      "order": 7,
+      "japanese": "会議室は501号室です。",
+      "korean": "회의실은 501호예요.",
+      "alternativeAnswers": ["회의실은 501호입니다."],
+      "hint": "회의...",
+      "explanation": "部屋番号は ホ を付けて表します。"
+    },
+    {
+      "id": "qt_substantive_034_08",
+      "order": 8,
+      "japanese": "何階にありますか？",
+      "korean": "몇 층에 있어요?",
+      "alternativeAnswers": ["몇 층에 있습니까?"],
+      "hint": "몇 층...",
+      "explanation": "몇 층 で階数を尋ねます。"
+    },
+    {
+      "id": "qt_substantive_034_09",
+      "order": 9,
+      "japanese": "部屋番号は何番ですか？",
+      "korean": "몇 호예요?",
+      "alternativeAnswers": ["몇 호입니까?"],
+      "hint": "몇 호...",
+      "explanation": "호 を付けて部屋番号を質問します。"
+    },
+    {
+      "id": "qt_substantive_034_10",
+      "order": 10,
+      "japanese": "上の階は九階です。",
+      "korean": "위층은 9층이에요.",
+      "alternativeAnswers": ["위층은 9층입니다."],
+      "hint": "위층...",
+      "explanation": "층 を重ねて別の階を説明できます。"
+    }
+  ]
+}

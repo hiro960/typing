@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_040",
+  "grammarTitle": "-도록 하다",
+  "grammarSubtitle": "〜するようにする",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_040_01",
+      "order": 1,
+      "japanese": "遅れないようにしてください。",
+      "korean": "늦지 않도록 하세요.",
+      "alternativeAnswers": [
+        "늦지 않도록 하십시오."
+      ],
+      "hint": "늦지...",
+      "explanation": "相手に行動を促し「〜するように」と指示するときに使います。"
+    },
+    {
+      "id": "qt_tense_aspect_040_02",
+      "order": 2,
+      "japanese": "薬を必ず飲むようにしてください。",
+      "korean": "약을 꼭 먹도록 하세요.",
+      "alternativeAnswers": [
+        "약을 꼭 먹도록 하십시오."
+      ],
+      "hint": "약을...",
+      "explanation": "実行を求める依頼として「-도록 하다」を用います。"
+    },
+    {
+      "id": "qt_tense_aspect_040_03",
+      "order": 3,
+      "japanese": "安全ベルトを締めるようにしてください。",
+      "korean": "안전벨트를 매도록 하세요.",
+      "alternativeAnswers": [
+        "안전벨트를 매도록 하십시오."
+      ],
+      "hint": "안전벨트를...",
+      "explanation": "習慣化すべき行為を促すときの表現です。"
+    },
+    {
+      "id": "qt_tense_aspect_040_04",
+      "order": 4,
+      "japanese": "ゴミは分けて捨てるようにしてください。",
+      "korean": "쓰레기는 분리해서 버리도록 하세요.",
+      "alternativeAnswers": [
+        "쓰레기는 분리해서 버리도록 하십시오."
+      ],
+      "hint": "쓰레기는...",
+      "explanation": "守るべき行動の実行を促す命令表現です。"
+    },
+    {
+      "id": "qt_tense_aspect_040_05",
+      "order": 5,
+      "japanese": "毎日運動するようにしてください。",
+      "korean": "매일 운동하도록 하세요.",
+      "alternativeAnswers": [
+        "매일 운동하도록 하십시오."
+      ],
+      "hint": "매일...",
+      "explanation": "継続的な実践を求めるときに使います。"
+    },
+    {
+      "id": "qt_tense_aspect_040_06",
+      "order": 6,
+      "japanese": "静かにするようにしてください。",
+      "korean": "조용히 하도록 하세요.",
+      "alternativeAnswers": [
+        "조용히 하도록 하십시오."
+      ],
+      "hint": "조용하도록...",
+      "explanation": "相手に望む状態を取らせる依頼表現です。"
+    },
+    {
+      "id": "qt_tense_aspect_040_07",
+      "order": 7,
+      "japanese": "質問があればすぐ言うようにしてください。",
+      "korean": "질문이 있으면 바로 말하도록 하세요.",
+      "alternativeAnswers": [
+        "질문이 있으면 바로 말하도록 하십시오."
+      ],
+      "hint": "질문이...",
+      "explanation": "条件付きで実行を促す際に用います。"
+    },
+    {
+      "id": "qt_tense_aspect_040_08",
+      "order": 8,
+      "japanese": "ドアを閉めるようにしてください。",
+      "korean": "문을 닫도록 하세요.",
+      "alternativeAnswers": [
+        "문을 닫도록 하십시오."
+      ],
+      "hint": "문을...",
+      "explanation": "行為の実施を丁寧に依頼する表現です。"
+    },
+    {
+      "id": "qt_tense_aspect_040_09",
+      "order": 9,
+      "japanese": "よく休むようにしてください。",
+      "korean": "잘 쉬도록 하세요.",
+      "alternativeAnswers": [
+        "잘 쉬도록 하십시오."
+      ],
+      "hint": "잘 쉬...",
+      "explanation": "望ましい行動を取るよう促す言い方です。"
+    },
+    {
+      "id": "qt_tense_aspect_040_10",
+      "order": 10,
+      "japanese": "水をたくさん飲むようにしてください。",
+      "korean": "물을 많이 마시도록 하세요.",
+      "alternativeAnswers": [
+        "물을 많이 마시도록 하십시오."
+      ],
+      "hint": "물을...",
+      "explanation": "健康のために行動を促す際の表現です。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_tense_aspect_013",
+  "grammarTitle": "-이/히/리/기-",
+  "grammarSubtitle": "受身接辞",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_013_01",
+      "order": 1,
+      "japanese": "ドアが閉まりました。",
+      "korean": "문이 닫혔어요.",
+      "alternativeAnswers": ["문이 닫혔습니다."],
+      "hint": "문이...",
+      "explanation": "닫다に受身接辞-히-が付いた닫히다で「閉まる」を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_013_02",
+      "order": 2,
+      "japanese": "窓が開きました。",
+      "korean": "창문이 열렸어요.",
+      "alternativeAnswers": ["창문이 열렸습니다."],
+      "hint": "창문이...",
+      "explanation": "열리다は-리-受身で「開く」意味になります。"
+    },
+    {
+      "id": "qt_tense_aspect_013_03",
+      "order": 3,
+      "japanese": "ご飯が全部食べられました。",
+      "korean": "밥이 다 먹혔어요.",
+      "alternativeAnswers": ["밥이 다 먹혔습니다."],
+      "hint": "밥이...",
+      "explanation": "먹히다は-히-受身で「食べられる」状態を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_013_04",
+      "order": 4,
+      "japanese": "猫が捕まりました。",
+      "korean": "고양이가 잡혔어요.",
+      "alternativeAnswers": ["고양이가 잡혔습니다."],
+      "hint": "고양이가...",
+      "explanation": "잡히다は-히-受身形で「捕まる」を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_013_05",
+      "order": 5,
+      "japanese": "道が混みました。",
+      "korean": "길이 막혔어요.",
+      "alternativeAnswers": ["길이 막혔습니다."],
+      "hint": "길이...",
+      "explanation": "막히다は-히-受身で「塞がる・渋滞する」の意味になります。"
+    },
+    {
+      "id": "qt_tense_aspect_013_06",
+      "order": 6,
+      "japanese": "名前が呼ばれました。",
+      "korean": "이름이 불렸어요.",
+      "alternativeAnswers": ["이름이 불렸습니다."],
+      "hint": "이름이...",
+      "explanation": "부르다の受身불리다は-리-接辞で「呼ばれる」を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_013_07",
+      "order": 7,
+      "japanese": "問題が解けました。",
+      "korean": "문제가 풀렸어요.",
+      "alternativeAnswers": ["문제가 풀렸습니다."],
+      "hint": "문제가...",
+      "explanation": "풀리다は-리-受身形で「解ける」を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_013_08",
+      "order": 8,
+      "japanese": "手紙が読まれました。",
+      "korean": "편지가 읽혔어요.",
+      "alternativeAnswers": ["편지가 읽혔습니다."],
+      "hint": "편지가...",
+      "explanation": "읽히다は-히-受身で「読まれる」意味になります。"
+    },
+    {
+      "id": "qt_tense_aspect_013_09",
+      "order": 9,
+      "japanese": "電話がかかってきました。",
+      "korean": "전화가 걸려 왔어요.",
+      "alternativeAnswers": ["전화가 왔어요.", "전화가 걸려 왔습니다."],
+      "hint": "전화가...",
+      "explanation": "「전화가 걸려 오다」で電話がかかってくる受け身の状況を自然に示します。"
+    },
+    {
+      "id": "qt_tense_aspect_013_10",
+      "order": 10,
+      "japanese": "ドアに鍵がかかりました。",
+      "korean": "문이 잠겼어요.",
+      "alternativeAnswers": ["문이 잠겼습니다."],
+      "hint": "문이...",
+      "explanation": "잠그다の受身잠기다は-기-接辞で「鍵がかかる」を示します。"
+    }
+  ]
+}

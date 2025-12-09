@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_014",
+  "grammarTitle": "에게/한테",
+  "grammarSubtitle": "与格助詞（〜に）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_014_01",
+      "order": 1,
+      "japanese": "友達に手紙を送ります。",
+      "korean": "친구에게 편지를 보내요.",
+      "alternativeAnswers": ["친구한테 편지를 보내요.", "친구에게 편지를 보냅니다."],
+      "hint": "친구에게...",
+      "explanation": "受け手を示すときフォーマルに「에게」、口語で「한테」を使います。"
+    },
+    {
+      "id": "qt_particle_014_02",
+      "order": 2,
+      "japanese": "弟にプレゼントをあげます。",
+      "korean": "동생한테 선물을 줘요.",
+      "alternativeAnswers": ["동생에게 선물을 줘요.", "동생한테 선물을 줍니다."],
+      "hint": "동생한테...",
+      "explanation": "与える相手を示す与格助詞「에게/한테」を付けます。"
+    },
+    {
+      "id": "qt_particle_014_03",
+      "order": 3,
+      "japanese": "子どもに水をあげます。",
+      "korean": "아이에게 물을 줘요.",
+      "alternativeAnswers": ["아이한테 물을 줘요.", "아이에게 물을 줍니다."],
+      "hint": "아이에게...",
+      "explanation": "人や動物など受け手に「에게/한테」を使います。"
+    },
+    {
+      "id": "qt_particle_014_04",
+      "order": 4,
+      "japanese": "お母さんに電話します。",
+      "korean": "엄마한테 전화해요.",
+      "alternativeAnswers": ["엄마에게 전화해요.", "엄마한테 전화합니다."],
+      "hint": "엄마한테...",
+      "explanation": "連絡する相手を表すときも与格助詞を用います。"
+    },
+    {
+      "id": "qt_particle_014_05",
+      "order": 5,
+      "japanese": "誰に話しましたか？",
+      "korean": "누구에게 말했어요?",
+      "alternativeAnswers": ["누구한테 말했어요?", "누구에게 말했습니까?"],
+      "hint": "누구에게...",
+      "explanation": "疑問詞と一緒でも受け手を示すため「에게/한테」を付けます。"
+    },
+    {
+      "id": "qt_particle_014_06",
+      "order": 6,
+      "japanese": "友達に頼みます。",
+      "korean": "친구에게 부탁해요.",
+      "alternativeAnswers": ["친구한테 부탁해요.", "친구에게 부탁합니다."],
+      "hint": "친구에게...",
+      "explanation": "依頼の対象も人なので与格助詞を使用します。"
+    },
+    {
+      "id": "qt_particle_014_07",
+      "order": 7,
+      "japanese": "犬にご飯をあげます。",
+      "korean": "강아지에게 밥을 줘요.",
+      "alternativeAnswers": ["강아지한테 밥을 줘요.", "강아지에게 밥을 줍니다."],
+      "hint": "강아지에게...",
+      "explanation": "動物にも受け手として「에게/한테」を使えます。"
+    },
+    {
+      "id": "qt_particle_014_08",
+      "order": 8,
+      "japanese": "兄に聞いてみてください。",
+      "korean": "형한테 물어보세요.",
+      "alternativeAnswers": ["형에게 물어보세요.", "형한테 물어보십시오."],
+      "hint": "형한테...",
+      "explanation": "質問の相手を示す際にも与格を使います。"
+    },
+    {
+      "id": "qt_particle_014_09",
+      "order": 9,
+      "japanese": "友達にメッセージを送ります。",
+      "korean": "친구들에게 메시지를 보내요.",
+      "alternativeAnswers": ["친구들한테 메시지를 보내요.", "친구들에게 메시지를 보냅니다."],
+      "hint": "친구들에게...",
+      "explanation": "複数の受け手にも同じく「에게/한테」を付けます。"
+    },
+    {
+      "id": "qt_particle_014_10",
+      "order": 10,
+      "japanese": "おばあさんに花を差し上げます。",
+      "korean": "할머니에게 꽃을 드려요.",
+      "alternativeAnswers": ["할머니한테 꽃을 드려요.", "할머니에게 꽃을 드립니다."],
+      "hint": "할머니에게...",
+      "explanation": "目上でも丁寧な動詞と合わせて受け手を「에게」で示します。"
+    }
+  ]
+}

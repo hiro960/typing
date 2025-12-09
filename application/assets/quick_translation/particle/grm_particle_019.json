@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_019",
+  "grammarTitle": "마다",
+  "grammarSubtitle": "毎〜助詞（〜ごと）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_019_01",
+      "order": 1,
+      "japanese": "朝ごとに運動します。",
+      "korean": "아침마다 운동해요.",
+      "alternativeAnswers": ["아침마다 운동합니다."],
+      "hint": "아침마다...",
+      "explanation": "反復する時点に「마다」を付けて『〜ごと』を表します。"
+    },
+    {
+      "id": "qt_particle_019_02",
+      "order": 2,
+      "japanese": "週末ごとに友達に会います。",
+      "korean": "주말마다 친구를 만나요.",
+      "alternativeAnswers": ["주말마다 친구를 만납니다."],
+      "hint": "주말마다...",
+      "explanation": "繰り返す期間名詞に「마다」を付けます。"
+    },
+    {
+      "id": "qt_particle_019_03",
+      "order": 3,
+      "japanese": "月ごとに本を買います。",
+      "korean": "달마다 책을 사요.",
+      "alternativeAnswers": ["달마다 책을 삽니다."],
+      "hint": "달마다...",
+      "explanation": "規則的な回数を示すとき「마다」で頻度を表します。"
+    },
+    {
+      "id": "qt_particle_019_04",
+      "order": 4,
+      "japanese": "人それぞれ考えが違います。",
+      "korean": "사람마다 생각이 달라요.",
+      "alternativeAnswers": ["사람마다 생각이 다릅니다."],
+      "hint": "사람마다...",
+      "explanation": "個別性を示すとき各名詞に「마다」を付けます。"
+    },
+    {
+      "id": "qt_particle_019_05",
+      "order": 5,
+      "japanese": "部屋ごとに窓があります。",
+      "korean": "방마다 창문이 있어요.",
+      "alternativeAnswers": ["방마다 창문이 있습니다."],
+      "hint": "방마다...",
+      "explanation": "場所ごとの繰り返しにも「마다」を使えます。"
+    },
+    {
+      "id": "qt_particle_019_06",
+      "order": 6,
+      "japanese": "時間ごとに休みます。",
+      "korean": "시간마다 쉬어요.",
+      "alternativeAnswers": ["시간마다 쉽니다."],
+      "hint": "시간마다...",
+      "explanation": "一定間隔での行動を表すとき「마다」を用います。"
+    },
+    {
+      "id": "qt_particle_019_07",
+      "order": 7,
+      "japanese": "学生ごとに宿題が違います。",
+      "korean": "학생마다 숙제가 달라요.",
+      "alternativeAnswers": ["학생마다 숙제가 다릅니다."],
+      "hint": "학생마다...",
+      "explanation": "各人に異なる状況を示すときに「마다」を付けます。"
+    },
+    {
+      "id": "qt_particle_019_08",
+      "order": 8,
+      "japanese": "季節ごとに服を替えます。",
+      "korean": "계절마다 옷을 바꿔요.",
+      "alternativeAnswers": ["계절마다 옷을 바꿉니다."],
+      "hint": "계절마다...",
+      "explanation": "周期的に変えることを示す助詞が「마다」です。"
+    },
+    {
+      "id": "qt_particle_019_09",
+      "order": 9,
+      "japanese": "日ごとに手紙を書きます。",
+      "korean": "날마다 편지를 써요.",
+      "alternativeAnswers": ["날마다 편지를 씁니다."],
+      "hint": "날마다...",
+      "explanation": "ほぼ毎日を表すとき「날마다」もよく使います。"
+    },
+    {
+      "id": "qt_particle_019_10",
+      "order": 10,
+      "japanese": "バスごとに色が違います。",
+      "korean": "버스마다 색이 달라요.",
+      "alternativeAnswers": ["버스마다 색이 다릅니다."],
+      "hint": "버스마다...",
+      "explanation": "物ごとに違いを述べる場合も各名詞に「마다」を付けます。"
+    }
+  ]
+}

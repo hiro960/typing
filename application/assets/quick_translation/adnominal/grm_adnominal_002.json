@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_adnominal_002",
+  "grammarTitle": "-는",
+  "grammarSubtitle": "動詞現在連体形",
+  "category": "adnominal",
+  "questions": [
+    {
+      "id": "qt_adnominal_002_01",
+      "order": 1,
+      "japanese": "勉強している学生です。",
+      "korean": "공부하는 학생이에요.",
+      "alternativeAnswers": ["공부하는 학생입니다."],
+      "hint": "공부하...",
+      "explanation": "動詞現在形で今行う動作を名詞にかけます。"
+    },
+    {
+      "id": "qt_adnominal_002_02",
+      "order": 2,
+      "japanese": "走っている子どもを見ます。",
+      "korean": "달리는 아이를 봐요.",
+      "alternativeAnswers": ["달리는 아이를 봅니다."],
+      "hint": "달리는...",
+      "explanation": "現在進行の動作を -는 で名詞を修飾します。"
+    },
+    {
+      "id": "qt_adnominal_002_03",
+      "order": 3,
+      "japanese": "歌っている友達がいます。",
+      "korean": "노래하는 친구가 있어요.",
+      "alternativeAnswers": ["노래하는 친구가 있습니다."],
+      "hint": "노래하...",
+      "explanation": "今行っている動作を説明する連体形です。"
+    },
+    {
+      "id": "qt_adnominal_002_04",
+      "order": 4,
+      "japanese": "料理している人を手伝います。",
+      "korean": "요리하는 사람을 도와요.",
+      "alternativeAnswers": ["요리하는 사람을 돕습니다."],
+      "hint": "요리하...",
+      "explanation": "動作主が現在している行為を示します。"
+    },
+    {
+      "id": "qt_adnominal_002_05",
+      "order": 5,
+      "japanese": "笑っている顔がきれいです。",
+      "korean": "웃는 얼굴이 예뻐요.",
+      "alternativeAnswers": ["웃는 얼굴이 예쁩니다."],
+      "hint": "웃는...",
+      "explanation": "現在の状態としての動作を名詞にかけます。"
+    },
+    {
+      "id": "qt_adnominal_002_06",
+      "order": 6,
+      "japanese": "雨が降っている街です。",
+      "korean": "비가 오는 도시예요.",
+      "alternativeAnswers": ["비가 오는 도시입니다."],
+      "hint": "비가...",
+      "explanation": "進行中の状況を連体形で表します。"
+    },
+    {
+      "id": "qt_adnominal_002_07",
+      "order": 7,
+      "japanese": "いつも遅れるバスです。",
+      "korean": "자주 늦는 버스예요.",
+      "alternativeAnswers": ["자주 늦는 버스입니다."],
+      "hint": "자주...",
+      "explanation": "習慣的に起こる現在の性質も -는 を使います。"
+    },
+    {
+      "id": "qt_adnominal_002_08",
+      "order": 8,
+      "japanese": "通っている会社が遠いです。",
+      "korean": "다니는 회사가 멀어요.",
+      "alternativeAnswers": ["다니는 회사가 멉니다."],
+      "hint": "다니는...",
+      "explanation": "現在通う場所など継続動作を修飾します。"
+    },
+    {
+      "id": "qt_adnominal_002_09",
+      "order": 9,
+      "japanese": "ここに住んでいる先生です。",
+      "korean": "여기 사는 선생님이에요.",
+      "alternativeAnswers": ["여기 사는 선생님입니다."],
+      "hint": "여기...",
+      "explanation": "住んでいる継続状態を連体形で示します。"
+    },
+    {
+      "id": "qt_adnominal_002_10",
+      "order": 10,
+      "japanese": "勉強している時間が長いです。",
+      "korean": "공부하는 시간이 길어요.",
+      "alternativeAnswers": ["공부하는 시간이 깁니다."],
+      "hint": "공부하...",
+      "explanation": "現在行う動作の時間を名詞化して述べます。"
+    }
+  ]
+}

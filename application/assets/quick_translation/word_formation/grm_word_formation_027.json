@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_word_formation_027",
+  "grammarTitle": "고유어 접미사",
+  "grammarSubtitle": "固有語の接尾辞",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_027_01",
+      "order": 1,
+      "japanese": "笑顔が愛らしいです。",
+      "korean": "웃음이 사랑스러워요.",
+      "alternativeAnswers": [],
+      "hint": "웃음이...",
+      "explanation": "名詞に接尾辞「-스럽다」を付けて愛らしい様子を表します。"
+    },
+    {
+      "id": "qt_word_formation_027_02",
+      "order": 2,
+      "japanese": "言い方が自然です。",
+      "korean": "말이 자연스러워요.",
+      "alternativeAnswers": [],
+      "hint": "말이...",
+      "explanation": "「자연스럽다」で自然な感じを示す-스럽다の用法です。"
+    },
+    {
+      "id": "qt_word_formation_027_03",
+      "order": 3,
+      "japanese": "本当に申し訳ないです。",
+      "korean": "정말 죄송스러워요.",
+      "alternativeAnswers": [],
+      "hint": "정말...",
+      "explanation": "謝罪の気持ちを「죄송스럽다」で表し接尾辞の意味を示します。"
+    },
+    {
+      "id": "qt_word_formation_027_04",
+      "order": 4,
+      "japanese": "子どもらしく元気です。",
+      "korean": "아이답게 잘 놀아요.",
+      "alternativeAnswers": [],
+      "hint": "아이답게...",
+      "explanation": "接尾辞「-답게」で「子どもらしく」という様態を作ります。"
+    },
+    {
+      "id": "qt_word_formation_027_05",
+      "order": 5,
+      "japanese": "学生らしい服です。",
+      "korean": "학생다운 옷이에요.",
+      "alternativeAnswers": [],
+      "hint": "학생다운...",
+      "explanation": "名詞に-답다を付け特徴的な様子「学生らしい」を表現します。"
+    },
+    {
+      "id": "qt_word_formation_027_06",
+      "order": 6,
+      "japanese": "男らしい声です。",
+      "korean": "남자다운 목소리예요.",
+      "alternativeAnswers": [],
+      "hint": "남자다운...",
+      "explanation": "-답다で名詞のらしさを表し「男らしい声」と言います。"
+    },
+    {
+      "id": "qt_word_formation_027_07",
+      "order": 7,
+      "japanese": "大人らしく行動します。",
+      "korean": "어른답게 행동해요.",
+      "alternativeAnswers": [],
+      "hint": "어른답게...",
+      "explanation": "-답게で大人らしい態度を示し行動の様子を表します。"
+    },
+    {
+      "id": "qt_word_formation_027_08",
+      "order": 8,
+      "japanese": "親を誇りに思います。",
+      "korean": "부모님이 자랑스러워요.",
+      "alternativeAnswers": [],
+      "hint": "부모님이...",
+      "explanation": "-스럽다で感情を形容し「誇らしい」と言います。"
+    },
+    {
+      "id": "qt_word_formation_027_09",
+      "order": 9,
+      "japanese": "その話が心配です。",
+      "korean": "그 이야기가 걱정스러워요.",
+      "alternativeAnswers": [],
+      "hint": "그 이야기가...",
+      "explanation": "不安を表す「걱정스럽다」で心配な気持ちを示します。"
+    },
+    {
+      "id": "qt_word_formation_027_10",
+      "order": 10,
+      "japanese": "彼女は愛らしい人です。",
+      "korean": "그녀는 사랑스러운 사람이에요.",
+      "alternativeAnswers": [],
+      "hint": "그녀는...",
+      "explanation": "-스러운形で名詞を修飾し「愛らしい人」を作る例です。"
+    }
+  ]
+}

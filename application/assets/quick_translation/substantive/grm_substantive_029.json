@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_029",
+  "grammarTitle": "켤레",
+  "grammarSubtitle": "助数詞（足/組：靴・靴下など）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_029_01",
+      "order": 1,
+      "japanese": "靴を一足買いました。",
+      "korean": "신발 한 켤레 샀어요.",
+      "alternativeAnswers": [],
+      "hint": "신발...",
+      "explanation": "靴や靴下は 助数詞 켤레 로 셉니다."
+    },
+    {
+      "id": "qt_substantive_029_02",
+      "order": 2,
+      "japanese": "靴下が二足あります。",
+      "korean": "양말 두 켤레 있어요.",
+      "alternativeAnswers": [],
+      "hint": "양말 두...",
+      "explanation": "양말 は 켤레 と 함께 세요."
+    },
+    {
+      "id": "qt_substantive_029_03",
+      "order": 3,
+      "japanese": "スリッパを三足準備しました。",
+      "korean": "슬리퍼 세 켤레 준비했어요.",
+      "alternativeAnswers": [],
+      "hint": "슬리퍼...",
+      "explanation": "室内履きも 켤레 로 수량을 말します."
+    },
+    {
+      "id": "qt_substantive_029_04",
+      "order": 4,
+      "japanese": "革靴を四足磨きました。",
+      "korean": "구두 네 켤레 닦았어요.",
+      "alternativeAnswers": [],
+      "hint": "구두 네...",
+      "explanation": "구두 の数も 켤레 로 표현합니다."
+    },
+    {
+      "id": "qt_substantive_029_05",
+      "order": 5,
+      "japanese": "運動靴を五足乾かしました。",
+      "korean": "운동화 다섯 켤레 말렸어요.",
+      "alternativeAnswers": [],
+      "hint": "운동화...",
+      "explanation": "운동화 의 짝수도 켤레 로 셉니다."
+    },
+    {
+      "id": "qt_substantive_029_06",
+      "order": 6,
+      "japanese": "長靴を六足整理しました。",
+      "korean": "장화 여섯 켤레 정리했어요.",
+      "alternativeAnswers": [],
+      "hint": "장화 여...",
+      "explanation": "장화 の数え方も 켤레 입니다."
+    },
+    {
+      "id": "qt_substantive_029_07",
+      "order": 7,
+      "japanese": "靴下を七足洗いました。",
+      "korean": "양말 일곱 켤레 빨았어요.",
+      "alternativeAnswers": [],
+      "hint": "양말 일...",
+      "explanation": "洗濯数も 켤레 로 나타냅니다."
+    },
+    {
+      "id": "qt_substantive_029_08",
+      "order": 8,
+      "japanese": "靴を八足売りました。",
+      "korean": "신발 여덟 켤레 팔았어요.",
+      "alternativeAnswers": [],
+      "hint": "신발 여...",
+      "explanation": "販売数も 켤레 와 함께 씁니다."
+    },
+    {
+      "id": "qt_substantive_029_09",
+      "order": 9,
+      "japanese": "靴が九足残りました。",
+      "korean": "신발 아홉 켤레 남았어요.",
+      "alternativeAnswers": [],
+      "hint": "신발 아...",
+      "explanation": "残量でも 켤레 를 사용します."
+    },
+    {
+      "id": "qt_substantive_029_10",
+      "order": 10,
+      "japanese": "靴下を十足ください。",
+      "korean": "양말 열 켤레 주세요.",
+      "alternativeAnswers": [],
+      "hint": "양말 열...",
+      "explanation": "注文でも 켤레 를 붙여足数を言います."
+    }
+  ]
+}

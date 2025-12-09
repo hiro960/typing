@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_005",
+  "grammarTitle": "ㄹ不規則",
+  "grammarSubtitle": "ㄹ脱落（살다→삽니다）",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_005_01",
+      "order": 1,
+      "japanese": "ソウルに住んでいます。",
+      "korean": "서울에서 살아요.",
+      "alternativeAnswers": ["서울에서 삽니다."],
+      "hint": "서울에서...",
+      "explanation": "母音語尾「-아요」でㄹを維持し「살아요」、-ㅂ니다前ではㄹが落ち 삽니다 です。"
+    },
+    {
+      "id": "qt_conjugation_005_02",
+      "order": 2,
+      "japanese": "両親は田舎に住んでいます。",
+      "korean": "부모님은 시골에서 사세요.",
+      "alternativeAnswers": ["부모님은 시골에서 삽니다."],
+      "hint": "부모님은...",
+      "explanation": "「-(으)세요」はㅅで始まりㄹが脱落して「사세요」になります。"
+    },
+    {
+      "id": "qt_conjugation_005_03",
+      "order": 3,
+      "japanese": "今住んでいる家は狭いです。",
+      "korean": "지금 사는 집은 작아요.",
+      "alternativeAnswers": [],
+      "hint": "지금...",
+      "explanation": "連体形「-는」はㄴで始まるためㄹが落ち「사는 집」となります。"
+    },
+    {
+      "id": "qt_conjugation_005_04",
+      "order": 4,
+      "japanese": "新しい椅子を作ります。",
+      "korean": "새 의자를 만들어요.",
+      "alternativeAnswers": ["새 의자를 만듭니다."],
+      "hint": "새 의자를...",
+      "explanation": "母音語尾ではㄹを維持し「만들어요」、-ㅂ니다前はㄹが落ち 만듭니다 です。"
+    },
+    {
+      "id": "qt_conjugation_005_05",
+      "order": 5,
+      "japanese": "長い道を歩きます。",
+      "korean": "긴 길을 걸어요.",
+      "alternativeAnswers": ["긴 길을 걷습니다."],
+      "hint": "긴 길을...",
+      "explanation": "「길다」は連体形でㄹが落ち「긴」を作り名詞を修飾します。"
+    },
+    {
+      "id": "qt_conjugation_005_06",
+      "order": 6,
+      "japanese": "遠い場所に住んでいます。",
+      "korean": "먼 곳에 살아요.",
+      "alternativeAnswers": [],
+      "hint": "먼...",
+      "explanation": "「멀다」は連体形でㄹが脱落し「먼」を使い、その後の語尾は母音で「살아요」です。"
+    },
+    {
+      "id": "qt_conjugation_005_07",
+      "order": 7,
+      "japanese": "この番号をご存じですか？",
+      "korean": "이 번호 아세요?",
+      "alternativeAnswers": ["이 번호 압니까?"],
+      "hint": "이 번호...",
+      "explanation": "「알다」もㄹ不規則で -(으)세요 前にㄹが落ち「아세요」になります。"
+    },
+    {
+      "id": "qt_conjugation_005_08",
+      "order": 8,
+      "japanese": "早く作ってください。",
+      "korean": "빨리 만드세요.",
+      "alternativeAnswers": ["빨리 만드십시오."],
+      "hint": "빨리...",
+      "explanation": "尊敬語尾がㅅで始まりㄹが脱落し「만드세요」になります。"
+    },
+    {
+      "id": "qt_conjugation_005_09",
+      "order": 9,
+      "japanese": "長く住みたいです。",
+      "korean": "오래 살고 싶어요.",
+      "alternativeAnswers": [],
+      "hint": "오래...",
+      "explanation": "母音・子音の他語尾ではㄹを維持し「살고」「싶어요」と続けます。"
+    },
+    {
+      "id": "qt_conjugation_005_10",
+      "order": 10,
+      "japanese": "ソウルに住みましょう。",
+      "korean": "서울에서 삽시다.",
+      "alternativeAnswers": ["서울에서 살까요?"],
+      "hint": "서울에서...",
+      "explanation": "勧誘語尾「-ㅂ시다」はㅂで始まりㄹが落ち「삽시다」になります。"
+    }
+  ]
+}

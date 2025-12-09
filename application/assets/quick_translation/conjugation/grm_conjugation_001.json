@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_001",
+  "grammarTitle": "ㅂ不規則",
+  "grammarSubtitle": "ㅂ→우/오 変化（덥다→더워요）",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_001_01",
+      "order": 1,
+      "japanese": "今日は暑いです。",
+      "korean": "오늘은 더워요.",
+      "alternativeAnswers": ["오늘은 덥습니다."],
+      "hint": "오늘은...",
+      "explanation": "「덥다」はㅂ→우で母音語尾前に「더워요」になります。"
+    },
+    {
+      "id": "qt_conjugation_001_02",
+      "order": 2,
+      "japanese": "冬はとても寒いです。",
+      "korean": "겨울에는 정말 추워요.",
+      "alternativeAnswers": ["겨울에는 춥습니다."],
+      "hint": "겨울에는...",
+      "explanation": "「춥다」はㅂ→우で「추워요」になり、格式体では 춥습니다 です。"
+    },
+    {
+      "id": "qt_conjugation_001_03",
+      "order": 3,
+      "japanese": "この料理は辛いです。",
+      "korean": "이 음식은 매워요.",
+      "alternativeAnswers": ["이 음식은 맵습니다."],
+      "hint": "이 음식...",
+      "explanation": "「맵다」はㅂ→우で「매워요」、子音語尾では 맵습니다 となります。"
+    },
+    {
+      "id": "qt_conjugation_001_04",
+      "order": 4,
+      "japanese": "その問題は難しいです。",
+      "korean": "그 문제는 어려워요.",
+      "alternativeAnswers": ["그 문제는 어렵습니다."],
+      "hint": "그 문제...",
+      "explanation": "「어렵다」はㅂ→우で「어려워요」、子音始まりでは 어렵습니다 です。"
+    },
+    {
+      "id": "qt_conjugation_001_05",
+      "order": 5,
+      "japanese": "このカバンは軽いです。",
+      "korean": "이 가방은 가벼워요.",
+      "alternativeAnswers": ["이 가방은 가볍습니다."],
+      "hint": "이 가방...",
+      "explanation": "「가볍다」はㅂ→우で「가벼워요」になり、格式体は 가볍습니다 です。"
+    },
+    {
+      "id": "qt_conjugation_001_06",
+      "order": 6,
+      "japanese": "本を持つと重いです。",
+      "korean": "책을 들면 무거워요.",
+      "alternativeAnswers": ["책을 들면 무겁습니다."],
+      "hint": "책을...",
+      "explanation": "「무겁다」もㅂ→우で母音語尾前は「무거워요」、子音語尾では 무겁습니다 です。"
+    },
+    {
+      "id": "qt_conjugation_001_07",
+      "order": 7,
+      "japanese": "友達を手伝います。",
+      "korean": "친구를 도와요.",
+      "alternativeAnswers": ["친구를 돕습니다."],
+      "hint": "친구를...",
+      "explanation": "「돕다」はㅗ語幹でㅂ→오+아となり「도와요」になります。"
+    },
+    {
+      "id": "qt_conjugation_001_08",
+      "order": 8,
+      "japanese": "昨日宿題を手伝いました。",
+      "korean": "어제 숙제를 도왔어요.",
+      "alternativeAnswers": ["어제 숙제를 도왔습니다."],
+      "hint": "어제...",
+      "explanation": "過去でも 돕다 はㅂ→오+았で「도왔어요」になります。"
+    },
+    {
+      "id": "qt_conjugation_001_09",
+      "order": 9,
+      "japanese": "暑くて窓を開けました。",
+      "korean": "더워서 창문을 열었어요.",
+      "alternativeAnswers": ["더워서 창문을 열었습니다."],
+      "hint": "더워서...",
+      "explanation": "「덥다」は母音語尾「-아서」の前で「더워서」に変わります。"
+    },
+    {
+      "id": "qt_conjugation_001_10",
+      "order": 10,
+      "japanese": "今日は暑くなくてうれしいです。",
+      "korean": "오늘은 덥지 않아서 좋아요.",
+      "alternativeAnswers": ["오늘은 덥지 않아서 좋습니다."],
+      "hint": "오늘은 덥...",
+      "explanation": "「-지」は子音始まりなので ㅂ を維持し「덥지」になります。"
+    }
+  ]
+}

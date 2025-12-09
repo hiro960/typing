@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_connective_005",
+  "grammarTitle": "-지만",
+  "grammarSubtitle": "逆接（〜けれども）",
+  "category": "connective",
+  "questions": [
+    {
+      "id": "qt_connective_005_01",
+      "order": 1,
+      "japanese": "忙しいですが行きます。",
+      "korean": "바쁘지만 갈게요.",
+      "alternativeAnswers": [],
+      "hint": "바쁘...",
+      "explanation": "前後で対立する内容をつなぐ逆接の接続語尾です。"
+    },
+    {
+      "id": "qt_connective_005_02",
+      "order": 2,
+      "japanese": "疲れていますが楽しいです。",
+      "korean": "피곤하지만 재미있어요.",
+      "alternativeAnswers": [],
+      "hint": "피곤...",
+      "explanation": "予想と違う結果を述べるとき -지만 を用います。"
+    },
+    {
+      "id": "qt_connective_005_03",
+      "order": 3,
+      "japanese": "雨ですが出かけます。",
+      "korean": "비가 오지만 나가요.",
+      "alternativeAnswers": [],
+      "hint": "비가...",
+      "explanation": "逆の状況を示しながら後件を続ける表現です。"
+    },
+    {
+      "id": "qt_connective_005_04",
+      "order": 4,
+      "japanese": "値段は高いですがおいしいです。",
+      "korean": "비싸지만 맛있어요.",
+      "alternativeAnswers": [],
+      "hint": "비싸...",
+      "explanation": "否定的要素と肯定的結果を対比させるとき使います。"
+    },
+    {
+      "id": "qt_connective_005_05",
+      "order": 5,
+      "japanese": "寒いですが散歩します。",
+      "korean": "춥지만 산책해요.",
+      "alternativeAnswers": [],
+      "hint": "춥지...",
+      "explanation": "不利な条件でも行動するニュアンスを示します。"
+    },
+    {
+      "id": "qt_connective_005_06",
+      "order": 6,
+      "japanese": "少し遠いですが歩いて行きます。",
+      "korean": "조금 멀지만 걸어갈게요.",
+      "alternativeAnswers": [],
+      "hint": "조금...",
+      "explanation": "逆接で譲歩しつつ後件を続ける形です。"
+    },
+    {
+      "id": "qt_connective_005_07",
+      "order": 7,
+      "japanese": "時間がないですがやります。",
+      "korean": "시간이 없지만 할게요.",
+      "alternativeAnswers": [],
+      "hint": "시간이...",
+      "explanation": "不足を認めつつ意志を示すとき -지만 を使います。"
+    },
+    {
+      "id": "qt_connective_005_08",
+      "order": 8,
+      "japanese": "小さいですが便利です。",
+      "korean": "작지만 편해요.",
+      "alternativeAnswers": [],
+      "hint": "작지...",
+      "explanation": "短所と長所を対比して述べる逆接表現です。"
+    },
+    {
+      "id": "qt_connective_005_09",
+      "order": 9,
+      "japanese": "学生ですが働いています。",
+      "korean": "학생이지만 일해요.",
+      "alternativeAnswers": ["학생이지만 일을 해요."],
+      "hint": "학생...",
+      "explanation": "異なる状況を並べて示すとき -지만 を用います。"
+    },
+    {
+      "id": "qt_connective_005_10",
+      "order": 10,
+      "japanese": "難しいですがやってみます。",
+      "korean": "어렵지만 해 볼게요.",
+      "alternativeAnswers": ["어렵지만 해볼게요."],
+      "hint": "어렵...",
+      "explanation": "困難を認めつつ挑戦する意志を示す逆接表現です。"
+    }
+  ]
+}

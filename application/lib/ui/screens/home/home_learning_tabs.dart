@@ -128,8 +128,6 @@ class _TypingTabContent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const _KanadaRaLinkCard(),
-        const SizedBox(height: AppSpacing.sm),
-        const _HanjaDictionaryLinkCard(),
         const SizedBox(height: AppSpacing.md),
         _LevelAccordions(
           controller: typingAccordionController,
@@ -227,87 +225,6 @@ class _KanadaRaLinkCard extends StatelessWidget {
   }
 }
 
-/// 漢字語辞典へのリンクカード
-class _HanjaDictionaryLinkCard extends StatelessWidget {
-  const _HanjaDictionaryLinkCard();
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
-    return Card(
-      margin: EdgeInsets.zero,
-      child: InkWell(
-        borderRadius: BorderRadius.circular(20),
-        onTap: () => _navigateToHanjaDictionary(context),
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            gradient: LinearGradient(
-              colors: [
-                Colors.orange.withValues(alpha: 0.1),
-                Colors.amber.withValues(alpha: 0.05),
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
-          child: Row(
-            children: [
-              CircleAvatar(
-                radius: 22,
-                backgroundColor: Colors.orange.withValues(alpha: 0.15),
-                child: const Text(
-                  '漢',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.orange,
-                  ),
-                ),
-              ),
-              const SizedBox(width: AppSpacing.md),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '漢字語辞典',
-                      style: theme.textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      '漢字とハングルの対応を検索',
-                      style: theme.textTheme.bodySmall?.copyWith(
-                        color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Icon(
-                Icons.chevron_right,
-                color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  void _navigateToHanjaDictionary(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (_) => const HanjaListScreen(),
-      ),
-    );
-  }
-}
-
 /// 統計セクションの折りたたみアコーディオン
 class _StatsAccordion extends StatelessWidget {
   const _StatsAccordion({
@@ -385,6 +302,8 @@ class _GamesTabContent extends StatelessWidget {
         RankingGameSection(),
         SizedBox(height: AppSpacing.xl),
         PronunciationGameSection(),
+        SizedBox(height: AppSpacing.xl),
+        HanjaQuizSection(),
       ],
     );
   }

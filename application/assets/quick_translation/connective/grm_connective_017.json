@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_connective_017",
+  "grammarTitle": "-다 보면",
+  "grammarSubtitle": "〜していると",
+  "category": "connective",
+  "questions": [
+    {
+      "id": "qt_connective_017_01",
+      "order": 1,
+      "japanese": "歩いていると友達に会います。",
+      "korean": "길을 걷다 보면 친구를 만나요.",
+      "alternativeAnswers": ["길을 걷다 보면 친구를 만납니다."],
+      "hint": "길을...",
+      "explanation": "動作を続けると自然な結果が起きる形です。"
+    },
+    {
+      "id": "qt_connective_017_02",
+      "order": 2,
+      "japanese": "聞いていると慣れます。",
+      "korean": "계속 듣다 보면 익숙해져요.",
+      "alternativeAnswers": ["계속 듣다 보면 익숙해집니다."],
+      "hint": "계속...",
+      "explanation": "同じ行動を繰り返すと状態が変わる例です。"
+    },
+    {
+      "id": "qt_connective_017_03",
+      "order": 3,
+      "japanese": "読んでいると時間が早く過ぎます。",
+      "korean": "책을 읽다 보면 시간이 빨리 가요.",
+      "alternativeAnswers": ["책을 읽다 보면 시간이 빨리 갑니다."],
+      "hint": "책을...",
+      "explanation": "継続中に気づく変化を -다 보면 で表します。"
+    },
+    {
+      "id": "qt_connective_017_04",
+      "order": 4,
+      "japanese": "よく使っていると手に慣れます。",
+      "korean": "자주 쓰다 보면 손에 익어요.",
+      "alternativeAnswers": ["자주 쓰다 보면 손에 익습니다."],
+      "hint": "자주...",
+      "explanation": "反復すると習熟する時に用います。"
+    },
+    {
+      "id": "qt_connective_017_05",
+      "order": 5,
+      "japanese": "話していると喉が痛いです。",
+      "korean": "말을 하다 보면 목이 아파요.",
+      "alternativeAnswers": ["말을 하다 보면 목이 아픕니다."],
+      "hint": "말을...",
+      "explanation": "続けた結果として生じる身体変化の例です。"
+    },
+    {
+      "id": "qt_connective_017_06",
+      "order": 6,
+      "japanese": "夜遅くまで勉強していると眠いです。",
+      "korean": "밤늦게까지 공부하다 보면 졸려요.",
+      "alternativeAnswers": ["밤늦게까지 공부하다 보면 졸립니다."],
+      "hint": "밤늦게...",
+      "explanation": "行為を続けると起きる感情や体調変化を示します。"
+    },
+    {
+      "id": "qt_connective_017_07",
+      "order": 7,
+      "japanese": "ゆっくり走っていると息があまり切れません。",
+      "korean": "천천히 달리다 보면 숨이 덜 차요.",
+      "alternativeAnswers": ["천천히 달리다 보면 숨이 덜 찹니다."],
+      "hint": "천천히...",
+      "explanation": "方法を変えて続けると結果が違うことを示します。"
+    },
+    {
+      "id": "qt_connective_017_08",
+      "order": 8,
+      "japanese": "同じ歌を歌っていると上手になります。",
+      "korean": "같은 노래를 부르다 보면 잘하게 돼요.",
+      "alternativeAnswers": ["같은 노래를 부르다 보면 잘하게 됩니다."],
+      "hint": "같은...",
+      "explanation": "反復で実力が上がる時に使う表現です。"
+    },
+    {
+      "id": "qt_connective_017_09",
+      "order": 9,
+      "japanese": "毎日書いていると文章が上手くなります。",
+      "korean": "매일 적다 보면 글이 늘어요.",
+      "alternativeAnswers": ["매일 적다 보면 글이 늘어납니다."],
+      "hint": "매일...",
+      "explanation": "日々続けて起きる成長を -다 보면 で表します。"
+    },
+    {
+      "id": "qt_connective_017_10",
+      "order": 10,
+      "japanese": "待っているとバスが来ます。",
+      "korean": "기다리다 보면 버스가 와요.",
+      "alternativeAnswers": ["기다리다 보면 버스가 옵니다."],
+      "hint": "기다리다...",
+      "explanation": "待ち続けた結果として自然に起こることを示します。"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_033",
+  "grammarTitle": "-게 생기다",
+  "grammarSubtitle": "見た目・様子（〜しそうだ）",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_033_01",
+      "order": 1,
+      "japanese": "雨が降りそうです。",
+      "korean": "비가 오게 생겼어요.",
+      "alternativeAnswers": [
+        "비가 오게 생겼습니다."
+      ],
+      "hint": "비가...",
+      "explanation": "外見や状況からそうなりそうな様子を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_033_02",
+      "order": 2,
+      "japanese": "遅刻しそうです。",
+      "korean": "지각하게 생겼어요.",
+      "alternativeAnswers": [
+        "지각하게 생겼습니다."
+      ],
+      "hint": "지각하게...",
+      "explanation": "今の流れだと遅れそうな状況を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_033_03",
+      "order": 3,
+      "japanese": "バスを逃しそうです。",
+      "korean": "버스를 놓치게 생겼어요.",
+      "alternativeAnswers": [
+        "버스를 놓치게 생겼습니다."
+      ],
+      "hint": "버스를...",
+      "explanation": "このままだとそうなりそうな見込みを表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_033_04",
+      "order": 4,
+      "japanese": "試験を受けられなさそうです。",
+      "korean": "시험을 못 보게 생겼어요.",
+      "alternativeAnswers": [
+        "시험을 못 보게 생겼습니다."
+      ],
+      "hint": "시험을...",
+      "explanation": "状況から見て実現しなさそうな様子を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_033_05",
+      "order": 5,
+      "japanese": "ご飯を食べられなさそうです。",
+      "korean": "밥을 못 먹게 생겼어요.",
+      "alternativeAnswers": [
+        "밥을 못 먹게 생겼습니다."
+      ],
+      "hint": "밥을...",
+      "explanation": "このままでは食べられない展開を予想します。"
+    },
+    {
+      "id": "qt_tense_aspect_033_06",
+      "order": 6,
+      "japanese": "また夜勤になりそうです。",
+      "korean": "또 야근하게 생겼어요.",
+      "alternativeAnswers": [
+        "또 야근하게 생겼습니다."
+      ],
+      "hint": "또 야근...",
+      "explanation": "避けたい状況が起こりそうなときに使います。"
+    },
+    {
+      "id": "qt_tense_aspect_033_07",
+      "order": 7,
+      "japanese": "友だちが怒りそうです。",
+      "korean": "친구가 화내게 생겼어요.",
+      "alternativeAnswers": [
+        "친구가 화내게 생겼습니다."
+      ],
+      "hint": "친구가...",
+      "explanation": "相手の反応として起こりそうなことを表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_033_08",
+      "order": 8,
+      "japanese": "お金が足りなさそうです。",
+      "korean": "돈이 모자라게 생겼어요.",
+      "alternativeAnswers": [
+        "돈이 모자라게 생겼습니다."
+      ],
+      "hint": "돈이...",
+      "explanation": "結果として不足しそうな見込みを示します。"
+    },
+    {
+      "id": "qt_tense_aspect_033_09",
+      "order": 9,
+      "japanese": "泣いてしまいそうです。",
+      "korean": "울게 생겼어요.",
+      "alternativeAnswers": [
+        "울게 생겼습니다."
+      ],
+      "hint": "울게...",
+      "explanation": "感情がこらえきれず起こりそうな様子を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_033_10",
+      "order": 10,
+      "japanese": "道に迷いそうです。",
+      "korean": "길을 잃게 생겼어요.",
+      "alternativeAnswers": [
+        "길을 잃게 생겼습니다."
+      ],
+      "hint": "길을...",
+      "explanation": "現在の状況から見て起こりそうな結果を述べます。"
+    }
+  ]
+}

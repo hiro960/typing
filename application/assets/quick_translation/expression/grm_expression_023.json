@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_023",
+  "grammarTitle": "-(으)ㄴ/는지",
+  "grammarSubtitle": "〜かどうか／いつ・何か",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_023_01",
+      "order": 1,
+      "japanese": "彼が来るかどうか知っていますか？",
+      "korean": "그가 오는지 알아요?",
+      "alternativeAnswers": ["그가 오는지 압니까?"],
+      "hint": "그가...",
+      "explanation": "疑問内容を名詞節にするとき「-는지」を使います。"
+    },
+    {
+      "id": "qt_expression_023_02",
+      "order": 2,
+      "japanese": "電車が何時に来るか知っていますか？",
+      "korean": "기차가 몇 시에 오는지 알아요?",
+      "alternativeAnswers": ["기차가 몇 시에 오는지 압니까?"],
+      "hint": "기차가...",
+      "explanation": "時間を尋ねる内容も「-는지」で包みます。"
+    },
+    {
+      "id": "qt_expression_023_03",
+      "order": 3,
+      "japanese": "彼女が学生かどうかわかりません。",
+      "korean": "그녀가 학생인지 몰라요.",
+      "alternativeAnswers": ["그녀가 학생인지 모릅니다."],
+      "hint": "그녀가...",
+      "explanation": "名詞の確認には「인지」を使い不確かさを表します。"
+    },
+    {
+      "id": "qt_expression_023_04",
+      "order": 4,
+      "japanese": "この店が開いているか調べてください。",
+      "korean": "이 가게가 여는지 확인해 주세요.",
+      "alternativeAnswers": ["이 가게가 여는지 확인해 주십시오."],
+      "hint": "이 가...",
+      "explanation": "事実確認を依頼するとき「-는지」を使います。"
+    },
+    {
+      "id": "qt_expression_023_05",
+      "order": 5,
+      "japanese": "今日の天気がどうか気になります。",
+      "korean": "오늘 날씨가 어떤지 궁금해요.",
+      "alternativeAnswers": ["오늘 날씨가 어떤지 궁금합니다."],
+      "hint": "오늘...",
+      "explanation": "疑問内容を名詞化し「궁금하다」と組み合わせます。"
+    },
+    {
+      "id": "qt_expression_023_06",
+      "order": 6,
+      "japanese": "彼がどこにいるのか知りません。",
+      "korean": "그가 어디에 있는지 모르겠어요.",
+      "alternativeAnswers": ["그가 어디에 있는지 모릅니다."],
+      "hint": "그가...",
+      "explanation": "場所を尋ねる内容も「-는지」で表現します。"
+    },
+    {
+      "id": "qt_expression_023_07",
+      "order": 7,
+      "japanese": "その映画が面白いか聞きました。",
+      "korean": "그 영화가 재미있는지 물어봤어요.",
+      "alternativeAnswers": ["그 영화가 재미있는지 물어봤습니다."],
+      "hint": "그 영...",
+      "explanation": "他人に確認した内容を「-는지 물어보다」で言います。"
+    },
+    {
+      "id": "qt_expression_023_08",
+      "order": 8,
+      "japanese": "値段がいくらか聞いてください。",
+      "korean": "가격이 얼마인지 물어보세요.",
+      "alternativeAnswers": ["가격이 얼마인지 물어보십시오."],
+      "hint": "가격이...",
+      "explanation": "数量を尋ねる名詞節も「-인지」で作ります。"
+    },
+    {
+      "id": "qt_expression_023_09",
+      "order": 9,
+      "japanese": "いつ出発するのか教えてください。",
+      "korean": "언제 출발하는지 알려 주세요.",
+      "alternativeAnswers": ["언제 출발하는지 알려 주십시오."],
+      "hint": "언제...",
+      "explanation": "時刻の疑問を名詞節にして伝える表現です。"
+    },
+    {
+      "id": "qt_expression_023_10",
+      "order": 10,
+      "japanese": "何を食べたいのか言ってください。",
+      "korean": "뭘 먹고 싶은지 말해 주세요.",
+      "alternativeAnswers": ["뭘 먹고 싶은지 말해 주십시오."],
+      "hint": "뭘...",
+      "explanation": "内容を名詞化し伝えるとき「-는지」を使います。"
+    }
+  ]
+}

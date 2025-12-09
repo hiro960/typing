@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_019",
+  "grammarTitle": "-(으)ㄴ/는 바람에",
+  "grammarSubtitle": "〜したせいで（予期せぬ悪影響）",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_019_01",
+      "order": 1,
+      "japanese": "雨に降られたせいで服が濡れました。",
+      "korean": "비를 맞은 바람에 옷이 젖었어요.",
+      "alternativeAnswers": ["비를 맞은 바람에 옷이 젖었습니다."],
+      "hint": "비를...",
+      "explanation": "予期しない出来事の悪影響に「-ㄴ 바람에」を使います。"
+    },
+    {
+      "id": "qt_expression_019_02",
+      "order": 2,
+      "japanese": "バスを逃したせいで遅れました。",
+      "korean": "버스를 놓친 바람에 늦었어요.",
+      "alternativeAnswers": ["버스를 놓친 바람에 늦었습니다."],
+      "hint": "버스를...",
+      "explanation": "思わぬ原因で望ましくない結果になったときの表現です。"
+    },
+    {
+      "id": "qt_expression_019_03",
+      "order": 3,
+      "japanese": "友達が急に来たせいで掃除ができませんでした。",
+      "korean": "친구가 갑자기 온 바람에 청소를 못 했어요.",
+      "alternativeAnswers": ["친구가 갑자기 온 바람에 청소를 못 했습니다."],
+      "hint": "친구가...",
+      "explanation": "突然の出来事を理由にするとき「-ㄴ 바람에」を用います。"
+    },
+    {
+      "id": "qt_expression_019_04",
+      "order": 4,
+      "japanese": "目覚ましが鳴らなかったせいで寝坊しました。",
+      "korean": "알람이 안 울린 바람에 늦잠 잤어요.",
+      "alternativeAnswers": ["알람이 안 울린 바람에 늦잠 잤습니다."],
+      "hint": "알람이...",
+      "explanation": "想定外の原因で起きた結果を述べる形です。"
+    },
+    {
+      "id": "qt_expression_019_05",
+      "order": 5,
+      "japanese": "風が強く吹いたせいで傘が壊れました。",
+      "korean": "바람이 세게 분 바람에 우산이 망가졌어요.",
+      "alternativeAnswers": ["바람이 세게 분 바람에 우산이 망가졌습니다."],
+      "hint": "바람이...",
+      "explanation": "強い風という予期せぬ要因を「-ㄴ 바람에」で表します。"
+    },
+    {
+      "id": "qt_expression_019_06",
+      "order": 6,
+      "japanese": "急いで食べたせいで服を汚しました。",
+      "korean": "급하게 먹은 바람에 옷을 더럽혔어요.",
+      "alternativeAnswers": ["급하게 먹은 바람에 옷을 더럽혔습니다."],
+      "hint": "급하게...",
+      "explanation": "思わぬ結果が出たとき「-ㄴ 바람에」を使います。"
+    },
+    {
+      "id": "qt_expression_019_07",
+      "order": 7,
+      "japanese": "電気が切れたせいでパソコンが消えました。",
+      "korean": "전기가 나간 바람에 컴퓨터가 꺼졌어요.",
+      "alternativeAnswers": ["전기가 나간 바람에 컴퓨터가 꺼졌습니다."],
+      "hint": "전기가...",
+      "explanation": "突然の停電など予期せぬ原因を表現します。"
+    },
+    {
+      "id": "qt_expression_019_08",
+      "order": 8,
+      "japanese": "道を間違えたせいで時間がかかりました。",
+      "korean": "길을 잘못 든 바람에 시간이 걸렸어요.",
+      "alternativeAnswers": ["길을 잘못 든 바람에 시간이 걸렸습니다."],
+      "hint": "길을...",
+      "explanation": "望ましくない結果を招いた偶発的原因を言う形です。"
+    },
+    {
+      "id": "qt_expression_019_09",
+      "order": 9,
+      "japanese": "たくさん食べたせいでお腹が痛いです。",
+      "korean": "많이 먹은 바람에 배가 아파요.",
+      "alternativeAnswers": ["많이 먹은 바람에 배가 아픕니다."],
+      "hint": "많이...",
+      "explanation": "予想外に食べ過ぎた結果を「-ㄴ 바람에」で示します。"
+    },
+    {
+      "id": "qt_expression_019_10",
+      "order": 10,
+      "japanese": "携帯を失くしたせいで写真が見られません。",
+      "korean": "휴대폰을 잃어버린 바람에 사진을 못 봐요.",
+      "alternativeAnswers": ["휴대폰을 잃어버린 바람에 사진을 못 봅니다."],
+      "hint": "휴대폰...",
+      "explanation": "予期せぬ悪い原因に「-ㄴ 바람에」を使います。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_word_formation_018",
+  "grammarTitle": "벌써",
+  "grammarSubtitle": "時間副詞（もう）",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_018_01",
+      "order": 1,
+      "japanese": "もう終わりましたか？",
+      "korean": "벌써 끝났어요?",
+      "alternativeAnswers": [],
+      "hint": "벌써...",
+      "explanation": "予想より早い完了に驚きを込めて尋ねるとき使います。"
+    },
+    {
+      "id": "qt_word_formation_018_02",
+      "order": 2,
+      "japanese": "もう食べました。",
+      "korean": "벌써 먹었어요.",
+      "alternativeAnswers": [],
+      "hint": "벌써...",
+      "explanation": "早く終えた食事を強調し「もう食べた」と言います。"
+    },
+    {
+      "id": "qt_word_formation_018_03",
+      "order": 3,
+      "japanese": "もう夜です。",
+      "korean": "벌써 밤이에요.",
+      "alternativeAnswers": [],
+      "hint": "벌써...",
+      "explanation": "時間の速さに驚くとき「벌써」を前に置きます。"
+    },
+    {
+      "id": "qt_word_formation_018_04",
+      "order": 4,
+      "japanese": "もう帰りました。",
+      "korean": "벌써 집에 갔어요.",
+      "alternativeAnswers": [],
+      "hint": "벌써...",
+      "explanation": "想定より早い帰宅を示し「もう帰った」と伝えます。"
+    },
+    {
+      "id": "qt_word_formation_018_05",
+      "order": 5,
+      "japanese": "もう春です。",
+      "korean": "벌써 봄이에요.",
+      "alternativeAnswers": [],
+      "hint": "벌써...",
+      "explanation": "季節の変化が早いと感じるときに使う表現です。"
+    },
+    {
+      "id": "qt_word_formation_018_06",
+      "order": 6,
+      "japanese": "もう来たんですか？",
+      "korean": "벌써 왔어요?",
+      "alternativeAnswers": [],
+      "hint": "벌써...",
+      "explanation": "到着の早さに驚き「もう来たの？」と尋ねます。"
+    },
+    {
+      "id": "qt_word_formation_018_07",
+      "order": 7,
+      "japanese": "もう三時です。",
+      "korean": "벌써 세 시예요.",
+      "alternativeAnswers": [],
+      "hint": "벌써...",
+      "explanation": "時刻が思ったより早く進んだことを表します。"
+    },
+    {
+      "id": "qt_word_formation_018_08",
+      "order": 8,
+      "japanese": "もう宿題をしました。",
+      "korean": "벌써 숙제했어요.",
+      "alternativeAnswers": [],
+      "hint": "벌써...",
+      "explanation": "早めに終えた宿題を「벌써」で強調します。"
+    },
+    {
+      "id": "qt_word_formation_018_09",
+      "order": 9,
+      "japanese": "もう買いました。",
+      "korean": "벌써 샀어요.",
+      "alternativeAnswers": [],
+      "hint": "벌써...",
+      "explanation": "買い物を早く済ませたことを伝える表現です。"
+    },
+    {
+      "id": "qt_word_formation_018_10",
+      "order": 10,
+      "japanese": "もう寝るんですか？",
+      "korean": "벌써 자요?",
+      "alternativeAnswers": [],
+      "hint": "벌써...",
+      "explanation": "予想より早い就寝に驚いて尋ねるとき使います。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_sentence_ending_007",
+  "grammarTitle": "-네요",
+  "grammarSubtitle": "感嘆・発見（〜ですね）",
+  "category": "sentence_ending",
+  "questions": [
+    {
+      "id": "qt_sentence_ending_007_01",
+      "order": 1,
+      "japanese": "天気がいいですね。",
+      "korean": "날씨가 좋네요.",
+      "alternativeAnswers": [],
+      "hint": "날씨가...",
+      "explanation": "新しく気づいたことを感嘆して述べるとき「-네요」を使います。"
+    },
+    {
+      "id": "qt_sentence_ending_007_02",
+      "order": 2,
+      "japanese": "本当に早いですね。",
+      "korean": "정말 빠르네요.",
+      "alternativeAnswers": [],
+      "hint": "정말...",
+      "explanation": "驚きを含んだ評価を述べるときも「-네요」が自然です。"
+    },
+    {
+      "id": "qt_sentence_ending_007_03",
+      "order": 3,
+      "japanese": "ここは静かですね。",
+      "korean": "여기는 조용하네요.",
+      "alternativeAnswers": [],
+      "hint": "여기는...",
+      "explanation": "その場で感じたことを感嘆で言うとき「-네요」を付けます。"
+    },
+    {
+      "id": "qt_sentence_ending_007_04",
+      "order": 4,
+      "japanese": "この料理は辛いですね。",
+      "korean": "이 음식은 맵네요.",
+      "alternativeAnswers": [],
+      "hint": "이 음식은...",
+      "explanation": "味わって初めて感じた辛さを伝える感嘆でも「-네요」です。"
+    },
+    {
+      "id": "qt_sentence_ending_007_05",
+      "order": 5,
+      "japanese": "韓国語が上手ですね。",
+      "korean": "한국어를 잘하시네요.",
+      "alternativeAnswers": [],
+      "hint": "한국어를...",
+      "explanation": "相手に感心したときも「-네요」で柔らかく褒めます。"
+    },
+    {
+      "id": "qt_sentence_ending_007_06",
+      "order": 6,
+      "japanese": "人が多いですね。",
+      "korean": "사람이 많네요.",
+      "alternativeAnswers": [],
+      "hint": "사람이...",
+      "explanation": "その場の状況を見て驚きを表すとき使います。"
+    },
+    {
+      "id": "qt_sentence_ending_007_07",
+      "order": 7,
+      "japanese": "いいにおいですね。",
+      "korean": "향기가 좋네요.",
+      "alternativeAnswers": [],
+      "hint": "향기가...",
+      "explanation": "感嘆・感想の丁寧表現として「-네요」を付けます。"
+    },
+    {
+      "id": "qt_sentence_ending_007_08",
+      "order": 8,
+      "japanese": "雨が急に降りますね。",
+      "korean": "비가 갑자기 오네요.",
+      "alternativeAnswers": [],
+      "hint": "비가...",
+      "explanation": "予想外に起きたことへの驚きも「-네요」で表します。"
+    },
+    {
+      "id": "qt_sentence_ending_007_09",
+      "order": 9,
+      "japanese": "ここ、景色がきれいですね。",
+      "korean": "여기 경치가 예쁘네요.",
+      "alternativeAnswers": [],
+      "hint": "여기...",
+      "explanation": "見たばかりの感想には「-네요」がぴったりです。"
+    },
+    {
+      "id": "qt_sentence_ending_007_10",
+      "order": 10,
+      "japanese": "もう春ですね。",
+      "korean": "벌써 봄이네요.",
+      "alternativeAnswers": [],
+      "hint": "벌써...",
+      "explanation": "季節の変化に気づいた感嘆にも「-네요」を使います。"
+    }
+  ]
+}

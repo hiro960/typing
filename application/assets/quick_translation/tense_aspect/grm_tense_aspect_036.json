@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_036",
+  "grammarTitle": "-는 중이다",
+  "grammarSubtitle": "最中（〜しているところだ）",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_036_01",
+      "order": 1,
+      "japanese": "今ご飯を食べているところです。",
+      "korean": "지금 밥 먹는 중이에요.",
+      "alternativeAnswers": [
+        "지금 밥 먹는 중입니다."
+      ],
+      "hint": "지금 밥...",
+      "explanation": "動作の真っ最中であることを強調する表現です。"
+    },
+    {
+      "id": "qt_tense_aspect_036_02",
+      "order": 2,
+      "japanese": "電話を受けているところです。",
+      "korean": "전화 받는 중이에요.",
+      "alternativeAnswers": [
+        "전화 받는 중입니다."
+      ],
+      "hint": "전화...",
+      "explanation": "現在進行中の行為を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_036_03",
+      "order": 3,
+      "japanese": "会議をしているところです。",
+      "korean": "회의하는 중이에요.",
+      "alternativeAnswers": [
+        "회의하는 중입니다."
+      ],
+      "hint": "회의하는...",
+      "explanation": "進行中で中断しにくい状況を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_036_04",
+      "order": 4,
+      "japanese": "宿題をしているところです。",
+      "korean": "숙제하는 중이에요.",
+      "alternativeAnswers": [
+        "숙제하는 중입니다."
+      ],
+      "hint": "숙제하는...",
+      "explanation": "今まさに行っている作業を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_036_05",
+      "order": 5,
+      "japanese": "運転しているところです。",
+      "korean": "운전하는 중이에요.",
+      "alternativeAnswers": [
+        "운전하는 중입니다."
+      ],
+      "hint": "운전하는...",
+      "explanation": "進行中の行動を強調し注意を促す際に使います。"
+    },
+    {
+      "id": "qt_tense_aspect_036_06",
+      "order": 6,
+      "japanese": "シャワーを浴びているところです。",
+      "korean": "샤워하는 중이에요.",
+      "alternativeAnswers": [
+        "샤워하는 중입니다."
+      ],
+      "hint": "샤워하는...",
+      "explanation": "途中で中断しにくい作業の最中を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_036_07",
+      "order": 7,
+      "japanese": "本を読んでいるところです。",
+      "korean": "책 읽는 중이에요.",
+      "alternativeAnswers": [
+        "책 읽는 중입니다."
+      ],
+      "hint": "책 읽는...",
+      "explanation": "現在している行為を明示する形です。"
+    },
+    {
+      "id": "qt_tense_aspect_036_08",
+      "order": 8,
+      "japanese": "掃除をしているところです。",
+      "korean": "청소하는 중이에요.",
+      "alternativeAnswers": [
+        "청소하는 중입니다."
+      ],
+      "hint": "청소하는...",
+      "explanation": "行為が進行中であることを示します。"
+    },
+    {
+      "id": "qt_tense_aspect_036_09",
+      "order": 9,
+      "japanese": "映画を見ているところです。",
+      "korean": "영화 보는 중이에요.",
+      "alternativeAnswers": [
+        "영화 보는 중입니다."
+      ],
+      "hint": "영화...",
+      "explanation": "今している活動を具体的に伝えます。"
+    },
+    {
+      "id": "qt_tense_aspect_036_10",
+      "order": 10,
+      "japanese": "友だちを待っているところです。",
+      "korean": "친구 기다리는 중이에요.",
+      "alternativeAnswers": [
+        "친구 기다리는 중입니다."
+      ],
+      "hint": "친구...",
+      "explanation": "現在進行中の待機状態を示すとき使います。"
+    }
+  ]
+}

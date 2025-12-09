@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_009",
+  "grammarTitle": "(이)랑",
+  "grammarSubtitle": "並列助詞・口語（〜と）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_009_01",
+      "order": 1,
+      "japanese": "友達とご飯を食べます。",
+      "korean": "친구랑 밥 먹어요.",
+      "alternativeAnswers": ["친구랑 밥 먹습니다."],
+      "hint": "친구랑...",
+      "explanation": "カジュアルな並列でパッチムなしは「랑」を使います。"
+    },
+    {
+      "id": "qt_particle_009_02",
+      "order": 2,
+      "japanese": "猫と遊びます。",
+      "korean": "고양이랑 놀아요.",
+      "alternativeAnswers": ["고양이랑 놉니다."],
+      "hint": "고양이랑...",
+      "explanation": "同行・並列を親しい口調で表す助詞が「(이)랑」です。"
+    },
+    {
+      "id": "qt_particle_009_03",
+      "order": 3,
+      "japanese": "兄とサッカーをします。",
+      "korean": "형이랑 축구해요.",
+      "alternativeAnswers": ["형이랑 축구합니다."],
+      "hint": "형이랑...",
+      "explanation": "パッチムのある「형」に付くときは「이랑」を使います。"
+    },
+    {
+      "id": "qt_particle_009_04",
+      "order": 4,
+      "japanese": "お母さんと一緒に市場に行きます。",
+      "korean": "엄마랑 같이 시장 가요.",
+      "alternativeAnswers": ["엄마랑 같이 시장 갑니다."],
+      "hint": "엄마랑...",
+      "explanation": "「같이」と合わせると同行のニュアンスがはっきりします。"
+    },
+    {
+      "id": "qt_particle_009_05",
+      "order": 5,
+      "japanese": "お姉さんと歌を歌います。",
+      "korean": "누나랑 노래 불러요.",
+      "alternativeAnswers": ["누나랑 노래 부릅니다."],
+      "hint": "누나랑...",
+      "explanation": "親しい間柄では「하고」より「랑」がよく使われます。"
+    },
+    {
+      "id": "qt_particle_009_06",
+      "order": 6,
+      "japanese": "この本とあの本を買いました。",
+      "korean": "이 책이랑 저 책을 샀어요.",
+      "alternativeAnswers": ["이 책이랑 저 책을 샀습니다."],
+      "hint": "이 책이랑...",
+      "explanation": "名詞を二つ並列して同じ動作の対象にしています。"
+    },
+    {
+      "id": "qt_particle_009_07",
+      "order": 7,
+      "japanese": "水とジュースのどちらを飲みますか？",
+      "korean": "물이랑 주스 중에 뭘 마셔요?",
+      "alternativeAnswers": ["물이랑 주스 중에 무엇을 마셔요?"],
+      "hint": "물이랑...",
+      "explanation": "選択を示す並列でも口語なら「랑」を使えます。"
+    },
+    {
+      "id": "qt_particle_009_08",
+      "order": 8,
+      "japanese": "先生と写真を撮りました。",
+      "korean": "선생님이랑 사진 찍었어요.",
+      "alternativeAnswers": ["선생님이랑 사진 찍었습니다."],
+      "hint": "선생님이랑...",
+      "explanation": "目上でも親しい場面なら「(이)랑」を使うことがあります。"
+    },
+    {
+      "id": "qt_particle_009_09",
+      "order": 9,
+      "japanese": "弟とけんかしました。",
+      "korean": "동생이랑 싸웠어요.",
+      "alternativeAnswers": ["동생이랑 싸웠습니다."],
+      "hint": "동생이랑...",
+      "explanation": "否定的な関係でも単に相手を並列助詞で示します。"
+    },
+    {
+      "id": "qt_particle_009_10",
+      "order": 10,
+      "japanese": "友達とカフェにいます。",
+      "korean": "친구랑 카페에 있어요.",
+      "alternativeAnswers": ["친구랑 카페에 있습니다."],
+      "hint": "친구랑...",
+      "explanation": "同行者を示す最も口語的な助詞が「(이)랑」です。"
+    }
+  ]
+}

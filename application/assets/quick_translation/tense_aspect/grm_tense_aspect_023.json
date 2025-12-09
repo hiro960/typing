@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_023",
+  "grammarTitle": "-고 나다",
+  "grammarSubtitle": "完了後（〜してからの状態）",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_023_01",
+      "order": 1,
+      "japanese": "勉強してから頭が痛くなりました。",
+      "korean": "공부하고 나니 머리가 아팠어요.",
+      "alternativeAnswers": [
+        "공부하고 나니 머리가 아팠습니다."
+      ],
+      "hint": "공부하고...",
+      "explanation": "一つの動作を終えた後の結果を「-고 나다」で表します。"
+    },
+    {
+      "id": "qt_tense_aspect_023_02",
+      "order": 2,
+      "japanese": "薬を飲んでから楽になりました。",
+      "korean": "약을 먹고 나니 편해졌어요.",
+      "alternativeAnswers": [
+        "약을 먹고 나니 편해졌습니다."
+      ],
+      "hint": "약을...",
+      "explanation": "完了後に変化した状態を示すときに使います。"
+    },
+    {
+      "id": "qt_tense_aspect_023_03",
+      "order": 3,
+      "japanese": "ご飯を食べて元気になりました。",
+      "korean": "밥을 먹고 나니 힘이 났어요.",
+      "alternativeAnswers": [
+        "밥을 먹고 나니 힘이 났습니다."
+      ],
+      "hint": "밥을...",
+      "explanation": "食事の完了後に力が出たという結果を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_023_04",
+      "order": 4,
+      "japanese": "運動してすっきりしました。",
+      "korean": "운동하고 나니 시원해졌어요.",
+      "alternativeAnswers": [
+        "운동하고 나니 시원해졌습니다."
+      ],
+      "hint": "운동하고...",
+      "explanation": "動作を終えた後感じる状態の変化を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_023_05",
+      "order": 5,
+      "japanese": "洗って眠気がなくなりました。",
+      "korean": "세수하고 나니 졸음이 없어졌어요.",
+      "alternativeAnswers": [
+        "세수하고 나니 졸음이 없어졌습니다."
+      ],
+      "hint": "세수하고...",
+      "explanation": "洗う行為完了後の結果として眠気が消えたことを示します。"
+    },
+    {
+      "id": "qt_tense_aspect_023_06",
+      "order": 6,
+      "japanese": "試験が終わって気が楽になりました。",
+      "korean": "시험이 끝나고 나니 마음이 편해졌어요.",
+      "alternativeAnswers": [
+        "시험이 끝나고 나니 마음이 편해졌습니다."
+      ],
+      "hint": "시험이...",
+      "explanation": "完了した後に感じる安心感を「-고 나다」で表します。"
+    },
+    {
+      "id": "qt_tense_aspect_023_07",
+      "order": 7,
+      "japanese": "掃除して部屋がきれいになりました。",
+      "korean": "청소하고 나니 방이 깨끗해졌어요.",
+      "alternativeAnswers": [
+        "청소하고 나니 방이 깨끗해졌습니다."
+      ],
+      "hint": "청소하고...",
+      "explanation": "動作の完了後に生じた変化した結果を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_023_08",
+      "order": 8,
+      "japanese": "寝てから頭がすっきりしました。",
+      "korean": "자고 나니 머리가 맑아졌어요.",
+      "alternativeAnswers": [
+        "자고 나니 머리가 맑아졌습니다."
+      ],
+      "hint": "자고...",
+      "explanation": "睡眠という動作を終えた後の結果の状態を表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_023_09",
+      "order": 9,
+      "japanese": "雨が止んで空が明るくなりました。",
+      "korean": "비가 그치고 나니 하늘이 밝아졌어요.",
+      "alternativeAnswers": [
+        "비가 그치고 나니 하늘이 밝아졌습니다."
+      ],
+      "hint": "비가...",
+      "explanation": "一つの出来事の完了後に生じた変化を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_023_10",
+      "order": 10,
+      "japanese": "連絡をして気持ちが落ち着きました。",
+      "korean": "연락하고 나니 마음이 놓였어요.",
+      "alternativeAnswers": [
+        "연락하고 나니 마음이 놓였습니다."
+      ],
+      "hint": "연락하고...",
+      "explanation": "動作を終えたあとの安心感などの結果を表します。"
+    }
+  ]
+}

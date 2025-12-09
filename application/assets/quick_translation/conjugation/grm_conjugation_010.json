@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_010",
+  "grammarTitle": "우不規則",
+  "grammarSubtitle": "우→워 変化（푸다→퍼요）",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_010_01",
+      "order": 1,
+      "japanese": "ご飯を一杯よそいます。",
+      "korean": "밥을 한 그릇 퍼요.",
+      "alternativeAnswers": [],
+      "hint": "밥을...",
+      "explanation": "「푸다」は 우+어が縮約し「퍼요」になります。"
+    },
+    {
+      "id": "qt_conjugation_010_02",
+      "order": 2,
+      "japanese": "水を汲みました。",
+      "korean": "물을 펐어요.",
+      "alternativeAnswers": ["물을 펐습니다."],
+      "hint": "물을...",
+      "explanation": "過去形でも 우+었 が縮約し「펐어요」になります。"
+    },
+    {
+      "id": "qt_conjugation_010_03",
+      "order": 3,
+      "japanese": "スープをよそってください。",
+      "korean": "국을 퍼 주세요.",
+      "alternativeAnswers": ["국을 퍼 주십시오."],
+      "hint": "국을...",
+      "explanation": "依頼形でも縮約形「퍼」+ 주세요 を使います。"
+    },
+    {
+      "id": "qt_conjugation_010_04",
+      "order": 4,
+      "japanese": "友達に本をあげます。",
+      "korean": "친구에게 책을 줘요.",
+      "alternativeAnswers": ["친구에게 책을 줍니다."],
+      "hint": "친구에게...",
+      "explanation": "「주다」は 우+어 が縮約し「줘요」、格式体では 줍니다 です。"
+    },
+    {
+      "id": "qt_conjugation_010_05",
+      "order": 5,
+      "japanese": "昨日お金をあげました。",
+      "korean": "어제 돈을 줬어요.",
+      "alternativeAnswers": ["어제 돈을 줬습니다."],
+      "hint": "어제...",
+      "explanation": "過去も縮約形「줬어요」を使い、-ㅂ니다体では 줬습니다 となります。"
+    },
+    {
+      "id": "qt_conjugation_010_06",
+      "order": 6,
+      "japanese": "少しだけ待ってください。",
+      "korean": "조금만 기다려 줘요.",
+      "alternativeAnswers": ["조금만 기다려 주세요."],
+      "hint": "조금만...",
+      "explanation": "依頼でも 주다 が縮約し「줘요/주세요」となります。"
+    },
+    {
+      "id": "qt_conjugation_010_07",
+      "order": 7,
+      "japanese": "部屋を片付けます。",
+      "korean": "방을 치워요.",
+      "alternativeAnswers": ["방을 치웁니다."],
+      "hint": "방을...",
+      "explanation": "「치우다」は 우+어→워 で「치워요」、格式体は 치웁니다 です。"
+    },
+    {
+      "id": "qt_conjugation_010_08",
+      "order": 8,
+      "japanese": "部屋を片付けました。",
+      "korean": "방을 치웠어요.",
+      "alternativeAnswers": ["방을 치웠습니다."],
+      "hint": "방을...",
+      "explanation": "過去形も縮約後に「-었어요」を付け「치웠어요」となります。"
+    },
+    {
+      "id": "qt_conjugation_010_09",
+      "order": 9,
+      "japanese": "ご飯をよそう人は父です。",
+      "korean": "밥을 푸는 사람은 아빠예요.",
+      "alternativeAnswers": [],
+      "hint": "밥을...",
+      "explanation": "連体形「-는」は語幹「푸-」をそのまま使い「푸는 사람」と言います。"
+    },
+    {
+      "id": "qt_conjugation_010_10",
+      "order": 10,
+      "japanese": "今はあげられません。",
+      "korean": "지금은 못 줘요.",
+      "alternativeAnswers": ["지금은 못 줍니다."],
+      "hint": "지금은...",
+      "explanation": "否定でも 주다 の縮約形「줘요」を用い、格式体では 줍니다 です。"
+    }
+  ]
+}

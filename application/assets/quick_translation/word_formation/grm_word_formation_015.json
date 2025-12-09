@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_word_formation_015",
+  "grammarTitle": "거의",
+  "grammarSubtitle": "程度副詞（ほとんど）",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_015_01",
+      "order": 1,
+      "japanese": "ほとんど終わりました。",
+      "korean": "거의 끝났어요.",
+      "alternativeAnswers": [],
+      "hint": "거의...",
+      "explanation": "完了に近い状態を表し「ほとんど終わった」と言います。"
+    },
+    {
+      "id": "qt_word_formation_015_02",
+      "order": 2,
+      "japanese": "ほとんど食べました。",
+      "korean": "거의 다 먹었어요.",
+      "alternativeAnswers": [],
+      "hint": "거의...",
+      "explanation": "量が少しだけ残った状態を「거의 다」＋動詞で示します。"
+    },
+    {
+      "id": "qt_word_formation_015_03",
+      "order": 3,
+      "japanese": "ほとんど寝ません。",
+      "korean": "거의 안 자요.",
+      "alternativeAnswers": [],
+      "hint": "거의...",
+      "explanation": "頻度の低さを表し「ほとんど眠らない」と言います。"
+    },
+    {
+      "id": "qt_word_formation_015_04",
+      "order": 4,
+      "japanese": "ほとんど雨が降りません。",
+      "korean": "비가 거의 안 와요.",
+      "alternativeAnswers": [],
+      "hint": "비가...",
+      "explanation": "天候の発生頻度が低いことを否定表現と合わせます。"
+    },
+    {
+      "id": "qt_word_formation_015_05",
+      "order": 5,
+      "japanese": "ほぼ毎日勉強します。",
+      "korean": "거의 매일 공부해요.",
+      "alternativeAnswers": [],
+      "hint": "거의...",
+      "explanation": "頻度を強調し「ほとんど毎日」を表現します。"
+    },
+    {
+      "id": "qt_word_formation_015_06",
+      "order": 6,
+      "japanese": "ほとんど人がいません。",
+      "korean": "사람이 거의 없어요.",
+      "alternativeAnswers": [],
+      "hint": "사람이...",
+      "explanation": "存在を表す「없어요」と合わせ人数が少ないことを示します。"
+    },
+    {
+      "id": "qt_word_formation_015_07",
+      "order": 7,
+      "japanese": "ほとんど使いません。",
+      "korean": "거의 안 써요.",
+      "alternativeAnswers": [],
+      "hint": "거의...",
+      "explanation": "使用頻度が低いことを「거의 안」＋動詞で表します。"
+    },
+    {
+      "id": "qt_word_formation_015_08",
+      "order": 8,
+      "japanese": "ほとんど遅れません。",
+      "korean": "거의 안 늦어요.",
+      "alternativeAnswers": [],
+      "hint": "거의...",
+      "explanation": "遅刻の頻度が低いことを示す言い方です。"
+    },
+    {
+      "id": "qt_word_formation_015_09",
+      "order": 9,
+      "japanese": "ほとんど同じです。",
+      "korean": "거의 같아요.",
+      "alternativeAnswers": [],
+      "hint": "거의...",
+      "explanation": "差がほとんどない状態を副詞で表現します。"
+    },
+    {
+      "id": "qt_word_formation_015_10",
+      "order": 10,
+      "japanese": "ほとんど聞き取れません。",
+      "korean": "거의 못 들어요.",
+      "alternativeAnswers": [],
+      "hint": "거의...",
+      "explanation": "能力否定「못」と合わせて「ほとんど聞けない」です。"
+    }
+  ]
+}

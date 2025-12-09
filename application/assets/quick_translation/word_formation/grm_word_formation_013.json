@@ -1,0 +1,106 @@
+{
+  "grammarRef": "grm_word_formation_013",
+  "grammarTitle": "잘",
+  "grammarSubtitle": "様態副詞（よく/上手に）",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_013_01",
+      "order": 1,
+      "japanese": "よく食べます。",
+      "korean": "잘 먹어요.",
+      "alternativeAnswers": [],
+      "hint": "잘...",
+      "explanation": "頻度と様態を示し「よく食べる」を表します。"
+    },
+    {
+      "id": "qt_word_formation_013_02",
+      "order": 2,
+      "japanese": "韓国語をよく話します。",
+      "korean": "한국어를 잘해요.",
+      "alternativeAnswers": [
+        "한국어를 잘 해요."
+      ],
+      "hint": "한국어를...",
+      "explanation": "能力を表す動詞の前に置き「上手に話す」を示します。"
+    },
+    {
+      "id": "qt_word_formation_013_03",
+      "order": 3,
+      "japanese": "よく眠れました。",
+      "korean": "잘 잤어요.",
+      "alternativeAnswers": [],
+      "hint": "잘...",
+      "explanation": "睡眠の状態を良く取れたときに「잘 잤어요」と言います。"
+    },
+    {
+      "id": "qt_word_formation_013_04",
+      "order": 4,
+      "japanese": "よく聞こえます。",
+      "korean": "잘 들려요.",
+      "alternativeAnswers": [],
+      "hint": "잘...",
+      "explanation": "感覚動詞の前で「よく聞こえる」と様態を示します。"
+    },
+    {
+      "id": "qt_word_formation_013_05",
+      "order": 5,
+      "japanese": "よく見えます。",
+      "korean": "잘 보여요.",
+      "alternativeAnswers": [],
+      "hint": "잘...",
+      "explanation": "視覚の状態を示し「はっきり見える」と伝えます。"
+    },
+    {
+      "id": "qt_word_formation_013_06",
+      "order": 6,
+      "japanese": "料理が上手です。",
+      "korean": "요리를 잘해요.",
+      "alternativeAnswers": [
+        "요리를 잘 해요."
+      ],
+      "hint": "요리를...",
+      "explanation": "動名詞の前で技能を示し「料理を上手にする」です。"
+    },
+    {
+      "id": "qt_word_formation_013_07",
+      "order": 7,
+      "japanese": "スポーツが得意です。",
+      "korean": "운동을 잘해요.",
+      "alternativeAnswers": [
+        "운동을 잘 해요."
+      ],
+      "hint": "운동을...",
+      "explanation": "「잘」は得意さを表しスポーツが上手だと言います。"
+    },
+    {
+      "id": "qt_word_formation_013_08",
+      "order": 8,
+      "japanese": "よく覚えています。",
+      "korean": "잘 기억해요.",
+      "alternativeAnswers": [],
+      "hint": "잘...",
+      "explanation": "記憶する動作でも前に置き「よく覚えている」を示します。"
+    },
+    {
+      "id": "qt_word_formation_013_09",
+      "order": 9,
+      "japanese": "よく笑います。",
+      "korean": "잘 웃어요.",
+      "alternativeAnswers": [],
+      "hint": "잘...",
+      "explanation": "頻繁に笑う様子を「잘 웃어요」で表現します。"
+    },
+    {
+      "id": "qt_word_formation_013_10",
+      "order": 10,
+      "japanese": "よく勉強します。",
+      "korean": "공부를 잘해요.",
+      "alternativeAnswers": [
+        "공부를 잘 해요."
+      ],
+      "hint": "공부를...",
+      "explanation": "学習の技能や習慣を評価するときに使います。"
+    }
+  ]
+}

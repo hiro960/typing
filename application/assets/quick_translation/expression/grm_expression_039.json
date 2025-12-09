@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_039",
+  "grammarTitle": "-는 수밖에 없다",
+  "grammarSubtitle": "〜するしかない（方法がない）",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_039_01",
+      "order": 1,
+      "japanese": "歩いて行くしかありません。",
+      "korean": "걸어가는 수밖에 없어요.",
+      "alternativeAnswers": [],
+      "hint": "걸어가는...",
+      "explanation": "他の方法がない状況で進行形に「-는 수밖에 없다」を使います。"
+    },
+    {
+      "id": "qt_expression_039_02",
+      "order": 2,
+      "japanese": "待つしかありません。",
+      "korean": "기다리는 수밖에 없어요.",
+      "alternativeAnswers": [],
+      "hint": "기다리는...",
+      "explanation": "選択肢がないことを「-는 수밖에 없다」で表します。"
+    },
+    {
+      "id": "qt_expression_039_03",
+      "order": 3,
+      "japanese": "もう一度するしかありません。",
+      "korean": "다시 하는 수밖에 없어요.",
+      "alternativeAnswers": [],
+      "hint": "다시...",
+      "explanation": "他案がないのでやり直すしかない状況を示します。"
+    },
+    {
+      "id": "qt_expression_039_04",
+      "order": 4,
+      "japanese": "バスに乗るしかありません。",
+      "korean": "버스를 타는 수밖에 없어요.",
+      "alternativeAnswers": [],
+      "hint": "버스를...",
+      "explanation": "手段が限定されていることを「-는 수밖에 없다」で述べます。"
+    },
+    {
+      "id": "qt_expression_039_05",
+      "order": 5,
+      "japanese": "謝るしかありません。",
+      "korean": "사과하는 수밖에 없어요.",
+      "alternativeAnswers": [],
+      "hint": "사과하는...",
+      "explanation": "解決策がそれだけであるとき「-는 수밖에 없다」を使います。"
+    },
+    {
+      "id": "qt_expression_039_06",
+      "order": 6,
+      "japanese": "列に並ぶしかありません。",
+      "korean": "줄을 서는 수밖에 없어요.",
+      "alternativeAnswers": [],
+      "hint": "줄을...",
+      "explanation": "唯一の方法として並ぶことを「-는 수밖에 없다」で表現します。"
+    },
+    {
+      "id": "qt_expression_039_07",
+      "order": 7,
+      "japanese": "借りるしかありません。",
+      "korean": "빌리는 수밖에 없어요.",
+      "alternativeAnswers": [],
+      "hint": "빌리는...",
+      "explanation": "他に方法がない状況を示すため「-는 수밖에 없다」を用います。"
+    },
+    {
+      "id": "qt_expression_039_08",
+      "order": 8,
+      "japanese": "我慢するしかありません。",
+      "korean": "참는 수밖에 없어요.",
+      "alternativeAnswers": [],
+      "hint": "참고...",
+      "explanation": "耐える以外ない状況を「-는 수밖에 없다」で表します。"
+    },
+    {
+      "id": "qt_expression_039_09",
+      "order": 9,
+      "japanese": "他の道に行くしかありません。",
+      "korean": "다른 길로 가는 수밖에 없어요.",
+      "alternativeAnswers": [],
+      "hint": "다른...",
+      "explanation": "選択肢が一つに限られるとき「-는 수밖에 없다」を使います。"
+    },
+    {
+      "id": "qt_expression_039_10",
+      "order": 10,
+      "japanese": "あきらめるしかありません。",
+      "korean": "포기하는 수밖에 없어요.",
+      "alternativeAnswers": [],
+      "hint": "포기하는...",
+      "explanation": "やむを得ない選択として「-는 수밖에 없다」を用います。"
+    }
+  ]
+}

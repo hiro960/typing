@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_009",
+  "grammarTitle": "이렇게/그렇게/저렇게",
+  "grammarSubtitle": "様態副詞（こう/そう/ああ）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_009_01",
+      "order": 1,
+      "japanese": "こうしてください。",
+      "korean": "이렇게 하세요.",
+      "alternativeAnswers": [],
+      "hint": "이렇게...",
+      "explanation": "手本を示すとき様態副詞「이렇게」。"
+    },
+    {
+      "id": "qt_substantive_009_02",
+      "order": 2,
+      "japanese": "そう言わないでください。",
+      "korean": "그렇게 말하지 마세요.",
+      "alternativeAnswers": [],
+      "hint": "그렇게...",
+      "explanation": "相手の言い方を止めるとき「그렇게」。"
+    },
+    {
+      "id": "qt_substantive_009_03",
+      "order": 3,
+      "japanese": "ああ走らないでください。",
+      "korean": "저렇게 뛰지 마세요.",
+      "alternativeAnswers": [],
+      "hint": "저렇게...",
+      "explanation": "離れた様子を指して「저렇게」。"
+    },
+    {
+      "id": "qt_substantive_009_04",
+      "order": 4,
+      "japanese": "こんなにたくさん食べます。",
+      "korean": "이렇게 많이 먹어요.",
+      "alternativeAnswers": [],
+      "hint": "이렇게...",
+      "explanation": "程度を示すときも「이렇게」。"
+    },
+    {
+      "id": "qt_substantive_009_05",
+      "order": 5,
+      "japanese": "そんなに遅く来ないでください。",
+      "korean": "그렇게 늦게 오지 마요.",
+      "alternativeAnswers": [],
+      "hint": "그렇게...",
+      "explanation": "相手の行動様式を諭すとき「그렇게」。"
+    },
+    {
+      "id": "qt_substantive_009_06",
+      "order": 6,
+      "japanese": "ああ大声で笑わないでください。",
+      "korean": "저렇게 크게 웃지 마세요.",
+      "alternativeAnswers": [],
+      "hint": "저렇게...",
+      "explanation": "遠くの様子を指し「저렇게 크게」。"
+    },
+    {
+      "id": "qt_substantive_009_07",
+      "order": 7,
+      "japanese": "こうゆっくり歩きます。",
+      "korean": "이렇게 천천히 걸어요.",
+      "alternativeAnswers": [],
+      "hint": "이렇게...",
+      "explanation": "方法を示すとき「이렇게 천천히」。"
+    },
+    {
+      "id": "qt_substantive_009_08",
+      "order": 8,
+      "japanese": "そう急がなくても大丈夫です。",
+      "korean": "그렇게 서두르지 않아도 돼요.",
+      "alternativeAnswers": [],
+      "hint": "그렇게...",
+      "explanation": "不要な行動を止めるとき「그렇게 ~ 않아도 돼요」。"
+    },
+    {
+      "id": "qt_substantive_009_09",
+      "order": 9,
+      "japanese": "ああ大きな声で話してはいけません。",
+      "korean": "저렇게 크게 말하면 안 돼요.",
+      "alternativeAnswers": [],
+      "hint": "저렇게...",
+      "explanation": "注意するとき遠い様子を「저렇게 말하면」。"
+    },
+    {
+      "id": "qt_substantive_009_10",
+      "order": 10,
+      "japanese": "こうすれば大丈夫です。",
+      "korean": "이렇게 하면 돼요.",
+      "alternativeAnswers": [],
+      "hint": "이렇게...",
+      "explanation": "方法提示で「이렇게 하면」＋돼요を使います。"
+    }
+  ]
+}

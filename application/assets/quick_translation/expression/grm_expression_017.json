@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_017",
+  "grammarTitle": "-(으)ㄴ/는 덕분에",
+  "grammarSubtitle": "〜のおかげで",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_017_01",
+      "order": 1,
+      "japanese": "家族のおかげで幸せです。",
+      "korean": "가족 덕분에 행복해요.",
+      "alternativeAnswers": ["가족 덕분에 행복합니다."],
+      "hint": "가족...",
+      "explanation": "良い原因を示すとき「덕분에」で「おかげで」を表します。"
+    },
+    {
+      "id": "qt_expression_017_02",
+      "order": 2,
+      "japanese": "友達のおかげで韓国語が上達しました。",
+      "korean": "친구 덕분에 한국어가 늘었어요.",
+      "alternativeAnswers": ["친구 덕분에 한국어가 늘었습니다."],
+      "hint": "친구...",
+      "explanation": "人の助けを受けたとき「덕분에」を使います。"
+    },
+    {
+      "id": "qt_expression_017_03",
+      "order": 3,
+      "japanese": "先生のおかげで合格しました。",
+      "korean": "선생님 덕분에 합격했어요.",
+      "alternativeAnswers": ["선생님 덕분에 합격했습니다."],
+      "hint": "선생님...",
+      "explanation": "良い結果の理由を丁寧に言う表現です。"
+    },
+    {
+      "id": "qt_expression_017_04",
+      "order": 4,
+      "japanese": "天気がいいおかげで気分がいいです。",
+      "korean": "날씨 덕분에 기분이 좋아요.",
+      "alternativeAnswers": ["날씨 덕분에 기분이 좋습니다."],
+      "hint": "날씨...",
+      "explanation": "環境のおかげを言うときも「덕분에」を用います。"
+    },
+    {
+      "id": "qt_expression_017_05",
+      "order": 5,
+      "japanese": "両親のおかげで学校に通えます。",
+      "korean": "부모님 덕분에 학교에 다녀요.",
+      "alternativeAnswers": ["부모님 덕분에 학교에 다닙니다."],
+      "hint": "부모님...",
+      "explanation": "支援してくれる人への感謝を表す形です。"
+    },
+    {
+      "id": "qt_expression_017_06",
+      "order": 6,
+      "japanese": "友達の助けのおかげで宿題を終えました。",
+      "korean": "친구의 도움 덕분에 숙제를 끝냈어요.",
+      "alternativeAnswers": ["친구의 도움 덕분에 숙제를 끝냈습니다."],
+      "hint": "친구의...",
+      "explanation": "助けを受けた具体的な理由も「덕분에」で表します。"
+    },
+    {
+      "id": "qt_expression_017_07",
+      "order": 7,
+      "japanese": "バスが早く来たおかげで早く着きました。",
+      "korean": "버스가 빨리 온 덕분에 일찍 도착했어요.",
+      "alternativeAnswers": ["버스가 빨리 온 덕분에 일찍 도착했습니다."],
+      "hint": "버스가...",
+      "explanation": "過去の事実を理由にする場合「-ㄴ 덕분에」を使います。"
+    },
+    {
+      "id": "qt_expression_017_08",
+      "order": 8,
+      "japanese": "音楽のおかげで気持ちが楽です。",
+      "korean": "음악 덕분에 마음이 편해요.",
+      "alternativeAnswers": ["음악 덕분에 마음이 편합니다."],
+      "hint": "음악...",
+      "explanation": "物のおかげで良くなった時も「덕분에」を用います。"
+    },
+    {
+      "id": "qt_expression_017_09",
+      "order": 9,
+      "japanese": "安いチケットのおかげで旅行に行きました。",
+      "korean": "싼 표 덕분에 여행을 갔어요.",
+      "alternativeAnswers": ["싼 표 덕분에 여행을 갔습니다."],
+      "hint": "싼 표...",
+      "explanation": "有利な条件を理由にするときの「덕분에」です。"
+    },
+    {
+      "id": "qt_expression_017_10",
+      "order": 10,
+      "japanese": "運動のおかげで健康になりました。",
+      "korean": "운동 덕분에 건강해졌어요.",
+      "alternativeAnswers": ["운동 덕분에 건강해졌습니다."],
+      "hint": "운동...",
+      "explanation": "良い結果をもたらした原因に感謝するとき使います。"
+    }
+  ]
+}

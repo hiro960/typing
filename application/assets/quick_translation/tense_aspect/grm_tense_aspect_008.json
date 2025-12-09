@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_tense_aspect_008",
+  "grammarTitle": "-지 않다",
+  "grammarSubtitle": "否定・長形",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_008_01",
+      "order": 1,
+      "japanese": "今日は行きません。",
+      "korean": "오늘은 가지 않아요.",
+      "alternativeAnswers": ["오늘은 가지 않습니다."],
+      "hint": "오늘은...",
+      "explanation": "丁寧に否定するとき語幹に-지 않아요を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_008_02",
+      "order": 2,
+      "japanese": "バスには乗りません。",
+      "korean": "버스를 타지 않아요.",
+      "alternativeAnswers": ["버스를 타지 않습니다."],
+      "hint": "버스를...",
+      "explanation": "行為の否定を文章的に言うとき-지 않다を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_008_03",
+      "order": 3,
+      "japanese": "辛い料理は好きではありません。",
+      "korean": "매운 음식은 좋아하지 않아요.",
+      "alternativeAnswers": ["매운 음식은 좋아하지 않습니다."],
+      "hint": "매운...",
+      "explanation": "好みを否定する際も-지 않아요で丁寧に表します。"
+    },
+    {
+      "id": "qt_tense_aspect_008_04",
+      "order": 4,
+      "japanese": "本を読みませんでした。",
+      "korean": "책을 읽지 않았어요.",
+      "alternativeAnswers": ["책을 읽지 않았습니다."],
+      "hint": "책을...",
+      "explanation": "過去の否定も-지 않았다形に活用して表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_008_05",
+      "order": 5,
+      "japanese": "まだ遅くありません。",
+      "korean": "아직 늦지 않았어요.",
+      "alternativeAnswers": ["아직 늦지 않았습니다."],
+      "hint": "아직...",
+      "explanation": "状態の否定にも-지 않다を使い丁寧に伝えます。"
+    },
+    {
+      "id": "qt_tense_aspect_008_06",
+      "order": 6,
+      "japanese": "友達に会いませんでした。",
+      "korean": "친구를 만나지 않았어요.",
+      "alternativeAnswers": ["친구를 만나지 않았습니다."],
+      "hint": "친구를...",
+      "explanation": "行わなかった過去の事実を-지 않았어요で否定します。"
+    },
+    {
+      "id": "qt_tense_aspect_008_07",
+      "order": 7,
+      "japanese": "コーヒーを飲みませんでした。",
+      "korean": "커피를 마시지 않았어요.",
+      "alternativeAnswers": ["커피를 마시지 않았습니다."],
+      "hint": "커피를...",
+      "explanation": "飲まなかったことを丁寧形-지 않았어요で表現。"
+    },
+    {
+      "id": "qt_tense_aspect_008_08",
+      "order": 8,
+      "japanese": "運動はよくしません。",
+      "korean": "운동을 자주 하지 않아요.",
+      "alternativeAnswers": ["운동을 자주 하지 않습니다."],
+      "hint": "운동을...",
+      "explanation": "頻度を否定する場合も-지 않아요を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_008_09",
+      "order": 9,
+      "japanese": "韓国語は難しくありません。",
+      "korean": "한국어는 어렵지 않아요.",
+      "alternativeAnswers": ["한국어는 어렵지 않습니다."],
+      "hint": "한국어는...",
+      "explanation": "形容詞の否定にも-지 않다を用いて丁寧に言います。"
+    },
+    {
+      "id": "qt_tense_aspect_008_10",
+      "order": 10,
+      "japanese": "部屋は大きくありません。",
+      "korean": "방은 크지 않아요.",
+      "alternativeAnswers": ["방은 크지 않습니다."],
+      "hint": "방은...",
+      "explanation": "大きくない状態を長い否定形-지 않아요で表現します。"
+    }
+  ]
+}

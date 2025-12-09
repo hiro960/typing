@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_015",
+  "grammarTitle": "에게서/한테서",
+  "grammarSubtitle": "奪格助詞（〜から）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_015_01",
+      "order": 1,
+      "japanese": "友達から手紙をもらいました。",
+      "korean": "친구에게서 편지를 받았어요.",
+      "alternativeAnswers": ["친구한테서 편지를 받았어요.", "친구에게서 편지를 받았습니다."],
+      "hint": "친구에게서...",
+      "explanation": "受け取る出所を表すとき「에게서/한테서」を使います。"
+    },
+    {
+      "id": "qt_particle_015_02",
+      "order": 2,
+      "japanese": "弟から電話が来ました。",
+      "korean": "동생한테서 전화가 왔어요.",
+      "alternativeAnswers": ["동생에게서 전화가 왔어요.", "동생한테서 전화가 왔습니다."],
+      "hint": "동생한테서...",
+      "explanation": "連絡の送り手も出所として「에게서/한테서」で示します。"
+    },
+    {
+      "id": "qt_particle_015_03",
+      "order": 3,
+      "japanese": "お母さんからプレゼントをもらいました。",
+      "korean": "엄마에게서 선물을 받았어요.",
+      "alternativeAnswers": ["엄마한테서 선물을 받았어요.", "엄마에게서 선물을 받았습니다."],
+      "hint": "엄마에게서...",
+      "explanation": "もらう相手を明示する奪格助詞です。"
+    },
+    {
+      "id": "qt_particle_015_04",
+      "order": 4,
+      "japanese": "誰から聞きましたか？",
+      "korean": "누구에게서 들었어요?",
+      "alternativeAnswers": ["누구한테서 들었어요?", "누구에게서 들었습니까?"],
+      "hint": "누구에게서...",
+      "explanation": "情報源を尋ねる疑問にも「에게서/한테서」を付けます。"
+    },
+    {
+      "id": "qt_particle_015_05",
+      "order": 5,
+      "japanese": "先生から韓国語を習います。",
+      "korean": "선생님에게서 한국어를 배워요.",
+      "alternativeAnswers": ["선생님한테서 한국어를 배워요.", "선생님에게서 한국어를 배웁니다."],
+      "hint": "선생님에게서...",
+      "explanation": "教わる出所も奪格助詞で表します。"
+    },
+    {
+      "id": "qt_particle_015_06",
+      "order": 6,
+      "japanese": "兄からお金を借りました。",
+      "korean": "형한테서 돈을 빌렸어요.",
+      "alternativeAnswers": ["형에게서 돈을 빌렸어요.", "형한테서 돈을 빌렸습니다."],
+      "hint": "형한테서...",
+      "explanation": "借りた相手を示すときも出所なので「에게서/한테서」です。"
+    },
+    {
+      "id": "qt_particle_015_07",
+      "order": 7,
+      "japanese": "友達から本を借りました。",
+      "korean": "친구에게서 책을 빌렸어요.",
+      "alternativeAnswers": ["친구한테서 책을 빌렸어요.", "친구에게서 책을 빌렸습니다."],
+      "hint": "친구에게서...",
+      "explanation": "物を受け取る元を明示する助詞です。"
+    },
+    {
+      "id": "qt_particle_015_08",
+      "order": 8,
+      "japanese": "子どもから絵をもらいました。",
+      "korean": "아이한테서 그림을 받았어요.",
+      "alternativeAnswers": ["아이에게서 그림을 받았어요.", "아이한테서 그림을 받았습니다."],
+      "hint": "아이한테서...",
+      "explanation": "小さな子などからの受け取りにも同じ助詞を使います。"
+    },
+    {
+      "id": "qt_particle_015_09",
+      "order": 9,
+      "japanese": "お父さんから歌を習いました。",
+      "korean": "아버지에게서 노래를 배웠어요.",
+      "alternativeAnswers": ["아버지한테서 노래를 배웠어요.", "아버지에게서 노래를 배웠습니다."],
+      "hint": "아버지에게서...",
+      "explanation": "技能の先生や教えた人も出所として表します。"
+    },
+    {
+      "id": "qt_particle_015_10",
+      "order": 10,
+      "japanese": "友達から助けをもらいました。",
+      "korean": "친구들에게서 도움을 받았어요.",
+      "alternativeAnswers": ["친구들한테서 도움을 받았어요.", "친구들에게서 도움을 받았습니다."],
+      "hint": "친구들에게서...",
+      "explanation": "複数の出所にも「에게서/한테서」で『〜から』を表します。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_word_formation_002",
+  "grammarTitle": "-이/히",
+  "grammarSubtitle": "副詞形（〜に）",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_002_01",
+      "order": 1,
+      "japanese": "静かに座ってください。",
+      "korean": "조용히 앉아 주세요.",
+      "alternativeAnswers": [],
+      "hint": "조용히...",
+      "explanation": "形容詞に「-히」を付けた副詞で静かに座る様態を表します。"
+    },
+    {
+      "id": "qt_word_formation_002_02",
+      "order": 2,
+      "japanese": "正確に書いてください。",
+      "korean": "정확히 써 주세요.",
+      "alternativeAnswers": [],
+      "hint": "정확히...",
+      "explanation": "形容詞「정확하다」に「-히」を付けて正確にを書くと示します。"
+    },
+    {
+      "id": "qt_word_formation_002_03",
+      "order": 3,
+      "japanese": "はっきり言ってください。",
+      "korean": "똑똑히 말해 주세요.",
+      "alternativeAnswers": [],
+      "hint": "똑똑히...",
+      "explanation": "副詞「똑똑히」で明確に話すように頼む例です。"
+    },
+    {
+      "id": "qt_word_formation_002_04",
+      "order": 4,
+      "japanese": "きれいに掃除しました。",
+      "korean": "깨끗이 청소했어요.",
+      "alternativeAnswers": [],
+      "hint": "깨끗이...",
+      "explanation": "特例形「깨끗이」で副詞化し掃除の様態を示します。"
+    },
+    {
+      "id": "qt_word_formation_002_05",
+      "order": 5,
+      "japanese": "熱心に勉強します。",
+      "korean": "열심히 공부해요.",
+      "alternativeAnswers": [],
+      "hint": "열심히...",
+      "explanation": "「열심히」は「열심하다」に由来する副詞形で頑張る様子を表します。"
+    },
+    {
+      "id": "qt_word_formation_002_06",
+      "order": 6,
+      "japanese": "ゆっくり話してください。",
+      "korean": "천천히 말해 주세요.",
+      "alternativeAnswers": [],
+      "hint": "천천히...",
+      "explanation": "動作の速度を副詞「-히」形で表しゆっくり話すよう依頼します。"
+    },
+    {
+      "id": "qt_word_formation_002_07",
+      "order": 7,
+      "japanese": "詳しく教えてください。",
+      "korean": "자세히 알려 주세요.",
+      "alternativeAnswers": [],
+      "hint": "자세히...",
+      "explanation": "形容詞「자세하다」に「-히」を付け詳細に教えるよう頼みます。"
+    },
+    {
+      "id": "qt_word_formation_002_08",
+      "order": 8,
+      "japanese": "はっきり覚えています。",
+      "korean": "분명히 기억해요.",
+      "alternativeAnswers": [],
+      "hint": "분명히...",
+      "explanation": "明確さを示す副詞「분명히」で覚えている状態を表します。"
+    },
+    {
+      "id": "qt_word_formation_002_09",
+      "order": 9,
+      "japanese": "静かに音楽を聞きます。",
+      "korean": "조용히 음악을 들어요.",
+      "alternativeAnswers": [],
+      "hint": "조용히...",
+      "explanation": "様態副詞「조용히」で静かに聞くことを示します。"
+    },
+    {
+      "id": "qt_word_formation_002_10",
+      "order": 10,
+      "japanese": "簡単に終わりました。",
+      "korean": "간단히 끝났어요.",
+      "alternativeAnswers": [],
+      "hint": "간단히...",
+      "explanation": "形容詞「간단하다」に「-히」を付け簡単に終わったと述べます。"
+    }
+  ]
+}

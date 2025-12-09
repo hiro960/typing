@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_adnominal_011",
+  "grammarTitle": "-(으)ㄴ/는/(으)ㄹ 때",
+  "grammarSubtitle": "〜するとき",
+  "category": "adnominal",
+  "questions": [
+    {
+      "id": "qt_adnominal_011_01",
+      "order": 1,
+      "japanese": "ご飯を食べるとき手を洗います。",
+      "korean": "밥을 먹을 때 손을 씻어요.",
+      "alternativeAnswers": ["밥을 먹을 때 손을 씻습니다."],
+      "hint": "밥을...",
+      "explanation": "未来・習慣の行為に -(으)ㄹ 때 を付けます。"
+    },
+    {
+      "id": "qt_adnominal_011_02",
+      "order": 2,
+      "japanese": "学校に行くときバスに乗ります。",
+      "korean": "학교에 갈 때 버스를 타요.",
+      "alternativeAnswers": ["학교에 갈 때 버스를 탑니다."],
+      "hint": "학교에...",
+      "explanation": "移動の場面で行為のタイミングを表します。"
+    },
+    {
+      "id": "qt_adnominal_011_03",
+      "order": 3,
+      "japanese": "勉強するとき静かにしてください。",
+      "korean": "공부할 때 조용히 해 주세요.",
+      "alternativeAnswers": ["공부할 때 조용히 해 주십시오."],
+      "hint": "공부할...",
+      "explanation": "行為の際に取るべき態度を示す例です。"
+    },
+    {
+      "id": "qt_adnominal_011_04",
+      "order": 4,
+      "japanese": "幼いときよく遊びました。",
+      "korean": "어렸을 때 자주 놀았어요.",
+      "alternativeAnswers": ["어렸을 때 자주 놀았습니다."],
+      "hint": "어렸을...",
+      "explanation": "過去の時期には -(으)ㄴ/았을 때 を用います。"
+    },
+    {
+      "id": "qt_adnominal_011_05",
+      "order": 5,
+      "japanese": "雨が降るときは傘を使います。",
+      "korean": "비가 올 때는 우산을 써요.",
+      "alternativeAnswers": ["비가 올 때는 우산을 씁니다."],
+      "hint": "비가...",
+      "explanation": "進行中や予定の状況に -(으)ㄹ 때 を付けます。"
+    },
+    {
+      "id": "qt_adnominal_011_06",
+      "order": 6,
+      "japanese": "友達に会うときコーヒーを買います。",
+      "korean": "친구를 만날 때 커피를 사요.",
+      "alternativeAnswers": ["친구를 만날 때 커피를 삽니다."],
+      "hint": "친구를...",
+      "explanation": "特定の行為のタイミングを表す用法です。"
+    },
+    {
+      "id": "qt_adnominal_011_07",
+      "order": 7,
+      "japanese": "映画を見るとき静かにします。",
+      "korean": "영화를 볼 때 조용히 해요.",
+      "alternativeAnswers": ["영화를 볼 때 조용히 합니다."],
+      "hint": "영화를...",
+      "explanation": "動作中の態度を -(으)ㄹ 때 で示します。"
+    },
+    {
+      "id": "qt_adnominal_011_08",
+      "order": 8,
+      "japanese": "疲れたとき休みます。",
+      "korean": "피곤할 때 쉬어요.",
+      "alternativeAnswers": ["피곤할 때 쉽니다."],
+      "hint": "피곤할...",
+      "explanation": "形容詞にも -(으)ㄹ 때 を付けて時を表します。"
+    },
+    {
+      "id": "qt_adnominal_011_09",
+      "order": 9,
+      "japanese": "時間があるとき本を読みます。",
+      "korean": "시간이 있을 때 책을 읽어요.",
+      "alternativeAnswers": ["시간이 있을 때 책을 읽습니다."],
+      "hint": "시간이...",
+      "explanation": "状態に -(으)ㄹ 때 を付けて時点を示します。"
+    },
+    {
+      "id": "qt_adnominal_011_10",
+      "order": 10,
+      "japanese": "遅れたときは電話してください。",
+      "korean": "늦었을 때는 전화하세요.",
+      "alternativeAnswers": ["늦었을 때는 전화하십시오."],
+      "hint": "늦었을...",
+      "explanation": "過去形に -(으)ㄴ 때 を付け遅れた状況を述べます。"
+    }
+  ]
+}

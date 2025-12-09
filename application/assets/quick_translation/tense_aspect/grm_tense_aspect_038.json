@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_038",
+  "grammarTitle": "-기 마련이다",
+  "grammarSubtitle": "当然〜だ",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_038_01",
+      "order": 1,
+      "japanese": "人は失敗するものです。",
+      "korean": "사람은 실수하기 마련이에요.",
+      "alternativeAnswers": [
+        "사람은 실수하기 마련입니다."
+      ],
+      "hint": "사람은...",
+      "explanation": "一般的にそうなるのが当然だと述べる表現です。"
+    },
+    {
+      "id": "qt_tense_aspect_038_02",
+      "order": 2,
+      "japanese": "冬は寒いものです。",
+      "korean": "겨울에는 춥기 마련이에요.",
+      "alternativeAnswers": [
+        "겨울에는 춥기 마련입니다."
+      ],
+      "hint": "겨울에는...",
+      "explanation": "自然にそうなる状況を当たり前のこととして示します。"
+    },
+    {
+      "id": "qt_tense_aspect_038_03",
+      "order": 3,
+      "japanese": "子どもは育つものです。",
+      "korean": "아이는 자라기 마련이에요.",
+      "alternativeAnswers": [
+        "아이는 자라기 마련입니다."
+      ],
+      "hint": "아이는...",
+      "explanation": "必然的な成長を表すときに用います。"
+    },
+    {
+      "id": "qt_tense_aspect_038_04",
+      "order": 4,
+      "japanese": "時間が経てば忘れるものです。",
+      "korean": "시간이 지나면 잊기 마련이에요.",
+      "alternativeAnswers": [
+        "시간이 지나면 잊기 마련입니다."
+      ],
+      "hint": "시간이...",
+      "explanation": "避けられない傾向を「-기 마련이다」で示します。"
+    },
+    {
+      "id": "qt_tense_aspect_038_05",
+      "order": 5,
+      "japanese": "努力すれば上達するものです。",
+      "korean": "노력하면 실력이 늘기 마련이에요.",
+      "alternativeAnswers": [
+        "노력하면 실력이 늘기 마련입니다."
+      ],
+      "hint": "노력하면...",
+      "explanation": "当然の結果として上達することを述べます。"
+    },
+    {
+      "id": "qt_tense_aspect_038_06",
+      "order": 6,
+      "japanese": "たくさん食べれば太るものです。",
+      "korean": "많이 먹으면 살이 찌기 마련이에요.",
+      "alternativeAnswers": [
+        "많이 먹으면 살이 찌기 마련입니다."
+      ],
+      "hint": "많이...",
+      "explanation": "原因から予想される自然な結果を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_038_07",
+      "order": 7,
+      "japanese": "遅く寝れば疲れるものです。",
+      "korean": "늦게 자면 피곤하기 마련이에요.",
+      "alternativeAnswers": [
+        "늦게 자면 피곤하기 마련입니다."
+      ],
+      "hint": "늦게...",
+      "explanation": "当然生じる疲れを述べるときに使います。"
+    },
+    {
+      "id": "qt_tense_aspect_038_08",
+      "order": 8,
+      "japanese": "お金は節約すれば貯まるものです。",
+      "korean": "돈은 아끼면 모이기 마련이에요.",
+      "alternativeAnswers": [
+        "돈은 아끼면 모이기 마련입니다."
+      ],
+      "hint": "돈은...",
+      "explanation": "自然な結果として貯まることを表します。"
+    },
+    {
+      "id": "qt_tense_aspect_038_09",
+      "order": 9,
+      "japanese": "春になれば花が咲くものです。",
+      "korean": "봄이 오면 꽃이 피기 마련이에요.",
+      "alternativeAnswers": [
+        "봄이 오면 꽃이 피기 마련입니다."
+      ],
+      "hint": "봄이...",
+      "explanation": "季節に伴う当然の現象を述べる例です。"
+    },
+    {
+      "id": "qt_tense_aspect_038_10",
+      "order": 10,
+      "japanese": "運動すればお腹がすくものです。",
+      "korean": "운동하면 배고프기 마련이에요.",
+      "alternativeAnswers": [
+        "운동하면 배고프기 마련입니다."
+      ],
+      "hint": "운동하면...",
+      "explanation": "当然起こる感覚を一般化して述べます。"
+    }
+  ]
+}

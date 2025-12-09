@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_016",
+  "grammarTitle": "(으)로",
+  "grammarSubtitle": "方向・手段助詞（〜へ／〜で）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_016_01",
+      "order": 1,
+      "japanese": "バスで学校に行きます。",
+      "korean": "버스로 학교에 가요.",
+      "alternativeAnswers": ["버스로 학교에 갑니다."],
+      "hint": "버스로...",
+      "explanation": "移動の手段を表すとき名詞に「(으)로」を付けます。"
+    },
+    {
+      "id": "qt_particle_016_02",
+      "order": 2,
+      "japanese": "鉛筆で書きます。",
+      "korean": "연필로 써요.",
+      "alternativeAnswers": ["연필로 씁니다."],
+      "hint": "연필로...",
+      "explanation": "パッチムなしやㄹの名詞には「로」を使い手段を示します。"
+    },
+    {
+      "id": "qt_particle_016_03",
+      "order": 3,
+      "japanese": "右へ行ってください。",
+      "korean": "오른쪽으로 가세요.",
+      "alternativeAnswers": ["오른쪽으로 가십시오."],
+      "hint": "오른쪽으로...",
+      "explanation": "方向を示す場合も「(으)로」を付けて案内します。"
+    },
+    {
+      "id": "qt_particle_016_04",
+      "order": 4,
+      "japanese": "家へ帰ります。",
+      "korean": "집으로 돌아가요.",
+      "alternativeAnswers": ["집으로 돌아갑니다."],
+      "hint": "집으로...",
+      "explanation": "帰る方向・目的地にも「으로」を使います（パッチムあり）。"
+    },
+    {
+      "id": "qt_particle_016_05",
+      "order": 5,
+      "japanese": "手で食べます。",
+      "korean": "손으로 먹어요.",
+      "alternativeAnswers": ["손으로 먹습니다."],
+      "hint": "손으로...",
+      "explanation": "道具や手段を示す助詞として「(으)로」を用います。"
+    },
+    {
+      "id": "qt_particle_016_06",
+      "order": 6,
+      "japanese": "韓国語で話します。",
+      "korean": "한국어로 말해요.",
+      "alternativeAnswers": ["한국어로 말합니다."],
+      "hint": "한국어로...",
+      "explanation": "言語という手段にも「로」を付けて表現します。"
+    },
+    {
+      "id": "qt_particle_016_07",
+      "order": 7,
+      "japanese": "タクシーで行きます。",
+      "korean": "택시로 갈게요.",
+      "alternativeAnswers": ["택시로 갑니다."],
+      "hint": "택시로...",
+      "explanation": "交通手段を表すときも「(으)로」を使います。"
+    },
+    {
+      "id": "qt_particle_016_08",
+      "order": 8,
+      "japanese": "階段で上がります。",
+      "korean": "계단으로 올라가요.",
+      "alternativeAnswers": ["계단으로 올라갑니다."],
+      "hint": "계단으로...",
+      "explanation": "経路・方法として階段を示すときも同じ助詞です。"
+    },
+    {
+      "id": "qt_particle_016_09",
+      "order": 9,
+      "japanese": "ソウルへ旅行に行きます。",
+      "korean": "서울로 여행 가요.",
+      "alternativeAnswers": ["서울로 여행 갑니다."],
+      "hint": "서울로...",
+      "explanation": "終着方向を示すとき「로」を付けます（ㄹパッチムはそのまま）。"
+    },
+    {
+      "id": "qt_particle_016_10",
+      "order": 10,
+      "japanese": "コンピューターで仕事します。",
+      "korean": "컴퓨터로 일해요.",
+      "alternativeAnswers": ["컴퓨터로 일합니다."],
+      "hint": "컴퓨터로...",
+      "explanation": "道具・手段としての機器にも「로」を付けて表します。"
+    }
+  ]
+}

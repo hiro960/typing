@@ -1,0 +1,102 @@
+{
+  "grammarRef": "grm_expression_035",
+  "grammarTitle": "-아/어야",
+  "grammarSubtitle": "〜してこそ／〜しなければ",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_035_01",
+      "order": 1,
+      "japanese": "一生懸命してこそ成功します。",
+      "korean": "열심히 해야 성공해요.",
+      "alternativeAnswers": [
+        "열심히 해야 성공합니다."
+      ],
+      "hint": "열심히...",
+      "explanation": "必要条件を表し「-아/어야」でしてこそ成功することを示します。"
+    },
+    {
+      "id": "qt_expression_035_02",
+      "order": 2,
+      "japanese": "早く寝てこそ健康です。",
+      "korean": "일찍 자야 건강해요.",
+      "alternativeAnswers": [],
+      "hint": "일찍...",
+      "explanation": "条件を満たしたときの結果を「-아/어야」で表現します。"
+    },
+    {
+      "id": "qt_expression_035_03",
+      "order": 3,
+      "japanese": "薬を飲んでこそ治ります。",
+      "korean": "약을 먹어야 나아요.",
+      "alternativeAnswers": [
+        "약을 먹어야 낫습니다."
+      ],
+      "hint": "약을...",
+      "explanation": "行為が必要であることを「먹어야」で示します。"
+    },
+    {
+      "id": "qt_expression_035_04",
+      "order": 4,
+      "japanese": "準備してこそ上手にできます。",
+      "korean": "준비해야 잘해요.",
+      "alternativeAnswers": [],
+      "hint": "준비해야...",
+      "explanation": "準備が条件であることを「-아/어야」で表します。"
+    },
+    {
+      "id": "qt_expression_035_05",
+      "order": 5,
+      "japanese": "待ってこそ乗れます。",
+      "korean": "기다려야 탈 수 있어요.",
+      "alternativeAnswers": [],
+      "hint": "기다려야...",
+      "explanation": "待つことが必要条件であるため「기다려야」を使います。"
+    },
+    {
+      "id": "qt_expression_035_06",
+      "order": 6,
+      "japanese": "登録してこそ聞けます。",
+      "korean": "등록해야 들을 수 있어요.",
+      "alternativeAnswers": [],
+      "hint": "등록해야...",
+      "explanation": "登録を必須条件として「-아/어야」を用います。"
+    },
+    {
+      "id": "qt_expression_035_07",
+      "order": 7,
+      "japanese": "連絡してこそ楽です。",
+      "korean": "미리 연락해야 편해요.",
+      "alternativeAnswers": [],
+      "hint": "미리...",
+      "explanation": "事前連絡が必要であることを「-아/어야」で表します。"
+    },
+    {
+      "id": "qt_expression_035_08",
+      "order": 8,
+      "japanese": "練習してこそ覚えます。",
+      "korean": "연습해야 기억해요.",
+      "alternativeAnswers": [],
+      "hint": "연습해야...",
+      "explanation": "練習が条件であることを「-아/어야」を使って示します。"
+    },
+    {
+      "id": "qt_expression_035_09",
+      "order": 9,
+      "japanese": "食べてこそ力が出ます。",
+      "korean": "먹어야 힘이 나요.",
+      "alternativeAnswers": [],
+      "hint": "먹어야...",
+      "explanation": "食べることが必要条件であるため「먹어야」を使用します。"
+    },
+    {
+      "id": "qt_expression_035_10",
+      "order": 10,
+      "japanese": "出かけてこそ気分がよくなります。",
+      "korean": "나가야 기분이 좋아져요.",
+      "alternativeAnswers": [],
+      "hint": "나가야...",
+      "explanation": "行動を条件として気分変化を述べるとき「-아/어야」を用います。"
+    }
+  ]
+}

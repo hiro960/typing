@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_connective_015",
+  "grammarTitle": "-자마자",
+  "grammarSubtitle": "〜するとすぐに",
+  "category": "connective",
+  "questions": [
+    {
+      "id": "qt_connective_015_01",
+      "order": 1,
+      "japanese": "家に帰るとすぐ寝ます。",
+      "korean": "집에 오자마자 자요.",
+      "alternativeAnswers": [],
+      "hint": "집에...",
+      "explanation": "ある行為が終わると同時に次が起こるとき -자마자 を使います。"
+    },
+    {
+      "id": "qt_connective_015_02",
+      "order": 2,
+      "japanese": "電話を切るとすぐ出かけました。",
+      "korean": "전화 끊자마자 나갔어요.",
+      "alternativeAnswers": [],
+      "hint": "전화...",
+      "explanation": "先行動作の直後に起こる出来事を示す接続表現です。"
+    },
+    {
+      "id": "qt_connective_015_03",
+      "order": 3,
+      "japanese": "学校が終わるとすぐ家に帰ります。",
+      "korean": "학교 끝나자마자 집에 가요.",
+      "alternativeAnswers": [],
+      "hint": "학교...",
+      "explanation": "前件が終わった直後に続く行動を表します。"
+    },
+    {
+      "id": "qt_connective_015_04",
+      "order": 4,
+      "japanese": "起きるとすぐ水を飲みます。",
+      "korean": "일어나자마자 물을 마셔요.",
+      "alternativeAnswers": [],
+      "hint": "일어나...",
+      "explanation": "時間差なく次の行動をする場面で -자마자 を付けます。"
+    },
+    {
+      "id": "qt_connective_015_05",
+      "order": 5,
+      "japanese": "会うとすぐ笑いました。",
+      "korean": "만나자마자 웃었어요.",
+      "alternativeAnswers": [],
+      "hint": "만나...",
+      "explanation": "出会いの直後に起こったことを示す接続形です。"
+    },
+    {
+      "id": "qt_connective_015_06",
+      "order": 6,
+      "japanese": "バスに乗るとすぐ座りました。",
+      "korean": "버스 타자마자 앉았어요.",
+      "alternativeAnswers": [],
+      "hint": "버스...",
+      "explanation": "乗った直後の行動を述べるときに使います。"
+    },
+    {
+      "id": "qt_connective_015_07",
+      "order": 7,
+      "japanese": "ドアを開けるとすぐ風が入りました。",
+      "korean": "문을 열자마자 바람이 들어왔어요.",
+      "alternativeAnswers": [],
+      "hint": "문을...",
+      "explanation": "先行動作に続く瞬時の変化を表す接続表現です。"
+    },
+    {
+      "id": "qt_connective_015_08",
+      "order": 8,
+      "japanese": "ご飯を食べるとすぐ勉強しました。",
+      "korean": "밥을 먹자마자 공부했어요.",
+      "alternativeAnswers": [],
+      "hint": "밥을...",
+      "explanation": "行為直後に別の行動をしたことを示します。"
+    },
+    {
+      "id": "qt_connective_015_09",
+      "order": 9,
+      "japanese": "雨が降るとすぐ傘をさしました。",
+      "korean": "비 오자마자 우산을 썼어요.",
+      "alternativeAnswers": [],
+      "hint": "비 오...",
+      "explanation": "出来事が起こるや否や取った行動を表すとき使います。"
+    },
+    {
+      "id": "qt_connective_015_10",
+      "order": 10,
+      "japanese": "メッセージをもらうとすぐ返事しました。",
+      "korean": "메시지를 받자마자 바로 답장했어요.",
+      "alternativeAnswers": ["문자를 받자마자 바로 답장했어요."],
+      "hint": "메시...",
+      "explanation": "受け取った直後の行為を表す接続表現です。"
+    }
+  ]
+}

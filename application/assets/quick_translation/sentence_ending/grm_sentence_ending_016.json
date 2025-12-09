@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_sentence_ending_016",
+  "grammarTitle": "-(으)십시오",
+  "grammarSubtitle": "命令・丁寧（〜してください）",
+  "category": "sentence_ending",
+  "questions": [
+    {
+      "id": "qt_sentence_ending_016_01",
+      "order": 1,
+      "japanese": "ここに座ってください。",
+      "korean": "여기 앉으십시오.",
+      "alternativeAnswers": ["여기에 앉으십시오.", "여기 앉으세요."],
+      "hint": "여기...",
+      "explanation": "丁寧に指示するときの命令形として -(으)십시오 を使います。"
+    },
+    {
+      "id": "qt_sentence_ending_016_02",
+      "order": 2,
+      "japanese": "静かにしてください。",
+      "korean": "조용히 하십시오.",
+      "alternativeAnswers": ["조용히 하세요."],
+      "hint": "조용히...",
+      "explanation": "相手に行動を求める正式な言い方に -(으)십시오 を用います。"
+    },
+    {
+      "id": "qt_sentence_ending_016_03",
+      "order": 3,
+      "japanese": "ゆっくり話してください。",
+      "korean": "천천히 말씀하십시오.",
+      "alternativeAnswers": ["천천히 말하십시오.", "천천히 말씀하세요."],
+      "hint": "천천히...",
+      "explanation": "丁寧な依頼で「話す」に敬語を添え -(으)십시오 を付けます。"
+    },
+    {
+      "id": "qt_sentence_ending_016_04",
+      "order": 4,
+      "japanese": "少しお待ちください。",
+      "korean": "잠시만 기다리십시오.",
+      "alternativeAnswers": ["조금만 기다리십시오.", "잠시만 기다리세요."],
+      "hint": "잠시...",
+      "explanation": "待ってもらう丁寧な命令に -(으)십시오 を使います。"
+    },
+    {
+      "id": "qt_sentence_ending_016_05",
+      "order": 5,
+      "japanese": "名前を書いてください。",
+      "korean": "이름을 쓰십시오.",
+      "alternativeAnswers": ["이름을 적으십시오.", "이름을 쓰세요."],
+      "hint": "이름을...",
+      "explanation": "動作の指示を正式に伝えるときの表現です。"
+    },
+    {
+      "id": "qt_sentence_ending_016_06",
+      "order": 6,
+      "japanese": "中にお入りください。",
+      "korean": "안으로 들어오십시오.",
+      "alternativeAnswers": ["들어오세요."],
+      "hint": "안으로...",
+      "explanation": "案内の場面で丁寧に促す命令形が -(으)십시오 です。"
+    },
+    {
+      "id": "qt_sentence_ending_016_07",
+      "order": 7,
+      "japanese": "ドアを閉めてください。",
+      "korean": "문을 닫으십시오.",
+      "alternativeAnswers": ["문 닫으세요."],
+      "hint": "문을...",
+      "explanation": "行動の要求を丁寧に伝えるとき -(으)십시오 を使います。"
+    },
+    {
+      "id": "qt_sentence_ending_016_08",
+      "order": 8,
+      "japanese": "質問があれば聞いてください。",
+      "korean": "질문이 있으면 물으십시오.",
+      "alternativeAnswers": ["질문 있으면 물어보십시오.", "질문이 있으면 물어보세요."],
+      "hint": "질문이...",
+      "explanation": "条件を添えて丁寧に命じる場面の終止形です。"
+    },
+    {
+      "id": "qt_sentence_ending_016_09",
+      "order": 9,
+      "japanese": "パスポートを見せてください。",
+      "korean": "여권을 보여 주십시오.",
+      "alternativeAnswers": ["여권 보여 주십시오.", "여권을 보여 주세요."],
+      "hint": "여권을...",
+      "explanation": "「ください」にあたる正式な依頼で -(으)십시오 を使います。"
+    },
+    {
+      "id": "qt_sentence_ending_016_10",
+      "order": 10,
+      "japanese": "後で連絡してください。",
+      "korean": "나중에 연락하십시오.",
+      "alternativeAnswers": ["나중에 연락해 주십시오.", "나중에 연락하세요."],
+      "hint": "나중에...",
+      "explanation": "連絡を求める丁寧な指示表現に -(으)십시오 を付けます。"
+    }
+  ]
+}

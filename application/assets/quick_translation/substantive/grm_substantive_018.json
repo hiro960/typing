@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_018",
+  "grammarTitle": "한, 두, 세, 네",
+  "grammarSubtitle": "固有数詞の連体形",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_018_01",
+      "order": 1,
+      "japanese": "一人待っています。",
+      "korean": "한 명 기다려요.",
+      "alternativeAnswers": [],
+      "hint": "한 명...",
+      "explanation": "助数詞の前では「하나→한」に短縮します。"
+    },
+    {
+      "id": "qt_substantive_018_02",
+      "order": 2,
+      "japanese": "二杯ください。",
+      "korean": "두 잔 주세요.",
+      "alternativeAnswers": [],
+      "hint": "두 잔...",
+      "explanation": "「둘」も助数詞の前で「두」に変わります。"
+    },
+    {
+      "id": "qt_substantive_018_03",
+      "order": 3,
+      "japanese": "三個あります。",
+      "korean": "세 개 있어요.",
+      "alternativeAnswers": [],
+      "hint": "세 개...",
+      "explanation": "「셋」は連体形「세」で助数詞を続けます。"
+    },
+    {
+      "id": "qt_substantive_018_04",
+      "order": 4,
+      "japanese": "四匹見ました。",
+      "korean": "네 마리 봤어요.",
+      "alternativeAnswers": [],
+      "hint": "네 마...",
+      "explanation": "「넷」は連体形「네」で助数詞と使います。"
+    },
+    {
+      "id": "qt_substantive_018_05",
+      "order": 5,
+      "japanese": "一度だけしてください。",
+      "korean": "한 번만 해 주세요.",
+      "alternativeAnswers": [],
+      "hint": "한 번...",
+      "explanation": "回数も連体形「한 번」で表します。"
+    },
+    {
+      "id": "qt_substantive_018_06",
+      "order": 6,
+      "japanese": "二時に会います。",
+      "korean": "두 시에 만나요.",
+      "alternativeAnswers": [],
+      "hint": "두 시...",
+      "explanation": "時間の「2時」は連体形「두 시」を用います。"
+    },
+    {
+      "id": "qt_substantive_018_07",
+      "order": 7,
+      "japanese": "三歳の子です。",
+      "korean": "세 살 아이예요.",
+      "alternativeAnswers": [],
+      "hint": "세 살...",
+      "explanation": "年齢でも助数詞前は「세 살」と短縮します。"
+    },
+    {
+      "id": "qt_substantive_018_08",
+      "order": 8,
+      "japanese": "四冊読みました。",
+      "korean": "네 권 읽었어요.",
+      "alternativeAnswers": [],
+      "hint": "네 권...",
+      "explanation": "冊数などでも「네 권」と連体形を使います。"
+    },
+    {
+      "id": "qt_substantive_018_09",
+      "order": 9,
+      "japanese": "一着買いました。",
+      "korean": "한 벌 샀어요.",
+      "alternativeAnswers": [],
+      "hint": "한 벌...",
+      "explanation": "服の数も「한 벌」など連体形にします。"
+    },
+    {
+      "id": "qt_substantive_018_10",
+      "order": 10,
+      "japanese": "二足持っています。",
+      "korean": "두 켤레 가지고 있어요.",
+      "alternativeAnswers": [],
+      "hint": "두 켤...",
+      "explanation": "ケンレ数も「두 켤레」と連体形にします。"
+    }
+  ]
+}

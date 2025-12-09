@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_015",
+  "grammarTitle": "-(으)ㄴ/는 김에",
+  "grammarSubtitle": "〜するついでに",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_015_01",
+      "order": 1,
+      "japanese": "学校に行くついでに図書館に寄りました。",
+      "korean": "학교 가는 김에 도서관에 들렀어요.",
+      "alternativeAnswers": ["학교 가는 김에 도서관에 들렀습니다."],
+      "hint": "학교...",
+      "explanation": "ある行動のついでを表すとき「-는 김에」を使います。"
+    },
+    {
+      "id": "qt_expression_015_02",
+      "order": 2,
+      "japanese": "買い物のついでに牛乳も買いました。",
+      "korean": "장보는 김에 우유도 샀어요.",
+      "alternativeAnswers": ["장보는 김에 우유도 샀습니다."],
+      "hint": "장보는...",
+      "explanation": "別の用事を一緒にするとき「-는 김에」を用います。"
+    },
+    {
+      "id": "qt_expression_015_03",
+      "order": 3,
+      "japanese": "韓国に来たついでに友達に会いました。",
+      "korean": "한국에 온 김에 친구를 만났어요.",
+      "alternativeAnswers": ["한국에 온 김에 친구를 만났습니다."],
+      "hint": "한국에...",
+      "explanation": "既にした行動を利用する場合は「-ㄴ 김에」を使います。"
+    },
+    {
+      "id": "qt_expression_015_04",
+      "order": 4,
+      "japanese": "掃除するついでに窓も開けました。",
+      "korean": "청소하는 김에 창문도 열었어요.",
+      "alternativeAnswers": ["청소하는 김에 창문도 열었습니다."],
+      "hint": "청소하...",
+      "explanation": "現在進行の行動のついでを「-는 김에」で表します。"
+    },
+    {
+      "id": "qt_expression_015_05",
+      "order": 5,
+      "japanese": "コーヒーを買うついでにパンも買いました。",
+      "korean": "커피 사는 김에 빵도 샀어요.",
+      "alternativeAnswers": ["커피 사는 김에 빵도 샀습니다."],
+      "hint": "커피...",
+      "explanation": "用事を利用して別のことをする際の表現です。"
+    },
+    {
+      "id": "qt_expression_015_06",
+      "order": 6,
+      "japanese": "散歩のついでに公園に寄りました。",
+      "korean": "산책하는 김에 공원에 들렀어요.",
+      "alternativeAnswers": ["산책하는 김에 공원에 들렀습니다."],
+      "hint": "산책하...",
+      "explanation": "進行中の行動のついでを示す「-는 김에」です。"
+    },
+    {
+      "id": "qt_expression_015_07",
+      "order": 7,
+      "japanese": "病院に行くついでに薬ももらいました。",
+      "korean": "병원 가는 김에 약도 받았어요.",
+      "alternativeAnswers": ["병원 가는 김에 약도 받았습니다."],
+      "hint": "병원...",
+      "explanation": "目的地へ行く途中のついでを表します。"
+    },
+    {
+      "id": "qt_expression_015_08",
+      "order": 8,
+      "japanese": "仕事帰りのついでにスーパーに寄ります。",
+      "korean": "퇴근하는 김에 마트에 들러요.",
+      "alternativeAnswers": ["퇴근하는 김에 마트에 들릅니다."],
+      "hint": "퇴근하...",
+      "explanation": "帰り道のついでを言うときも「-는 김에」を使います。"
+    },
+    {
+      "id": "qt_expression_015_09",
+      "order": 9,
+      "japanese": "ご飯を作るついでにスープも作りました。",
+      "korean": "밥 짓는 김에 국도 끓였어요.",
+      "alternativeAnswers": ["밥 짓는 김에 국도 끓였습니다."],
+      "hint": "밥 짓...",
+      "explanation": "同時に別の料理をする際のついでを示します。"
+    },
+    {
+      "id": "qt_expression_015_10",
+      "order": 10,
+      "japanese": "授業が終わったついでにご飯を食べに行きました。",
+      "korean": "수업 끝난 김에 밥 먹으러 갔어요.",
+      "alternativeAnswers": ["수업 끝난 김에 밥 먹으러 갔습니다."],
+      "hint": "수업...",
+      "explanation": "終わったという事実を利用する場合「-ㄴ 김에」を使います。"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_004",
+  "grammarTitle": "-나 보다",
+  "grammarSubtitle": "推測・観察（〜みたいだ）",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_004_01",
+      "order": 1,
+      "japanese": "雨が降るみたいですね。",
+      "korean": "비가 오나 봐요.",
+      "alternativeAnswers": ["비가 오나 봅니다."],
+      "hint": "비가...",
+      "explanation": "目にした状況からの推測に動詞「-나 보다」を使います。"
+    },
+    {
+      "id": "qt_expression_004_02",
+      "order": 2,
+      "japanese": "友達が忙しいみたいです。",
+      "korean": "친구가 바쁜가 봐요.",
+      "alternativeAnswers": ["친구가 바쁜가 봅니다."],
+      "hint": "친구가...",
+      "explanation": "形容詞は「-은가 보다」で様子を推測します。"
+    },
+    {
+      "id": "qt_expression_004_03",
+      "order": 3,
+      "japanese": "子どもはもう寝たようです。",
+      "korean": "아이가 벌써 잤나 봐요.",
+      "alternativeAnswers": ["아이가 벌써 잤나 봅니다."],
+      "hint": "아이가...",
+      "explanation": "過去の動作の推測も「-았나 보다」で表します。"
+    },
+    {
+      "id": "qt_expression_004_04",
+      "order": 4,
+      "japanese": "彼は韓国に行ったみたいです。",
+      "korean": "그는 한국에 갔나 봐요.",
+      "alternativeAnswers": ["그는 한국에 갔나 봅니다."],
+      "hint": "그는...",
+      "explanation": "観察して推測するとき「-나 보다」を用います。"
+    },
+    {
+      "id": "qt_expression_004_05",
+      "order": 5,
+      "japanese": "この店は人気があるみたいです。",
+      "korean": "이 가게가 인기가 있나 봐요.",
+      "alternativeAnswers": ["이 가게가 인기가 있나 봅니다."],
+      "hint": "이 가게...",
+      "explanation": "様子を見て推測するとき「있나 봐요」を使います。"
+    },
+    {
+      "id": "qt_expression_004_06",
+      "order": 6,
+      "japanese": "今日は人が多いみたいです。",
+      "korean": "오늘은 사람이 많은가 봐요.",
+      "alternativeAnswers": ["오늘은 사람이 많은가 봅니다."],
+      "hint": "오늘은...",
+      "explanation": "形容詞の推測は「-은가 보다」で表現します。"
+    },
+    {
+      "id": "qt_expression_004_07",
+      "order": 7,
+      "japanese": "先生は忙しいみたいです。",
+      "korean": "선생님이 바쁘신가 봐요.",
+      "alternativeAnswers": ["선생님이 바쁘신가 봅니다."],
+      "hint": "선생님이...",
+      "explanation": "推測でも敬語を入れつつ「-신가 보다」で言えます。"
+    },
+    {
+      "id": "qt_expression_004_08",
+      "order": 8,
+      "japanese": "試合が終わったみたいです。",
+      "korean": "경기가 끝났나 봐요.",
+      "alternativeAnswers": ["경기가 끝났나 봅니다."],
+      "hint": "경기가...",
+      "explanation": "完了したと推測するとき「-았나 보다」を使います。"
+    },
+    {
+      "id": "qt_expression_004_09",
+      "order": 9,
+      "japanese": "彼はお腹が痛いみたいです。",
+      "korean": "그는 배가 아픈가 봐요.",
+      "alternativeAnswers": ["그는 배가 아픈가 봅니다."],
+      "hint": "그는...",
+      "explanation": "形容詞の推測なので「-은가 보다」で柔らかく言います。"
+    },
+    {
+      "id": "qt_expression_004_10",
+      "order": 10,
+      "japanese": "バスが遅れているみたいです。",
+      "korean": "버스가 늦었나 봐요.",
+      "alternativeAnswers": ["버스가 늦었나 봅니다."],
+      "hint": "버스가...",
+      "explanation": "状況を見て過去に遅れたと推測し「-었나 보다」を使います。"
+    }
+  ]
+}

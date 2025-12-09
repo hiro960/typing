@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_035",
+  "grammarTitle": "첫째/첫 번째",
+  "grammarSubtitle": "序数詞（第1/最初）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_035_01",
+      "order": 1,
+      "japanese": "最初の問題です。",
+      "korean": "첫 번째 문제예요.",
+      "alternativeAnswers": ["첫 번째 문제입니다."],
+      "hint": "첫 번...",
+      "explanation": "順番を表すとき 数詞の代わりに 첫 번째 を使います。"
+    },
+    {
+      "id": "qt_substantive_035_02",
+      "order": 2,
+      "japanese": "長男は二十七歳です。",
+      "korean": "첫째 아들은 스물일곱 살이에요.",
+      "alternativeAnswers": ["첫째 아들은 스물일곱 살입니다."],
+      "hint": "첫째...",
+      "explanation": "家の一番上の子は 첫째 で表現します。"
+    },
+    {
+      "id": "qt_substantive_035_03",
+      "order": 3,
+      "japanese": "最初の選択を選びました。",
+      "korean": "첫 번째 선택을 골랐어요.",
+      "alternativeAnswers": ["첫 번째 선택을 골랐습니다."],
+      "hint": "첫 번...",
+      "explanation": "選択の順番にも 첫 번째 を付けて区別します。"
+    },
+    {
+      "id": "qt_substantive_035_04",
+      "order": 4,
+      "japanese": "最初の日に会いました。",
+      "korean": "첫 번째 날에 만났어요.",
+      "alternativeAnswers": ["첫 번째 날에 만났습니다."],
+      "hint": "첫 번...",
+      "explanation": "日を数えるときも 첫 번째 날 と言えます。"
+    },
+    {
+      "id": "qt_substantive_035_05",
+      "order": 5,
+      "japanese": "一杯目です。",
+      "korean": "첫 번째 잔이에요.",
+      "alternativeAnswers": ["첫 번째 잔입니다."],
+      "hint": "첫 번...",
+      "explanation": "杯などの順番にも 첫 번째 を使います。"
+    },
+    {
+      "id": "qt_substantive_035_06",
+      "order": 6,
+      "japanese": "最初に私が話します。",
+      "korean": "첫째로 제가 말해요.",
+      "alternativeAnswers": ["첫째로 제가 말합니다."],
+      "hint": "첫째...",
+      "explanation": "列挙の第一は 첫째로 で言い表します。"
+    },
+    {
+      "id": "qt_substantive_035_07",
+      "order": 7,
+      "japanese": "最初のページを読みます。",
+      "korean": "첫 번째 페이지를 읽어요.",
+      "alternativeAnswers": ["첫 번째 페이지를 읽습니다."],
+      "hint": "첫 번...",
+      "explanation": "ページなどの順序も 첫 번째 を付けます。"
+    },
+    {
+      "id": "qt_substantive_035_08",
+      "order": 8,
+      "japanese": "今日は初日です。",
+      "korean": "오늘은 첫 번째 날이에요.",
+      "alternativeAnswers": ["오늘은 첫 번째 날입니다."],
+      "hint": "오늘은...",
+      "explanation": "行事の初日も 첫 번째 날 と表します。"
+    },
+    {
+      "id": "qt_substantive_035_09",
+      "order": 9,
+      "japanese": "一番目の子は娘です。",
+      "korean": "첫째 아이는 딸이에요.",
+      "alternativeAnswers": ["첫째 아이는 딸입니다."],
+      "hint": "첫째...",
+      "explanation": "첫째 を名詞として使い第一子を示します。"
+    },
+    {
+      "id": "qt_substantive_035_10",
+      "order": 10,
+      "japanese": "最初の部屋は小さいです。",
+      "korean": "첫 번째 방은 작아요.",
+      "alternativeAnswers": ["첫 번째 방은 작습니다."],
+      "hint": "첫 번...",
+      "explanation": "対象を順番で区別するとき 첫 번째 を使います。"
+    }
+  ]
+}

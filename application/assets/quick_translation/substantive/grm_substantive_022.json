@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_022",
+  "grammarTitle": "명/사람",
+  "grammarSubtitle": "助数詞（人）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_022_01",
+      "order": 1,
+      "japanese": "一人待っています。",
+      "korean": "한 명 기다려요.",
+      "alternativeAnswers": [],
+      "hint": "한 명...",
+      "explanation": "人数は固有数詞＋명で数えます。"
+    },
+    {
+      "id": "qt_substantive_022_02",
+      "order": 2,
+      "japanese": "二人来ました。",
+      "korean": "두 사람 왔어요.",
+      "alternativeAnswers": [],
+      "hint": "두 사...",
+      "explanation": "「사람」も人を数える助数詞です。"
+    },
+    {
+      "id": "qt_substantive_022_03",
+      "order": 3,
+      "japanese": "三人が学生です。",
+      "korean": "세 명이 학생이에요.",
+      "alternativeAnswers": [],
+      "hint": "세 명...",
+      "explanation": "「세 명」など連体形で人数を示します。"
+    },
+    {
+      "id": "qt_substantive_022_04",
+      "order": 4,
+      "japanese": "四人集まりました。",
+      "korean": "네 사람이 모였어요.",
+      "alternativeAnswers": [],
+      "hint": "네 사...",
+      "explanation": "「사람」も固有数詞の連体形と使います。"
+    },
+    {
+      "id": "qt_substantive_022_05",
+      "order": 5,
+      "japanese": "五人で住んでいます。",
+      "korean": "다섯 명이 살아요.",
+      "alternativeAnswers": [],
+      "hint": "다섯...",
+      "explanation": "一緒に暮らす人数も 명 で表せます。"
+    },
+    {
+      "id": "qt_substantive_022_06",
+      "order": 6,
+      "japanese": "六人が列に並びます。",
+      "korean": "여섯 명이 줄 서요.",
+      "alternativeAnswers": [],
+      "hint": "여섯...",
+      "explanation": "人数を主語にするときも 명 を用います。"
+    },
+    {
+      "id": "qt_substantive_022_07",
+      "order": 7,
+      "japanese": "七人が乗りました。",
+      "korean": "일곱 사람이 탔어요.",
+      "alternativeAnswers": [],
+      "hint": "일곱...",
+      "explanation": "乗車人数にも 사람/명 を合わせます。"
+    },
+    {
+      "id": "qt_substantive_022_08",
+      "order": 8,
+      "japanese": "八人が集まりました。",
+      "korean": "여덟 명 모였어요.",
+      "alternativeAnswers": [],
+      "hint": "여덟...",
+      "explanation": "集まった人数を 명 で表現します。"
+    },
+    {
+      "id": "qt_substantive_022_09",
+      "order": 9,
+      "japanese": "九人が残りました。",
+      "korean": "아홉 명 남았어요.",
+      "alternativeAnswers": [],
+      "hint": "아홉...",
+      "explanation": "残り人数も固有数詞＋명です。"
+    },
+    {
+      "id": "qt_substantive_022_10",
+      "order": 10,
+      "japanese": "十人が参加します。",
+      "korean": "열 명이 참여해요.",
+      "alternativeAnswers": [],
+      "hint": "열 명...",
+      "explanation": "参加者数も固有数詞＋명を使います。"
+    }
+  ]
+}

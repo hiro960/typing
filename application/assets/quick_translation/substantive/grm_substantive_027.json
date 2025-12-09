@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_027",
+  "grammarTitle": "장",
+  "grammarSubtitle": "助数詞（枚/ページ）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_027_01",
+      "order": 1,
+      "japanese": "紙を一枚ください。",
+      "korean": "종이 한 장 주세요.",
+      "alternativeAnswers": [],
+      "hint": "종이 한...",
+      "explanation": "薄いものは 助数詞 장 으로 셉니다."
+    },
+    {
+      "id": "qt_substantive_027_02",
+      "order": 2,
+      "japanese": "切符を二枚買いました。",
+      "korean": "표 두 장 샀어요.",
+      "alternativeAnswers": [],
+      "hint": "표 두...",
+      "explanation": "切符も 장 を使って数えます。"
+    },
+    {
+      "id": "qt_substantive_027_03",
+      "order": 3,
+      "japanese": "写真を三枚撮りました。",
+      "korean": "사진 세 장 찍었어요.",
+      "alternativeAnswers": [],
+      "hint": "사진 세...",
+      "explanation": "写真の枚数は 장 으로 표현します."
+    },
+    {
+      "id": "qt_substantive_027_04",
+      "order": 4,
+      "japanese": "手紙を四枚書きました。",
+      "korean": "편지 네 장 썼어요.",
+      "alternativeAnswers": [],
+      "hint": "편지 네...",
+      "explanation": "手紙も枚数に 장 을用います。"
+    },
+    {
+      "id": "qt_substantive_027_05",
+      "order": 5,
+      "japanese": "レシートを五枚もらいました。",
+      "korean": "영수증 다섯 장 받았어요.",
+      "alternativeAnswers": [],
+      "hint": "영수증...",
+      "explanation": "複数の紙の数え方も 장 です。"
+    },
+    {
+      "id": "qt_substantive_027_06",
+      "order": 6,
+      "japanese": "絵を六枚掛けました。",
+      "korean": "그림 여섯 장 걸었어요.",
+      "alternativeAnswers": [],
+      "hint": "그림 여...",
+      "explanation": "絵の枚数も 장 으로 세요."
+    },
+    {
+      "id": "qt_substantive_027_07",
+      "order": 7,
+      "japanese": "クーポンを七枚集めました。",
+      "korean": "쿠폰 일곱 장 모았어요.",
+      "alternativeAnswers": [],
+      "hint": "쿠폰 일...",
+      "explanation": "クーポンやチケットも 장 を使います。"
+    },
+    {
+      "id": "qt_substantive_027_08",
+      "order": 8,
+      "japanese": "チケットを八枚分けました。",
+      "korean": "티켓 여덟 장 나눴어요.",
+      "alternativeAnswers": [],
+      "hint": "티켓 여...",
+      "explanation": "配布枚数も 장 으로 표시합니다."
+    },
+    {
+      "id": "qt_substantive_027_09",
+      "order": 9,
+      "japanese": "紙が九枚残りました。",
+      "korean": "종이 아홉 장 남았어요.",
+      "alternativeAnswers": [],
+      "hint": "종이 아...",
+      "explanation": "残量でも 장 を使用します。"
+    },
+    {
+      "id": "qt_substantive_027_10",
+      "order": 10,
+      "japanese": "ポスターを十枚作りました。",
+      "korean": "포스터 열 장 만들었어요.",
+      "alternativeAnswers": [],
+      "hint": "포스터...",
+      "explanation": "大量の枚数も 장 으로 표현します。"
+    }
+  ]
+}

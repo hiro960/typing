@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_quotation_011",
+  "grammarTitle": "-다고요?",
+  "grammarSubtitle": "〜ですって？（聞き返し）",
+  "category": "quotation",
+  "questions": [
+    {
+      "id": "qt_quotation_011_01",
+      "order": 1,
+      "japanese": "明日来るんですって？",
+      "korean": "내일 온다고요?",
+      "alternativeAnswers": [],
+      "hint": "내일...",
+      "explanation": "相手の発言を確認し直す聞き返しに「-다고요?」を使います。"
+    },
+    {
+      "id": "qt_quotation_011_02",
+      "order": 2,
+      "japanese": "雨が降るんですって？",
+      "korean": "비가 온다고요?",
+      "alternativeAnswers": [],
+      "hint": "비가...",
+      "explanation": "聞いた内容をもう一度確かめる形で「-다고요?」を用います。"
+    },
+    {
+      "id": "qt_quotation_011_03",
+      "order": 3,
+      "japanese": "その店が安いんですって？",
+      "korean": "그 가게가 싸다고요?",
+      "alternativeAnswers": [],
+      "hint": "그 가게가...",
+      "explanation": "形容詞内容を聞き返す際も「-다고요?」を使います。"
+    },
+    {
+      "id": "qt_quotation_011_04",
+      "order": 4,
+      "japanese": "宿題があるんですって？",
+      "korean": "숙제가 있다고요?",
+      "alternativeAnswers": [],
+      "hint": "숙제가...",
+      "explanation": "存在するという発言を確認するとき「있다고요?」で聞き返します。"
+    },
+    {
+      "id": "qt_quotation_011_05",
+      "order": 5,
+      "japanese": "今日休みなんですって？",
+      "korean": "오늘 쉰다고요?",
+      "alternativeAnswers": [],
+      "hint": "오늘...",
+      "explanation": "予定の聞き返しも「-다고요?」で表せます。"
+    },
+    {
+      "id": "qt_quotation_011_06",
+      "order": 6,
+      "japanese": "その人が先生なんですって？",
+      "korean": "그분이 선생님이라고요?",
+      "alternativeAnswers": [],
+      "hint": "그분이...",
+      "explanation": "名詞述語の聞き返しは「-이라고요?」を用います。"
+    },
+    {
+      "id": "qt_quotation_011_07",
+      "order": 7,
+      "japanese": "今忙しいんですって？",
+      "korean": "지금 바쁘다고요?",
+      "alternativeAnswers": [],
+      "hint": "지금...",
+      "explanation": "形容詞内容の確認でも「-다고요?」で問い直します。"
+    },
+    {
+      "id": "qt_quotation_011_08",
+      "order": 8,
+      "japanese": "ここが遠いんですって？",
+      "korean": "여기가 멀다고요?",
+      "alternativeAnswers": [],
+      "hint": "여기가...",
+      "explanation": "距離に関する発言を聞き返すとき「-다고요?」を使います。"
+    },
+    {
+      "id": "qt_quotation_011_09",
+      "order": 9,
+      "japanese": "明日休みなんですって？",
+      "korean": "내일 쉰다고요?",
+      "alternativeAnswers": [],
+      "hint": "내일...",
+      "explanation": "同じ内容を再確認する聞き返し表現です。"
+    },
+    {
+      "id": "qt_quotation_011_10",
+      "order": 10,
+      "japanese": "会議がないんですって？",
+      "korean": "회의 없다고요?",
+      "alternativeAnswers": [],
+      "hint": "회의...",
+      "explanation": "否定文の発言を聞き返す際も「-다고요?」を使います。"
+    }
+  ]
+}

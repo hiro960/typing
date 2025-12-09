@@ -1,0 +1,104 @@
+{
+  "grammarRef": "grm_expression_044",
+  "grammarTitle": "-(이)든지",
+  "grammarSubtitle": "〜でも／どれでも",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_044_01",
+      "order": 1,
+      "japanese": "何でも言ってください。",
+      "korean": "뭐든지 말해 보세요.",
+      "alternativeAnswers": [
+        "무엇이든지 말해 보세요."
+      ],
+      "hint": "뭐든지...",
+      "explanation": "どんな選択でも良いと伝えるとき「-든지」を使います。"
+    },
+    {
+      "id": "qt_expression_044_02",
+      "order": 2,
+      "japanese": "いつでも電話してください。",
+      "korean": "언제든지 전화하세요.",
+      "alternativeAnswers": [],
+      "hint": "언제든지...",
+      "explanation": "時間を問わない自由を「언제든지」で示します。"
+    },
+    {
+      "id": "qt_expression_044_03",
+      "order": 3,
+      "japanese": "どこでも行きます。",
+      "korean": "어디든지 갈게요.",
+      "alternativeAnswers": [
+        "어디든지 가겠습니다."
+      ],
+      "hint": "어디든지...",
+      "explanation": "場所に制限がないことを「-든지」で表現します。"
+    },
+    {
+      "id": "qt_expression_044_04",
+      "order": 4,
+      "japanese": "誰でも歓迎です。",
+      "korean": "누구든지 환영이에요.",
+      "alternativeAnswers": [],
+      "hint": "누구든지...",
+      "explanation": "人を問わず受け入れる意味で「누구든지」を用います。"
+    },
+    {
+      "id": "qt_expression_044_05",
+      "order": 5,
+      "japanese": "いつでも会ってもいいです。",
+      "korean": "어느 때든지 만나도 돼요.",
+      "alternativeAnswers": [],
+      "hint": "어느 때든지...",
+      "explanation": "時期を限定しない自由を「-든지」で示します。"
+    },
+    {
+      "id": "qt_expression_044_06",
+      "order": 6,
+      "japanese": "何でも食べることができます。",
+      "korean": "무엇이든지 먹을 수 있어요.",
+      "alternativeAnswers": [
+        "뭐든지 먹을 수 있어요."
+      ],
+      "hint": "무엇이든지...",
+      "explanation": "種類を問わないことを「-이든지」で表します。"
+    },
+    {
+      "id": "qt_expression_044_07",
+      "order": 7,
+      "japanese": "どの席でもいいです。",
+      "korean": "어떤 자리든지 좋아요.",
+      "alternativeAnswers": [],
+      "hint": "어떤...",
+      "explanation": "選択肢すべてを許容する際「-든지」を用います。"
+    },
+    {
+      "id": "qt_expression_044_08",
+      "order": 8,
+      "japanese": "どの家でも大丈夫です。",
+      "korean": "어느 집이든지 괜찮아요.",
+      "alternativeAnswers": [],
+      "hint": "어느 집이든지...",
+      "explanation": "場所の選択肢を限定しないことを「-든지」で表します。"
+    },
+    {
+      "id": "qt_expression_044_09",
+      "order": 9,
+      "japanese": "どんな質問でも聞いてください。",
+      "korean": "어떤 질문이든지 물어보세요.",
+      "alternativeAnswers": [],
+      "hint": "어떤 질문이든지...",
+      "explanation": "内容を問わず質問を許可する際「-이든지」を使います。"
+    },
+    {
+      "id": "qt_expression_044_10",
+      "order": 10,
+      "japanese": "どの道でもついていきます。",
+      "korean": "어느 길이든지 따라갈게요.",
+      "alternativeAnswers": [],
+      "hint": "어느 길이든지...",
+      "explanation": "進む道を問わない意志を「-든지」で表現します。"
+    }
+  ]
+}

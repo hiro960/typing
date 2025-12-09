@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_025",
+  "grammarTitle": "잔/병/컵",
+  "grammarSubtitle": "助数詞（杯/本/カップ）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_025_01",
+      "order": 1,
+      "japanese": "水を一杯ください。",
+      "korean": "물 한 잔 주세요.",
+      "alternativeAnswers": [],
+      "hint": "물 한...",
+      "explanation": "杯は 잔 을使用します。"
+    },
+    {
+      "id": "qt_substantive_025_02",
+      "order": 2,
+      "japanese": "コーヒーを二杯飲みます。",
+      "korean": "커피 두 잔 마셔요.",
+      "alternativeAnswers": [],
+      "hint": "커피 두...",
+      "explanation": "飲んだ杯数に 잔 を付けます。"
+    },
+    {
+      "id": "qt_substantive_025_03",
+      "order": 3,
+      "japanese": "ジュースを三杯準備しました。",
+      "korean": "주스 세 잔 준비했어요.",
+      "alternativeAnswers": [],
+      "hint": "주스 세...",
+      "explanation": "飲み物の杯数も 잔 です。"
+    },
+    {
+      "id": "qt_substantive_025_04",
+      "order": 4,
+      "japanese": "ビールを四本買いました。",
+      "korean": "맥주 네 병 샀어요.",
+      "alternativeAnswers": [],
+      "hint": "맥주 네...",
+      "explanation": "瓶入りは 병 で数えます。"
+    },
+    {
+      "id": "qt_substantive_025_05",
+      "order": 5,
+      "japanese": "水が五本あります。",
+      "korean": "물 다섯 병 있어요.",
+      "alternativeAnswers": [],
+      "hint": "물 다...",
+      "explanation": "ペットボトルなど本数に 병 を使います。"
+    },
+    {
+      "id": "qt_substantive_025_06",
+      "order": 6,
+      "japanese": "牛乳を六カップ分分けます。",
+      "korean": "우유 여섯 컵 나눠요.",
+      "alternativeAnswers": [],
+      "hint": "우유 여...",
+      "explanation": "カップの量は 컵 で表します。"
+    },
+    {
+      "id": "qt_substantive_025_07",
+      "order": 7,
+      "japanese": "お茶を七杯も飲みました。",
+      "korean": "차 일곱 잔이나 마셨어요.",
+      "alternativeAnswers": [],
+      "hint": "차 일...",
+      "explanation": "多くの杯数にも 잔 을用います。"
+    },
+    {
+      "id": "qt_substantive_025_08",
+      "order": 8,
+      "japanese": "飲み物が八カップ必要です。",
+      "korean": "음료 여덟 컵 필요해요.",
+      "alternativeAnswers": [],
+      "hint": "음료 여...",
+      "explanation": "紙コップなども 컵 으로 셉니다."
+    },
+    {
+      "id": "qt_substantive_025_09",
+      "order": 9,
+      "japanese": "コーラが九本残りました。",
+      "korean": "콜라 아홉 병 남았어요.",
+      "alternativeAnswers": [],
+      "hint": "콜라 아...",
+      "explanation": "瓶やペットボトルの本数は 병 で表します。"
+    },
+    {
+      "id": "qt_substantive_025_10",
+      "order": 10,
+      "japanese": "コーヒーを十カップ作ります。",
+      "korean": "커피 열 컵 만들어요.",
+      "alternativeAnswers": [],
+      "hint": "커피 열...",
+      "explanation": "大量のカップ数も 컵 으로 표현합니다."
+    }
+  ]
+}

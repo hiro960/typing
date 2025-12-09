@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_033",
+  "grammarTitle": "원",
+  "grammarSubtitle": "助数詞（ウォン）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_033_01",
+      "order": 1,
+      "japanese": "コーヒーは3000ウォンです。",
+      "korean": "커피는 3000원이에요.",
+      "alternativeAnswers": ["커피는 3000원입니다."],
+      "hint": "커피...",
+      "explanation": "金額は 숫자＋원 で\"〜ウォン\"を表します。"
+    },
+    {
+      "id": "qt_substantive_033_02",
+      "order": 2,
+      "japanese": "この本は5000ウォンですか？",
+      "korean": "이 책이 5000원이에요?",
+      "alternativeAnswers": ["이 책이 5000원입니까?"],
+      "hint": "이 책...",
+      "explanation": "価格を確認するときも 숫자＋원 を使います。"
+    },
+    {
+      "id": "qt_substantive_033_03",
+      "order": 3,
+      "japanese": "昼ご飯に7000ウォン使いました。",
+      "korean": "점심에 7000원을 썼어요.",
+      "alternativeAnswers": ["점심에 7000원을 썼습니다."],
+      "hint": "점심...",
+      "explanation": "支払った額にも 원 を付けて表します。"
+    },
+    {
+      "id": "qt_substantive_033_04",
+      "order": 4,
+      "japanese": "一万ウォンだけ持っています。",
+      "korean": "만원만 가지고 있어요.",
+      "alternativeAnswers": ["만원만 가지고 있습니다."],
+      "hint": "만원...",
+      "explanation": "만원 のような表記も数字＋원 と同じ意味です。"
+    },
+    {
+      "id": "qt_substantive_033_05",
+      "order": 5,
+      "japanese": "バス代は1200ウォンです。",
+      "korean": "버스비는 1200원이에요.",
+      "alternativeAnswers": ["버스비는 1200원입니다."],
+      "hint": "버스...",
+      "explanation": "運賃なども 숫자＋원 で金額を示します。"
+    },
+    {
+      "id": "qt_substantive_033_06",
+      "order": 6,
+      "japanese": "昨日15000ウォンを使いました。",
+      "korean": "어제 15000원을 썼어요.",
+      "alternativeAnswers": ["어제 15000원을 썼습니다."],
+      "hint": "어제...",
+      "explanation": "過去でも同じく 数字＋원 を用います。"
+    },
+    {
+      "id": "qt_substantive_033_07",
+      "order": 7,
+      "japanese": "一人あたり10000ウォンです。",
+      "korean": "한 사람당 10000원이에요.",
+      "alternativeAnswers": ["한 사람당 10000원입니다."],
+      "hint": "한 사...",
+      "explanation": "単価を示すとき도 숫자＋원 を使います。"
+    },
+    {
+      "id": "qt_substantive_033_08",
+      "order": 8,
+      "japanese": "2000ウォンだけ追加してください。",
+      "korean": "2000원만 더 주세요.",
+      "alternativeAnswers": ["2000원만 더 주십시오."],
+      "hint": "2000...",
+      "explanation": "원 の後に 만 を付けて限定できます。"
+    },
+    {
+      "id": "qt_substantive_033_09",
+      "order": 9,
+      "japanese": "財布に500ウォンがあります。",
+      "korean": "지갑에 500원이 있어요.",
+      "alternativeAnswers": ["지갑에 500원이 있습니다."],
+      "hint": "지갑...",
+      "explanation": "少額の硬貨でも 숫자＋원 で表します。"
+    },
+    {
+      "id": "qt_substantive_033_10",
+      "order": 10,
+      "japanese": "会計は合計30000ウォンです。",
+      "korean": "계산은 총 30000원이에요.",
+      "alternativeAnswers": ["계산은 총 30000원입니다."],
+      "hint": "계산...",
+      "explanation": "合計金額も 숫자＋원 と 함께伝えます。"
+    }
+  ]
+}

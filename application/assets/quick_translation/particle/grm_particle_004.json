@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_004",
+  "grammarTitle": "에",
+  "grammarSubtitle": "場所・時間助詞（〜に）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_004_01",
+      "order": 1,
+      "japanese": "家に行きます。",
+      "korean": "집에 가요.",
+      "alternativeAnswers": ["집에 갑니다."],
+      "hint": "집에...",
+      "explanation": "移動の目的地を示すとき場所助詞「에」を使います。"
+    },
+    {
+      "id": "qt_particle_004_02",
+      "order": 2,
+      "japanese": "学校にいます。",
+      "korean": "학교에 있어요.",
+      "alternativeAnswers": ["학교에 있습니다."],
+      "hint": "학교에...",
+      "explanation": "存在場所を表す場合も「에」で位置を示します。"
+    },
+    {
+      "id": "qt_particle_004_03",
+      "order": 3,
+      "japanese": "朝に起きます。",
+      "korean": "아침에 일어나요.",
+      "alternativeAnswers": ["아침에 일어납니다."],
+      "hint": "아침에...",
+      "explanation": "時間を表す名詞に付けて「〜に」の意味を作ります。"
+    },
+    {
+      "id": "qt_particle_004_04",
+      "order": 4,
+      "japanese": "夜に勉強します。",
+      "korean": "밤에 공부해요.",
+      "alternativeAnswers": ["밤에 공부합니다."],
+      "hint": "밤에...",
+      "explanation": "習慣的な時間を示すときも「에」で表します。"
+    },
+    {
+      "id": "qt_particle_004_05",
+      "order": 5,
+      "japanese": "午後三時に会います。",
+      "korean": "세 시에 만나요.",
+      "alternativeAnswers": ["세 시에 만납니다."],
+      "hint": "세 시에...",
+      "explanation": "具体的な時刻にも「에」を付けて約束の時間を示します。"
+    },
+    {
+      "id": "qt_particle_004_06",
+      "order": 6,
+      "japanese": "週末に休みます。",
+      "korean": "주말에 쉬어요.",
+      "alternativeAnswers": ["주말에 쉽니다."],
+      "hint": "주말에...",
+      "explanation": "期間を示す名詞に「에」を付けてその時に行う行動を表します。"
+    },
+    {
+      "id": "qt_particle_004_07",
+      "order": 7,
+      "japanese": "図書館に本があります。",
+      "korean": "도서관에 책이 있어요.",
+      "alternativeAnswers": ["도서관에 책이 있습니다."],
+      "hint": "도서관에...",
+      "explanation": "存在の場所を示し主語は別の助詞で標示します。"
+    },
+    {
+      "id": "qt_particle_004_08",
+      "order": 8,
+      "japanese": "市場に行きます。",
+      "korean": "시장에 가요.",
+      "alternativeAnswers": ["시장에 갑니다."],
+      "hint": "시장에...",
+      "explanation": "行き先を表すときは目的地に「에」を付けます。"
+    },
+    {
+      "id": "qt_particle_004_09",
+      "order": 9,
+      "japanese": "部屋に猫がいます。",
+      "korean": "방에 고양이가 있어요.",
+      "alternativeAnswers": ["방에 고양이가 있습니다."],
+      "hint": "방에...",
+      "explanation": "場所を示す「에」の後ろで主語の助詞と併用します。"
+    },
+    {
+      "id": "qt_particle_004_10",
+      "order": 10,
+      "japanese": "会社に行きます。",
+      "korean": "회사에 가요.",
+      "alternativeAnswers": ["회사에 갑니다."],
+      "hint": "회사에...",
+      "explanation": "移動先を表す基本の助詞が「에」です。"
+    }
+  ]
+}

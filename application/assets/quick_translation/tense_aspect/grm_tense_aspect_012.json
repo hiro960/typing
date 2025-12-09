@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_tense_aspect_012",
+  "grammarTitle": "-게 되다",
+  "grammarSubtitle": "変化・結果",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_012_01",
+      "order": 1,
+      "japanese": "韓国で働くことになりました。",
+      "korean": "한국에서 일하게 되었어요.",
+      "alternativeAnswers": ["한국에서 일하게 되었습니다."],
+      "hint": "한국에서...",
+      "explanation": "意図せずそうなる結果を表し動詞+게 되다を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_012_02",
+      "order": 2,
+      "japanese": "毎日運動するようになりました。",
+      "korean": "매일 운동하게 되었어요.",
+      "alternativeAnswers": ["매일 운동하게 되었습니다."],
+      "hint": "매일...",
+      "explanation": "習慣が変わった結果を-게 되다で示します。"
+    },
+    {
+      "id": "qt_tense_aspect_012_03",
+      "order": 3,
+      "japanese": "友達を通して知ることになりました。",
+      "korean": "친구를 통해 알게 되었어요.",
+      "alternativeAnswers": ["친구를 통해 알게 되었습니다."],
+      "hint": "친구를...",
+      "explanation": "新しく知る結果になったことを-게 되다で表現。"
+    },
+    {
+      "id": "qt_tense_aspect_012_04",
+      "order": 4,
+      "japanese": "薬を飲むことになりました。",
+      "korean": "약을 먹게 되었어요.",
+      "alternativeAnswers": ["약을 먹게 되었습니다."],
+      "hint": "약을...",
+      "explanation": "状況の結果としてそうすることになるとき-게 되다を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_012_05",
+      "order": 5,
+      "japanese": "バスで通うことになりました。",
+      "korean": "버스로 다니게 되었어요.",
+      "alternativeAnswers": ["버스로 다니게 되었습니다."],
+      "hint": "버스로...",
+      "explanation": "手段が変わった結果を-게 되다構文で述べます。"
+    },
+    {
+      "id": "qt_tense_aspect_012_06",
+      "order": 6,
+      "japanese": "遅く寝るようになりました。",
+      "korean": "늦게 자게 되었어요.",
+      "alternativeAnswers": ["늦게 자게 되었습니다."],
+      "hint": "늦게...",
+      "explanation": "習慣の変化を「~게 되다」で表し今の結果を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_012_07",
+      "order": 7,
+      "japanese": "家族と暮らすことになりました。",
+      "korean": "가족과 살게 되었어요.",
+      "alternativeAnswers": ["가족과 살게 되었습니다."],
+      "hint": "가족과...",
+      "explanation": "決定した結果としてそうすることになるとき-게 되다を用います。"
+    },
+    {
+      "id": "qt_tense_aspect_012_08",
+      "order": 8,
+      "japanese": "また会うことになりました。",
+      "korean": "다시 만나게 되었어요.",
+      "alternativeAnswers": ["다시 만나게 되었습니다."],
+      "hint": "다시...",
+      "explanation": "偶然の結果で会うことになったことを-게 되다で表現。"
+    },
+    {
+      "id": "qt_tense_aspect_012_09",
+      "order": 9,
+      "japanese": "この仕事を手伝うことになりました。",
+      "korean": "이 일을 돕게 되었어요.",
+      "alternativeAnswers": ["이 일을 돕게 되었습니다."],
+      "hint": "이 일을...",
+      "explanation": "新しく担当する結果を-게 되다で丁寧に伝えます。"
+    },
+    {
+      "id": "qt_tense_aspect_012_10",
+      "order": 10,
+      "japanese": "韓国語を教えることになりました。",
+      "korean": "한국어를 가르치게 되었어요.",
+      "alternativeAnswers": ["한국어를 가르치게 되었습니다."],
+      "hint": "한국어를...",
+      "explanation": "予定外の結果として教えることになるとき-게 되다を使います。"
+    }
+  ]
+}

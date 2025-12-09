@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_orthography_010",
+  "grammarTitle": "받침",
+  "grammarSubtitle": "パッチム",
+  "category": "orthography",
+  "questions": [
+    {
+      "id": "qt_orthography_010_01",
+      "order": 1,
+      "japanese": "ㅅパッチムは[ㄷ]で終わります。",
+      "korean": "ㅅ 받침은 [ㄷ]으로 끝나요.",
+      "alternativeAnswers": ["ㅅ 받침은 [ㄷ]으로 끝납니다."],
+      "hint": "ㅅ 받...",
+      "explanation": "終声のㅅは代表音ㄷで発音し、歯茎で止めます。"
+    },
+    {
+      "id": "qt_orthography_010_02",
+      "order": 2,
+      "japanese": "ㅎパッチムも[ㄷ]の音です。",
+      "korean": "ㅎ 받침도 [ㄷ]처럼 들려요.",
+      "alternativeAnswers": ["ㅎ 받침도 [ㄷ]처럼 들립니다."],
+      "hint": "ㅎ 받...",
+      "explanation": "終声ㅎも代表音ㄷで発音され、息を止めて終わります。"
+    },
+    {
+      "id": "qt_orthography_010_03",
+      "order": 3,
+      "japanese": "ㅂパッチムは唇を閉じて終えます。",
+      "korean": "ㅂ 받침은 입을 닫고 멈춰요.",
+      "alternativeAnswers": ["ㅂ 받침은 입을 닫고 멈춥니다."],
+      "hint": "ㅂ 받...",
+      "explanation": "終声ㅂは代表音ㅂで、両唇を閉じたまま止めて発音します。"
+    },
+    {
+      "id": "qt_orthography_010_04",
+      "order": 4,
+      "japanese": "ㅇパッチムは鼻に響きます。",
+      "korean": "ㅇ 받침은 코로 울려요.",
+      "alternativeAnswers": ["ㅇ 받침은 코로 울립니다."],
+      "hint": "ㅇ 받...",
+      "explanation": "終声ㅇは代表音[ŋ]で、鼻から抜ける音になります。"
+    },
+    {
+      "id": "qt_orthography_010_05",
+      "order": 5,
+      "japanese": "ㄹパッチムは舌を付けて止まります。",
+      "korean": "ㄹ 받침은 혀를 붙이고 끝나요.",
+      "alternativeAnswers": ["ㄹ 받침은 혀를 붙이고 끝납니다."],
+      "hint": "ㄹ 받...",
+      "explanation": "終声ㄹは側面音[l]で、舌を歯茎に付けたまま終わります。"
+    },
+    {
+      "id": "qt_orthography_010_06",
+      "order": 6,
+      "japanese": "ㄺパッチムは単独では[ㄱ]で発音します。",
+      "korean": "ㄺ 받침은 뒤에 모음이 없으면 [ㄱ]이에요.",
+      "alternativeAnswers": ["ㄺ 받침은 뒤에 모음이 없으면 [ㄱ]입니다."],
+      "hint": "ㄺ 받...",
+      "explanation": "母音が続かないときは右側のㄱだけを代表音として発音します。"
+    },
+    {
+      "id": "qt_orthography_010_07",
+      "order": 7,
+      "japanese": "「닭이」は[달기]と連音します。",
+      "korean": "'닭이'는 [달기]로 이어져요.",
+      "alternativeAnswers": ["'닭이'는 [달기]로 이어집니다."],
+      "hint": "닭이...",
+      "explanation": "母音が続くと二重パッチムㄺの両方が生き、ㄹは前の音節、ㄱは次の音節で発音されます。"
+    },
+    {
+      "id": "qt_orthography_010_08",
+      "order": 8,
+      "japanese": "「옷이」は[오시]に聞こえます。",
+      "korean": "'옷이'는 [오시]로 들려요.",
+      "alternativeAnswers": ["'옷이'는 [오시]로 들립니다."],
+      "hint": "옷이...",
+      "explanation": "ㅅパッチムは母音が続くと連音化し、次の音節の初声ㅅとして移動します。"
+    },
+    {
+      "id": "qt_orthography_010_09",
+      "order": 9,
+      "japanese": "「없다」は[업따]で終わります。",
+      "korean": "없다는 [업따]로 말해요.",
+      "alternativeAnswers": ["없다는 [업따]로 말합니다."],
+      "hint": "없다...",
+      "explanation": "二重パッチムㅄは子音の前では代表音ㅂのみを出し[업따]と発音します。"
+    },
+    {
+      "id": "qt_orthography_010_10",
+      "order": 10,
+      "japanese": "代表音は7つだけです。",
+      "korean": "받침 대표 소리는 일곱 개예요.",
+      "alternativeAnswers": ["받침 대표 소리는 일곱 개입니다."],
+      "hint": "받침...",
+      "explanation": "表記は27種ですが終声は必ずㄱ,ㄴ,ㄷ,ㄹ,ㅁ,ㅂ,ㅇの7音にまとまります。"
+    }
+  ]
+}

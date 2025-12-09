@@ -1,0 +1,118 @@
+{
+  "grammarRef": "grm_tense_aspect_037",
+  "grammarTitle": "-(으)ㄹ 뻔하다",
+  "grammarSubtitle": "〜するところだった",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_037_01",
+      "order": 1,
+      "japanese": "倒れるところでした。",
+      "korean": "넘어질 뻔했어요.",
+      "alternativeAnswers": [
+        "넘어질 뻔했습니다."
+      ],
+      "hint": "넘어질...",
+      "explanation": "危うく起こりそうだった未遂を「-ㄹ 뻔하다」で表します。"
+    },
+    {
+      "id": "qt_tense_aspect_037_02",
+      "order": 2,
+      "japanese": "遅れるところでした。",
+      "korean": "늦을 뻔했어요.",
+      "alternativeAnswers": [
+        "늦을 뻔했습니다."
+      ],
+      "hint": "늦을...",
+      "explanation": "ほとんど起こりそうだった出来事を述べます。"
+    },
+    {
+      "id": "qt_tense_aspect_037_03",
+      "order": 3,
+      "japanese": "バスに乗り遅れるところでした。",
+      "korean": "버스를 놓칠 뻔했어요.",
+      "alternativeAnswers": [
+        "버스를 놓칠 뻔했습니다."
+      ],
+      "hint": "버스를...",
+      "explanation": "未然で防いだ危機を表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_037_04",
+      "order": 4,
+      "japanese": "忘れるところでした。",
+      "korean": "잊어버릴 뻔했어요.",
+      "alternativeAnswers": [
+        "잊어버릴 뻔했습니다."
+      ],
+      "hint": "잊어버릴...",
+      "explanation": "あと少しで起きるはずだったことを伝えます。"
+    },
+    {
+      "id": "qt_tense_aspect_037_05",
+      "order": 5,
+      "japanese": "電話に出られないところでした。",
+      "korean": "전화를 못 받을 뻔했어요.",
+      "alternativeAnswers": [
+        "전화를 못 받을 뻔했습니다."
+      ],
+      "hint": "전화를...",
+      "explanation": "起きそうだったが起きなかったことを示します。"
+    },
+    {
+      "id": "qt_tense_aspect_037_06",
+      "order": 6,
+      "japanese": "道に迷うところでした。",
+      "korean": "길을 잃을 뻔했어요.",
+      "alternativeAnswers": [
+        "길을 잃을 뻔했습니다."
+      ],
+      "hint": "길을...",
+      "explanation": "ほとんど起こりかけた状況を表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_037_07",
+      "order": 7,
+      "japanese": "秘密を言うところでした。",
+      "korean": "비밀을 말할 뻔했어요.",
+      "alternativeAnswers": [
+        "비밀을 말할 뻔했습니다."
+      ],
+      "hint": "비밀을...",
+      "explanation": "危うくしてしまいそうだった行為を示します。"
+    },
+    {
+      "id": "qt_tense_aspect_037_08",
+      "order": 8,
+      "japanese": "泣きそうでした。",
+      "korean": "울 뻔했어요.",
+      "alternativeAnswers": [
+        "울 뻔했습니다."
+      ],
+      "hint": "울...",
+      "explanation": "感情が爆発しそうだったことを表します。"
+    },
+    {
+      "id": "qt_tense_aspect_037_09",
+      "order": 9,
+      "japanese": "お金を失くすところでした。",
+      "korean": "돈을 잃을 뻔했어요.",
+      "alternativeAnswers": [
+        "돈을 잃을 뻔했습니다."
+      ],
+      "hint": "돈을...",
+      "explanation": "もう少しで失うところだった未遂を述べます。"
+    },
+    {
+      "id": "qt_tense_aspect_037_10",
+      "order": 10,
+      "japanese": "宿題を出さないところでした。",
+      "korean": "숙제를 안 낼 뻔했어요.",
+      "alternativeAnswers": [
+        "숙제를 안 낼 뻔했습니다."
+      ],
+      "hint": "숙제를...",
+      "explanation": "危うく提出し忘れるところだった状況を表します。"
+    }
+  ]
+}

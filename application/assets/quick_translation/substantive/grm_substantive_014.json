@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_014",
+  "grammarTitle": "어디나/아무데나",
+  "grammarSubtitle": "不定代名詞（どこでも）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_014_01",
+      "order": 1,
+      "japanese": "どこでも行けます。",
+      "korean": "어디나 갈 수 있어요.",
+      "alternativeAnswers": [],
+      "hint": "어디나...",
+      "explanation": "「어디나」で場所を問わずを表します。"
+    },
+    {
+      "id": "qt_substantive_014_02",
+      "order": 2,
+      "japanese": "どこでも座ってください。",
+      "korean": "아무데나 앉으세요.",
+      "alternativeAnswers": [],
+      "hint": "아무데...",
+      "explanation": "指定せず座らせるとき「아무데나 앉으세요」。"
+    },
+    {
+      "id": "qt_substantive_014_03",
+      "order": 3,
+      "japanese": "どこでもおいしい店があります。",
+      "korean": "어디나 맛있는 가게가 있어요.",
+      "alternativeAnswers": [],
+      "hint": "어디나...",
+      "explanation": "全国どこでもの意味で「어디나」を使います。"
+    },
+    {
+      "id": "qt_substantive_014_04",
+      "order": 4,
+      "japanese": "どこでも捨てないでください。",
+      "korean": "아무데나 버리지 마세요.",
+      "alternativeAnswers": [],
+      "hint": "아무데...",
+      "explanation": "場所を選ばず捨てるのを止めるときに使います。"
+    },
+    {
+      "id": "qt_substantive_014_05",
+      "order": 5,
+      "japanese": "どこでも雨が降ります。",
+      "korean": "어디나 비가 와요.",
+      "alternativeAnswers": [],
+      "hint": "어디나...",
+      "explanation": "地域に関係なくを「어디나」で表現します。"
+    },
+    {
+      "id": "qt_substantive_014_06",
+      "order": 6,
+      "japanese": "どこでも友だちがいます。",
+      "korean": "어디나 친구가 있어요.",
+      "alternativeAnswers": [],
+      "hint": "어디나...",
+      "explanation": "各地に友人がいることを「어디나 친구가 있어요」。"
+    },
+    {
+      "id": "qt_substantive_014_07",
+      "order": 7,
+      "japanese": "どこでも置かないでください。",
+      "korean": "아무데나 놓지 마세요.",
+      "alternativeAnswers": [],
+      "hint": "아무데...",
+      "explanation": "置き場所を限定したいとき「아무데나 놓지 마세요」。"
+    },
+    {
+      "id": "qt_substantive_014_08",
+      "order": 8,
+      "japanese": "どこでも入ると危ないです。",
+      "korean": "아무데나 들어가면 위험해요.",
+      "alternativeAnswers": [],
+      "hint": "아무데...",
+      "explanation": "場所を選ばず入る危険を表すときに使います。"
+    },
+    {
+      "id": "qt_substantive_014_09",
+      "order": 9,
+      "japanese": "どこでも同じ値段です。",
+      "korean": "어디나 같은 값이에요.",
+      "alternativeAnswers": [],
+      "hint": "어디나...",
+      "explanation": "地域差がないことを「어디나 같은 값」。"
+    },
+    {
+      "id": "qt_substantive_014_10",
+      "order": 10,
+      "japanese": "どこでも写真を撮ります。",
+      "korean": "어디나 사진을 찍어요.",
+      "alternativeAnswers": [],
+      "hint": "어디나...",
+      "explanation": "場所を問わず行動する時「어디나」。"
+    }
+  ]
+}

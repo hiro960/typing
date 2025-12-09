@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_word_formation_008",
+  "grammarTitle": "접두사들",
+  "grammarSubtitle": "接頭辞（풋-, 햇-, 맨-など）",
+  "category": "word_formation",
+  "questions": [
+    {
+      "id": "qt_word_formation_008_01",
+      "order": 1,
+      "japanese": "青リンゴは酸っぱいです。",
+      "korean": "풋사과는 신맛이 나요.",
+      "alternativeAnswers": [],
+      "hint": "풋사과는...",
+      "explanation": "풋-を付け未熟な果物「풋사과」を作っています。"
+    },
+    {
+      "id": "qt_word_formation_008_02",
+      "order": 2,
+      "japanese": "青唐辛子が好きです。",
+      "korean": "풋고추를 좋아해요.",
+      "alternativeAnswers": [],
+      "hint": "풋고추를...",
+      "explanation": "풋-でまだ熟していない唐辛子「풋고추」を表します。"
+    },
+    {
+      "id": "qt_word_formation_008_03",
+      "order": 3,
+      "japanese": "新物のスイカが甘いです。",
+      "korean": "햇수박이 달아요.",
+      "alternativeAnswers": [],
+      "hint": "햇수박이...",
+      "explanation": "햇-はその年の初物を示し「햇수박」で新物のスイカを表します。"
+    },
+    {
+      "id": "qt_word_formation_008_04",
+      "order": 4,
+      "japanese": "新物のさつまいもを買いました。",
+      "korean": "햇고구마를 샀어요.",
+      "alternativeAnswers": [],
+      "hint": "햇고구마를...",
+      "explanation": "햇-を付けて今年の初物「햇고구마」を示します。"
+    },
+    {
+      "id": "qt_word_formation_008_05",
+      "order": 5,
+      "japanese": "日差しが暖かいです。",
+      "korean": "햇살이 따뜻해요.",
+      "alternativeAnswers": [],
+      "hint": "햇살이...",
+      "explanation": "햇-が付いた語で太陽の光「햇살」を表現しています。"
+    },
+    {
+      "id": "qt_word_formation_008_06",
+      "order": 6,
+      "japanese": "素手で来ました。",
+      "korean": "맨손으로 왔어요.",
+      "alternativeAnswers": [],
+      "hint": "맨손으로...",
+      "explanation": "맨-は何もない状態を示し「맨손」で素手を表します。"
+    },
+    {
+      "id": "qt_word_formation_008_07",
+      "order": 7,
+      "japanese": "裸足で走ります。",
+      "korean": "맨발로 달려요.",
+      "alternativeAnswers": [],
+      "hint": "맨발로...",
+      "explanation": "맨-を付け「맨발」で裸足の状態を表しています。"
+    },
+    {
+      "id": "qt_word_formation_008_08",
+      "order": 8,
+      "japanese": "素顔で出かけました。",
+      "korean": "맨얼굴로 나갔어요.",
+      "alternativeAnswers": [],
+      "hint": "맨얼굴로...",
+      "explanation": "飾りのない状態を表す接頭辞で「맨얼굴」を使います。"
+    },
+    {
+      "id": "qt_word_formation_008_09",
+      "order": 9,
+      "japanese": "素手で登りました。",
+      "korean": "맨손으로 올랐어요.",
+      "alternativeAnswers": [],
+      "hint": "맨손으로...",
+      "explanation": "道具なしを示す「맨-」を用い素手で登ったと述べます。"
+    },
+    {
+      "id": "qt_word_formation_008_10",
+      "order": 10,
+      "japanese": "その場に素足で座りました。",
+      "korean": "맨발로 거기에 앉았어요.",
+      "alternativeAnswers": [],
+      "hint": "맨발로...",
+      "explanation": "裸足という状態を接頭辞「맨-」で表現しています。"
+    }
+  ]
+}

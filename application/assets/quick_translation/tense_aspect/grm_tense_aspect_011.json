@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_tense_aspect_011",
+  "grammarTitle": "-아/어지다",
+  "grammarSubtitle": "受身・変化",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_011_01",
+      "order": 1,
+      "japanese": "天気が暖かくなりました。",
+      "korean": "날씨가 따뜻해졌어요.",
+      "alternativeAnswers": ["날씨가 따뜻해졌습니다."],
+      "hint": "날씨가...",
+      "explanation": "形容詞に-아/어지다を付けて「〜になる」の変化を表します。"
+    },
+    {
+      "id": "qt_tense_aspect_011_02",
+      "order": 2,
+      "japanese": "部屋が明るくなりました。",
+      "korean": "방이 밝아졌어요.",
+      "alternativeAnswers": ["방이 밝아졌습니다."],
+      "hint": "방이...",
+      "explanation": "状態の変化を示すとき明るいに-아지다を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_011_03",
+      "order": 3,
+      "japanese": "道路が空いて静かになりました。",
+      "korean": "길이 한산해져서 조용해졌어요.",
+      "alternativeAnswers": [],
+      "hint": "길이...",
+      "explanation": "交通量が減って静かになる様子を-어지다で表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_011_04",
+      "order": 4,
+      "japanese": "気分がよくなりました。",
+      "korean": "기분이 좋아졌어요.",
+      "alternativeAnswers": ["기분이 좋아졌습니다."],
+      "hint": "기분이...",
+      "explanation": "感情の変化に形容詞+아지다を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_011_05",
+      "order": 5,
+      "japanese": "顔がきれいになりました。",
+      "korean": "얼굴이 예뻐졌어요.",
+      "alternativeAnswers": ["얼굴이 예뻐졌습니다."],
+      "hint": "얼굴이...",
+      "explanation": "見た目が変化したことを-어지다で「〜になった」と言います。"
+    },
+    {
+      "id": "qt_tense_aspect_011_06",
+      "order": 6,
+      "japanese": "声が小さくなりました。",
+      "korean": "소리가 작아졌어요.",
+      "alternativeAnswers": ["소리가 작아졌습니다."],
+      "hint": "소리가...",
+      "explanation": "程度が変わるとき形容詞に-아지다を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_011_07",
+      "order": 7,
+      "japanese": "値段が安くなりました。",
+      "korean": "가격이 싸졌어요.",
+      "alternativeAnswers": ["가격이 싸졌습니다.", "가격이 내려갔어요."],
+      "hint": "가격이...",
+      "explanation": "値段が下がる変化は「싸지다/내려가다」で自然に表せます。"
+    },
+    {
+      "id": "qt_tense_aspect_011_08",
+      "order": 8,
+      "japanese": "仕事が楽になりました。",
+      "korean": "일이 쉬워졌어요.",
+      "alternativeAnswers": ["일이 쉬워졌습니다."],
+      "hint": "일이...",
+      "explanation": "難易度の変化も形容詞+어지다で表現できます。"
+    },
+    {
+      "id": "qt_tense_aspect_011_09",
+      "order": 9,
+      "japanese": "家がきれいになりました。",
+      "korean": "집이 깨끗해졌어요.",
+      "alternativeAnswers": ["집이 깨끗해졌습니다."],
+      "hint": "집이...",
+      "explanation": "掃除後の変化を「깨끗하다+어지다」で示します。"
+    },
+    {
+      "id": "qt_tense_aspect_011_10",
+      "order": 10,
+      "japanese": "学生たちが静かになりました。",
+      "korean": "학생들이 조용해졌어요.",
+      "alternativeAnswers": ["학생들이 조용해졌습니다."],
+      "hint": "학생들이...",
+      "explanation": "状態が変わったことを-아/어지다で丁寧に述べます。"
+    }
+  ]
+}

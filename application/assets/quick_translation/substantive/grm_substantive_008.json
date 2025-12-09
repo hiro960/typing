@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_substantive_008",
+  "grammarTitle": "이런/그런/저런",
+  "grammarSubtitle": "指示代名詞（こんな/そんな/あんな）",
+  "category": "substantive",
+  "questions": [
+    {
+      "id": "qt_substantive_008_01",
+      "order": 1,
+      "japanese": "こんな味が好きです。",
+      "korean": "이런 맛이 좋아요.",
+      "alternativeAnswers": [],
+      "hint": "이런...",
+      "explanation": "近くに感じる性質は「이런」で表します。"
+    },
+    {
+      "id": "qt_substantive_008_02",
+      "order": 2,
+      "japanese": "そんな言葉は言わないでください。",
+      "korean": "그런 말 하지 마세요.",
+      "alternativeAnswers": [],
+      "hint": "그런...",
+      "explanation": "相手の言葉を止めるとき「그런 말」。"
+    },
+    {
+      "id": "qt_substantive_008_03",
+      "order": 3,
+      "japanese": "あんな家に住みたいです。",
+      "korean": "저런 집에 살고 싶어요.",
+      "alternativeAnswers": [],
+      "hint": "저런...",
+      "explanation": "遠くにあるような対象は「저런」＋名詞。"
+    },
+    {
+      "id": "qt_substantive_008_04",
+      "order": 4,
+      "japanese": "こんな服はどうですか。",
+      "korean": "이런 옷 어때요?",
+      "alternativeAnswers": [],
+      "hint": "이런...",
+      "explanation": "近くの例を挙げるとき「이런」。"
+    },
+    {
+      "id": "qt_substantive_008_05",
+      "order": 5,
+      "japanese": "そんな人を信じないでください。",
+      "korean": "그런 사람 믿지 마요.",
+      "alternativeAnswers": [],
+      "hint": "그런...",
+      "explanation": "相手側の性質は「그런 사람」で表します。"
+    },
+    {
+      "id": "qt_substantive_008_06",
+      "order": 6,
+      "japanese": "あんな天気は嫌いです。",
+      "korean": "저런 날씨 싫어요.",
+      "alternativeAnswers": [],
+      "hint": "저런...",
+      "explanation": "遠くの状況を指すとき「저런」。"
+    },
+    {
+      "id": "qt_substantive_008_07",
+      "order": 7,
+      "japanese": "こんな機会を逃さないでください。",
+      "korean": "이런 기회 놓치지 마세요.",
+      "alternativeAnswers": [],
+      "hint": "이런...",
+      "explanation": "目の前の機会は「이런 기회」。"
+    },
+    {
+      "id": "qt_substantive_008_08",
+      "order": 8,
+      "japanese": "そんな噂を信じましたか。",
+      "korean": "그런 소문 믿었어요?",
+      "alternativeAnswers": [],
+      "hint": "그런...",
+      "explanation": "聞き手側の話題は「그런 소문」。"
+    },
+    {
+      "id": "qt_substantive_008_09",
+      "order": 9,
+      "japanese": "あんな行動は危ないです。",
+      "korean": "저런 행동은 위험해요.",
+      "alternativeAnswers": [],
+      "hint": "저런...",
+      "explanation": "遠くの例や他人事には「저런 행동」。"
+    },
+    {
+      "id": "qt_substantive_008_10",
+      "order": 10,
+      "japanese": "こんな話は初めてです。",
+      "korean": "이런 이야기 처음이에요.",
+      "alternativeAnswers": [],
+      "hint": "이런...",
+      "explanation": "経験を示すとき「이런 이야기」。"
+    }
+  ]
+}

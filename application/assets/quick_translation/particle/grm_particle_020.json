@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_particle_020",
+  "grammarTitle": "밖에",
+  "grammarSubtitle": "限定助詞・否定（〜しか）",
+  "category": "particle",
+  "questions": [
+    {
+      "id": "qt_particle_020_01",
+      "order": 1,
+      "japanese": "水しかありません。",
+      "korean": "물밖에 없어요.",
+      "alternativeAnswers": ["물밖에 없습니다."],
+      "hint": "물밖에...",
+      "explanation": "否定と組み合わせて『〜しかない』を表す助詞です。"
+    },
+    {
+      "id": "qt_particle_020_02",
+      "order": 2,
+      "japanese": "時間しかありません。",
+      "korean": "시간밖에 없어요.",
+      "alternativeAnswers": ["시간밖에 없습니다."],
+      "hint": "시간밖에...",
+      "explanation": "不足を強調するため否定形と一緒に使います。"
+    },
+    {
+      "id": "qt_particle_020_03",
+      "order": 3,
+      "japanese": "千ウォンしかありません。",
+      "korean": "천 원밖에 없어요.",
+      "alternativeAnswers": ["천 원밖에 없습니다."],
+      "hint": "천 원밖에...",
+      "explanation": "数量を限定し否定を伴うのが「밖에」の特徴です。"
+    },
+    {
+      "id": "qt_particle_020_04",
+      "order": 4,
+      "japanese": "友達しか知りません。",
+      "korean": "친구밖에 몰라요.",
+      "alternativeAnswers": ["친구밖에 모릅니다."],
+      "hint": "친구밖에...",
+      "explanation": "動詞の否定と合わせ『〜しか知らない』を表します。"
+    },
+    {
+      "id": "qt_particle_020_05",
+      "order": 5,
+      "japanese": "ご飯しか食べません。",
+      "korean": "밥밖에 안 먹어요.",
+      "alternativeAnswers": ["밥밖에 안 먹습니다."],
+      "hint": "밥밖에...",
+      "explanation": "否定語 안/못と組み合わせるのが基本です。"
+    },
+    {
+      "id": "qt_particle_020_06",
+      "order": 6,
+      "japanese": "一つしか買いませんでした。",
+      "korean": "한 개밖에 안 샀어요.",
+      "alternativeAnswers": ["한 개밖에 안 샀습니다."],
+      "hint": "한 개밖에...",
+      "explanation": "数量限定で『〜しか〜しなかった』を表します。"
+    },
+    {
+      "id": "qt_particle_020_07",
+      "order": 7,
+      "japanese": "週末しか休めません。",
+      "korean": "주말밖에 못 쉬어요.",
+      "alternativeAnswers": ["주말밖에 쉴 수 없어요.", "주말밖에 쉴 수 없습니다."],
+      "hint": "주말밖에...",
+      "explanation": "否定形と組み合わせ『週末しか休めない』意味を表します。"
+    },
+    {
+      "id": "qt_particle_020_08",
+      "order": 8,
+      "japanese": "韓国語しかできません。",
+      "korean": "한국어밖에 못해요.",
+      "alternativeAnswers": ["한국어밖에 못합니다."],
+      "hint": "한국어밖에...",
+      "explanation": "できる対象を一つに限定するときも「밖에+못」を使います。"
+    },
+    {
+      "id": "qt_particle_020_09",
+      "order": 9,
+      "japanese": "コーヒーしか飲みません。",
+      "korean": "커피밖에 안 마셔요.",
+      "alternativeAnswers": ["커피밖에 안 마십니다."],
+      "hint": "커피밖에...",
+      "explanation": "否定形と組み合わせて選択を一つに絞ります。"
+    },
+    {
+      "id": "qt_particle_020_10",
+      "order": 10,
+      "japanese": "今しか時間がありません。",
+      "korean": "지금밖에 시간이 없어요.",
+      "alternativeAnswers": ["지금밖에 시간이 없습니다."],
+      "hint": "지금밖에...",
+      "explanation": "時間を限定し不足を強調するので「밖에+없다」を用います。"
+    }
+  ]
+}

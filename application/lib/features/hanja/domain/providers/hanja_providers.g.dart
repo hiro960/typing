@@ -1048,7 +1048,7 @@ final class HanjaFilterNotifierProvider
 }
 
 String _$hanjaFilterNotifierHash() =>
-    r'fe12a5f3bb3baa7cc36e9be5d1c0de5b9a4b8235';
+    r'9dc7b93e4ba057b645eeee1f5ebe2af117837faf';
 
 abstract class _$HanjaFilterNotifier extends $Notifier<HanjaFilterState> {
   HanjaFilterState build();
@@ -1109,4 +1109,4 @@ final class FilteredHanjaSearchProvider
 }
 
 String _$filteredHanjaSearchHash() =>
-    r'acb36bd8deeeb9b37bb57c88d46325f72d59d9ed';
+    r'75db379ec8804a75d447e3722a8cf0716f0d4ccc';

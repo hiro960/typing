@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_tense_aspect_002",
+  "grammarTitle": "-겠-",
+  "grammarSubtitle": "推量・意志",
+  "category": "tense_aspect",
+  "questions": [
+    {
+      "id": "qt_tense_aspect_002_01",
+      "order": 1,
+      "japanese": "今日は寒そうですね。",
+      "korean": "오늘은 춥겠어요.",
+      "alternativeAnswers": ["오늘은 춥겠습니다."],
+      "hint": "오늘은...",
+      "explanation": "様子を見て推量するので形容詞語幹に-겠어요を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_002_02",
+      "order": 2,
+      "japanese": "私が払います。",
+      "korean": "제가 계산하겠습니다.",
+      "alternativeAnswers": ["제가 낼게요."],
+      "hint": "제가...",
+      "explanation": "意志を表す丁寧な約束で-겠습니다を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_002_03",
+      "order": 3,
+      "japanese": "すぐ行きます。",
+      "korean": "곧 가겠습니다.",
+      "alternativeAnswers": ["곧 가겠어요."],
+      "hint": "곧...",
+      "explanation": "これから行く意志を表し-겠습니다で丁寧に言います。"
+    },
+    {
+      "id": "qt_tense_aspect_002_04",
+      "order": 4,
+      "japanese": "明日は雨でしょう。",
+      "korean": "내일은 비가 오겠어요.",
+      "alternativeAnswers": ["내일은 비가 오겠습니다."],
+      "hint": "내일은...",
+      "explanation": "未来の推量に-겠어요を付けて「〜でしょう」を表現します。"
+    },
+    {
+      "id": "qt_tense_aspect_002_05",
+      "order": 5,
+      "japanese": "友達が喜びそうです。",
+      "korean": "친구가 기뻐하겠어요.",
+      "alternativeAnswers": [],
+      "hint": "친구가...",
+      "explanation": "相手の気持ちを推測するので-겠어요を使います。"
+    },
+    {
+      "id": "qt_tense_aspect_002_06",
+      "order": 6,
+      "japanese": "お昼には終わりそうです。",
+      "korean": "점심쯤 끝나겠어요.",
+      "alternativeAnswers": ["점심쯤 끝나겠습니다."],
+      "hint": "점심쯤...",
+      "explanation": "完了時刻を推量する文で語幹に-겠어요を付けます。"
+    },
+    {
+      "id": "qt_tense_aspect_002_07",
+      "order": 7,
+      "japanese": "今わかりました。",
+      "korean": "이제 알겠어요.",
+      "alternativeAnswers": ["이제 알겠습니다."],
+      "hint": "이제...",
+      "explanation": "理解した瞬間の気付き表現にも-겠어요がよく使われます。"
+    },
+    {
+      "id": "qt_tense_aspect_002_08",
+      "order": 8,
+      "japanese": "とても疲れたでしょう。",
+      "korean": "많이 피곤했겠어요.",
+      "alternativeAnswers": [],
+      "hint": "많이...",
+      "explanation": "過去の相手の状態を推測するとき-겠어요を添えます。"
+    },
+    {
+      "id": "qt_tense_aspect_002_09",
+      "order": 9,
+      "japanese": "私がドアを開けます。",
+      "korean": "제가 문을 열겠습니다.",
+      "alternativeAnswers": ["제가 문을 열겠어요."],
+      "hint": "제가...",
+      "explanation": "自分の意志を丁寧に示し-겠습니다を用います。"
+    },
+    {
+      "id": "qt_tense_aspect_002_10",
+      "order": 10,
+      "japanese": "会社に遅れそうです。",
+      "korean": "회사에 늦겠어요.",
+      "alternativeAnswers": ["회사에 늦겠습니다."],
+      "hint": "회사에...",
+      "explanation": "未来の見込みを述べる推量なので-겠어요を使います。"
+    }
+  ]
+}

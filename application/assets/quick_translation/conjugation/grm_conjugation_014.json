@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_conjugation_014",
+  "grammarTitle": "제Ⅰ어기",
+  "grammarSubtitle": "第Ⅰ語基",
+  "category": "conjugation",
+  "questions": [
+    {
+      "id": "qt_conjugation_014_01",
+      "order": 1,
+      "japanese": "本を読んで寝ます。",
+      "korean": "책을 읽고 자요.",
+      "alternativeAnswers": ["책을 읽고 잡니다."],
+      "hint": "책을...",
+      "explanation": "語幹「읽」に子音始まりの語尾「-고」を付ける第Ⅰ語基の例です。"
+    },
+    {
+      "id": "qt_conjugation_014_02",
+      "order": 2,
+      "japanese": "雨が降って寒いです。",
+      "korean": "비가 오고 추워요.",
+      "alternativeAnswers": ["비가 오고 춥습니다."],
+      "hint": "비가...",
+      "explanation": "動詞「오다」の第Ⅰ語基に「-고」を付けて文を連結しています。"
+    },
+    {
+      "id": "qt_conjugation_014_03",
+      "order": 3,
+      "japanese": "今日は行きません。",
+      "korean": "오늘은 가지 않아요.",
+      "alternativeAnswers": ["오늘은 가지 않습니다."],
+      "hint": "오늘은...",
+      "explanation": "第Ⅰ語基「가」に否定「-지 않다」を付けて否定形を作ります。"
+    },
+    {
+      "id": "qt_conjugation_014_04",
+      "order": 4,
+      "japanese": "私がします。",
+      "korean": "제가 하겠어요.",
+      "alternativeAnswers": ["제가 하겠습니다."],
+      "hint": "제가...",
+      "explanation": "語幹に意志を表す「-겠-」を付けた形で、해요体は「-겠어요」、格式体は「-겠습니다」を用います。"
+    },
+    {
+      "id": "qt_conjugation_014_05",
+      "order": 5,
+      "japanese": "食べる人です。",
+      "korean": "먹는 사람이에요.",
+      "alternativeAnswers": ["먹는 사람입니다."],
+      "hint": "먹는...",
+      "explanation": "動詞の現在連体形は第Ⅰ語基に「-는」を付けて「먹는」を作ります。"
+    },
+    {
+      "id": "qt_conjugation_014_06",
+      "order": 6,
+      "japanese": "知っている顔です。",
+      "korean": "아는 얼굴이에요.",
+      "alternativeAnswers": ["아는 얼굴입니다."],
+      "hint": "아는...",
+      "explanation": "語幹に「-는」を付ける現在連体形の例で、第Ⅰ語基を使います。"
+    },
+    {
+      "id": "qt_conjugation_014_07",
+      "order": 7,
+      "japanese": "わかりました。",
+      "korean": "알겠어요.",
+      "alternativeAnswers": ["알겠습니다."],
+      "hint": "알겠...",
+      "explanation": "語幹「알」に「-겠-」を付けて意志・了解の意味を表します。"
+    },
+    {
+      "id": "qt_conjugation_014_08",
+      "order": 8,
+      "japanese": "勉強して休みます。",
+      "korean": "공부하고 쉬어요.",
+      "alternativeAnswers": ["공부하고 쉽니다."],
+      "hint": "공부하...",
+      "explanation": "語幹「공부하」に連結語尾「-고」を付け、第Ⅰ語基で文をつなげています。"
+    },
+    {
+      "id": "qt_conjugation_014_09",
+      "order": 9,
+      "japanese": "行くけど遅れます。",
+      "korean": "가지만 늦어요.",
+      "alternativeAnswers": ["가지만 늦습니다."],
+      "hint": "가지만...",
+      "explanation": "第Ⅰ語基「가」に逆接の語尾「-지만」を付ける活用です。"
+    },
+    {
+      "id": "qt_conjugation_014_10",
+      "order": 10,
+      "japanese": "歩くのが好きではありません。",
+      "korean": "걷는 것을 좋아하지 않아요.",
+      "alternativeAnswers": ["걷는 것을 좋아하지 않습니다."],
+      "hint": "걷는...",
+      "explanation": "語幹「걷」に第Ⅰ語基語尾「-는」「-지 않다」を付けて連体形と否定を作ります。"
+    }
+  ]
+}

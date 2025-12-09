@@ -1,0 +1,98 @@
+{
+  "grammarRef": "grm_expression_006",
+  "grammarTitle": "-(으)ㄴ/는/(으)ㄹ 모양이다",
+  "grammarSubtitle": "様子・推測（〜ようだ）",
+  "category": "expression",
+  "questions": [
+    {
+      "id": "qt_expression_006_01",
+      "order": 1,
+      "japanese": "雨が降ったようです。",
+      "korean": "비가 온 모양이에요.",
+      "alternativeAnswers": ["비가 온 모양입니다."],
+      "hint": "비가...",
+      "explanation": "結果から過去を推測するとき「-ㄴ 모양이다」を使います。"
+    },
+    {
+      "id": "qt_expression_006_02",
+      "order": 2,
+      "japanese": "友達は忙しいようです。",
+      "korean": "친구가 바쁜 모양이에요.",
+      "alternativeAnswers": ["친구가 바쁜 모양입니다."],
+      "hint": "친구가...",
+      "explanation": "様子を見て現在の状態を推測する表現です。"
+    },
+    {
+      "id": "qt_expression_006_03",
+      "order": 3,
+      "japanese": "彼女は風邪をひいたようです。",
+      "korean": "그녀가 감기에 걸린 모양이에요.",
+      "alternativeAnswers": ["그녀가 감기에 걸린 모양입니다."],
+      "hint": "그녀가...",
+      "explanation": "外見から病気だと推測し「-ㄴ 모양이다」を使います。"
+    },
+    {
+      "id": "qt_expression_006_04",
+      "order": 4,
+      "japanese": "今日は道が混みそうです。",
+      "korean": "오늘 길이 막힐 모양이에요.",
+      "alternativeAnswers": ["오늘 길이 막힐 모양입니다."],
+      "hint": "오늘...",
+      "explanation": "これからの様子を予測するとき「-ㄹ 모양이다」を使います。"
+    },
+    {
+      "id": "qt_expression_006_05",
+      "order": 5,
+      "japanese": "店が閉まったようです。",
+      "korean": "가게가 문을 닫은 모양이에요.",
+      "alternativeAnswers": ["가게가 문을 닫은 모양입니다."],
+      "hint": "가게가...",
+      "explanation": "結果を見て過去を推測する形です。"
+    },
+    {
+      "id": "qt_expression_006_06",
+      "order": 6,
+      "japanese": "彼はとても疲れているようです。",
+      "korean": "그는 많이 피곤한 모양이에요.",
+      "alternativeAnswers": ["그는 많이 피곤한 모양입니다."],
+      "hint": "그는...",
+      "explanation": "外見から状態を推測し「-ㄴ 모양이다」を用います。"
+    },
+    {
+      "id": "qt_expression_006_07",
+      "order": 7,
+      "japanese": "子どもがうれしそうです。",
+      "korean": "아이가 신난 모양이에요.",
+      "alternativeAnswers": ["아이가 신난 모양입니다."],
+      "hint": "아이가...",
+      "explanation": "見た様子から感情を推測して言う形です。"
+    },
+    {
+      "id": "qt_expression_006_08",
+      "order": 8,
+      "japanese": "バスが遅れているようです。",
+      "korean": "버스가 늦는 모양이에요.",
+      "alternativeAnswers": ["버스가 늦는 모양입니다."],
+      "hint": "버스가...",
+      "explanation": "進行中の状態を推測するとき「-는 모양이다」を使います。"
+    },
+    {
+      "id": "qt_expression_006_09",
+      "order": 9,
+      "japanese": "雨が降りそうな様子です。",
+      "korean": "비가 올 모양이에요.",
+      "alternativeAnswers": ["비가 올 모양입니다."],
+      "hint": "비가...",
+      "explanation": "近い未来の推測に「-ㄹ 모양이다」を使います。"
+    },
+    {
+      "id": "qt_expression_006_10",
+      "order": 10,
+      "japanese": "彼は出張に行ったようです。",
+      "korean": "그는 출장을 간 모양이에요.",
+      "alternativeAnswers": ["그는 출장을 간 모양입니다."],
+      "hint": "그는...",
+      "explanation": "結果から過去の動作を推測するときの表現です。"
+    }
+  ]
+}
