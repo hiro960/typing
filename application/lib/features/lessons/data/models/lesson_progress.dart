@@ -67,6 +67,9 @@ class LessonProgress {
     }
     return normalized;
   }
+
+  /// レッスンが完了しているかどうか
+  bool get isCompleted => completionRate >= 100;
 }
 
 class LessonStatsSummary {

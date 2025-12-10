@@ -3,6 +3,7 @@ import 'package:chaletta/ui/widgets/shimmer_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/auth/data/models/user_model.dart';
 import '../../../features/auth/domain/providers/auth_providers.dart';
@@ -25,21 +26,27 @@ import '../../widgets/app_page_scaffold.dart';
 import '../typing/lesson_detail_screen.dart';
 import '../ai_teacher_screen.dart';
 import '../translation/translation_screen.dart';
+import '../writing/pattern_list_screen.dart';
 import '../writing/topic_list_screen.dart';
-import '../../widgets/ai_gradient_button.dart';
 import '../../../features/ranking_game/presentation/widgets/typing_game_section.dart';
 import '../../../features/pronunciation_game/presentation/widgets/pronunciation_game_section.dart';
 import '../../../features/hanja_quiz/presentation/widgets/hanja_quiz_section.dart';
 import '../reference/kanadara_screen.dart';
 import '../grammar/grammar_list_screen.dart';
 import '../hanja/hanja_list_screen.dart';
+import '../quick_translation/quick_translation_item_list_screen.dart';
+import '../../../features/quick_translation/data/models/quick_translation_models.dart';
+import '../../../features/quick_translation/domain/providers/quick_translation_providers.dart';
 
 part 'home_progress_hero.dart';
 part 'home_stat_highlights.dart';
 part 'home_level_accordions.dart';
 part 'home_writing_accordions.dart';
 part 'home_exchange_rate.dart';
-part 'home_learning_tabs.dart';
+part 'home_feature_card.dart';
+part 'home_category_section.dart';
+part 'home_typing_hero.dart';
+part 'home_weekly_progress.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({
@@ -54,40 +61,16 @@ class HomeScreen extends ConsumerStatefulWidget {
 }
 
 class _HomeScreenState extends ConsumerState<HomeScreen> {
-  final _typingAccordionController = FAccordionController(max: 1);
-  final _writingAccordionController = FAccordionController(max: 1);
-  final _beginnerWritingAccordionController = FAccordionController(max: 1);
-  final _travelWritingAccordionController = FAccordionController(max: 1);
-  final _hobbyWritingAccordionController = FAccordionController(max: 1);
-  final _statsAccordionController = FAccordionController(max: 1);
-
-  /// 現在選択中の学習タブ
-  _LearningTab _selectedTab = _LearningTab.typing;
-
   /// ネットワークエラーのトースト表示済みフラグ（重複表示防止）
   bool _hasShownNetworkError = false;
 
-  @override
-  void dispose() {
-    _typingAccordionController.dispose();
-    _writingAccordionController.dispose();
-    _beginnerWritingAccordionController.dispose();
-    _travelWritingAccordionController.dispose();
-    _hobbyWritingAccordionController.dispose();
-    _statsAccordionController.dispose();
-    super.dispose();
-  }
-
   /// Pull-to-refresh でデータを再取得
   Future<void> _refresh() async {
-    // 各プロバイダーを invalidate して再取得
     ref.invalidate(homeStateProvider);
-    // ランキング統計も再取得
     ref.invalidate(myRankingStatsSummaryProvider);
-    // 統合統計も再取得
     ref.invalidate(integratedStatsProvider);
-    // 為替レートも再取得
     ref.invalidate(exchangeRateProvider);
+    ref.invalidate(quickTranslationCategoriesProvider);
   }
 
   void _openTranslation() {
@@ -98,7 +81,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 
-  void _openGrammarDictionary(BuildContext context) {
+  void _openGrammarDictionary() {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (_) => const GrammarListScreen(),
@@ -106,10 +89,72 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 
-  void _openHanjaDictionary(BuildContext context) {
+  void _openHanjaDictionary() {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (_) => const HanjaListScreen(),
+      ),
+    );
+  }
+
+  void _openKanadaRa() {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => const KanadaRaScreen(),
+      ),
+    );
+  }
+
+  void _openWriting(WritingLane lane) {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => PatternListScreen(lane: lane),
+      ),
+    );
+  }
+
+  void _openQuickTranslation() {
+    // 瞬間作文のカテゴリ一覧画面へ遷移
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => const _QuickTranslationListScreen(),
+      ),
+    );
+  }
+
+  void _openRankingGame() {
+    // ランキングゲームセクションのボトムシートを表示
+    showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => const _GameDetailSheet(
+        child: RankingGameSection(),
+        title: 'タイピングゲーム',
+      ),
+    );
+  }
+
+  void _openPronunciationGame() {
+    showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => const _GameDetailSheet(
+        child: PronunciationGameSection(),
+        title: '発音ゲーム',
+      ),
+    );
+  }
+
+  void _openHanjaQuiz() {
+    showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => const _GameDetailSheet(
+        child: HanjaQuizSection(),
+        title: '漢字語クイズ',
       ),
     );
   }
@@ -120,30 +165,19 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final user = ref.watch(currentUserProvider);
     final displayName = user?.displayName ?? 'Guest';
     final isPremiumUser = user?.isPremiumUser ?? false;
-    final integratedStatsAsync = ref.watch(integratedStatsProvider);
 
     return homeStateAsync.when(
       data: (state) {
-        // データ取得成功時はエラーフラグをリセット
         _hasShownNetworkError = false;
         return _buildHomeContent(
           state: state,
           displayName: displayName,
           isPremiumUser: isPremiumUser,
-          integratedStatsAsync: integratedStatsAsync,
         );
       },
       loading: () => AppPageScaffold(
         title: '안녕하세요, $displayName',
         actions: [
-          FHeaderAction(
-            icon: const Icon(Icons.translate_outlined),
-            onPress: () => _openHanjaDictionary(context),
-          ),
-          FHeaderAction(
-            icon: const Icon(Icons.menu_book_outlined),
-            onPress: () => _openGrammarDictionary(context),
-          ),
           FHeaderAction(
             icon: const Icon(Icons.settings_outlined),
             onPress: widget.onOpenSettings,
@@ -152,7 +186,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         child: const Center(child: CircularProgressIndicator()),
       ),
       error: (error, _) {
-        // ネットワークエラー時にFToastを表示（重複表示防止）
         if (!_hasShownNetworkError) {
           _hasShownNetworkError = true;
           WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -161,7 +194,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             }
           });
         }
-        // 空のデータでホーム画面を表示（プルダウンで再試行可能）
         final emptyState = HomeState(
           catalog: const {},
           statsAsync: const AsyncValue.data(LessonStatsSummary()),
@@ -172,7 +204,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           state: emptyState,
           displayName: displayName,
           isPremiumUser: isPremiumUser,
-          integratedStatsAsync: const AsyncValue.data(null),
         );
       },
     );
@@ -183,19 +214,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     required HomeState state,
     required String displayName,
     required bool isPremiumUser,
-    required AsyncValue<IntegratedStats?> integratedStatsAsync,
   }) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
     return AppPageScaffold(
       title: '안녕하세요, $displayName',
       actions: [
-        FHeaderAction(
-          icon: const Icon(Icons.translate_outlined),
-          onPress: () => _openHanjaDictionary(context),
-        ),
-        FHeaderAction(
-          icon: const Icon(Icons.menu_book_outlined),
-          onPress: () => _openGrammarDictionary(context),
-        ),
         FHeaderAction(
           icon: const Icon(Icons.settings_outlined),
           onPress: widget.onOpenSettings,
@@ -204,6 +229,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       childPad: false,
       child: RefreshIndicator(
         onRefresh: _refresh,
+        color: AppColors.primary,
+        backgroundColor: isDark ? AppColors.surface : AppColors.lightSurface,
         child: CustomScrollView(
           physics: const AlwaysScrollableScrollPhysics(
             parent: BouncingScrollPhysics(),
@@ -215,50 +242,96 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // 為替レート + 翻訳の統合カード
+                    // 1. Quick Tools（為替レート + 翻訳）
                     _QuickToolsCard(onTranslationTap: _openTranslation),
                     const SizedBox(height: AppSpacing.xl),
-                    // 学習タブセレクター
-                    _LearningTabSelector(
-                      selectedTab: _selectedTab,
-                      onTabChanged: (tab) {
-                        setState(() => _selectedTab = tab);
-                      },
-                    ),
-                    const SizedBox(height: AppSpacing.lg),
-                    // タブに応じたコンテンツ
-                    _buildTabContent(
-                      state: state,
-                      integratedStatsAsync: integratedStatsAsync,
+
+                    // 2. タイピング練習 Hero
+                    _TypingPracticeHero(onLessonTap: _onLessonTap),
+                    const SizedBox(height: AppSpacing.xl),
+
+                    // 3. 機能グリッド（2行×4列）
+                    _FeatureGrid(
+                      features: [
+                        // Row 1
+                        _FeatureItem(
+                          title: 'カナダラ表',
+                          icon: Iconsax.grid_1,
+                          textIcon: 'ㄱㄴ',
+                          gradientColors: FeatureGradients.kanadara,
+                          onTap: _openKanadaRa,
+                        ),
+                        _FeatureItem(
+                          title: '瞬間作文',
+                          icon: Iconsax.flash_1,
+                          gradientColors: FeatureGradients.quickTranslation,
+                          onTap: _openQuickTranslation,
+                        ),
+                        _FeatureItem(
+                          title: '書き取り',
+                          icon: Iconsax.edit_2,
+                          gradientColors: FeatureGradients.writing,
+                          onTap: () => _showWritingOptions(context),
+                        ),
+                        _FeatureItem(
+                          title: 'タイピング',
+                          icon: Iconsax.keyboard,
+                          gradientColors: FeatureGradients.typing,
+                          onTap: _openRankingGame,
+                        ),
+                        // Row 2
+                        _FeatureItem(
+                          title: '発音',
+                          icon: Iconsax.microphone_2,
+                          gradientColors: FeatureGradients.pronunciation,
+                          onTap: _openPronunciationGame,
+                        ),
+                        _FeatureItem(
+                          title: '漢字語',
+                          icon: Iconsax.translate,
+                          gradientColors: FeatureGradients.hanjaQuiz,
+                          onTap: _openHanjaQuiz,
+                        ),
+                        _FeatureItem(
+                          title: '文法',
+                          icon: Iconsax.book_1,
+                          gradientColors: FeatureGradients.grammar,
+                          onTap: _openGrammarDictionary,
+                        ),
+                        _FeatureItem(
+                          title: '漢字語辞典',
+                          icon: Iconsax.book_square,
+                          gradientColors: FeatureGradients.hanjaDictionary,
+                          onTap: _openHanjaDictionary,
+                        ),
+                      ],
                     ),
                     const SizedBox(height: AppSpacing.xl),
-                    // AI先生ボタン
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: AppSpacing.lg,
-                      ),
-                      child: AiGradientButton(
-                        label: 'AI先生に聞く',
-                        onTap: () {
-                          if (!isPremiumUser) {
-                            Navigator.of(context).push(
-                              MaterialPageRoute<void>(
-                                builder: (_) =>
-                                    const PremiumFeatureGateScreen(
-                                      focusFeature: 'AI先生',
-                                    ),
-                              ),
-                            );
-                            return;
-                          }
+
+                    // 4. 週間進捗
+                    const _WeeklyProgressCard(),
+                    const SizedBox(height: AppSpacing.xl),
+
+                    // 5. AI先生ボタン
+                    _AiTeacherSection(
+                      isPremiumUser: isPremiumUser,
+                      onTap: () {
+                        if (!isPremiumUser) {
                           Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  const AiTeacherScreen(),
+                            MaterialPageRoute<void>(
+                              builder: (_) => const PremiumFeatureGateScreen(
+                                focusFeature: 'AI先生',
+                              ),
                             ),
                           );
-                        },
-                      ),
+                          return;
+                        }
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const AiTeacherScreen(),
+                          ),
+                        );
+                      },
                     ),
                     const SizedBox(height: AppSpacing.xl),
                   ],
@@ -269,33 +342,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         ),
       ),
     );
-  }
-
-  /// 選択中のタブに応じたコンテンツを構築
-  Widget _buildTabContent({
-    required HomeState state,
-    required AsyncValue<IntegratedStats?> integratedStatsAsync,
-  }) {
-    switch (_selectedTab) {
-      case _LearningTab.typing:
-        return _TypingTabContent(
-          catalog: state.catalog,
-          progress: state.progress,
-          typingAccordionController: _typingAccordionController,
-          statsAccordionController: _statsAccordionController,
-          onLessonTap: _onLessonTap,
-          integratedStatsAsync: integratedStatsAsync,
-        );
-      case _LearningTab.games:
-        return const _GamesTabContent();
-      case _LearningTab.writing:
-        return _WritingTabContent(
-          beginnerWritingAccordionController: _beginnerWritingAccordionController,
-          travelWritingAccordionController: _travelWritingAccordionController,
-          hobbyWritingAccordionController: _hobbyWritingAccordionController,
-          writingAccordionController: _writingAccordionController,
-        );
-    }
   }
 
   void _onLessonTap(lesson_index.LessonMeta lesson, bool isLocked) {
@@ -324,6 +370,589 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (_) => LessonDetailScreen(lessonId: lesson.id),
+      ),
+    );
+  }
+
+  void _showWritingOptions(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
+    showModalBottomSheet<void>(
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (context) => Container(
+        decoration: BoxDecoration(
+          color: isDark ? AppColors.surface : AppColors.lightSurface,
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              margin: const EdgeInsets.only(top: 12),
+              width: 40,
+              height: 4,
+              decoration: BoxDecoration(
+                color: theme.colorScheme.outline.withValues(alpha: 0.3),
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(AppSpacing.lg),
+              child: Text(
+                '書き取りカテゴリ',
+                style: theme.textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            const Divider(height: 1),
+            _WritingOptionTile(
+              title: '単語',
+              subtitle: 'カテゴリ別の基本単語をタイピング練習',
+              icon: Icons.abc,
+              onTap: () {
+                Navigator.pop(context);
+                _openWriting(WritingLane.beginner);
+              },
+            ),
+            _WritingOptionTile(
+              title: '旅行',
+              subtitle: '韓国旅行で使える実践フレーズ',
+              icon: Icons.flight,
+              onTap: () {
+                Navigator.pop(context);
+                _openWriting(WritingLane.travel);
+              },
+            ),
+            _WritingOptionTile(
+              title: '趣味対策',
+              subtitle: 'SNSや韓ドラ、推しなど気軽に書ける題材',
+              icon: Icons.favorite,
+              onTap: () {
+                Navigator.pop(context);
+                _openWriting(WritingLane.hobby);
+              },
+            ),
+            _WritingOptionTile(
+              title: 'TOPIK対策',
+              subtitle: 'タイピングで覚える論述パターン',
+              icon: Icons.school,
+              onTap: () {
+                Navigator.pop(context);
+                _openWriting(WritingLane.topik);
+              },
+            ),
+            const SizedBox(height: AppSpacing.xl),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// 書き取りオプションタイル
+class _WritingOptionTile extends StatelessWidget {
+  const _WritingOptionTile({
+    required this.title,
+    required this.subtitle,
+    required this.icon,
+    required this.onTap,
+  });
+
+  final String title;
+  final String subtitle;
+  final IconData icon;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return ListTile(
+      leading: CircleAvatar(
+        backgroundColor: AppColors.secondary.withValues(alpha: 0.15),
+        child: Icon(icon, color: AppColors.secondary, size: 20),
+      ),
+      title: Text(
+        title,
+        style: theme.textTheme.titleSmall?.copyWith(
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      subtitle: Text(
+        subtitle,
+        style: theme.textTheme.bodySmall?.copyWith(
+          color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+        ),
+      ),
+      trailing: const Icon(Icons.chevron_right),
+      onTap: onTap,
+    );
+  }
+}
+
+/// ゲーム詳細シート
+class _GameDetailSheet extends StatelessWidget {
+  const _GameDetailSheet({
+    required this.child,
+    required this.title,
+  });
+
+  final Widget child;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
+    return Container(
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.of(context).size.height * 0.85,
+      ),
+      decoration: BoxDecoration(
+        color: isDark ? AppColors.surface : AppColors.lightSurface,
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            margin: const EdgeInsets.only(top: 12),
+            width: 40,
+            height: 4,
+            decoration: BoxDecoration(
+              color: theme.colorScheme.outline.withValues(alpha: 0.3),
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(AppSpacing.lg),
+            child: Row(
+              children: [
+                Text(
+                  title,
+                  style: theme.textTheme.titleLarge?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const Spacer(),
+                IconButton(
+                  icon: const Icon(Icons.close),
+                  onPressed: () => Navigator.pop(context),
+                ),
+              ],
+            ),
+          ),
+          const Divider(height: 1),
+          Flexible(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(AppSpacing.lg),
+              child: child,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// 瞬間作文カテゴリ一覧画面
+class _QuickTranslationListScreen extends ConsumerWidget {
+  const _QuickTranslationListScreen();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = Theme.of(context);
+    final categoriesAsync = ref.watch(quickTranslationCategoriesProvider);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('瞬間作文'),
+      ),
+      body: categoriesAsync.when(
+        data: (categories) => ListView.builder(
+          padding: const EdgeInsets.all(AppSpacing.lg),
+          itemCount: categories.length,
+          itemBuilder: (context, index) {
+            final category = categories[index];
+            return _QuickTranslationCategoryTile(category: category);
+          },
+        ),
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (error, _) => Center(
+          child: Text('エラーが発生しました: $error'),
+        ),
+      ),
+    );
+  }
+}
+
+/// 瞬間作文カテゴリタイル
+class _QuickTranslationCategoryTile extends StatelessWidget {
+  const _QuickTranslationCategoryTile({required this.category});
+
+  final QuickTranslationCategory category;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
+    return Card(
+      margin: const EdgeInsets.only(bottom: AppSpacing.sm),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12),
+        onTap: () => _navigateToItemList(context),
+        child: Container(
+          padding: const EdgeInsets.all(AppSpacing.md),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            gradient: LinearGradient(
+              colors: [
+                _getCategoryColor().withValues(alpha: isDark ? 0.2 : 0.1),
+                _getCategoryColor().withValues(alpha: isDark ? 0.1 : 0.05),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: Row(
+            children: [
+              Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: _getCategoryColor().withValues(alpha: 0.2),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                  child: Icon(
+                    _getCategoryIcon(),
+                    color: _getCategoryColor(),
+                    size: 20,
+                  ),
+                ),
+              ),
+              const SizedBox(width: AppSpacing.md),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      category.name,
+                      style: theme.textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Row(
+                      children: [
+                        Text(
+                          '${category.itemCount}項目',
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+                          ),
+                        ),
+                        if (category.clearedCount > 0) ...[
+                          const SizedBox(width: AppSpacing.xs),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 4,
+                              vertical: 1,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.green.withValues(alpha: 0.2),
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                            child: Text(
+                              '${category.clearedCount}クリア',
+                              style: const TextStyle(
+                                fontSize: 10,
+                                color: Colors.green,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Icon(
+                Icons.chevron_right,
+                color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+                size: 20,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Color _getCategoryColor() {
+    switch (category.id) {
+      case 'orthography':
+        return Colors.blue;
+      case 'substantive':
+        return Colors.teal;
+      case 'particle':
+        return Colors.purple;
+      case 'conjugation':
+        return Colors.orange;
+      case 'sentence_ending':
+        return Colors.pink;
+      case 'connective':
+        return Colors.indigo;
+      case 'adnominal':
+        return Colors.cyan;
+      case 'tense_aspect':
+        return Colors.amber;
+      case 'expression':
+        return Colors.green;
+      case 'quotation':
+        return Colors.deepPurple;
+      case 'word_formation':
+        return Colors.brown;
+      default:
+        return Colors.grey;
+    }
+  }
+
+  IconData _getCategoryIcon() {
+    switch (category.id) {
+      case 'orthography':
+        return Icons.abc;
+      case 'substantive':
+        return Icons.category;
+      case 'particle':
+        return Icons.link;
+      case 'conjugation':
+        return Icons.transform;
+      case 'sentence_ending':
+        return Icons.chat_bubble;
+      case 'connective':
+        return Icons.swap_horiz;
+      case 'adnominal':
+        return Icons.edit_note;
+      case 'tense_aspect':
+        return Icons.access_time;
+      case 'expression':
+        return Icons.lightbulb;
+      case 'quotation':
+        return Icons.format_quote;
+      case 'word_formation':
+        return Icons.construction;
+      default:
+        return Icons.book;
+    }
+  }
+
+  void _navigateToItemList(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => QuickTranslationItemListScreen(
+          categoryId: category.id,
+          categoryName: category.name,
+        ),
+      ),
+    );
+  }
+}
+
+/// AI先生セクション
+class _AiTeacherSection extends StatelessWidget {
+  const _AiTeacherSection({
+    required this.isPremiumUser,
+    required this.onTap,
+  });
+
+  final bool isPremiumUser;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
+    return Container(
+      padding: const EdgeInsets.all(AppSpacing.lg),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: isDark
+              ? [
+                  const Color(0xFF1a1f35).withValues(alpha: 0.9),
+                  const Color(0xFF0f1520).withValues(alpha: 0.9),
+                ]
+              : [
+                  Colors.white,
+                  const Color(0xFFFAF5FF),
+                ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(
+          color: isDark
+              ? const Color(0xFF8E2DE2).withValues(alpha: 0.3)
+              : const Color(0xFF8E2DE2).withValues(alpha: 0.2),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFF8E2DE2).withValues(alpha: isDark ? 0.2 : 0.1),
+            blurRadius: 20,
+            offset: const Offset(0, 8),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          // AIアイコン
+          Container(
+            width: 56,
+            height: 56,
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [Color(0xFF8E2DE2), Color(0xFF4A00E0)],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              borderRadius: BorderRadius.circular(16),
+              boxShadow: [
+                BoxShadow(
+                  color: const Color(0xFF8E2DE2).withValues(alpha: 0.4),
+                  blurRadius: 12,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+            ),
+            child: Stack(
+              children: [
+                // 装飾
+                Positioned(
+                  right: -4,
+                  top: -4,
+                  child: Container(
+                    width: 20,
+                    height: 20,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white.withValues(alpha: 0.2),
+                    ),
+                  ),
+                ),
+                const Center(
+                  child: Icon(
+                    Icons.auto_awesome_rounded,
+                    color: Colors.white,
+                    size: 28,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(width: AppSpacing.lg),
+          // テキスト
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'AI先生',
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: -0.3,
+                      ),
+                    ),
+                    if (!isPremiumUser) ...[
+                      const SizedBox(width: 8),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 2,
+                        ),
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            colors: [Color(0xFFffecd2), Color(0xFFfcb69f)],
+                          ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: const Text(
+                          'Premium',
+                          style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF8B4513),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  '韓国語の疑問をAIに質問しよう',
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          // ボタン
+          Material(
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: onTap,
+              borderRadius: BorderRadius.circular(14),
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 10,
+                ),
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [Color(0xFF8E2DE2), Color(0xFF4A00E0)],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                  borderRadius: BorderRadius.circular(14),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0xFF8E2DE2).withValues(alpha: 0.3),
+                      blurRadius: 8,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(
+                      Icons.chat_bubble_rounded,
+                      color: Colors.white,
+                      size: 16,
+                    ),
+                    const SizedBox(width: 6),
+                    Text(
+                      '質問する',
+                      style: theme.textTheme.labelMedium?.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

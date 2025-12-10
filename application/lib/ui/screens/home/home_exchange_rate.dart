@@ -1,6 +1,7 @@
 part of 'home_screen.dart';
 
-/// 為替レート + 翻訳を統合したツールカード
+/// 為替レート + 翻訳を統合したクイックツールカード
+/// モダンなグラスモーフィズム風デザイン
 class _QuickToolsCard extends ConsumerWidget {
   const _QuickToolsCard({required this.onTranslationTap});
 
@@ -10,59 +11,122 @@ class _QuickToolsCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final exchangeRateAsync = ref.watch(exchangeRateProvider);
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     final baseColor = theme.colorScheme.onSurface.withValues(alpha: 0.06);
 
-    return FCard.raw(
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Row(
-          children: [
-            // 為替レート部分
-            Expanded(
-              child: exchangeRateAsync.when(
-                data: (rate) => _ExchangeRateContent(exchangeRate: rate),
-                loading: () => _ExchangeRateLoadingContent(baseColor: baseColor),
-                error: (_, __) => const _ExchangeRateErrorContent(),
+    return Container(
+      padding: const EdgeInsets.all(AppSpacing.md),
+      decoration: BoxDecoration(
+        color: isDark
+            ? Colors.white.withValues(alpha: 0.05)
+            : Colors.black.withValues(alpha: 0.02),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: isDark
+              ? AppColors.border.withValues(alpha: 0.4)
+              : AppColors.lightBorder.withValues(alpha: 0.6),
+        ),
+      ),
+      child: Row(
+        children: [
+          // 為替レート部分
+          Expanded(
+            child: exchangeRateAsync.when(
+              data: (rate) => _ExchangeRateContent(exchangeRate: rate),
+              loading: () => _ExchangeRateLoadingContent(baseColor: baseColor),
+              error: (_, __) => const _ExchangeRateErrorContent(),
+            ),
+          ),
+          // 区切り線
+          Container(
+            width: 1,
+            height: 44,
+            margin: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  theme.colorScheme.outline.withValues(alpha: 0.0),
+                  theme.colorScheme.outline.withValues(alpha: 0.2),
+                  theme.colorScheme.outline.withValues(alpha: 0.0),
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
               ),
             ),
-            // 区切り線
-            Container(
-              width: 1,
-              height: 40,
-              margin: const EdgeInsets.symmetric(horizontal: 12),
-              color: theme.colorScheme.outline.withValues(alpha: 0.2),
+          ),
+          // 翻訳ボタン
+          _TranslationButton(onTap: onTranslationTap),
+        ],
+      ),
+    );
+  }
+}
+
+/// 翻訳ボタン
+class _TranslationButton extends StatelessWidget {
+  const _TranslationButton({required this.onTap});
+
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(14),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: isDark
+                  ? [
+                      const Color(0xFF667eea).withValues(alpha: 0.3),
+                      const Color(0xFF764ba2).withValues(alpha: 0.3),
+                    ]
+                  : [
+                      const Color(0xFF667eea).withValues(alpha: 0.15),
+                      const Color(0xFF764ba2).withValues(alpha: 0.15),
+                    ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
             ),
-            // 翻訳ボタン
-            InkWell(
-              onTap: onTranslationTap,
-              borderRadius: BorderRadius.circular(8),
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(
+              color: const Color(0xFF667eea).withValues(alpha: 0.3),
+            ),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 28,
+                height: 28,
                 decoration: BoxDecoration(
-                  color: theme.colorScheme.primaryContainer.withValues(alpha: 0.3),
+                  gradient: const LinearGradient(
+                    colors: [Color(0xFF667eea), Color(0xFF764ba2)],
+                  ),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.translate,
-                      size: 18,
-                      color: theme.colorScheme.primary,
-                    ),
-                    const SizedBox(width: 6),
-                    Text(
-                      '日↔️韓翻訳',
-                      style: theme.textTheme.labelLarge?.copyWith(
-                        color: theme.colorScheme.primary,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ],
+                child: const Icon(
+                  Icons.translate_rounded,
+                  size: 14,
+                  color: Colors.white,
                 ),
               ),
-            ),
-          ],
+              const SizedBox(width: 8),
+              Text(
+                '翻訳',
+                style: theme.textTheme.labelLarge?.copyWith(
+                  color: isDark ? Colors.white : const Color(0xFF667eea),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -77,15 +141,35 @@ class _ExchangeRateContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
 
     return Row(
       children: [
-        Icon(
-          Icons.currency_exchange,
-          size: 18,
-          color: theme.colorScheme.primary,
+        // 為替アイコン
+        Container(
+          width: 36,
+          height: 36,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: isDark
+                  ? [
+                      const Color(0xFF11998e).withValues(alpha: 0.3),
+                      const Color(0xFF38ef7d).withValues(alpha: 0.3),
+                    ]
+                  : [
+                      const Color(0xFF11998e).withValues(alpha: 0.15),
+                      const Color(0xFF38ef7d).withValues(alpha: 0.15),
+                    ],
+            ),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Icon(
+            Icons.currency_exchange_rounded,
+            size: 18,
+            color: isDark ? const Color(0xFF38ef7d) : const Color(0xFF11998e),
+          ),
         ),
-        const SizedBox(width: 8),
+        const SizedBox(width: AppSpacing.md),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,35 +177,47 @@ class _ExchangeRateContent extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Text(
-                    '100円',
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.onSurface.withValues(alpha: 0.08),
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: Text(
+                      '¥100',
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 11,
+                      ),
                     ),
                   ),
-                  const SizedBox(width: 4),
-                  Icon(
-                    Icons.arrow_forward,
-                    size: 12,
-                    color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 6),
+                    child: Icon(
+                      Icons.arrow_forward_rounded,
+                      size: 12,
+                      color: theme.colorScheme.onSurface.withValues(alpha: 0.4),
+                    ),
                   ),
-                  const SizedBox(width: 4),
                   Flexible(
                     child: Text(
-                      '${(exchangeRate.rate * 100).toStringAsFixed(1)}₩',
-                      style: theme.textTheme.titleSmall?.copyWith(
+                      '${(exchangeRate.rate * 100).toStringAsFixed(0)}₩',
+                      style: theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.bold,
-                        color: theme.colorScheme.primary,
+                        color: isDark ? const Color(0xFF38ef7d) : const Color(0xFF11998e),
+                        letterSpacing: -0.5,
                       ),
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ],
               ),
+              const SizedBox(height: 2),
               Text(
                 _formatDateTime(exchangeRate.fetchedAt),
                 style: theme.textTheme.labelSmall?.copyWith(
-                  color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+                  color: theme.colorScheme.onSurface.withValues(alpha: 0.4),
+                  fontSize: 10,
                 ),
               ),
             ],
@@ -158,15 +254,15 @@ class _ExchangeRateLoadingContent extends StatelessWidget {
       children: [
         ShimmerLoading(
           child: Container(
-            width: 18,
-            height: 18,
+            width: 36,
+            height: 36,
             decoration: BoxDecoration(
               color: baseColor,
-              borderRadius: BorderRadius.circular(4),
+              borderRadius: BorderRadius.circular(10),
             ),
           ),
         ),
-        const SizedBox(width: 8),
+        const SizedBox(width: AppSpacing.md),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -175,17 +271,17 @@ class _ExchangeRateLoadingContent extends StatelessWidget {
               ShimmerLoading(
                 child: Container(
                   width: 100,
-                  height: 16,
+                  height: 18,
                   decoration: BoxDecoration(
                     color: baseColor,
-                    borderRadius: BorderRadius.circular(4),
+                    borderRadius: BorderRadius.circular(6),
                   ),
                 ),
               ),
               const SizedBox(height: 4),
               ShimmerLoading(
                 child: Container(
-                  width: 60,
+                  width: 50,
                   height: 12,
                   decoration: BoxDecoration(
                     color: baseColor,
@@ -207,20 +303,29 @@ class _ExchangeRateErrorContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
 
     return Row(
       children: [
-        Icon(
-          Icons.currency_exchange,
-          size: 18,
-          color: theme.colorScheme.error,
+        Container(
+          width: 36,
+          height: 36,
+          decoration: BoxDecoration(
+            color: theme.colorScheme.error.withValues(alpha: 0.1),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Icon(
+            Icons.currency_exchange_rounded,
+            size: 18,
+            color: theme.colorScheme.error,
+          ),
         ),
-        const SizedBox(width: 8),
+        const SizedBox(width: AppSpacing.md),
         Flexible(
           child: Text(
-            '取得失敗',
+            '為替レート取得失敗',
             style: theme.textTheme.bodySmall?.copyWith(
-              color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+              color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
             ),
           ),
         ),

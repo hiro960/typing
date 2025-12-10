@@ -44,6 +44,19 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 #   今日からチャレッタで、韓国語タイピングをマスターしましょう！
 
+# 機能一覧
+# ・DeepL翻訳
+#  ・文法辞典
+#  ・漢字語辞典
+#  ・カナダラ表
+#  ・タイピング練習
+#  ・日記（SNS）
+#  ・単語帳
+#  ・タイピングゲーム
+#  ・発音ゲーム
+#  ・書き取りレッスン
+#  ・瞬間作文
+
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
 # followed by an optional build number separated by a +.
@@ -79,6 +92,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  iconsax_flutter: ^1.0.1
   forui: ^0.16.0
   auth0_flutter: ^1.14.0
   dio: ^5.9.0
@@ -157,6 +171,18 @@ flutter:
     - assets/grammar/word_formation/
     - assets/hanja/characters/
     - assets/hanja/words/
+    - assets/quick_translation/
+    - assets/quick_translation/particle/
+    - assets/quick_translation/conjugation/
+    - assets/quick_translation/connective/
+    - assets/quick_translation/sentence_ending/
+    - assets/quick_translation/tense_aspect/
+    - assets/quick_translation/expression/
+    - assets/quick_translation/adnominal/
+    - assets/quick_translation/substantive/
+    - assets/quick_translation/quotation/
+    - assets/quick_translation/orthography/
+    - assets/quick_translation/word_formation/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
