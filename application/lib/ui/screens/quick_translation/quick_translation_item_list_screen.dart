@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/quick_translation/data/models/quick_translation_models.dart';
 import '../../../features/quick_translation/domain/providers/quick_translation_providers.dart';
@@ -35,7 +36,7 @@ class _QuickTranslationItemListScreenState
 
     return AppPageScaffold(
       title: widget.categoryName,
-      titleIcon: Icons.list,
+      titleIcon: Iconsax.task_square,
       showBackButton: true,
       child: itemsAsync.when(
         data: (items) => _buildContent(context, items),
@@ -96,7 +97,7 @@ class _QuickTranslationItemListScreenState
             Expanded(
               child: _ModeButton(
                 label: '順番',
-                icon: Icons.format_list_numbered,
+                icon: Iconsax.row_vertical,
                 isSelected: _practiceMode == PracticeMode.sequential,
                 onTap: () => setState(() => _practiceMode = PracticeMode.sequential),
               ),
@@ -105,7 +106,7 @@ class _QuickTranslationItemListScreenState
             Expanded(
               child: _ModeButton(
                 label: 'ランダム',
-                icon: Icons.shuffle,
+                icon: Iconsax.shuffle,
                 isSelected: _practiceMode == PracticeMode.random,
                 onTap: () => setState(() => _practiceMode = PracticeMode.random),
               ),
@@ -127,7 +128,7 @@ class _QuickTranslationItemListScreenState
             Expanded(
               child: _ModeButton(
                 label: '音声入力',
-                icon: Icons.mic,
+                icon: Iconsax.microphone,
                 isSelected: _inputMode == InputMode.voice,
                 onTap: () => setState(() => _inputMode = InputMode.voice),
               ),
@@ -136,7 +137,7 @@ class _QuickTranslationItemListScreenState
             Expanded(
               child: _ModeButton(
                 label: '手動モード',
-                icon: Icons.visibility,
+                icon: Iconsax.eye,
                 isSelected: _inputMode == InputMode.manual,
                 onTap: () => setState(() => _inputMode = InputMode.manual),
               ),
@@ -289,12 +290,12 @@ class _GrammarItemCard extends StatelessWidget {
                 child: Center(
                   child: item.isCleared
                       ? const Icon(
-                          Icons.check,
+                          Iconsax.tick_square,
                           size: 18,
                           color: Colors.green,
                         )
                       : Icon(
-                          Icons.circle_outlined,
+                          Iconsax.record_circle,
                           size: 18,
                           color: theme.colorScheme.onSurface.withValues(alpha: 0.3),
                         ),
@@ -336,7 +337,7 @@ class _GrammarItemCard extends StatelessWidget {
 
               // 矢印
               Icon(
-                Icons.play_circle_outline,
+                Iconsax.play,
                 color: theme.colorScheme.primary,
               ),
             ],

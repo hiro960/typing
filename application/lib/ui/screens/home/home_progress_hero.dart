@@ -73,7 +73,7 @@ class _ProgressHero extends StatelessWidget {
               ),
             ),
             Icon(
-              Icons.emoji_events_outlined,
+              Iconsax.cup,
               size: 36,
               color: theme.colorScheme.primary,
             ),

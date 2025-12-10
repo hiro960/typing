@@ -6,6 +6,7 @@ import 'package:chaletta/ui/widgets/app_page_scaffold.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:forui/forui.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -105,7 +106,7 @@ class PremiumFeatureGate extends StatelessWidget {
       child: Column(
         children: [
           Icon(
-            Icons.workspace_premium_outlined,
+            Iconsax.crown,
             size: 56,
             color: theme.colorScheme.primary,
           ),
@@ -127,19 +128,19 @@ class PremiumFeatureGate extends StatelessWidget {
           ),
           const SizedBox(height: AppSpacing.xxl),
           _BenefitCard(
-            icon: Icons.chat_bubble_outline,
+            icon: Iconsax.message,
             title: 'AI先生に質問ができる',
             description: '韓国語の疑問をAIに聞けます。表現の幅をすぐに増やせます。',
           ),
           const SizedBox(height: AppSpacing.md),
           _BenefitCard(
-            icon: Icons.auto_fix_high_outlined,
+            icon: Iconsax.magic_star,
             title: 'AI先生の添削',
             description: '文法・表現のミスを指摘して、より自然な文章に整えます。',
           ),
           const SizedBox(height: AppSpacing.md),
           _BenefitCard(
-            icon: Icons.analytics_outlined,
+            icon: Iconsax.chart_2,
             title: '詳細な学習分析レポート',
             description: '苦手なキー・成長推移・学習習慣を可視化し、効率アップを後押し。',
           ),

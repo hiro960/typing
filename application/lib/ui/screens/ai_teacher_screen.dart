@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
@@ -212,7 +213,7 @@ class _AiTeacherScreenState extends ConsumerState<AiTeacherScreen> {
                         Expanded(
                           child: AiGradientButton(
                             label: '質問\n(日➡︎韓)',
-                            icon: Icons.translate,
+                            icon: Iconsax.translate,
                             onTap: _isLoading ? null : _askJpKr,
                           ),
                         ),
@@ -220,7 +221,7 @@ class _AiTeacherScreenState extends ConsumerState<AiTeacherScreen> {
                         Expanded(
                           child: AiGradientButton(
                             label: '翻訳\n(韓➡︎日)',
-                            icon: Icons.g_translate,
+                            icon: Iconsax.translate,
                             onTap: _isLoading ? null : _translateKrJp,
                           ),
                         ),
@@ -261,7 +262,7 @@ class _AiTeacherScreenState extends ConsumerState<AiTeacherScreen> {
                       ),
                       FButton.icon(
                         style: FButtonStyle.ghost(),
-                        child: const Icon(Icons.copy, size: 18),
+                        child: const Icon(Iconsax.copy, size: 18),
                         onPress: () {
                           Clipboard.setData(
                             ClipboardData(text: _resultController.text),

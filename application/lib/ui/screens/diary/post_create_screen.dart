@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../core/utils/logger.dart';
@@ -23,6 +24,7 @@ import '../../app_spacing.dart';
 import '../../widgets/premium_feature_gate.dart';
 import '../../widgets/sheet_content.dart';
 import '../../utils/toast_helper.dart';
+import '../../app_theme.dart';
 
 class PostCreateScreen extends ConsumerStatefulWidget {
   const PostCreateScreen({super.key, this.initialPost, this.quotedPost});
@@ -321,7 +323,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
         children: [
           SheetOption(
             label: '全体公開',
-            icon: Icons.public,
+            icon: Iconsax.global,
             style: _visibility == 'public' ? FButtonStyle.primary() : FButtonStyle.outline(),
             onPress: () {
               setState(() => _visibility = 'public');
@@ -330,7 +332,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
           ),
           SheetOption(
             label: 'フォロワーのみ',
-            icon: Icons.people_outline,
+            icon: Iconsax.people,
             style: _visibility == 'followers' ? FButtonStyle.primary() : FButtonStyle.outline(),
             onPress: () {
               setState(() => _visibility = 'followers');
@@ -339,7 +341,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
           ),
           SheetOption(
             label: '下書き',
-            icon: Icons.lock_outline,
+            icon: Iconsax.lock,
             style: _visibility == 'private' ? FButtonStyle.primary() : FButtonStyle.outline(),
             onPress: () {
               setState(() => _visibility = 'private');
@@ -482,13 +484,13 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                       runSpacing: AppSpacing.md,
                       children: [
                         _ComposerActionButton(
-                          icon: Icons.image_outlined,
+                          icon: Iconsax.image,
                           label: '画像を追加',
                           onTap: _pickImages,
                         ),
                         if (_quotedPostId != null && !_isEditing)
                           _ComposerActionButton(
-                            icon: Icons.close,
+                            icon: Iconsax.close_circle,
                             label: '引用を削除',
                             onTap: _removeQuote,
                           ),
@@ -550,7 +552,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                       color: theme.colorScheme.surfaceContainerHighest.withOpacity(0.3),
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
-                        color: const Color(0xFF4facfe).withOpacity(0.3),
+                        color: AppColors.primary.withOpacity(0.3),
                       ),
                     ),
                     child: Column(
@@ -558,12 +560,12 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                       children: [
                         Row(
                           children: [
-                            const Icon(Icons.auto_awesome, size: 20, color: Color(0xFF4facfe)),
+                            const Icon(Iconsax.magic_star, size: 20, color: AppColors.primary),
                             const SizedBox(width: 8),
                             Text(
                               'AI先生のアドバイス',
                               style: theme.textTheme.titleSmall?.copyWith(
-                                color: const Color(0xFF4facfe),
+                                color: AppColors.primary,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -589,7 +591,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                     ),
                     child: Row(
                       children: [
-                        Icon(Icons.error_outline, color: theme.colorScheme.error),
+                        Icon(Iconsax.warning_2, color: theme.colorScheme.error),
                         const SizedBox(width: 8),
                         Expanded(
                           child: Text(
@@ -645,12 +647,12 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
   IconData _visibilityIcon(String visibility) {
     switch (visibility) {
       case 'private':
-        return Icons.lock_outline;
+        return Iconsax.lock;
       case 'followers':
-        return Icons.people_outline;
+        return Iconsax.people;
       case 'public':
       default:
-        return Icons.public;
+        return Iconsax.global;
     }
   }
 }
@@ -720,7 +722,7 @@ class _ImageGrid extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   padding: const EdgeInsets.all(4),
-                  child: const Icon(Icons.close, color: Colors.white, size: 16),
+                  child: const Icon(Iconsax.close_circle, color: Colors.white, size: 16),
                 ),
               ),
             ),

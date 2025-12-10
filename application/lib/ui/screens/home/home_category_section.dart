@@ -34,7 +34,6 @@ class _FeatureGrid extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.symmetric(
-        horizontal: AppSpacing.md,
         vertical: AppSpacing.lg,
       ),
       decoration: BoxDecoration(
@@ -60,7 +59,6 @@ class _FeatureGrid extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const SizedBox(height: AppSpacing.lg,),
           // Row 1
           Row(
             children: row1
@@ -69,7 +67,7 @@ class _FeatureGrid extends StatelessWidget {
                     ))
                 .toList(),
           ),
-          const SizedBox(height: AppSpacing.md),
+          const SizedBox(height: AppSpacing.lg),
           // Row 2
           Row(
             children: row2
@@ -78,7 +76,6 @@ class _FeatureGrid extends StatelessWidget {
                     ))
                 .toList(),
           ),
-          const SizedBox(height: AppSpacing.lg,),
         ],
       ),
     );

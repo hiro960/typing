@@ -3,6 +3,7 @@ import 'package:chaletta/ui/app_spacing.dart';
 import 'package:chaletta/ui/app_theme.dart';
 import 'package:chaletta/ui/widgets/app_page_scaffold.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 /// カナダラ表画面
 ///
@@ -88,9 +89,9 @@ class _TabSelector extends StatelessWidget {
           builder: (context, _) {
             return Row(
               children: [
-                _buildTab(context, 0, '子音', Icons.text_fields),
-                _buildTab(context, 1, '母音', Icons.circle_outlined),
-                _buildTab(context, 2, '反切表', Icons.grid_view),
+                _buildTab(context, 0, '子音', Iconsax.text),
+                _buildTab(context, 1, '母音', Iconsax.record),
+                _buildTab(context, 2, '反切表', Iconsax.grid_1),
               ],
             );
           },
@@ -348,14 +349,14 @@ class _ConsonantCell extends StatelessWidget {
             const SizedBox(height: 16),
             _buildInfoRow(
               context,
-              icon: Icons.abc,
+              icon: Iconsax.text,
               label: 'ローマ字',
               value: item.romanization,
             ),
             const SizedBox(height: 12),
             _buildInfoRow(
               context,
-              icon: Icons.translate,
+              icon: Iconsax.translate,
               label: '日本語',
               value: item.japanese,
             ),
@@ -370,7 +371,7 @@ class _ConsonantCell extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Icon(
-                    Icons.lightbulb_outline,
+                    Iconsax.lamp_charge,
                     size: 20,
                     color: accentColor,
                   ),
@@ -610,14 +611,14 @@ class _VowelCell extends StatelessWidget {
             const SizedBox(height: 16),
             _buildInfoRow(
               context,
-              icon: Icons.abc,
+              icon: Iconsax.text,
               label: 'ローマ字',
               value: item.romanization,
             ),
             const SizedBox(height: 12),
             _buildInfoRow(
               context,
-              icon: Icons.translate,
+              icon: Iconsax.translate,
               label: '日本語',
               value: item.japanese,
             ),
@@ -632,7 +633,7 @@ class _VowelCell extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Icon(
-                    Icons.lightbulb_outline,
+                    Iconsax.lamp_charge,
                     size: 20,
                     color: accentColor,
                   ),
@@ -797,7 +798,7 @@ class _PanjeolTabContent extends StatelessWidget {
             child: Row(
               children: [
                 Icon(
-                  Icons.info_outline,
+                  Iconsax.info_circle,
                   size: 18,
                   color: AppColors.primaryBright,
                 ),

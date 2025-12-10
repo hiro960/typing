@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:chaletta/features/ranking_game/data/models/ranking_game_models.dart';
 import 'package:chaletta/features/ranking_game/domain/providers/ranking_providers.dart';
 import 'package:chaletta/features/ranking_game/presentation/widgets/pixel_character_widget.dart';
@@ -207,7 +208,7 @@ class _RankingLeaderboardScreenState
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
-              Icons.leaderboard_outlined,
+              Iconsax.ranking,
               size: 64,
               color: colorScheme.onSurface.withOpacity(0.4),
             ),
@@ -464,15 +465,15 @@ class _RankingLeaderboardScreenState
 
     switch (rank) {
       case 1:
-        icon = Icons.emoji_events;
+        icon = Iconsax.cup;
         color = const Color(0xFFFFD700);
         break;
       case 2:
-        icon = Icons.emoji_events;
+        icon = Iconsax.cup;
         color = const Color(0xFFC0C0C0);
         break;
       case 3:
-        icon = Icons.emoji_events;
+        icon = Iconsax.cup;
         color = const Color(0xFFCD7F32);
         break;
       default:

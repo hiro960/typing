@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/diary/data/models/diary_post.dart';
@@ -72,7 +73,7 @@ class _DraftsScreenState extends ConsumerState<DraftsScreen> {
                 )
               : _drafts.isEmpty
                   ? const PageEmptyView(
-                      icon: Icons.edit_document,
+                      icon: Iconsax.document,
                       title: '下書きはありません',
                     )
                   : ListView.builder(

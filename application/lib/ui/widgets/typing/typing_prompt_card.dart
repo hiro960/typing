@@ -1,5 +1,6 @@
 import 'package:characters/characters.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/typing/domain/services/hangul_composer.dart';
 
@@ -89,7 +90,7 @@ class TypingPromptCard extends StatelessWidget {
               alignment: Alignment.topRight,
               child: IconButton(
                 icon: Icon(
-                  Icons.volume_up_outlined,
+                  Iconsax.volume_high,
                   color: colors.primary,
                 ),
                 onPressed: onSpeak,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:chaletta/features/ranking_game/data/models/ranking_game_models.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 /// コンボメーターウィジェット
 class ComboMeterWidget extends StatelessWidget {
@@ -26,7 +27,7 @@ class ComboMeterWidget extends StatelessWidget {
               Row(
                 children: [
                   const Icon(
-                    Icons.bolt,
+                    Iconsax.flash_1,
                     size: 16,
                     color: Color(0xFFFFD700),
                   ),

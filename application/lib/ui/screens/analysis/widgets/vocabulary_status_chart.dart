@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import '../../../../features/analysis/domain/models/analysis_models.dart';
 
 class VocabularyStatusChart extends StatefulWidget {
@@ -26,7 +27,7 @@ class _VocabularyStatusChartState extends State<VocabularyStatusChart> {
           child: Column(
             children: [
               Icon(
-                Icons.menu_book_outlined,
+                Iconsax.book,
                 size: 48,
                 color: colors.onSurfaceVariant.withValues(alpha: 0.5),
               ),
@@ -59,7 +60,7 @@ class _VocabularyStatusChartState extends State<VocabularyStatusChart> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.library_books_rounded, color: colors.primary),
+              Icon(Iconsax.book_1, color: colors.primary),
               const SizedBox(width: 8),
               Text(
                 '登録語彙数: ',

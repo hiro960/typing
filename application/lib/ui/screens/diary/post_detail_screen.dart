@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../core/utils/logger.dart';
 import '../../../features/auth/domain/providers/auth_providers.dart';
@@ -274,28 +275,28 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
           if (isMine) ...[
             SheetOption(
               label: '編集',
-              icon: Icons.edit_outlined,
+              icon: Iconsax.edit,
               onPress: () => Navigator.of(context).pop('edit'),
             ),
             SheetOption(
               label: '削除',
-              icon: Icons.delete_outline,
+              icon: Iconsax.trash,
               onPress: () => Navigator.of(context).pop('delete'),
             ),
           ],
           SheetOption(
             label: '引用する',
-            icon: Icons.format_quote_outlined,
+            icon: Iconsax.quote_up,
             onPress: () => Navigator.of(context).pop('quote'),
           ),
           SheetOption(
             label: '通報',
-            icon: Icons.flag_outlined,
+            icon: Iconsax.flag,
             onPress: () => Navigator.of(context).pop('report'),
           ),
           SheetOption(
             label: 'ブロック',
-            icon: Icons.block_outlined,
+            icon: Iconsax.shield_slash,
             onPress: () => Navigator.of(context).pop('block'),
           ),
         ],
@@ -415,12 +416,12 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
         FButton.icon(
           style: FButtonStyle.ghost(),
           onPress: _refreshPost,
-          child: const Icon(Icons.refresh),
+          child: const Icon(Iconsax.refresh),
         ),
         FButton.icon(
           style: FButtonStyle.ghost(),
           onPress: () => _showMenu(currentUser?.id == _post.user.id),
-          child: const Icon(Icons.more_vert),
+          child: const Icon(Iconsax.more),
         ),
       ],
       childPad: false,
@@ -548,7 +549,7 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
                                       : FButton.icon(
                                           style: FButtonStyle.ghost(),
                                           onPress: _addComment,
-                                          child: const Icon(Icons.send),
+                                          child: const Icon(Iconsax.send_1),
                                         ),
                                 ],
                               ),
@@ -694,7 +695,7 @@ class _CommentTile extends StatelessWidget {
                   FButton.icon(
                     style: FButtonStyle.ghost(),
                     onPress: onDelete,
-                    child: const Icon(Icons.delete_outline),
+                    child: const Icon(Iconsax.trash),
                   ),
               ],
             ),
@@ -707,7 +708,7 @@ class _CommentTile extends StatelessWidget {
                   style: FButtonStyle.ghost(),
                   onPress: onToggleLike,
                   child: Icon(
-                    comment.liked ? Icons.favorite : Icons.favorite_border,
+                    Iconsax.heart,
                     color:
                         comment.liked ? theme.colorScheme.primary : null,
                   ),

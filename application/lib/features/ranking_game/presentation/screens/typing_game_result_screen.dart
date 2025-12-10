@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:chaletta/core/exceptions/app_exception.dart';
 import 'package:chaletta/features/ranking_game/data/models/ranking_game_models.dart';
 import 'package:chaletta/features/ranking_game/domain/providers/ranking_game_providers.dart';
@@ -173,7 +174,7 @@ $newBestText
       actions: [
         FHeaderAction(
           key: _shareButtonKey,
-          icon: const Icon(Icons.share),
+          icon: const Icon(Iconsax.share),
           onPress: _shareResult,
         ),
       ],
@@ -303,7 +304,7 @@ $newBestText
                       child: const Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Icon(Icons.celebration, color: Colors.white, size: 14),
+                          Icon(Iconsax.gift, color: Colors.white, size: 14),
                           SizedBox(width: 4),
                           Text(
                             '自己ベスト!',
@@ -351,7 +352,7 @@ $newBestText
               shape: BoxShape.circle,
             ),
             child: const Icon(
-              Icons.emoji_events,
+              Iconsax.cup,
               color: AppColors.success,
               size: 20,
             ),
@@ -406,7 +407,7 @@ $newBestText
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(
-                    positionChange > 0 ? Icons.arrow_upward : Icons.arrow_downward,
+                    positionChange > 0 ? Iconsax.arrow_up : Iconsax.arrow_down,
                     color: positionChange > 0 ? AppColors.success : AppColors.error,
                     size: 14,
                   ),
@@ -432,7 +433,7 @@ $newBestText
       children: [
         Expanded(
           child: _buildCompactStatItem(
-            icon: Icons.check_circle_outline,
+            icon: Iconsax.tick_circle,
             value: '${widget.correctCount}',
             label: '正解',
             color: AppColors.success,
@@ -440,7 +441,7 @@ $newBestText
         ),
         Expanded(
           child: _buildCompactStatItem(
-            icon: Icons.local_fire_department,
+            icon: Iconsax.flash_circle,
             value: '${widget.maxCombo}',
             label: 'コンボ',
             color: AppColors.accentEnd,
@@ -448,7 +449,7 @@ $newBestText
         ),
         Expanded(
           child: _buildCompactStatItem(
-            icon: Icons.timer_outlined,
+            icon: Iconsax.timer_1,
             value: '+${widget.totalBonusTime}s',
             label: 'ボーナス',
             color: AppColors.primary,
@@ -456,7 +457,7 @@ $newBestText
         ),
         Expanded(
           child: _buildCompactStatItem(
-            icon: Icons.speed,
+            icon: Iconsax.flash_1,
             value: '${widget.avgInputSpeed.toStringAsFixed(0)}',
             label: '文字/分',
             color: AppColors.secondary,
@@ -515,7 +516,7 @@ $newBestText
       child: Row(
         children: [
           const Icon(
-            Icons.cloud_off,
+            Iconsax.cloud_cross,
             color: Colors.orange,
             size: 20,
           ),
@@ -568,7 +569,7 @@ $newBestText
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.refresh, size: 18),
+                Icon(Iconsax.refresh, size: 18),
                 SizedBox(width: 8),
                 Text('もう一度プレイ'),
               ],
@@ -594,7 +595,7 @@ $newBestText
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.leaderboard_outlined, size: 18),
+                Icon(Iconsax.ranking, size: 18),
                 SizedBox(width: 8),
                 Text('ランキングを見る'),
               ],

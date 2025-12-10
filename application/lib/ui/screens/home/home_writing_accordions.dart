@@ -49,7 +49,7 @@ class _WritingPatternAccordions extends ConsumerWidget {
                       alpha: 0.18,
                     ),
                     child: const Icon(
-                      Icons.edit_note,
+                      Iconsax.edit_2,
                       color: AppColors.accentStart,
                       size: 18,
                     ),
@@ -158,7 +158,7 @@ class _PatternTile extends StatelessWidget {
               ),
               const SizedBox(width: AppSpacing.sm),
               Icon(
-                Icons.chevron_right,
+                Iconsax.arrow_right_3,
                 color: theme.colorScheme.onSurfaceVariant,
               ),
             ],

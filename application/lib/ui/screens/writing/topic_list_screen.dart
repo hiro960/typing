@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/writing/data/models/writing_models.dart';
 import '../../app_spacing.dart';
@@ -133,7 +134,7 @@ class _TopicCard extends StatelessWidget {
                 const SizedBox(width: AppSpacing.sm),
                 // タイピング練習ボタン
                 _ActionIconButton(
-                  icon: Icons.keyboard,
+                  icon: Iconsax.keyboard,
                   tooltip: 'タイピング練習',
                   color: theme.colorScheme.primary,
                   onTap: () => _navigateToTypingPractice(context),
@@ -141,7 +142,7 @@ class _TopicCard extends StatelessWidget {
                 const SizedBox(width: AppSpacing.xs),
                 // 一覧確認ボタン
                 _ActionIconButton(
-                  icon: Icons.list_alt,
+                  icon: Iconsax.task_square,
                   tooltip: '一覧で確認',
                   color: theme.colorScheme.secondary,
                   onTap: () => _navigateToListView(context),

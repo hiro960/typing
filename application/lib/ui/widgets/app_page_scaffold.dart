@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:forui/forui.dart';
 
+import '../app_theme.dart';
+
 /// Common wrapper around [FScaffold] that applies a consistent SafeArea and FHeader.
 class AppPageScaffold extends StatelessWidget {
   const AppPageScaffold({
@@ -57,6 +59,8 @@ class AppPageScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final foregroundColor = isDark ? AppColors.foreground : AppColors.lightForeground;
 
     // Build title widget
     Widget titleWidget;
@@ -66,14 +70,24 @@ class AppPageScaffold extends StatelessWidget {
           Icon(
             titleIcon,
             size: 22,
-            color: theme.colorScheme.onSurface,
+            color: foregroundColor,
           ),
           const SizedBox(width: 8),
-          Text(title, style: theme.textTheme.headlineSmall),
+          Text(
+            title,
+            style: theme.textTheme.headlineSmall?.copyWith(
+              color: foregroundColor,
+            ),
+          ),
         ],
       );
     } else {
-      titleWidget = Text(title, style: theme.textTheme.headlineSmall);
+      titleWidget = Text(
+        title,
+        style: theme.textTheme.headlineSmall?.copyWith(
+          color: foregroundColor,
+        ),
+      );
     }
 
     // Build header

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/writing/data/models/writing_models.dart';
 import '../../../features/writing/domain/providers/writing_providers.dart';
@@ -198,7 +199,7 @@ class _PatternCard extends StatelessWidget {
               ),
               const SizedBox(width: AppSpacing.xs),
               Icon(
-                Icons.chevron_right,
+                Iconsax.arrow_right_3,
                 color: theme.colorScheme.onSurfaceVariant,
                 size: 20,
               ),

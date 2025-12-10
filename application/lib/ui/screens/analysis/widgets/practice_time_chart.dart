@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import '../../../../features/analysis/domain/models/analysis_models.dart';
 
 class PracticeTimeChart extends StatelessWidget {
@@ -22,7 +23,7 @@ class PracticeTimeChart extends StatelessWidget {
               child: _SummaryCard(
                 label: '総練習時間',
                 value: _formatDuration(stats.totalTimeMs),
-                icon: Icons.timer_outlined,
+                icon: Iconsax.timer_1,
                 color: colors.primary,
               ),
             ),
@@ -31,7 +32,7 @@ class PracticeTimeChart extends StatelessWidget {
               child: _SummaryCard(
                 label: 'セッション数',
                 value: '${stats.sessionCount}回',
-                icon: Icons.repeat_rounded,
+                icon: Iconsax.repeate_music,
                 color: colors.secondary,
               ),
             ),
@@ -41,7 +42,7 @@ class PracticeTimeChart extends StatelessWidget {
         _SummaryCard(
           label: '平均セッション時間',
           value: _formatDuration(stats.averageTimeMs),
-          icon: Icons.timer,
+          icon: Iconsax.timer_1,
           color: colors.tertiary,
         ),
         const SizedBox(height: 20),

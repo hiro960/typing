@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../app_spacing.dart';
 
@@ -25,7 +26,7 @@ class PageErrorView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
-              Icons.error_outline,
+              Iconsax.warning_2,
               size: 64,
               color: theme.colorScheme.error.withValues(alpha: 0.7),
             ),

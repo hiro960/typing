@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../features/auth/domain/providers/auth_providers.dart';
 import '../../core/exceptions/app_exception.dart';
@@ -92,7 +93,7 @@ class _SocialAuthScreenState extends ConsumerState<SocialAuthScreen> {
 
     final theme = Theme.of(context);
     const providers = [
-      (label: 'Google / Apple / X で続ける', icon: Icons.login),
+      (label: 'Google / Apple / X で続ける', icon: Iconsax.login),
     ];
 
     return AppPageScaffold(
@@ -117,7 +118,7 @@ class _SocialAuthScreenState extends ConsumerState<SocialAuthScreen> {
                   padding: const EdgeInsets.all(20),
                   child: Column(
                     children: [
-                      const Icon(Icons.security_outlined, size: 48),
+                      const Icon(Iconsax.shield_tick, size: 48),
                       const SizedBox(height: 12),
                       Text(
                         '毎日の学習を1タップで開始',

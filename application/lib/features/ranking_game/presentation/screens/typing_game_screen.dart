@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:chaletta/features/ranking_game/data/models/ranking_game_models.dart';
 import 'package:chaletta/features/ranking_game/domain/providers/game_session_provider.dart';
 import 'package:chaletta/features/ranking_game/presentation/widgets/combo_meter_widget.dart';
@@ -127,7 +128,7 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(
-                  Icons.timer,
+                  Iconsax.timer_1,
                   color: sessionState.remainingTimeMs < 10000
                       ? AppColors.error
                       : theme.colorScheme.onSurface,
@@ -229,7 +230,7 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
                     ),
                     const SizedBox(width: 24),
                     _buildStatChip(
-                      icon: Icons.local_fire_department,
+                      icon: Iconsax.flash_circle,
                       label: 'コンボ',
                       value: state.currentCombo.toString(),
                       color: AppColors.accentEnd,

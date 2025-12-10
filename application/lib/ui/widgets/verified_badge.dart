@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 /// ユーザータイプに応じた認証バッジを表示するウィジェット
 ///
@@ -49,7 +50,7 @@ class VerifiedBadge extends StatelessWidget {
         height: containerSize,
         child: Center(
           child: Icon(
-            Icons.verified,
+            Iconsax.verify,
             size: iconSize,
             color: badgeColor,
           ),

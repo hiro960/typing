@@ -102,7 +102,7 @@ class _WeeklyProgressCard extends ConsumerWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Icon(
-                  Icons.insights_rounded,
+                  Iconsax.diagram,
                   color: Colors.white,
                   size: 20,
                 ),
@@ -155,7 +155,7 @@ class _WeeklyProgressCard extends ConsumerWidget {
                     label: '練習回数',
                     value: '$totalActivities',
                     unit: '回',
-                    icon: Icons.fitness_center_rounded,
+                    icon: Iconsax.weight,
                     color: const Color(0xFF4facfe),
                   ),
                 ),
@@ -169,7 +169,7 @@ class _WeeklyProgressCard extends ConsumerWidget {
                     label: '正解率',
                     value: '${(accuracy * 100).toInt()}',
                     unit: '%',
-                    icon: Icons.check_circle_rounded,
+                    icon: Iconsax.tick_circle,
                     color: const Color(0xFF11998e),
                   ),
                 ),
@@ -369,7 +369,7 @@ class _WeekDayIndicator extends StatelessWidget {
           child: Center(
             child: isActive
                 ? const Icon(
-                    Icons.check_rounded,
+                    Iconsax.tick_square,
                     size: 18,
                     color: Colors.white,
                   )

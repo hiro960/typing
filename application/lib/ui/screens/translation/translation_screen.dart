@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/translation/data/models/translation_model.dart';
 import '../../../features/translation/domain/providers/translation_providers.dart';
@@ -197,7 +198,7 @@ class _TranslationScreenState extends ConsumerState<TranslationScreen> {
                                   .clearInput();
                             }
                           },
-                          icon: const Icon(Icons.swap_horiz, size: 24),
+                          icon: const Icon(Iconsax.arrow_swap_horizontal, size: 24),
                           tooltip: '言語を入れ替え',
                         ),
                       ],
@@ -264,7 +265,7 @@ class _TranslationScreenState extends ConsumerState<TranslationScreen> {
                               .read(translationControllerProvider.notifier)
                               .clearInput();
                         },
-                        icon: const Icon(Icons.clear, size: 20),
+                        icon: const Icon(Iconsax.close_circle, size: 20),
                         tooltip: 'クリア',
                       ),
                     ],
@@ -284,7 +285,7 @@ class _TranslationScreenState extends ConsumerState<TranslationScreen> {
                     child: Row(
                       children: [
                         Icon(
-                          Icons.error_outline,
+                          Iconsax.warning_2,
                           color: theme.colorScheme.error,
                           size: 20,
                         ),
@@ -323,7 +324,7 @@ class _TranslationScreenState extends ConsumerState<TranslationScreen> {
                         Row(
                           children: [
                             Icon(
-                              Icons.translate,
+                              Iconsax.translate,
                               size: 18,
                               color: theme.colorScheme.primary,
                             ),
@@ -347,7 +348,7 @@ class _TranslationScreenState extends ConsumerState<TranslationScreen> {
                                       .speak(translationState.translatedText!);
                                 },
                                 icon: Icon(
-                                  Icons.play_arrow,
+                                  Iconsax.play,
                                   size: 20,
                                   color: theme.colorScheme.primary,
                                 ),
@@ -515,7 +516,7 @@ class _TranslationHistoryItem extends StatelessWidget {
             IconButton(
               onPressed: onAddToWordbook,
               icon: Icon(
-                Icons.add,
+                Iconsax.add,
                 size: 20,
                 color: theme.colorScheme.primary,
               ),

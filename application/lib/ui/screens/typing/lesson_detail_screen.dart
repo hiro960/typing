@@ -3,6 +3,7 @@ import 'package:chaletta/ui/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/lessons/data/models/lesson_index.dart'
     as lesson_index;
@@ -49,7 +50,7 @@ class LessonDetailScreen extends ConsumerWidget {
                   if (isLocked) ...[
                     const SizedBox(height: 12),
                     FAlert(
-                      icon: const Icon(Icons.lock),
+                      icon: const Icon(Iconsax.lock),
                       title: const Text('ロック中'),
                       subtitle: const Text('前のレッスンを完了すると解放されます'),
                     ),
@@ -70,7 +71,7 @@ class LessonDetailScreen extends ConsumerWidget {
                 borderRadius: BorderRadius.circular(8),
               ),
                     ),
-                    icon: const Icon(Icons.play_arrow),
+                    icon: const Icon(Iconsax.play),
                     onPressed: isLocked
                         ? null
                         : () {

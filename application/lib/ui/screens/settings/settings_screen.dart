@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/config/env_config.dart';
@@ -165,19 +166,19 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             title: 'アカウント',
             children: [
               FTile(
-                prefix: const Icon(Icons.alternate_email),
+                prefix: const Icon(Iconsax.user),
                 title: const Text('ユーザーID'),
                 subtitle: Text(username),
                 suffix: FButton.icon(
                   style: FButtonStyle.ghost(),
-                  child: const Icon(Icons.copy),
+                  child: const Icon(Iconsax.copy),
                   onPress: currentUser == null
                       ? null
                       : () => _copyUsername(currentUser.username),
                 ),
               ),
               FTile(
-                prefix: const Icon(Icons.block_outlined),
+                prefix: const Icon(Iconsax.slash),
                 title: const Text('ブロックしているアカウント'),
                 subtitle: Text(
                   blockedAsync.when(
@@ -218,7 +219,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                             height: 16,
                             child: CircularProgressIndicator(strokeWidth: 2),
                           )
-                        : const Icon(Icons.chevron_right),
+                        : const Icon(Iconsax.arrow_right_3),
                   ],
                 ),
                 onPress: () async {
@@ -238,7 +239,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             title: '通知',
             children: [
               _SwitchTile(
-                icon: Icons.notifications_outlined,
+                icon: Iconsax.notification,
                 title: 'プッシュ通知',
                 subtitle: 'アプリからのお知らせを受け取る',
                 value: _pushNotifications,
@@ -266,7 +267,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 return Column(
                   children: [
                     _SwitchTile(
-                      icon: Icons.vibration,
+                      icon: Iconsax.mobile,
                       title: '触覚フィードバック',
                       subtitle: 'キー入力時のバイブレーション',
                       value: typingSettings.hapticsEnabled,
@@ -280,7 +281,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       color: theme.colors.border,
                     ),
                     _SwitchTile(
-                      icon: Icons.lightbulb_outline,
+                      icon: Iconsax.lamp,
                       title: 'ヒント表示',
                       subtitle: '次に押すキーを表示する',
                       value: typingSettings.hintsEnabled,
@@ -307,7 +308,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 final isDark = themeMode == ThemeMode.dark;
                 final themeLabel = isDark ? 'ダーク' : 'ライト';
                 return _SwitchTile(
-                  icon: isDark ? Icons.dark_mode_outlined : Icons.light_mode_outlined,
+                  icon: isDark ? Iconsax.moon : Iconsax.sun_1,
                   title: 'ダークテーマ',
                   subtitle: '現在: $themeLabel。オフで白基調のテーマに切り替え',
                   value: isDark,
@@ -326,7 +327,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             title: '法的情報',
             children: [
               FTile(
-                prefix: const Icon(Icons.description_outlined),
+                prefix: const Icon(Iconsax.document_text),
                 title: const Text('利用規約'),
                 subtitle: Text(
                   'サービスのご利用条件',
@@ -335,10 +336,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   ),
                 ),
                 onPress: () => _openUrl('${EnvConfig.apiBaseUrl}/terms'),
-                suffix: const Icon(Icons.open_in_new),
+                suffix: const Icon(Iconsax.arrow_right_3),
               ),
               FTile(
-                prefix: const Icon(Icons.privacy_tip_outlined),
+                prefix: const Icon(Iconsax.shield_tick),
                 title: const Text('プライバシーポリシー'),
                 subtitle: Text(
                   '個人情報の取り扱いについて',
@@ -347,7 +348,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   ),
                 ),
                 onPress: () => _openUrl('${EnvConfig.apiBaseUrl}/privacy'),
-                suffix: const Icon(Icons.open_in_new),
+                suffix: const Icon(Iconsax.arrow_right_3),
               ),
             ],
           ),
@@ -356,7 +357,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             title: 'サポート',
             children: [
               FTile(
-                prefix: const Icon(Icons.feedback_outlined),
+                prefix: const Icon(Iconsax.message_text),
                 title: const Text('フィードバックを送る'),
                 subtitle: Text(
                   '改善点や不具合の報告はこちらから',
@@ -365,7 +366,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   ),
                 ),
                 onPress: _showFeedbackSheet,
-                suffix: const Icon(Icons.chevron_right),
+                suffix: const Icon(Iconsax.arrow_right_3),
               ),
             ],
           ),
@@ -383,7 +384,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 child: Column(
                   children: [
                     FTile(
-                      prefix: const Icon(Icons.logout),
+                      prefix: const Icon(Iconsax.logout),
                       title: const Text('ログアウト'),
                       subtitle: Text(
                         '他のアカウントでログインする場合はこちら',
@@ -398,14 +399,14 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                               height: 20,
                               child: CircularProgressIndicator(strokeWidth: 2),
                             )
-                          : const Icon(Icons.chevron_right),
+                          : const Icon(Iconsax.arrow_right_3),
                     ),
                     Divider(
                       color: theme.colors.destructive.withValues(alpha: 0.4),
                     ),
                     FTile(
                       prefix: Icon(
-                        Icons.delete_forever_outlined,
+                        Iconsax.trash,
                         color: theme.colors.destructive,
                       ),
                       title: Text(
@@ -419,7 +420,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                         ),
                       ),
                       onPress: _isLoggingOut ? null : _handleDeleteAccount,
-                      suffix: const Icon(Icons.chevron_right),
+                      suffix: const Icon(Iconsax.arrow_right_3),
                     ),
                   ],
                 ),
@@ -614,7 +615,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   child: Row(
                     children: [
                       Icon(
-                        Icons.mail_outline,
+                        Iconsax.sms,
                         color: context.theme.colors.primary,
                       ),
                       const SizedBox(width: 12),
@@ -646,7 +647,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                           );
                           ToastHelper.show(context, 'メールアドレスをコピーしました');
                         },
-                        child: const Icon(Icons.copy_outlined),
+                        child: const Icon(Iconsax.copy),
                       ),
                     ],
                   ),
@@ -832,7 +833,7 @@ class _ProfileHeader extends StatelessWidget {
                       FButton.icon(
                         style: FButtonStyle.ghost(),
                         onPress: onCopyId,
-                        child: const Icon(Icons.copy_outlined, size: 16),
+                        child: const Icon(Iconsax.copy, size: 16),
                       ),
                     ],
                   ),

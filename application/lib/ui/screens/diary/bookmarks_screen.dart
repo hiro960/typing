@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/diary/data/models/diary_post.dart';
@@ -129,7 +130,7 @@ class _BookmarksScreenState extends ConsumerState<BookmarksScreen> {
 
     return AppPageScaffold(
       title: 'ブックマーク',
-      titleIcon: Icons.bookmark_outline,
+      titleIcon: Iconsax.bookmark,
       showBackButton: true,
       onRefresh: _refresh,
       child: Builder(
@@ -145,7 +146,7 @@ class _BookmarksScreenState extends ConsumerState<BookmarksScreen> {
           }
           if (state.posts.isEmpty) {
             return const PageEmptyView(
-              icon: Icons.bookmark_border,
+              icon: Iconsax.bookmark,
               title: 'ブックマークはありません',
               description: '気になる投稿にブックマークを付けるとここに表示されます。',
             );

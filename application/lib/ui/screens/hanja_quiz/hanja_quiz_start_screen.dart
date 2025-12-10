@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/hanja_quiz/data/models/hanja_quiz_models.dart';
 import '../../../features/hanja_quiz/domain/providers/hanja_quiz_providers.dart';
@@ -117,7 +118,7 @@ class HanjaQuizStartScreen extends ConsumerWidget {
                     child: Row(
                       children: [
                         Icon(
-                          Icons.check_circle_outline,
+                          Iconsax.tick_circle,
                           color: AppColors.success,
                         ),
                         const SizedBox(width: AppSpacing.md),
@@ -150,7 +151,7 @@ class HanjaQuizStartScreen extends ConsumerWidget {
                           ),
                         ),
                         Icon(
-                          Icons.chevron_right,
+                          Iconsax.arrow_right_3,
                           color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
                         ),
                       ],

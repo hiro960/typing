@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class NormalButton extends StatelessWidget {
   const NormalButton({
     super.key,
     required this.onTap,
     required this.label,
-    this.icon = Icons.edit_note,
+    this.icon = Iconsax.edit_2,
     this.enabled = true,
   });
 

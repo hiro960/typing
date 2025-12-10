@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import 'package:chaletta/features/analysis/domain/providers/analysis_providers.dart';
 import 'package:chaletta/features/auth/data/models/user_model.dart';
@@ -72,7 +73,7 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
                   _SectionHeader(
                     title: '苦手なキー',
                     subtitle: 'ミスが多いキーTop 5 (ヒートマップ)',
-                    icon: Icons.warning_amber_rounded,
+                    icon: Iconsax.warning_2,
                   ),
                   const SizedBox(height: AppSpacing.md),
                   WeakKeysHeatmap(weakKeys: dashboard.weakKeys),
@@ -82,7 +83,7 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
                   _SectionHeader(
                     title: '成長推移',
                     subtitle: 'WPMと正確率の変化',
-                    icon: Icons.trending_up_rounded,
+                    icon: Iconsax.trend_up,
                   ),
                   const SizedBox(height: AppSpacing.md),
                   GrowthTrendChart(trends: dashboard.trends),
@@ -92,7 +93,7 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
                   _SectionHeader(
                     title: '学習習慣',
                     subtitle: '時間帯・曜日別の学習傾向',
-                    icon: Icons.schedule_rounded,
+                    icon: Iconsax.calendar,
                   ),
                   const SizedBox(height: AppSpacing.md),
                   LearningHabitChart(habits: dashboard.habits),
@@ -102,7 +103,7 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
                   _SectionHeader(
                     title: '練習時間統計',
                     subtitle: '累計・平均練習時間と日別推移',
-                    icon: Icons.timer_outlined,
+                    icon: Iconsax.timer_1,
                   ),
                   const SizedBox(height: AppSpacing.md),
                   PracticeTimeChart(stats: dashboard.practiceTime),
@@ -112,7 +113,7 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
                   _SectionHeader(
                     title: '語彙習得状況',
                     subtitle: '単語帳の習得状況',
-                    icon: Icons.library_books_rounded,
+                    icon: Iconsax.book_1,
                   ),
                   const SizedBox(height: AppSpacing.md),
                   VocabularyStatusChart(status: dashboard.vocabularyStatus),
@@ -122,7 +123,7 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
                   _SectionHeader(
                     title: '語彙成長推移',
                     subtitle: '月別の語彙登録・習得数',
-                    icon: Icons.trending_up_rounded,
+                    icon: Iconsax.trend_up,
                   ),
                   const SizedBox(height: AppSpacing.md),
                   VocabularyGrowthChart(growth: dashboard.vocabularyGrowth),
@@ -139,7 +140,7 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
                   padding: const EdgeInsets.all(20),
                   child: Column(
                     children: [
-                      const Icon(Icons.error_outline, size: 48, color: Colors.red),
+                      const Icon(Iconsax.warning_2, size: 48, color: Colors.red),
                       const SizedBox(height: 16),
                       Text('エラーが発生しました: $error'),
                       const SizedBox(height: 16),

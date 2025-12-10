@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
+
+import '../app_theme.dart';
 
 class AiGradientButton extends StatelessWidget {
   const AiGradientButton({
@@ -6,7 +9,7 @@ class AiGradientButton extends StatelessWidget {
     required this.onTap,
     required this.label,
     this.loadingLabel,
-    this.icon = Icons.auto_awesome,
+    this.icon = Iconsax.magic_star,
     this.loading = false,
     this.enabled = true,
   });
@@ -25,14 +28,14 @@ class AiGradientButton extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           gradient: const LinearGradient(
-            colors: [Color(0xFF4facfe), Color(0xFF00f2fe)],
+            colors: [AppColors.primary, AppColors.primaryBright],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
           borderRadius: BorderRadius.circular(8),
           boxShadow: [
             BoxShadow(
-              color: const Color(0xFF4facfe).withOpacity(0.3),
+              color: AppColors.primary.withOpacity(0.3),
               blurRadius: 12,
               offset: const Offset(0, 6),
             ),

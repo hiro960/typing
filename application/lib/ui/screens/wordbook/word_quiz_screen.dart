@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/wordbook/data/models/word_model.dart';
+import '../../app_theme.dart';
 import '../../../features/wordbook/domain/providers/word_quiz_controller.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
 import 'word_quiz_result_screen.dart';
@@ -187,16 +189,16 @@ class _QuizCard extends StatelessWidget {
       key: ValueKey(word.id),
       direction: DismissDirection.horizontal,
       onDismissed: onSwiped,
-      background: const _SwipeBackground(
+      background: _SwipeBackground(
         alignment: Alignment.centerLeft,
-        color: Color(0x3328a745),
-        icon: Icons.sentiment_very_satisfied_outlined,
+        color: AppColors.primary.withValues(alpha: 0.2),
+        icon: Iconsax.emoji_happy,
         label: 'わかる',
       ),
-      secondaryBackground: const _SwipeBackground(
+      secondaryBackground: _SwipeBackground(
         alignment: Alignment.centerRight,
-        color: Color(0x33c62828),
-        icon: Icons.sentiment_very_dissatisfied_outlined,
+        color: AppColors.error.withValues(alpha: 0.2),
+        icon: Iconsax.emoji_sad,
         label: 'わからない',
       ),
       child: Card(
@@ -213,7 +215,7 @@ class _QuizCard extends StatelessWidget {
                 alignment: Alignment.topRight,
                 child: FButton.icon(
                   style: FButtonStyle.ghost(),
-                  child: const Icon(Icons.volume_up_outlined),
+                  child: const Icon(Iconsax.volume_high),
                   onPress: onSpeak,
                 ),
               ),
@@ -327,7 +329,7 @@ class _ActionButtons extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: const [
-                Icon(Icons.sentiment_very_dissatisfied_outlined, size: 28),
+                Icon(Iconsax.emoji_sad, size: 28),
                 SizedBox(height: 4),
                 Text('わからない'),
               ],
@@ -342,7 +344,7 @@ class _ActionButtons extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: const [
-                Icon(Icons.sentiment_very_satisfied_outlined, size: 28),
+                Icon(Iconsax.emoji_happy, size: 28),
                 SizedBox(height: 4),
                 Text('わかる'),
               ],

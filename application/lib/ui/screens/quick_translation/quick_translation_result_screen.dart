@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/quick_translation/data/models/quick_translation_models.dart';
 import '../../../features/quick_translation/domain/providers/quick_translation_providers.dart';
@@ -61,7 +62,7 @@ class _QuickTranslationResultScreenState
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            icon: const Icon(Icons.close),
+            icon: const Icon(Iconsax.close_circle),
             onPressed: () => _exitToHome(context),
           ),
         ],
@@ -118,7 +119,7 @@ class _QuickTranslationResultScreenState
         children: [
           // 完了アイコン
           Icon(
-            isCleared ? Icons.celebration : Icons.emoji_events,
+            isCleared ? Iconsax.medal_star : Iconsax.cup,
             size: 48,
             color: isCleared ? Colors.green : Colors.orange,
           ),
@@ -251,7 +252,7 @@ class _QuickTranslationResultScreenState
 
                 // 音声再生ボタン
                 IconButton(
-                  icon: const Icon(Icons.volume_up),
+                  icon: const Icon(Iconsax.volume_high),
                   iconSize: 20,
                   onPressed: () => _speakKorean(question.korean),
                   color: theme.colorScheme.primary,
@@ -274,7 +275,7 @@ class _QuickTranslationResultScreenState
             color: Colors.green,
             shape: BoxShape.circle,
           ),
-          child: const Icon(Icons.check, size: 18, color: Colors.white),
+          child: const Icon(Iconsax.tick_square, size: 18, color: Colors.white),
         );
       case AnswerResult.almostCorrect:
         return Container(
@@ -285,7 +286,7 @@ class _QuickTranslationResultScreenState
             shape: BoxShape.circle,
             border: Border.all(color: Colors.orange, width: 2),
           ),
-          child: const Icon(Icons.check, size: 18, color: Colors.orange),
+          child: const Icon(Iconsax.tick_square, size: 18, color: Colors.orange),
         );
       case AnswerResult.incorrect:
       case AnswerResult.skipped:
@@ -297,7 +298,7 @@ class _QuickTranslationResultScreenState
             shape: BoxShape.circle,
             border: Border.all(color: Colors.red, width: 2),
           ),
-          child: const Icon(Icons.close, size: 18, color: Colors.red),
+          child: const Icon(Iconsax.close_circle, size: 18, color: Colors.red),
         );
     }
   }
@@ -328,7 +329,7 @@ class _QuickTranslationResultScreenState
             Expanded(
               child: OutlinedButton.icon(
                 onPressed: () => _retryAll(context),
-                icon: const Icon(Icons.refresh),
+                icon: const Icon(Iconsax.refresh),
                 label: const Text('もう一度'),
               ),
             ),
@@ -338,7 +339,7 @@ class _QuickTranslationResultScreenState
               Expanded(
                 child: OutlinedButton.icon(
                   onPressed: () => _retryIncorrect(context),
-                  icon: const Icon(Icons.replay),
+                  icon: const Icon(Iconsax.refresh),
                   label: const Text('間違えたのみ'),
                 ),
               ),
@@ -348,7 +349,7 @@ class _QuickTranslationResultScreenState
             Expanded(
               child: ElevatedButton.icon(
                 onPressed: () => _exitToHome(context),
-                icon: const Icon(Icons.done),
+                icon: const Icon(Iconsax.tick_square),
                 label: const Text('終了'),
               ),
             ),

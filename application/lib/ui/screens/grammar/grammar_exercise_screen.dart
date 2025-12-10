@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/grammar/data/models/grammar_exercise.dart';
 import '../../../features/grammar/data/models/grammar_models.dart';
@@ -435,7 +436,7 @@ class _ExerciseCard extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  const Icon(Icons.lightbulb_outline, size: 16, color: Colors.amber),
+                  const Icon(Iconsax.lamp_charge, size: 16, color: Colors.amber),
                   const SizedBox(width: AppSpacing.xs),
                   Expanded(
                     child: Text(
@@ -536,9 +537,9 @@ class _ExerciseCard extends StatelessWidget {
                         children: [
                           Expanded(child: Text(choice)),
                           if (isAnswered && isCorrectChoice)
-                            const Icon(Icons.check_circle, color: Colors.green)
+                            const Icon(Iconsax.tick_circle, color: Colors.green)
                           else if (isAnswered && isSelected && !isCorrect)
-                            const Icon(Icons.cancel, color: Colors.red),
+                            const Icon(Iconsax.close_circle, color: Colors.red),
                         ],
                       ),
                     ),
@@ -576,7 +577,7 @@ class _ExerciseCard extends StatelessWidget {
             ),
             child: Row(
               children: [
-                const Icon(Icons.info_outline, size: 16, color: AppColors.primary),
+                const Icon(Iconsax.info_circle, size: 16, color: AppColors.primary),
                 const SizedBox(width: AppSpacing.xs),
                 Expanded(
                   child: Text(
@@ -668,10 +669,10 @@ class _ExerciseCard extends StatelessWidget {
                                 ),
                               ),
                               if (isMatched && !isAnswered)
-                                const Icon(Icons.link, size: 16, color: Colors.grey),
+                                const Icon(Iconsax.link, size: 16, color: Colors.grey),
                               if (isAnswered && isMatched)
                                 Icon(
-                                  isCorrectMatch! ? Icons.check : Icons.close,
+                                  isCorrectMatch! ? Iconsax.tick_square : Iconsax.close_circle,
                                   size: 16,
                                   color: isCorrectMatch ? Colors.green : Colors.red,
                                 ),
@@ -756,10 +757,10 @@ class _ExerciseCard extends StatelessWidget {
                                 ),
                               ),
                               if (isMatched && !isAnswered)
-                                const Icon(Icons.link, size: 16, color: Colors.grey),
+                                const Icon(Iconsax.link, size: 16, color: Colors.grey),
                               if (isAnswered && isMatched)
                                 Icon(
-                                  isCorrectMatch! ? Icons.check : Icons.close,
+                                  isCorrectMatch! ? Iconsax.tick_square : Iconsax.close_circle,
                                   size: 16,
                                   color: isCorrectMatch ? Colors.green : Colors.red,
                                 ),
@@ -798,7 +799,7 @@ class _ExerciseCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  const Icon(Icons.arrow_forward, size: 14, color: Colors.grey),
+                  const Icon(Iconsax.arrow_right, size: 14, color: Colors.grey),
                   Expanded(
                     child: Text(
                       entry.value,
@@ -810,7 +811,7 @@ class _ExerciseCard extends StatelessWidget {
                   const SizedBox(width: AppSpacing.xs),
                   GestureDetector(
                     onTap: () => onRemoveMatch(entry.key),
-                    child: const Icon(Icons.close, size: 16, color: Colors.red),
+                    child: const Icon(Iconsax.close_circle, size: 16, color: Colors.red),
                   ),
                 ],
               ),
@@ -845,7 +846,7 @@ class _ExerciseCard extends StatelessWidget {
           Row(
             children: [
               Icon(
-                isCorrect ? Icons.check_circle : Icons.cancel,
+                isCorrect ? Iconsax.tick_circle : Iconsax.close_circle,
                 color: isCorrect ? Colors.green : Colors.red,
               ),
               const SizedBox(width: AppSpacing.xs),
@@ -913,10 +914,10 @@ class _ResultView extends StatelessWidget {
             // アイコン
             Icon(
               isPerfect
-                  ? Icons.emoji_events
+                  ? Iconsax.cup
                   : isGood
-                      ? Icons.thumb_up
-                      : Icons.school,
+                      ? Iconsax.like_1
+                      : Iconsax.teacher,
               size: 80,
               color:
                   isPerfect

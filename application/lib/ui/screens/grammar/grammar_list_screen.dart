@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/grammar/data/models/grammar_index.dart';
 import '../../../features/grammar/data/models/grammar_models.dart';
@@ -87,11 +88,11 @@ class _GrammarListScreenState extends ConsumerState<GrammarListScreen>
   Widget build(BuildContext context) {
     return AppPageScaffold(
       title: '文法辞典',
-      titleIcon: Icons.menu_book,
+      titleIcon: Iconsax.book,
       showBackButton: true,
       actions: [
         IconButton(
-          icon: const Icon(Icons.favorite_border),
+          icon: const Icon(Iconsax.heart),
           onPressed: _navigateToFavorites,
           tooltip: 'お気に入り',
         ),
@@ -147,13 +148,13 @@ class _SearchBar extends StatelessWidget {
             color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
           ),
           prefixIcon: Icon(
-            Icons.search,
+            Iconsax.search_normal,
             color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
           ),
           suffixIcon:
               controller.text.isNotEmpty
                   ? IconButton(
-                    icon: const Icon(Icons.clear),
+                    icon: const Icon(Iconsax.close_circle),
                     onPressed: () {
                       controller.clear();
                       onChanged('');
@@ -316,7 +317,7 @@ class _GrammarListView extends ConsumerWidget {
       data: (grammars) {
         if (grammars.isEmpty) {
           return const PageEmptyView(
-            icon: Icons.search_off,
+            icon: Iconsax.search_status,
             title: '該当する文法がありません',
             description: '検索条件を変更してみてください',
           );
@@ -422,7 +423,7 @@ class _GrammarListTile extends ConsumerWidget {
             isFavoriteAsync.when(
               data: (isFavorite) => IconButton(
                 icon: Icon(
-                  isFavorite ? Icons.favorite : Icons.favorite_border,
+                  Iconsax.heart,
                   color: isFavorite ? Colors.red : null,
                 ),
                 onPressed: () =>

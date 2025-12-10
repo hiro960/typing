@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/hanja/data/models/hanja_word.dart';
 import '../../../features/hanja/domain/providers/hanja_providers.dart';
@@ -36,7 +37,7 @@ class MasteredWordsScreen extends ConsumerWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
-                      Icons.sentiment_satisfied_alt,
+                      Iconsax.emoji_happy,
                       size: 64,
                       color: theme.colorScheme.onSurface.withValues(alpha: 0.3),
                     ),
@@ -70,7 +71,7 @@ class MasteredWordsScreen extends ConsumerWidget {
                   child: Row(
                     children: [
                       Icon(
-                        Icons.check_circle,
+                        Iconsax.tick_circle,
                         color: AppColors.success,
                         size: 20,
                       ),
@@ -224,7 +225,7 @@ class _MasteredWordCard extends StatelessWidget {
             IconButton(
               onPressed: onRemove,
               icon: Icon(
-                Icons.remove_circle_outline,
+                Iconsax.minus_cirlce,
                 color: theme.colorScheme.error,
               ),
               tooltip: '覚えた記録を解除',

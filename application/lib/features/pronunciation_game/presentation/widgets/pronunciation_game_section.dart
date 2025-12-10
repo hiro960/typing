@@ -2,6 +2,7 @@ import 'package:chaletta/ui/widgets/section_title.dart';
 import 'package:chaletta/ui/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:chaletta/features/pronunciation_game/domain/providers/pronunciation_ranking_providers.dart';
 import 'package:chaletta/features/pronunciation_game/presentation/screens/pronunciation_game_screen.dart';
 import 'package:chaletta/features/pronunciation_game/presentation/screens/pronunciation_ranking_screen.dart';
@@ -24,7 +25,7 @@ class PronunciationGameSection extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SectionTitle(
-              iconData: Icons.mic,
+              iconData: Iconsax.microphone,
               text: '発音ゲーム',
               color: AppColors.accentEnd,
             ),
@@ -105,7 +106,7 @@ class PronunciationGameSection extends ConsumerWidget {
             ),
           ),
           const Icon(
-            Icons.record_voice_over,
+            Iconsax.microphone_2,
             color: Color(0xFFFFD700),
             size: 32,
           ),
@@ -122,7 +123,7 @@ class PronunciationGameSection extends ConsumerWidget {
           label: '初級',
           description: '基本的な単語 / 制限時間 60秒',
           color: AppColors.primaryBright,
-          icon: Icons.mic_none,
+          icon: Iconsax.microphone,
           isDark: isDark,
         ),
         const SizedBox(height: 8),
@@ -131,7 +132,7 @@ class PronunciationGameSection extends ConsumerWidget {
           label: '中級',
           description: '日常会話レベル / 制限時間 90秒',
           color: AppColors.secondary,
-          icon: Icons.mic,
+          icon: Iconsax.microphone,
           isDark: isDark,
         ),
         const SizedBox(height: 8),
@@ -140,7 +141,7 @@ class PronunciationGameSection extends ConsumerWidget {
           label: '高級',
           description: '上級表現 / 制限時間 120秒',
           color: AppColors.accentEnd,
-          icon: Icons.settings_voice,
+          icon: Iconsax.microphone_2,
           isDark: isDark,
         ),
       ],
@@ -221,7 +222,7 @@ class _PronunciationDifficultyCard extends StatelessWidget {
               ),
             ),
             Icon(
-              Icons.play_circle_fill,
+              Iconsax.play_circle,
               color: color,
               size: 32,
             ),

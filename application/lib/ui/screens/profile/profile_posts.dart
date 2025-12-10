@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../widgets/shimmer_loading.dart';
 
@@ -23,7 +24,7 @@ class PostEmptyState extends StatelessWidget {
       child: Column(
         children: [
           Icon(
-            Icons.edit_note_outlined,
+            Iconsax.edit_2,
             size: 56,
             color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
           ),
@@ -57,7 +58,7 @@ class PostErrorState extends StatelessWidget {
       child: Column(
         children: [
           Icon(
-            Icons.error_outline,
+            Iconsax.warning_2,
             size: 56,
             color: theme.colorScheme.error,
           ),

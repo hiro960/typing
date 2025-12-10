@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class ToastHelper {
   /// 基本的なトーストを表示
@@ -35,7 +36,7 @@ class ToastHelper {
       builder: (context, entry) => FToast(
         title: Text(error.toString()),
         icon: Icon(
-          Icons.error_outline,
+          Iconsax.warning_2,
           color: Theme.of(context).colorScheme.error,
         ),
       ),
@@ -56,7 +57,7 @@ class ToastHelper {
       builder: (context, entry) => FToast(
         title: Text(message),
         icon: Icon(
-          Icons.check_circle_outline,
+          Iconsax.tick_circle,
           color: Colors.green,
         ),
       ),

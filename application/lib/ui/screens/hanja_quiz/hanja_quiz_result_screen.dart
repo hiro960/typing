@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/hanja_quiz/data/models/hanja_quiz_models.dart';
 import '../../../features/hanja_quiz/domain/providers/hanja_quiz_providers.dart';
@@ -92,7 +93,7 @@ class HanjaQuizResultScreen extends ConsumerWidget {
               child: Row(
                 children: [
                   Icon(
-                    Icons.list_alt,
+                    Iconsax.task_square,
                     size: 20,
                     color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                   ),
@@ -210,13 +211,13 @@ class _ResultBadge extends StatelessWidget {
 
   (String, Color, IconData) _getResultInfo() {
     if (accuracy >= 0.9) {
-      return ('素晴らしい！', AppColors.success, Icons.star);
+      return ('素晴らしい！', AppColors.success, Iconsax.star);
     } else if (accuracy >= 0.7) {
-      return ('よくできました！', Colors.orange, Icons.thumb_up);
+      return ('よくできました！', Colors.orange, Iconsax.like_1);
     } else if (accuracy >= 0.5) {
-      return ('もう少し！', Colors.amber, Icons.trending_up);
+      return ('もう少し！', Colors.amber, Iconsax.trend_up);
     } else {
-      return ('頑張りましょう！', AppColors.error, Icons.refresh);
+      return ('頑張りましょう！', AppColors.error, Iconsax.refresh);
     }
   }
 }
@@ -257,7 +258,7 @@ class _WordResultCard extends ConsumerWidget {
                 shape: BoxShape.circle,
               ),
               child: Icon(
-                record.isCorrect ? Icons.check : Icons.close,
+                record.isCorrect ? Iconsax.tick_square : Iconsax.close_circle,
                 size: 18,
                 color: record.isCorrect ? AppColors.success : AppColors.error,
               ),
@@ -311,7 +312,7 @@ class _WordResultCard extends ConsumerWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(
-                      Icons.check_circle,
+                      Iconsax.tick_circle,
                       size: 14,
                       color: AppColors.success,
                     ),

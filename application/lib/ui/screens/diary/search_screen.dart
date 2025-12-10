@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/services.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../features/auth/domain/providers/auth_providers.dart';
@@ -467,13 +468,13 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
               enableInteractiveSelection: !_useCustomKeyboard,
               decoration: InputDecoration(
                 hintText: '投稿、ユーザー、ハッシュタグを検索',
-                prefixIcon: const Icon(Icons.search),
+                prefixIcon: const Icon(Iconsax.search_normal),
                 suffixIcon: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     if (_queryController.text.isNotEmpty)
                       IconButton(
-                        icon: const Icon(Icons.clear),
+                        icon: const Icon(Iconsax.close_circle),
                         onPressed: () {
                           _queryController.clear();
                           _composer.loadFromText('');
@@ -482,7 +483,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
                         },
                       ),
                     IconButton(
-                      icon: const Icon(Icons.search),
+                      icon: const Icon(Iconsax.search_normal),
                       onPressed: () => _performSearch(_queryController.text),
                     ),
                   ],
@@ -592,7 +593,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
                               children: [
                                 TextButton.icon(
                                   label: const Text('切替'),
-                                  icon: const Icon(Icons.keyboard, size: 18),
+                                  icon: const Icon(Iconsax.keyboard, size: 18),
                                   onPressed: _useCustomKeyboard
                                       ? _switchToDefaultKeyboard
                                       : _switchToCustomKeyboard,
@@ -853,7 +854,7 @@ class _HistoryChip extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(4),
                 child: Icon(
-                  Icons.close,
+                  Iconsax.close_circle,
                   size: 14,
                   color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
                 ),

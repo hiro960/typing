@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/grammar/data/models/grammar_detail.dart';
 import '../../../features/grammar/data/models/grammar_index.dart';
@@ -80,7 +81,7 @@ class _GrammarDetailScreenState extends ConsumerState<GrammarDetailScreen> {
           isFavoriteAsync.when(
             data: (isFavorite) => IconButton(
               icon: Icon(
-                isFavorite ? Icons.favorite : Icons.favorite_border,
+                Iconsax.heart,
                 color: isFavorite ? Colors.red : null,
               ),
               onPressed: () => ref
@@ -150,7 +151,7 @@ class _GrammarDetailScreenState extends ConsumerState<GrammarDetailScreen> {
                         vertical: AppSpacing.md,
                       ),
                     ),
-                    icon: const Icon(Icons.quiz),
+                    icon: const Icon(Iconsax.receipt_text),
                     onPressed: () => _navigateToExercise(grammar),
                     label: Text('練習問題（${grammar.exercises.length}問）'),
                   ),
@@ -249,7 +250,7 @@ class _FormationRulesSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _SectionHeader(title: '活用規則', icon: Icons.rule),
+        _SectionHeader(title: '活用規則', icon: Iconsax.ruler),
         const SizedBox(height: AppSpacing.sm),
         Container(
           decoration: BoxDecoration(
@@ -386,7 +387,7 @@ class _UsageCasesSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _SectionHeader(title: '用法・用例', icon: Icons.format_list_bulleted),
+        _SectionHeader(title: '用法・用例', icon: Iconsax.task_square),
         const SizedBox(height: AppSpacing.sm),
         ...cases.map(
           (useCase) => Padding(
@@ -490,7 +491,7 @@ class _ExampleRow extends StatelessWidget {
                 ),
               ),
               IconButton(
-                icon: const Icon(Icons.volume_up, size: 20),
+                icon: const Icon(Iconsax.volume_high, size: 20),
                 onPressed: onSpeak,
                 constraints: const BoxConstraints(),
                 padding: const EdgeInsets.all(4),
@@ -522,7 +523,7 @@ class _ComparisonSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _SectionHeader(title: comparison.title, icon: Icons.compare_arrows),
+        _SectionHeader(title: comparison.title, icon: Iconsax.arrow_swap),
         const SizedBox(height: AppSpacing.sm),
         Container(
           padding: const EdgeInsets.all(AppSpacing.md),
@@ -640,7 +641,7 @@ class _TipsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _SectionHeader(title: 'ヒント・コツ', icon: Icons.lightbulb_outline),
+        _SectionHeader(title: 'ヒント・コツ', icon: Iconsax.lamp_charge),
         const SizedBox(height: AppSpacing.sm),
         Container(
           padding: const EdgeInsets.all(AppSpacing.md),
@@ -691,7 +692,7 @@ class _RelatedGrammarSection extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _SectionHeader(title: '関連文法', icon: Icons.link),
+        _SectionHeader(title: '関連文法', icon: Iconsax.link),
         const SizedBox(height: AppSpacing.sm),
         indexAsync.when(
           data: (index) {

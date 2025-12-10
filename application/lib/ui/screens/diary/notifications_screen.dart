@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/diary/data/models/diary_notification.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
@@ -51,10 +52,10 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
 
     return AppPageScaffold(
       title: '通知',
-      titleIcon: Icons.notifications_outlined,
+      titleIcon: Iconsax.notification,
       actions: [
         FHeaderAction(
-          icon: const Icon(Icons.mark_email_read_outlined),
+          icon: const Icon(Iconsax.tick_circle),
           onPress: state.notifications.isEmpty
               ? null
               : () {
@@ -96,7 +97,7 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
                   }
                   if (state.notifications.isEmpty) {
                     return PageEmptyView(
-                      icon: Icons.notifications_off_outlined,
+                      icon: Iconsax.notification_status,
                       title: '通知はありません',
                       description: '新しいコメントやリアクションが届くとここに表示されます。',
                       actionLabel: '再読み込み',
@@ -224,7 +225,7 @@ class _NotificationTile extends StatelessWidget {
               ),
             if (!notification.isRead) ...[
               const SizedBox(height: 6),
-              const Icon(Icons.fiber_manual_record, size: 12),
+              Icon(Iconsax.record_circle, size: 12, color: theme.colorScheme.primary),
             ],
           ],
         ),
@@ -277,7 +278,7 @@ class _FilterTabs extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(
-                  Icons.inbox_outlined,
+                  Iconsax.direct_inbox,
                   size: 16,
                   color: !unreadOnly
                       ? theme.colorScheme.primary
@@ -304,7 +305,7 @@ class _FilterTabs extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(
-                  Icons.mark_chat_unread_outlined,
+                  Iconsax.message_notif,
                   size: 16,
                   color: unreadOnly
                       ? theme.colorScheme.primary

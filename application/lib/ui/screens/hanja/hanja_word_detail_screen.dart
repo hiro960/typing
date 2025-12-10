@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/hanja/data/models/hanja_models.dart';
 import '../../../features/hanja/data/models/hanja_word.dart';
@@ -25,7 +26,7 @@ class HanjaWordDetailScreen extends ConsumerWidget {
 
     return AppPageScaffold(
       title: '漢字語',
-      titleIcon: Icons.library_books,
+      titleIcon: Iconsax.book_1,
       showBackButton: true,
       child: wordAsync.when(
         data: (word) {
@@ -111,7 +112,7 @@ class _WordDetailContent extends StatelessWidget {
           // 意味
           _InfoSection(
             title: '意味',
-            icon: Icons.info_outline,
+            icon: Iconsax.info_circle,
             child: Text(
               word.meaning,
               style: theme.textTheme.bodyLarge,
@@ -122,7 +123,7 @@ class _WordDetailContent extends StatelessWidget {
           // 発音・品詞
           _InfoSection(
             title: '基本情報',
-            icon: Icons.format_list_numbered,
+            icon: Iconsax.textalign_justifyleft,
             child: Row(
               children: [
                 Expanded(
@@ -146,7 +147,7 @@ class _WordDetailContent extends StatelessWidget {
           if (word.components.isNotEmpty)
             _InfoSection(
               title: '構成漢字',
-              icon: Icons.dashboard,
+              icon: Iconsax.element_3,
               child: _ComponentsView(components: word.components),
             ),
           if (word.components.isNotEmpty) const SizedBox(height: AppSpacing.lg),
@@ -155,7 +156,7 @@ class _WordDetailContent extends StatelessWidget {
           if (word.examples.isNotEmpty)
             _InfoSection(
               title: '例文',
-              icon: Icons.format_quote,
+              icon: Iconsax.quote_up,
               child: Column(
                 children: word.examples
                     .map((example) => _ExampleTile(example: example))
@@ -168,7 +169,7 @@ class _WordDetailContent extends StatelessWidget {
           if (word.synonyms.isNotEmpty)
             _InfoSection(
               title: '類義語',
-              icon: Icons.compare_arrows,
+              icon: Iconsax.arrow_swap,
               child: Wrap(
                 spacing: AppSpacing.sm,
                 runSpacing: AppSpacing.sm,
@@ -183,7 +184,7 @@ class _WordDetailContent extends StatelessWidget {
           if (word.antonyms.isNotEmpty)
             _InfoSection(
               title: '対義語',
-              icon: Icons.swap_horiz,
+              icon: Iconsax.arrow_swap_horizontal,
               child: Wrap(
                 spacing: AppSpacing.sm,
                 runSpacing: AppSpacing.sm,
@@ -198,7 +199,7 @@ class _WordDetailContent extends StatelessWidget {
           if (word.relatedWords.isNotEmpty)
             _InfoSection(
               title: '関連語',
-              icon: Icons.link,
+              icon: Iconsax.link,
               child: Wrap(
                 spacing: AppSpacing.sm,
                 runSpacing: AppSpacing.sm,

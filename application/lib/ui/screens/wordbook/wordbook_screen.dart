@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/wordbook/data/models/word_model.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
@@ -45,13 +46,13 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
 
     return AppPageScaffold(
       title: '単語帳',
-      titleIcon: Icons.book_outlined,
+      titleIcon: Iconsax.book,
       actions: [
         FHeaderAction(
           icon: Icon(
             viewMode == WordbookViewMode.card
-                ? Icons.view_list_outlined
-                : Icons.grid_view_outlined,
+                ? Iconsax.task_square
+                : Iconsax.grid_1,
           ),
           onPress: () {
             ref.read(wordbookViewModeProvider.notifier).toggle();
@@ -61,12 +62,12 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
           icon: Badge(
             isLabelVisible: canStartQuiz,
             label: Text('${reviewableWords.length}'),
-            child: const Icon(Icons.quiz_outlined),
+            child: const Icon(Iconsax.receipt_text),
           ),
           onPress: canStartQuiz ? () => _startQuiz(reviewableWords) : null,
         ),
         FHeaderAction(
-          icon: const Icon(Icons.add),
+          icon: const Icon(Iconsax.add),
           onPress: () => _openForm(),
         ),
       ],
@@ -131,7 +132,7 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
               onRefresh: () => ref.read(wordbookProvider.notifier).refresh(),
               child: filteredWords.isEmpty
                   ? PageEmptyView(
-                      icon: Icons.book_outlined,
+                      icon: Iconsax.book,
                       title: 'まだ単語/文章がありません',
                       description: '覚えたい単語/文章を追加して、マイ単語帳を作りましょう。',
                       actionLabel: '単語/文章を追加',
@@ -263,7 +264,7 @@ class _WordCard extends ConsumerWidget {
                           .read(wordAudioServiceProvider.notifier)
                           .speak(word.word);
                     },
-                    child: const Icon(Icons.volume_up_outlined, size: 18),
+                    child: const Icon(Iconsax.volume_high, size: 18),
                   ),
                 ],
               ),
@@ -349,7 +350,7 @@ class _StatusFilterChip extends StatelessWidget {
           children: [
             if (selected) ...[
               Icon(
-                Icons.check,
+                Iconsax.tick_square,
                 size: 16,
                 color: theme.colorScheme.onPrimary,
               ),
@@ -428,7 +429,7 @@ class _WordListTile extends ConsumerWidget {
                       .read(wordAudioServiceProvider.notifier)
                       .speak(word.word);
                 },
-                child: const Icon(Icons.volume_up_outlined, size: 18),
+                child: const Icon(Iconsax.volume_high, size: 18),
               ),
             ],
           ),

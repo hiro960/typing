@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/auth/data/models/user_model.dart';
 import '../../../features/profile/domain/providers/profile_providers.dart';
@@ -85,7 +86,7 @@ class ProfileHero extends StatelessWidget {
                     if (isOwner)
                       FButton.icon(
                         style: FButtonStyle.ghost(),
-                        child: const Icon(Icons.photo_camera_outlined),
+                        child: const Icon(Iconsax.camera),
                         onPress: onAvatarTap,
                       )
                     else if (followButton != null)
@@ -96,7 +97,7 @@ class ProfileHero extends StatelessWidget {
                 Row(
                   children: [
                     Icon(
-                      Icons.calendar_month_outlined,
+                      Iconsax.calendar_1,
                       size: 16,
                       color: foreground.withValues(alpha: 0.9),
                     ),
@@ -190,7 +191,7 @@ class ProfileAvatar extends StatelessWidget {
                 ),
                 padding: const EdgeInsets.all(6),
                 child: Icon(
-                  Icons.edit,
+                  Iconsax.edit,
                   size: 16,
                   color: theme.colorScheme.primary,
                 ),
@@ -242,12 +243,12 @@ class SummaryChips extends StatelessWidget {
       runSpacing: 8,
       children: [
         InfoChip(
-          icon: Icons.people_outline,
+          icon: Iconsax.people,
           label: 'フォロワー',
           value: '${profile.followersCount}',
         ),
         InfoChip(
-          icon: Icons.person_add_alt_1_outlined,
+          icon: Iconsax.user_add,
           label: 'フォロー中',
           value: '${profile.followingCount}',
         ),

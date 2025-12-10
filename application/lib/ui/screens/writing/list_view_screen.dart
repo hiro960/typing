@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
 import '../../../features/writing/data/models/writing_models.dart';
@@ -135,7 +136,7 @@ class _EntryCard extends ConsumerWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(AppSpacing.xs),
                     child: Icon(
-                      Icons.volume_up_outlined,
+                      Iconsax.volume_high,
                       size: 20,
                       color: theme.colorScheme.primary,
                     ),
@@ -147,7 +148,7 @@ class _EntryCard extends ConsumerWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(AppSpacing.xs),
                     child: Icon(
-                      Icons.bookmark_add_outlined,
+                      Iconsax.bookmark_2,
                       size: 20,
                       color: theme.colorScheme.secondary,
                     ),

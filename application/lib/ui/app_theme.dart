@@ -165,33 +165,55 @@ class AppTheme {
   static FThemeData _foruiTheme({required bool isDark}) {
     final base = isDark ? FThemes.slate.dark : FThemes.slate.light;
 
+    // カスタムカラーを定義
+    final colors = base.colors.copyWith(
+      brightness: isDark ? Brightness.dark : Brightness.light,
+      background: isDark ? AppColors.background : AppColors.lightBackground,
+      foreground: isDark ? AppColors.foreground : AppColors.lightForeground,
+      primary: AppColors.primary,
+      primaryForeground: Colors.white,
+      secondary: isDark ? AppColors.surface : AppColors.lightSurfaceAlt,
+      secondaryForeground: isDark ? AppColors.foreground : AppColors.lightForeground,
+      muted: isDark ? AppColors.surface : AppColors.lightSurface,
+      mutedForeground: isDark
+          ? AppColors.mutedForeground
+          : AppColors.lightMutedForeground,
+      destructive: AppColors.error,
+      destructiveForeground: Colors.white,
+      error: AppColors.error,
+      errorForeground: Colors.white,
+      border: isDark ? AppColors.border : AppColors.lightBorder,
+      systemOverlayStyle:
+          isDark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
+    );
+
+    // カスタムスタイルを定義
+    final style = base.style.copyWith(
+      borderRadius: BorderRadius.circular(24),
+      pagePadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+      iconStyle: base.style.iconStyle.copyWith(color: AppColors.primary),
+    );
+
+    // カスタムボタンスタイルを生成
+    final buttonStyles = FButtonStyles.inherit(
+      colors: colors,
+      typography: base.typography,
+      style: style,
+    );
+
+    // カスタムヘッダースタイルを生成
+    final headerStyles = FHeaderStyles.inherit(
+      colors: colors,
+      typography: base.typography,
+      style: style,
+    );
+
     return base.copyWith(
       debugLabel: isDark ? 'AppTheme Midnight' : 'AppTheme Light',
-      colors: base.colors.copyWith(
-        brightness: isDark ? Brightness.dark : Brightness.light,
-        background: isDark ? AppColors.background : AppColors.lightBackground,
-        foreground: isDark ? AppColors.foreground : AppColors.lightForeground,
-        primary: AppColors.primary,
-        primaryForeground: Colors.white,
-        secondary: AppColors.secondary,
-        secondaryForeground: Colors.black,
-        muted: isDark ? AppColors.surface : AppColors.lightSurface,
-        mutedForeground: isDark
-            ? AppColors.mutedForeground
-            : AppColors.lightMutedForeground,
-        destructive: AppColors.error,
-        destructiveForeground: Colors.white,
-        error: AppColors.error,
-        errorForeground: Colors.white,
-        border: isDark ? AppColors.border : AppColors.lightBorder,
-        systemOverlayStyle:
-            isDark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
-      ),
-      style: (style) => style.copyWith(
-        borderRadius: BorderRadius.circular(24),
-        pagePadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        iconStyle: style.iconStyle.copyWith(color: AppColors.primary),
-      ),
+      colors: colors,
+      style: (_) => style,
+      buttonStyles: (_) => buttonStyles,
+      headerStyles: (_) => headerStyles,
       cardStyle: (card) => card.copyWith(
         decoration: card.decoration.copyWith(
           borderRadius: BorderRadius.circular(24),

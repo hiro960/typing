@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:chaletta/features/pronunciation_game/data/models/pronunciation_game_models.dart';
 import 'package:chaletta/features/pronunciation_game/domain/providers/pronunciation_game_session_provider.dart';
 import 'package:chaletta/features/pronunciation_game/presentation/screens/pronunciation_game_result_screen.dart';
@@ -235,7 +236,7 @@ class _PronunciationGameScreenState
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: const [
-                  Icon(Icons.mic, size: 20),
+                  Icon(Iconsax.microphone, size: 20),
                   SizedBox(width: 8),
                   Text('スタート'),
                 ],
@@ -281,7 +282,7 @@ class _PronunciationGameScreenState
                     ),
                     const SizedBox(width: 24),
                     _buildStatChip(
-                      icon: Icons.local_fire_department,
+                      icon: Iconsax.flash_circle,
                       label: 'コンボ',
                       value: state.currentCombo.toString(),
                       color: AppColors.accentEnd,
@@ -439,7 +440,7 @@ class _PronunciationGameScreenState
                 const Padding(
                   padding: EdgeInsets.only(right: 4),
                   child: Icon(
-                    Icons.check_circle,
+                    Iconsax.tick_circle,
                     color: AppColors.success,
                     size: 16,
                   ),
@@ -558,7 +559,7 @@ class _PronunciationGameScreenState
                       : null,
                 ),
                 child: Icon(
-                  state.isListening ? Icons.mic : Icons.mic_none,
+                  state.isListening ? Iconsax.microphone : Iconsax.microphone,
                   size: 36,
                   color: state.isListening
                       ? AppColors.accentEnd

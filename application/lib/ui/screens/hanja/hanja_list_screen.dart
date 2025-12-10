@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/hanja/data/models/hanja_character.dart';
 import '../../../features/hanja/data/models/hanja_models.dart';
@@ -85,7 +86,7 @@ class _HanjaListScreenState extends ConsumerState<HanjaListScreen>
   Widget build(BuildContext context) {
     return AppPageScaffold(
       title: '漢字語辞典',
-      titleIcon: Icons.translate,
+      titleIcon: Iconsax.translate,
       showBackButton: true,
       child: Column(
         children: [
@@ -273,12 +274,12 @@ class _SearchBar extends StatelessWidget {
             color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
           ),
           prefixIcon: Icon(
-            Icons.search,
+            Iconsax.search_normal,
             color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
           ),
           suffixIcon: controller.text.isNotEmpty
               ? IconButton(
-                  icon: const Icon(Icons.clear),
+                  icon: const Icon(Iconsax.close_circle),
                   onPressed: () {
                     controller.clear();
                     onChanged('');
@@ -324,7 +325,7 @@ class _SearchTypeTabBar extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(Icons.text_fields, size: 16),
+              Icon(Iconsax.text, size: 16),
               SizedBox(width: 4),
               Text('単漢字'),
             ],
@@ -334,7 +335,7 @@ class _SearchTypeTabBar extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(Icons.library_books, size: 16),
+              Icon(Iconsax.book_1, size: 16),
               SizedBox(width: 4),
               Text('漢字語'),
             ],
@@ -344,7 +345,7 @@ class _SearchTypeTabBar extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(Icons.all_inclusive, size: 16),
+              Icon(Iconsax.unlimited, size: 16),
               SizedBox(width: 4),
               Text('全て'),
             ],
@@ -374,7 +375,7 @@ class _HanjaResultView extends ConsumerWidget {
       data: (result) {
         if (result.isEmpty) {
           return const PageEmptyView(
-            icon: Icons.search_off,
+            icon: Iconsax.search_status,
             title: '該当する漢字がありません',
             description: '検索条件を変更してみてください',
           );
@@ -566,7 +567,7 @@ class _HanjaCharacterTile extends StatelessWidget {
               ),
             ),
             Icon(
-              Icons.chevron_right,
+              Iconsax.arrow_right_3,
               color: theme.colorScheme.onSurface.withValues(alpha: 0.3),
             ),
           ],
@@ -656,7 +657,7 @@ class _HanjaWordTile extends StatelessWidget {
               ),
             ),
             Icon(
-              Icons.chevron_right,
+              Iconsax.arrow_right_3,
               color: theme.colorScheme.onSurface.withValues(alpha: 0.3),
             ),
           ],

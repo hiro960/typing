@@ -2,6 +2,7 @@ import 'package:chaletta/ui/widgets/section_title.dart';
 import 'package:chaletta/ui/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:chaletta/features/ranking_game/domain/providers/ranking_providers.dart';
 import 'package:chaletta/features/ranking_game/presentation/screens/typing_game_screen.dart';
 import 'package:chaletta/features/ranking_game/presentation/screens/typing_leaderboard_screen.dart';
@@ -24,7 +25,7 @@ class RankingGameSection extends ConsumerWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SectionTitle(iconData: Icons.sports_esports, text: 'タイピングゲーム', color: AppColors.primary),
+            SectionTitle(iconData: Iconsax.game, text: 'タイピングゲーム', color: AppColors.primary),
             TextButton(
               onPressed: () {
                 Navigator.of(context).push(
@@ -102,7 +103,7 @@ class RankingGameSection extends ConsumerWidget {
             ),
           ),
           const Icon(
-            Icons.emoji_events,
+            Iconsax.cup,
             color: Color(0xFFFFD700),
             size: 32,
           ),
@@ -120,7 +121,7 @@ class RankingGameSection extends ConsumerWidget {
           label: '初級',
           description: '基本的な単語 / 制限時間 60秒',
           color: AppColors.primaryBright,
-          icon: Icons.bolt,
+          icon: Iconsax.flash_1,
           isDark: isDark,
         ),
         const SizedBox(height: 8),
@@ -129,7 +130,7 @@ class RankingGameSection extends ConsumerWidget {
           label: '中級',
           description: '日常会話レベル / 制限時間 90秒',
           color: AppColors.secondary,
-          icon: Icons.trending_up,
+          icon: Iconsax.trend_up,
           isDark: isDark,
         ),
         const SizedBox(height: 8),
@@ -138,7 +139,7 @@ class RankingGameSection extends ConsumerWidget {
           label: '高級',
           description: '上級表現 / 制限時間 120秒',
           color: AppColors.accentEnd,
-          icon: Icons.star,
+          icon: Iconsax.star,
           isDark: isDark,
         ),
       ],
@@ -219,7 +220,7 @@ class _DifficultyCard extends StatelessWidget {
               ),
             ),
             Icon(
-              Icons.play_circle_fill,
+              Iconsax.play_circle,
               color: color,
               size: 32,
             ),

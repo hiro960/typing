@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 enum _KeyboardMode { hangul, symbols }
 
@@ -133,7 +134,7 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
                               vertical: 10,
                             ),
                             child: Icon(
-                              Icons.keyboard_alt_outlined,
+                              Iconsax.keyboard,
                               size: 22,
                               color: colors.onSurface.withValues(alpha: 0.7),
                             ),
@@ -149,7 +150,7 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
                               vertical: 10,
                             ),
                             child: Icon(
-                              Icons.keyboard_outlined,
+                              Iconsax.keyboard,
                               size: 22,
                               color: colors.primary,
                             ),
@@ -192,7 +193,7 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 const SizedBox(width: 6),
-                                const Icon(Icons.lightbulb_outline, size: 16),
+                                const Icon(Iconsax.lamp_charge, size: 16),
                                 const SizedBox(width: 6),
                                 Text(
                                   widget.nextKeyLabel!,

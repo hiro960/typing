@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/diary/data/models/blocked_account.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
@@ -42,7 +43,7 @@ class BlockedAccountsScreen extends ConsumerWidget {
         data: (blocks) {
           if (blocks.isEmpty) {
             return const PageEmptyView(
-              icon: Icons.block,
+              icon: Iconsax.slash,
               title: 'ブロック中のアカウントはありません',
             );
           }

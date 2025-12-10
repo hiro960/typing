@@ -179,7 +179,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         title: '안녕하세요, $displayName',
         actions: [
           FHeaderAction(
-            icon: const Icon(Icons.settings_outlined),
+            icon: const Icon(Iconsax.setting_2),
             onPress: widget.onOpenSettings,
           ),
         ],
@@ -222,7 +222,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       title: '안녕하세요, $displayName',
       actions: [
         FHeaderAction(
-          icon: const Icon(Icons.settings_outlined),
+          icon: const Icon(Iconsax.setting_2),
           onPress: widget.onOpenSettings,
         ),
       ],
@@ -411,7 +411,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             _WritingOptionTile(
               title: '単語',
               subtitle: 'カテゴリ別の基本単語をタイピング練習',
-              icon: Icons.abc,
+              icon: Iconsax.text,
               onTap: () {
                 Navigator.pop(context);
                 _openWriting(WritingLane.beginner);
@@ -420,7 +420,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             _WritingOptionTile(
               title: '旅行',
               subtitle: '韓国旅行で使える実践フレーズ',
-              icon: Icons.flight,
+              icon: Iconsax.airplane,
               onTap: () {
                 Navigator.pop(context);
                 _openWriting(WritingLane.travel);
@@ -429,7 +429,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             _WritingOptionTile(
               title: '趣味対策',
               subtitle: 'SNSや韓ドラ、推しなど気軽に書ける題材',
-              icon: Icons.favorite,
+              icon: Iconsax.heart,
               onTap: () {
                 Navigator.pop(context);
                 _openWriting(WritingLane.hobby);
@@ -438,7 +438,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             _WritingOptionTile(
               title: 'TOPIK対策',
               subtitle: 'タイピングで覚える論述パターン',
-              icon: Icons.school,
+              icon: Iconsax.teacher,
               onTap: () {
                 Navigator.pop(context);
                 _openWriting(WritingLane.topik);
@@ -487,7 +487,7 @@ class _WritingOptionTile extends StatelessWidget {
           color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
         ),
       ),
-      trailing: const Icon(Icons.chevron_right),
+      trailing: const Icon(Iconsax.arrow_right_3),
       onTap: onTap,
     );
   }
@@ -540,7 +540,7 @@ class _GameDetailSheet extends StatelessWidget {
                 ),
                 const Spacer(),
                 IconButton(
-                  icon: const Icon(Icons.close),
+                  icon: const Icon(Iconsax.close_circle),
                   onPressed: () => Navigator.pop(context),
                 ),
               ],
@@ -683,7 +683,7 @@ class _QuickTranslationCategoryTile extends StatelessWidget {
                 ),
               ),
               Icon(
-                Icons.chevron_right,
+                Iconsax.arrow_right_3,
                 color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
                 size: 20,
               ),
@@ -726,29 +726,29 @@ class _QuickTranslationCategoryTile extends StatelessWidget {
   IconData _getCategoryIcon() {
     switch (category.id) {
       case 'orthography':
-        return Icons.abc;
+        return Iconsax.text;
       case 'substantive':
-        return Icons.category;
+        return Iconsax.category;
       case 'particle':
-        return Icons.link;
+        return Iconsax.link;
       case 'conjugation':
-        return Icons.transform;
+        return Iconsax.convert;
       case 'sentence_ending':
-        return Icons.chat_bubble;
+        return Iconsax.message;
       case 'connective':
-        return Icons.swap_horiz;
+        return Iconsax.arrow_swap_horizontal;
       case 'adnominal':
-        return Icons.edit_note;
+        return Iconsax.edit_2;
       case 'tense_aspect':
-        return Icons.access_time;
+        return Iconsax.clock;
       case 'expression':
-        return Icons.lightbulb;
+        return Iconsax.lamp_charge;
       case 'quotation':
-        return Icons.format_quote;
+        return Iconsax.quote_up;
       case 'word_formation':
-        return Icons.construction;
+        return Iconsax.setting_3;
       default:
-        return Icons.book;
+        return Iconsax.book;
     }
   }
 
@@ -785,12 +785,12 @@ class _AiTeacherSection extends StatelessWidget {
         gradient: LinearGradient(
           colors: isDark
               ? [
-                  const Color(0xFF1a1f35).withValues(alpha: 0.9),
-                  const Color(0xFF0f1520).withValues(alpha: 0.9),
+                  const Color(0xFF1A2634).withValues(alpha: 0.9),
+                  const Color(0xFF243442).withValues(alpha: 0.9),
                 ]
               : [
                   Colors.white,
-                  const Color(0xFFFAF5FF),
+                  const Color(0xFFF0F8F8),
                 ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -798,12 +798,12 @@ class _AiTeacherSection extends StatelessWidget {
         borderRadius: BorderRadius.circular(24),
         border: Border.all(
           color: isDark
-              ? const Color(0xFF8E2DE2).withValues(alpha: 0.3)
-              : const Color(0xFF8E2DE2).withValues(alpha: 0.2),
+              ? AppColors.primary.withValues(alpha: 0.3)
+              : AppColors.primary.withValues(alpha: 0.2),
         ),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF8E2DE2).withValues(alpha: isDark ? 0.2 : 0.1),
+            color: AppColors.primary.withValues(alpha: isDark ? 0.2 : 0.1),
             blurRadius: 20,
             offset: const Offset(0, 8),
           ),
@@ -817,14 +817,14 @@ class _AiTeacherSection extends StatelessWidget {
             height: 56,
             decoration: BoxDecoration(
               gradient: const LinearGradient(
-                colors: [Color(0xFF8E2DE2), Color(0xFF4A00E0)],
+                colors: [AppColors.primary, AppColors.secondary],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
               borderRadius: BorderRadius.circular(16),
               boxShadow: [
                 BoxShadow(
-                  color: const Color(0xFF8E2DE2).withValues(alpha: 0.4),
+                  color: AppColors.primary.withValues(alpha: 0.4),
                   blurRadius: 12,
                   offset: const Offset(0, 4),
                 ),
@@ -847,7 +847,7 @@ class _AiTeacherSection extends StatelessWidget {
                 ),
                 const Center(
                   child: Icon(
-                    Icons.auto_awesome_rounded,
+                    Iconsax.magic_star,
                     color: Colors.white,
                     size: 28,
                   ),
@@ -918,14 +918,14 @@ class _AiTeacherSection extends StatelessWidget {
                 ),
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
-                    colors: [Color(0xFF8E2DE2), Color(0xFF4A00E0)],
+                    colors: [AppColors.primary, AppColors.secondary],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
                   borderRadius: BorderRadius.circular(14),
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(0xFF8E2DE2).withValues(alpha: 0.3),
+                      color: AppColors.primary.withValues(alpha: 0.3),
                       blurRadius: 8,
                       offset: const Offset(0, 3),
                     ),
@@ -935,7 +935,7 @@ class _AiTeacherSection extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const Icon(
-                      Icons.chat_bubble_rounded,
+                      Iconsax.message,
                       color: Colors.white,
                       size: 16,
                     ),

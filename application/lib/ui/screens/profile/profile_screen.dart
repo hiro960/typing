@@ -5,6 +5,7 @@ import 'package:chaletta/ui/widgets/shimmer_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../core/exceptions/app_exception.dart';
@@ -152,7 +153,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
       loading: () => _ProfileSkeletonScreen(onOpenSettings: widget.onOpenSettings),
       error: (error, _) => AppPageScaffold(
         title: 'プロフィール',
-        titleIcon: Icons.person_outline,
+        titleIcon: Iconsax.user,
         showBackButton: true,
         child: PageErrorView(
           message: error is AppException ? error.message : error.toString(),
@@ -175,12 +176,12 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
     final isPremiumUser = profile.isPremiumUser;
     return AppPageScaffold(
       title: 'プロフィール',
-      titleIcon: Icons.person_outline,
+      titleIcon: Iconsax.user,
       showBackButton: true,
       actions: [
         if (isOwner)
           FHeaderAction(
-            icon: const Icon(Icons.settings_outlined),
+            icon: const Icon(Iconsax.setting_2),
             onPress: widget.onOpenSettings,
           ),
       ],
@@ -280,7 +281,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   ),
                 );
               },
-              icon: Icons.analytics_outlined,
+              icon: Iconsax.chart_1,
             ),
             const SizedBox(height: AppSpacing.lg),
           ],
@@ -375,13 +376,13 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         children: [
           SheetOption(
             label: '写真を選択',
-            icon: Icons.photo_library_outlined,
+            icon: Iconsax.gallery,
             onPress: () => Navigator.of(context).pop('pick'),
           ),
           if (profile.profileImageUrl != null)
             SheetOption(
               label: '画像を削除',
-              icon: Icons.delete_outline,
+              icon: Iconsax.trash,
               onPress: () => Navigator.of(context).pop('remove'),
             ),
         ],
@@ -469,7 +470,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   },
                   errorBuilder: (_, __, ___) => const SizedBox(
                     height: 280,
-                    child: Center(child: Icon(Icons.error_outline)),
+                    child: Center(child: Icon(Iconsax.warning_2)),
                   ),
                 ),
               ),
@@ -479,7 +480,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               right: 8,
               child: FButton.icon(
                 style: FButtonStyle.ghost(),
-                child: const Icon(Icons.close),
+                child: const Icon(Iconsax.close_circle),
                 onPress: () => Navigator.of(context).maybePop(),
               ),
             ),
@@ -584,11 +585,11 @@ class _ProfileSkeletonScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppPageScaffold(
       title: 'プロフィール',
-      titleIcon: Icons.person_outline,
+      titleIcon: Iconsax.user,
       showBackButton: true,
       actions: [
         FHeaderAction(
-          icon: const Icon(Icons.settings_outlined),
+          icon: const Icon(Iconsax.setting_2),
           onPress: onOpenSettings,
         ),
       ],

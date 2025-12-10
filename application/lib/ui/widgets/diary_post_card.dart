@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../features/diary/data/models/diary_post.dart';
 import '../screens/profile/profile_screen.dart';
@@ -137,8 +138,8 @@ class DiaryPostCard extends StatelessWidget {
                       children: [
                         _ActionButton(
                           icon: post.liked
-                              ? Icons.favorite
-                              : Icons.favorite_border,
+                              ? Iconsax.heart_tick
+                              : Iconsax.heart,
                           color: post.liked
                               ? theme.colorScheme.primary
                               : theme.colorScheme.onSurfaceVariant,
@@ -146,12 +147,12 @@ class DiaryPostCard extends StatelessWidget {
                           onPressed: onToggleLike,
                         ),
                         _ActionButton(
-                          icon: Icons.chat_bubble_outline,
+                          icon: Iconsax.message,
                           count: post.commentsCount,
                           onPressed: onComment,
                         ),
                         _ActionButton(
-                          icon: Icons.format_quote,
+                          icon: Iconsax.quote_up,
                           onPressed: onQuote ?? onComment,
                           count: post.quotesCount,
                         ),
@@ -159,8 +160,8 @@ class DiaryPostCard extends StatelessWidget {
                         IconButton(
                           icon: Icon(
                             post.bookmarked
-                                ? Icons.bookmark
-                                : Icons.bookmark_border,
+                                ? Iconsax.bookmark_2
+                                : Iconsax.bookmark,
                             color: post.bookmarked
                                 ? theme.colorScheme.primary
                                 : theme.colorScheme.onSurfaceVariant,
@@ -193,7 +194,7 @@ class DiaryPostCard extends StatelessWidget {
                         value: 'edit',
                         child: Row(
                           children: [
-                            Icon(Icons.edit, size: 20),
+                            Icon(Iconsax.edit, size: 20),
                             SizedBox(width: 12),
                             Text('編集'),
                           ],
@@ -204,7 +205,7 @@ class DiaryPostCard extends StatelessWidget {
                         value: 'report',
                         child: Row(
                           children: [
-                            Icon(Icons.flag, size: 20),
+                            Icon(Iconsax.flag, size: 20),
                             SizedBox(width: 12),
                             Text('通報'),
                           ],
@@ -215,7 +216,7 @@ class DiaryPostCard extends StatelessWidget {
                         value: 'block',
                         child: Row(
                           children: [
-                            Icon(Icons.block, size: 20),
+                            Icon(Iconsax.slash, size: 20),
                             SizedBox(width: 12),
                             Text('ブロック'),
                           ],
@@ -234,7 +235,7 @@ class DiaryPostCard extends StatelessWidget {
     final theme = Theme.of(context);
     if (post.visibility == 'private') {
       return _VisibilityPill(
-        icon: Icons.lock_outline,
+        icon: Iconsax.lock,
         label: '下書き',
         backgroundColor: theme.colorScheme.error.withValues(alpha: 0.08),
         foregroundColor: theme.colorScheme.error,
@@ -242,7 +243,7 @@ class DiaryPostCard extends StatelessWidget {
     }
     if (post.visibility == 'followers') {
       return _VisibilityPill(
-        icon: Icons.group_outlined,
+        icon: Iconsax.people,
         label: 'フォロワーのみ',
         backgroundColor:
             theme.colorScheme.secondaryContainer.withValues(alpha: 0.6),
@@ -366,7 +367,7 @@ class _ImageCarouselState extends State<_ImageCarousel> {
               top: MediaQuery.of(context).padding.top + 16,
               left: 16,
               child: IconButton(
-                icon: const Icon(Icons.close, color: Colors.white, size: 30),
+                icon: const Icon(Iconsax.close_circle, color: Colors.white, size: 30),
                 onPressed: () => Navigator.of(context).pop(),
               ),
             ),

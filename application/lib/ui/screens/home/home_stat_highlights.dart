@@ -19,19 +19,19 @@ class _StatHighlights extends StatelessWidget {
             ? '${(stats.avgAccuracy * 100).toStringAsFixed(1)}%'
             : '-',
         caption: '過去7日平均',
-        icon: Icons.verified_outlined,
+        icon: Iconsax.verify,
       ),
       (
         label: 'WPM',
         value: stats != null ? stats.maxWpm.toStringAsFixed(0) : '-',
         caption: '最高記録',
-        icon: Icons.speed,
+        icon: Iconsax.flash_1,
       ),
       (
         label: '継続日数',
         value: stats != null ? '${stats.streakDays}日' : '-',
         caption: '連続記録',
-        icon: Icons.local_fire_department_outlined,
+        icon: Iconsax.flash_circle,
       ),
     ];
     final theme = Theme.of(context);

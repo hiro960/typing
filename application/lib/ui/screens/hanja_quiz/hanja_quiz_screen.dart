@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/hanja_quiz/data/models/hanja_quiz_models.dart';
 import '../../../features/hanja_quiz/domain/providers/hanja_quiz_providers.dart';
@@ -217,7 +218,7 @@ class _QuestionSection extends StatelessWidget {
         // 音声再生ボタン
         IconButton(
           onPressed: onPlayAudio,
-          icon: const Icon(Icons.volume_up),
+          icon: const Icon(Iconsax.volume_high),
           tooltip: '発音を聞く',
         ),
       ],
@@ -417,7 +418,7 @@ class _WordCompleteSection extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Icon(
-                isCorrect ? Icons.check_circle : Icons.cancel,
+                isCorrect ? Iconsax.tick_circle : Iconsax.close_circle,
                 color: isCorrect ? AppColors.success : AppColors.error,
               ),
               const SizedBox(width: AppSpacing.sm),
@@ -456,7 +457,7 @@ class _WordCompleteSection extends StatelessWidget {
                 child: const Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(Icons.check, size: 18),
+                    Icon(Iconsax.tick_square, size: 18),
                     SizedBox(width: 4),
                     Text('覚えた'),
                   ],

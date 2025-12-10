@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../../features/writing/data/models/writing_models.dart';
@@ -378,7 +379,7 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
       actions: [
         FHeaderAction(
           icon: Icon(
-            _state!.showAnswer ? Icons.visibility : Icons.visibility_off,
+            _state!.showAnswer ? Iconsax.eye : Iconsax.eye_slash,
           ),
           onPress: () {
             setState(() {
@@ -469,7 +470,7 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
           });
         },
         icon: Icon(
-          _state!.showAnswer ? Icons.visibility : Icons.visibility_off,
+          _state!.showAnswer ? Iconsax.eye : Iconsax.eye_slash,
           size: 18,
         ),
         label: Text(_state!.showAnswer ? 'ヒントを隠す' : 'ヒントを見る'),
@@ -483,7 +484,7 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
   Widget _buildFeedback() {
     final isCorrect = _state!.lastResult!;
     final color = isCorrect ? Colors.green : Colors.red;
-    final icon = isCorrect ? Icons.check_circle : Icons.cancel;
+    final icon = isCorrect ? Iconsax.tick_circle : Iconsax.close_circle;
     final text = isCorrect ? '正解!' : '不正解';
     final isLast = _state!.currentIndex >= _state!.entries.length - 1;
     final buttonLabel = isLast ? '完了' : '次へ';

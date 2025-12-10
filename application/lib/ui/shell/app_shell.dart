@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../core/services/push_notification_service.dart';
 import '../../features/auth/domain/providers/auth_providers.dart';
@@ -81,7 +82,7 @@ class _ErrorScreen extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Icon(
-                Icons.error_outline,
+                Iconsax.warning_2,
                 color: Colors.red,
                 size: 64,
               ),
@@ -109,7 +110,7 @@ class _ErrorScreen extends ConsumerWidget {
                   ref.read(authStateProvider.notifier).clearError();
                   await ref.read(authStateProvider.notifier).logout();
                 },
-                icon: const Icon(Icons.refresh),
+                icon: const Icon(Iconsax.refresh),
                 label: const Text('ログイン画面に戻る'),
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(

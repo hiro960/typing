@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 part 'writing_models.freezed.dart';
 part 'writing_models.g.dart';
@@ -120,25 +121,25 @@ extension WritingPatternExtension on WritingPattern {
   IconData getIconData() {
     switch (icon) {
       case 'link':
-        return Icons.link;
+        return Iconsax.link;
       case 'compare_arrows':
-        return Icons.compare_arrows;
+        return Iconsax.arrow_swap;
       case 'push_pin':
-        return Icons.push_pin;
+        return Iconsax.attach_circle;
       case 'bar_chart':
-        return Icons.bar_chart;
+        return Iconsax.chart;
       case 'description':
-        return Icons.description;
+        return Iconsax.document_text;
       case 'lightbulb':
-        return Icons.lightbulb;
+        return Iconsax.lamp_charge;
       case 'balance':
-        return Icons.balance;
+        return Iconsax.judge;
       case 'build':
-        return Icons.build;
+        return Iconsax.setting_2;
       case 'work':
-        return Icons.work;
+        return Iconsax.briefcase;
       default:
-        return Icons.help_outline; // デフォルトアイコン
+        return Iconsax.info_circle; // デフォルトアイコン
     }
   }
 }

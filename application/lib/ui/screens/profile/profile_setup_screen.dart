@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../features/auth/domain/providers/auth_providers.dart';
@@ -260,7 +261,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
                           ? FileImage(_selectedImage!)
                           : null,
                       child: _selectedImage == null
-                          ? Icon(Icons.person, size: 48, color: Colors.white)
+                          ? Icon(Iconsax.user, size: 48, color: Colors.white)
                           : null,
                     ),
                     GestureDetector(
@@ -278,7 +279,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
                           ],
                         ),
                         child: Icon(
-                          Icons.edit,
+                          Iconsax.edit,
                           size: 16,
                           color: theme.colorScheme.primary,
                         ),
@@ -413,7 +414,7 @@ class _SetupField extends StatelessWidget {
                   ),
                 )
               : errorText == null && controller.text.trim().isNotEmpty
-                  ? const Icon(Icons.check_circle, color: Colors.green)
+                  ? const Icon(Iconsax.tick_circle, color: Colors.green)
                   : null,
         ),
       ),

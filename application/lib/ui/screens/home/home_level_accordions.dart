@@ -19,21 +19,21 @@ class _LevelAccordions extends StatelessWidget {
       title: '初級レーン',
       subtitle: '子音・母音を身体に染み込ませるセッション',
       color: AppColors.primaryBright,
-      icon: Icons.bolt,
+      icon: Iconsax.flash_1,
     ),
     (
       level: LessonLevel.intermediate,
       title: '中級レーン',
       subtitle: '頻出単語とリズム練習でスピードアップ',
       color: AppColors.secondary,
-      icon: Icons.trending_up,
+      icon: Iconsax.trend_up,
     ),
     (
       level: LessonLevel.advanced,
       title: '上級レーン',
       subtitle: '文章入力と推し活フレーズで実戦モード',
       color: AppColors.accentEnd,
-      icon: Icons.star,
+      icon: Iconsax.star,
     ),
   ];
 
@@ -177,7 +177,7 @@ class _LessonTile extends StatelessWidget {
               Row(
                 children: [
                   Icon(
-                    isLocked ? Icons.lock_outline : Icons.play_arrow,
+                    isLocked ? Iconsax.lock : Iconsax.play,
                     size: 16,
                     color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                   ),

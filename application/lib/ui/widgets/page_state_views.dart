@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import 'shimmer_loading.dart';
 
@@ -8,7 +9,7 @@ class PageEmptyView extends StatelessWidget {
   const PageEmptyView({
     super.key,
     required this.title,
-    this.icon = Icons.inbox_outlined,
+    this.icon = Iconsax.direct_inbox,
     this.description,
     this.actionLabel,
     this.onAction,
@@ -76,7 +77,7 @@ class PageErrorView extends StatelessWidget {
   const PageErrorView({
     super.key,
     required this.onRetry,
-    this.icon = Icons.error_outline,
+    this.icon = Iconsax.warning_2,
     this.title = '読み込みに失敗しました',
     this.message,
     this.retryLabel = '再試行',

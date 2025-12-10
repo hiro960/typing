@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import '../../../../features/analysis/domain/models/analysis_models.dart';
 
 class VocabularyGrowthChart extends StatelessWidget {
@@ -19,7 +20,7 @@ class VocabularyGrowthChart extends StatelessWidget {
           child: Column(
             children: [
               Icon(
-                Icons.trending_up_rounded,
+                Iconsax.trend_up,
                 size: 48,
                 color: colors.onSurfaceVariant.withValues(alpha: 0.5),
               ),

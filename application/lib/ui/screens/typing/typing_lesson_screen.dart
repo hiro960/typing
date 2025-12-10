@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../core/exceptions/app_exception.dart';
 import '../../../core/utils/logger.dart';
@@ -306,7 +307,7 @@ class _LessonView extends StatelessWidget {
       showBackButton: true,
       actions: [
         FHeaderAction(
-          icon: const Icon(Icons.settings_outlined),
+          icon: const Icon(Iconsax.setting_2),
           onPress: onOpenSettings,
         ),
       ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/wordbook/data/models/word_model.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
@@ -52,11 +53,11 @@ class _WordDetailScreenState extends ConsumerState<WordDetailScreen> {
       showBackButton: true,
       actions: [
         FHeaderAction(
-          icon: const Icon(Icons.edit_outlined),
+          icon: const Icon(Iconsax.edit),
           onPress: () => _openForm(context, word),
         ),
         FHeaderAction(
-          icon: const Icon(Icons.delete_outline),
+          icon: const Icon(Iconsax.trash),
           onPress: () => _confirmDelete(context, word),
         ),
       ],
@@ -275,7 +276,7 @@ class _StatusHeader extends StatelessWidget {
           FButton.icon(
             style: FButtonStyle.ghost(),
             onPress: onSpeak,
-            child: const Icon(Icons.volume_up_outlined),
+            child: const Icon(Iconsax.volume_high),
           ),
         ],
       ),

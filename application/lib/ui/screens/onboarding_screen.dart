@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import 'social_auth_screen.dart';
 
@@ -22,19 +23,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       title: '指に馴染む韓国語タイピング',
       description: 'テンポに合わせた練習カリキュラムで、毎日の心地良いルーティンに。',
       badge: 'FLOWモード',
-      icon: Icons.keyboard_alt_outlined,
+      icon: Iconsax.keyboard,
     ),
     (
       title: '日記を書いてアウトプット',
       description: 'つぶやき感覚で日常を投稿。翻訳ヒントと添削で自然な韓国語が身につきます。',
       badge: '日記',
-      icon: Icons.article_outlined,
+      icon: Iconsax.document,
     ),
     (
       title: '推し活仲間と繋がる',
       description: 'コミュニティで学習状況をシェアして、仲間と繋がろう！',
       badge: 'コミュニティ',
-      icon: Icons.auto_awesome_outlined,
+      icon: Iconsax.magic_star,
     ),
   ];
 
@@ -143,7 +144,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           ),
                           borderRadius: BorderRadius.circular(16),
                         ),
-                        child: Icon(Icons.bolt, color: theme.colorScheme.primary),
+                        child: Icon(Iconsax.flash_1, color: theme.colorScheme.primary),
                       ),
                       const SizedBox(width: 12),
                       Column(

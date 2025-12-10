@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../../ui/app_spacing.dart';
 import '../../../../ui/widgets/section_title.dart';
@@ -26,7 +27,7 @@ class HanjaQuizSection extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const SectionTitle(
-              iconData: Icons.quiz,
+              iconData: Iconsax.receipt_text,
               text: '漢字語クイズ',
               color: Colors.orange,
             ),
@@ -144,7 +145,7 @@ class HanjaQuizSection extends ConsumerWidget {
           ),
           const SizedBox(width: 12),
           const Icon(
-            Icons.check_circle,
+            Iconsax.tick_circle,
             color: Colors.green,
             size: 32,
           ),
@@ -217,7 +218,7 @@ class HanjaQuizSection extends ConsumerWidget {
               ),
             ),
             const Icon(
-              Icons.play_circle_fill,
+              Iconsax.play_circle,
               color: Colors.orange,
               size: 32,
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/hanja/data/models/hanja_character.dart';
 import '../../../features/hanja/data/models/hanja_models.dart';
@@ -24,7 +25,7 @@ class HanjaCharacterDetailScreen extends ConsumerWidget {
 
     return AppPageScaffold(
       title: '単漢字',
-      titleIcon: Icons.text_fields,
+      titleIcon: Iconsax.text,
       showBackButton: true,
       child: characterAsync.when(
         data: (character) {
@@ -103,7 +104,7 @@ class _CharacterDetailContent extends StatelessWidget {
           // 韓国語読み
           _InfoSection(
             title: '韓国語読み',
-            icon: Icons.record_voice_over,
+            icon: Iconsax.microphone,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -131,7 +132,7 @@ class _CharacterDetailContent extends StatelessWidget {
           // 意味
           _InfoSection(
             title: '意味',
-            icon: Icons.info_outline,
+            icon: Iconsax.info_circle,
             child: Text(
               character.meaning,
               style: theme.textTheme.bodyLarge,
@@ -144,7 +145,7 @@ class _CharacterDetailContent extends StatelessWidget {
               character.japaneseKun.isNotEmpty)
             _InfoSection(
               title: '日本語読み',
-              icon: Icons.translate,
+              icon: Iconsax.translate,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -172,7 +173,7 @@ class _CharacterDetailContent extends StatelessWidget {
           if (character.radical != null || character.strokeCount != null)
             _InfoSection(
               title: '基本情報',
-              icon: Icons.format_list_numbered,
+              icon: Iconsax.textalign_justifyleft,
               child: Row(
                 children: [
                   if (character.radical != null)
@@ -200,7 +201,7 @@ class _CharacterDetailContent extends StatelessWidget {
           // Unicode
           _InfoSection(
             title: 'Unicode',
-            icon: Icons.code,
+            icon: Iconsax.code,
             child: Text(
               character.unicode,
               style: theme.textTheme.bodyMedium?.copyWith(
@@ -215,7 +216,7 @@ class _CharacterDetailContent extends StatelessWidget {
           if (character.relatedWords.isNotEmpty)
             _InfoSection(
               title: '関連語',
-              icon: Icons.link,
+              icon: Iconsax.link,
               child: Wrap(
                 spacing: AppSpacing.sm,
                 runSpacing: AppSpacing.sm,

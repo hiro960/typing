@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../../ui/app_theme.dart';
 
@@ -90,27 +91,27 @@ extension GrammarCategoryX on GrammarCategory {
   IconData get icon {
     switch (this) {
       case GrammarCategory.orthography:
-        return Icons.text_fields; // 表記・発音
+        return Iconsax.text; // 表記・発音
       case GrammarCategory.substantive:
-        return Icons.category; // 体言
+        return Iconsax.category; // 体言
       case GrammarCategory.particle:
-        return Icons.link; // 助詞
+        return Iconsax.link; // 助詞
       case GrammarCategory.conjugation:
-        return Icons.shuffle; // 用言と活用
+        return Iconsax.shuffle; // 用言と活用
       case GrammarCategory.sentenceEnding:
-        return Icons.format_quote; // 終止形と待遇法
+        return Iconsax.quote_up; // 終止形と待遇法
       case GrammarCategory.connective:
-        return Icons.swap_horiz; // 接続形
+        return Iconsax.arrow_swap_horizontal; // 接続形
       case GrammarCategory.adnominal:
-        return Icons.short_text; // 連体形
+        return Iconsax.text_block; // 連体形
       case GrammarCategory.tenseAspect:
-        return Icons.schedule; // 時制
+        return Iconsax.clock; // 時制
       case GrammarCategory.expression:
-        return Icons.chat_bubble_outline; // さまざまな表現
+        return Iconsax.message; // さまざまな表現
       case GrammarCategory.quotation:
-        return Icons.format_quote_rounded; // 直接話法と間接話法
+        return Iconsax.quote_up_circle; // 直接話法と間接話法
       case GrammarCategory.wordFormation:
-        return Icons.build; // 単語の作り
+        return Iconsax.setting_2; // 単語の作り
     }
   }
 
@@ -234,15 +235,15 @@ extension ExerciseTypeX on ExerciseType {
   IconData get icon {
     switch (this) {
       case ExerciseType.fillBlank:
-        return Icons.edit_note;
+        return Iconsax.edit_2;
       case ExerciseType.choice:
-        return Icons.check_circle_outline;
+        return Iconsax.tick_circle;
       case ExerciseType.typing:
-        return Icons.keyboard;
+        return Iconsax.keyboard;
       case ExerciseType.translation:
-        return Icons.translate;
+        return Iconsax.translate;
       case ExerciseType.matching:
-        return Icons.compare_arrows;
+        return Iconsax.arrow_swap;
     }
   }
 

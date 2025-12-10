@@ -84,19 +84,19 @@ class _TranslationButton extends StatelessWidget {
             gradient: LinearGradient(
               colors: isDark
                   ? [
-                      const Color(0xFF667eea).withValues(alpha: 0.3),
-                      const Color(0xFF764ba2).withValues(alpha: 0.3),
+                      AppColors.primary.withValues(alpha: 0.3),
+                      AppColors.secondary.withValues(alpha: 0.3),
                     ]
                   : [
-                      const Color(0xFF667eea).withValues(alpha: 0.15),
-                      const Color(0xFF764ba2).withValues(alpha: 0.15),
+                      AppColors.primary.withValues(alpha: 0.15),
+                      AppColors.secondary.withValues(alpha: 0.15),
                     ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
             borderRadius: BorderRadius.circular(14),
             border: Border.all(
-              color: const Color(0xFF667eea).withValues(alpha: 0.3),
+              color: AppColors.primary.withValues(alpha: 0.3),
             ),
           ),
           child: Row(
@@ -107,12 +107,12 @@ class _TranslationButton extends StatelessWidget {
                 height: 28,
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
-                    colors: [Color(0xFF667eea), Color(0xFF764ba2)],
+                    colors: [AppColors.primary, AppColors.secondary],
                   ),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: const Icon(
-                  Icons.translate_rounded,
+                  Iconsax.translate,
                   size: 14,
                   color: Colors.white,
                 ),
@@ -121,7 +121,7 @@ class _TranslationButton extends StatelessWidget {
               Text(
                 '翻訳',
                 style: theme.textTheme.labelLarge?.copyWith(
-                  color: isDark ? Colors.white : const Color(0xFF667eea),
+                  color: isDark ? Colors.white : AppColors.primary,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -153,20 +153,20 @@ class _ExchangeRateContent extends StatelessWidget {
             gradient: LinearGradient(
               colors: isDark
                   ? [
-                      const Color(0xFF11998e).withValues(alpha: 0.3),
-                      const Color(0xFF38ef7d).withValues(alpha: 0.3),
+                      AppColors.primary.withValues(alpha: 0.3),
+                      AppColors.primaryBright.withValues(alpha: 0.3),
                     ]
                   : [
-                      const Color(0xFF11998e).withValues(alpha: 0.15),
-                      const Color(0xFF38ef7d).withValues(alpha: 0.15),
+                      AppColors.primary.withValues(alpha: 0.15),
+                      AppColors.primaryBright.withValues(alpha: 0.15),
                     ],
             ),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Icon(
-            Icons.currency_exchange_rounded,
+            Iconsax.dollar_circle,
             size: 18,
-            color: isDark ? const Color(0xFF38ef7d) : const Color(0xFF11998e),
+            color: isDark ? AppColors.primaryBright : AppColors.primary,
           ),
         ),
         const SizedBox(width: AppSpacing.md),
@@ -194,7 +194,7 @@ class _ExchangeRateContent extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 6),
                     child: Icon(
-                      Icons.arrow_forward_rounded,
+                      Iconsax.arrow_right,
                       size: 12,
                       color: theme.colorScheme.onSurface.withValues(alpha: 0.4),
                     ),
@@ -204,7 +204,7 @@ class _ExchangeRateContent extends StatelessWidget {
                       '${(exchangeRate.rate * 100).toStringAsFixed(0)}₩',
                       style: theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.bold,
-                        color: isDark ? const Color(0xFF38ef7d) : const Color(0xFF11998e),
+                        color: isDark ? AppColors.primaryBright : AppColors.primary,
                         letterSpacing: -0.5,
                       ),
                       overflow: TextOverflow.ellipsis,
@@ -315,7 +315,7 @@ class _ExchangeRateErrorContent extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           child: Icon(
-            Icons.currency_exchange_rounded,
+            Iconsax.dollar_circle,
             size: 18,
             color: theme.colorScheme.error,
           ),

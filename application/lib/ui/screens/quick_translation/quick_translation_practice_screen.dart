@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 
 import '../../../features/quick_translation/data/models/quick_translation_models.dart';
@@ -168,7 +169,7 @@ class _QuickTranslationPracticeScreenState
         style: theme.textTheme.titleMedium,
       ),
       leading: IconButton(
-        icon: const Icon(Icons.close),
+        icon: const Icon(Iconsax.close_circle),
         onPressed: () => _showExitConfirmation(context),
       ),
       bottom: PreferredSize(
@@ -262,7 +263,7 @@ class _QuickTranslationPracticeScreenState
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Icon(Icons.warning, color: Colors.red, size: 16),
+                const Icon(Iconsax.warning_2, color: Colors.red, size: 16),
                 const SizedBox(width: AppSpacing.xs),
                 Text(
                   '音声認識を初期化できません',
@@ -371,7 +372,7 @@ class _QuickTranslationPracticeScreenState
               ],
             ),
             child: Icon(
-              _isListening ? Icons.stop : Icons.mic,
+              _isListening ? Iconsax.stop : Iconsax.microphone,
               size: _isListening ? 40 : 36,
               color: Colors.white,
             ),
@@ -427,7 +428,7 @@ class _QuickTranslationPracticeScreenState
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(
-                  Icons.lightbulb_outline,
+                  Iconsax.lamp_charge,
                   size: 18,
                   color: theme.colorScheme.primary,
                 ),
@@ -448,7 +449,7 @@ class _QuickTranslationPracticeScreenState
         if (!_showAnswer)
           ElevatedButton.icon(
             onPressed: () => setState(() => _showAnswer = true),
-            icon: const Icon(Icons.visibility),
+            icon: const Icon(Iconsax.eye),
             label: const Text('正解を見る'),
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.symmetric(
@@ -500,7 +501,7 @@ class _QuickTranslationPracticeScreenState
           // 音声再生ボタン
           IconButton(
             onPressed: () => _speakKorean(question.korean),
-            icon: const Icon(Icons.volume_up),
+            icon: const Icon(Iconsax.volume_high),
             color: Colors.green,
           ),
           if (question.explanation != null) ...[
@@ -565,19 +566,19 @@ class _QuickTranslationPracticeScreenState
     switch (_lastResult) {
       case AnswerResult.correct:
         feedbackColor = Colors.green;
-        feedbackIcon = Icons.check_circle;
+        feedbackIcon = Iconsax.tick_circle;
         feedbackText = '정답!';
       case AnswerResult.almostCorrect:
         feedbackColor = Colors.orange;
-        feedbackIcon = Icons.check_circle_outline;
+        feedbackIcon = Iconsax.tick_circle;
         feedbackText = '거의 맞았어요!';
       case AnswerResult.incorrect:
         feedbackColor = Colors.red;
-        feedbackIcon = Icons.cancel;
+        feedbackIcon = Iconsax.close_circle;
         feedbackText = '아쉬워요!';
       default:
         feedbackColor = Colors.grey;
-        feedbackIcon = Icons.skip_next;
+        feedbackIcon = Iconsax.arrow_right;
         feedbackText = 'スキップ';
     }
 
@@ -641,7 +642,7 @@ class _QuickTranslationPracticeScreenState
             // 音声再生
             IconButton(
               onPressed: () => _speakKorean(question.korean),
-              icon: const Icon(Icons.volume_up, size: 32),
+              icon: const Icon(Iconsax.volume_high, size: 32),
               color: Colors.green,
             ),
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 part 'hanja_models.g.dart';
 
@@ -96,15 +97,15 @@ extension HanjaWordCategoryX on HanjaWordCategory {
   IconData get icon {
     switch (this) {
       case HanjaWordCategory.daily:
-        return Icons.home;
+        return Iconsax.home;
       case HanjaWordCategory.education:
-        return Icons.school;
+        return Iconsax.teacher;
       case HanjaWordCategory.society:
-        return Icons.account_balance;
+        return Iconsax.bank;
       case HanjaWordCategory.nature:
-        return Icons.eco;
+        return Iconsax.tree;
       case HanjaWordCategory.culture:
-        return Icons.palette;
+        return Iconsax.colorfilter;
     }
   }
 }

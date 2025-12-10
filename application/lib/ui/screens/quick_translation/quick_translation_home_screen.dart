@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/quick_translation/data/models/quick_translation_models.dart';
 import '../../../features/quick_translation/domain/providers/quick_translation_providers.dart';
@@ -17,7 +18,7 @@ class QuickTranslationHomeScreen extends ConsumerWidget {
 
     return AppPageScaffold(
       title: '瞬間作文',
-      titleIcon: Icons.record_voice_over,
+      titleIcon: Iconsax.microphone,
       showBackButton: true,
       child: categoriesAsync.when(
         data: (categories) => _buildCategoryList(context, categories),
@@ -74,7 +75,7 @@ class QuickTranslationHomeScreen extends ConsumerWidget {
       child: Column(
         children: [
           const Icon(
-            Icons.record_voice_over,
+            Iconsax.microphone,
             size: 48,
             color: Colors.purple,
           ),
@@ -204,7 +205,7 @@ class _CategoryCard extends ConsumerWidget {
 
               // 矢印
               Icon(
-                Icons.chevron_right,
+                Iconsax.arrow_right_3,
                 color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
               ),
             ],
@@ -246,29 +247,29 @@ class _CategoryCard extends ConsumerWidget {
   IconData _getCategoryIcon() {
     switch (category.id) {
       case 'orthography':
-        return Icons.abc;
+        return Iconsax.text;
       case 'substantive':
-        return Icons.category;
+        return Iconsax.category;
       case 'particle':
-        return Icons.link;
+        return Iconsax.link;
       case 'conjugation':
-        return Icons.transform;
+        return Iconsax.repeat;
       case 'sentence_ending':
-        return Icons.chat_bubble;
+        return Iconsax.message_text;
       case 'connective':
-        return Icons.swap_horiz;
+        return Iconsax.convert;
       case 'adnominal':
-        return Icons.edit_note;
+        return Iconsax.edit;
       case 'tense_aspect':
-        return Icons.access_time;
+        return Iconsax.clock;
       case 'expression':
-        return Icons.lightbulb;
+        return Iconsax.lamp_charge;
       case 'quotation':
-        return Icons.format_quote;
+        return Iconsax.quote_up;
       case 'word_formation':
-        return Icons.construction;
+        return Iconsax.setting_2;
       default:
-        return Icons.book;
+        return Iconsax.book;
     }
   }
 

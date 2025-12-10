@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/diary/data/models/diary_post.dart';
@@ -201,15 +202,15 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
       titleIcon: Icons.menu_book_outlined,
       actions: [
         FHeaderAction(
-          icon: const Icon(Icons.search),
+          icon: const Icon(Iconsax.search_normal),
           onPress: widget.onOpenSearch,
         ),
         FHeaderAction(
-          icon: const Icon(Icons.bookmark_outline),
+          icon: const Icon(Iconsax.bookmark),
           onPress: widget.onOpenBookmarks,
         ),
         FHeaderAction(
-          icon: const Icon(Icons.edit_document),
+          icon: const Icon(Iconsax.document),
           onPress: () {
             Navigator.of(context).push(
               MaterialPageRoute<void>(
@@ -274,7 +275,7 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
                     }
                     if (feedState.posts.isEmpty) {
                       return PageEmptyView(
-                        icon: Icons.article_outlined,
+                        icon: Iconsax.document,
                         title: _selectedFeed == DiaryFeedType.following
                             ? 'フォロー中のユーザーはいません'
                             : '投稿がありません',

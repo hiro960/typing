@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/grammar/data/models/grammar_favorite.dart';
 import '../../../features/grammar/data/models/grammar_index.dart';
@@ -30,13 +31,13 @@ class GrammarFavoritesScreen extends ConsumerWidget {
 
     return AppPageScaffold(
       title: 'お気に入り文法',
-      titleIcon: Icons.favorite,
+      titleIcon: Iconsax.heart,
       showBackButton: true,
       child: favoritesAsync.when(
         data: (favorites) {
           if (favorites.isEmpty) {
             return const PageEmptyView(
-              icon: Icons.favorite_border,
+              icon: Iconsax.heart,
               title: 'お気に入りがありません',
               description: '文法詳細画面でハートをタップすると\nお気に入りに追加できます',
             );
@@ -48,7 +49,7 @@ class GrammarFavoritesScreen extends ConsumerWidget {
 
               if (items.isEmpty) {
                 return const PageEmptyView(
-                  icon: Icons.favorite_border,
+                  icon: Iconsax.heart,
                   title: 'お気に入りがありません',
                   description: '文法詳細画面でハートをタップすると\nお気に入りに追加できます',
                 );
@@ -139,7 +140,7 @@ class _FavoriteGrammarTile extends StatelessWidget {
           color: Colors.red,
           borderRadius: BorderRadius.circular(12),
         ),
-        child: const Icon(Icons.delete, color: Colors.white),
+        child: const Icon(Iconsax.trash, color: Colors.white),
       ),
       onDismissed: (_) => onRemove(),
       child: GestureDetector(
@@ -226,7 +227,7 @@ class _FavoriteGrammarTile extends StatelessWidget {
               const SizedBox(width: AppSpacing.sm),
               // 削除ボタン
               IconButton(
-                icon: const Icon(Icons.favorite, color: Colors.red),
+                icon: const Icon(Iconsax.heart, color: Colors.red),
                 onPressed: onRemove,
               ),
             ],

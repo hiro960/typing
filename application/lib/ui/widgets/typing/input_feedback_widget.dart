@@ -1,13 +1,14 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 /// 正解時のパルスアニメーション
 class PulseFeedback extends StatelessWidget {
   const PulseFeedback({
     super.key,
     required this.label,
-    this.icon = Icons.check_circle,
+    this.icon = Iconsax.tick_circle,
     this.iconColor = Colors.green,
     this.iconSize = 20,
   });
@@ -43,7 +44,7 @@ class ShakeFeedback extends StatelessWidget {
   const ShakeFeedback({
     super.key,
     required this.label,
-    this.icon = Icons.close_rounded,
+    this.icon = Iconsax.close_circle,
     this.iconColor = Colors.red,
     this.iconSize = 20,
     this.intensity = 6.0,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class LessonInfo {
   const LessonInfo({
@@ -154,14 +155,14 @@ const statTiles = <StatTileData>[
     label: '正解率',
     value: '92%',
     caption: '先週 +4%',
-    icon: Icons.verified_outlined,
+    icon: Iconsax.verify,
   ),
-  StatTileData(label: 'WPM', value: '48', caption: 'ベスト 52', icon: Icons.speed),
+  StatTileData(label: 'WPM', value: '48', caption: 'ベスト 52', icon: Iconsax.flash_1),
   StatTileData(
     label: '継続日数',
     value: '24日',
     caption: '自己ベスト',
-    icon: Icons.local_fire_department_outlined,
+    icon: Iconsax.flash_circle,
   ),
 ];
 
@@ -579,7 +580,7 @@ const notificationItems = <NotificationItem>[
     title: '완벽! を獲得しました',
     subtitle: 'レッスン1でミス0。ボーナス+50XP',
     timeAgo: '5分前',
-    icon: Icons.emoji_events_outlined,
+    icon: Iconsax.cup,
     color: Color(0xFF7ED321),
     isUnread: true,
   ),
@@ -587,21 +588,21 @@ const notificationItems = <NotificationItem>[
     title: '@hana_typing さんがあなたをフォロー',
     subtitle: 'プロフィールをのぞいてみましょう',
     timeAgo: '1時間前',
-    icon: Icons.person_add_alt_1_outlined,
+    icon: Iconsax.user_add,
     color: Color(0xFF4A90E2),
   ),
   NotificationItem(
     title: 'コメントが届きました',
     subtitle: '「좋은 팁 고마워요!」',
     timeAgo: '3時間前',
-    icon: Icons.chat_bubble_outline,
+    icon: Iconsax.message,
     color: Color(0xFFF5A623),
   ),
   NotificationItem(
     title: '日記が注目されています',
     subtitle: 'いいね 120件 / コメント 12件',
     timeAgo: '昨日',
-    icon: Icons.favorite_outline,
+    icon: Iconsax.heart,
     color: Color(0xFFFF5A8D),
   ),
 ];

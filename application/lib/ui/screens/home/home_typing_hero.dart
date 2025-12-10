@@ -143,7 +143,7 @@ class _TypingPracticeHero extends ConsumerWidget {
                           ),
                         ),
                         child: const Icon(
-                          Icons.keyboard_rounded,
+                          Iconsax.keyboard,
                           color: Colors.white,
                           size: 26,
                         ),
@@ -386,13 +386,13 @@ class _ModernLevelButton extends StatelessWidget {
               // アイコンまたはロック
               if (isLocked)
                 Icon(
-                  Icons.lock_rounded,
+                  Iconsax.lock,
                   size: 18,
                   color: Colors.white.withValues(alpha: 0.5),
                 )
               else
                 Icon(
-                  Icons.play_arrow_rounded,
+                  Iconsax.play,
                   size: 18,
                   color: Colors.white,
                 ),
@@ -513,7 +513,7 @@ class _LessonListSheet extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: const Icon(
-                    Icons.keyboard_rounded,
+                    Iconsax.keyboard,
                     color: Colors.white,
                     size: 20,
                   ),
@@ -539,7 +539,7 @@ class _LessonListSheet extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  icon: const Icon(Icons.close_rounded),
+                  icon: const Icon(Iconsax.close_circle),
                   onPressed: () => Navigator.pop(context),
                 ),
               ],
@@ -675,13 +675,13 @@ class _ModernLessonListTile extends StatelessWidget {
                   child: Center(
                     child: isCompleted
                         ? const Icon(
-                            Icons.check_rounded,
+                            Iconsax.tick_square,
                             size: 20,
                             color: Colors.white,
                           )
                         : isLocked
                             ? Icon(
-                                Icons.lock_rounded,
+                                Iconsax.lock,
                                 size: 18,
                                 color: theme.colorScheme.onSurface.withValues(alpha: 0.4),
                               )
@@ -710,7 +710,7 @@ class _ModernLessonListTile extends StatelessWidget {
                 ),
                 // 矢印
                 Icon(
-                  Icons.chevron_right_rounded,
+                  Iconsax.arrow_right_3,
                   color: isLocked
                       ? theme.colorScheme.onSurface.withValues(alpha: 0.3)
                       : theme.colorScheme.onSurface.withValues(alpha: 0.5),
