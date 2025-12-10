@@ -5,6 +5,7 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/wordbook/data/models/word_model.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
+import '../../app_theme.dart';
 import '../../widgets/app_page_scaffold.dart';
 import '../../widgets/page_state_views.dart';
 import '../../app_spacing.dart';
@@ -90,18 +91,43 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
               },
               children: WordCategory.values
                   .map(
-                    (category) => FTabEntry(
-                      label: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: AppSpacing.sm,
+                    (category) {
+                      final isSelected = category == _category;
+                      final icon = category == WordCategory.WORDS
+                          ? Iconsax.book_1
+                          : Iconsax.note;
+                      return FTabEntry(
+                        label: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: AppSpacing.sm,
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                icon,
+                                size: 16,
+                                color: isSelected
+                                    ? theme.colorScheme.primary
+                                    : theme.colorScheme.onSurface
+                                        .withValues(alpha: 0.6),
+                              ),
+                              const SizedBox(width: 6),
+                              Text(
+                                category.label,
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  color: isSelected
+                                      ? theme.colorScheme.primary
+                                      : theme.colorScheme.onSurface
+                                          .withValues(alpha: 0.6),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                        child: Text(
-                          category.label,
-                          style: theme.textTheme.bodySmall,
-                        ),
-                      ),
-                      child: const SizedBox.shrink(),
-                    ),
+                        child: const SizedBox.shrink(),
+                      );
+                    },
                   )
                   .toList(),
             ),

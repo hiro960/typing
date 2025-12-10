@@ -294,7 +294,7 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
                             margin: const EdgeInsets.symmetric(horizontal: 32),
                             decoration: BoxDecoration(
                               color: theme.brightness == Brightness.light
-                                  ? theme.colorScheme.onSurface.withOpacity(0.18)
+                                  ? theme.colorScheme.onSurface.withOpacity(0.08)
                                   : theme.colorScheme.onSurface.withOpacity(0.1),
                               borderRadius: BorderRadius.circular(12),
                               border: Border.all(

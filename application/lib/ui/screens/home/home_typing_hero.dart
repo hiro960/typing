@@ -38,14 +38,33 @@ class _TypingPracticeHero extends ConsumerWidget {
         borderRadius: BorderRadius.circular(28),
         gradient: LinearGradient(
           colors: isDark
-              ? [const Color(0xFF1a1f35), const Color(0xFF0d1117)]
-              : [const Color(0xFFf0f4ff), const Color(0xFFe8ecf4)],
+              ? [AppColors.background, AppColors.surface]
+              : [
+                  AppColors.primary.withValues(alpha: 0.15),
+                  AppColors.secondary.withValues(alpha: 0.12),
+                ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
+        border: Border.all(
+          color: isDark
+              ? AppColors.border.withValues(alpha: 0.5)
+              : AppColors.lightBorder.withValues(alpha: 0.6),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.primary.withValues(alpha: isDark ? 0.35 : 0.25),
+            blurRadius: 22,
+            offset: const Offset(0, 10),
+          ),
+        ],
       ),
-      child: const Center(
-        child: CircularProgressIndicator(strokeWidth: 2),
+      child: Center(
+        child: CircularProgressIndicator(
+          strokeWidth: 2,
+          valueColor: const AlwaysStoppedAnimation<Color>(AppColors.primary),
+          backgroundColor: Colors.white.withValues(alpha: 0.2),
+        ),
       ),
     );
   }
@@ -79,16 +98,20 @@ class _TypingPracticeHero extends ConsumerWidget {
         borderRadius: BorderRadius.circular(28),
         gradient: LinearGradient(
           colors: isDark
-              ? [const Color(0xFF2E3E4C), const Color(0xFF243442)]
-              : [const Color(0xFF2DBFBF), const Color(0xFF36B7C7)],
+              ? [AppColors.background, AppColors.surface]
+              : [AppColors.primary, AppColors.primaryBright],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
+        border: Border.all(
+          color: isDark
+              ? AppColors.primary.withValues(alpha: 0.35)
+              : AppColors.primaryBright.withValues(alpha: 0.4),
+        ),
         boxShadow: [
           BoxShadow(
-            color: (isDark ? AppColors.primary : const Color(0xFF2DBFBF))
-                .withValues(alpha: 0.3),
-            blurRadius: 24,
+            color: AppColors.primary.withValues(alpha: isDark ? 0.3 : 0.2),
+            blurRadius: 26,
             offset: const Offset(0, 12),
           ),
         ],
@@ -106,19 +129,33 @@ class _TypingPracticeHero extends ConsumerWidget {
                 height: 160,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.white.withValues(alpha: 0.08),
+                  color: Colors.white.withValues(alpha: isDark ? 0.06 : 0.12),
                 ),
               ),
             ),
             Positioned(
-              left: -20,
-              bottom: -30,
+              left: -30,
+              bottom: -40,
               child: Container(
-                width: 100,
-                height: 100,
+                width: 120,
+                height: 120,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.white.withValues(alpha: 0.05),
+                  color: AppColors.primaryBright.withValues(
+                    alpha: isDark ? 0.14 : 0.18,
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              left: 40,
+              top: 20,
+              child: Container(
+                width: 60,
+                height: 60,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white.withValues(alpha: isDark ? 0.1 : 0.16),
                 ),
               ),
             ),
@@ -135,12 +172,19 @@ class _TypingPracticeHero extends ConsumerWidget {
                         width: 52,
                         height: 52,
                         decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.2),
+                          color: Colors.white.withValues(alpha: 0.18),
                           borderRadius: BorderRadius.circular(16),
                           border: Border.all(
-                            color: Colors.white.withValues(alpha: 0.3),
+                            color: Colors.white.withValues(alpha: 0.28),
                             width: 1.5,
                           ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.white.withValues(alpha: 0.22),
+                              blurRadius: 12,
+                              offset: const Offset(0, 6),
+                            ),
+                          ],
                         ),
                         child: const Icon(
                           Iconsax.keyboard,
@@ -188,7 +232,7 @@ class _TypingPracticeHero extends ConsumerWidget {
                           label: '初級',
                           koreanLabel: '초급',
                           progress: beginnerProgress,
-                          gradientColors: const [Color(0xFF5DD3D3), Color(0xFF8DE4E4)],
+                          gradientColors: FeatureGradients.typing,
                           onTap: () => _showLevelLessons(
                             context,
                             '初級',
@@ -203,7 +247,7 @@ class _TypingPracticeHero extends ConsumerWidget {
                           label: '中級',
                           koreanLabel: '중급',
                           progress: intermediateProgress,
-                          gradientColors: const [Color(0xFF4FC3C3), Color(0xFF7FD9D9)],
+                          gradientColors: FeatureGradients.pronunciation,
                           onTap: beginnerProgress >= 1.0
                               ? () => _showLevelLessons(
                                     context,
@@ -221,7 +265,7 @@ class _TypingPracticeHero extends ConsumerWidget {
                           label: '上級',
                           koreanLabel: '고급',
                           progress: advancedProgress,
-                          gradientColors: const [Color(0xFF3BB8B8), Color(0xFF6BCDCD)],
+                          gradientColors: FeatureGradients.hanjaDictionary,
                           onTap: intermediateProgress >= 1.0
                               ? () => _showLevelLessons(
                                     context,
@@ -367,7 +411,7 @@ class _ModernLevelButton extends StatelessWidget {
                 ? null
                 : LinearGradient(
                     colors: gradientColors
-                        .map((c) => c.withValues(alpha: 0.9))
+                        .map((c) => c.withValues(alpha: 0.92))
                         .toList(),
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
@@ -377,9 +421,18 @@ class _ModernLevelButton extends StatelessWidget {
             border: Border.all(
               color: isLocked
                   ? Colors.white.withValues(alpha: 0.2)
-                  : Colors.white.withValues(alpha: 0.3),
+                  : Colors.white.withValues(alpha: 0.36),
               width: 1,
             ),
+            boxShadow: isLocked
+                ? null
+                : [
+                    BoxShadow(
+                      color: gradientColors.first.withValues(alpha: 0.25),
+                      blurRadius: 12,
+                      offset: const Offset(0, 6),
+                    ),
+                  ],
           ),
           child: Column(
             children: [
@@ -582,13 +635,13 @@ class _LessonListSheet extends StatelessWidget {
   List<Color> _getLevelGradient(String levelName) {
     switch (levelName) {
       case '初級':
-        return const [Color(0xFF5DD3D3), Color(0xFF8DE4E4)];
+        return FeatureGradients.typing;
       case '中級':
-        return const [Color(0xFF4FC3C3), Color(0xFF7FD9D9)];
+        return FeatureGradients.pronunciation;
       case '上級':
-        return const [Color(0xFF3BB8B8), Color(0xFF6BCDCD)];
+        return FeatureGradients.hanjaDictionary;
       default:
-        return const [Color(0xFF2DBFBF), Color(0xFF5DD3D3)];
+        return const [AppColors.primary, AppColors.primaryBright];
     }
   }
 
@@ -657,7 +710,9 @@ class _ModernLessonListTile extends StatelessWidget {
                   decoration: BoxDecoration(
                     gradient: isCompleted
                         ? const LinearGradient(
-                            colors: [Color(0xFF11998e), Color(0xFF38ef7d)],
+                            colors: [AppColors.primary, AppColors.primaryBright],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
                           )
                         : isLocked
                             ? null

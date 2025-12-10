@@ -5,6 +5,7 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/quick_translation/data/models/quick_translation_models.dart';
 import '../../../features/quick_translation/domain/providers/quick_translation_providers.dart';
+import '../../app_theme.dart';
 import '../../app_spacing.dart';
 
 /// 結果画面
@@ -96,6 +97,7 @@ class _QuickTranslationResultScreenState
     final correctRate = (session.correctCount + session.almostCorrectCount) /
         session.totalQuestions;
     final isCleared = correctRate >= 0.8;
+    final accent = isCleared ? AppColors.primary : AppColors.warning;
 
     return Container(
       width: double.infinity,
@@ -104,16 +106,26 @@ class _QuickTranslationResultScreenState
         gradient: LinearGradient(
           colors: isCleared
               ? [
-                  Colors.green.withValues(alpha: 0.2),
-                  Colors.teal.withValues(alpha: 0.1),
+                  AppColors.primary.withValues(alpha: 0.18),
+                  AppColors.primaryBright.withValues(alpha: 0.14),
                 ]
               : [
-                  Colors.orange.withValues(alpha: 0.2),
-                  Colors.amber.withValues(alpha: 0.1),
+                  AppColors.warning.withValues(alpha: 0.2),
+                  AppColors.error.withValues(alpha: 0.12),
                 ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
+        border: Border.all(
+          color: accent.withValues(alpha: 0.35),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: accent.withValues(alpha: 0.25),
+            blurRadius: 18,
+            offset: const Offset(0, 10),
+          ),
+        ],
       ),
       child: Column(
         children: [
@@ -121,14 +133,14 @@ class _QuickTranslationResultScreenState
           Icon(
             isCleared ? Iconsax.medal_star : Iconsax.cup,
             size: 48,
-            color: isCleared ? Colors.green : Colors.orange,
+            color: accent,
           ),
           const SizedBox(height: AppSpacing.sm),
           Text(
             isCleared ? '완료!' : '수고하셨어요!',
             style: theme.textTheme.headlineSmall?.copyWith(
               fontWeight: FontWeight.bold,
-              color: isCleared ? Colors.green : Colors.orange,
+              color: accent,
             ),
           ),
           const SizedBox(height: AppSpacing.md),
@@ -140,19 +152,19 @@ class _QuickTranslationResultScreenState
               _ScoreItem(
                 label: '正解',
                 count: session.correctCount,
-                color: Colors.green,
+                color: AppColors.primary,
               ),
               const SizedBox(width: AppSpacing.lg),
               _ScoreItem(
                 label: 'ほぼ正解',
                 count: session.almostCorrectCount,
-                color: Colors.orange,
+                color: AppColors.warning,
               ),
               const SizedBox(width: AppSpacing.lg),
               _ScoreItem(
                 label: '不正解',
                 count: session.incorrectCount + session.skippedCount,
-                color: Colors.red,
+                color: AppColors.error,
               ),
             ],
           ),
@@ -164,9 +176,10 @@ class _QuickTranslationResultScreenState
             borderRadius: BorderRadius.circular(4),
             child: LinearProgressIndicator(
               value: correctRate,
-              backgroundColor: Colors.grey.withValues(alpha: 0.3),
+              backgroundColor:
+                  theme.colorScheme.onSurface.withValues(alpha: 0.2),
               valueColor: AlwaysStoppedAnimation(
-                isCleared ? Colors.green : Colors.orange,
+                accent,
               ),
               minHeight: 8,
             ),
@@ -206,11 +219,30 @@ class _QuickTranslationResultScreenState
         final question = session.questionSet.questions.firstWhere(
           (q) => q.id == record.questionId,
         );
+        final accent = _resultColor(record.result);
 
         return Card(
           margin: const EdgeInsets.only(bottom: AppSpacing.sm),
-          child: Padding(
+          color: Colors.transparent,
+          elevation: 0,
+          child: Container(
             padding: const EdgeInsets.all(AppSpacing.md),
+            decoration: BoxDecoration(
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? AppColors.surface
+                  : AppColors.lightSurface,
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(
+                color: accent.withValues(alpha: 0.35),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: accent.withValues(alpha: 0.16),
+                  blurRadius: 12,
+                  offset: const Offset(0, 6),
+                ),
+              ],
+            ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -242,7 +274,7 @@ class _QuickTranslationResultScreenState
                         Text(
                           'あなた: ${record.userAnswer}',
                           style: theme.textTheme.bodySmall?.copyWith(
-                            color: Colors.red.withValues(alpha: 0.7),
+                            color: accent,
                           ),
                         ),
                       ],
@@ -255,7 +287,7 @@ class _QuickTranslationResultScreenState
                   icon: const Icon(Iconsax.volume_high),
                   iconSize: 20,
                   onPressed: () => _speakKorean(question.korean),
-                  color: theme.colorScheme.primary,
+                  color: accent,
                 ),
               ],
             ),
@@ -266,13 +298,18 @@ class _QuickTranslationResultScreenState
   }
 
   Widget _buildResultIcon(AnswerResult result) {
+    final accent = _resultColor(result);
     switch (result) {
       case AnswerResult.correct:
         return Container(
           width: 28,
           height: 28,
           decoration: const BoxDecoration(
-            color: Colors.green,
+            gradient: LinearGradient(
+              colors: [AppColors.primary, AppColors.primaryBright],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
             shape: BoxShape.circle,
           ),
           child: const Icon(Iconsax.tick_square, size: 18, color: Colors.white),
@@ -282,24 +319,47 @@ class _QuickTranslationResultScreenState
           width: 28,
           height: 28,
           decoration: BoxDecoration(
-            color: Colors.orange.withValues(alpha: 0.2),
+            color: accent.withValues(alpha: 0.15),
             shape: BoxShape.circle,
-            border: Border.all(color: Colors.orange, width: 2),
+            border: Border.all(color: accent, width: 2),
           ),
-          child: const Icon(Iconsax.tick_square, size: 18, color: Colors.orange),
+          child: Icon(Iconsax.tick_square, size: 18, color: accent),
         );
       case AnswerResult.incorrect:
+        return Container(
+          width: 28,
+          height: 28,
+          decoration: BoxDecoration(
+            color: accent.withValues(alpha: 0.15),
+            shape: BoxShape.circle,
+            border: Border.all(color: accent, width: 2),
+          ),
+          child: Icon(Iconsax.close_circle, size: 18, color: accent),
+        );
       case AnswerResult.skipped:
         return Container(
           width: 28,
           height: 28,
           decoration: BoxDecoration(
-            color: Colors.red.withValues(alpha: 0.2),
+            color: accent.withValues(alpha: 0.12),
             shape: BoxShape.circle,
-            border: Border.all(color: Colors.red, width: 2),
+            border: Border.all(color: accent.withValues(alpha: 0.6), width: 2),
           ),
-          child: const Icon(Iconsax.close_circle, size: 18, color: Colors.red),
+          child: Icon(Iconsax.arrow_right_3, size: 18, color: accent),
         );
+    }
+  }
+
+  Color _resultColor(AnswerResult result) {
+    switch (result) {
+      case AnswerResult.correct:
+        return AppColors.primary;
+      case AnswerResult.almostCorrect:
+        return AppColors.warning;
+      case AnswerResult.incorrect:
+        return AppColors.error;
+      case AnswerResult.skipped:
+        return AppColors.border;
     }
   }
 
@@ -309,15 +369,23 @@ class _QuickTranslationResultScreenState
   ) {
     final hasIncorrect =
         session.incorrectCount > 0 || session.skippedCount > 0;
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
 
     return Container(
       padding: const EdgeInsets.all(AppSpacing.md),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surface,
+        color: isDark ? AppColors.surface : AppColors.lightSurface,
+        border: Border(
+          top: BorderSide(
+            color:
+                isDark ? AppColors.border.withValues(alpha: 0.5) : AppColors.lightBorder,
+          ),
+        ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.1),
-            blurRadius: 8,
+            color: AppColors.primary.withValues(alpha: isDark ? 0.15 : 0.1),
+            blurRadius: 10,
             offset: const Offset(0, -2),
           ),
         ],

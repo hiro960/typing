@@ -4,6 +4,7 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/quick_translation/data/models/quick_translation_models.dart';
 import '../../../features/quick_translation/domain/providers/quick_translation_providers.dart';
+import '../../app_theme.dart';
 import '../../app_spacing.dart';
 import '../../widgets/app_page_scaffold.dart';
 import 'quick_translation_item_list_screen.dart';
@@ -18,7 +19,7 @@ class QuickTranslationHomeScreen extends ConsumerWidget {
 
     return AppPageScaffold(
       title: '瞬間作文',
-      titleIcon: Iconsax.microphone,
+      titleIcon: Iconsax.flash_1,
       showBackButton: true,
       child: categoriesAsync.when(
         data: (categories) => _buildCategoryList(context, categories),
@@ -58,39 +59,74 @@ class QuickTranslationHomeScreen extends ConsumerWidget {
 
   Widget _buildHeader(BuildContext context) {
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
 
     return Container(
       padding: const EdgeInsets.all(AppSpacing.md),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [
-            Colors.purple.withValues(alpha: 0.15),
-            Colors.indigo.withValues(alpha: 0.1),
-          ],
+          colors: isDark
+              ? [AppColors.surface, AppColors.background]
+              : [
+                  AppColors.primary.withValues(alpha: 0.14),
+                  AppColors.secondary.withValues(alpha: 0.1),
+                ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: isDark
+              ? AppColors.border.withValues(alpha: 0.5)
+              : AppColors.lightBorder.withValues(alpha: 0.7),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.primary.withValues(alpha: isDark ? 0.3 : 0.2),
+            blurRadius: 18,
+            offset: const Offset(0, 8),
+          ),
+        ],
       ),
       child: Column(
         children: [
-          const Icon(
-            Iconsax.microphone,
-            size: 48,
-            color: Colors.purple,
+          Container(
+            width: 64,
+            height: 64,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: const LinearGradient(
+                colors: [AppColors.primary, AppColors.primaryBright],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.primary.withValues(alpha: 0.35),
+                  blurRadius: 14,
+                  offset: const Offset(0, 6),
+                ),
+              ],
+            ),
+            child: const Icon(
+              Iconsax.flash_1,
+              color: Colors.white,
+              size: 32,
+            ),
           ),
           const SizedBox(height: AppSpacing.sm),
           Text(
             '日本語を見て韓国語で話そう',
             style: theme.textTheme.titleMedium?.copyWith(
               fontWeight: FontWeight.bold,
+              color: isDark ? AppColors.foreground : AppColors.lightForeground,
             ),
           ),
           const SizedBox(height: AppSpacing.xs),
           Text(
             '音声入力または手動モードで練習できます',
             style: theme.textTheme.bodySmall?.copyWith(
-              color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+              color: theme.colorScheme.onSurface.withValues(alpha: 0.65),
             ),
           ),
         ],
@@ -109,39 +145,68 @@ class _CategoryCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
+    final gradient = _getCategoryGradient();
+    final accent = gradient.first;
 
     return Card(
       margin: EdgeInsets.zero,
+      color: Colors.transparent,
+      elevation: 0,
       child: InkWell(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(16),
         onTap: () => _navigateToItemList(context),
         child: Container(
           padding: const EdgeInsets.all(AppSpacing.md),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(16),
             gradient: LinearGradient(
-              colors: [
-                _getCategoryColor().withValues(alpha: isDark ? 0.2 : 0.1),
-                _getCategoryColor().withValues(alpha: isDark ? 0.1 : 0.05),
-              ],
+              colors: gradient
+                  .map(
+                    (c) => c.withValues(alpha: isDark ? 0.28 : 0.16),
+                  )
+                  .toList(),
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
+            border: Border.all(
+              color: accent.withValues(alpha: isDark ? 0.35 : 0.25),
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: accent.withValues(alpha: 0.25),
+                blurRadius: 14,
+                offset: const Offset(0, 8),
+              ),
+            ],
           ),
           child: Row(
             children: [
               // カテゴリアイコン
               Container(
-                width: 48,
-                height: 48,
+                width: 52,
+                height: 52,
                 decoration: BoxDecoration(
-                  color: _getCategoryColor().withValues(alpha: 0.2),
-                  borderRadius: BorderRadius.circular(12),
+                  gradient: LinearGradient(
+                    colors: [
+                      accent.withValues(alpha: 0.9),
+                      gradient.last.withValues(alpha: 0.9),
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                  borderRadius: BorderRadius.circular(14),
+                  boxShadow: [
+                    BoxShadow(
+                      color: accent.withValues(alpha: 0.3),
+                      blurRadius: 10,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
                 ),
                 child: Center(
                   child: Icon(
                     _getCategoryIcon(),
-                    color: _getCategoryColor(),
+                    color: Colors.white,
                     size: 24,
                   ),
                 ),
@@ -173,7 +238,7 @@ class _CategoryCard extends ConsumerWidget {
                         Text(
                           '${category.itemCount}項目',
                           style: theme.textTheme.bodySmall?.copyWith(
-                            color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+                            color: theme.colorScheme.onSurface.withValues(alpha: 0.55),
                           ),
                         ),
                         if (category.clearedCount > 0) ...[
@@ -184,14 +249,17 @@ class _CategoryCard extends ConsumerWidget {
                               vertical: 2,
                             ),
                             decoration: BoxDecoration(
-                              color: Colors.green.withValues(alpha: 0.2),
-                              borderRadius: BorderRadius.circular(8),
+                              color: accent.withValues(alpha: 0.2),
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: accent.withValues(alpha: 0.35),
+                              ),
                             ),
                             child: Text(
                               '${category.clearedCount}クリア',
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 10,
-                                color: Colors.green,
+                                color: accent,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -215,32 +283,32 @@ class _CategoryCard extends ConsumerWidget {
     );
   }
 
-  Color _getCategoryColor() {
+  List<Color> _getCategoryGradient() {
     switch (category.id) {
       case 'orthography':
-        return Colors.blue;
+        return FeatureGradients.kanadara;
       case 'substantive':
-        return Colors.teal;
+        return FeatureGradients.quickTranslation;
       case 'particle':
-        return Colors.purple;
+        return FeatureGradients.writing;
       case 'conjugation':
-        return Colors.orange;
+        return FeatureGradients.typing;
       case 'sentence_ending':
-        return Colors.pink;
+        return FeatureGradients.pronunciation;
       case 'connective':
-        return Colors.indigo;
+        return FeatureGradients.hanjaQuiz;
       case 'adnominal':
-        return Colors.cyan;
+        return FeatureGradients.grammar;
       case 'tense_aspect':
-        return Colors.amber;
+        return FeatureGradients.hanjaDictionary;
       case 'expression':
-        return Colors.green;
+        return FeatureGradients.pronunciation;
       case 'quotation':
-        return Colors.deepPurple;
+        return FeatureGradients.typing;
       case 'word_formation':
-        return Colors.brown;
+        return FeatureGradients.grammar;
       default:
-        return Colors.grey;
+        return const [AppColors.primary, AppColors.primaryBright];
     }
   }
 
@@ -253,13 +321,13 @@ class _CategoryCard extends ConsumerWidget {
       case 'particle':
         return Iconsax.link;
       case 'conjugation':
-        return Iconsax.repeat;
-      case 'sentence_ending':
-        return Iconsax.message_text;
-      case 'connective':
         return Iconsax.convert;
+      case 'sentence_ending':
+        return Iconsax.message;
+      case 'connective':
+        return Iconsax.arrow_swap_horizontal;
       case 'adnominal':
-        return Iconsax.edit;
+        return Iconsax.edit_2;
       case 'tense_aspect':
         return Iconsax.clock;
       case 'expression':
@@ -267,7 +335,7 @@ class _CategoryCard extends ConsumerWidget {
       case 'quotation':
         return Iconsax.quote_up;
       case 'word_formation':
-        return Iconsax.setting_2;
+        return Iconsax.setting_3;
       default:
         return Iconsax.book;
     }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../features/diary/data/models/diary_post.dart';
+import '../app_theme.dart';
 import '../screens/profile/profile_screen.dart';
 import 'user_avatar.dart';
 import 'verified_badge.dart';
@@ -38,6 +39,7 @@ class DiaryPostCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     final avatar = post.user.profileImageUrl;
     final hashtags = post.tags.map((tag) => '#$tag').toList();
     final subtitle = [
@@ -54,178 +56,207 @@ class DiaryPostCard extends StatelessWidget {
     final hasMenu = (!isOwnPost && ((onReport != null) || (onBlock != null))) ||
         (canEdit && onEdit != null);
 
-    return Card(
+    return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(16),
-        child: Stack(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      UserAvatar(
-                        displayName: post.user.displayName,
-                        imageUrl: avatar,
-                        useCachedImage: true,
-                        onTap: () => _navigateToProfile(context),
-                      ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: GestureDetector(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: isDark
+              ? [AppColors.surface, AppColors.surfaceAlt]
+              : [AppColors.lightSurface, AppColors.lightSurfaceAlt],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: isDark
+              ? AppColors.border.withValues(alpha: 0.5)
+              : AppColors.lightBorder.withValues(alpha: 0.8),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.primary.withValues(alpha: isDark ? 0.28 : 0.16),
+            blurRadius: 18,
+            offset: const Offset(0, 10),
+          ),
+        ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(20),
+          child: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        UserAvatar(
+                          displayName: post.user.displayName,
+                          imageUrl: avatar,
+                          useCachedImage: true,
                           onTap: () => _navigateToProfile(context),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              UserNameWithBadge(
-                                displayName: post.user.displayName,
-                                userType: post.user.type,
-                                style: theme.textTheme.titleMedium,
-                                badgeSize: VerifiedBadgeSize.medium,
-                              ),
-                              Text(
-                                subtitle,
-                                style: theme.textTheme.bodySmall?.copyWith(
-                                  color: theme.colorScheme.onSurface
-                                      .withValues(alpha: 0.6),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () => _navigateToProfile(context),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                UserNameWithBadge(
+                                  displayName: post.user.displayName,
+                                  userType: post.user.type,
+                                  style: theme.textTheme.titleMedium,
+                                  badgeSize: VerifiedBadgeSize.medium,
+                                ),
+                                Text(
+                                  subtitle,
+                                  style: theme.textTheme.bodySmall?.copyWith(
+                                    color: theme.colorScheme.onSurface
+                                        .withValues(alpha: 0.6),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        if (visibilityBadge != null) ...[
+                          const SizedBox(width: 8),
+                          visibilityBadge,
+                        ],
+                        const SizedBox(width: 40),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+                    Text(post.content, style: theme.textTheme.bodyLarge),
+                    if (post.imageUrls.isNotEmpty) ...[
+                      const SizedBox(height: 12),
+                      _ImageCarousel(imageUrls: post.imageUrls),
+                    ],
+                    if (post.quotedPost != null) ...[
+                      const SizedBox(height: 12),
+                      DiaryQuotedPostCard(quotedPost: post.quotedPost!),
+                    ],
+                    if (hashtags.isNotEmpty) ...[
+                      const SizedBox(height: 12),
+                      Wrap(
+                        spacing: 8,
+                        runSpacing: 8,
+                        children: hashtags
+                            .map(
+                              (tag) => Chip(
+                                label: Text(tag),
+                                backgroundColor:
+                                    AppColors.primary.withValues(alpha: 0.12),
+                                labelStyle: theme.textTheme.labelMedium?.copyWith(
+                                  color: AppColors.primary,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
+                            )
+                            .toList(),
                       ),
-                      if (visibilityBadge != null) ...[
-                        const SizedBox(width: 8),
-                        visibilityBadge,
-                      ],
-                      const SizedBox(width: 40),
                     ],
-                  ),
-                  const SizedBox(height: 12),
-                  Text(post.content, style: theme.textTheme.bodyLarge),
-                  if (post.imageUrls.isNotEmpty) ...[
-                    const SizedBox(height: 12),
-                    _ImageCarousel(imageUrls: post.imageUrls),
-                  ],
-                  if (post.quotedPost != null) ...[
-                    const SizedBox(height: 12),
-                    DiaryQuotedPostCard(quotedPost: post.quotedPost!),
-                  ],
-                  if (hashtags.isNotEmpty) ...[
-                    const SizedBox(height: 12),
-                    Wrap(
-                      spacing: 8,
-                      runSpacing: 8,
-                      children: hashtags
-                          .map(
-                            (tag) => Chip(
-                              label: Text(tag),
-                              backgroundColor:
-                                  theme.colorScheme.surfaceContainerHighest,
-                            ),
-                          )
-                          .toList(),
-                    ),
-                  ],
-                  if (showActions) ...[
-                    const SizedBox(height: 12),
-                    Row(
-                      children: [
-                        _ActionButton(
-                          icon: post.liked
-                              ? Iconsax.heart_tick
-                              : Iconsax.heart,
-                          color: post.liked
-                              ? theme.colorScheme.primary
-                              : theme.colorScheme.onSurfaceVariant,
-                          count: post.likesCount,
-                          onPressed: onToggleLike,
-                        ),
-                        _ActionButton(
-                          icon: Iconsax.message,
-                          count: post.commentsCount,
-                          onPressed: onComment,
-                        ),
-                        _ActionButton(
-                          icon: Iconsax.quote_up,
-                          onPressed: onQuote ?? onComment,
-                          count: post.quotesCount,
-                        ),
-                        const Spacer(),
-                        IconButton(
-                          icon: Icon(
-                            post.bookmarked
-                                ? Iconsax.bookmark_2
-                                : Iconsax.bookmark,
-                            color: post.bookmarked
-                                ? theme.colorScheme.primary
+                    if (showActions) ...[
+                      const SizedBox(height: 12),
+                      Row(
+                        children: [
+                          _ActionButton(
+                            icon: post.liked
+                                ? Iconsax.heart_tick
+                                : Iconsax.heart,
+                            color: post.liked
+                                ? AppColors.primary
                                 : theme.colorScheme.onSurfaceVariant,
+                            count: post.likesCount,
+                            onPressed: onToggleLike,
                           ),
-                          onPressed: onToggleBookmark,
-                        ),
-                      ],
-                    ),
-                  ],
-                ],
-              ),
-            ),
-            if (hasMenu)
-              Positioned(
-                top: 8,
-                right: 8,
-                child: PopupMenuButton<String>(
-                  onSelected: (value) {
-                    if (value == 'edit') {
-                      onEdit?.call();
-                    } else if (value == 'report') {
-                      onReport?.call();
-                    } else if (value == 'block') {
-                      onBlock?.call();
-                    }
-                  },
-                  itemBuilder: (context) => [
-                    if (canEdit && onEdit != null)
-                      const PopupMenuItem(
-                        value: 'edit',
-                        child: Row(
-                          children: [
-                            Icon(Iconsax.edit, size: 20),
-                            SizedBox(width: 12),
-                            Text('編集'),
-                          ],
-                        ),
+                          _ActionButton(
+                            icon: Iconsax.message,
+                            count: post.commentsCount,
+                            onPressed: onComment,
+                          ),
+                          _ActionButton(
+                            icon: Iconsax.quote_up,
+                            onPressed: onQuote ?? onComment,
+                            count: post.quotesCount,
+                          ),
+                          const Spacer(),
+                          IconButton(
+                            icon: Icon(
+                              post.bookmarked
+                                  ? Iconsax.bookmark_2
+                                  : Iconsax.bookmark,
+                              color: post.bookmarked
+                                  ? AppColors.primary
+                                  : theme.colorScheme.onSurfaceVariant,
+                            ),
+                            onPressed: onToggleBookmark,
+                          ),
+                        ],
                       ),
-                    if (!isOwnPost && onReport != null)
-                      const PopupMenuItem(
-                        value: 'report',
-                        child: Row(
-                          children: [
-                            Icon(Iconsax.flag, size: 20),
-                            SizedBox(width: 12),
-                            Text('通報'),
-                          ],
-                        ),
-                      ),
-                    if (!isOwnPost && onBlock != null)
-                      const PopupMenuItem(
-                        value: 'block',
-                        child: Row(
-                          children: [
-                            Icon(Iconsax.slash, size: 20),
-                            SizedBox(width: 12),
-                            Text('ブロック'),
-                          ],
-                        ),
-                      ),
+                    ],
                   ],
                 ),
               ),
-          ],
+              if (hasMenu)
+                Positioned(
+                  top: 8,
+                  right: 8,
+                  child: PopupMenuButton<String>(
+                    onSelected: (value) {
+                      if (value == 'edit') {
+                        onEdit?.call();
+                      } else if (value == 'report') {
+                        onReport?.call();
+                      } else if (value == 'block') {
+                        onBlock?.call();
+                      }
+                    },
+                    itemBuilder: (context) => [
+                      if (canEdit && onEdit != null)
+                        const PopupMenuItem(
+                          value: 'edit',
+                          child: Row(
+                            children: [
+                              Icon(Iconsax.edit, size: 20),
+                              SizedBox(width: 12),
+                              Text('編集'),
+                            ],
+                          ),
+                        ),
+                      if (!isOwnPost && onReport != null)
+                        const PopupMenuItem(
+                          value: 'report',
+                          child: Row(
+                            children: [
+                              Icon(Iconsax.flag, size: 20),
+                              SizedBox(width: 12),
+                              Text('通報'),
+                            ],
+                          ),
+                        ),
+                      if (!isOwnPost && onBlock != null)
+                        const PopupMenuItem(
+                          value: 'block',
+                          child: Row(
+                            children: [
+                              Icon(Iconsax.slash, size: 20),
+                              SizedBox(width: 12),
+                              Text('ブロック'),
+                            ],
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );
@@ -328,7 +359,13 @@ class _ActionButton extends StatelessWidget {
         style: Theme.of(context)
             .textTheme
             .labelLarge
-            ?.copyWith(color: color),
+            ?.copyWith(
+              color: color ??
+                  Theme.of(context)
+                      .colorScheme
+                      .onSurface
+                      .withValues(alpha: 0.7),
+            ),
       ),
     );
   }
@@ -453,11 +490,26 @@ class DiaryQuotedPostCard extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surface.withValues(alpha: 0.4),
+        gradient: LinearGradient(
+          colors: Theme.of(context).brightness == Brightness.dark
+              ? [AppColors.surface, AppColors.surfaceAlt]
+              : [AppColors.lightSurface, AppColors.lightSurfaceAlt],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
         border: Border.all(
-          color: theme.colorScheme.outlineVariant.withValues(alpha: 0.1),
+          color: Theme.of(context).brightness == Brightness.dark
+              ? AppColors.border.withValues(alpha: 0.4)
+              : AppColors.lightBorder.withValues(alpha: 0.7),
         ),
         borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.primary.withValues(alpha: 0.14),
+            blurRadius: 10,
+            offset: const Offset(0, 6),
+          ),
+        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -516,7 +568,11 @@ class DiaryQuotedPostCard extends StatelessWidget {
                     (tag) => Chip(
                       label: Text(tag),
                       backgroundColor:
-                          theme.colorScheme.surfaceContainerHighest,
+                          AppColors.primary.withValues(alpha: 0.12),
+                      labelStyle: theme.textTheme.labelMedium?.copyWith(
+                        color: AppColors.primary,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   )
                   .toList(),

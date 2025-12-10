@@ -7,6 +7,7 @@ import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/data/repositories/diary_repository.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
+import '../../app_theme.dart';
 import '../../utils/dialog_helper.dart';
 import '../../utils/snackbar_helper.dart';
 import '../../utils/toast_helper.dart';
@@ -196,6 +197,8 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
     final timelineState = ref.watch(diaryTimelineControllerProvider);
     final feedState = timelineState.feed(_selectedFeed);
     final currentUser = ref.watch(currentUserProvider);
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
 
     return AppPageScaffold(
       title: '日記',
@@ -241,15 +244,43 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
               },
               children: DiaryFeedType.values
                   .map(
-                    (feed) => FTabEntry(
-                      label: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: AppSpacing.sm,
+                    (feed) {
+                      final isSelected = feed == _selectedFeed;
+                      final icon = feed == DiaryFeedType.recommended
+                          ? Iconsax.star
+                          : Iconsax.people;
+                      return FTabEntry(
+                        label: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: AppSpacing.sm,
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                icon,
+                                size: 16,
+                                color: isSelected
+                                    ? theme.colorScheme.primary
+                                    : theme.colorScheme.onSurface
+                                        .withValues(alpha: 0.6),
+                              ),
+                              const SizedBox(width: 6),
+                              Text(
+                                _feedLabels[feed]!,
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  color: isSelected
+                                      ? theme.colorScheme.primary
+                                      : theme.colorScheme.onSurface
+                                          .withValues(alpha: 0.6),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                        child: Text(_feedLabels[feed]!),
-                      ),
-                      child: const SizedBox.shrink(),
-                    ),
+                        child: const SizedBox.shrink(),
+                      );
+                    },
                   )
                   .toList(),
             ),
@@ -257,6 +288,9 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
           Expanded(
             child: RefreshIndicator(
               onRefresh: _refresh,
+              color: AppColors.primary,
+              backgroundColor:
+                  isDark ? AppColors.surface : AppColors.lightSurface,
               child: Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: AppPadding.homePage.left,
@@ -331,12 +365,24 @@ class _DiaryPostSkeletonList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final cardColor =
+        isDark ? AppColors.surface : AppColors.lightSurface;
+    final borderColor =
+        isDark ? AppColors.border.withValues(alpha: 0.4) : AppColors.lightBorder;
+
     return SkeletonListBuilder(
       itemCount: 4,
       padding: const EdgeInsets.only(top: 12, bottom: 120),
       separatorHeight: 16,
       itemBuilder: (context, index) {
         return Card(
+          color: cardColor,
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(18),
+            side: BorderSide(color: borderColor),
+          ),
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Column(

@@ -6,6 +6,7 @@ import 'package:speech_to_text/speech_to_text.dart';
 
 import '../../../features/quick_translation/data/models/quick_translation_models.dart';
 import '../../../features/quick_translation/domain/providers/quick_translation_providers.dart';
+import '../../app_theme.dart';
 import '../../app_spacing.dart';
 import 'quick_translation_result_screen.dart';
 
@@ -188,6 +189,7 @@ class _QuickTranslationPracticeScreenState
     PracticeSessionState session,
   ) {
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     final question = session.currentQuestion;
 
     return SafeArea(
@@ -202,8 +204,26 @@ class _QuickTranslationPracticeScreenState
               width: double.infinity,
               padding: const EdgeInsets.all(AppSpacing.lg),
               decoration: BoxDecoration(
-                color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
-                borderRadius: BorderRadius.circular(16),
+                gradient: LinearGradient(
+                  colors: isDark
+                      ? [AppColors.surface, AppColors.surfaceAlt]
+                      : [AppColors.lightSurface, AppColors.lightSurfaceAlt],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(18),
+                border: Border.all(
+                  color: isDark
+                      ? AppColors.border.withValues(alpha: 0.5)
+                      : AppColors.lightBorder.withValues(alpha: 0.8),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.primary.withValues(alpha: isDark ? 0.25 : 0.12),
+                    blurRadius: 16,
+                    offset: const Offset(0, 8),
+                  ),
+                ],
               ),
               child: Column(
                 children: [
@@ -257,17 +277,17 @@ class _QuickTranslationPracticeScreenState
             padding: const EdgeInsets.all(AppSpacing.sm),
             margin: const EdgeInsets.only(bottom: AppSpacing.md),
             decoration: BoxDecoration(
-              color: Colors.red.withValues(alpha: 0.1),
+              color: AppColors.error.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Icon(Iconsax.warning_2, color: Colors.red, size: 16),
+                const Icon(Iconsax.warning_2, color: AppColors.error, size: 16),
                 const SizedBox(width: AppSpacing.xs),
                 Text(
                   '音声認識を初期化できません',
-                  style: theme.textTheme.bodySmall?.copyWith(color: Colors.red),
+                  style: theme.textTheme.bodySmall?.copyWith(color: AppColors.error),
                 ),
               ],
             ),
@@ -352,20 +372,23 @@ class _QuickTranslationPracticeScreenState
             width: _isListening ? 90 : 80,
             height: _isListening ? 90 : 80,
             decoration: BoxDecoration(
-              color: !_speechAvailable
-                  ? Colors.grey
-                  : _isListening
-                      ? theme.colorScheme.error
-                      : theme.colorScheme.primary,
+              gradient: !_speechAvailable
+                  ? null
+                  : LinearGradient(
+                      colors: _isListening
+                          ? [AppColors.primaryBright, AppColors.primary]
+                          : [AppColors.primary, AppColors.secondary],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+              color: !_speechAvailable ? Colors.grey : null,
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
                   color: (!_speechAvailable
                           ? Colors.grey
-                          : _isListening
-                              ? theme.colorScheme.error
-                              : theme.colorScheme.primary)
-                      .withValues(alpha: 0.3),
+                          : AppColors.primary)
+                      .withValues(alpha: 0.35),
                   blurRadius: _isListening ? 24 : 16,
                   offset: const Offset(0, 4),
                 ),
@@ -474,10 +497,10 @@ class _QuickTranslationPracticeScreenState
       width: double.infinity,
       padding: const EdgeInsets.all(AppSpacing.lg),
       decoration: BoxDecoration(
-        color: Colors.green.withValues(alpha: 0.1),
+        color: AppColors.primary.withValues(alpha: 0.12),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: Colors.green.withValues(alpha: 0.3),
+          color: AppColors.primary.withValues(alpha: 0.35),
         ),
       ),
       child: Column(
@@ -485,7 +508,7 @@ class _QuickTranslationPracticeScreenState
           Text(
             '正解',
             style: theme.textTheme.bodySmall?.copyWith(
-              color: Colors.green,
+              color: AppColors.primary,
             ),
           ),
           const SizedBox(height: AppSpacing.sm),
@@ -493,7 +516,7 @@ class _QuickTranslationPracticeScreenState
             question.korean,
             style: theme.textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.bold,
-              color: Colors.green.shade700,
+              color: AppColors.primary,
             ),
             textAlign: TextAlign.center,
           ),
@@ -502,7 +525,7 @@ class _QuickTranslationPracticeScreenState
           IconButton(
             onPressed: () => _speakKorean(question.korean),
             icon: const Icon(Iconsax.volume_high),
-            color: Colors.green,
+            color: AppColors.primary,
           ),
           if (question.explanation != null) ...[
             const Divider(height: AppSpacing.lg),
@@ -523,11 +546,28 @@ class _QuickTranslationPracticeScreenState
     BuildContext context,
     PracticeSessionState session,
   ) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Row(
       children: [
         Expanded(
           child: OutlinedButton(
             onPressed: _handleSkip,
+            style: OutlinedButton.styleFrom(
+              foregroundColor: AppColors.primary,
+              backgroundColor:
+                  AppColors.primary.withValues(alpha: isDark ? 0.14 : 0.1),
+              side: const BorderSide(color: AppColors.primary),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(14),
+              ),
+              padding: const EdgeInsets.symmetric(
+                vertical: AppSpacing.sm,
+              ),
+              textStyle: const TextStyle(
+                fontWeight: FontWeight.w700,
+              ),
+            ),
             child: const Text('スキップ'),
           ),
         ),
@@ -565,19 +605,22 @@ class _QuickTranslationPracticeScreenState
 
     switch (_lastResult) {
       case AnswerResult.correct:
-        feedbackColor = Colors.green;
+        feedbackColor = AppColors.primary;
         feedbackIcon = Iconsax.tick_circle;
         feedbackText = '정답!';
       case AnswerResult.almostCorrect:
-        feedbackColor = Colors.orange;
+        feedbackColor = AppColors.warning;
         feedbackIcon = Iconsax.tick_circle;
         feedbackText = '거의 맞았어요!';
       case AnswerResult.incorrect:
-        feedbackColor = Colors.red;
+        feedbackColor = AppColors.error;
         feedbackIcon = Iconsax.close_circle;
         feedbackText = '아쉬워요!';
       default:
-        feedbackColor = Colors.grey;
+        feedbackColor = Theme.of(context)
+            .colorScheme
+            .onSurface
+            .withValues(alpha: 0.5);
         feedbackIcon = Iconsax.arrow_right;
         feedbackText = 'スキップ';
     }
@@ -632,7 +675,7 @@ class _QuickTranslationPracticeScreenState
               question.korean,
               style: theme.textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
-                color: Colors.green.shade700,
+                color: feedbackColor,
               ),
               textAlign: TextAlign.center,
             ),
@@ -643,7 +686,7 @@ class _QuickTranslationPracticeScreenState
             IconButton(
               onPressed: () => _speakKorean(question.korean),
               icon: const Icon(Iconsax.volume_high, size: 32),
-              color: Colors.green,
+              color: feedbackColor,
             ),
 
             if (question.explanation != null) ...[

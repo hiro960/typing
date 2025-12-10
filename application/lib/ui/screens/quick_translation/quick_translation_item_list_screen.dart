@@ -4,6 +4,7 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/quick_translation/data/models/quick_translation_models.dart';
 import '../../../features/quick_translation/domain/providers/quick_translation_providers.dart';
+import '../../app_theme.dart';
 import '../../app_spacing.dart';
 import '../../widgets/app_page_scaffold.dart';
 import 'quick_translation_practice_screen.dart';
@@ -150,25 +151,53 @@ class _QuickTranslationItemListScreenState
 
   Widget _buildSectionHeader(BuildContext context, String text) {
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
 
     return Container(
       padding: const EdgeInsets.symmetric(
-        horizontal: AppSpacing.sm,
-        vertical: AppSpacing.xs,
+        horizontal: AppSpacing.md,
+        vertical: AppSpacing.sm,
       ),
       decoration: BoxDecoration(
-        border: Border(
-          left: BorderSide(
-            color: theme.colorScheme.primary,
-            width: 3,
+        color: isDark ? AppColors.surface : AppColors.lightSurface,
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(
+          color: isDark
+              ? AppColors.border.withValues(alpha: 0.5)
+              : AppColors.lightBorder.withValues(alpha: 0.8),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.primary.withValues(alpha: isDark ? 0.25 : 0.15),
+            blurRadius: 12,
+            offset: const Offset(0, 6),
           ),
-        ),
+        ],
       ),
-      child: Text(
-        text,
-        style: theme.textTheme.bodyMedium?.copyWith(
-          fontWeight: FontWeight.w500,
-        ),
+      child: Row(
+        children: [
+          Container(
+            width: 8,
+            height: 32,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(6),
+              gradient: const LinearGradient(
+                colors: [AppColors.primary, AppColors.primaryBright],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+            ),
+          ),
+          const SizedBox(width: AppSpacing.sm),
+          Expanded(
+            child: Text(
+              text,
+              style: theme.textTheme.bodyMedium?.copyWith(
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -203,14 +232,12 @@ class _ModeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
 
     return Material(
-      color: isSelected
-          ? theme.colorScheme.primary.withValues(alpha: 0.15)
-          : theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
-      borderRadius: BorderRadius.circular(12),
+      color: Colors.transparent,
       child: InkWell(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(14),
         onTap: onTap,
         child: Container(
           padding: const EdgeInsets.symmetric(
@@ -218,13 +245,36 @@ class _ModeButton extends StatelessWidget {
             vertical: AppSpacing.sm,
           ),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(14),
+            gradient: isSelected
+                ? const LinearGradient(
+                    colors: [AppColors.primary, AppColors.primaryBright],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  )
+                : null,
+            color: isSelected
+                ? null
+                : isDark
+                    ? AppColors.surfaceAlt
+                    : AppColors.lightSurfaceAlt,
             border: Border.all(
               color: isSelected
-                  ? theme.colorScheme.primary
-                  : Colors.transparent,
-              width: 2,
+                  ? AppColors.primary.withValues(alpha: 0.6)
+                  : isDark
+                      ? AppColors.border.withValues(alpha: 0.5)
+                      : AppColors.lightBorder,
+              width: 1.5,
             ),
+            boxShadow: isSelected
+                ? [
+                    BoxShadow(
+                      color: AppColors.primary.withValues(alpha: 0.25),
+                      blurRadius: 12,
+                      offset: const Offset(0, 6),
+                    ),
+                  ]
+                : null,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -232,9 +282,7 @@ class _ModeButton extends StatelessWidget {
               Icon(
                 icon,
                 size: 18,
-                color: isSelected
-                    ? theme.colorScheme.primary
-                    : theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                color: isSelected ? Colors.white : theme.colorScheme.onSurface.withValues(alpha: 0.65),
               ),
               const SizedBox(width: AppSpacing.xs),
               Text(
@@ -242,8 +290,8 @@ class _ModeButton extends StatelessWidget {
                 style: theme.textTheme.bodyMedium?.copyWith(
                   fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
                   color: isSelected
-                      ? theme.colorScheme.primary
-                      : theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                      ? Colors.white
+                      : theme.colorScheme.onSurface.withValues(alpha: 0.7),
                 ),
               ),
             ],
@@ -267,14 +315,36 @@ class _GrammarItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final accent = item.isCleared ? AppColors.success : AppColors.primary;
 
     return Card(
       margin: EdgeInsets.zero,
+      color: Colors.transparent,
+      elevation: 0,
       child: InkWell(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(16),
         onTap: onTap,
-        child: Padding(
+        child: Container(
           padding: const EdgeInsets.all(AppSpacing.md),
+          decoration: BoxDecoration(
+            color: isDark ? AppColors.surface : AppColors.lightSurface,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: item.isCleared
+                  ? accent.withValues(alpha: 0.35)
+                  : isDark
+                      ? AppColors.border.withValues(alpha: 0.4)
+                      : AppColors.lightBorder.withValues(alpha: 0.85),
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: accent.withValues(alpha: item.isCleared ? 0.2 : 0.12),
+                blurRadius: 12,
+                offset: const Offset(0, 6),
+              ),
+            ],
+          ),
           child: Row(
             children: [
               // クリア状況アイコン
@@ -282,22 +352,36 @@ class _GrammarItemCard extends StatelessWidget {
                 width: 32,
                 height: 32,
                 decoration: BoxDecoration(
-                  color: item.isCleared
-                      ? Colors.green.withValues(alpha: 0.2)
-                      : theme.colorScheme.surfaceContainerHighest,
+                  gradient: LinearGradient(
+                    colors: [
+                      accent,
+                      accent == AppColors.success
+                          ? AppColors.primaryBright
+                          : accent.withValues(alpha: 0.9),
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
                   shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: accent.withValues(alpha: 0.25),
+                      blurRadius: 10,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
                 ),
                 child: Center(
                   child: item.isCleared
                       ? const Icon(
                           Iconsax.tick_square,
                           size: 18,
-                          color: Colors.green,
+                          color: Colors.white,
                         )
                       : Icon(
                           Iconsax.record_circle,
                           size: 18,
-                          color: theme.colorScheme.onSurface.withValues(alpha: 0.3),
+                          color: Colors.white.withValues(alpha: 0.8),
                         ),
                 ),
               ),
@@ -312,6 +396,7 @@ class _GrammarItemCard extends StatelessWidget {
                       item.grammarTitle,
                       style: theme.textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.bold,
+                        color: isDark ? AppColors.foreground : AppColors.lightForeground,
                       ),
                     ),
                     const SizedBox(height: 2),
@@ -326,7 +411,7 @@ class _GrammarItemCard extends StatelessWidget {
                       Text(
                         '最高記録: ${item.progress!.bestCorrectCount}/10',
                         style: theme.textTheme.bodySmall?.copyWith(
-                          color: Colors.green,
+                          color: accent,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -337,8 +422,8 @@ class _GrammarItemCard extends StatelessWidget {
 
               // 矢印
               Icon(
-                Iconsax.play,
-                color: theme.colorScheme.primary,
+                Iconsax.arrow_right_3,
+                color: accent,
               ),
             ],
           ),
