@@ -124,37 +124,43 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   void _openRankingGame() {
     // ランキングゲームセクションのボトムシートを表示
-    showModalBottomSheet<void>(
+    showFSheet<void>(
       context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
+      side: FLayout.btt,
+      useRootNavigator: true,
+      barrierDismissible: true,
+      draggable: true,
       builder: (context) => const _GameDetailSheet(
-        child: RankingGameSection(),
         title: 'タイピングゲーム',
+        child: RankingGameSection(),
       ),
     );
   }
 
   void _openPronunciationGame() {
-    showModalBottomSheet<void>(
+    showFSheet<void>(
       context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
+      side: FLayout.btt,
+      useRootNavigator: true,
+      barrierDismissible: true,
+      draggable: true,
       builder: (context) => const _GameDetailSheet(
-        child: PronunciationGameSection(),
         title: '発音ゲーム',
+        child: PronunciationGameSection(),
       ),
     );
   }
 
   void _openHanjaQuiz() {
-    showModalBottomSheet<void>(
+    showFSheet<void>(
       context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
+      side: FLayout.btt,
+      useRootNavigator: true,
+      barrierDismissible: true,
+      draggable: true,
       builder: (context) => const _GameDetailSheet(
-        child: HanjaQuizSection(),
         title: '漢字語クイズ',
+        child: HanjaQuizSection(),
       ),
     );
   }
@@ -242,18 +248,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // 1. Quick Tools（為替レート + 翻訳）
-                    _QuickToolsCard(onTranslationTap: _openTranslation),
-                    const SizedBox(height: AppSpacing.xl),
-
-                    // 2. タイピング練習 Hero
+                    // 1. タイピング練習 Hero
                     _TypingPracticeHero(onLessonTap: _onLessonTap),
                     const SizedBox(height: AppSpacing.xl),
 
-                    // 3. 機能グリッド（2行×4列）
+                    // 2. 機能グリッド（4列）
                     _FeatureGrid(
                       features: [
-                        // Row 1
                         _FeatureItem(
                           title: 'カナダラ表',
                           icon: Iconsax.grid_1,
@@ -279,18 +280,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                           gradientColors: FeatureGradients.typing,
                           onTap: _openRankingGame,
                         ),
-                        // Row 2
                         _FeatureItem(
                           title: '発音',
                           icon: Iconsax.microphone_2,
                           gradientColors: FeatureGradients.pronunciation,
                           onTap: _openPronunciationGame,
-                        ),
-                        _FeatureItem(
-                          title: '漢字語',
-                          icon: Iconsax.translate,
-                          gradientColors: FeatureGradients.hanjaQuiz,
-                          onTap: _openHanjaQuiz,
                         ),
                         _FeatureItem(
                           title: '文法',
@@ -299,20 +293,32 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                           onTap: _openGrammarDictionary,
                         ),
                         _FeatureItem(
+                          title: '漢字語',
+                          icon: Iconsax.translate,
+                          gradientColors: FeatureGradients.hanjaQuiz,
+                          onTap: _openHanjaQuiz,
+                        ),
+                        _FeatureItem(
                           title: '漢字語辞典',
                           icon: Iconsax.book_square,
                           gradientColors: FeatureGradients.hanjaDictionary,
                           onTap: _openHanjaDictionary,
                         ),
+                        _FeatureItem(
+                          title: '翻訳',
+                          icon: Iconsax.translate,
+                          gradientColors: FeatureGradients.translation,
+                          onTap: _openTranslation,
+                        ),
                       ],
                     ),
                     const SizedBox(height: AppSpacing.xl),
 
-                    // 4. 週間進捗
+                    // 3. 週間進捗
                     const _WeeklyProgressCard(),
                     const SizedBox(height: AppSpacing.xl),
 
-                    // 5. AI先生ボタン
+                    // 4. AI先生ボタン
                     _AiTeacherSection(
                       isPremiumUser: isPremiumUser,
                       onTap: () {
@@ -333,6 +339,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         );
                       },
                     ),
+                    const SizedBox(height: AppSpacing.xl),
+
+                    // 5. 為替レート
+                    const _ExchangeRateCard(),
                     const SizedBox(height: AppSpacing.xl),
                   ],
                 ),
@@ -378,9 +388,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
 
-    showModalBottomSheet<void>(
+    showFSheet<void>(
       context: context,
-      backgroundColor: Colors.transparent,
+      side: FLayout.btt,
+      useRootNavigator: true,
+      barrierDismissible: true,
+      draggable: true,
       builder: (context) => Container(
         decoration: BoxDecoration(
           color: isDark ? AppColors.surface : AppColors.lightSurface,
@@ -565,7 +578,6 @@ class _QuickTranslationListScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final theme = Theme.of(context);
     final categoriesAsync = ref.watch(quickTranslationCategoriesProvider);
 
     return Scaffold(
@@ -832,19 +844,6 @@ class _AiTeacherSection extends StatelessWidget {
             ),
             child: Stack(
               children: [
-                // 装飾
-                Positioned(
-                  right: -4,
-                  top: -4,
-                  child: Container(
-                    width: 20,
-                    height: 20,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white.withValues(alpha: 0.2),
-                    ),
-                  ),
-                ),
                 const Center(
                   child: Icon(
                     Iconsax.magic_star,
@@ -870,29 +869,6 @@ class _AiTeacherSection extends StatelessWidget {
                         letterSpacing: -0.3,
                       ),
                     ),
-                    if (!isPremiumUser) ...[
-                      const SizedBox(width: 8),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 2,
-                        ),
-                        decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            colors: [Color(0xFFffecd2), Color(0xFFfcb69f)],
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Text(
-                          'Premium',
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF8B4513),
-                          ),
-                        ),
-                      ),
-                    ],
                   ],
                 ),
                 const SizedBox(height: 2),

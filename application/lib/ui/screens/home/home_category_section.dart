@@ -17,7 +17,7 @@ class _FeatureItem {
   final String? textIcon; // カナダラ表用
 }
 
-/// 8機能を2行×4列で表示（Row/Column実装）
+/// 機能グリッド（4列で表示）
 class _FeatureGrid extends StatelessWidget {
   const _FeatureGrid({required this.features});
 
@@ -28,13 +28,15 @@ class _FeatureGrid extends StatelessWidget {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
 
-    // 8アイテムを2行に分割
-    final row1 = features.take(4).toList();
-    final row2 = features.skip(4).take(4).toList();
+    // 4列ずつに分割
+    final rows = <List<_FeatureItem>>[];
+    for (var i = 0; i < features.length; i += 4) {
+      rows.add(features.skip(i).take(4).toList());
+    }
 
     return Container(
       padding: const EdgeInsets.symmetric(
-        vertical: AppSpacing.lg,
+        vertical: AppSpacing.lg * 2,
       ),
       decoration: BoxDecoration(
         color: isDark
@@ -59,23 +61,18 @@ class _FeatureGrid extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Row 1
-          Row(
-            children: row1
-                .map((feature) => Expanded(
-                      child: _PastelFeatureCard(feature: feature),
-                    ))
-                .toList(),
-          ),
-          const SizedBox(height: AppSpacing.lg),
-          // Row 2
-          Row(
-            children: row2
-                .map((feature) => Expanded(
-                      child: _PastelFeatureCard(feature: feature),
-                    ))
-                .toList(),
-          ),
+          for (var i = 0; i < rows.length; i++) ...[
+            if (i > 0) const SizedBox(height: AppSpacing.lg),
+            Row(
+              children: [
+                for (final feature in rows[i])
+                  Expanded(child: _PastelFeatureCard(feature: feature)),
+                // 最後の行が4未満の場合、空のExpandedで埋める
+                for (var j = rows[i].length; j < 4; j++)
+                  const Expanded(child: SizedBox()),
+              ],
+            ),
+          ],
         ],
       ),
     );

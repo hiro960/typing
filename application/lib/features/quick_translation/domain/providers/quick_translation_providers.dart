@@ -37,9 +37,9 @@ Future<List<QuickTranslationCategory>> quickTranslationCategories(
   final repository = ref.watch(quickTranslationRepositoryProvider);
   final clearedCounts = await repository.getClearedCountByCategory();
 
-  // 固定のカテゴリ定義（grammar_index.jsonと同じ構造）
+  // 固定のカテゴリ定義（grammar_index.jsonをベースに、orthographyは非表示）
   final categoryDefinitions = [
-    ('orthography', '表記・発音', 'ハングルの構造と発音の変化'),
+    // 表記・発音（orthography）は現状非表示
     ('substantive', '体言', '代名詞・数詞・疑問詞など'),
     ('particle', '助詞', '이/가、은/는、에、에서など'),
     ('conjugation', '用言と活用', '不規則活用パターン'),

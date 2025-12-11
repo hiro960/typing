@@ -198,7 +198,7 @@ class _TypingPracticeHero extends ConsumerWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'タイピング練習',
+                              '基礎タイピング練習',
                               style: theme.textTheme.titleLarge?.copyWith(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
@@ -309,10 +309,12 @@ class _TypingPracticeHero extends ConsumerWidget {
     List<lesson_index.LessonMeta> lessons,
     Map<String, LessonProgress> progress,
   ) {
-    showModalBottomSheet<void>(
+    showFSheet<void>(
       context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
+      side: FLayout.btt,
+      useRootNavigator: true,
+      barrierDismissible: true,
+      draggable: true,
       builder: (context) => _LessonListSheet(
         levelName: levelName,
         lessons: lessons,

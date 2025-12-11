@@ -55,6 +55,8 @@ class FeatureGradients {
   static const grammar = [Color(0xFF38BDBD), Color(0xFF68D2D2)];
   // 8. 漢字語辞典 - ディープティール
   static const hanjaDictionary = [Color(0xFF30B8B8), Color(0xFF60CDCD)];
+  // 9. 翻訳 - オーシャンティール
+  static const translation = [Color(0xFF34C1C1), Color(0xFF64D6D6)];
 }
 
 class AppTheme {

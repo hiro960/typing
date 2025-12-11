@@ -1,11 +1,8 @@
 part of 'home_screen.dart';
 
-/// 為替レート + 翻訳を統合したクイックツールカード
-/// モダンなグラスモーフィズム風デザイン
-class _QuickToolsCard extends ConsumerWidget {
-  const _QuickToolsCard({required this.onTranslationTap});
-
-  final VoidCallback onTranslationTap;
+/// 為替レートのみを表示するカード
+class _ExchangeRateCard extends ConsumerWidget {
+  const _ExchangeRateCard();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -27,107 +24,10 @@ class _QuickToolsCard extends ConsumerWidget {
               : AppColors.lightBorder.withValues(alpha: 0.6),
         ),
       ),
-      child: Row(
-        children: [
-          // 為替レート部分
-          Expanded(
-            child: exchangeRateAsync.when(
-              data: (rate) => _ExchangeRateContent(exchangeRate: rate),
-              loading: () => _ExchangeRateLoadingContent(baseColor: baseColor),
-              error: (_, __) => const _ExchangeRateErrorContent(),
-            ),
-          ),
-          // 区切り線
-          Container(
-            width: 1,
-            height: 44,
-            margin: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  theme.colorScheme.outline.withValues(alpha: 0.0),
-                  theme.colorScheme.outline.withValues(alpha: 0.2),
-                  theme.colorScheme.outline.withValues(alpha: 0.0),
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
-            ),
-          ),
-          // 翻訳ボタン
-          _TranslationButton(onTap: onTranslationTap),
-        ],
-      ),
-    );
-  }
-}
-
-/// 翻訳ボタン
-class _TranslationButton extends StatelessWidget {
-  const _TranslationButton({required this.onTap});
-
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
-
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(14),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: isDark
-                  ? [
-                      AppColors.primary.withValues(alpha: 0.3),
-                      AppColors.secondary.withValues(alpha: 0.3),
-                    ]
-                  : [
-                      AppColors.primary.withValues(alpha: 0.15),
-                      AppColors.secondary.withValues(alpha: 0.15),
-                    ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-            borderRadius: BorderRadius.circular(14),
-            border: Border.all(
-              color: AppColors.primary.withValues(alpha: 0.3),
-            ),
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                width: 28,
-                height: 28,
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [AppColors.primary, AppColors.secondary],
-                  ),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: const Icon(
-                  Iconsax.translate,
-                  size: 14,
-                  color: Colors.white,
-                ),
-              ),
-              const SizedBox(width: 8),
-              Text(
-                '翻訳',
-                style: theme.textTheme.labelLarge?.copyWith(
-                  color: isDark ? Colors.white : AppColors.primary,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-        ),
+      child: exchangeRateAsync.when(
+        data: (rate) => _ExchangeRateContent(exchangeRate: rate),
+        loading: () => _ExchangeRateLoadingContent(baseColor: baseColor),
+        error: (_, __) => const _ExchangeRateErrorContent(),
       ),
     );
   }

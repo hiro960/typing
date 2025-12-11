@@ -121,7 +121,7 @@ class PronunciationGameSection extends ConsumerWidget {
         _PronunciationDifficultyCard(
           difficulty: 'beginner',
           label: '初級',
-          description: '基本的な単語 / 制限時間 60秒',
+          description: '基本的な単語 / 制限時間 30秒',
           color: AppColors.primaryBright,
           icon: Iconsax.microphone,
           isDark: isDark,
@@ -130,7 +130,7 @@ class PronunciationGameSection extends ConsumerWidget {
         _PronunciationDifficultyCard(
           difficulty: 'intermediate',
           label: '中級',
-          description: '日常会話レベル / 制限時間 90秒',
+          description: '日常会話レベル / 制限時間 45秒',
           color: AppColors.secondary,
           icon: Iconsax.microphone,
           isDark: isDark,
@@ -139,7 +139,7 @@ class PronunciationGameSection extends ConsumerWidget {
         _PronunciationDifficultyCard(
           difficulty: 'advanced',
           label: '高級',
-          description: '上級表現 / 制限時間 120秒',
+          description: '上級表現 / 制限時間 60秒',
           color: AppColors.accentEnd,
           icon: Iconsax.microphone_2,
           isDark: isDark,
