@@ -1,10 +1,12 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:uuid/uuid.dart';
 
+import '../../../features/stats/domain/providers/integrated_stats_providers.dart';
 import '../../../features/writing/data/models/writing_models.dart';
 import '../../../features/writing/domain/providers/writing_providers.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
@@ -277,6 +279,23 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
     try {
       final storage = await ref.read(writingStorageRepositoryProvider.future);
       await storage.saveCompletion(completion);
+
+      // アクティビティ記録をサーバーに送信
+      try {
+        final statsRepo = ref.read(integratedStatsRepositoryProvider);
+        await statsRepo.recordActivity(
+          activityType: 'writing',
+          timeSpent: timeSpent * 1000, // 秒→ミリ秒に変換
+          metadata: {
+            'patternId': widget.patternId,
+            'topicId': widget.topicId,
+            'totalEntries': _state!.entries.length,
+            'correctCount': _state!.results.where((r) => r.correct).length,
+          },
+        );
+      } catch (e) {
+        debugPrint('Failed to record activity: $e');
+      }
 
       if (!mounted) return;
 

@@ -23,4 +23,28 @@ class IntegratedStatsRepository {
       throw ApiClientService.handleDioException(error);
     }
   }
+
+  /// アクティビティを記録
+  Future<void> recordActivity({
+    required String activityType,
+    required int timeSpent,
+    double? wpm,
+    double? accuracy,
+    Map<String, dynamic>? metadata,
+  }) async {
+    try {
+      await _apiClient.dio.post(
+        ApiConstants.recordActivity,
+        data: {
+          'activityType': activityType,
+          'timeSpent': timeSpent,
+          if (wpm != null) 'wpm': wpm,
+          if (accuracy != null) 'accuracy': accuracy,
+          if (metadata != null) 'metadata': metadata,
+        },
+      );
+    } on DioException catch (error) {
+      throw ApiClientService.handleDioException(error);
+    }
+  }
 }

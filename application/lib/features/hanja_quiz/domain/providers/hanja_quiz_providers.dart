@@ -1,10 +1,12 @@
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../hanja/data/models/hanja_word.dart';
 import '../../../hanja/domain/providers/hanja_providers.dart';
+import '../../../stats/domain/providers/integrated_stats_providers.dart';
 import '../../data/models/hanja_quiz_models.dart';
 import '../../data/repositories/hanja_quiz_repository.dart';
 import '../../data/services/confusing_char_service.dart';
@@ -107,6 +109,7 @@ class HanjaQuiz extends _$HanjaQuiz {
     state = HanjaQuizState(
       questionCount: questionCount,
       questions: questions,
+      startedAt: DateTime.now(),
       choices: choices,
     );
   }
@@ -192,6 +195,9 @@ class HanjaQuiz extends _$HanjaQuiz {
         isGameComplete: true,
         answerHistory: newHistory,
       );
+
+      // アクティビティを記録
+      _recordActivity(currentState, newHistory);
     } else {
       // 次の問題へ
       final nextWord = currentState.questions[nextIndex];
@@ -226,5 +232,29 @@ class HanjaQuiz extends _$HanjaQuiz {
       wrongCount: currentState.wrongCount,
       answerHistory: currentState.answerHistory,
     );
+  }
+
+  /// アクティビティを記録（プライベートメソッド）
+  Future<void> _recordActivity(
+    HanjaQuizState completedState,
+    List<QuizAnswerRecord> history,
+  ) async {
+    final timeSpentMs =
+        DateTime.now().difference(completedState.startedAt).inMilliseconds;
+    final correctCount = history.where((r) => r.isCorrect).length;
+
+    try {
+      final statsRepo = ref.read(integratedStatsRepositoryProvider);
+      await statsRepo.recordActivity(
+        activityType: 'hanja_quiz',
+        timeSpent: timeSpentMs,
+        metadata: {
+          'questionCount': completedState.questionCount.value,
+          'correctCount': correctCount,
+        },
+      );
+    } catch (e) {
+      debugPrint('Failed to record hanja quiz activity: $e');
+    }
   }
 }

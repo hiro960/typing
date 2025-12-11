@@ -37,20 +37,33 @@ Map<String, dynamic> _$IntegratedStatsToJson(_IntegratedStats instance) =>
       'dailyTrend': instance.dailyTrend,
     };
 
-_StatsBreakdown _$StatsBreakdownFromJson(Map<String, dynamic> json) =>
-    _StatsBreakdown(
-      lesson: ActivityBreakdown.fromJson(
-        json['lesson'] as Map<String, dynamic>,
-      ),
-      rankingGame: ActivityBreakdown.fromJson(
-        json['rankingGame'] as Map<String, dynamic>,
-      ),
-    );
+_StatsBreakdown _$StatsBreakdownFromJson(
+  Map<String, dynamic> json,
+) => _StatsBreakdown(
+  lesson: ActivityBreakdown.fromJson(json['lesson'] as Map<String, dynamic>),
+  rankingGame: ActivityBreakdown.fromJson(
+    json['rankingGame'] as Map<String, dynamic>,
+  ),
+  quickTranslation: json['quickTranslation'] == null
+      ? const ActivityBreakdown(count: 0, timeSpent: 0, avgAccuracy: 0)
+      : ActivityBreakdown.fromJson(
+          json['quickTranslation'] as Map<String, dynamic>,
+        ),
+  writing: json['writing'] == null
+      ? const ActivityBreakdown(count: 0, timeSpent: 0, avgAccuracy: 0)
+      : ActivityBreakdown.fromJson(json['writing'] as Map<String, dynamic>),
+  hanjaQuiz: json['hanjaQuiz'] == null
+      ? const ActivityBreakdown(count: 0, timeSpent: 0, avgAccuracy: 0)
+      : ActivityBreakdown.fromJson(json['hanjaQuiz'] as Map<String, dynamic>),
+);
 
 Map<String, dynamic> _$StatsBreakdownToJson(_StatsBreakdown instance) =>
     <String, dynamic>{
       'lesson': instance.lesson,
       'rankingGame': instance.rankingGame,
+      'quickTranslation': instance.quickTranslation,
+      'writing': instance.writing,
+      'hanjaQuiz': instance.hanjaQuiz,
     };
 
 _ActivityBreakdown _$ActivityBreakdownFromJson(Map<String, dynamic> json) =>
@@ -72,6 +85,10 @@ _DailyActivityTrend _$DailyActivityTrendFromJson(Map<String, dynamic> json) =>
       date: json['date'] as String,
       lessonTime: (json['lessonTime'] as num).toInt(),
       rankingGameTime: (json['rankingGameTime'] as num).toInt(),
+      quickTranslationTime:
+          (json['quickTranslationTime'] as num?)?.toInt() ?? 0,
+      writingTime: (json['writingTime'] as num?)?.toInt() ?? 0,
+      hanjaQuizTime: (json['hanjaQuizTime'] as num?)?.toInt() ?? 0,
       wpm: (json['wpm'] as num?)?.toDouble(),
       accuracy: (json['accuracy'] as num?)?.toDouble(),
     );
@@ -81,6 +98,9 @@ Map<String, dynamic> _$DailyActivityTrendToJson(_DailyActivityTrend instance) =>
       'date': instance.date,
       'lessonTime': instance.lessonTime,
       'rankingGameTime': instance.rankingGameTime,
+      'quickTranslationTime': instance.quickTranslationTime,
+      'writingTime': instance.writingTime,
+      'hanjaQuizTime': instance.hanjaQuizTime,
       'wpm': instance.wpm,
       'accuracy': instance.accuracy,
     };

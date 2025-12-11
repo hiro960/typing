@@ -289,7 +289,7 @@ final class HanjaQuizProvider
   }
 }
 
-String _$hanjaQuizHash() => r'3c002775c2ced5b56338d3872c4f5d96994d9cec';
+String _$hanjaQuizHash() => r'6c47bbbe76e586b2400a122b2a9c1f329ccead61';
 
 abstract class _$HanjaQuiz extends $Notifier<HanjaQuizState?> {
   HanjaQuizState? build();

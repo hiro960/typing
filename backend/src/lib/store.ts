@@ -2331,6 +2331,9 @@ export async function getIntegratedStats(
       breakdown: {
         lesson: { count: 0, timeSpent: 0, avgAccuracy: 0 },
         rankingGame: { count: 0, timeSpent: 0, avgAccuracy: 0 },
+        quickTranslation: { count: 0, timeSpent: 0, avgAccuracy: 0 },
+        writing: { count: 0, timeSpent: 0, avgAccuracy: 0 },
+        hanjaQuiz: { count: 0, timeSpent: 0, avgAccuracy: 0 },
       },
       dailyTrend: [],
     };
@@ -2369,39 +2372,70 @@ export async function getIntegratedStats(
   // アクティビティタイプ別集計
   const lessonActivities = activities.filter(a => a.activityType === "lesson");
   const rankingGameActivities = activities.filter(a => a.activityType === "ranking_game");
+  const quickTranslationActivities = activities.filter(a => a.activityType === "quick_translation");
+  const writingActivities = activities.filter(a => a.activityType === "writing");
+  const hanjaQuizActivities = activities.filter(a => a.activityType === "hanja_quiz");
 
-  const lessonAccuracies = lessonActivities.filter(a => a.accuracy !== null);
-  const rankingGameAccuracies = rankingGameActivities.filter(a => a.accuracy !== null);
+  // ヘルパー関数: breakdownの計算
+  const calculateBreakdown = (acts: typeof activities) => {
+    const withAccuracy = acts.filter(a => a.accuracy !== null);
+    return {
+      count: acts.length,
+      timeSpent: acts.reduce((sum, a) => sum + a.timeSpent, 0),
+      avgAccuracy: withAccuracy.length > 0
+        ? withAccuracy.reduce((sum, a) => sum + a.accuracy!, 0) / withAccuracy.length
+        : 0,
+    };
+  };
 
   const breakdown = {
-    lesson: {
-      count: lessonActivities.length,
-      timeSpent: lessonActivities.reduce((sum, a) => sum + a.timeSpent, 0),
-      avgAccuracy: lessonAccuracies.length > 0
-        ? lessonAccuracies.reduce((sum, a) => sum + a.accuracy!, 0) / lessonAccuracies.length
-        : 0,
-    },
-    rankingGame: {
-      count: rankingGameActivities.length,
-      timeSpent: rankingGameActivities.reduce((sum, a) => sum + a.timeSpent, 0),
-      avgAccuracy: rankingGameAccuracies.length > 0
-        ? rankingGameAccuracies.reduce((sum, a) => sum + a.accuracy!, 0) / rankingGameAccuracies.length
-        : 0,
-    },
+    lesson: calculateBreakdown(lessonActivities),
+    rankingGame: calculateBreakdown(rankingGameActivities),
+    quickTranslation: calculateBreakdown(quickTranslationActivities),
+    writing: calculateBreakdown(writingActivities),
+    hanjaQuiz: calculateBreakdown(hanjaQuizActivities),
   };
 
   // 日別トレンド
   const dailyMap = activities.reduce<
-    Record<string, { lessonTime: number; rankingGameTime: number; wpms: number[]; accuracies: number[] }>
+    Record<string, {
+      lessonTime: number;
+      rankingGameTime: number;
+      quickTranslationTime: number;
+      writingTime: number;
+      hanjaQuizTime: number;
+      wpms: number[];
+      accuracies: number[];
+    }>
   >((acc, activity) => {
     const date = activity.completedAt.toISOString().split("T")[0];
     if (!acc[date]) {
-      acc[date] = { lessonTime: 0, rankingGameTime: 0, wpms: [], accuracies: [] };
+      acc[date] = {
+        lessonTime: 0,
+        rankingGameTime: 0,
+        quickTranslationTime: 0,
+        writingTime: 0,
+        hanjaQuizTime: 0,
+        wpms: [],
+        accuracies: [],
+      };
     }
-    if (activity.activityType === "lesson") {
-      acc[date].lessonTime += activity.timeSpent;
-    } else {
-      acc[date].rankingGameTime += activity.timeSpent;
+    switch (activity.activityType) {
+      case "lesson":
+        acc[date].lessonTime += activity.timeSpent;
+        break;
+      case "ranking_game":
+        acc[date].rankingGameTime += activity.timeSpent;
+        break;
+      case "quick_translation":
+        acc[date].quickTranslationTime += activity.timeSpent;
+        break;
+      case "writing":
+        acc[date].writingTime += activity.timeSpent;
+        break;
+      case "hanja_quiz":
+        acc[date].hanjaQuizTime += activity.timeSpent;
+        break;
     }
     if (activity.wpm !== null) {
       acc[date].wpms.push(activity.wpm);
@@ -2418,6 +2452,9 @@ export async function getIntegratedStats(
       date,
       lessonTime: data.lessonTime,
       rankingGameTime: data.rankingGameTime,
+      quickTranslationTime: data.quickTranslationTime,
+      writingTime: data.writingTime,
+      hanjaQuizTime: data.hanjaQuizTime,
       wpm: data.wpms.length > 0
         ? data.wpms.reduce((sum, w) => sum + w, 0) / data.wpms.length
         : null,

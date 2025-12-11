@@ -28,6 +28,12 @@ abstract class StatsBreakdown with _$StatsBreakdown {
   const factory StatsBreakdown({
     required ActivityBreakdown lesson,
     required ActivityBreakdown rankingGame,
+    @Default(ActivityBreakdown(count: 0, timeSpent: 0, avgAccuracy: 0))
+    ActivityBreakdown quickTranslation,
+    @Default(ActivityBreakdown(count: 0, timeSpent: 0, avgAccuracy: 0))
+    ActivityBreakdown writing,
+    @Default(ActivityBreakdown(count: 0, timeSpent: 0, avgAccuracy: 0))
+    ActivityBreakdown hanjaQuiz,
   }) = _StatsBreakdown;
 
   factory StatsBreakdown.fromJson(Map<String, dynamic> json) =>
@@ -54,6 +60,9 @@ abstract class DailyActivityTrend with _$DailyActivityTrend {
     required String date,
     required int lessonTime,
     required int rankingGameTime,
+    @Default(0) int quickTranslationTime,
+    @Default(0) int writingTime,
+    @Default(0) int hanjaQuizTime,
     double? wpm,
     double? accuracy,
   }) = _DailyActivityTrend;

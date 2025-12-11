@@ -180,6 +180,12 @@ class ApiConstants {
   /// GET /api/stats/integrated
   static const String integratedStats = '/api/stats/integrated';
 
+  // ==================== Activity関連 ====================
+
+  /// アクティビティ記録
+  /// POST /api/activity
+  static const String recordActivity = '/api/activity';
+
   // ==================== ExchangeRate関連 ====================
 
   /// 為替レート取得

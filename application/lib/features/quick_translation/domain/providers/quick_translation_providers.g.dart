@@ -203,7 +203,7 @@ final class QuickTranslationCategoriesProvider
 }
 
 String _$quickTranslationCategoriesHash() =>
-    r'5b9e605f559cd8842e28ff6c643e9ea9da975071';
+    r'744088db078beccdea86edd1085132823a51f9d6';
 
 /// カテゴリ内の利用可能な文法項目一覧
 
@@ -557,7 +557,7 @@ final class PracticeSessionNotifierProvider
 }
 
 String _$practiceSessionNotifierHash() =>
-    r'77713696f79573bb4be5aa1785a2959fe1a0103e';
+    r'21c406612e379c79d248804132338d44a4015d52';
 
 /// 練習セッション状態
 

@@ -326,7 +326,7 @@ $StatsBreakdownCopyWith<$Res> get breakdown {
 /// @nodoc
 mixin _$StatsBreakdown {
 
- ActivityBreakdown get lesson; ActivityBreakdown get rankingGame;
+ ActivityBreakdown get lesson; ActivityBreakdown get rankingGame; ActivityBreakdown get quickTranslation; ActivityBreakdown get writing; ActivityBreakdown get hanjaQuiz;
 /// Create a copy of StatsBreakdown
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -339,16 +339,16 @@ $StatsBreakdownCopyWith<StatsBreakdown> get copyWith => _$StatsBreakdownCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is StatsBreakdown&&(identical(other.lesson, lesson) || other.lesson == lesson)&&(identical(other.rankingGame, rankingGame) || other.rankingGame == rankingGame));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StatsBreakdown&&(identical(other.lesson, lesson) || other.lesson == lesson)&&(identical(other.rankingGame, rankingGame) || other.rankingGame == rankingGame)&&(identical(other.quickTranslation, quickTranslation) || other.quickTranslation == quickTranslation)&&(identical(other.writing, writing) || other.writing == writing)&&(identical(other.hanjaQuiz, hanjaQuiz) || other.hanjaQuiz == hanjaQuiz));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,lesson,rankingGame);
+int get hashCode => Object.hash(runtimeType,lesson,rankingGame,quickTranslation,writing,hanjaQuiz);
 
 @override
 String toString() {
-  return 'StatsBreakdown(lesson: $lesson, rankingGame: $rankingGame)';
+  return 'StatsBreakdown(lesson: $lesson, rankingGame: $rankingGame, quickTranslation: $quickTranslation, writing: $writing, hanjaQuiz: $hanjaQuiz)';
 }
 
 
@@ -359,11 +359,11 @@ abstract mixin class $StatsBreakdownCopyWith<$Res>  {
   factory $StatsBreakdownCopyWith(StatsBreakdown value, $Res Function(StatsBreakdown) _then) = _$StatsBreakdownCopyWithImpl;
 @useResult
 $Res call({
- ActivityBreakdown lesson, ActivityBreakdown rankingGame
+ ActivityBreakdown lesson, ActivityBreakdown rankingGame, ActivityBreakdown quickTranslation, ActivityBreakdown writing, ActivityBreakdown hanjaQuiz
 });
 
 
-$ActivityBreakdownCopyWith<$Res> get lesson;$ActivityBreakdownCopyWith<$Res> get rankingGame;
+$ActivityBreakdownCopyWith<$Res> get lesson;$ActivityBreakdownCopyWith<$Res> get rankingGame;$ActivityBreakdownCopyWith<$Res> get quickTranslation;$ActivityBreakdownCopyWith<$Res> get writing;$ActivityBreakdownCopyWith<$Res> get hanjaQuiz;
 
 }
 /// @nodoc
@@ -376,10 +376,13 @@ class _$StatsBreakdownCopyWithImpl<$Res>
 
 /// Create a copy of StatsBreakdown
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? lesson = null,Object? rankingGame = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? lesson = null,Object? rankingGame = null,Object? quickTranslation = null,Object? writing = null,Object? hanjaQuiz = null,}) {
   return _then(_self.copyWith(
 lesson: null == lesson ? _self.lesson : lesson // ignore: cast_nullable_to_non_nullable
 as ActivityBreakdown,rankingGame: null == rankingGame ? _self.rankingGame : rankingGame // ignore: cast_nullable_to_non_nullable
+as ActivityBreakdown,quickTranslation: null == quickTranslation ? _self.quickTranslation : quickTranslation // ignore: cast_nullable_to_non_nullable
+as ActivityBreakdown,writing: null == writing ? _self.writing : writing // ignore: cast_nullable_to_non_nullable
+as ActivityBreakdown,hanjaQuiz: null == hanjaQuiz ? _self.hanjaQuiz : hanjaQuiz // ignore: cast_nullable_to_non_nullable
 as ActivityBreakdown,
   ));
 }
@@ -400,6 +403,33 @@ $ActivityBreakdownCopyWith<$Res> get rankingGame {
   
   return $ActivityBreakdownCopyWith<$Res>(_self.rankingGame, (value) {
     return _then(_self.copyWith(rankingGame: value));
+  });
+}/// Create a copy of StatsBreakdown
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ActivityBreakdownCopyWith<$Res> get quickTranslation {
+  
+  return $ActivityBreakdownCopyWith<$Res>(_self.quickTranslation, (value) {
+    return _then(_self.copyWith(quickTranslation: value));
+  });
+}/// Create a copy of StatsBreakdown
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ActivityBreakdownCopyWith<$Res> get writing {
+  
+  return $ActivityBreakdownCopyWith<$Res>(_self.writing, (value) {
+    return _then(_self.copyWith(writing: value));
+  });
+}/// Create a copy of StatsBreakdown
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ActivityBreakdownCopyWith<$Res> get hanjaQuiz {
+  
+  return $ActivityBreakdownCopyWith<$Res>(_self.hanjaQuiz, (value) {
+    return _then(_self.copyWith(hanjaQuiz: value));
   });
 }
 }
@@ -483,10 +513,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( ActivityBreakdown lesson,  ActivityBreakdown rankingGame)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( ActivityBreakdown lesson,  ActivityBreakdown rankingGame,  ActivityBreakdown quickTranslation,  ActivityBreakdown writing,  ActivityBreakdown hanjaQuiz)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _StatsBreakdown() when $default != null:
-return $default(_that.lesson,_that.rankingGame);case _:
+return $default(_that.lesson,_that.rankingGame,_that.quickTranslation,_that.writing,_that.hanjaQuiz);case _:
   return orElse();
 
 }
@@ -504,10 +534,10 @@ return $default(_that.lesson,_that.rankingGame);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( ActivityBreakdown lesson,  ActivityBreakdown rankingGame)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( ActivityBreakdown lesson,  ActivityBreakdown rankingGame,  ActivityBreakdown quickTranslation,  ActivityBreakdown writing,  ActivityBreakdown hanjaQuiz)  $default,) {final _that = this;
 switch (_that) {
 case _StatsBreakdown():
-return $default(_that.lesson,_that.rankingGame);case _:
+return $default(_that.lesson,_that.rankingGame,_that.quickTranslation,_that.writing,_that.hanjaQuiz);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -524,10 +554,10 @@ return $default(_that.lesson,_that.rankingGame);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( ActivityBreakdown lesson,  ActivityBreakdown rankingGame)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( ActivityBreakdown lesson,  ActivityBreakdown rankingGame,  ActivityBreakdown quickTranslation,  ActivityBreakdown writing,  ActivityBreakdown hanjaQuiz)?  $default,) {final _that = this;
 switch (_that) {
 case _StatsBreakdown() when $default != null:
-return $default(_that.lesson,_that.rankingGame);case _:
+return $default(_that.lesson,_that.rankingGame,_that.quickTranslation,_that.writing,_that.hanjaQuiz);case _:
   return null;
 
 }
@@ -539,11 +569,14 @@ return $default(_that.lesson,_that.rankingGame);case _:
 @JsonSerializable()
 
 class _StatsBreakdown implements StatsBreakdown {
-  const _StatsBreakdown({required this.lesson, required this.rankingGame});
+  const _StatsBreakdown({required this.lesson, required this.rankingGame, this.quickTranslation = const ActivityBreakdown(count: 0, timeSpent: 0, avgAccuracy: 0), this.writing = const ActivityBreakdown(count: 0, timeSpent: 0, avgAccuracy: 0), this.hanjaQuiz = const ActivityBreakdown(count: 0, timeSpent: 0, avgAccuracy: 0)});
   factory _StatsBreakdown.fromJson(Map<String, dynamic> json) => _$StatsBreakdownFromJson(json);
 
 @override final  ActivityBreakdown lesson;
 @override final  ActivityBreakdown rankingGame;
+@override@JsonKey() final  ActivityBreakdown quickTranslation;
+@override@JsonKey() final  ActivityBreakdown writing;
+@override@JsonKey() final  ActivityBreakdown hanjaQuiz;
 
 /// Create a copy of StatsBreakdown
 /// with the given fields replaced by the non-null parameter values.
@@ -558,16 +591,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _StatsBreakdown&&(identical(other.lesson, lesson) || other.lesson == lesson)&&(identical(other.rankingGame, rankingGame) || other.rankingGame == rankingGame));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _StatsBreakdown&&(identical(other.lesson, lesson) || other.lesson == lesson)&&(identical(other.rankingGame, rankingGame) || other.rankingGame == rankingGame)&&(identical(other.quickTranslation, quickTranslation) || other.quickTranslation == quickTranslation)&&(identical(other.writing, writing) || other.writing == writing)&&(identical(other.hanjaQuiz, hanjaQuiz) || other.hanjaQuiz == hanjaQuiz));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,lesson,rankingGame);
+int get hashCode => Object.hash(runtimeType,lesson,rankingGame,quickTranslation,writing,hanjaQuiz);
 
 @override
 String toString() {
-  return 'StatsBreakdown(lesson: $lesson, rankingGame: $rankingGame)';
+  return 'StatsBreakdown(lesson: $lesson, rankingGame: $rankingGame, quickTranslation: $quickTranslation, writing: $writing, hanjaQuiz: $hanjaQuiz)';
 }
 
 
@@ -578,11 +611,11 @@ abstract mixin class _$StatsBreakdownCopyWith<$Res> implements $StatsBreakdownCo
   factory _$StatsBreakdownCopyWith(_StatsBreakdown value, $Res Function(_StatsBreakdown) _then) = __$StatsBreakdownCopyWithImpl;
 @override @useResult
 $Res call({
- ActivityBreakdown lesson, ActivityBreakdown rankingGame
+ ActivityBreakdown lesson, ActivityBreakdown rankingGame, ActivityBreakdown quickTranslation, ActivityBreakdown writing, ActivityBreakdown hanjaQuiz
 });
 
 
-@override $ActivityBreakdownCopyWith<$Res> get lesson;@override $ActivityBreakdownCopyWith<$Res> get rankingGame;
+@override $ActivityBreakdownCopyWith<$Res> get lesson;@override $ActivityBreakdownCopyWith<$Res> get rankingGame;@override $ActivityBreakdownCopyWith<$Res> get quickTranslation;@override $ActivityBreakdownCopyWith<$Res> get writing;@override $ActivityBreakdownCopyWith<$Res> get hanjaQuiz;
 
 }
 /// @nodoc
@@ -595,10 +628,13 @@ class __$StatsBreakdownCopyWithImpl<$Res>
 
 /// Create a copy of StatsBreakdown
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? lesson = null,Object? rankingGame = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? lesson = null,Object? rankingGame = null,Object? quickTranslation = null,Object? writing = null,Object? hanjaQuiz = null,}) {
   return _then(_StatsBreakdown(
 lesson: null == lesson ? _self.lesson : lesson // ignore: cast_nullable_to_non_nullable
 as ActivityBreakdown,rankingGame: null == rankingGame ? _self.rankingGame : rankingGame // ignore: cast_nullable_to_non_nullable
+as ActivityBreakdown,quickTranslation: null == quickTranslation ? _self.quickTranslation : quickTranslation // ignore: cast_nullable_to_non_nullable
+as ActivityBreakdown,writing: null == writing ? _self.writing : writing // ignore: cast_nullable_to_non_nullable
+as ActivityBreakdown,hanjaQuiz: null == hanjaQuiz ? _self.hanjaQuiz : hanjaQuiz // ignore: cast_nullable_to_non_nullable
 as ActivityBreakdown,
   ));
 }
@@ -620,6 +656,33 @@ $ActivityBreakdownCopyWith<$Res> get rankingGame {
   
   return $ActivityBreakdownCopyWith<$Res>(_self.rankingGame, (value) {
     return _then(_self.copyWith(rankingGame: value));
+  });
+}/// Create a copy of StatsBreakdown
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ActivityBreakdownCopyWith<$Res> get quickTranslation {
+  
+  return $ActivityBreakdownCopyWith<$Res>(_self.quickTranslation, (value) {
+    return _then(_self.copyWith(quickTranslation: value));
+  });
+}/// Create a copy of StatsBreakdown
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ActivityBreakdownCopyWith<$Res> get writing {
+  
+  return $ActivityBreakdownCopyWith<$Res>(_self.writing, (value) {
+    return _then(_self.copyWith(writing: value));
+  });
+}/// Create a copy of StatsBreakdown
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ActivityBreakdownCopyWith<$Res> get hanjaQuiz {
+  
+  return $ActivityBreakdownCopyWith<$Res>(_self.hanjaQuiz, (value) {
+    return _then(_self.copyWith(hanjaQuiz: value));
   });
 }
 }
@@ -897,7 +960,7 @@ as double,
 /// @nodoc
 mixin _$DailyActivityTrend {
 
- String get date; int get lessonTime; int get rankingGameTime; double? get wpm; double? get accuracy;
+ String get date; int get lessonTime; int get rankingGameTime; int get quickTranslationTime; int get writingTime; int get hanjaQuizTime; double? get wpm; double? get accuracy;
 /// Create a copy of DailyActivityTrend
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -910,16 +973,16 @@ $DailyActivityTrendCopyWith<DailyActivityTrend> get copyWith => _$DailyActivityT
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DailyActivityTrend&&(identical(other.date, date) || other.date == date)&&(identical(other.lessonTime, lessonTime) || other.lessonTime == lessonTime)&&(identical(other.rankingGameTime, rankingGameTime) || other.rankingGameTime == rankingGameTime)&&(identical(other.wpm, wpm) || other.wpm == wpm)&&(identical(other.accuracy, accuracy) || other.accuracy == accuracy));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DailyActivityTrend&&(identical(other.date, date) || other.date == date)&&(identical(other.lessonTime, lessonTime) || other.lessonTime == lessonTime)&&(identical(other.rankingGameTime, rankingGameTime) || other.rankingGameTime == rankingGameTime)&&(identical(other.quickTranslationTime, quickTranslationTime) || other.quickTranslationTime == quickTranslationTime)&&(identical(other.writingTime, writingTime) || other.writingTime == writingTime)&&(identical(other.hanjaQuizTime, hanjaQuizTime) || other.hanjaQuizTime == hanjaQuizTime)&&(identical(other.wpm, wpm) || other.wpm == wpm)&&(identical(other.accuracy, accuracy) || other.accuracy == accuracy));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,date,lessonTime,rankingGameTime,wpm,accuracy);
+int get hashCode => Object.hash(runtimeType,date,lessonTime,rankingGameTime,quickTranslationTime,writingTime,hanjaQuizTime,wpm,accuracy);
 
 @override
 String toString() {
-  return 'DailyActivityTrend(date: $date, lessonTime: $lessonTime, rankingGameTime: $rankingGameTime, wpm: $wpm, accuracy: $accuracy)';
+  return 'DailyActivityTrend(date: $date, lessonTime: $lessonTime, rankingGameTime: $rankingGameTime, quickTranslationTime: $quickTranslationTime, writingTime: $writingTime, hanjaQuizTime: $hanjaQuizTime, wpm: $wpm, accuracy: $accuracy)';
 }
 
 
@@ -930,7 +993,7 @@ abstract mixin class $DailyActivityTrendCopyWith<$Res>  {
   factory $DailyActivityTrendCopyWith(DailyActivityTrend value, $Res Function(DailyActivityTrend) _then) = _$DailyActivityTrendCopyWithImpl;
 @useResult
 $Res call({
- String date, int lessonTime, int rankingGameTime, double? wpm, double? accuracy
+ String date, int lessonTime, int rankingGameTime, int quickTranslationTime, int writingTime, int hanjaQuizTime, double? wpm, double? accuracy
 });
 
 
@@ -947,11 +1010,14 @@ class _$DailyActivityTrendCopyWithImpl<$Res>
 
 /// Create a copy of DailyActivityTrend
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? date = null,Object? lessonTime = null,Object? rankingGameTime = null,Object? wpm = freezed,Object? accuracy = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? date = null,Object? lessonTime = null,Object? rankingGameTime = null,Object? quickTranslationTime = null,Object? writingTime = null,Object? hanjaQuizTime = null,Object? wpm = freezed,Object? accuracy = freezed,}) {
   return _then(_self.copyWith(
 date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
 as String,lessonTime: null == lessonTime ? _self.lessonTime : lessonTime // ignore: cast_nullable_to_non_nullable
 as int,rankingGameTime: null == rankingGameTime ? _self.rankingGameTime : rankingGameTime // ignore: cast_nullable_to_non_nullable
+as int,quickTranslationTime: null == quickTranslationTime ? _self.quickTranslationTime : quickTranslationTime // ignore: cast_nullable_to_non_nullable
+as int,writingTime: null == writingTime ? _self.writingTime : writingTime // ignore: cast_nullable_to_non_nullable
+as int,hanjaQuizTime: null == hanjaQuizTime ? _self.hanjaQuizTime : hanjaQuizTime // ignore: cast_nullable_to_non_nullable
 as int,wpm: freezed == wpm ? _self.wpm : wpm // ignore: cast_nullable_to_non_nullable
 as double?,accuracy: freezed == accuracy ? _self.accuracy : accuracy // ignore: cast_nullable_to_non_nullable
 as double?,
@@ -1039,10 +1105,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String date,  int lessonTime,  int rankingGameTime,  double? wpm,  double? accuracy)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String date,  int lessonTime,  int rankingGameTime,  int quickTranslationTime,  int writingTime,  int hanjaQuizTime,  double? wpm,  double? accuracy)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _DailyActivityTrend() when $default != null:
-return $default(_that.date,_that.lessonTime,_that.rankingGameTime,_that.wpm,_that.accuracy);case _:
+return $default(_that.date,_that.lessonTime,_that.rankingGameTime,_that.quickTranslationTime,_that.writingTime,_that.hanjaQuizTime,_that.wpm,_that.accuracy);case _:
   return orElse();
 
 }
@@ -1060,10 +1126,10 @@ return $default(_that.date,_that.lessonTime,_that.rankingGameTime,_that.wpm,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String date,  int lessonTime,  int rankingGameTime,  double? wpm,  double? accuracy)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String date,  int lessonTime,  int rankingGameTime,  int quickTranslationTime,  int writingTime,  int hanjaQuizTime,  double? wpm,  double? accuracy)  $default,) {final _that = this;
 switch (_that) {
 case _DailyActivityTrend():
-return $default(_that.date,_that.lessonTime,_that.rankingGameTime,_that.wpm,_that.accuracy);case _:
+return $default(_that.date,_that.lessonTime,_that.rankingGameTime,_that.quickTranslationTime,_that.writingTime,_that.hanjaQuizTime,_that.wpm,_that.accuracy);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -1080,10 +1146,10 @@ return $default(_that.date,_that.lessonTime,_that.rankingGameTime,_that.wpm,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String date,  int lessonTime,  int rankingGameTime,  double? wpm,  double? accuracy)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String date,  int lessonTime,  int rankingGameTime,  int quickTranslationTime,  int writingTime,  int hanjaQuizTime,  double? wpm,  double? accuracy)?  $default,) {final _that = this;
 switch (_that) {
 case _DailyActivityTrend() when $default != null:
-return $default(_that.date,_that.lessonTime,_that.rankingGameTime,_that.wpm,_that.accuracy);case _:
+return $default(_that.date,_that.lessonTime,_that.rankingGameTime,_that.quickTranslationTime,_that.writingTime,_that.hanjaQuizTime,_that.wpm,_that.accuracy);case _:
   return null;
 
 }
@@ -1095,12 +1161,15 @@ return $default(_that.date,_that.lessonTime,_that.rankingGameTime,_that.wpm,_tha
 @JsonSerializable()
 
 class _DailyActivityTrend implements DailyActivityTrend {
-  const _DailyActivityTrend({required this.date, required this.lessonTime, required this.rankingGameTime, this.wpm, this.accuracy});
+  const _DailyActivityTrend({required this.date, required this.lessonTime, required this.rankingGameTime, this.quickTranslationTime = 0, this.writingTime = 0, this.hanjaQuizTime = 0, this.wpm, this.accuracy});
   factory _DailyActivityTrend.fromJson(Map<String, dynamic> json) => _$DailyActivityTrendFromJson(json);
 
 @override final  String date;
 @override final  int lessonTime;
 @override final  int rankingGameTime;
+@override@JsonKey() final  int quickTranslationTime;
+@override@JsonKey() final  int writingTime;
+@override@JsonKey() final  int hanjaQuizTime;
 @override final  double? wpm;
 @override final  double? accuracy;
 
@@ -1117,16 +1186,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DailyActivityTrend&&(identical(other.date, date) || other.date == date)&&(identical(other.lessonTime, lessonTime) || other.lessonTime == lessonTime)&&(identical(other.rankingGameTime, rankingGameTime) || other.rankingGameTime == rankingGameTime)&&(identical(other.wpm, wpm) || other.wpm == wpm)&&(identical(other.accuracy, accuracy) || other.accuracy == accuracy));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DailyActivityTrend&&(identical(other.date, date) || other.date == date)&&(identical(other.lessonTime, lessonTime) || other.lessonTime == lessonTime)&&(identical(other.rankingGameTime, rankingGameTime) || other.rankingGameTime == rankingGameTime)&&(identical(other.quickTranslationTime, quickTranslationTime) || other.quickTranslationTime == quickTranslationTime)&&(identical(other.writingTime, writingTime) || other.writingTime == writingTime)&&(identical(other.hanjaQuizTime, hanjaQuizTime) || other.hanjaQuizTime == hanjaQuizTime)&&(identical(other.wpm, wpm) || other.wpm == wpm)&&(identical(other.accuracy, accuracy) || other.accuracy == accuracy));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,date,lessonTime,rankingGameTime,wpm,accuracy);
+int get hashCode => Object.hash(runtimeType,date,lessonTime,rankingGameTime,quickTranslationTime,writingTime,hanjaQuizTime,wpm,accuracy);
 
 @override
 String toString() {
-  return 'DailyActivityTrend(date: $date, lessonTime: $lessonTime, rankingGameTime: $rankingGameTime, wpm: $wpm, accuracy: $accuracy)';
+  return 'DailyActivityTrend(date: $date, lessonTime: $lessonTime, rankingGameTime: $rankingGameTime, quickTranslationTime: $quickTranslationTime, writingTime: $writingTime, hanjaQuizTime: $hanjaQuizTime, wpm: $wpm, accuracy: $accuracy)';
 }
 
 
@@ -1137,7 +1206,7 @@ abstract mixin class _$DailyActivityTrendCopyWith<$Res> implements $DailyActivit
   factory _$DailyActivityTrendCopyWith(_DailyActivityTrend value, $Res Function(_DailyActivityTrend) _then) = __$DailyActivityTrendCopyWithImpl;
 @override @useResult
 $Res call({
- String date, int lessonTime, int rankingGameTime, double? wpm, double? accuracy
+ String date, int lessonTime, int rankingGameTime, int quickTranslationTime, int writingTime, int hanjaQuizTime, double? wpm, double? accuracy
 });
 
 
@@ -1154,11 +1223,14 @@ class __$DailyActivityTrendCopyWithImpl<$Res>
 
 /// Create a copy of DailyActivityTrend
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? date = null,Object? lessonTime = null,Object? rankingGameTime = null,Object? wpm = freezed,Object? accuracy = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? date = null,Object? lessonTime = null,Object? rankingGameTime = null,Object? quickTranslationTime = null,Object? writingTime = null,Object? hanjaQuizTime = null,Object? wpm = freezed,Object? accuracy = freezed,}) {
   return _then(_DailyActivityTrend(
 date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
 as String,lessonTime: null == lessonTime ? _self.lessonTime : lessonTime // ignore: cast_nullable_to_non_nullable
 as int,rankingGameTime: null == rankingGameTime ? _self.rankingGameTime : rankingGameTime // ignore: cast_nullable_to_non_nullable
+as int,quickTranslationTime: null == quickTranslationTime ? _self.quickTranslationTime : quickTranslationTime // ignore: cast_nullable_to_non_nullable
+as int,writingTime: null == writingTime ? _self.writingTime : writingTime // ignore: cast_nullable_to_non_nullable
+as int,hanjaQuizTime: null == hanjaQuizTime ? _self.hanjaQuizTime : hanjaQuizTime // ignore: cast_nullable_to_non_nullable
 as int,wpm: freezed == wpm ? _self.wpm : wpm // ignore: cast_nullable_to_non_nullable
 as double?,accuracy: freezed == accuracy ? _self.accuracy : accuracy // ignore: cast_nullable_to_non_nullable
 as double?,

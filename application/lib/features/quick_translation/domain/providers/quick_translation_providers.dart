@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../stats/domain/providers/integrated_stats_providers.dart';
 import '../../data/models/quick_translation_models.dart';
 import '../../data/repositories/quick_translation_repository.dart';
 import '../../data/services/answer_checker_service.dart';
@@ -196,6 +198,27 @@ class PracticeSessionNotifier extends _$PracticeSessionNotifier {
 
     final repository = ref.read(quickTranslationRepositoryProvider);
     final progress = await repository.updateProgressFromSession(state!);
+
+    // アクティビティ記録をサーバーに送信
+    final timeSpentMs = state!.completedAt != null
+        ? state!.completedAt!.difference(state!.startedAt).inMilliseconds
+        : DateTime.now().difference(state!.startedAt).inMilliseconds;
+
+    try {
+      final statsRepo = ref.read(integratedStatsRepositoryProvider);
+      await statsRepo.recordActivity(
+        activityType: 'quick_translation',
+        timeSpent: timeSpentMs,
+        metadata: {
+          'grammarRef': state!.questionSet.grammarRef,
+          'totalQuestions': state!.totalQuestions,
+          'correctCount': state!.correctCount,
+        },
+      );
+    } catch (e) {
+      // APIエラーは無視（ローカル保存は成功しているため）
+      debugPrint('Failed to record activity: $e');
+    }
 
     // カテゴリプロバイダーを無効化して再取得させる
     ref.invalidate(quickTranslationCategoriesProvider);

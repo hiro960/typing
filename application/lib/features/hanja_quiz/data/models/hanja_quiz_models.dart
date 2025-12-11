@@ -45,6 +45,7 @@ class HanjaQuizState {
   const HanjaQuizState({
     required this.questionCount,
     required this.questions,
+    required this.startedAt,
     this.currentQuestionIndex = 0,
     this.currentCharIndex = 0,
     this.answeredChars = const [],
@@ -62,6 +63,9 @@ class HanjaQuizState {
 
   /// 出題する問題リスト
   final List<HanjaWord> questions;
+
+  /// ゲーム開始時刻
+  final DateTime startedAt;
 
   /// 現在の問題番号（0始まり）
   final int currentQuestionIndex;
@@ -110,6 +114,7 @@ class HanjaQuizState {
   HanjaQuizState copyWith({
     QuizQuestionCount? questionCount,
     List<HanjaWord>? questions,
+    DateTime? startedAt,
     int? currentQuestionIndex,
     int? currentCharIndex,
     List<String>? answeredChars,
@@ -124,6 +129,7 @@ class HanjaQuizState {
     return HanjaQuizState(
       questionCount: questionCount ?? this.questionCount,
       questions: questions ?? this.questions,
+      startedAt: startedAt ?? this.startedAt,
       currentQuestionIndex: currentQuestionIndex ?? this.currentQuestionIndex,
       currentCharIndex: currentCharIndex ?? this.currentCharIndex,
       answeredChars: answeredChars ?? this.answeredChars,

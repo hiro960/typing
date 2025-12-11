@@ -403,7 +403,13 @@ export interface PronunciationGameUserStats {
 }
 
 // 統合統計関連の型定義
-export type ActivityType = "lesson" | "ranking_game" | "pronunciation_game";
+export type ActivityType =
+  | "lesson"
+  | "ranking_game"
+  | "pronunciation_game"
+  | "quick_translation"
+  | "writing"
+  | "hanja_quiz";
 
 export interface ActivityLogRecord {
   id: string;
@@ -435,11 +441,29 @@ export interface IntegratedStats {
       timeSpent: number;
       avgAccuracy: number;
     };
+    quickTranslation: {
+      count: number;
+      timeSpent: number;
+      avgAccuracy: number;
+    };
+    writing: {
+      count: number;
+      timeSpent: number;
+      avgAccuracy: number;
+    };
+    hanjaQuiz: {
+      count: number;
+      timeSpent: number;
+      avgAccuracy: number;
+    };
   };
   dailyTrend: Array<{
     date: string;
     lessonTime: number;
     rankingGameTime: number;
+    quickTranslationTime: number;
+    writingTime: number;
+    hanjaQuizTime: number;
     wpm: number | null;
     accuracy: number | null;
   }>;
