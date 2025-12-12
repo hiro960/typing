@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:chaletta/core/services/sound_service.dart';
 import 'package:chaletta/features/ranking_game/data/models/ranking_game_models.dart';
 import 'package:chaletta/features/ranking_game/domain/providers/game_session_provider.dart';
 import 'package:chaletta/features/ranking_game/presentation/widgets/combo_meter_widget.dart';
@@ -102,6 +103,21 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
       (previous, next) {
         if (next.isFinished && previous?.isFinished != true) {
           _navigateToResult(next);
+        }
+      },
+    );
+
+    // 正解/不正解音を再生
+    ref.listen<RankingGameSessionState>(
+      rankingGameSessionProvider(widget.difficulty),
+      (previous, next) {
+        if (previous?.lastInputResult != next.lastInputResult) {
+          final soundService = ref.read(soundServiceProvider);
+          if (next.lastInputResult == InputResultType.correct) {
+            soundService.playCorrect();
+          } else if (next.lastInputResult == InputResultType.mistake) {
+            soundService.playIncorrect();
+          }
         }
       },
     );

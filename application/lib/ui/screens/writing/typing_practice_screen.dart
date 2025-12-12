@@ -6,6 +6,7 @@ import 'package:forui/forui.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:uuid/uuid.dart';
 
+import '../../../core/services/sound_service.dart';
 import '../../../features/stats/domain/providers/integrated_stats_providers.dart';
 import '../../../features/writing/data/models/writing_models.dart';
 import '../../../features/writing/domain/providers/writing_providers.dart';
@@ -208,6 +209,14 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
     final currentEntry = currentState.currentEntry!;
     final userInput = _composer.text.trim();
     final isCorrect = _isAnswerCorrect(userInput, currentEntry.koText);
+
+    // 正解/不正解音を再生
+    final soundService = ref.read(soundServiceProvider);
+    if (isCorrect) {
+      soundService.playCorrect();
+    } else {
+      soundService.playIncorrect();
+    }
 
     final result = EntryResult(
       entryId: currentEntry.id,
