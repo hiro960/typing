@@ -69,7 +69,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.2.0+1
+version: 1.2.0+3
 
 # version 1.1 発音ゲームの追加
 # version 1.2 翻訳機能の追加
@@ -119,6 +119,7 @@ dependencies:
   speech_to_text: ^7.0.0
   deepl_dart: ^2.0.0
   flutter_native_splash: ^2.4.7
+  audioplayers: ^6.1.0
 
 dev_dependencies:
   flutter_test:
@@ -151,6 +152,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - .env
+    - assets/se/
     - assets/lessons/
     - assets/writing/topik/
     - assets/writing/beginner/
@@ -211,7 +213,7 @@ flutter:
 
 flutter_icons: 
   image_path_android: assets/launcher_icon/android_icon.png
-  adaptive_icon_background: '#1d1e30' #iconの背景色
+  adaptive_icon_background: '#2DBFBF' #iconの背景色
   adaptive_icon_foreground: assets/launcher_icon/android_icon.png
   image_path_ios: assets/launcher_icon/ios_icon.png
   android: true
@@ -220,5 +222,5 @@ flutter_icons:
   ios: true   
 
 flutter_native_splash:
-  color: "#1d1e30"
+  color: "#2DBFBF"
   image: assets/launcher_icon/ios_icon.png

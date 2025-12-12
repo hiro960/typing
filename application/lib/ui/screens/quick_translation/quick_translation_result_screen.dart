@@ -7,6 +7,7 @@ import '../../../features/quick_translation/data/models/quick_translation_models
 import '../../../features/quick_translation/domain/providers/quick_translation_providers.dart';
 import '../../app_theme.dart';
 import '../../app_spacing.dart';
+import 'quick_translation_practice_screen.dart';
 
 /// 結果画面
 class QuickTranslationResultScreen extends ConsumerStatefulWidget {
@@ -432,19 +433,44 @@ class _QuickTranslationResultScreenState
   }
 
   Future<void> _retryAll(BuildContext context) async {
+    final session = ref.read(practiceSessionProvider);
+    if (session == null) return;
+
     final success =
         await ref.read(practiceSessionProvider.notifier).retry();
     if (success && mounted) {
-      Navigator.of(context).pop();
+      // 練習画面に遷移（pushReplacementで結果画面を置き換え）
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute<void>(
+          builder: (_) => QuickTranslationPracticeScreen(
+            grammarRef: session.questionSet.grammarRef,
+            practiceMode: session.practiceMode,
+            inputMode: session.inputMode,
+          ),
+        ),
+      );
     }
   }
 
   Future<void> _retryIncorrect(BuildContext context) async {
+    final session = ref.read(practiceSessionProvider);
+    if (session == null) return;
+
     final success = await ref
         .read(practiceSessionProvider.notifier)
         .retryIncorrect();
     if (success && mounted) {
-      Navigator.of(context).pop();
+      // 練習画面に遷移（skipInit: trueでセッション再初期化をスキップ）
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute<void>(
+          builder: (_) => QuickTranslationPracticeScreen(
+            grammarRef: session.questionSet.grammarRef,
+            practiceMode: session.practiceMode,
+            inputMode: session.inputMode,
+            skipInit: true, // retryIncorrect()で設定済みのstateを使用
+          ),
+        ),
+      );
     }
   }
 

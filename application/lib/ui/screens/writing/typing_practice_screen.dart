@@ -74,10 +74,14 @@ class TypingPracticeScreen extends ConsumerStatefulWidget {
     super.key,
     required this.patternId,
     required this.topicId,
+    this.retryEntryIds,
   });
 
   final String patternId;
   final String topicId;
+
+  /// リトライ対象のエントリーIDリスト（指定時はこれらの問題のみ出題）
+  final List<String>? retryEntryIds;
 
   @override
   ConsumerState<TypingPracticeScreen> createState() =>
@@ -90,6 +94,7 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
   Timer? _feedbackTimer;
   Timer? _timer;
   bool _isFinishing = false;
+  bool _canProceedToNext = true; // 回答チェック後の連続操作防止用
 
   @override
   void initState() {
@@ -109,6 +114,7 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
     _feedbackTimer?.cancel();
     _timer?.cancel();
     _isFinishing = false;
+    _canProceedToNext = true;
 
     final topic = await ref.read(
       writingTopicProvider((
@@ -119,10 +125,19 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
 
     if (topic == null || !mounted) return;
 
-    // 例文を除外してシャッフル
-    final practiceEntries =
-        topic.entries.where((e) => e.level != EntryLevel.sentence).toList()
-          ..shuffle();
+    // 例文を除外
+    var practiceEntries =
+        topic.entries.where((e) => e.level != EntryLevel.sentence).toList();
+
+    // リトライ対象が指定されている場合はフィルタリング
+    if (widget.retryEntryIds != null && widget.retryEntryIds!.isNotEmpty) {
+      final retryIds = widget.retryEntryIds!.toSet();
+      practiceEntries =
+          practiceEntries.where((e) => retryIds.contains(e.id)).toList();
+    }
+
+    // シャッフル
+    practiceEntries.shuffle();
 
     setState(() {
       _state = _PracticeState(
@@ -177,7 +192,10 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
   void _onKeyboardEnter() {
     // 判定後の場合は次の問題へ、判定前の場合は回答チェック
     if (_state?.lastResult != null) {
-      _goToNextQuestion();
+      // フィードバック確認のため、一定時間経過後のみ次へ進める
+      if (_canProceedToNext) {
+        _goToNextQuestion();
+      }
     } else {
       _checkAnswer();
     }
@@ -198,6 +216,17 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
     );
 
     final updatedResults = [...currentState.results, result];
+
+    // 回答チェック後は一定時間次への遷移をブロック
+    _canProceedToNext = false;
+    _feedbackTimer?.cancel();
+    _feedbackTimer = Timer(const Duration(milliseconds: 500), () {
+      if (mounted) {
+        setState(() {
+          _canProceedToNext = true;
+        });
+      }
+    });
 
     setState(() {
       _state = currentState.copyWith(
@@ -248,6 +277,7 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
     } else {
       final nextIndex = currentState.currentIndex + 1;
       _composer.reset();
+      _canProceedToNext = true; // 次の問題用にリセット
       setState(() {
         _state = currentState.copyWith(
           currentIndex: nextIndex,
@@ -577,7 +607,7 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
         const SizedBox(height: AppSpacing.md),
         FButton(
           style: FButtonStyle.primary(),
-          onPress: _goToNextQuestion,
+          onPress: _canProceedToNext ? _goToNextQuestion : null,
           child: Text(buttonLabel),
         ),
       ],
