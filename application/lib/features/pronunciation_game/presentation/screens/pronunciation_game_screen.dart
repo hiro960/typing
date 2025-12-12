@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:chaletta/core/services/sound_service.dart';
 import 'package:chaletta/features/pronunciation_game/data/models/pronunciation_game_models.dart';
 import 'package:chaletta/features/pronunciation_game/domain/providers/pronunciation_game_session_provider.dart';
 import 'package:chaletta/features/pronunciation_game/presentation/screens/pronunciation_game_result_screen.dart';
@@ -135,6 +136,21 @@ class _PronunciationGameScreenState
       (previous, next) {
         if (next.isFinished && previous?.isFinished != true) {
           _navigateToResult(next);
+        }
+      },
+    );
+
+    // 正解/不正解音を再生
+    ref.listen<PronunciationGameSessionState>(
+      pronunciationGameSessionProvider(widget.difficulty),
+      (previous, next) {
+        if (previous?.lastInputResult != next.lastInputResult) {
+          final soundService = ref.read(soundServiceProvider);
+          if (next.lastInputResult == PronunciationInputResultType.correct) {
+            soundService.playCorrect();
+          } else if (next.lastInputResult == PronunciationInputResultType.mistake) {
+            soundService.playIncorrect();
+          }
         }
       },
     );
