@@ -57,6 +57,10 @@ class FeatureGradients {
   static const hanjaDictionary = [Color(0xFF30B8B8), Color(0xFF60CDCD)];
   // 9. 翻訳 - オーシャンティール
   static const translation = [Color(0xFF34C1C1), Color(0xFF64D6D6)];
+  // 10. 日記 - ティールグリーン
+  static const diary = [Color(0xFF2DBFBF), Color(0xFF5DD3D3)];
+  // 11. 単語帳 - ミントティール
+  static const wordbook = [Color(0xFF36B7C7), Color(0xFF6DD5E0)];
 }
 
 class AppTheme {
