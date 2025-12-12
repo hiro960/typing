@@ -191,6 +191,8 @@ class _MainAppShellState extends ConsumerState<_MainAppShell> {
     final screens = <Widget>[
       HomeScreen(
         onOpenSettings: _openSettings,
+        onNavigateToDiary: () => _onDestinationSelected(1),
+        onNavigateToWordbook: () => _onDestinationSelected(2),
       ),
       DiaryScreen(
         onOpenSearch: _openSearch,

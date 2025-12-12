@@ -19,19 +19,245 @@ class _WeeklyProgressCard extends ConsumerWidget {
   }
 
   Widget _buildLoadingState(BuildContext context, bool isDark) {
+    final theme = Theme.of(context);
+    final skeletonColor = isDark
+        ? AppColors.surfaceAlt
+        : AppColors.lightBorder;
+
     return Container(
       padding: const EdgeInsets.all(AppSpacing.lg),
       decoration: BoxDecoration(
-        color: isDark
-            ? AppColors.surface.withValues(alpha: 0.7)
-            : AppColors.lightSurface,
+        gradient: LinearGradient(
+          colors: isDark
+              ? [
+                  const Color(0xFF1a1f35).withValues(alpha: 0.9),
+                  const Color(0xFF151b2c).withValues(alpha: 0.9),
+                ]
+              : [
+                  AppColors.lightSurface,
+                  const Color(0xFFF8FAFF),
+                ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
         borderRadius: BorderRadius.circular(24),
         border: Border.all(
-          color: isDark ? AppColors.border : AppColors.lightBorder,
+          color: isDark
+              ? AppColors.border.withValues(alpha: 0.5)
+              : AppColors.lightBorder.withValues(alpha: 0.5),
         ),
+        boxShadow: [
+          BoxShadow(
+            color: isDark
+                ? theme.shadowColor.withValues(alpha: 0.3)
+                : theme.shadowColor.withValues(alpha: 0.06),
+            blurRadius: 16,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
-      child: const ShimmerLoading(
-        child: SizedBox(height: 100),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // ヘッダー行スケルトン
+          Row(
+            children: [
+              // アイコンスケルトン
+              ShimmerLoading(
+                child: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: skeletonColor,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+              ),
+              const SizedBox(width: AppSpacing.md),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ShimmerLoading(
+                      child: Container(
+                        width: 80,
+                        height: 16,
+                        decoration: BoxDecoration(
+                          color: skeletonColor,
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    ShimmerLoading(
+                      child: Container(
+                        width: 50,
+                        height: 12,
+                        decoration: BoxDecoration(
+                          color: skeletonColor,
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              // ストリークバッジスケルトン
+              ShimmerLoading(
+                child: Container(
+                  width: 80,
+                  height: 28,
+                  decoration: BoxDecoration(
+                    color: skeletonColor,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: AppSpacing.lg),
+
+          // 週間ドットスケルトン
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: List.generate(7, (index) {
+              return Column(
+                children: [
+                  ShimmerLoading(
+                    child: Container(
+                      width: 16,
+                      height: 12,
+                      decoration: BoxDecoration(
+                        color: skeletonColor,
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  ShimmerLoading(
+                    child: Container(
+                      width: 36,
+                      height: 36,
+                      decoration: BoxDecoration(
+                        color: skeletonColor,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            }),
+          ),
+          const SizedBox(height: AppSpacing.lg),
+
+          // 統計サマリースケルトン
+          Container(
+            padding: const EdgeInsets.all(AppSpacing.md),
+            decoration: BoxDecoration(
+              color: isDark
+                  ? theme.colorScheme.onSurface.withValues(alpha: 0.05)
+                  : theme.colorScheme.onSurface.withValues(alpha: 0.03),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ShimmerLoading(
+                        child: Container(
+                          width: 32,
+                          height: 32,
+                          decoration: BoxDecoration(
+                            color: skeletonColor,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ShimmerLoading(
+                            child: Container(
+                              width: 40,
+                              height: 16,
+                              decoration: BoxDecoration(
+                                color: skeletonColor,
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          ShimmerLoading(
+                            child: Container(
+                              width: 50,
+                              height: 10,
+                              decoration: BoxDecoration(
+                                color: skeletonColor,
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 1,
+                  height: 36,
+                  color: theme.colorScheme.outline.withValues(alpha: 0.15),
+                ),
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ShimmerLoading(
+                        child: Container(
+                          width: 32,
+                          height: 32,
+                          decoration: BoxDecoration(
+                            color: skeletonColor,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ShimmerLoading(
+                            child: Container(
+                              width: 40,
+                              height: 16,
+                              decoration: BoxDecoration(
+                                color: skeletonColor,
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          ShimmerLoading(
+                            child: Container(
+                              width: 50,
+                              height: 10,
+                              decoration: BoxDecoration(
+                                color: skeletonColor,
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

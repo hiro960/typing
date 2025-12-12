@@ -52,9 +52,13 @@ class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({
     super.key,
     required this.onOpenSettings,
+    required this.onNavigateToDiary,
+    required this.onNavigateToWordbook,
   });
 
   final VoidCallback onOpenSettings;
+  final VoidCallback onNavigateToDiary;
+  final VoidCallback onNavigateToWordbook;
 
   @override
   ConsumerState<HomeScreen> createState() => _HomeScreenState();
@@ -120,6 +124,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         builder: (_) => const _QuickTranslationListScreen(),
       ),
     );
+  }
+  void _openDiary() {
+    widget.onNavigateToDiary();
+  }
+
+  void _openWordbook() {
+    widget.onNavigateToWordbook();
   }
 
   void _openRankingGame() {
@@ -309,6 +320,18 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                           icon: Iconsax.translate,
                           gradientColors: FeatureGradients.translation,
                           onTap: _openTranslation,
+                        ),
+                        _FeatureItem(
+                          title: '日記',
+                          icon: Iconsax.document_text,
+                          gradientColors: FeatureGradients.diary,
+                          onTap: _openDiary,
+                        ),
+                        _FeatureItem(
+                          title: '単語帳',
+                          icon: Iconsax.book_saved,
+                          gradientColors: FeatureGradients.wordbook,
+                          onTap: _openWordbook,
                         ),
                       ],
                     ),

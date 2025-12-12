@@ -101,7 +101,7 @@ class _ExchangeRateContent extends StatelessWidget {
                   ),
                   Flexible(
                     child: Text(
-                      '${(exchangeRate.rate * 100).toStringAsFixed(0)}₩',
+                      '${(exchangeRate.rate * 100).toStringAsFixed(1)}₩',
                       style: theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                         color: isDark ? AppColors.primaryBright : AppColors.primary,
