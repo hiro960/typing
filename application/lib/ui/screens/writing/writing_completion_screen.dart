@@ -114,6 +114,7 @@ class _WritingCompletionScreenState
                 _ActionButtons(
                   patternId: widget.patternId,
                   topicId: widget.topicId,
+                  completion: widget.completion,
                 ),
               ],
             ),
@@ -237,16 +238,51 @@ class _ActionButtons extends StatelessWidget {
   const _ActionButtons({
     required this.patternId,
     required this.topicId,
+    required this.completion,
   });
 
   final String patternId;
   final String topicId;
+  final WritingCompletion completion;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
+    // 間違えた問題のentryIdを抽出
+    final incorrectEntryIds = completion.results
+        .where((r) => !r.correct)
+        .map((r) => r.entryId)
+        .toList();
+    final hasIncorrectAnswers = incorrectEntryIds.isNotEmpty;
+
     return Column(
       children: [
+        // 間違えた問題がある場合のみ表示
+        if (hasIncorrectAnswers) ...[
+          SizedBox(
+            width: double.infinity,
+            child: FilledButton(
+              style: FilledButton.styleFrom(
+                backgroundColor: theme.colorScheme.primary,
+                foregroundColor: theme.colorScheme.onPrimary,
+              ),
+              onPressed: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute<void>(
+                    builder: (_) => TypingPracticeScreen(
+                      patternId: patternId,
+                      topicId: topicId,
+                      retryEntryIds: incorrectEntryIds,
+                    ),
+                  ),
+                );
+              },
+              child: Text('間違えた問題のみ (${incorrectEntryIds.length}問)'),
+            ),
+          ),
+          const SizedBox(height: 12),
+        ],
         SizedBox(
           width: double.infinity,
           child: FilledButton.tonal(

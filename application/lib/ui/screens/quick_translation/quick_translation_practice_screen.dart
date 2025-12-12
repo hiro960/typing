@@ -4,6 +4,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 
+import '../../../core/services/sound_service.dart';
 import '../../../features/quick_translation/data/models/quick_translation_models.dart';
 import '../../../features/quick_translation/domain/providers/quick_translation_providers.dart';
 import '../../app_theme.dart';
@@ -17,11 +18,15 @@ class QuickTranslationPracticeScreen extends ConsumerStatefulWidget {
     required this.grammarRef,
     required this.practiceMode,
     required this.inputMode,
+    this.skipInit = false,
   });
 
   final String grammarRef;
   final PracticeMode practiceMode;
   final InputMode inputMode;
+
+  /// trueの場合、セッション初期化をスキップ（retryIncorrect用）
+  final bool skipInit;
 
   @override
   ConsumerState<QuickTranslationPracticeScreen> createState() =>
@@ -41,14 +46,24 @@ class _QuickTranslationPracticeScreenState
   bool _isListening = false;
   bool _speechAvailable = false;
   String _speechError = '';
+  bool _isNavigatingToResult = false; // 結果画面への遷移中フラグ
 
   @override
   void initState() {
     super.initState();
-    _initSession();
     _initTts();
-    if (widget.inputMode == InputMode.voice) {
-      _initSpeech();
+
+    if (widget.skipInit) {
+      // retryIncorrect用: セッションは既に設定済みなので初期化をスキップ
+      _isLoading = false;
+      if (widget.inputMode == InputMode.voice) {
+        _initSpeech(autoStart: true);
+      }
+    } else {
+      _initSession();
+      if (widget.inputMode == InputMode.voice) {
+        _initSpeech();
+      }
     }
   }
 
@@ -141,9 +156,14 @@ class _QuickTranslationPracticeScreenState
       );
     }
 
-    if (session.isCompleted) {
+    // フィードバック表示中は結果画面に遷移しない（最終問題のフィードバック確認のため）
+    // _isNavigatingToResultで重複遷移を防止
+    if (session.isCompleted && !_showFeedback && !_isNavigatingToResult) {
+      _isNavigatingToResult = true;
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        _navigateToResult();
+        if (mounted) {
+          _navigateToResult();
+        }
       });
       return const Scaffold(
         body: Center(child: CircularProgressIndicator()),
@@ -607,15 +627,15 @@ class _QuickTranslationPracticeScreenState
       case AnswerResult.correct:
         feedbackColor = AppColors.primary;
         feedbackIcon = Iconsax.tick_circle;
-        feedbackText = '정답!';
+        feedbackText = '正解!';
       case AnswerResult.almostCorrect:
         feedbackColor = AppColors.warning;
         feedbackIcon = Iconsax.tick_circle;
-        feedbackText = '거의 맞았어요!';
+        feedbackText = 'ほぼ正解!';
       case AnswerResult.incorrect:
         feedbackColor = AppColors.error;
         feedbackIcon = Iconsax.close_circle;
-        feedbackText = '아쉬워요!';
+        feedbackText = 'おしい!';
       default:
         feedbackColor = Theme.of(context)
             .colorScheme
@@ -743,7 +763,8 @@ class _QuickTranslationPracticeScreenState
     try {
       await _speechToText.listen(
         onResult: (result) {
-          if (mounted) {
+          // フィードバック表示中は結果を無視
+          if (mounted && !_showFeedback) {
             setState(() {
               _recognizedText = result.recognizedWords;
             });
@@ -784,8 +805,11 @@ class _QuickTranslationPracticeScreenState
     }
   }
 
-  void _handleSubmitVoice() {
+  Future<void> _handleSubmitVoice() async {
     if (_recognizedText.isEmpty) return;
+
+    // 音声認識を停止
+    await _stopListening();
 
     final session = ref.read(practiceSessionProvider);
     if (session == null) return;
@@ -798,6 +822,14 @@ class _QuickTranslationPracticeScreenState
           _recognizedText,
           result,
         );
+
+    // 効果音を再生
+    final sound = ref.read(soundServiceProvider);
+    if (result == AnswerResult.correct || result == AnswerResult.almostCorrect) {
+      sound.playCorrect();
+    } else {
+      sound.playIncorrect();
+    }
 
     setState(() {
       _showFeedback = true;
@@ -820,15 +852,28 @@ class _QuickTranslationPracticeScreenState
     });
   }
 
-  void _handleSkip() {
+  Future<void> _handleSkip() async {
+    // 音声認識を停止
+    await _stopListening();
+
+    // スキップは間違い扱いでフィードバックを表示
+    _lastResult = AnswerResult.skipped;
     ref.read(practiceSessionProvider.notifier).skip();
+
+    // 不正解音を再生
+    ref.read(soundServiceProvider).playIncorrect();
+
     setState(() {
+      _showFeedback = true;
       _showAnswer = false;
       _recognizedText = '';
     });
   }
 
   Future<void> _proceedToNext() async {
+    // 音声認識を停止してからリセット
+    await _stopListening();
+
     setState(() {
       _showFeedback = false;
       _showAnswer = false;
