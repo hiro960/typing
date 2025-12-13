@@ -269,7 +269,11 @@ class _WeeklyProgressCard extends ConsumerWidget {
     // 統計データを取得
     final streakDays = stats?.streakDays ?? 0;
     final totalActivities = stats != null
-        ? stats.breakdown.lesson.count + stats.breakdown.rankingGame.count
+        ? stats.breakdown.lesson.count +
+            stats.breakdown.rankingGame.count +
+            stats.breakdown.quickTranslation.count +
+            stats.breakdown.writing.count +
+            stats.breakdown.hanjaQuiz.count
         : 0;
     final accuracy = stats?.avgAccuracy ?? 0.0;
 
@@ -419,8 +423,12 @@ class _WeeklyProgressCard extends ConsumerWidget {
     // dailyTrendの日付セットを作成（学習があった日）
     final activeDates = <String>{};
     for (final trend in dailyTrend) {
-      // lessonTimeまたはrankingGameTimeが0より大きい場合、その日は学習した
-      if (trend.lessonTime > 0 || trend.rankingGameTime > 0) {
+      // いずれかのアクティビティの時間が0より大きい場合、その日は学習した
+      if (trend.lessonTime > 0 ||
+          trend.rankingGameTime > 0 ||
+          trend.quickTranslationTime > 0 ||
+          trend.writingTime > 0 ||
+          trend.hanjaQuizTime > 0) {
         activeDates.add(trend.date);
       }
     }

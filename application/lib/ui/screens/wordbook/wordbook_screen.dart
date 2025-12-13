@@ -9,6 +9,7 @@ import '../../app_theme.dart';
 import '../../widgets/app_page_scaffold.dart';
 import '../../widgets/page_state_views.dart';
 import '../../app_spacing.dart';
+import 'listening_screen.dart';
 import 'word_detail_screen.dart';
 import 'word_form_screen.dart';
 import 'word_quiz_screen.dart';
@@ -58,6 +59,10 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
           onPress: () {
             ref.read(wordbookViewModeProvider.notifier).toggle();
           },
+        ),
+        FHeaderAction(
+          icon: const Icon(Iconsax.play),
+          onPress: canStartQuiz ? () => _startListening(reviewableWords) : null,
         ),
         FHeaderAction(
           icon: Badge(
@@ -219,6 +224,13 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
     if (words.isEmpty) return;
     await Navigator.of(context).push(
       MaterialPageRoute<void>(builder: (_) => WordQuizScreen(words: words)),
+    );
+  }
+
+  Future<void> _startListening(List<Word> words) async {
+    if (words.isEmpty) return;
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(builder: (_) => ListeningScreen(words: words)),
     );
   }
 
