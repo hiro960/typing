@@ -1,0 +1,239 @@
+{
+  "version": "1.0.0",
+  "category": "kieuk",
+  "categoryName": "ㅋで始まる漢字語",
+  "description": "韓国語の漢字音体系では激音（ㅋ、ㅌ、ㅍ）で始まる漢字は非常に少なく、ㅋで始まる漢字語は「쾌（快）」系統がほぼ唯一です。",
+  "totalWords": 10,
+  "words": [
+    {
+      "id": "word_5001",
+      "word": "쾌감",
+      "hanja": "快感",
+      "meaning": "快感",
+      "pronunciation": "쾌감",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "快", "korean": "쾌", "meaning": "快い・気持ちよい"},
+        {"character": "感", "korean": "감", "meaning": "感じる"}
+      ],
+      "examples": [
+        {
+          "sentence": "운동 후에 느끼는 쾌감은 특별하다.",
+          "meaning": "運動後に感じる快感は特別だ。"
+        }
+      ],
+      "relatedWords": ["쾌락", "만족"],
+      "antonyms": ["불쾌감"],
+      "synonyms": []
+    },
+    {
+      "id": "word_5002",
+      "word": "쾌락",
+      "hanja": "快樂",
+      "meaning": "快楽",
+      "pronunciation": "쾌락",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "快", "korean": "쾌", "meaning": "快い"},
+        {"character": "樂", "korean": "락", "meaning": "楽しむ・楽しい"}
+      ],
+      "examples": [
+        {
+          "sentence": "쾌락만을 추구하면 행복해지기 어렵다.",
+          "meaning": "快楽だけを追求すると幸せになるのは難しい。"
+        }
+      ],
+      "relatedWords": ["쾌감", "향락"],
+      "antonyms": ["고통"],
+      "synonyms": []
+    },
+    {
+      "id": "word_5003",
+      "word": "쾌거",
+      "hanja": "快擧",
+      "meaning": "快挙",
+      "pronunciation": "쾌거",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "快", "korean": "쾌", "meaning": "快い・素晴らしい"},
+        {"character": "擧", "korean": "거", "meaning": "挙げる・行う"}
+      ],
+      "examples": [
+        {
+          "sentence": "올림픽에서 금메달을 딴 것은 대단한 쾌거이다.",
+          "meaning": "オリンピックで金メダルを取ったのは大きな快挙だ。"
+        }
+      ],
+      "relatedWords": ["업적", "성과"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_5004",
+      "word": "쾌청",
+      "hanja": "快晴",
+      "meaning": "快晴",
+      "pronunciation": "쾌청",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "low",
+      "components": [
+        {"character": "快", "korean": "쾌", "meaning": "快い・気持ちよい"},
+        {"character": "晴", "korean": "청", "meaning": "晴れる"}
+      ],
+      "examples": [
+        {
+          "sentence": "오늘은 쾌청한 날씨가 예상됩니다.",
+          "meaning": "今日は快晴の天気が予想されます。"
+        }
+      ],
+      "relatedWords": ["맑음", "청명"],
+      "antonyms": ["흐림"],
+      "synonyms": []
+    },
+    {
+      "id": "word_5005",
+      "word": "쾌유",
+      "hanja": "快癒",
+      "meaning": "快癒・全快",
+      "pronunciation": "쾌유",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "快", "korean": "쾌", "meaning": "快い・すみやかに"},
+        {"character": "癒", "korean": "유", "meaning": "癒える・治る"}
+      ],
+      "examples": [
+        {
+          "sentence": "쾌유를 빕니다.",
+          "meaning": "ご快癒をお祈りします。"
+        }
+      ],
+      "relatedWords": ["회복", "완치"],
+      "antonyms": [],
+      "synonyms": ["쾌차"]
+    },
+    {
+      "id": "word_5006",
+      "word": "쾌활",
+      "hanja": "快活",
+      "meaning": "快活・陽気",
+      "pronunciation": "쾌활",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "快", "korean": "쾌", "meaning": "快い"},
+        {"character": "活", "korean": "활", "meaning": "活発・生き生き"}
+      ],
+      "examples": [
+        {
+          "sentence": "그녀는 쾌활한 성격으로 인기가 많다.",
+          "meaning": "彼女は快活な性格で人気がある。"
+        }
+      ],
+      "relatedWords": ["명랑", "활발"],
+      "antonyms": ["우울"],
+      "synonyms": []
+    },
+    {
+      "id": "word_5007",
+      "word": "쾌속",
+      "hanja": "快速",
+      "meaning": "快速",
+      "pronunciation": "쾌속",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "快", "korean": "쾌", "meaning": "快い・速やかな"},
+        {"character": "速", "korean": "속", "meaning": "速い"}
+      ],
+      "examples": [
+        {
+          "sentence": "쾌속 열차가 도심을 연결한다.",
+          "meaning": "快速列車が都心を結ぶ。"
+        }
+      ],
+      "relatedWords": ["고속", "급행"],
+      "antonyms": ["완행"],
+      "synonyms": []
+    },
+    {
+      "id": "word_5008",
+      "word": "쾌적",
+      "hanja": "快適",
+      "meaning": "快適",
+      "pronunciation": "쾌적",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "快", "korean": "쾌", "meaning": "快い"},
+        {"character": "適", "korean": "적", "meaning": "適する・ふさわしい"}
+      ],
+      "examples": [
+        {
+          "sentence": "쾌적한 환경에서 일하고 싶다.",
+          "meaning": "快適な環境で働きたい。"
+        }
+      ],
+      "relatedWords": ["편안", "안락"],
+      "antonyms": ["불쾌"],
+      "synonyms": []
+    },
+    {
+      "id": "word_5009",
+      "word": "쾌승",
+      "hanja": "快勝",
+      "meaning": "快勝",
+      "pronunciation": "쾌승",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "快", "korean": "쾌", "meaning": "快い・気持ちよく"},
+        {"character": "勝", "korean": "승", "meaning": "勝つ"}
+      ],
+      "examples": [
+        {
+          "sentence": "우리 팀이 3대 0으로 쾌승했다.",
+          "meaning": "私たちのチームが3対0で快勝した。"
+        }
+      ],
+      "relatedWords": ["승리", "대승"],
+      "antonyms": ["패배"],
+      "synonyms": []
+    },
+    {
+      "id": "word_5010",
+      "word": "쾌복",
+      "hanja": "快復",
+      "meaning": "快復・回復",
+      "pronunciation": "쾌복",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "low",
+      "components": [
+        {"character": "快", "korean": "쾌", "meaning": "快い・すみやかに"},
+        {"character": "復", "korean": "복", "meaning": "復る・戻る"}
+      ],
+      "examples": [
+        {
+          "sentence": "빠른 쾌복을 기원합니다.",
+          "meaning": "早い快復をお祈りします。"
+        }
+      ],
+      "relatedWords": ["회복", "쾌유"],
+      "antonyms": [],
+      "synonyms": ["쾌유"]
+    }
+  ]
+}
