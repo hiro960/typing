@@ -12,12 +12,12 @@
         "items": [
           {
             "text": "ㅎ",
-            "meaning": "h の音"
+            "meaning": "h の音",
             "hint": "「ハ行」です"
           },
           {
             "text": "ㅗ",
-            "meaning": "o の音"
+            "meaning": "o の音",
             "hint": "「オ」の音です"
           }
         ]
@@ -28,52 +28,52 @@
         "items": [
           {
             "text": "하",
-            "meaning": "一"
+            "meaning": "一",
             "hint": "ㅎ + ㅏ"
           },
           {
             "text": "호",
-            "meaning": "号"
+            "meaning": "号",
             "hint": "ㅎ + ㅗ"
           },
           {
             "text": "히",
-            "meaning": "～く"
+            "meaning": "～く",
             "hint": "ㅎ + ㅣ"
           },
           {
             "text": "오",
-            "meaning": "五"
+            "meaning": "五",
             "hint": "ㅇ + ㅗ"
           },
           {
             "text": "하나",
-            "meaning": "一つ"
+            "meaning": "一つ",
             "hint": "ㅎ + ㅏ + ㄴ + ㅏ"
           },
           {
             "text": "호수",
-            "meaning": "湖"
+            "meaning": "湖",
             "hint": "ㅎ + ㅗ + ㅅ + ㅜ"
           },
           {
             "text": "오다",
-            "meaning": "来る"
+            "meaning": "来る",
             "hint": "ㅇ + ㅗ + ㄷ + ㅏ"
           },
           {
             "text": "하루",
-            "meaning": "一日"
+            "meaning": "一日",
             "hint": "ㅎ + ㅏ + ㄹ + ㅜ"
           },
           {
             "text": "호랑이",
-            "meaning": "虎"
+            "meaning": "虎",
             "hint": "ㅎ + ㅗ + ㄹ + ㅏ + ㅇ + ㅣ"
           },
           {
             "text": "오이",
-            "meaning": "きゅうり"
+            "meaning": "きゅうり",
             "hint": "ㅇ + ㅗ + ㅇ + ㅣ"
           }
         ]

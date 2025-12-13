@@ -12,77 +12,77 @@
         "items": [
           {
             "text": "친구",
-            "meaning": "友達"
+            "meaning": "友達",
             "hint": "ㅊ + ㅣ + ㄴ + ㄱ + ㅜ"
           },
           {
             "text": "선생님",
-            "meaning": "先生"
+            "meaning": "先生",
             "hint": "ㅅ + ㅓ + ㄴ + ㅅ + ㅐ + ㅇ + ㄴ + ㅣ + ㅁ"
           },
           {
             "text": "학생",
-            "meaning": "学生"
+            "meaning": "学生",
             "hint": "ㅎ + ㅏ + ㄱ + ㅅ + ㅐ + ㅇ"
           },
           {
             "text": "사람",
-            "meaning": "人"
+            "meaning": "人",
             "hint": "ㅅ + ㅏ + ㄹ + ㅏ + ㅁ"
           },
           {
             "text": "남자",
-            "meaning": "男"
+            "meaning": "男",
             "hint": "ㄴ + ㅏ + ㅁ + ㅈ + ㅏ"
           },
           {
             "text": "여자",
-            "meaning": "女"
+            "meaning": "女",
             "hint": "ㅇ + ㅕ + ㅈ + ㅏ"
           },
           {
             "text": "아이",
-            "meaning": "子供"
+            "meaning": "子供",
             "hint": "ㅇ + ㅏ + ㅇ + ㅣ"
           },
           {
             "text": "어른",
-            "meaning": "大人"
+            "meaning": "大人",
             "hint": "ㅇ + ㅓ + ㄹ + ㅡ + ㄴ"
           },
           {
             "text": "이름",
-            "meaning": "名前"
+            "meaning": "名前",
             "hint": "ㅇ + ㅣ + ㄹ + ㅡ + ㅁ"
           },
           {
             "text": "나이",
-            "meaning": "年齢"
+            "meaning": "年齢",
             "hint": "ㄴ + ㅏ + ㅇ + ㅣ"
           },
           {
             "text": "남편",
-            "meaning": "夫"
+            "meaning": "夫",
             "hint": "ㄴ + ㅏ + ㅁ + ㅍ + ㅕ + ㄴ"
           },
           {
             "text": "아내",
-            "meaning": "妻"
+            "meaning": "妻",
             "hint": "ㅇ + ㅏ + ㄴ + ㅐ"
           },
           {
             "text": "부부",
-            "meaning": "夫婦"
+            "meaning": "夫婦",
             "hint": "ㅂ + ㅜ + ㅂ + ㅜ"
           },
           {
             "text": "이웃",
-            "meaning": "隣人"
+            "meaning": "隣人",
             "hint": "ㅇ + ㅣ + ㅇ + ㅜ + ㅅ"
           },
           {
             "text": "손님",
-            "meaning": "お客様"
+            "meaning": "お客様",
             "hint": "ㅅ + ㅗ + ㄴ + ㄴ + ㅣ + ㅁ"
           }
         ]

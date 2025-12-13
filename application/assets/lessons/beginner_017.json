@@ -12,52 +12,52 @@
         "items": [
           {
             "text": "말",
-            "meaning": "言葉/馬"
+            "meaning": "言葉/馬",
             "hint": "ㅁ + ㅏ + ㄹ（パッチム）"
           },
           {
             "text": "얼굴",
-            "meaning": "顔"
+            "meaning": "顔",
             "hint": "ㅇ + ㅓ + ㄹ + ㄱ + ㅜ + ㄹ"
           },
           {
             "text": "일",
-            "meaning": "仕事/一"
+            "meaning": "仕事/一",
             "hint": "ㅇ + ㅣ + ㄹ（パッチム）"
           },
           {
             "text": "발",
-            "meaning": "足"
+            "meaning": "足",
             "hint": "ㅂ + ㅏ + ㄹ（パッチム）"
           },
           {
             "text": "날씨",
-            "meaning": "天気"
+            "meaning": "天気",
             "hint": "ㄴ + ㅏ + ㄹ + ㅆ + ㅣ"
           },
           {
             "text": "잘",
-            "meaning": "よく"
+            "meaning": "よく",
             "hint": "ㅈ + ㅏ + ㄹ（パッチム）"
           },
           {
             "text": "밤",
-            "meaning": "夜/栗"
+            "meaning": "夜/栗",
             "hint": "ㅂ + ㅏ + ㅁ（パッチム）"
           },
           {
             "text": "공",
-            "meaning": "ボール"
+            "meaning": "ボール",
             "hint": "ㄱ + ㅗ + ㅇ（パッチム）"
           },
           {
             "text": "강",
-            "meaning": "川"
+            "meaning": "川",
             "hint": "ㄱ + ㅏ + ㅇ（パッチム）"
           },
           {
             "text": "맛",
-            "meaning": "味"
+            "meaning": "味",
             "hint": "ㅁ + ㅏ + ㅅ（パッチム）"
           }
         ]

@@ -12,17 +12,17 @@
         "items": [
           {
             "text": "ㄳ",
-            "meaning": "ㄱ + ㅅ"
+            "meaning": "ㄱ + ㅅ",
             "hint": "発音は「ㄱ」になることが多い"
           },
           {
             "text": "ㄺ",
-            "meaning": "ㄹ + ㄱ"
+            "meaning": "ㄹ + ㄱ",
             "hint": "発音は「ㄱ」になることが多い"
           },
           {
             "text": "ㄻ",
-            "meaning": "ㄹ + ㅁ"
+            "meaning": "ㄹ + ㅁ",
             "hint": "発音は「ㅁ」になることが多い"
           }
         ]
@@ -33,42 +33,42 @@
         "items": [
           {
             "text": "값",
-            "meaning": "値段"
+            "meaning": "値段",
             "hint": "ㄱ + ㅏ + ㄳ（パッチム）"
           },
           {
             "text": "넓다",
-            "meaning": "広い"
+            "meaning": "広い",
             "hint": "ㄴ + ㅓ + ㄼ + ㄷ + ㅏ"
           },
           {
             "text": "삶",
-            "meaning": "人生"
+            "meaning": "人生",
             "hint": "ㅅ + ㅏ + ㄻ（パッチム）"
           },
           {
             "text": "읽다",
-            "meaning": "読む"
+            "meaning": "読む",
             "hint": "ㅇ + ㅣ + ㄺ + ㄷ + ㅏ"
           },
           {
             "text": "닭",
-            "meaning": "鶏"
+            "meaning": "鶏",
             "hint": "ㄷ + ㅏ + ㄺ（パッチム）"
           },
           {
             "text": "흙",
-            "meaning": "土"
+            "meaning": "土",
             "hint": "ㅎ + ㅡ + ㄺ（パッチム）"
           },
           {
             "text": "앉다",
-            "meaning": "座る"
+            "meaning": "座る",
             "hint": "ㅇ + ㅏ + ㄵ + ㄷ + ㅏ"
           },
           {
             "text": "옳다",
-            "meaning": "正しい"
+            "meaning": "正しい",
             "hint": "ㅇ + ㅗ + ㄾ + ㄷ + ㅏ"
           }
         ]

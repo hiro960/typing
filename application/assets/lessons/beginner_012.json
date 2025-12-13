@@ -12,17 +12,17 @@
         "items": [
           {
             "text": "ㄲ",
-            "meaning": "kk の音（濃音）"
+            "meaning": "kk の音（濃音）",
             "hint": "詰まった「カ」の音"
           },
           {
             "text": "ㄸ",
-            "meaning": "tt の音（濃音）"
+            "meaning": "tt の音（濃音）",
             "hint": "詰まった「タ」の音"
           },
           {
             "text": "ㅃ",
-            "meaning": "pp の音（濃音）"
+            "meaning": "pp の音（濃音）",
             "hint": "詰まった「パ」の音"
           }
         ]
@@ -33,47 +33,47 @@
         "items": [
           {
             "text": "까",
-            "meaning": "～まで"
+            "meaning": "～まで",
             "hint": "ㄲ + ㅏ"
           },
           {
             "text": "빠",
-            "meaning": "速い"
+            "meaning": "速い",
             "hint": "ㅃ + ㅏ"
           },
           {
             "text": "따",
-            "meaning": "～に従って"
+            "meaning": "～に従って",
             "hint": "ㄸ + ㅏ"
           },
           {
             "text": "꼬리",
-            "meaning": "尻尾"
+            "meaning": "尻尾",
             "hint": "ㄲ + ㅗ + ㄹ + ㅣ"
           },
           {
             "text": "뿌리",
-            "meaning": "根"
+            "meaning": "根",
             "hint": "ㅃ + ㅜ + ㄹ + ㅣ"
           },
           {
             "text": "딸기",
-            "meaning": "イチゴ"
+            "meaning": "イチゴ",
             "hint": "ㄸ + ㅏ + ㄹ + ㄱ + ㅣ"
           },
           {
             "text": "까치",
-            "meaning": "カササギ"
+            "meaning": "カササギ",
             "hint": "ㄲ + ㅏ + ㅊ + ㅣ"
           },
           {
             "text": "빠르다",
-            "meaning": "速い"
+            "meaning": "速い",
             "hint": "ㅃ + ㅏ + ㄹ + ㅡ + ㄷ + ㅏ"
           },
           {
             "text": "또",
-            "meaning": "また"
+            "meaning": "また",
             "hint": "ㄸ + ㅗ"
           }
         ]

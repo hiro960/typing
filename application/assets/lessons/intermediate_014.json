@@ -12,77 +12,77 @@
         "items": [
           {
             "text": "더럽다",
-            "meaning": "汚い"
+            "meaning": "汚い",
             "hint": "ㄷ + ㅓ + ㄹ + ㅓ + ㅂ + ㄷ + ㅏ"
           },
           {
             "text": "새롭다",
-            "meaning": "新しい"
+            "meaning": "新しい",
             "hint": "ㅅ + ㅐ + ㄹ + ㅗ + ㅂ + ㄷ + ㅏ"
           },
           {
             "text": "오래되다",
-            "meaning": "古い"
+            "meaning": "古い",
             "hint": "ㅇ + ㅗ + ㄹ + ㅐ + ㄷ + ㅚ + ㄷ + ㅏ"
           },
           {
             "text": "빠르다",
-            "meaning": "速い"
+            "meaning": "速い",
             "hint": "ㅃ + ㅏ + ㄹ + ㅡ + ㄷ + ㅏ"
           },
           {
             "text": "느리다",
-            "meaning": "遅い"
+            "meaning": "遅い",
             "hint": "ㄴ + ㅡ + ㄹ + ㅣ + ㄷ + ㅏ"
           },
           {
             "text": "쉽다",
-            "meaning": "易しい"
+            "meaning": "易しい",
             "hint": "ㅅ + ㅟ + ㅂ + ㄷ + ㅏ"
           },
           {
             "text": "어렵다",
-            "meaning": "難しい"
+            "meaning": "難しい",
             "hint": "ㅇ + ㅓ + ㄹ + ㅕ + ㅂ + ㄷ + ㅏ"
           },
           {
             "text": "바쁘다",
-            "meaning": "忙しい"
+            "meaning": "忙しい",
             "hint": "ㅂ + ㅏ + ㅃ + ㅡ + ㄷ + ㅏ"
           },
           {
             "text": "한가하다",
-            "meaning": "暇だ"
+            "meaning": "暇だ",
             "hint": "ㅎ + ㅏ + ㄴ + ㄱ + ㅏ + ㅎ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "재미있다",
-            "meaning": "面白い"
+            "meaning": "面白い",
             "hint": "ㅈ + ㅐ + ㅁ + ㅣ + ㅇ + ㅣ + ㅆ + ㄷ + ㅏ"
           },
           {
             "text": "재미없다",
-            "meaning": "つまらない"
+            "meaning": "つまらない",
             "hint": "ㅈ + ㅐ + ㅁ + ㅣ + ㅇ + ㅓ + ㅄ + ㄷ + ㅏ"
           },
           {
             "text": "맛있다",
-            "meaning": "おいしい"
+            "meaning": "おいしい",
             "hint": "ㅁ + ㅏ + ㅅ + ㅇ + ㅣ + ㅆ + ㄷ + ㅏ"
           },
           {
             "text": "맛없다",
-            "meaning": "まずい"
+            "meaning": "まずい",
             "hint": "ㅁ + ㅏ + ㅅ + ㅇ + ㅓ + ㅄ + ㄷ + ㅏ"
           },
           {
             "text": "예쁘다",
-            "meaning": "きれいだ"
+            "meaning": "きれいだ",
             "hint": "ㅇ + ㅖ + ㅃ + ㅡ + ㄷ + ㅏ"
           },
           {
             "text": "멋있다",
-            "meaning": "かっこいい"
+            "meaning": "かっこいい",
             "hint": "ㅁ + ㅓ + ㅅ + ㅇ + ㅣ + ㅆ + ㄷ + ㅏ"
           }
         ]

@@ -12,77 +12,77 @@
         "items": [
           {
             "text": "공항",
-            "meaning": "空港"
+            "meaning": "空港",
             "hint": "ㄱ + ㅗ + ㅇ + ㅎ + ㅏ + ㅇ"
           },
           {
             "text": "호텔",
-            "meaning": "ホテル"
+            "meaning": "ホテル",
             "hint": "ㅎ + ㅗ + ㅌ + ㅔ + ㄹ"
           },
           {
             "text": "극장",
-            "meaning": "劇場"
+            "meaning": "劇場",
             "hint": "ㄱ + ㅡ + ㄱ + ㅈ + ㅏ + ㅇ"
           },
           {
             "text": "박물관",
-            "meaning": "博物館"
+            "meaning": "博物館",
             "hint": "ㅂ + ㅏ + ㄱ + ㅁ + ㅜ + ㄹ + ㄱ + ㅘ + ㄴ"
           },
           {
             "text": "교회",
-            "meaning": "教会"
+            "meaning": "教会",
             "hint": "ㄱ + ㅛ + ㅎ + ㅚ"
           },
           {
             "text": "위",
-            "meaning": "上"
+            "meaning": "上",
             "hint": "ㅇ + ㅟ"
           },
           {
             "text": "아래",
-            "meaning": "下"
+            "meaning": "下",
             "hint": "ㅇ + ㅏ + ㄹ + ㅐ"
           },
           {
             "text": "앞",
-            "meaning": "前"
+            "meaning": "前",
             "hint": "ㅇ + ㅏ + ㅍ"
           },
           {
             "text": "뒤",
-            "meaning": "後ろ"
+            "meaning": "後ろ",
             "hint": "ㄷ + ㅟ"
           },
           {
             "text": "옆",
-            "meaning": "横"
+            "meaning": "横",
             "hint": "ㅇ + ㅕ + ㅂ"
           },
           {
             "text": "안",
-            "meaning": "中"
+            "meaning": "中",
             "hint": "ㅇ + ㅏ + ㄴ"
           },
           {
             "text": "밖",
-            "meaning": "外"
+            "meaning": "外",
             "hint": "ㅂ + ㅏ + ㄲ"
           },
           {
             "text": "왼쪽",
-            "meaning": "左側"
+            "meaning": "左側",
             "hint": "ㅇ + ㅚ + ㄴ + ㅉ + ㅗ + ㄱ"
           },
           {
             "text": "오른쪽",
-            "meaning": "右側"
+            "meaning": "右側",
             "hint": "ㅇ + ㅗ + ㄹ + ㅡ + ㄴ + ㅉ + ㅗ + ㄱ"
           },
           {
             "text": "사이",
-            "meaning": "間"
+            "meaning": "間",
             "hint": "ㅅ + ㅏ + ㅇ + ㅣ"
           }
         ]

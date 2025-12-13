@@ -12,82 +12,82 @@
         "items": [
           {
             "text": "일",
-            "meaning": "仕事・こと"
+            "meaning": "仕事・こと",
             "hint": "ㅇ + ㅣ + ㄹ"
           },
           {
             "text": "돈",
-            "meaning": "お金"
+            "meaning": "お金",
             "hint": "ㄷ + ㅗ + ㄴ"
           },
           {
             "text": "책",
-            "meaning": "本"
+            "meaning": "本",
             "hint": "ㅊ + ㅐ + ㄱ"
           },
           {
             "text": "종이",
-            "meaning": "紙"
+            "meaning": "紙",
             "hint": "ㅈ + ㅗ + ㅇ + ㅇ + ㅣ"
           },
           {
             "text": "펜",
-            "meaning": "ペン"
+            "meaning": "ペン",
             "hint": "ㅍ + ㅔ + ㄴ"
           },
           {
             "text": "가방",
-            "meaning": "カバン"
+            "meaning": "カバン",
             "hint": "ㄱ + ㅏ + ㅂ + ㅏ + ㅇ"
           },
           {
             "text": "옷",
-            "meaning": "服"
+            "meaning": "服",
             "hint": "ㅇ + ㅗ + ㅅ"
           },
           {
             "text": "신발",
-            "meaning": "靴"
+            "meaning": "靴",
             "hint": "ㅅ + ㅣ + ㄴ + ㅂ + ㅏ + ㄹ"
           },
           {
             "text": "모자",
-            "meaning": "帽子"
+            "meaning": "帽子",
             "hint": "ㅁ + ㅗ + ㅈ + ㅏ"
           },
           {
             "text": "안경",
-            "meaning": "眼鏡"
+            "meaning": "眼鏡",
             "hint": "ㅇ + ㅏ + ㄴ + ㄱ + ㅕ + ㅇ"
           },
           {
             "text": "시계",
-            "meaning": "時計"
+            "meaning": "時計",
             "hint": "ㅅ + ㅣ + ㄱ + ㅖ"
           },
           {
             "text": "전화",
-            "meaning": "電話"
+            "meaning": "電話",
             "hint": "ㅈ + ㅓ + ㄴ + ㅎ + ㅘ"
           },
           {
             "text": "컴퓨터",
-            "meaning": "コンピューター"
+            "meaning": "コンピューター",
             "hint": "ㅋ + ㅓ + ㅁ + ㅍ + ㅠ + ㅌ + ㅓ"
           },
           {
             "text": "텔레비전",
-            "meaning": "テレビ"
+            "meaning": "テレビ",
             "hint": "ㅌ + ㅔ + ㄹ + ㄹ + ㅔ + ㅂ + ㅣ + ㅈ + ㅓ + ㄴ"
           },
           {
             "text": "문",
-            "meaning": "ドア"
+            "meaning": "ドア",
             "hint": "ㅁ + ㅜ + ㄴ"
           },
           {
             "text": "창문",
-            "meaning": "窓"
+            "meaning": "窓",
             "hint": "ㅊ + ㅏ + ㅇ + ㅁ + ㅜ + ㄴ"
           }
         ]

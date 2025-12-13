@@ -12,17 +12,17 @@
         "items": [
           {
             "text": "ㅋ",
-            "meaning": "k の音（激音）"
+            "meaning": "k の音（激音）",
             "hint": "強い「カ行」です"
           },
           {
             "text": "ㅌ",
-            "meaning": "t の音（激音）"
+            "meaning": "t の音（激音）",
             "hint": "強い「タ行」です"
           },
           {
             "text": "ㅍ",
-            "meaning": "p の音（激音）"
+            "meaning": "p の音（激音）",
             "hint": "強い「パ行」です"
           }
         ]
@@ -33,52 +33,52 @@
         "items": [
           {
             "text": "카",
-            "meaning": "カード"
+            "meaning": "カード",
             "hint": "ㅋ + ㅏ"
           },
           {
             "text": "타",
-            "meaning": "他"
+            "meaning": "他",
             "hint": "ㅌ + ㅏ"
           },
           {
             "text": "파",
-            "meaning": "ネギ"
+            "meaning": "ネギ",
             "hint": "ㅍ + ㅏ"
           },
           {
             "text": "코",
-            "meaning": "鼻"
+            "meaning": "鼻",
             "hint": "ㅋ + ㅗ"
           },
           {
             "text": "토",
-            "meaning": "土"
+            "meaning": "土",
             "hint": "ㅌ + ㅗ"
           },
           {
             "text": "포도",
-            "meaning": "ぶどう"
+            "meaning": "ぶどう",
             "hint": "ㅍ + ㅗ + ㄷ + ㅗ"
           },
           {
             "text": "커피",
-            "meaning": "コーヒー"
+            "meaning": "コーヒー",
             "hint": "ㅋ + ㅓ + ㅍ + ㅣ"
           },
           {
             "text": "타다",
-            "meaning": "乗る"
+            "meaning": "乗る",
             "hint": "ㅌ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "파다",
-            "meaning": "掘る"
+            "meaning": "掘る",
             "hint": "ㅍ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "토끼",
-            "meaning": "うさぎ"
+            "meaning": "うさぎ",
             "hint": "ㅌ + ㅗ + ㄲ + ㅣ"
           }
         ]

@@ -12,82 +12,82 @@
         "items": [
           {
             "text": "오늘",
-            "meaning": "今日"
+            "meaning": "今日",
             "hint": "ㅇ + ㅗ + ㄴ + ㅡ + ㄹ"
           },
           {
             "text": "어제",
-            "meaning": "昨日"
+            "meaning": "昨日",
             "hint": "ㅇ + ㅓ + ㅈ + ㅔ"
           },
           {
             "text": "내일",
-            "meaning": "明日"
+            "meaning": "明日",
             "hint": "ㄴ + ㅐ + ㅇ + ㅣ + ㄹ"
           },
           {
             "text": "지금",
-            "meaning": "今"
+            "meaning": "今",
             "hint": "ㅈ + ㅣ + ㄱ + ㅡ + ㅁ"
           },
           {
             "text": "나중",
-            "meaning": "後で"
+            "meaning": "後で",
             "hint": "ㄴ + ㅏ + ㅈ + ㅜ + ㅇ"
           },
           {
             "text": "항상",
-            "meaning": "いつも"
+            "meaning": "いつも",
             "hint": "ㅎ + ㅏ + ㅇ + ㅅ + ㅏ + ㅇ"
           },
           {
             "text": "자주",
-            "meaning": "よく"
+            "meaning": "よく",
             "hint": "ㅈ + ㅏ + ㅈ + ㅜ"
           },
           {
             "text": "가끔",
-            "meaning": "たまに"
+            "meaning": "たまに",
             "hint": "ㄱ + ㅏ + ㄲ + ㅡ + ㅁ"
           },
           {
             "text": "매일",
-            "meaning": "毎日"
+            "meaning": "毎日",
             "hint": "ㅁ + ㅐ + ㅇ + ㅣ + ㄹ"
           },
           {
             "text": "보통",
-            "meaning": "普通"
+            "meaning": "普通",
             "hint": "ㅂ + ㅗ + ㅌ + ㅗ + ㅇ"
           },
           {
             "text": "언제",
-            "meaning": "いつ"
+            "meaning": "いつ",
             "hint": "ㅇ + ㅓ + ㄴ + ㅈ + ㅔ"
           },
           {
             "text": "빨리",
-            "meaning": "早く"
+            "meaning": "早く",
             "hint": "ㅃ + ㅏ + ㄹ + ㄹ + ㅣ"
           },
           {
             "text": "천천히",
-            "meaning": "ゆっくり"
+            "meaning": "ゆっくり",
             "hint": "ㅊ + ㅓ + ㄴ + ㅊ + ㅓ + ㄴ + ㅎ + ㅣ"
           },
           {
             "text": "곧",
-            "meaning": "すぐ"
+            "meaning": "すぐ",
             "hint": "ㄱ + ㅗ + ㅅ"
           },
           {
             "text": "이미",
-            "meaning": "すでに"
+            "meaning": "すでに",
             "hint": "ㅇ + ㅣ + ㅁ + ㅣ"
           },
           {
             "text": "아직",
-            "meaning": "まだ"
+            "meaning": "まだ",
             "hint": "ㅇ + ㅏ + ㅈ + ㅣ + ㄱ"
           }
         ]

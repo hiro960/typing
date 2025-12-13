@@ -12,12 +12,12 @@
         "items": [
           {
             "text": "ㅆ",
-            "meaning": "ss の音（濃音）"
+            "meaning": "ss の音（濃音）",
             "hint": "詰まった「サ」の音"
           },
           {
             "text": "ㅉ",
-            "meaning": "jj の音（濃音）"
+            "meaning": "jj の音（濃音）",
             "hint": "詰まった「チャ」の音"
           }
         ]
@@ -28,47 +28,47 @@
         "items": [
           {
             "text": "싸",
-            "meaning": "安い"
+            "meaning": "安い",
             "hint": "ㅆ + ㅏ"
           },
           {
             "text": "짜",
-            "meaning": "塩辛い"
+            "meaning": "塩辛い",
             "hint": "ㅉ + ㅏ"
           },
           {
             "text": "쓰다",
-            "meaning": "書く"
+            "meaning": "書く",
             "hint": "ㅆ + ㅡ + ㄷ + ㅏ"
           },
           {
             "text": "씨",
-            "meaning": "種/～さん"
+            "meaning": "種/～さん",
             "hint": "ㅆ + ㅣ"
           },
           {
             "text": "짜다",
-            "meaning": "塩辛い"
+            "meaning": "塩辛い",
             "hint": "ㅉ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "쌀",
-            "meaning": "米"
+            "meaning": "米",
             "hint": "ㅆ + ㅏ + ㄹ"
           },
           {
             "text": "찌다",
-            "meaning": "蒸す"
+            "meaning": "蒸す",
             "hint": "ㅉ + ㅣ + ㄷ + ㅏ"
           },
           {
             "text": "쏘다",
-            "meaning": "撃つ"
+            "meaning": "撃つ",
             "hint": "ㅆ + ㅗ + ㄷ + ㅏ"
           },
           {
             "text": "짜증",
-            "meaning": "イライラ"
+            "meaning": "イライラ",
             "hint": "ㅉ + ㅏ + ㅈ + ㅡ + ㅇ"
           }
         ]
