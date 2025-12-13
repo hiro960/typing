@@ -12,17 +12,17 @@
         "items": [
           {
             "text": "ㅜ",
-            "meaning": "u の音"
+            "meaning": "u の音",
             "hint": "「ウ」の音です"
           },
           {
             "text": "ㅇ",
-            "meaning": "無音/ng の音"
+            "meaning": "無音/ng の音",
             "hint": "語頭では無音、語末では「ン」の音"
           },
           {
             "text": "ㅁ",
-            "meaning": "m の音"
+            "meaning": "m の音",
             "hint": "「マ行」です"
           }
         ]
@@ -33,42 +33,42 @@
         "items": [
           {
             "text": "문",
-            "meaning": "ドア"
+            "meaning": "ドア",
             "hint": "ㅁ + ㅜ + ㄴ"
           },
           {
             "text": "안",
-            "meaning": "中"
+            "meaning": "中",
             "hint": "ㅇ + ㅏ + ㄴ"
           },
           {
             "text": "눈",
-            "meaning": "目/雪"
+            "meaning": "目/雪",
             "hint": "ㄴ + ㅜ + ㄴ"
           },
           {
             "text": "나무",
-            "meaning": "木"
+            "meaning": "木",
             "hint": "ㄴ + ㅏ + ㅁ + ㅜ"
           },
           {
             "text": "아마",
-            "meaning": "おそらく"
+            "meaning": "おそらく",
             "hint": "ㅇ + ㅏ + ㅁ + ㅏ"
           },
           {
             "text": "누나",
-            "meaning": "お姉さん"
+            "meaning": "お姉さん",
             "hint": "ㄴ + ㅜ + ㄴ + ㅏ"
           },
           {
             "text": "만",
-            "meaning": "だけ/万"
+            "meaning": "だけ/万",
             "hint": "ㅁ + ㅏ + ㄴ"
           },
           {
             "text": "바나나",
-            "meaning": "バナナ"
+            "meaning": "バナナ",
             "hint": "ㅂ + ㅏ + ㄴ + ㅏ + ㄴ + ㅏ"
           }
         ]

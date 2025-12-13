@@ -12,12 +12,12 @@
         "items": [
           {
             "text": "ㅈ",
-            "meaning": "j/ch の音"
+            "meaning": "j/ch の音",
             "hint": "「ジャ行」「チャ行」です"
           },
           {
             "text": "ㅓ",
-            "meaning": "eo の音"
+            "meaning": "eo の音",
             "hint": "口を横に広げて「オ」の音"
           }
         ]
@@ -28,52 +28,52 @@
         "items": [
           {
             "text": "저",
-            "meaning": "あそこ/私"
+            "meaning": "あそこ/私",
             "hint": "ㅈ + ㅓ"
           },
           {
             "text": "조",
-            "meaning": "条/兆"
+            "meaning": "条/兆",
             "hint": "ㅈ + ㅗ"
           },
           {
             "text": "주",
-            "meaning": "主/週"
+            "meaning": "主/週",
             "hint": "ㅈ + ㅜ"
           },
           {
             "text": "자",
-            "meaning": "者/尺"
+            "meaning": "者/尺",
             "hint": "ㅈ + ㅏ"
           },
           {
             "text": "지도",
-            "meaning": "地図"
+            "meaning": "地図",
             "hint": "ㅈ + ㅣ + ㄷ + ㅗ"
           },
           {
             "text": "저기",
-            "meaning": "あそこ"
+            "meaning": "あそこ",
             "hint": "ㅈ + ㅓ + ㄱ + ㅣ"
           },
           {
             "text": "주소",
-            "meaning": "住所"
+            "meaning": "住所",
             "hint": "ㅈ + ㅜ + ㅅ + ㅗ"
           },
           {
             "text": "자리",
-            "meaning": "席/場所"
+            "meaning": "席/場所",
             "hint": "ㅈ + ㅏ + ㄹ + ㅣ"
           },
           {
             "text": "저녁",
-            "meaning": "夕方"
+            "meaning": "夕方",
             "hint": "ㅈ + ㅓ + ㄴ + ㅕ + ㄱ"
           },
           {
             "text": "조금",
-            "meaning": "少し"
+            "meaning": "少し",
             "hint": "ㅈ + ㅗ + ㄱ + ㅡ + ㅁ"
           }
         ]

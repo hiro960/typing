@@ -12,77 +12,77 @@
         "items": [
           {
             "text": "좋다",
-            "meaning": "良い"
+            "meaning": "良い",
             "hint": "ㅈ + ㅗ + ㅎ + ㄷ + ㅏ"
           },
           {
             "text": "나쁘다",
-            "meaning": "悪い"
+            "meaning": "悪い",
             "hint": "ㄴ + ㅏ + ㅃ + ㅡ + ㄷ + ㅏ"
           },
           {
             "text": "크다",
-            "meaning": "大きい"
+            "meaning": "大きい",
             "hint": "ㅋ + ㅡ + ㄷ + ㅏ"
           },
           {
             "text": "작다",
-            "meaning": "小さい"
+            "meaning": "小さい",
             "hint": "ㅈ + ㅏ + ㄱ + ㄷ + ㅏ"
           },
           {
             "text": "많다",
-            "meaning": "多い"
+            "meaning": "多い",
             "hint": "ㅁ + ㅏ + ㄶ + ㄷ + ㅏ"
           },
           {
             "text": "적다",
-            "meaning": "少ない"
+            "meaning": "少ない",
             "hint": "ㅈ + ㅓ + ㄱ + ㄷ + ㅏ"
           },
           {
             "text": "길다",
-            "meaning": "長い"
+            "meaning": "長い",
             "hint": "ㄱ + ㅣ + ㄹ + ㄷ + ㅏ"
           },
           {
             "text": "짧다",
-            "meaning": "短い"
+            "meaning": "短い",
             "hint": "ㅉ + ㅏ + ㄼ + ㄷ + ㅏ"
           },
           {
             "text": "높다",
-            "meaning": "高い"
+            "meaning": "高い",
             "hint": "ㄴ + ㅗ + ㅍ + ㄷ + ㅏ"
           },
           {
             "text": "낮다",
-            "meaning": "低い"
+            "meaning": "低い",
             "hint": "ㄴ + ㅏ + ㅈ + ㄷ + ㅏ"
           },
           {
             "text": "넓다",
-            "meaning": "広い"
+            "meaning": "広い",
             "hint": "ㄴ + ㅓ + ㄼ + ㄷ + ㅏ"
           },
           {
             "text": "좁다",
-            "meaning": "狭い"
+            "meaning": "狭い",
             "hint": "ㅈ + ㅗ + ㅂ + ㄷ + ㅏ"
           },
           {
             "text": "무겁다",
-            "meaning": "重い"
+            "meaning": "重い",
             "hint": "ㅁ + ㅜ + ㄱ + ㅓ + ㅂ + ㄷ + ㅏ"
           },
           {
             "text": "가볍다",
-            "meaning": "軽い"
+            "meaning": "軽い",
             "hint": "ㄱ + ㅏ + ㅂ + ㅕ + ㅂ + ㄷ + ㅏ"
           },
           {
             "text": "깨끗하다",
-            "meaning": "きれいだ"
+            "meaning": "きれいだ",
             "hint": "ㄲ + ㅐ + ㄲ + ㅡ + ㅅ + ㅎ + ㅏ + ㄷ + ㅏ"
           }
         ]

@@ -12,77 +12,77 @@
         "items": [
           {
             "text": "집",
-            "meaning": "家"
+            "meaning": "家",
             "hint": "ㅈ + ㅣ + ㅂ"
           },
           {
             "text": "학교",
-            "meaning": "学校"
+            "meaning": "学校",
             "hint": "ㅎ + ㅏ + ㄱ + ㄱ + ㅛ"
           },
           {
             "text": "회사",
-            "meaning": "会社"
+            "meaning": "会社",
             "hint": "ㅎ + ㅚ + ㅅ + ㅏ"
           },
           {
             "text": "병원",
-            "meaning": "病院"
+            "meaning": "病院",
             "hint": "ㅂ + ㅕ + ㅇ + ㅇ + ㅝ + ㄴ"
           },
           {
             "text": "약국",
-            "meaning": "薬局"
+            "meaning": "薬局",
             "hint": "ㅇ + ㅑ + ㄱ + ㄱ + ㅜ + ㄱ"
           },
           {
             "text": "은행",
-            "meaning": "銀行"
+            "meaning": "銀行",
             "hint": "ㅇ + ㅡ + ㄴ + ㅎ + ㅐ + ㅇ"
           },
           {
             "text": "우체국",
-            "meaning": "郵便局"
+            "meaning": "郵便局",
             "hint": "ㅇ + ㅜ + ㅊ + ㅔ + ㄱ + ㅜ + ㄱ"
           },
           {
             "text": "가게",
-            "meaning": "店"
+            "meaning": "店",
             "hint": "ㄱ + ㅏ + ㄱ + ㅔ"
           },
           {
             "text": "시장",
-            "meaning": "市場"
+            "meaning": "市場",
             "hint": "ㅅ + ㅣ + ㅈ + ㅏ + ㅇ"
           },
           {
             "text": "백화점",
-            "meaning": "デパート"
+            "meaning": "デパート",
             "hint": "ㅂ + ㅐ + ㄱ + ㅎ + ㅘ + ㅈ + ㅓ + ㅁ"
           },
           {
             "text": "식당",
-            "meaning": "食堂"
+            "meaning": "食堂",
             "hint": "ㅅ + ㅣ + ㄱ + ㄷ + ㅏ + ㅇ"
           },
           {
             "text": "카페",
-            "meaning": "カフェ"
+            "meaning": "カフェ",
             "hint": "ㅋ + ㅏ + ㅍ + ㅔ"
           },
           {
             "text": "공원",
-            "meaning": "公園"
+            "meaning": "公園",
             "hint": "ㄱ + ㅗ + ㅇ + ㅇ + ㅝ + ㄴ"
           },
           {
             "text": "도서관",
-            "meaning": "図書館"
+            "meaning": "図書館",
             "hint": "ㄷ + ㅗ + ㅅ + ㅓ + ㄱ + ㅘ + ㄴ"
           },
           {
             "text": "역",
-            "meaning": "駅"
+            "meaning": "駅",
             "hint": "ㅇ + ㅕ + ㄱ"
           }
         ]

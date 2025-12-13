@@ -12,22 +12,22 @@
         "items": [
           {
             "text": "ㅑ",
-            "meaning": "ya の音"
+            "meaning": "ya の音",
             "hint": "「ヤ」の音です"
           },
           {
             "text": "ㅕ",
-            "meaning": "yeo の音"
+            "meaning": "yeo の音",
             "hint": "「ヨ」の音です（口を横に）"
           },
           {
             "text": "ㅛ",
-            "meaning": "yo の音"
+            "meaning": "yo の音",
             "hint": "「ヨ」の音です"
           },
           {
             "text": "ㅠ",
-            "meaning": "yu の音"
+            "meaning": "yu の音",
             "hint": "「ユ」の音です"
           }
         ]
@@ -38,52 +38,52 @@
         "items": [
           {
             "text": "야",
-            "meaning": "や"
+            "meaning": "や",
             "hint": "ㅇ + ㅑ"
           },
           {
             "text": "여",
-            "meaning": "～"
+            "meaning": "～",
             "hint": "ㅇ + ㅕ"
           },
           {
             "text": "요",
-            "meaning": "～です"
+            "meaning": "～です",
             "hint": "ㅇ + ㅛ"
           },
           {
             "text": "유",
-            "meaning": "有"
+            "meaning": "有",
             "hint": "ㅇ + ㅠ"
           },
           {
             "text": "야구",
-            "meaning": "野球"
+            "meaning": "野球",
             "hint": "ㅇ + ㅑ + ㄱ + ㅜ"
           },
           {
             "text": "여기",
-            "meaning": "ここ"
+            "meaning": "ここ",
             "hint": "ㅇ + ㅕ + ㄱ + ㅣ"
           },
           {
             "text": "요리",
-            "meaning": "料理"
+            "meaning": "料理",
             "hint": "ㅇ + ㅛ + ㄹ + ㅣ"
           },
           {
             "text": "유리",
-            "meaning": "ガラス"
+            "meaning": "ガラス",
             "hint": "ㅇ + ㅠ + ㄹ + ㅣ"
           },
           {
             "text": "약",
-            "meaning": "薬"
+            "meaning": "薬",
             "hint": "ㅇ + ㅑ + ㄱ"
           },
           {
             "text": "연필",
-            "meaning": "鉛筆"
+            "meaning": "鉛筆",
             "hint": "ㅇ + ㅕ + ㄴ + ㅍ + ㅣ + ㄹ"
           }
         ]

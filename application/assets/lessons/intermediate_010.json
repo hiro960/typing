@@ -12,77 +12,77 @@
         "items": [
           {
             "text": "받다",
-            "meaning": "もらう"
+            "meaning": "もらう",
             "hint": "ㅂ + ㅏ + ㄷ + ㄷ + ㅏ"
           },
           {
             "text": "입다",
-            "meaning": "着る"
+            "meaning": "着る",
             "hint": "ㅇ + ㅣ + ㅂ + ㄷ + ㅏ"
           },
           {
             "text": "벗다",
-            "meaning": "脱ぐ"
+            "meaning": "脱ぐ",
             "hint": "ㅂ + ㅓ + ㅅ + ㄷ + ㅏ"
           },
           {
             "text": "신다",
-            "meaning": "履く"
+            "meaning": "履く",
             "hint": "ㅅ + ㅣ + ㄴ + ㄷ + ㅏ"
           },
           {
             "text": "씻다",
-            "meaning": "洗う"
+            "meaning": "洗う",
             "hint": "ㅆ + ㅣ + ㅅ + ㄷ + ㅏ"
           },
           {
             "text": "닦다",
-            "meaning": "拭く"
+            "meaning": "拭く",
             "hint": "ㄷ + ㅏ + ㄱ + ㄷ + ㅏ"
           },
           {
             "text": "타다",
-            "meaning": "乗る"
+            "meaning": "乗る",
             "hint": "ㅌ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "내리다",
-            "meaning": "降りる"
+            "meaning": "降りる",
             "hint": "ㄴ + ㅐ + ㄹ + ㅣ + ㄷ + ㅏ"
           },
           {
             "text": "열다",
-            "meaning": "開ける"
+            "meaning": "開ける",
             "hint": "ㅇ + ㅕ + ㄹ + ㄷ + ㅏ"
           },
           {
             "text": "닫다",
-            "meaning": "閉める"
+            "meaning": "閉める",
             "hint": "ㄷ + ㅏ + ㄷ + ㄷ + ㅏ"
           },
           {
             "text": "켜다",
-            "meaning": "つける"
+            "meaning": "つける",
             "hint": "ㅋ + ㅕ + ㄷ + ㅏ"
           },
           {
             "text": "끄다",
-            "meaning": "消す"
+            "meaning": "消す",
             "hint": "ㄲ + ㅡ + ㄷ + ㅏ"
           },
           {
             "text": "앉다",
-            "meaning": "座る"
+            "meaning": "座る",
             "hint": "ㅇ + ㅏ + ㄵ + ㄷ + ㅏ"
           },
           {
             "text": "서다",
-            "meaning": "立つ"
+            "meaning": "立つ",
             "hint": "ㅅ + ㅓ + ㄷ + ㅏ"
           },
           {
             "text": "걷다",
-            "meaning": "歩く"
+            "meaning": "歩く",
             "hint": "ㄱ + ㅓ + ㄷ + ㄷ + ㅏ"
           }
         ]

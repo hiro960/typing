@@ -12,42 +12,42 @@
         "items": [
           {
             "text": "손이 많이 가다",
-            "meaning": "手がたくさん行く"
+            "meaning": "手がたくさん行く",
             "hint": "手間がかかる"
           },
           {
             "text": "눈에 띄다",
-            "meaning": "目に付く"
+            "meaning": "目に付く",
             "hint": "目立つ"
           },
           {
             "text": "귀에 익다",
-            "meaning": "耳に慣れる"
+            "meaning": "耳に慣れる",
             "hint": "聞き覚えがある"
           },
           {
             "text": "입에 맞다",
-            "meaning": "口に合う"
+            "meaning": "口に合う",
             "hint": "口に合う、好みに合う"
           },
           {
             "text": "발을 끊다",
-            "meaning": "足を断つ"
+            "meaning": "足を断つ",
             "hint": "縁を切る、通うのをやめる"
           },
           {
             "text": "머리를 쓰다",
-            "meaning": "頭を使う"
+            "meaning": "頭を使う",
             "hint": "頭を使う、知恵を絞る"
           },
           {
             "text": "손을 놓다",
-            "meaning": "手を置く"
+            "meaning": "手を置く",
             "hint": "手を引く、やめる"
           },
           {
             "text": "발이 묶이다",
-            "meaning": "足が縛られる"
+            "meaning": "足が縛られる",
             "hint": "動けなくなる"
           }
         ]

@@ -12,77 +12,77 @@
         "items": [
           {
             "text": "물",
-            "meaning": "水"
+            "meaning": "水",
             "hint": "ㅁ + ㅜ + ㄹ"
           },
           {
             "text": "차",
-            "meaning": "お茶"
+            "meaning": "お茶",
             "hint": "ㅊ + ㅏ"
           },
           {
             "text": "커피",
-            "meaning": "コーヒー"
+            "meaning": "コーヒー",
             "hint": "ㅋ + ㅓ + ㅍ + ㅣ"
           },
           {
             "text": "우유",
-            "meaning": "牛乳"
+            "meaning": "牛乳",
             "hint": "ㅇ + ㅜ + ㅇ + ㅠ"
           },
           {
             "text": "주스",
-            "meaning": "ジュース"
+            "meaning": "ジュース",
             "hint": "ㅈ + ㅜ + ㅅ + ㅡ"
           },
           {
             "text": "술",
-            "meaning": "お酒"
+            "meaning": "お酒",
             "hint": "ㅅ + ㅜ + ㄹ"
           },
           {
             "text": "맥주",
-            "meaning": "ビール"
+            "meaning": "ビール",
             "hint": "ㅁ + ㅐ + ㄱ + ㅈ + ㅜ"
           },
           {
             "text": "음료",
-            "meaning": "飲料"
+            "meaning": "飲料",
             "hint": "ㅇ + ㅡ + ㅁ + ㄴ + ㅛ"
           },
           {
             "text": "아침",
-            "meaning": "朝"
+            "meaning": "朝",
             "hint": "ㅇ + ㅏ + ㅊ + ㅣ + ㅁ"
           },
           {
             "text": "점심",
-            "meaning": "昼"
+            "meaning": "昼",
             "hint": "ㅈ + ㅓ + ㅁ + ㅅ + ㅣ + ㅁ"
           },
           {
             "text": "저녁",
-            "meaning": "夜"
+            "meaning": "夜",
             "hint": "ㅈ + ㅓ + ㄴ + ㅕ + ㄱ"
           },
           {
             "text": "간식",
-            "meaning": "おやつ"
+            "meaning": "おやつ",
             "hint": "ㄱ + ㅏ + ㄴ + ㅅ + ㅣ + ㄱ"
           },
           {
             "text": "식사",
-            "meaning": "食事"
+            "meaning": "食事",
             "hint": "ㅅ + ㅣ + ㄱ + ㅅ + ㅏ"
           },
           {
             "text": "맛",
-            "meaning": "味"
+            "meaning": "味",
             "hint": "ㅁ + ㅏ + ㅅ"
           },
           {
             "text": "요리",
-            "meaning": "料理"
+            "meaning": "料理",
             "hint": "ㅇ + ㅛ + ㄹ + ㅣ"
           }
         ]

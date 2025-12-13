@@ -12,77 +12,77 @@
         "items": [
           {
             "text": "일",
-            "meaning": "1"
+            "meaning": "1",
             "hint": "ㅇ + ㅣ + ㄹ"
           },
           {
             "text": "이",
-            "meaning": "2"
+            "meaning": "2",
             "hint": "ㅇ + ㅣ"
           },
           {
             "text": "삼",
-            "meaning": "3"
+            "meaning": "3",
             "hint": "ㅅ + ㅏ + ㅁ"
           },
           {
             "text": "사",
-            "meaning": "4"
+            "meaning": "4",
             "hint": "ㅅ + ㅏ"
           },
           {
             "text": "오",
-            "meaning": "5"
+            "meaning": "5",
             "hint": "ㅇ + ㅗ"
           },
           {
             "text": "육",
-            "meaning": "6"
+            "meaning": "6",
             "hint": "ㅇ + ㅠ + ㄱ"
           },
           {
             "text": "칠",
-            "meaning": "7"
+            "meaning": "7",
             "hint": "ㅊ + ㅣ + ㄹ"
           },
           {
             "text": "팔",
-            "meaning": "8"
+            "meaning": "8",
             "hint": "ㅍ + ㅏ + ㄹ"
           },
           {
             "text": "구",
-            "meaning": "9"
+            "meaning": "9",
             "hint": "ㄱ + ㅜ"
           },
           {
             "text": "십",
-            "meaning": "10"
+            "meaning": "10",
             "hint": "ㅅ + ㅣ + ㅂ"
           },
           {
             "text": "백",
-            "meaning": "100"
+            "meaning": "100",
             "hint": "ㅂ + ㅐ + ㄱ"
           },
           {
             "text": "천",
-            "meaning": "1000"
+            "meaning": "1000",
             "hint": "ㅊ + ㅓ + ㄴ"
           },
           {
             "text": "만",
-            "meaning": "10000"
+            "meaning": "10000",
             "hint": "ㅁ + ㅏ + ㄴ"
           },
           {
             "text": "영",
-            "meaning": "0"
+            "meaning": "0",
             "hint": "ㅇ + ㅕ + ㅇ"
           },
           {
             "text": "번",
-            "meaning": "番・回"
+            "meaning": "番・回",
             "hint": "ㅂ + ㅓ + ㄴ"
           }
         ]

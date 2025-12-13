@@ -12,77 +12,77 @@
         "items": [
           {
             "text": "가족",
-            "meaning": "家族"
+            "meaning": "家族",
             "hint": "ㄱ + ㅏ + ㅈ + ㅗ + ㄱ"
           },
           {
             "text": "부모님",
-            "meaning": "両親"
+            "meaning": "両親",
             "hint": "ㅂ + ㅜ + ㅁ + ㅗ + ㄴ + ㅣ + ㅁ"
           },
           {
             "text": "아버지",
-            "meaning": "父"
+            "meaning": "父",
             "hint": "ㅇ + ㅏ + ㅂ + ㅓ + ㅈ + ㅣ"
           },
           {
             "text": "어머니",
-            "meaning": "母"
+            "meaning": "母",
             "hint": "ㅇ + ㅓ + ㅁ + ㅓ + ㄴ + ㅣ"
           },
           {
             "text": "아들",
-            "meaning": "息子"
+            "meaning": "息子",
             "hint": "ㅇ + ㅏ + ㄷ + ㅡ + ㄹ"
           },
           {
             "text": "딸",
-            "meaning": "娘"
+            "meaning": "娘",
             "hint": "ㄸ + ㅏ + ㄹ"
           },
           {
             "text": "형",
-            "meaning": "兄（男から）"
+            "meaning": "兄（男から）",
             "hint": "ㅎ + ㅕ + ㅇ"
           },
           {
             "text": "누나",
-            "meaning": "姉（男から）"
+            "meaning": "姉（男から）",
             "hint": "ㄴ + ㅜ + ㄴ + ㅏ"
           },
           {
             "text": "오빠",
-            "meaning": "兄（女から）"
+            "meaning": "兄（女から）",
             "hint": "ㅇ + ㅗ + ㅃ + ㅏ"
           },
           {
             "text": "언니",
-            "meaning": "姉（女から）"
+            "meaning": "姉（女から）",
             "hint": "ㅇ + ㅓ + ㄴ + ㄴ + ㅣ"
           },
           {
             "text": "동생",
-            "meaning": "弟・妹"
+            "meaning": "弟・妹",
             "hint": "ㄷ + ㅗ + ㅇ + ㅅ + ㅐ + ㅇ"
           },
           {
             "text": "남동생",
-            "meaning": "弟"
+            "meaning": "弟",
             "hint": "ㄴ + ㅏ + ㅁ + ㄷ + ㅗ + ㅇ + ㅅ + ㅐ + ㅇ"
           },
           {
             "text": "여동생",
-            "meaning": "妹"
+            "meaning": "妹",
             "hint": "ㅇ + ㅕ + ㄷ + ㅗ + ㅇ + ㅅ + ㅐ + ㅇ"
           },
           {
             "text": "할아버지",
-            "meaning": "祖父"
+            "meaning": "祖父",
             "hint": "ㅎ + ㅏ + ㄹ + ㅏ + ㅂ + ㅓ + ㅈ + ㅣ"
           },
           {
             "text": "할머니",
-            "meaning": "祖母"
+            "meaning": "祖母",
             "hint": "ㅎ + ㅏ + ㄹ + ㅁ + ㅓ + ㄴ + ㅣ"
           }
         ]

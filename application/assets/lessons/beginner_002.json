@@ -12,12 +12,12 @@
         "items": [
           {
             "text": "ㅂ",
-            "meaning": "b/p の音"
+            "meaning": "b/p の音",
             "hint": "「バ行」「パ行」です"
           },
           {
             "text": "ㅣ",
-            "meaning": "i の音"
+            "meaning": "i の音",
             "hint": "「イ」の音です"
           }
         ]
@@ -28,47 +28,47 @@
         "items": [
           {
             "text": "입",
-            "meaning": "口"
+            "meaning": "口",
             "hint": "ㅇ + ㅣ + ㅂ"
           },
           {
             "text": "밥",
-            "meaning": "ご飯"
+            "meaning": "ご飯",
             "hint": "ㅂ + ㅏ + ㅂ"
           },
           {
             "text": "비빔밥",
-            "meaning": "ビビンバ"
+            "meaning": "ビビンバ",
             "hint": "ㅂ + ㅣ + ㅂ + ㅣ + ㅁ + ㅂ + ㅏ + ㅂ"
           },
           {
             "text": "분",
-            "meaning": "分"
+            "meaning": "分",
             "hint": "ㅂ + ㅜ + ㄴ"
           },
           {
             "text": "비누",
-            "meaning": "石鹸"
+            "meaning": "石鹸",
             "hint": "ㅂ + ㅣ + ㄴ + ㅜ"
           },
           {
             "text": "방",
-            "meaning": "部屋"
+            "meaning": "部屋",
             "hint": "ㅂ + ㅏ + ㅇ"
           },
           {
             "text": "위",
-            "meaning": "上"
+            "meaning": "上",
             "hint": "ㅇ + ㅟ"
           },
           {
             "text": "반",
-            "meaning": "半分/クラス"
+            "meaning": "半分/クラス",
             "hint": "ㅂ + ㅏ + ㄴ"
           },
           {
             "text": "아이",
-            "meaning": "子供"
+            "meaning": "子供",
             "hint": "ㅇ + ㅏ + ㅇ + ㅣ"
           }
         ]

@@ -12,7 +12,7 @@
         "items": [
           {
             "text": "받침",
-            "meaning": "パッチム（終声）"
+            "meaning": "パッチム（終声）",
             "hint": "文字の下に来る子音"
           }
         ]
@@ -23,52 +23,52 @@
         "items": [
           {
             "text": "밥",
-            "meaning": "ご飯"
+            "meaning": "ご飯",
             "hint": "ㅂ + ㅏ + ㅂ（パッチム）"
           },
           {
             "text": "집",
-            "meaning": "家"
+            "meaning": "家",
             "hint": "ㅈ + ㅣ + ㅂ（パッチム）"
           },
           {
             "text": "책",
-            "meaning": "本"
+            "meaning": "本",
             "hint": "ㅊ + ㅐ + ㄱ（パッチム）"
           },
           {
             "text": "옷",
-            "meaning": "服"
+            "meaning": "服",
             "hint": "ㅇ + ㅗ + ㅅ（パッチム）"
           },
           {
             "text": "밖",
-            "meaning": "外"
+            "meaning": "外",
             "hint": "ㅂ + ㅏ + ㄲ（パッチム）"
           },
           {
             "text": "꽃",
-            "meaning": "花"
+            "meaning": "花",
             "hint": "ㄲ + ㅗ + ㅊ（パッチム）"
           },
           {
             "text": "산",
-            "meaning": "山"
+            "meaning": "山",
             "hint": "ㅅ + ㅏ + ㄴ（パッチム）"
           },
           {
             "text": "달",
-            "meaning": "月"
+            "meaning": "月",
             "hint": "ㄷ + ㅏ + ㄹ（パッチム）"
           },
           {
             "text": "물",
-            "meaning": "水"
+            "meaning": "水",
             "hint": "ㅁ + ㅜ + ㄹ（パッチム）"
           },
           {
             "text": "불",
-            "meaning": "火"
+            "meaning": "火",
             "hint": "ㅂ + ㅜ + ㄹ（パッチム）"
           }
         ]

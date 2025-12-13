@@ -12,77 +12,77 @@
         "items": [
           {
             "text": "가다",
-            "meaning": "行く"
+            "meaning": "行く",
             "hint": "ㄱ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "오다",
-            "meaning": "来る"
+            "meaning": "来る",
             "hint": "ㅇ + ㅗ + ㄷ + ㅏ"
           },
           {
             "text": "먹다",
-            "meaning": "食べる"
+            "meaning": "食べる",
             "hint": "ㅁ + ㅓ + ㄱ + ㄷ + ㅏ"
           },
           {
             "text": "마시다",
-            "meaning": "飲む"
+            "meaning": "飲む",
             "hint": "ㅁ + ㅏ + ㅅ + ㅣ + ㄷ + ㅏ"
           },
           {
             "text": "자다",
-            "meaning": "寝る"
+            "meaning": "寝る",
             "hint": "ㅈ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "일어나다",
-            "meaning": "起きる"
+            "meaning": "起きる",
             "hint": "ㅇ + ㅣ + ㄹ + ㅓ + ㄴ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "보다",
-            "meaning": "見る"
+            "meaning": "見る",
             "hint": "ㅂ + ㅗ + ㄷ + ㅏ"
           },
           {
             "text": "듣다",
-            "meaning": "聞く"
+            "meaning": "聞く",
             "hint": "ㄷ + ㅡ + ㄷ + ㄷ + ㅏ"
           },
           {
             "text": "말하다",
-            "meaning": "話す"
+            "meaning": "話す",
             "hint": "ㅁ + ㅏ + ㄹ + ㅎ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "읽다",
-            "meaning": "読む"
+            "meaning": "読む",
             "hint": "ㅇ + ㅣ + ㄺ + ㄷ + ㅏ"
           },
           {
             "text": "쓰다",
-            "meaning": "書く"
+            "meaning": "書く",
             "hint": "ㅆ + ㅡ + ㄷ + ㅏ"
           },
           {
             "text": "만들다",
-            "meaning": "作る"
+            "meaning": "作る",
             "hint": "ㅁ + ㅏ + ㄴ + ㄷ + ㅡ + ㄹ + ㄷ + ㅏ"
           },
           {
             "text": "사다",
-            "meaning": "買う"
+            "meaning": "買う",
             "hint": "ㅅ + ㅏ + ㄷ + ㅏ"
           },
           {
             "text": "팔다",
-            "meaning": "売る"
+            "meaning": "売る",
             "hint": "ㅍ + ㅏ + ㄹ + ㄷ + ㅏ"
           },
           {
             "text": "주다",
-            "meaning": "あげる"
+            "meaning": "あげる",
             "hint": "ㅈ + ㅜ + ㄷ + ㅏ"
           }
         ]

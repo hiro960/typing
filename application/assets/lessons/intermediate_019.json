@@ -12,77 +12,77 @@
         "items": [
           {
             "text": "그리고",
-            "meaning": "そして"
+            "meaning": "そして",
             "hint": "ㄱ + ㅡ + ㄹ + ㅣ + ㄱ + ㅗ"
           },
           {
             "text": "그러나",
-            "meaning": "しかし"
+            "meaning": "しかし",
             "hint": "ㄱ + ㅡ + ㄹ + ㅓ + ㄴ + ㅏ"
           },
           {
             "text": "하지만",
-            "meaning": "でも"
+            "meaning": "でも",
             "hint": "ㅎ + ㅏ + ㅈ + ㅣ + ㅁ + ㅏ + ㄴ"
           },
           {
             "text": "그래서",
-            "meaning": "だから"
+            "meaning": "だから",
             "hint": "ㄱ + ㅡ + ㄹ + ㅐ + ㅅ + ㅓ"
           },
           {
             "text": "왜냐하면",
-            "meaning": "なぜなら"
+            "meaning": "なぜなら",
             "hint": "ㅇ + ㅙ + ㄴ + ㅑ + ㅎ + ㅏ + ㅁ + ㅕ + ㄴ"
           },
           {
             "text": "또",
-            "meaning": "また"
+            "meaning": "また",
             "hint": "ㄸ + ㅗ"
           },
           {
             "text": "그럼",
-            "meaning": "それでは"
+            "meaning": "それでは",
             "hint": "ㄱ + ㅡ + ㄹ + ㅓ + ㅁ"
           },
           {
             "text": "누구",
-            "meaning": "誰"
+            "meaning": "誰",
             "hint": "ㄴ + ㅜ + ㄱ + ㅜ"
           },
           {
             "text": "무엇",
-            "meaning": "何"
+            "meaning": "何",
             "hint": "ㅁ + ㅜ + ㅇ + ㅓ + ㅅ"
           },
           {
             "text": "어디",
-            "meaning": "どこ"
+            "meaning": "どこ",
             "hint": "ㅇ + ㅓ + ㄷ + ㅣ"
           },
           {
             "text": "언제",
-            "meaning": "いつ"
+            "meaning": "いつ",
             "hint": "ㅇ + ㅓ + ㄴ + ㅈ + ㅔ"
           },
           {
             "text": "왜",
-            "meaning": "なぜ"
+            "meaning": "なぜ",
             "hint": "ㅇ + ㅙ"
           },
           {
             "text": "어떻게",
-            "meaning": "どのように"
+            "meaning": "どのように",
             "hint": "ㅇ + ㅓ + ㄸ + ㅓ + ㅎ + ㄱ + ㅔ"
           },
           {
             "text": "얼마",
-            "meaning": "いくら"
+            "meaning": "いくら",
             "hint": "ㅇ + ㅓ + ㄹ + ㅁ + ㅏ"
           },
           {
             "text": "몇",
-            "meaning": "いくつ"
+            "meaning": "いくつ",
             "hint": "ㅁ + ㅕ + ㅅ"
           }
         ]
