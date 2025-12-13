@@ -8,10 +8,12 @@ class ActivityTimeBreakdownChart extends StatelessWidget {
     super.key,
     required this.breakdown,
     required this.dailyBreakdown,
+    required this.period,
   });
 
   final ActivityBreakdown breakdown;
   final List<DailyActivityBreakdown> dailyBreakdown;
+  final String period; // 'week', 'month', 'half_year'
 
   /// アクティビティ種別ごとの色マップ
   static const Map<String, Color> activityColors = {
@@ -64,6 +66,7 @@ class ActivityTimeBreakdownChart extends StatelessWidget {
           _StackedBarChart(
             dailyBreakdown: dailyBreakdown,
             activeEntries: activeEntries,
+            period: period,
           ),
           const SizedBox(height: 24),
         ],
@@ -135,29 +138,250 @@ class _LegendItem extends StatelessWidget {
   }
 }
 
+/// 集約されたアクティビティデータ
+class _AggregatedData {
+  const _AggregatedData({
+    required this.label,
+    required this.lessonTimeMs,
+    required this.rankingGameTimeMs,
+    required this.pronunciationGameTimeMs,
+    required this.quickTranslationTimeMs,
+    required this.writingTimeMs,
+    required this.hanjaQuizTimeMs,
+  });
+
+  final String label;
+  final int lessonTimeMs;
+  final int rankingGameTimeMs;
+  final int pronunciationGameTimeMs;
+  final int quickTranslationTimeMs;
+  final int writingTimeMs;
+  final int hanjaQuizTimeMs;
+
+  int get totalTimeMs =>
+      lessonTimeMs +
+      rankingGameTimeMs +
+      pronunciationGameTimeMs +
+      quickTranslationTimeMs +
+      writingTimeMs +
+      hanjaQuizTimeMs;
+
+  int getTimeForActivity(String activityKey) {
+    switch (activityKey) {
+      case 'lesson':
+        return lessonTimeMs;
+      case 'rankingGame':
+        return rankingGameTimeMs;
+      case 'pronunciationGame':
+        return pronunciationGameTimeMs;
+      case 'quickTranslation':
+        return quickTranslationTimeMs;
+      case 'writing':
+        return writingTimeMs;
+      case 'hanjaQuiz':
+        return hanjaQuizTimeMs;
+      default:
+        return 0;
+    }
+  }
+}
+
 /// 積み上げ棒グラフ
 class _StackedBarChart extends StatelessWidget {
   const _StackedBarChart({
     required this.dailyBreakdown,
     required this.activeEntries,
+    required this.period,
   });
 
   final List<DailyActivityBreakdown> dailyBreakdown;
   final List<MapEntry<String, ActivityTimeEntry>> activeEntries;
+  final String period;
+
+  /// 期間に応じてデータを集約（データがない期間も含む）
+  List<_AggregatedData> _aggregateData() {
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+
+    // dailyBreakdownをMapに変換して高速検索
+    final dataMap = <String, DailyActivityBreakdown>{};
+    for (final d in dailyBreakdown) {
+      dataMap[d.date] = d;
+    }
+
+    switch (period) {
+      case 'week':
+        // 1週間：日単位で7日分表示
+        return _generateWeekData(today, dataMap);
+
+      case 'month':
+        // 1ヶ月：週単位で集約
+        return _aggregateByWeek(today, dataMap);
+
+      case 'half_year':
+        // 半年：月単位で集約
+        return _aggregateByMonth(today, dataMap);
+
+      default:
+        return _generateWeekData(today, dataMap);
+    }
+  }
+
+  /// 1週間分の日別データを生成
+  List<_AggregatedData> _generateWeekData(
+    DateTime today,
+    Map<String, DailyActivityBreakdown> dataMap,
+  ) {
+    final result = <_AggregatedData>[];
+
+    for (int i = 6; i >= 0; i--) {
+      final date = today.subtract(Duration(days: i));
+      final dateKey =
+          '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
+      final data = dataMap[dateKey];
+
+      result.add(_AggregatedData(
+        label: '${date.month}/${date.day}',
+        lessonTimeMs: data?.lessonTimeMs ?? 0,
+        rankingGameTimeMs: data?.rankingGameTimeMs ?? 0,
+        pronunciationGameTimeMs: data?.pronunciationGameTimeMs ?? 0,
+        quickTranslationTimeMs: data?.quickTranslationTimeMs ?? 0,
+        writingTimeMs: data?.writingTimeMs ?? 0,
+        hanjaQuizTimeMs: data?.hanjaQuizTimeMs ?? 0,
+      ));
+    }
+
+    return result;
+  }
+
+  /// 週単位で集約（1ヶ月用）- 4週分を表示
+  List<_AggregatedData> _aggregateByWeek(
+    DateTime today,
+    Map<String, DailyActivityBreakdown> dataMap,
+  ) {
+    final result = <_AggregatedData>[];
+
+    // 4週分を生成（今週を含む）
+    for (int weekOffset = 3; weekOffset >= 0; weekOffset--) {
+      // 週の開始日（月曜日）を計算
+      final weekStart = _getWeekStart(today).subtract(Duration(days: weekOffset * 7));
+      final weekEnd = weekStart.add(const Duration(days: 6));
+
+      // 週のデータを集約
+      int lessonTimeMs = 0;
+      int rankingGameTimeMs = 0;
+      int pronunciationGameTimeMs = 0;
+      int quickTranslationTimeMs = 0;
+      int writingTimeMs = 0;
+      int hanjaQuizTimeMs = 0;
+
+      for (int d = 0; d < 7; d++) {
+        final date = weekStart.add(Duration(days: d));
+        final dateKey =
+            '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
+        final data = dataMap[dateKey];
+
+        if (data != null) {
+          lessonTimeMs += data.lessonTimeMs;
+          rankingGameTimeMs += data.rankingGameTimeMs;
+          pronunciationGameTimeMs += data.pronunciationGameTimeMs;
+          quickTranslationTimeMs += data.quickTranslationTimeMs;
+          writingTimeMs += data.writingTimeMs;
+          hanjaQuizTimeMs += data.hanjaQuizTimeMs;
+        }
+      }
+
+      result.add(_AggregatedData(
+        label: '${weekStart.month}/${weekStart.day}〜${weekEnd.month}/${weekEnd.day}',
+        lessonTimeMs: lessonTimeMs,
+        rankingGameTimeMs: rankingGameTimeMs,
+        pronunciationGameTimeMs: pronunciationGameTimeMs,
+        quickTranslationTimeMs: quickTranslationTimeMs,
+        writingTimeMs: writingTimeMs,
+        hanjaQuizTimeMs: hanjaQuizTimeMs,
+      ));
+    }
+
+    return result;
+  }
+
+  /// 週の開始日（月曜日）を取得
+  DateTime _getWeekStart(DateTime date) {
+    final weekday = date.weekday; // 1 = 月曜日, 7 = 日曜日
+    return date.subtract(Duration(days: weekday - 1));
+  }
+
+  /// 月単位で集約（半年用）- 6ヶ月分を表示
+  List<_AggregatedData> _aggregateByMonth(
+    DateTime today,
+    Map<String, DailyActivityBreakdown> dataMap,
+  ) {
+    final result = <_AggregatedData>[];
+
+    // 6ヶ月分を生成（今月を含む）
+    for (int monthOffset = 5; monthOffset >= 0; monthOffset--) {
+      final targetDate = DateTime(today.year, today.month - monthOffset, 1);
+      final year = targetDate.year;
+      final month = targetDate.month;
+
+      // 月の日数を取得
+      final daysInMonth = DateTime(year, month + 1, 0).day;
+
+      // 月のデータを集約
+      int lessonTimeMs = 0;
+      int rankingGameTimeMs = 0;
+      int pronunciationGameTimeMs = 0;
+      int quickTranslationTimeMs = 0;
+      int writingTimeMs = 0;
+      int hanjaQuizTimeMs = 0;
+
+      for (int d = 1; d <= daysInMonth; d++) {
+        final dateKey =
+            '$year-${month.toString().padLeft(2, '0')}-${d.toString().padLeft(2, '0')}';
+        final data = dataMap[dateKey];
+
+        if (data != null) {
+          lessonTimeMs += data.lessonTimeMs;
+          rankingGameTimeMs += data.rankingGameTimeMs;
+          pronunciationGameTimeMs += data.pronunciationGameTimeMs;
+          quickTranslationTimeMs += data.quickTranslationTimeMs;
+          writingTimeMs += data.writingTimeMs;
+          hanjaQuizTimeMs += data.hanjaQuizTimeMs;
+        }
+      }
+
+      result.add(_AggregatedData(
+        label: '$year/${month}月',
+        lessonTimeMs: lessonTimeMs,
+        rankingGameTimeMs: rankingGameTimeMs,
+        pronunciationGameTimeMs: pronunciationGameTimeMs,
+        quickTranslationTimeMs: quickTranslationTimeMs,
+        writingTimeMs: writingTimeMs,
+        hanjaQuizTimeMs: hanjaQuizTimeMs,
+      ));
+    }
+
+    return result;
+  }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
+    final aggregatedData = _aggregateData();
+
+    if (aggregatedData.isEmpty) {
+      return const SizedBox.shrink();
+    }
 
     return AspectRatio(
       aspectRatio: 1.7,
       child: BarChart(
         BarChartData(
           alignment: BarChartAlignment.spaceAround,
-          maxY: _calculateMaxY(),
-          barTouchData: _buildTouchData(context),
-          titlesData: _buildTitlesData(context),
+          maxY: _calculateMaxY(aggregatedData),
+          barTouchData: _buildTouchData(context, aggregatedData),
+          titlesData: _buildTitlesData(context, aggregatedData),
           gridData: FlGridData(
             show: true,
             drawVerticalLine: false,
@@ -167,22 +391,21 @@ class _StackedBarChart extends StatelessWidget {
             ),
           ),
           borderData: FlBorderData(show: false),
-          barGroups: _buildBarGroups(),
+          barGroups: _buildBarGroups(aggregatedData),
         ),
       ),
     );
   }
 
-  double _calculateMaxY() {
-    if (dailyBreakdown.isEmpty) return 60;
-    final maxMs = dailyBreakdown
-        .map((e) => e.totalTimeMs)
-        .reduce((a, b) => a > b ? a : b);
+  double _calculateMaxY(List<_AggregatedData> data) {
+    if (data.isEmpty) return 60;
+    final maxMs = data.map((e) => e.totalTimeMs).reduce((a, b) => a > b ? a : b);
     final maxMinutes = maxMs / 60000;
     return (maxMinutes * 1.2).ceilToDouble().clamp(10, double.infinity);
   }
 
-  BarTouchData _buildTouchData(BuildContext context) {
+  BarTouchData _buildTouchData(
+      BuildContext context, List<_AggregatedData> data) {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
 
@@ -190,12 +413,12 @@ class _StackedBarChart extends StatelessWidget {
       touchTooltipData: BarTouchTooltipData(
         getTooltipColor: (group) => colors.surfaceContainerHighest,
         getTooltipItem: (group, groupIndex, rod, rodIndex) {
-          final data = dailyBreakdown[groupIndex];
-          final date = DateTime.parse(data.date);
-          final totalMinutes = data.totalTimeMs / 60000;
+          if (groupIndex >= data.length) return null;
+          final item = data[groupIndex];
+          final totalMinutes = item.totalTimeMs / 60000;
 
           return BarTooltipItem(
-            '${date.month}/${date.day}\n',
+            '${item.label}\n',
             theme.textTheme.labelSmall!,
             children: [
               TextSpan(
@@ -212,7 +435,8 @@ class _StackedBarChart extends StatelessWidget {
     );
   }
 
-  FlTitlesData _buildTitlesData(BuildContext context) {
+  FlTitlesData _buildTitlesData(
+      BuildContext context, List<_AggregatedData> data) {
     final theme = Theme.of(context);
 
     return FlTitlesData(
@@ -222,22 +446,34 @@ class _StackedBarChart extends StatelessWidget {
       bottomTitles: AxisTitles(
         sideTitles: SideTitles(
           showTitles: true,
-          reservedSize: 30,
+          reservedSize: 40,
           getTitlesWidget: (value, meta) {
             final index = value.toInt();
-            if (index < 0 || index >= dailyBreakdown.length) {
+            if (index < 0 || index >= data.length) {
               return const SizedBox.shrink();
             }
-            // 7日以上ある場合は3点ごとに表示
-            if (dailyBreakdown.length > 7 && index % 3 != 0) {
-              return const SizedBox.shrink();
+
+            // 1週間の場合は全て表示、それ以外は全て表示
+            final label = data[index].label;
+
+            // 半年の場合、「年/月月」形式を「月月」に短縮
+            String displayLabel = label;
+            if (period == 'half_year') {
+              // "2025/1月" -> "1月"
+              final parts = label.split('/');
+              if (parts.length == 2) {
+                displayLabel = parts[1];
+              }
             }
-            final date = DateTime.parse(dailyBreakdown[index].date);
+
             return SideTitleWidget(
               meta: meta,
+              angle: period == 'month' ? -0.5 : 0,
               child: Text(
-                '${date.month}/${date.day}',
-                style: theme.textTheme.labelSmall,
+                displayLabel,
+                style: theme.textTheme.labelSmall?.copyWith(
+                  fontSize: period == 'month' ? 10 : null,
+                ),
               ),
             );
           },
@@ -261,10 +497,10 @@ class _StackedBarChart extends StatelessWidget {
     );
   }
 
-  List<BarChartGroupData> _buildBarGroups() {
-    return dailyBreakdown.asMap().entries.map((entry) {
+  List<BarChartGroupData> _buildBarGroups(List<_AggregatedData> data) {
+    return data.asMap().entries.map((entry) {
       final index = entry.key;
-      final data = entry.value;
+      final item = entry.value;
 
       // 積み上げ棒のロッドデータを構築
       final rodStackItems = <BarChartRodStackItem>[];
@@ -272,7 +508,7 @@ class _StackedBarChart extends StatelessWidget {
 
       // アクティブなアクティビティの順番で積み上げ
       for (final activity in activeEntries) {
-        final timeMs = data.getTimeForActivity(activity.key);
+        final timeMs = item.getTimeForActivity(activity.key);
         if (timeMs > 0) {
           final minutes = timeMs / 60000;
           rodStackItems.add(BarChartRodStackItem(
@@ -285,13 +521,21 @@ class _StackedBarChart extends StatelessWidget {
         }
       }
 
+      // 期間に応じてバーの幅を調整
+      final barWidth = switch (period) {
+        'week' => 24.0,
+        'month' => 20.0,
+        'half_year' => 28.0,
+        _ => 16.0,
+      };
+
       return BarChartGroupData(
         x: index,
         barRods: [
           BarChartRodData(
             toY: currentY,
             rodStackItems: rodStackItems,
-            width: 16,
+            width: barWidth,
             borderRadius: const BorderRadius.vertical(top: Radius.circular(4)),
           ),
         ],

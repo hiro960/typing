@@ -80,7 +80,18 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
                   ActivityTimeBreakdownChart(
                     breakdown: dashboard.activityBreakdown,
                     dailyBreakdown: dashboard.dailyActivityBreakdown,
+                    period: _period,
                   ),
+                  const SizedBox(height: AppSpacing.xxl),
+
+                  // Learning Habits Section
+                  _SectionHeader(
+                    title: '学習習慣',
+                    subtitle: '時間帯・曜日別の学習傾向',
+                    icon: Iconsax.calendar,
+                  ),
+                  const SizedBox(height: AppSpacing.md),
+                  LearningHabitChart(habits: dashboard.habits),
                   const SizedBox(height: AppSpacing.xxl),
 
                   // Weak Keys Section
@@ -103,25 +114,6 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
                   GrowthTrendChart(trends: dashboard.trends),
                   const SizedBox(height: AppSpacing.xxl),
 
-                  // Learning Habits Section
-                  _SectionHeader(
-                    title: '学習習慣',
-                    subtitle: '時間帯・曜日別の学習傾向',
-                    icon: Iconsax.calendar,
-                  ),
-                  const SizedBox(height: AppSpacing.md),
-                  LearningHabitChart(habits: dashboard.habits),
-                  const SizedBox(height: AppSpacing.xxl),
-
-                  // Practice Time Section
-                  _SectionHeader(
-                    title: '練習時間統計',
-                    subtitle: '累計・平均練習時間と日別推移',
-                    icon: Iconsax.timer_1,
-                  ),
-                  const SizedBox(height: AppSpacing.md),
-                  PracticeTimeChart(stats: dashboard.practiceTime),
-                  const SizedBox(height: AppSpacing.xxl),
 
                   // Vocabulary Status Section
                   _SectionHeader(
