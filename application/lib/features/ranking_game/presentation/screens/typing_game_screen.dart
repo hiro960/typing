@@ -111,13 +111,20 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
     ref.listen<RankingGameSessionState>(
       rankingGameSessionProvider(widget.difficulty),
       (previous, next) {
-        if (previous?.lastInputResult != next.lastInputResult) {
-          final soundService = ref.read(soundServiceProvider);
-          if (next.lastInputResult == InputResultType.correct) {
-            soundService.playCorrect();
-          } else if (next.lastInputResult == InputResultType.mistake) {
-            soundService.playIncorrect();
-          }
+        final soundService = ref.read(soundServiceProvider);
+
+        // 問題完了時（currentPositionが0にリセットされた）に正解音を再生
+        if (previous != null &&
+            previous.currentPosition > 0 &&
+            next.currentPosition == 0 &&
+            next.isPlaying) {
+          soundService.playCorrect();
+        }
+
+        // 誤答音は現状通り（各文字のミス時）
+        if (previous?.lastInputResult != next.lastInputResult &&
+            next.lastInputResult == InputResultType.mistake) {
+          soundService.playIncorrect();
         }
       },
     );

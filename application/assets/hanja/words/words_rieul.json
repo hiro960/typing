@@ -1,0 +1,595 @@
+{
+  "version": "1.0.0",
+  "category": "rieul",
+  "categoryName": "ㄹ音と頭音法則",
+  "description": "韓国語では頭音法則（두음법칙）により、漢字語の語頭の「ㄹ」は「ㄴ」または「ㅇ」に変化します。このカテゴリでは、複合語の第二要素で「ㄹ」が保持される例と、頭音法則を学ぶための単語を収録しています。",
+  "totalWords": 25,
+  "words": [
+    {
+      "id": "word_6001",
+      "word": "독립",
+      "hanja": "獨立",
+      "meaning": "独立",
+      "pronunciation": "독립",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "獨", "korean": "독", "meaning": "独り・一人"},
+        {"character": "立", "korean": "립", "meaning": "立つ（※語頭では「입」に変化）"}
+      ],
+      "examples": [
+        {
+          "sentence": "한국은 1945년에 독립했다.",
+          "meaning": "韓国は1945年に独立した。"
+        }
+      ],
+      "note": "「立」は語頭では「입」になるが、複合語内では「립」を保持",
+      "relatedWords": ["자립", "성립"],
+      "antonyms": ["종속"],
+      "synonyms": []
+    },
+    {
+      "id": "word_6002",
+      "word": "자립",
+      "hanja": "自立",
+      "meaning": "自立",
+      "pronunciation": "자립",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "自", "korean": "자", "meaning": "自ら"},
+        {"character": "立", "korean": "립", "meaning": "立つ"}
+      ],
+      "examples": [
+        {
+          "sentence": "경제적 자립을 목표로 노력한다.",
+          "meaning": "経済的自立を目標に努力する。"
+        }
+      ],
+      "relatedWords": ["독립", "자주"],
+      "antonyms": ["의존"],
+      "synonyms": []
+    },
+    {
+      "id": "word_6003",
+      "word": "성립",
+      "hanja": "成立",
+      "meaning": "成立",
+      "pronunciation": "성립",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "成", "korean": "성", "meaning": "成る・達成する"},
+        {"character": "立", "korean": "립", "meaning": "立つ・成り立つ"}
+      ],
+      "examples": [
+        {
+          "sentence": "계약이 성립되었다.",
+          "meaning": "契約が成立した。"
+        }
+      ],
+      "relatedWords": ["확립", "설립"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_6004",
+      "word": "확립",
+      "hanja": "確立",
+      "meaning": "確立",
+      "pronunciation": "확립",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "確", "korean": "확", "meaning": "確かな"},
+        {"character": "立", "korean": "립", "meaning": "立つ・立てる"}
+      ],
+      "examples": [
+        {
+          "sentence": "새로운 제도를 확립해야 한다.",
+          "meaning": "新しい制度を確立しなければならない。"
+        }
+      ],
+      "relatedWords": ["성립", "설립"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_6005",
+      "word": "설립",
+      "hanja": "設立",
+      "meaning": "設立",
+      "pronunciation": "설립",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "設", "korean": "설", "meaning": "設ける"},
+        {"character": "立", "korean": "립", "meaning": "立てる"}
+      ],
+      "examples": [
+        {
+          "sentence": "회사를 설립한 지 10년이 되었다.",
+          "meaning": "会社を設立して10年になった。"
+        }
+      ],
+      "relatedWords": ["창립", "건립"],
+      "antonyms": ["해산"],
+      "synonyms": []
+    },
+    {
+      "id": "word_6006",
+      "word": "노력",
+      "hanja": "努力",
+      "meaning": "努力",
+      "pronunciation": "노력",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "努", "korean": "노", "meaning": "努める"},
+        {"character": "力", "korean": "력", "meaning": "力（※語頭では「역」に変化）"}
+      ],
+      "examples": [
+        {
+          "sentence": "꾸준한 노력이 성공을 이끈다.",
+          "meaning": "地道な努力が成功を導く。"
+        }
+      ],
+      "note": "「力」は語頭では「역」になるが、複合語内では「력」を保持",
+      "relatedWords": ["협력", "능력"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_6007",
+      "word": "협력",
+      "hanja": "協力",
+      "meaning": "協力",
+      "pronunciation": "협력",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "協", "korean": "협", "meaning": "協力する・合わせる"},
+        {"character": "力", "korean": "력", "meaning": "力"}
+      ],
+      "examples": [
+        {
+          "sentence": "국제 협력이 필요한 시대이다.",
+          "meaning": "国際協力が必要な時代だ。"
+        }
+      ],
+      "relatedWords": ["노력", "연합"],
+      "antonyms": ["대립"],
+      "synonyms": []
+    },
+    {
+      "id": "word_6008",
+      "word": "능력",
+      "hanja": "能力",
+      "meaning": "能力",
+      "pronunciation": "능력",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "能", "korean": "능", "meaning": "能く・よくできる"},
+        {"character": "力", "korean": "력", "meaning": "力"}
+      ],
+      "examples": [
+        {
+          "sentence": "그는 뛰어난 능력을 갖추고 있다.",
+          "meaning": "彼は優れた能力を持っている。"
+        }
+      ],
+      "relatedWords": ["실력", "재능"],
+      "antonyms": ["무능"],
+      "synonyms": []
+    },
+    {
+      "id": "word_6009",
+      "word": "전력",
+      "hanja": "電力",
+      "meaning": "電力",
+      "pronunciation": "전력",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "電", "korean": "전", "meaning": "電気"},
+        {"character": "力", "korean": "력", "meaning": "力"}
+      ],
+      "examples": [
+        {
+          "sentence": "태양광으로 전력을 생산한다.",
+          "meaning": "太陽光で電力を生産する。"
+        }
+      ],
+      "relatedWords": ["발전", "에너지"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_6010",
+      "word": "실력",
+      "hanja": "實力",
+      "meaning": "実力",
+      "pronunciation": "실력",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "實", "korean": "실", "meaning": "実・本当の"},
+        {"character": "力", "korean": "력", "meaning": "力"}
+      ],
+      "examples": [
+        {
+          "sentence": "한국어 실력이 많이 늘었다.",
+          "meaning": "韓国語の実力がかなり伸びた。"
+        }
+      ],
+      "relatedWords": ["능력", "역량"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_6011",
+      "word": "압력",
+      "hanja": "壓力",
+      "meaning": "圧力",
+      "pronunciation": "압력",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "壓", "korean": "압", "meaning": "圧する・押す"},
+        {"character": "力", "korean": "력", "meaning": "力"}
+      ],
+      "examples": [
+        {
+          "sentence": "그는 사회적 압력에 시달렸다.",
+          "meaning": "彼は社会的圧力に苦しんだ。"
+        }
+      ],
+      "relatedWords": ["압박", "강압"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_6012",
+      "word": "심리",
+      "hanja": "心理",
+      "meaning": "心理",
+      "pronunciation": "심리",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "心", "korean": "심", "meaning": "心"},
+        {"character": "理", "korean": "리", "meaning": "理・ことわり（※語頭では「이」に変化）"}
+      ],
+      "examples": [
+        {
+          "sentence": "범인의 심리를 분석했다.",
+          "meaning": "犯人の心理を分析した。"
+        }
+      ],
+      "note": "「理」は語頭では「이」になるが、複合語内では「리」を保持",
+      "relatedWords": ["논리", "진리"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_6013",
+      "word": "논리",
+      "hanja": "論理",
+      "meaning": "論理",
+      "pronunciation": "논리",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "論", "korean": "논", "meaning": "論じる"},
+        {"character": "理", "korean": "리", "meaning": "理・道理"}
+      ],
+      "examples": [
+        {
+          "sentence": "그의 주장은 논리적이다.",
+          "meaning": "彼の主張は論理的だ。"
+        }
+      ],
+      "relatedWords": ["심리", "원리"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_6014",
+      "word": "원리",
+      "hanja": "原理",
+      "meaning": "原理",
+      "pronunciation": "원리",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "原", "korean": "원", "meaning": "原・もと"},
+        {"character": "理", "korean": "리", "meaning": "理・ことわり"}
+      ],
+      "examples": [
+        {
+          "sentence": "과학적 원리를 이해해야 한다.",
+          "meaning": "科学的原理を理解しなければならない。"
+        }
+      ],
+      "relatedWords": ["논리", "법칙"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_6015",
+      "word": "진리",
+      "hanja": "眞理",
+      "meaning": "真理",
+      "pronunciation": "진리",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "眞", "korean": "진", "meaning": "真・本当"},
+        {"character": "理", "korean": "리", "meaning": "理・道理"}
+      ],
+      "examples": [
+        {
+          "sentence": "진리를 탐구하는 학자들이 많다.",
+          "meaning": "真理を探求する学者が多い。"
+        }
+      ],
+      "relatedWords": ["원리", "철학"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_6016",
+      "word": "관리",
+      "hanja": "管理",
+      "meaning": "管理",
+      "pronunciation": "관리",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "管", "korean": "관", "meaning": "管・つかさどる"},
+        {"character": "理", "korean": "리", "meaning": "理・整理する"}
+      ],
+      "examples": [
+        {
+          "sentence": "시간 관리가 중요하다.",
+          "meaning": "時間管理が重要だ。"
+        }
+      ],
+      "relatedWords": ["처리", "정리"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_6017",
+      "word": "처리",
+      "hanja": "處理",
+      "meaning": "処理",
+      "pronunciation": "처리",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "處", "korean": "처", "meaning": "処・所"},
+        {"character": "理", "korean": "리", "meaning": "理・整理する"}
+      ],
+      "examples": [
+        {
+          "sentence": "업무 처리가 빠르다.",
+          "meaning": "業務処理が速い。"
+        }
+      ],
+      "relatedWords": ["관리", "정리"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_6018",
+      "word": "이유",
+      "hanja": "理由",
+      "meaning": "理由",
+      "pronunciation": "이유",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "理", "korean": "이", "meaning": "理（※語頭のため「리」→「이」に変化）"},
+        {"character": "由", "korean": "유", "meaning": "由・よりどころ"}
+      ],
+      "examples": [
+        {
+          "sentence": "그 이유를 설명해 주세요.",
+          "meaning": "その理由を説明してください。"
+        }
+      ],
+      "note": "頭音法則により「리유」→「이유」に変化した例",
+      "relatedWords": ["원인", "근거"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_6019",
+      "word": "역사",
+      "hanja": "歷史",
+      "meaning": "歴史",
+      "pronunciation": "역사",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "歷", "korean": "역", "meaning": "歴（※語頭のため「력」→「역」に変化）"},
+        {"character": "史", "korean": "사", "meaning": "史・歴史"}
+      ],
+      "examples": [
+        {
+          "sentence": "역사를 공부하면 미래가 보인다.",
+          "meaning": "歴史を学べば未来が見える。"
+        }
+      ],
+      "note": "頭音法則により「력사」→「역사」に変化した例",
+      "relatedWords": ["전통", "문화"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_6020",
+      "word": "노동",
+      "hanja": "勞動",
+      "meaning": "労働",
+      "pronunciation": "노동",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "勞", "korean": "노", "meaning": "労（※語頭のため「로」→「노」に変化）"},
+        {"character": "動", "korean": "동", "meaning": "動く"}
+      ],
+      "examples": [
+        {
+          "sentence": "노동자의 권리를 보호해야 한다.",
+          "meaning": "労働者の権利を保護しなければならない。"
+        }
+      ],
+      "note": "頭音法則により「로동」→「노동」に変化した例",
+      "relatedWords": ["근로", "일"],
+      "antonyms": [],
+      "synonyms": ["근로"]
+    },
+    {
+      "id": "word_6021",
+      "word": "내일",
+      "hanja": "來日",
+      "meaning": "明日",
+      "pronunciation": "내일",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "來", "korean": "내", "meaning": "来（※語頭のため「래」→「내」に変化）"},
+        {"character": "日", "korean": "일", "meaning": "日"}
+      ],
+      "examples": [
+        {
+          "sentence": "내일 다시 만나요.",
+          "meaning": "明日また会いましょう。"
+        }
+      ],
+      "note": "頭音法則により「래일」→「내일」に変化した例",
+      "relatedWords": ["모레", "어제"],
+      "antonyms": ["어제"],
+      "synonyms": []
+    },
+    {
+      "id": "word_6022",
+      "word": "유행",
+      "hanja": "流行",
+      "meaning": "流行",
+      "pronunciation": "유행",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "流", "korean": "유", "meaning": "流（※語頭のため「류」→「유」に変化）"},
+        {"character": "行", "korean": "행", "meaning": "行く・流行する"}
+      ],
+      "examples": [
+        {
+          "sentence": "요즘 유행하는 노래가 뭐예요?",
+          "meaning": "最近流行っている歌は何ですか？"
+        }
+      ],
+      "note": "頭音法則により「류행」→「유행」に変化した例",
+      "relatedWords": ["트렌드", "패션"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_6023",
+      "word": "예의",
+      "hanja": "禮儀",
+      "meaning": "礼儀",
+      "pronunciation": "예의",
+      "partOfSpeech": "명사",
+      "level": "basic",
+      "frequency": "high",
+      "components": [
+        {"character": "禮", "korean": "예", "meaning": "礼（※語頭のため「례」→「예」に変化）"},
+        {"character": "儀", "korean": "의", "meaning": "儀・作法"}
+      ],
+      "examples": [
+        {
+          "sentence": "예의 바른 행동이 중요하다.",
+          "meaning": "礼儀正しい行動が大切だ。"
+        }
+      ],
+      "note": "頭音法則により「례의」→「예의」に変化した例",
+      "relatedWords": ["예절", "매너"],
+      "antonyms": ["무례"],
+      "synonyms": []
+    },
+    {
+      "id": "word_6024",
+      "word": "양심",
+      "hanja": "良心",
+      "meaning": "良心",
+      "pronunciation": "양심",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "良", "korean": "양", "meaning": "良（※語頭のため「량」→「양」に変化）"},
+        {"character": "心", "korean": "심", "meaning": "心"}
+      ],
+      "examples": [
+        {
+          "sentence": "양심에 따라 행동해야 한다.",
+          "meaning": "良心に従って行動しなければならない。"
+        }
+      ],
+      "note": "頭音法則により「량심」→「양심」に変化した例",
+      "relatedWords": ["도덕", "윤리"],
+      "antonyms": [],
+      "synonyms": []
+    },
+    {
+      "id": "word_6025",
+      "word": "낙원",
+      "hanja": "樂園",
+      "meaning": "楽園",
+      "pronunciation": "낙원",
+      "partOfSpeech": "명사",
+      "level": "intermediate",
+      "frequency": "medium",
+      "components": [
+        {"character": "樂", "korean": "낙", "meaning": "楽（※語頭のため「락」→「낙」に変化）"},
+        {"character": "園", "korean": "원", "meaning": "園・庭"}
+      ],
+      "examples": [
+        {
+          "sentence": "이곳은 새들의 낙원이다.",
+          "meaning": "ここは鳥たちの楽園だ。"
+        }
+      ],
+      "note": "頭音法則により「락원」→「낙원」に変化した例",
+      "relatedWords": ["천국", "유토피아"],
+      "antonyms": ["지옥"],
+      "synonyms": []
+    }
+  ]
+}

@@ -144,6 +144,12 @@ class PremiumFeatureGate extends StatelessWidget {
             title: '詳細な学習分析レポート',
             description: '苦手なキー・成長推移・学習習慣を可視化し、効率アップを後押し。',
           ),
+          const SizedBox(height: AppSpacing.md),
+          _BenefitCard(
+            icon: Iconsax.verify,
+            title: '日記に認証マーク',
+            description: 'プロユーザーの日記には認証マークが表示され、信頼性が高まります。',
+          ),
           const SizedBox(height: AppSpacing.xxl),
           SizedBox(
             width: double.infinity,

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
+import '../../../core/services/sound_service.dart';
 import '../../../features/hanja_quiz/data/models/hanja_quiz_models.dart';
 import '../../../features/hanja_quiz/domain/providers/hanja_quiz_providers.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
@@ -62,6 +63,18 @@ class _HanjaQuizScreenState extends ConsumerState<HanjaQuizScreen> {
         WidgetsBinding.instance.addPostFrameCallback((_) {
           _playCurrentWordAudio();
         });
+      }
+      // 正解/不正解音を再生
+      if (next != null &&
+          previous != null &&
+          next.isWordComplete &&
+          !previous.isWordComplete) {
+        final soundService = ref.read(soundServiceProvider);
+        if (!next.hasWrongAnswer) {
+          soundService.playCorrect();
+        } else {
+          soundService.playIncorrect();
+        }
       }
     });
 
