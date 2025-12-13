@@ -10,6 +10,7 @@ import 'package:chaletta/ui/app_spacing.dart';
 import 'package:chaletta/ui/widgets/app_page_scaffold.dart';
 import 'package:chaletta/ui/widgets/premium_feature_gate.dart';
 
+import 'widgets/activity_time_breakdown_chart.dart';
 import 'widgets/growth_trend_chart.dart';
 import 'widgets/learning_habit_chart.dart';
 import 'widgets/practice_time_chart.dart';
@@ -69,6 +70,19 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
               data: (dashboard) => Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Activity Time Breakdown Section
+                  _SectionHeader(
+                    title: '学習時間内訳',
+                    subtitle: 'アクティビティ別の学習時間',
+                    icon: Iconsax.chart_square,
+                  ),
+                  const SizedBox(height: AppSpacing.md),
+                  ActivityTimeBreakdownChart(
+                    breakdown: dashboard.activityBreakdown,
+                    dailyBreakdown: dashboard.dailyActivityBreakdown,
+                  ),
+                  const SizedBox(height: AppSpacing.xxl),
+
                   // Weak Keys Section
                   _SectionHeader(
                     title: '苦手なキー',
