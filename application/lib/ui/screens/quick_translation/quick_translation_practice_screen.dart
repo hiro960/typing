@@ -157,14 +157,16 @@ class _QuickTranslationPracticeScreenState
     }
 
     // フィードバック表示中は結果画面に遷移しない（最終問題のフィードバック確認のため）
-    // _isNavigatingToResultで重複遷移を防止
-    if (session.isCompleted && !_showFeedback && !_isNavigatingToResult) {
-      _isNavigatingToResult = true;
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted) {
-          _navigateToResult();
-        }
-      });
+    // セッション完了時はローディング画面を表示し、結果画面へ遷移
+    if (session.isCompleted && !_showFeedback) {
+      if (!_isNavigatingToResult) {
+        _isNavigatingToResult = true;
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) {
+            _navigateToResult();
+          }
+        });
+      }
       return const Scaffold(
         body: Center(child: CircularProgressIndicator()),
       );

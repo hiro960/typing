@@ -60,6 +60,8 @@ class AnalysisDashboard {
     required this.practiceTime,
     required this.vocabularyStatus,
     required this.vocabularyGrowth,
+    required this.activityBreakdown,
+    required this.dailyActivityBreakdown,
   });
 
   final List<WeakKey> weakKeys;
@@ -68,6 +70,8 @@ class AnalysisDashboard {
   final PracticeTimeStats practiceTime;
   final VocabularyStatus vocabularyStatus;
   final List<VocabularyGrowthPoint> vocabularyGrowth;
+  final ActivityBreakdown activityBreakdown;
+  final List<DailyActivityBreakdown> dailyActivityBreakdown;
 
   factory AnalysisDashboard.fromJson(Map<String, dynamic> json) {
     return AnalysisDashboard(
@@ -90,6 +94,13 @@ class AnalysisDashboard {
       ),
       vocabularyGrowth: (json['vocabularyGrowth'] as List<dynamic>?)
               ?.map((e) => VocabularyGrowthPoint.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
+      activityBreakdown: ActivityBreakdown.fromJson(
+        json['activityBreakdown'] as Map<String, dynamic>? ?? {},
+      ),
+      dailyActivityBreakdown: (json['dailyActivityBreakdown'] as List<dynamic>?)
+              ?.map((e) => DailyActivityBreakdown.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
     );
@@ -182,5 +193,148 @@ class VocabularyGrowthPoint {
       added: json['added'] as int? ?? 0,
       mastered: json['mastered'] as int? ?? 0,
     );
+  }
+}
+
+/// アクティビティ種別の時間エントリ
+class ActivityTimeEntry {
+  const ActivityTimeEntry({
+    this.timeSpentMs = 0,
+    this.sessionCount = 0,
+  });
+
+  final int timeSpentMs;
+  final int sessionCount;
+
+  factory ActivityTimeEntry.fromJson(Map<String, dynamic> json) {
+    return ActivityTimeEntry(
+      timeSpentMs: json['timeSpentMs'] as int? ?? 0,
+      sessionCount: json['sessionCount'] as int? ?? 0,
+    );
+  }
+}
+
+/// アクティビティ種別ごとの時間内訳
+class ActivityBreakdown {
+  const ActivityBreakdown({
+    this.lesson = const ActivityTimeEntry(),
+    this.rankingGame = const ActivityTimeEntry(),
+    this.pronunciationGame = const ActivityTimeEntry(),
+    this.quickTranslation = const ActivityTimeEntry(),
+    this.writing = const ActivityTimeEntry(),
+    this.hanjaQuiz = const ActivityTimeEntry(),
+  });
+
+  final ActivityTimeEntry lesson;
+  final ActivityTimeEntry rankingGame;
+  final ActivityTimeEntry pronunciationGame;
+  final ActivityTimeEntry quickTranslation;
+  final ActivityTimeEntry writing;
+  final ActivityTimeEntry hanjaQuiz;
+
+  factory ActivityBreakdown.fromJson(Map<String, dynamic> json) {
+    return ActivityBreakdown(
+      lesson: ActivityTimeEntry.fromJson(
+        json['lesson'] as Map<String, dynamic>? ?? {},
+      ),
+      rankingGame: ActivityTimeEntry.fromJson(
+        json['rankingGame'] as Map<String, dynamic>? ?? {},
+      ),
+      pronunciationGame: ActivityTimeEntry.fromJson(
+        json['pronunciationGame'] as Map<String, dynamic>? ?? {},
+      ),
+      quickTranslation: ActivityTimeEntry.fromJson(
+        json['quickTranslation'] as Map<String, dynamic>? ?? {},
+      ),
+      writing: ActivityTimeEntry.fromJson(
+        json['writing'] as Map<String, dynamic>? ?? {},
+      ),
+      hanjaQuiz: ActivityTimeEntry.fromJson(
+        json['hanjaQuiz'] as Map<String, dynamic>? ?? {},
+      ),
+    );
+  }
+
+  /// 記録があるアクティビティのみを取得
+  List<MapEntry<String, ActivityTimeEntry>> get activeEntries {
+    final all = {
+      'lesson': lesson,
+      'rankingGame': rankingGame,
+      'pronunciationGame': pronunciationGame,
+      'quickTranslation': quickTranslation,
+      'writing': writing,
+      'hanjaQuiz': hanjaQuiz,
+    };
+    return all.entries.where((e) => e.value.timeSpentMs > 0).toList();
+  }
+
+  /// 総時間（ミリ秒）
+  int get totalTimeMs =>
+      lesson.timeSpentMs +
+      rankingGame.timeSpentMs +
+      pronunciationGame.timeSpentMs +
+      quickTranslation.timeSpentMs +
+      writing.timeSpentMs +
+      hanjaQuiz.timeSpentMs;
+}
+
+/// 日別アクティビティ内訳
+class DailyActivityBreakdown {
+  const DailyActivityBreakdown({
+    required this.date,
+    this.lessonTimeMs = 0,
+    this.rankingGameTimeMs = 0,
+    this.pronunciationGameTimeMs = 0,
+    this.quickTranslationTimeMs = 0,
+    this.writingTimeMs = 0,
+    this.hanjaQuizTimeMs = 0,
+  });
+
+  final String date;
+  final int lessonTimeMs;
+  final int rankingGameTimeMs;
+  final int pronunciationGameTimeMs;
+  final int quickTranslationTimeMs;
+  final int writingTimeMs;
+  final int hanjaQuizTimeMs;
+
+  factory DailyActivityBreakdown.fromJson(Map<String, dynamic> json) {
+    return DailyActivityBreakdown(
+      date: json['date'] as String? ?? '',
+      lessonTimeMs: json['lessonTimeMs'] as int? ?? 0,
+      rankingGameTimeMs: json['rankingGameTimeMs'] as int? ?? 0,
+      pronunciationGameTimeMs: json['pronunciationGameTimeMs'] as int? ?? 0,
+      quickTranslationTimeMs: json['quickTranslationTimeMs'] as int? ?? 0,
+      writingTimeMs: json['writingTimeMs'] as int? ?? 0,
+      hanjaQuizTimeMs: json['hanjaQuizTimeMs'] as int? ?? 0,
+    );
+  }
+
+  int get totalTimeMs =>
+      lessonTimeMs +
+      rankingGameTimeMs +
+      pronunciationGameTimeMs +
+      quickTranslationTimeMs +
+      writingTimeMs +
+      hanjaQuizTimeMs;
+
+  /// アクティビティキーから時間を取得
+  int getTimeForActivity(String activityKey) {
+    switch (activityKey) {
+      case 'lesson':
+        return lessonTimeMs;
+      case 'rankingGame':
+        return rankingGameTimeMs;
+      case 'pronunciationGame':
+        return pronunciationGameTimeMs;
+      case 'quickTranslation':
+        return quickTranslationTimeMs;
+      case 'writing':
+        return writingTimeMs;
+      case 'hanjaQuiz':
+        return hanjaQuizTimeMs;
+      default:
+        return 0;
+    }
   }
 }

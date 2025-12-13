@@ -131,6 +131,72 @@ export async function GET(request: NextRequest) {
             dailyPracticeTime,
         };
 
+        // 4.5 Activity Breakdown（アクティビティ種別ごとの時間内訳）
+        type ActivityBreakdownEntry = { timeSpentMs: number; sessionCount: number };
+        const activityBreakdown: Record<string, ActivityBreakdownEntry> = {
+            lesson: { timeSpentMs: 0, sessionCount: 0 },
+            rankingGame: { timeSpentMs: 0, sessionCount: 0 },
+            pronunciationGame: { timeSpentMs: 0, sessionCount: 0 },
+            quickTranslation: { timeSpentMs: 0, sessionCount: 0 },
+            writing: { timeSpentMs: 0, sessionCount: 0 },
+            hanjaQuiz: { timeSpentMs: 0, sessionCount: 0 },
+        };
+
+        // 日別アクティビティ内訳用のマップ
+        type DailyActivityEntry = {
+            lesson: number;
+            rankingGame: number;
+            pronunciationGame: number;
+            quickTranslation: number;
+            writing: number;
+            hanjaQuiz: number;
+        };
+        const dailyActivityMap: Record<string, DailyActivityEntry> = {};
+
+        activities.forEach((a) => {
+            const dateKey = a.completedAt.toISOString().split("T")[0];
+            if (!dailyActivityMap[dateKey]) {
+                dailyActivityMap[dateKey] = {
+                    lesson: 0,
+                    rankingGame: 0,
+                    pronunciationGame: 0,
+                    quickTranslation: 0,
+                    writing: 0,
+                    hanjaQuiz: 0,
+                };
+            }
+
+            // アクティビティタイプをキーにマッピング
+            const typeKeyMap: Record<string, string> = {
+                lesson: "lesson",
+                ranking_game: "rankingGame",
+                pronunciation_game: "pronunciationGame",
+                quick_translation: "quickTranslation",
+                writing: "writing",
+                hanja_quiz: "hanjaQuiz",
+            };
+            const key = typeKeyMap[a.activityType] || "lesson";
+
+            // 合計集計
+            activityBreakdown[key].timeSpentMs += a.timeSpent;
+            activityBreakdown[key].sessionCount += 1;
+
+            // 日別集計
+            dailyActivityMap[dateKey][key as keyof DailyActivityEntry] += a.timeSpent;
+        });
+
+        const dailyActivityBreakdown = Object.entries(dailyActivityMap)
+            .map(([date, times]) => ({
+                date,
+                lessonTimeMs: times.lesson,
+                rankingGameTimeMs: times.rankingGame,
+                pronunciationGameTimeMs: times.pronunciationGame,
+                quickTranslationTimeMs: times.quickTranslation,
+                writingTimeMs: times.writing,
+                hanjaQuizTimeMs: times.hanjaQuiz,
+            }))
+            .sort((a, b) => a.date.localeCompare(b.date));
+
         // 5. Vocabulary Status (from Wordbook)
         const wordbookStats = await prisma.wordbook.groupBy({
             by: ["status"],
@@ -205,6 +271,8 @@ export async function GET(request: NextRequest) {
             practiceTime,
             vocabularyStatus,
             vocabularyGrowth,
+            activityBreakdown,
+            dailyActivityBreakdown,
         });
     } catch (error) {
         return handleRouteError(error);
