@@ -336,7 +336,7 @@ final class WordAudioServiceProvider
   WordAudioService create() => WordAudioService();
 }
 
-String _$wordAudioServiceHash() => r'a633db0a6143e42fc2cf8008f740d9df48ee100a';
+String _$wordAudioServiceHash() => r'cdd0260def664560e8d4a01ed7fd567a5648392a';
 
 abstract class _$WordAudioService extends $AsyncNotifier<void> {
   FutureOr<void> build();
@@ -398,6 +398,61 @@ abstract class _$WordbookViewModeNotifier
             as $ClassProviderElement<
               AnyNotifier<AsyncValue<WordbookViewMode>, WordbookViewMode>,
               AsyncValue<WordbookViewMode>,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
+}
+
+/// 聞き流し設定の管理
+
+@ProviderFor(ListeningSettingsNotifier)
+const listeningSettingsProvider = ListeningSettingsNotifierProvider._();
+
+/// 聞き流し設定の管理
+final class ListeningSettingsNotifierProvider
+    extends
+        $AsyncNotifierProvider<ListeningSettingsNotifier, ListeningSettings> {
+  /// 聞き流し設定の管理
+  const ListeningSettingsNotifierProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'listeningSettingsProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$listeningSettingsNotifierHash();
+
+  @$internal
+  @override
+  ListeningSettingsNotifier create() => ListeningSettingsNotifier();
+}
+
+String _$listeningSettingsNotifierHash() =>
+    r'6ab02a53b274add5760eba6db2a9919329713f48';
+
+/// 聞き流し設定の管理
+
+abstract class _$ListeningSettingsNotifier
+    extends $AsyncNotifier<ListeningSettings> {
+  FutureOr<ListeningSettings> build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref =
+        this.ref as $Ref<AsyncValue<ListeningSettings>, ListeningSettings>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<AsyncValue<ListeningSettings>, ListeningSettings>,
+              AsyncValue<ListeningSettings>,
               Object?,
               Object?
             >;

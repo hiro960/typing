@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:chaletta/ui/widgets/premium_feature_gate.dart';
 import 'package:chaletta/ui/widgets/shimmer_loading.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +39,9 @@ import '../hanja/hanja_list_screen.dart';
 import '../quick_translation/quick_translation_item_list_screen.dart';
 import '../../../features/quick_translation/data/models/quick_translation_models.dart';
 import '../../../features/quick_translation/domain/providers/quick_translation_providers.dart';
+import '../../../features/wordbook/domain/providers/bulk_add_words_provider.dart';
+import '../../utils/dialog_helper.dart';
+import '../../widgets/bulk_add_progress_dialog.dart';
 
 part 'home_progress_hero.dart';
 part 'home_stat_highlights.dart';
@@ -602,10 +607,17 @@ class _QuickTranslationListScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final categoriesAsync = ref.watch(quickTranslationCategoriesProvider);
+    final wordCountAsync = ref.watch(quickTranslationWordCountProvider);
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('瞬間作文'),
+        actions: [
+          IconButton(
+            icon: const Icon(Iconsax.add),
+            onPressed: () => _showAddAllWordsConfirmation(context, ref, wordCountAsync),
+          ),
+        ],
       ),
       body: categoriesAsync.when(
         data: (categories) => ListView.builder(
@@ -622,6 +634,27 @@ class _QuickTranslationListScreen extends ConsumerWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _showAddAllWordsConfirmation(
+    BuildContext context,
+    WidgetRef ref,
+    AsyncValue<int> wordCountAsync,
+  ) async {
+    final wordCount = wordCountAsync.value ?? 0;
+    final confirmed = await DialogHelper.showConfirmDialog(
+      context,
+      title: '単語帳に追加',
+      content: '瞬間作文で使用される全ての単語（$wordCount語）を単語帳に追加します。よろしいですか？',
+      positiveLabel: 'はい',
+      negativeLabel: 'キャンセル',
+    );
+
+    if (!confirmed || !context.mounted) return;
+
+    // 進捗ダイアログを表示してバルク追加開始
+    unawaited(BulkAddProgressDialog.show(context));
+    await ref.read(bulkAddWordsProvider.notifier).addAllQuickTranslationWords();
   }
 }
 

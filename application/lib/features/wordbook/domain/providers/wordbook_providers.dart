@@ -11,6 +11,7 @@ import 'package:uuid/uuid.dart';
 import '../../../../core/utils/logger.dart';
 import '../../../auth/domain/providers/auth_providers.dart';
 import '../../data/models/audio_settings.dart';
+import '../../data/models/listening_settings.dart';
 import '../../data/models/pending_operation.dart';
 import '../../data/models/word_model.dart';
 import '../../data/repositories/wordbook_repository.dart';
@@ -659,6 +660,8 @@ class AudioSettingsNotifier extends _$AudioSettingsNotifier {
 class WordAudioService extends _$WordAudioService {
   FlutterTts? _tts;
   bool _initialized = false;
+  String _currentLanguage = 'ko-KR';
+  Completer<void>? _speakCompleter;
 
   @override
   FutureOr<void> build() async {
@@ -668,9 +671,11 @@ class WordAudioService extends _$WordAudioService {
       _tts?.stop();
       _tts = null;
       _initialized = false;
+      _speakCompleter = null;
     });
   }
 
+  /// 韓国語で再生（既存の互換性を維持）
   Future<void> speak(String text) async {
     await _ensureInitialized();
     if (text.trim().isEmpty) return;
@@ -678,7 +683,41 @@ class WordAudioService extends _$WordAudioService {
     await _tts?.speak(text);
   }
 
+  /// 言語を指定して再生（再生完了を待機）
+  Future<void> speakWithLanguage(
+    String text, {
+    required String language,
+  }) async {
+    await _ensureInitialized();
+    if (text.trim().isEmpty) return;
+
+    // 言語が異なる場合のみ切り替え
+    if (_currentLanguage != language) {
+      await _tts?.setLanguage(language);
+      _currentLanguage = language;
+    }
+
+    await _tts?.stop();
+
+    // 再生完了待機用のCompleterをセットアップ
+    _speakCompleter = Completer<void>();
+    await _tts?.speak(text);
+    await _speakCompleter?.future;
+  }
+
+  /// 日本語で再生（再生完了を待機）
+  Future<void> speakJapanese(String text) async {
+    await speakWithLanguage(text, language: 'ja-JP');
+  }
+
+  /// 韓国語で再生（再生完了を待機）
+  Future<void> speakKorean(String text) async {
+    await speakWithLanguage(text, language: 'ko-KR');
+  }
+
   Future<void> stop() async {
+    _speakCompleter?.complete();
+    _speakCompleter = null;
     await _tts?.stop();
   }
 
@@ -699,6 +738,12 @@ class WordAudioService extends _$WordAudioService {
     }
     final tts = FlutterTts();
     _tts = tts;
+
+    // 再生完了コールバックを設定
+    tts.setCompletionHandler(() {
+      _speakCompleter?.complete();
+      _speakCompleter = null;
+    });
 
     if (Platform.isIOS) {
       await tts.setSharedInstance(true);
@@ -760,5 +805,49 @@ class WordbookViewModeNotifier extends _$WordbookViewModeNotifier {
   Future<void> _save(WordbookViewMode mode) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_cacheKey, mode.name);
+  }
+}
+
+/// 聞き流し設定の管理
+@Riverpod(keepAlive: true)
+class ListeningSettingsNotifier extends _$ListeningSettingsNotifier {
+  static const _cacheKey = 'listening_settings_v1';
+
+  @override
+  FutureOr<ListeningSettings> build() async {
+    final prefs = await SharedPreferences.getInstance();
+    final json = prefs.getString(_cacheKey);
+    if (json == null) {
+      return const ListeningSettings();
+    }
+    final data = jsonDecode(json) as Map<String, dynamic>;
+    return ListeningSettings.fromJson(data);
+  }
+
+  Future<void> setSpeechRate(double rate) async {
+    final current = state.value ?? const ListeningSettings();
+    final updated = current.copyWith(speechRate: rate);
+    state = AsyncData(updated);
+    await _save(updated);
+  }
+
+  Future<void> setJapaneseToKoreanMs(int ms) async {
+    final current = state.value ?? const ListeningSettings();
+    final updated = current.copyWith(japaneseToKoreanMs: ms);
+    state = AsyncData(updated);
+    await _save(updated);
+  }
+
+  Future<void> setWordToWordMs(int ms) async {
+    final current = state.value ?? const ListeningSettings();
+    final updated = current.copyWith(wordToWordMs: ms);
+    state = AsyncData(updated);
+    await _save(updated);
+  }
+
+  Future<void> _save(ListeningSettings settings) async {
+    final prefs = await SharedPreferences.getInstance();
+    final json = jsonEncode(settings.toJson());
+    await prefs.setString(_cacheKey, json);
   }
 }

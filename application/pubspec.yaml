@@ -37,7 +37,6 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 #   累計レッスン数、最高入力速度、連続学習日数などの実績を確認。目標達成のモチベーションを高めます。
 
 #   【特徴】
-#   ・オフラインでも学習可能
 #   ・音声読み上げ機能で発音も確認
 #   ・ダークモード対応
 #   ・プレミアムプランでさらに充実した学習体験
@@ -154,6 +153,7 @@ flutter:
     - .env
     - assets/se/
     - assets/lessons/
+    - assets/words/
     - assets/writing/topik/
     - assets/writing/beginner/
     - assets/writing/travel/
