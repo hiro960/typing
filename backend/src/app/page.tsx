@@ -8,12 +8,13 @@ export default function Home() {
         {/* Hero Section */}
         <section className={styles.hero}>
           <div className={styles.heroContent}>
-            <h1 className={styles.title}>
+            <h2 className={styles.title}>
               韓国語の学習を、<br />もっと楽しく、効果的に。
-            </h1>
+            </h2>
             <p className={styles.subtitle}>
               タイピング練習からTOPIK対策まで。<br />
-              あなたの韓国語学習をサポートするオールインワンアプリ。
+              あなたの韓国語学習をサポートするオールインワンアプリ
+              <h1 className={styles.subtitle}>チャレッタ</h1>
             </p>
             <a href="#features" className={styles.ctaButton}>
               機能を見る
@@ -106,6 +107,66 @@ export default function Home() {
               <Image
                 src="/screen/screen-profile.png"
                 alt="Profile Screen"
+                width={600}
+                height={400}
+                style={{ width: "100%", height: "auto" }}
+              />
+            </div>
+          </div>
+
+          {/* Feature 5: Instant Composition */}
+          <div className={styles.featureRow}>
+            <div className={styles.featureText}>
+              <h2 className={styles.featureTitle}>瞬間作文で会話力UP</h2>
+              <p className={styles.featureDescription}>
+                日本語を見て瞬時に韓国語で表現するトレーニング。<br />
+                実際の会話で使える表現力と反射速度を鍛えます。
+              </p>
+            </div>
+            <div className={styles.featureImageWrapper}>
+              <Image
+                src="/screen/screen-composition.png"
+                alt="Instant Composition Screen"
+                width={600}
+                height={400}
+                style={{ width: "100%", height: "auto" }}
+              />
+            </div>
+          </div>
+
+          {/* Feature 6: Sino-Korean Quiz (Reverse) */}
+          <div className={`${styles.featureRow} ${styles.reverse}`}>
+            <div className={styles.featureText}>
+              <h2 className={styles.featureTitle}>漢字語クイズで語彙力強化</h2>
+              <p className={styles.featureDescription}>
+                韓国語の約60%を占める漢字語をマスター。<br />
+                漢字の知識を活かして、効率よく語彙を増やせます。
+              </p>
+            </div>
+            <div className={styles.featureImageWrapper}>
+              <Image
+                src="/screen/screen-hanja-quiz.png"
+                alt="Sino-Korean Quiz Screen"
+                width={600}
+                height={400}
+                style={{ width: "100%", height: "auto" }}
+              />
+            </div>
+          </div>
+
+          {/* Feature 7: Grammar Dictionary */}
+          <div className={styles.featureRow}>
+            <div className={styles.featureText}>
+              <h2 className={styles.featureTitle}>文法辞典でいつでも確認</h2>
+              <p className={styles.featureDescription}>
+                韓国語の文法を体系的に整理した辞典機能。<br />
+                初級から上級まで、必要な文法をすぐに検索・確認できます。
+              </p>
+            </div>
+            <div className={styles.featureImageWrapper}>
+              <Image
+                src="/screen/screen-grammar.png"
+                alt="Grammar Dictionary Screen"
                 width={600}
                 height={400}
                 style={{ width: "100%", height: "auto" }}
