@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { FaInstagram, FaTiktok } from "react-icons/fa";
+import { SiLine } from "react-icons/si";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -182,7 +184,21 @@ export default function Home() {
             <a href="/privacy" className={styles.footerLink}>プライバシーポリシー</a>
             <a href="/contact" className={styles.footerLink}>お問い合わせ</a>
           </div>
-          <p className={styles.copyright}>&copy; 2025 Korean Typing App. All rights reserved.</p>
+          <div className={styles.socialLinks}>
+            <a href="https://suzuri.jp/chaletta" className={styles.socialLink} target="_blank" rel="noopener noreferrer" aria-label="SUZURI">
+              SUZURI
+            </a>
+            <a href="https://line.me/ti/g2/KdC21UZy7vDWwG0stTGvSgBqUN6DRbqGLjeRQQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" className={styles.socialLink} target="_blank" rel="noopener noreferrer" aria-label="LINEオープンチャット">
+              <SiLine size={20} />
+            </a>
+            <a href="https://www.instagram.com/chaletta.app?igsh=YTB6OG85Y3l1NGR5&utm_source=ig_contact_invite" className={styles.socialLink} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <FaInstagram size={20} />
+            </a>
+            <a href="https://www.tiktok.com/@chaletta.app" className={styles.socialLink} target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <FaTiktok size={20} />
+            </a>
+          </div>
+          <p className={styles.copyright}>&copy; 2025 Chaletta. All rights reserved.</p>
         </footer>
       </main>
     </div>
