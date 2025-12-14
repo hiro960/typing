@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaInstagram, FaTiktok, FaXTwitter } from "react-icons/fa6";
 import { SiLine } from "react-icons/si";
 import styles from "./page.module.css";
 
@@ -196,6 +196,9 @@ export default function Home() {
             </a>
             <a href="https://www.tiktok.com/@chaletta.app" className={styles.socialLink} target="_blank" rel="noopener noreferrer" aria-label="TikTok">
               <FaTiktok size={20} />
+            </a>
+            <a href="https://x.com/chaletta2026" className={styles.socialLink} target="_blank" rel="noopener noreferrer" aria-label="X">
+              <FaXTwitter size={20} />
             </a>
           </div>
           <p className={styles.copyright}>&copy; 2025 Chaletta. All rights reserved.</p>
