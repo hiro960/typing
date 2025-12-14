@@ -4,6 +4,33 @@
   flex-direction: column;
 }
 
+/* App Name */
+.appName {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+/* Coming Soon Banner */
+.comingSoonBanner {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  border-radius: 9999px;
+  margin-bottom: 1.5rem;
+}
+
+.comingSoonText {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
 .main {
   flex: 1;
   display: flex;

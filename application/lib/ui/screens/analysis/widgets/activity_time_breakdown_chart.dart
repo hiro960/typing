@@ -30,7 +30,7 @@ class ActivityTimeBreakdownChart extends StatelessWidget {
     'lesson': 'レッスン',
     'rankingGame': 'ランキングゲーム',
     'pronunciationGame': '発音ゲーム',
-    'quickTranslation': 'クイック翻訳',
+    'quickTranslation': '瞬間作文',
     'writing': '書き取り',
     'hanjaQuiz': '漢字クイズ',
   };

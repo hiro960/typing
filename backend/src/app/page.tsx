@@ -14,11 +14,11 @@ export default function Home() {
             <p className={styles.subtitle}>
               タイピング練習からTOPIK対策まで。<br />
               あなたの韓国語学習をサポートするオールインワンアプリ
-              <h1 className={styles.subtitle}>チャレッタ</h1>
             </p>
-            <a href="#features" className={styles.ctaButton}>
-              機能を見る
-            </a>
+            <h1 className={styles.appName}>チャレッタ</h1>
+            <div className={styles.comingSoonBanner}>
+              <p className={styles.comingSoonText}>2025年12月末日公開予定！</p>
+            </div>
           </div>
           <div className={styles.heroImageWrapper}>
             <Image
