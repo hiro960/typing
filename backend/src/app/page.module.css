@@ -15,20 +15,21 @@
   margin-bottom: 1rem;
 }
 
-/* Coming Soon Banner */
-.comingSoonBanner {
+/* App Store Badge */
+.appStoreLink {
   display: inline-block;
-  padding: 0.5rem 1.5rem;
-  background: linear-gradient(to right, var(--primary), var(--accent));
-  border-radius: 9999px;
   margin-bottom: 1.5rem;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.comingSoonText {
-  color: white;
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0;
+.appStoreLink:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.appStoreBadge {
+  height: 50px;
+  width: auto;
 }
 
 .main {

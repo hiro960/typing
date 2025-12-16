@@ -18,9 +18,18 @@ export default function Home() {
               あなたの韓国語学習をサポートするオールインワンアプリ
             </p>
             <h1 className={styles.appName}>チャレッタ</h1>
-            <div className={styles.comingSoonBanner}>
-              <p className={styles.comingSoonText}>2025年12月末日公開予定！</p>
-            </div>
+            <a
+              href="https://apps.apple.com/jp/app/%E3%83%81%E3%83%A3%E3%83%AC%E3%83%83%E3%82%BF/id6755620321"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.appStoreLink}
+            >
+              <img
+                src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ja-jp?size=250x83"
+                alt="App Storeからダウンロード"
+                className={styles.appStoreBadge}
+              />
+            </a>
           </div>
           <div className={styles.heroImageWrapper}>
             <Image
