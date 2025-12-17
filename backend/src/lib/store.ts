@@ -593,6 +593,17 @@ export function getPostById(postId: string) {
   });
 }
 
+/**
+ * 投稿のアクセス権確認用の軽量版取得関数
+ * canViewPostに必要な最小限のフィールドのみ取得
+ */
+export function getPostForAccessCheck(postId: string) {
+  return prisma.post.findUnique({
+    where: { id: postId },
+    select: { id: true, userId: true, visibility: true },
+  });
+}
+
 export async function createPost(params: {
   userId: string;
   content: string;
@@ -994,24 +1005,39 @@ async function maybeCreateNotification(
 
 export async function listComments(
   postId: string,
-  viewerId?: string
-): Promise<CommentResponse[]> {
+  viewerId?: string,
+  options?: { cursor?: string | null; limit?: number }
+): Promise<{ data: CommentResponse[]; hasNextPage: boolean; nextCursor: string | null }> {
+  const limit = options?.limit ?? 20;
+  const cursor = options?.cursor;
+
+  // DBレベルでページネーション（全件取得を回避）
   const comments = await prisma.comment.findMany({
     where: { postId },
     include: { user: true },
     orderBy: { createdAt: "asc" },
+    take: limit + 1,
+    ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
   });
+
+  const hasNextPage = comments.length > limit;
+  const nodes = hasNextPage ? comments.slice(0, limit) : comments;
+  const nextCursor = hasNextPage ? nodes[nodes.length - 1]?.id ?? null : null;
+
   let likedIds = new Set<string>();
-  if (viewerId && comments.length > 0) {
+  if (viewerId && nodes.length > 0) {
     const likes = await prisma.commentLike.findMany({
-      where: { userId: viewerId, commentId: { in: comments.map((c) => c.id) } },
+      where: { userId: viewerId, commentId: { in: nodes.map((c) => c.id) } },
       select: { commentId: true },
     });
     likedIds = new Set(likes.map((like) => like.commentId));
   }
-  return comments.map((comment) =>
-    toCommentResponseInternal(comment, likedIds.has(comment.id))
-  );
+
+  return {
+    data: nodes.map((comment) => toCommentResponseInternal(comment, likedIds.has(comment.id))),
+    hasNextPage,
+    nextCursor,
+  };
 }
 
 export function findCommentById(commentId: string) {
@@ -1416,14 +1442,68 @@ export async function canViewPost(post: PrismaPost, viewerId?: string) {
   return false;
 }
 
+/**
+ * 投稿の可視性を同期的に判定（事前取得したSetを使用、クエリなし）
+ * N+1問題を回避するため、batchCheckBlocks/batchCheckFollowingで
+ * 事前に取得したSetを使用する
+ */
+export function canAccessPostSync(
+  post: PrismaPost,
+  viewerId: string | undefined,
+  blockedSet: Set<string>,
+  followingSet: Set<string>
+): boolean {
+  if (viewerId && blockedSet.has(post.userId)) {
+    return false;
+  }
+  if (post.visibility === "public") {
+    return true;
+  }
+  if (!viewerId) {
+    return false;
+  }
+  if (post.userId === viewerId) {
+    return true;
+  }
+  if (post.visibility === "followers") {
+    return followingSet.has(post.userId);
+  }
+  return false;
+}
+
 export async function getLessonById(lessonId: string) {
   const lesson = await prisma.lesson.findUnique({ where: { id: lessonId } });
   return lesson ? toLesson(lesson) : null;
 }
 
-export async function listLessons() {
-  const lessons = await prisma.lesson.findMany();
-  return lessons.map(toLesson);
+export async function listLessons(options?: {
+  level?: LearningLevel;
+  order?: "asc" | "desc";
+  cursor?: string | null;
+  limit?: number;
+}): Promise<{ data: Lesson[]; hasNextPage: boolean; nextCursor: string | null }> {
+  const level = options?.level;
+  const order = options?.order ?? "asc";
+  const cursor = options?.cursor;
+  const limit = options?.limit ?? 20;
+
+  // DBレベルでフィルタ、ソート、ページネーション
+  const lessons = await prisma.lesson.findMany({
+    where: level ? { level } : undefined,
+    orderBy: { order: order },
+    take: limit + 1,
+    ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
+  });
+
+  const hasNextPage = lessons.length > limit;
+  const nodes = hasNextPage ? lessons.slice(0, limit) : lessons;
+  const nextCursor = hasNextPage ? nodes[nodes.length - 1]?.id ?? null : null;
+
+  return {
+    data: nodes.map(toLesson),
+    hasNextPage,
+    nextCursor,
+  };
 }
 
 export async function recordLessonCompletion(params: {

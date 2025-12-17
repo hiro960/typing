@@ -4,12 +4,14 @@ import {
   addComment,
   canViewPost,
   getPostById,
+  getPostForAccessCheck,
   listComments,
   toCommentResponse,
 } from "@/lib/store";
 import { handleRouteError, ERROR } from "@/lib/errors";
-import { paginateArray, parseLimit } from "@/lib/pagination";
+import { parseLimit } from "@/lib/pagination";
 import { ratelimit } from "@/lib/ratelimit";
+import { Post as PrismaPost } from "@prisma/client";
 
 export async function GET(
   request: NextRequest,
@@ -17,13 +19,14 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const post = await getPostById(id);
+    // 軽量版を使用（quotedPostは不要）
+    const post = await getPostForAccessCheck(id);
     if (!post) {
       throw ERROR.NOT_FOUND("Post not found");
     }
 
     const viewer = await getAuthUser(request);
-    if (!(await canViewPost(post, viewer?.id))) {
+    if (!(await canViewPost(post as PrismaPost, viewer?.id))) {
       throw ERROR.FORBIDDEN("You are not allowed to view this post");
     }
 
@@ -31,17 +34,16 @@ export async function GET(
     const cursor = searchParams.get("cursor");
     const limit = parseLimit(searchParams.get("limit"), 20, 1, 50);
 
-    const comments = await listComments(post.id, viewer?.id);
-
-    const paginated = paginateArray(comments, {
-      cursor,
-      limit,
-      getCursor: (comment) => comment.id,
-    });
+    // DBレベルでページネーション（listCommentsが対応）
+    const result = await listComments(post.id, viewer?.id, { cursor, limit });
 
     return NextResponse.json({
-      data: paginated.data.map(toCommentResponse),
-      pageInfo: paginated.pageInfo,
+      data: result.data.map(toCommentResponse),
+      pageInfo: {
+        nextCursor: result.nextCursor,
+        hasNextPage: result.hasNextPage,
+        count: result.data.length,
+      },
     });
   } catch (error) {
     return handleRouteError(error);

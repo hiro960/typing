@@ -111,9 +111,7 @@ model User {
   pronunciationGameResults PronunciationGameResult[]
   activityLogs            ActivityLog[]
 
-  @@index([username])
-  @@index([email])
-  @@index([auth0UserId])
+  // @unique で自動的にインデックスが作成されるため、明示的なインデックスは不要
 }
 
 model Post {
@@ -164,6 +162,7 @@ model Comment {
 
   @@index([postId])
   @@index([userId])
+  @@index([postId, createdAt]) // 投稿のコメント一覧（日付順）
 }
 
 model Like {
@@ -203,7 +202,7 @@ model Bookmark {
   post      Post @relation(fields: [postId], references: [id], onDelete: Cascade)
 
   @@unique([userId, postId])
-  @@index([userId])
+  @@index([userId, createdAt]) // ブックマーク一覧（日付順）、userId単独検索もカバー
 }
 
 model Notification {
@@ -305,8 +304,9 @@ model LessonCompletion {
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([lessonId])
-  @@index([userId])
   @@index([completedAt])
+  @@index([userId, completedAt]) // 学習履歴（日付順）、userId単独検索もカバー
+  @@index([userId, lessonId])    // 特定レッスンの進捗確認
 }
 
 model Wordbook {
@@ -326,9 +326,10 @@ model Wordbook {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@index([userId])
   @@index([category])
   @@index([status])
+  @@index([userId, status])   // ステータス別単語帳、userId単独検索もカバー
+  @@index([userId, category]) // カテゴリ別単語帳
   @@map("wordbooks")
 }
 
@@ -411,5 +412,5 @@ model ExchangeRate {
   fetchedAt      DateTime @default(now())
 
   @@unique([baseCurrency, targetCurrency])
-  @@index([baseCurrency, targetCurrency])
+  // @@unique で自動的にインデックスが作成されるため、明示的なインデックスは不要
 }

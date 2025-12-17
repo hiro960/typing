@@ -4,7 +4,7 @@ import prisma from "@/lib/prisma";
 import { requireAuthUser } from "@/lib/auth";
 import { handleRouteError, ERROR } from "@/lib/errors";
 import { parseLimit, paginateArray } from "@/lib/pagination";
-import { canViewPost, toPostResponseBatch, toUserSummary, batchCheckBlocks } from "@/lib/store";
+import { canAccessPostSync, toPostResponseBatch, toUserSummary, batchCheckBlocks, batchCheckFollowing } from "@/lib/store";
 import { PaginatedResult, PostResponse, UserSummary } from "@/lib/types";
 
 function normalizeQuery(value: string) {
@@ -51,9 +51,18 @@ async function searchPosts(
     ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
   });
 
+  // N+1解消: 投稿作者のIDを収集し、一括でblock/follow判定を取得
+  const authorIds = [...new Set(candidates.map((p) => p.userId))];
+  const [blockedSet, followingSet] = viewerId
+    ? await Promise.all([
+        batchCheckBlocks(authorIds, viewerId),
+        batchCheckFollowing(viewerId, authorIds),
+      ])
+    : [new Set<string>(), new Set<string>()];
+
   const visible: typeof candidates = [];
   for (const post of candidates) {
-    if (await canViewPost(post, viewerId)) {
+    if (canAccessPostSync(post, viewerId, blockedSet, followingSet)) {
       visible.push(post);
       if (visible.length >= limit + 1) {
         break;

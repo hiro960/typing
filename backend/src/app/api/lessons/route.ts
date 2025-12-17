@@ -3,7 +3,7 @@ import { requireAuthUser } from "@/lib/auth";
 import { handleRouteError, ERROR } from "@/lib/errors";
 import { listLessons } from "@/lib/store";
 import { LearningLevel } from "@/lib/types";
-import { paginateArray, parseLimit } from "@/lib/pagination";
+import { parseLimit } from "@/lib/pagination";
 import { jsonResponse, CACHE_STRATEGIES } from "@/lib/response";
 
 const LEVELS: LearningLevel[] = ["beginner", "intermediate", "advanced"];
@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
     await requireAuthUser(request);
     const { searchParams } = request.nextUrl;
     const level = searchParams.get("level") as LearningLevel | null;
-    const order = (searchParams.get("order") ?? "asc").toLowerCase();
+    const order = (searchParams.get("order") ?? "asc").toLowerCase() as "asc" | "desc";
     const cursor = searchParams.get("cursor");
     const limit = parseLimit(searchParams.get("limit"), 20, 1, 50);
 
@@ -27,23 +27,23 @@ export async function GET(request: NextRequest) {
       throw ERROR.INVALID_INPUT("order must be asc|desc", { field: "order" });
     }
 
-    let lessons = await listLessons();
-    if (level) {
-      lessons = lessons.filter((lesson) => lesson.level === level);
-    }
-
-    lessons.sort((a, b) =>
-      order === "asc" ? a.order - b.order : b.order - a.order
-    );
-
-    const paginated = paginateArray(lessons, {
+    // DBレベルでフィルタ、ソート、ページネーション（listLessonsが対応）
+    const result = await listLessons({
+      level: level ?? undefined,
+      order,
       cursor,
       limit,
-      getCursor: (lesson) => lesson.id,
     });
 
     return jsonResponse(
-      { data: paginated.data, pageInfo: paginated.pageInfo },
+      {
+        data: result.data,
+        pageInfo: {
+          nextCursor: result.nextCursor,
+          hasNextPage: result.hasNextPage,
+          count: result.data.length,
+        },
+      },
       { cache: CACHE_STRATEGIES.lessons }
     );
   } catch (error) {

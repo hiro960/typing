@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { findUserById, getUserStats } from "@/lib/store";
+import { getUserStats } from "@/lib/store";
 import { requireAuthUser } from "@/lib/auth";
 import { handleRouteError, ERROR } from "@/lib/errors";
 import { UserStatsRange } from "@/lib/types";
+import prisma from "@/lib/prisma";
 
 const RANGES: UserStatsRange[] = ["weekly", "monthly", "all"];
 
@@ -13,7 +14,12 @@ export async function GET(
   try {
     await requireAuthUser(request);
     const { id } = await params;
-    const user = await findUserById(id);
+
+    // 存在確認のみ（不要なフィールド取得を回避）
+    const user = await prisma.user.findUnique({
+      where: { id },
+      select: { id: true },
+    });
     if (!user) {
       throw ERROR.NOT_FOUND("User not found");
     }

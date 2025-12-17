@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAuthUser } from "@/lib/auth";
-import { findUserById, toUserSummary } from "@/lib/store";
+import { toUserSummary } from "@/lib/store";
 import { ERROR, handleRouteError } from "@/lib/errors";
-import { paginateArray, parseLimit } from "@/lib/pagination";
+import { parseLimit } from "@/lib/pagination";
 import prisma from "@/lib/prisma";
 
 export async function GET(request: NextRequest) {
@@ -14,35 +14,38 @@ export async function GET(request: NextRequest) {
     const authUser = await requireAuthUser(request);
     const targetUserId = searchParams.get("userId") ?? authUser.id;
 
-    const targetUser = await findUserById(targetUserId);
+    // 存在確認のみ（不要なフィールド取得を回避）
+    const targetUser = await prisma.user.findUnique({
+      where: { id: targetUserId },
+      select: { id: true },
+    });
     if (!targetUser) {
       throw ERROR.NOT_FOUND("User not found");
     }
 
+    // DBレベルでページネーション（全件取得を回避）
     const follows = await prisma.follow.findMany({
       where: { followerId: targetUser.id },
       include: { following: true },
       orderBy: { createdAt: "desc" },
+      take: limit + 1,
+      ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
     });
 
-    const entries = follows.map((follow) => ({
-      user: toUserSummary(follow.following),
-      followedAt: follow.createdAt,
-      cursor: `${follow.createdAt.toISOString()}:${follow.followingId}`,
-    }));
-
-    const paginated = paginateArray(entries, {
-      cursor,
-      limit,
-      getCursor: (item) => item.cursor,
-    });
+    const hasNextPage = follows.length > limit;
+    const nodes = hasNextPage ? follows.slice(0, limit) : follows;
+    const nextCursor = hasNextPage ? nodes[nodes.length - 1]?.id ?? null : null;
 
     return NextResponse.json({
-      data: paginated.data.map((entry) => ({
-        user: entry.user,
-        followedAt: entry.followedAt,
+      data: nodes.map((follow) => ({
+        user: toUserSummary(follow.following),
+        followedAt: follow.createdAt,
       })),
-      pageInfo: paginated.pageInfo,
+      pageInfo: {
+        nextCursor,
+        hasNextPage,
+        count: nodes.length,
+      },
     });
   } catch (error) {
     return handleRouteError(error);

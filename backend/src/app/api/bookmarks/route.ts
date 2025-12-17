@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { requireAuthUser } from "@/lib/auth";
-import { canViewPost, toPostResponseBatch } from "@/lib/store";
+import { canAccessPostSync, toPostResponseBatch, batchCheckBlocks, batchCheckFollowing } from "@/lib/store";
 import prisma from "@/lib/prisma";
 import { handleRouteError } from "@/lib/errors";
 import { parseLimit } from "@/lib/pagination";
@@ -29,12 +29,19 @@ export async function GET(request: NextRequest) {
         ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
       })) ?? [];
 
+    // N+1解消: 投稿作者のIDを収集し、一括でblock/follow判定を取得
+    const authorIds = [...new Set(bookmarks.filter((b) => b.post).map((b) => b.post!.userId))];
+    const [blockedSet, followingSet] = await Promise.all([
+      batchCheckBlocks(authorIds, user.id),
+      batchCheckFollowing(user.id, authorIds),
+    ]);
+
     const visible = [];
     for (const bookmark of bookmarks) {
       if (!bookmark.post) {
         continue;
       }
-      if (!(await canViewPost(bookmark.post, user.id))) {
+      if (!canAccessPostSync(bookmark.post, user.id, blockedSet, followingSet)) {
         continue;
       }
       visible.push(bookmark);

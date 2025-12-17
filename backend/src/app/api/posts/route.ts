@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { handleRouteError, ERROR } from "@/lib/errors";
-import { toPostResponse, toPostResponseBatch, createPost, batchCheckFollowing, batchCheckBlocks } from "@/lib/store";
+import { toPostResponse, toPostResponseBatch, createPost, batchCheckFollowing, batchCheckBlocks, canAccessPostSync } from "@/lib/store";
 import { getAuthUser, requireAuthUser } from "@/lib/auth";
 import { Visibility } from "@/lib/types";
 import prisma from "@/lib/prisma";
@@ -159,31 +159,6 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     return handleRouteError(error);
   }
-}
-
-/**
- * 投稿の可視性を同期的に判定（事前取得したSetを使用、クエリなし）
- */
-function canAccessPostSync(
-  post: Prisma.PostGetPayload<{ include: { user: true; quotedPost: { include: { user: true } } } }>,
-  viewerId: string | undefined,
-  blockedSet: Set<string>,
-  followingSet: Set<string>
-): boolean {
-  // ブロック判定
-  if (viewerId && blockedSet.has(post.userId)) {
-    return false;
-  }
-
-  if (post.visibility === "public") return true;
-  if (!viewerId) return false;
-  if (post.userId === viewerId) return true;
-
-  if (post.visibility === "followers") {
-    return followingSet.has(post.userId);
-  }
-
-  return false;
 }
 
 function normalizeHashtag(tag: string): string | null {

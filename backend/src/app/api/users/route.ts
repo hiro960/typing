@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { paginateArray } from "@/lib/pagination";
 import { ERROR, handleRouteError } from "@/lib/errors";
 import { toUserSummary } from "@/lib/store";
 import { requireAuthUser } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
+import { parseLimit } from "@/lib/pagination";
 
 export async function GET(request: NextRequest) {
   try {
@@ -12,19 +12,7 @@ export async function GET(request: NextRequest) {
     const { searchParams } = request.nextUrl;
     const q = searchParams.get("q") ?? "";
     const cursor = searchParams.get("cursor");
-
-    const limitParam = searchParams.get("limit");
-    let limit = 20;
-
-    if (limitParam !== null) {
-      const parsed = Number.parseInt(limitParam, 10);
-      if (Number.isNaN(parsed) || parsed < 1 || parsed > 100) {
-        throw ERROR.INVALID_INPUT("limit must be between 1 and 100", {
-          field: "limit",
-        });
-      }
-      limit = parsed;
-    }
+    const limit = parseLimit(searchParams.get("limit"), 20, 1, 100);
 
     const where: Prisma.UserWhereInput = {};
 
@@ -36,27 +24,24 @@ export async function GET(request: NextRequest) {
       ];
     }
 
-    const users =
-      (await prisma.user.findMany({
-        where,
-        orderBy: { displayName: "asc" },
-      })) ?? [];
-
-    const paginated = paginateArray(users, {
-      cursor,
-      limit,
-      getCursor: (user) => user.id,
+    // DBレベルでページネーション（全件取得を回避）
+    const users = await prisma.user.findMany({
+      where,
+      orderBy: { displayName: "asc" },
+      take: limit + 1,
+      ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
     });
 
-    const derivedHasNext =
-      paginated.pageInfo.hasNextPage ||
-      (!cursor && paginated.pageInfo.count === limit);
+    const hasNextPage = users.length > limit;
+    const nodes = hasNextPage ? users.slice(0, limit) : users;
+    const nextCursor = hasNextPage ? nodes[nodes.length - 1]?.id ?? null : null;
 
     return NextResponse.json({
-      data: paginated.data.map(toUserSummary),
+      data: nodes.map(toUserSummary),
       pageInfo: {
-        ...paginated.pageInfo,
-        hasNextPage: derivedHasNext,
+        nextCursor,
+        hasNextPage,
+        count: nodes.length,
       },
     });
   } catch (error) {

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { handleRouteError, ERROR } from "@/lib/errors";
-import { toPostResponseBatch, findUserById, canViewPost } from "@/lib/store";
-import { paginateArray, parseLimit } from "@/lib/pagination";
+import { toPostResponseBatch, findUserById, canAccessPostSync, batchCheckBlocks, batchCheckFollowing } from "@/lib/store";
+import { parseLimit } from "@/lib/pagination";
 import { requireAuthUser } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
@@ -44,28 +44,42 @@ export async function GET(
       ...(visibility ? { visibility } : {}),
     };
 
+    // DBレベルでページネーション（全件取得を回避）
     const posts = await prisma.post.findMany({
       where: postWhere,
       orderBy: { createdAt: "desc" },
       include: { user: true, quotedPost: { include: { user: true } } },
+      take: limit + 1,
+      ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
     });
+
+    // N+1解消: 投稿作者のIDを収集し、一括でblock/follow判定を取得
+    const authorIds = [...new Set(posts.map((p) => p.userId))];
+    const [blockedSet, followingSet] = viewerId
+      ? await Promise.all([
+          batchCheckBlocks(authorIds, viewerId),
+          batchCheckFollowing(viewerId, authorIds),
+        ])
+      : [new Set<string>(), new Set<string>()];
 
     const visiblePosts = [];
     for (const post of posts) {
-      if (await canViewPost(post, viewerId)) {
+      if (canAccessPostSync(post, viewerId, blockedSet, followingSet)) {
         visiblePosts.push(post);
       }
     }
 
-    const paginated = paginateArray(visiblePosts, {
-      cursor,
-      limit,
-      getCursor: (post) => post.id,
-    });
+    const hasNextPage = visiblePosts.length > limit;
+    const nodes = hasNextPage ? visiblePosts.slice(0, limit) : visiblePosts;
+    const nextCursor = hasNextPage ? nodes[nodes.length - 1]?.id ?? null : null;
 
     return NextResponse.json({
-      data: await toPostResponseBatch(paginated.data, viewerId),
-      pageInfo: paginated.pageInfo,
+      data: await toPostResponseBatch(nodes, viewerId),
+      pageInfo: {
+        nextCursor,
+        hasNextPage,
+        count: nodes.length,
+      },
     });
   } catch (error) {
     return handleRouteError(error);
