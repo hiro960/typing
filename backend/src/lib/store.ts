@@ -874,6 +874,102 @@ async function toNotificationResponseInternal(
   };
 }
 
+/**
+ * 複数の通知を効率的にNotificationResponseに変換（バッチ処理版・N+1問題解消）
+ */
+async function toNotificationResponseBatch(
+  notifications: NotificationWithRelations[],
+  viewerId: string
+): Promise<NotificationResponse[]> {
+  if (notifications.length === 0) return [];
+
+  // 投稿がある通知をフィルタリング
+  const notificationsWithPost = notifications.filter((n) => n.post !== null);
+  const postIds = notificationsWithPost.map((n) => n.post!.id);
+
+  // 一括でいいね・ブックマーク状態を取得（2クエリのみ）
+  const interactions = await batchGetPostInteractions(postIds, viewerId);
+
+  // 各通知をレスポンスに変換
+  return notifications.map((notification) => {
+    let postResponse: PostResponse | null = null;
+
+    if (notification.post) {
+      const post = notification.post;
+      const interaction = interactions.get(post.id) ?? { liked: false, bookmarked: false };
+
+      // 投稿作成者の情報
+      const userSummary = post.user
+        ? toUserSummary(post.user)
+        : {
+            id: post.userId,
+            username: "unknown",
+            displayName: "Unknown",
+            profileImageUrl: null,
+            type: "NORMAL" as const,
+            followersCount: 0,
+            followingCount: 0,
+            postsCount: 0,
+            settings: null,
+          };
+
+      // 引用投稿の処理（既にincludeされているのでクエリ不要）
+      let quotedPost: QuotedPostSummary | null = null;
+      if (post.quotedPost) {
+        const quoted = post.quotedPost;
+        const quotedAuthor = quoted.user
+          ? toUserSummary(quoted.user)
+          : {
+              id: quoted.userId,
+              username: "unknown",
+              displayName: "Unknown",
+              profileImageUrl: null,
+              type: "NORMAL" as const,
+              followersCount: 0,
+              followingCount: 0,
+              postsCount: 0,
+              settings: null,
+            };
+        quotedPost = {
+          id: quoted.id,
+          content: quoted.content,
+          user: quotedAuthor,
+          imageUrls: quoted.imageUrls,
+          tags: quoted.tags,
+          createdAt: quoted.createdAt,
+        };
+      }
+
+      postResponse = {
+        ...toPostRecord(post),
+        user: userSummary,
+        liked: interaction.liked,
+        bookmarked: interaction.bookmarked,
+        quotedPost,
+      };
+    }
+
+    // コメントの処理（同期処理なのでそのまま）
+    const commentResponse = notification.comment
+      ? toCommentResponseInternal(notification.comment, false)
+      : null;
+
+    return {
+      id: notification.id,
+      userId: notification.userId,
+      actorId: notification.actorId,
+      type: notification.type as NotificationType,
+      postId: notification.postId,
+      commentId: notification.commentId,
+      isRead: notification.isRead,
+      createdAt: notification.createdAt,
+      actor: toUserSummary(notification.actor),
+      post: postResponse,
+      comment: commentResponse,
+    };
+  });
+}
+
 function buildNotificationPreview(text?: string | null) {
   if (!text) return "";
   const trimmed = text.trim().replace(/\s+/g, " ");
@@ -1158,9 +1254,9 @@ export async function listNotificationsForUser(
   const hasNextPage = notifications.length > limit;
   const nodes = hasNextPage ? notifications.slice(0, limit) : notifications;
   const nextCursor = hasNextPage ? nodes[nodes.length - 1]?.id ?? null : null;
-  const data = await Promise.all(
-    nodes.map((notification) => toNotificationResponseInternal(notification))
-  );
+
+  // バッチ処理でN+1問題を解消（いいね・ブックマーク状態を一括取得）
+  const data = await toNotificationResponseBatch(nodes, userId);
 
   return {
     data,

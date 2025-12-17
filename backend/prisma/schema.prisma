@@ -224,6 +224,7 @@ model Notification {
   @@index([userId, isRead])
   @@index([createdAt])
   @@index([userId, isRead, createdAt])
+  @@index([userId, createdAt]) // すべての通知を日付順で取得（unreadOnly=false時）
 }
 
 model Report {
