@@ -15,6 +15,7 @@ import '../../widgets/typing_keyboard.dart';
 import '../../widgets/user_avatar.dart';
 import 'post_create_screen.dart';
 import 'post_detail_screen.dart';
+import '../profile/profile_screen.dart';
 
 enum _SearchTab { posts, users, hashtags }
 
@@ -446,6 +447,17 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
     }
   }
 
+  void _openUserProfile(DiaryUserSummary user) {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => ProfileScreen(
+          userId: user.id,
+          onOpenSettings: () {},
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final postsState = _stateFor<DiaryPost>(_SearchTab.posts);
@@ -553,6 +565,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen>
                   state: usersState,
                   controller: _scrollControllers[_SearchTab.users]!,
                   onRefresh: () => _search(_SearchTab.users),
+                  onUserTap: _openUserProfile,
                   isQueryEmpty: _query.isEmpty,
                 ),
                 _TagsResultList(
@@ -708,12 +721,14 @@ class _UsersResultList extends StatelessWidget {
     required this.state,
     required this.controller,
     required this.onRefresh,
+    required this.onUserTap,
     required this.isQueryEmpty,
   });
 
   final _SearchState<DiaryUserSummary> state;
   final ScrollController controller;
   final Future<void> Function() onRefresh;
+  final ValueChanged<DiaryUserSummary> onUserTap;
   final bool isQueryEmpty;
 
   @override
@@ -754,6 +769,7 @@ class _UsersResultList extends StatelessWidget {
                 ),
                 title: Text(user.displayName),
                 subtitle: Text('@${user.username}'),
+                onTap: () => onUserTap(user),
               );
             },
           );
