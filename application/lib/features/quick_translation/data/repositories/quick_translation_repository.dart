@@ -20,6 +20,7 @@ class QuickTranslationRepository {
   final Map<String, QuickTranslationQuestionSet> _questionSetCache = {};
   final Map<String, List<String>> _availableItemsCache = {};
   Map<String, GrammarItemProgress>? _progressCache;
+  AssetManifest? _assetManifest;
 
   Future<SharedPreferences> get _preferences async {
     if (_prefs != null) {
@@ -36,14 +37,14 @@ class QuickTranslationRepository {
     }
 
     final items = <String>[];
-    final assetPath = 'assets/quick_translation/$categoryId';
+    final assetPath = 'assets/quick_translation/$categoryId/';
 
     try {
-      // AssetManifestから対象ディレクトリのファイル一覧を取得
-      final manifestContent = await _bundle.loadString('AssetManifest.json');
-      final manifest = jsonDecode(manifestContent) as Map<String, dynamic>;
+      // Flutter 3.7+ 対応: AssetManifest.loadFromAssetBundle() を使用
+      _assetManifest ??= await AssetManifest.loadFromAssetBundle(_bundle);
+      final allAssets = _assetManifest!.listAssets();
 
-      for (final key in manifest.keys) {
+      for (final key in allAssets) {
         if (key.startsWith(assetPath) && key.endsWith('.json')) {
           // ファイル名から grammarRef を抽出
           // 例: assets/quick_translation/particle/grm_particle_001.json -> grm_particle_001
@@ -207,5 +208,6 @@ class QuickTranslationRepository {
     _questionSetCache.clear();
     _availableItemsCache.clear();
     _progressCache = null;
+    _assetManifest = null;
   }
 }

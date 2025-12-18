@@ -401,10 +401,26 @@ class HangulComposer {
     if (char == '\n') {
       return ['\n'];
     }
+
+    // 単独の複合母音を分解（ジャモ互換文字: ㅘ, ㅙ, ㅚ, ㅝ, ㅞ, ㅟ, ㅢ）
+    // 例: ㅘ → [ㅗ, ㅏ]
+    final standaloneMedialDecomp = _medialDecompositions[char];
+    if (standaloneMedialDecomp != null) {
+      return List<String>.from(standaloneMedialDecomp);
+    }
+
+    // 単独の二重パッチムを分解（ジャモ互換文字: ㄳ, ㄵ, ㄶ, ㄺ, ㄻ, ㄼ, ㄽ, ㄾ, ㄿ, ㅀ, ㅄ）
+    // 例: ㄳ → [ㄱ, ㅅ]
+    final standaloneFinalDecomp = _finalDecompositions[char];
+    if (standaloneFinalDecomp != null) {
+      return List<String>.from(standaloneFinalDecomp);
+    }
+
     final code = char.codeUnitAt(0);
     if (code < 0xAC00 || code > 0xD7A3) {
       return [char];
     }
+
     final index = code - 0xAC00;
     final initialIndex = index ~/ 588;
     final medialIndex = (index % 588) ~/ 28;

@@ -6,7 +6,7 @@ import '../models/writing_models.dart';
 
 /// 書き取り練習用のデータリポジトリ（JSON読み込み）
 class WritingDataRepository {
-  static const _assetManifestPath = 'AssetManifest.json';
+  AssetManifest? _assetManifest;
   static const _topikDir = 'assets/writing/topik/';
   static const _travelDir = 'assets/writing/travel/';
   static const _hobbyDir = 'assets/writing/hobby/';
@@ -70,13 +70,13 @@ class WritingDataRepository {
 
   /// 全パターンを取得（TOPIK/初級/趣味ごとに読み込み）
   Future<List<WritingPattern>> getAllPatterns() async {
-    final manifest = await _tryLoadAssetManifest();
+    final allAssets = await _loadAssetList();
     final patterns = <WritingPattern>[];
 
     patterns.addAll(
       await _loadPatternFiles(
-        files: await _listAssetFiles(
-          manifest: manifest,
+        files: _listAssetFiles(
+          allAssets: allAssets,
           directory: _topikDir,
           fallback: _topikFilesFallback,
         ),
@@ -85,8 +85,8 @@ class WritingDataRepository {
     );
 
     final beginnerPattern = await _buildBeginnerPattern(
-      await _listAssetFiles(
-        manifest: manifest,
+      _listAssetFiles(
+        allAssets: allAssets,
         directory: _beginnerDir,
         fallback: _buildBeginnerFallbackFiles(),
       ),
@@ -97,8 +97,8 @@ class WritingDataRepository {
 
     patterns.addAll(
       await _loadPatternFiles(
-        files: await _listAssetFiles(
-          manifest: manifest,
+        files: _listAssetFiles(
+          allAssets: allAssets,
           directory: _travelDir,
           fallback: _travelFilesFallback,
         ),
@@ -108,8 +108,8 @@ class WritingDataRepository {
 
     patterns.addAll(
       await _loadPatternFiles(
-        files: await _listAssetFiles(
-          manifest: manifest,
+        files: _listAssetFiles(
+          allAssets: allAssets,
           directory: _hobbyDir,
           fallback: _hobbyFilesFallback,
         ),
@@ -120,37 +120,25 @@ class WritingDataRepository {
     return patterns;
   }
 
-  Future<Map<String, dynamic>?> _tryLoadAssetManifest() async {
+  /// Flutter 3.7+ 対応: AssetManifest.loadFromAssetBundle() を使用
+  Future<List<String>> _loadAssetList() async {
     try {
-      final manifestJson = await rootBundle.loadString(_assetManifestPath);
-      return jsonDecode(manifestJson) as Map<String, dynamic>;
+      _assetManifest ??= await AssetManifest.loadFromAssetBundle(rootBundle);
+      return _assetManifest!.listAssets();
     } catch (_) {
-      // AssetManifest.jsonの読み込み失敗時はフォールバック
+      // AssetManifest読み込み失敗時は空リストを返す（フォールバックが使われる）
+      return [];
     }
-
-    try {
-      final byteData = await rootBundle.load('AssetManifest.bin');
-      final decoded =
-          const StandardMessageCodec().decodeMessage(
-                byteData.buffer.asByteData(),
-              )
-              as Map<Object?, Object?>?;
-      return decoded?.map((key, value) => MapEntry(key as String, value));
-    } catch (_) {
-      // 一部環境でAssetManifestが見つからない場合があるため、フォールバックする
-    }
-
-    return null;
   }
 
-  Future<List<String>> _listAssetFiles({
-    required Map<String, dynamic>? manifest,
+  List<String> _listAssetFiles({
+    required List<String> allAssets,
     required String directory,
     required List<String> fallback,
-  }) async {
-    if (manifest != null) {
+  }) {
+    if (allAssets.isNotEmpty) {
       final direct =
-          manifest.keys
+          allAssets
               .where(
                 (path) => path.startsWith(directory) && path.endsWith('.json'),
               )
@@ -166,7 +154,7 @@ class WritingDataRepository {
           .map((path) => path.split('/').last)
           .toSet();
       final matchedByName =
-          manifest.keys
+          allAssets
               .where(
                 (path) =>
                     fallbackNames.contains(path.split('/').last) &&
