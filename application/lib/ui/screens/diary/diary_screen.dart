@@ -36,10 +36,11 @@ class DiaryScreen extends ConsumerStatefulWidget {
 }
 
 class _DiaryScreenState extends ConsumerState<DiaryScreen> {
-  DiaryFeedType _selectedFeed = DiaryFeedType.recommended;
+  DiaryFeedType _selectedFeed = DiaryFeedType.latest;
   final _scrollController = ScrollController();
 
   static const _feedLabels = {
+    DiaryFeedType.latest: '最新',
     DiaryFeedType.recommended: 'おすすめ',
     DiaryFeedType.following: 'フォロー中',
   };
@@ -226,12 +227,7 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.fromLTRB(
-              AppPadding.homePage.left,
-              8,
-              AppPadding.homePage.right,
-              0,
-            ),
+            padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
             child: FTabs(
               key: ValueKey(_selectedFeed),
               initialIndex: DiaryFeedType.values.indexOf(_selectedFeed),
@@ -246,26 +242,30 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
                   .map(
                     (feed) {
                       final isSelected = feed == _selectedFeed;
-                      final icon = feed == DiaryFeedType.recommended
-                          ? Iconsax.star
-                          : Iconsax.people;
+                      final IconData icon;
+                      switch (feed) {
+                        case DiaryFeedType.latest:
+                          icon = Iconsax.clock;
+                        case DiaryFeedType.recommended:
+                          icon = Iconsax.star;
+                        case DiaryFeedType.following:
+                          icon = Iconsax.people;
+                      }
                       return FTabEntry(
                         label: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: AppSpacing.sm,
-                          ),
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Icon(
                                 icon,
-                                size: 16,
+                                size: 14,
                                 color: isSelected
                                     ? theme.colorScheme.primary
                                     : theme.colorScheme.onSurface
                                         .withValues(alpha: 0.6),
                               ),
-                              const SizedBox(width: 6),
+                              const SizedBox(width: 4),
                               Text(
                                 _feedLabels[feed]!,
                                 style: theme.textTheme.bodySmall?.copyWith(

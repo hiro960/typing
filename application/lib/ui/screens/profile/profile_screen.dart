@@ -217,6 +217,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   ),
             startText: _formatStartDate(profile.createdAt),
             isUpdatingAvatar: _isUpdatingAvatar,
+            onEditBio: isOwner ? () => _showEditBioDialog(profile) : null,
           ),
           const SizedBox(height: AppSpacing.xxl + AppSpacing.lg),
           SummaryChips(profile: profile),
@@ -500,6 +501,35 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
     );
   }
 
+  Future<void> _showEditBioDialog(UserModel profile) async {
+    final result = await showDialog<String>(
+      context: context,
+      builder: (context) => _EditBioDialog(initialBio: profile.bio ?? ''),
+    );
+
+    if (result == null) return;
+
+    try {
+      final repository = ref.read(profileRepositoryProvider);
+      final updated = await repository.updateProfile(
+        userId: profile.id,
+        bio: result.trim(),
+      );
+      ref.invalidate(userProfileProvider(profile.id));
+      final currentUser = ref.read(currentUserProvider);
+      if (currentUser?.id == profile.id) {
+        ref.read(authStateProvider.notifier).updateUser(updated);
+      }
+      if (mounted) {
+        SnackBarHelper.show(context, '自己紹介を更新しました');
+      }
+    } catch (error) {
+      if (mounted) {
+        SnackBarHelper.showError(context, error);
+      }
+    }
+  }
+
 
   Widget _buildFollowersList(BuildContext context, String userId) {
     final followersAsync = ref.watch(userFollowersProvider(userId));
@@ -636,6 +666,57 @@ class _ProfileSkeletonScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _EditBioDialog extends StatefulWidget {
+  const _EditBioDialog({required this.initialBio});
+
+  final String initialBio;
+
+  @override
+  State<_EditBioDialog> createState() => _EditBioDialogState();
+}
+
+class _EditBioDialogState extends State<_EditBioDialog> {
+  String _bioText = '';
+  static const _maxLength = 300;
+
+  @override
+  void initState() {
+    super.initState();
+    _bioText = widget.initialBio;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('自己紹介を編集'),
+      content: SizedBox(
+        width: double.maxFinite,
+        child: TextFormField(
+          initialValue: widget.initialBio,
+          maxLines: 6,
+          maxLength: _maxLength,
+          decoration: const InputDecoration(
+            hintText: '自己紹介を入力してください',
+            border: OutlineInputBorder(),
+            alignLabelWithHint: true,
+          ),
+          onChanged: (value) => _bioText = value,
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: const Text('キャンセル'),
+        ),
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(_bioText),
+          child: const Text('保存'),
+        ),
+      ],
     );
   }
 }

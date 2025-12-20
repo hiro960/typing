@@ -174,16 +174,18 @@ class DiaryTimelineController extends _$DiaryTimelineController {
   }
 
   void prependPost(DiaryPost post) {
-    final feed = DiaryFeedType.recommended;
-    final feedState = state.feed(feed);
-    final updatedPosts = [post, ...feedState.posts];
-    state = state.setFeed(
-      feed,
-      feedState.copyWith(
-        posts: updatedPosts,
-        initialized: true,
-      ),
-    );
+    // 新規投稿を「最新」と「おすすめ」の両方に追加
+    for (final feed in [DiaryFeedType.latest, DiaryFeedType.recommended]) {
+      final feedState = state.feed(feed);
+      if (!feedState.initialized) continue;
+      final updatedPosts = [post, ...feedState.posts];
+      state = state.setFeed(
+        feed,
+        feedState.copyWith(
+          posts: updatedPosts,
+        ),
+      );
+    }
   }
 
   void updatePost(DiaryPost post) {

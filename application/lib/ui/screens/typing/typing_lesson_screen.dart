@@ -280,7 +280,15 @@ class _LessonView extends StatelessWidget {
   final void Function(String text) onSpeak;
   final TypingSettings settings;
 
-  static const _doubleConsonants = {'ㄲ', 'ㄸ', 'ㅃ', 'ㅆ', 'ㅉ'};
+  // シフトキーが必要な文字（濃音 + シフト変換母音）
+  static const _shiftRequiredKeys = {'ㄲ', 'ㄸ', 'ㅃ', 'ㅆ', 'ㅉ', 'ㅒ', 'ㅖ'};
+
+  // シンボルキーボードにのみ存在する文字
+  static const _symbolOnlyKeys = {
+    '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+    '!', '@', '#', '?', ',', ';', ':',
+    '-', '/', '+', '=', '(', ')', '"', "'",
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -296,7 +304,9 @@ class _LessonView extends StatelessWidget {
     final showHints = settings.hintsEnabled;
     final shouldHighlight = showHints && nextKey != null;
     final highlightShift =
-        shouldHighlight && _doubleConsonants.contains(nextKey);
+        shouldHighlight && _shiftRequiredKeys.contains(nextKey);
+    final highlightSymbol =
+        shouldHighlight && _symbolOnlyKeys.contains(nextKey);
     final highlightedKeys = shouldHighlight
         ? {_normalizeKey(nextKey)}
         : const <String>{};
@@ -367,6 +377,7 @@ class _LessonView extends StatelessWidget {
                 onEnter: onEnter,
                 highlightedKeys: highlightedKeys,
                 highlightShift: highlightShift,
+                highlightSymbol: highlightSymbol,
                 nextKeyLabel: showHints ? _nextKeyLabel(nextKey) : null,
                 enableHaptics: settings.hapticsEnabled,
               ),
@@ -412,6 +423,7 @@ class _LessonView extends StatelessWidget {
 
   static String _normalizeKey(String key) {
     switch (key) {
+      // 濃音 → 基本子音
       case 'ㄲ':
         return 'ㄱ';
       case 'ㄸ':
@@ -422,6 +434,11 @@ class _LessonView extends StatelessWidget {
         return 'ㅅ';
       case 'ㅉ':
         return 'ㅈ';
+      // シフト変換母音 → 基本母音
+      case 'ㅒ':
+        return 'ㅐ';
+      case 'ㅖ':
+        return 'ㅔ';
       default:
         return key;
     }

@@ -20,6 +20,7 @@ class ProfileHero extends StatelessWidget {
     required this.followButton,
     required this.startText,
     required this.isUpdatingAvatar,
+    this.onEditBio,
   });
 
   final UserModel profile;
@@ -29,6 +30,7 @@ class ProfileHero extends StatelessWidget {
   final Widget? followButton;
   final String startText;
   final bool isUpdatingAvatar;
+  final VoidCallback? onEditBio;
 
   @override
   Widget build(BuildContext context) {
@@ -124,17 +126,48 @@ class ProfileHero extends StatelessWidget {
                     ),
                   ],
                 ),
-                if (profile.bio != null && profile.bio!.isNotEmpty) ...[
-                  const SizedBox(height: 12),
+                const SizedBox(height: 12),
+                if (isOwner && onEditBio != null)
+                  GestureDetector(
+                    onTap: onEditBio,
+                    behavior: HitTestBehavior.opaque,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: profile.bio != null && profile.bio!.isNotEmpty
+                              ? Text(
+                                  profile.bio!,
+                                  style: theme.textTheme.bodyMedium?.copyWith(
+                                    color: foreground.withValues(alpha: 0.95),
+                                    height: 1.5,
+                                  ),
+                                )
+                              : Text(
+                                  '自己紹介を追加...',
+                                  style: theme.textTheme.bodyMedium?.copyWith(
+                                    color: foreground.withValues(alpha: 0.6),
+                                    fontStyle: FontStyle.italic,
+                                  ),
+                                ),
+                        ),
+                        const SizedBox(width: 8),
+                        Icon(
+                          Iconsax.edit_2,
+                          size: 16,
+                          color: foreground.withValues(alpha: 0.7),
+                        ),
+                      ],
+                    ),
+                  )
+                else if (profile.bio != null && profile.bio!.isNotEmpty)
                   Text(
                     profile.bio!,
                     style: theme.textTheme.bodyMedium?.copyWith(
                       color: foreground.withValues(alpha: 0.95),
+                      height: 1.5,
                     ),
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
                   ),
-                ],
               ],
             ),
           ),
@@ -398,16 +431,32 @@ class _FollowButtonState extends ConsumerState<FollowButton> {
 
   @override
   Widget build(BuildContext context) {
-    return FButton(
-      onPress: _isLoading ? null : _toggleFollow,
-      style: _isFollowing ? FButtonStyle.secondary() : FButtonStyle.primary(),
-      child: _isLoading
-          ? const SizedBox(
-              width: 20,
-              height: 20,
-              child: CircularProgressIndicator(strokeWidth: 2),
-            )
-          : Text(_isFollowing ? 'フォロー中' : 'フォローする'),
+    final theme = Theme.of(context);
+
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: [
+          BoxShadow(
+            color: _isFollowing
+                ? Colors.black.withValues(alpha: 0.15)
+                : theme.colorScheme.primary.withValues(alpha: 0.4),
+            blurRadius: 8,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: FButton(
+        onPress: _isLoading ? null : _toggleFollow,
+        style: _isFollowing ? FButtonStyle.secondary() : FButtonStyle.primary(),
+        child: _isLoading
+            ? const SizedBox(
+                width: 20,
+                height: 20,
+                child: CircularProgressIndicator(strokeWidth: 2),
+              )
+            : Text(_isFollowing ? 'フォロー中' : 'フォローする'),
+      ),
     );
   }
 }

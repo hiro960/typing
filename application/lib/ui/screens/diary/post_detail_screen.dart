@@ -477,11 +477,14 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
                     );
                   }
                   final comment = commentsState.comments[commentIndex];
-                  return _CommentTile(
-                    comment: comment,
-                    isMine: currentUser?.id == comment.user.id,
-                    onToggleLike: () => _toggleCommentLike(comment),
-                    onDelete: () => _deleteComment(comment),
+                  return Padding(
+                    padding: const EdgeInsets.only(top: AppSpacing.md),
+                    child: _CommentTile(
+                      comment: comment,
+                      isMine: currentUser?.id == comment.user.id,
+                      onToggleLike: () => _toggleCommentLike(comment),
+                      onDelete: () => _deleteComment(comment),
+                    ),
                   );
                 },
               ),

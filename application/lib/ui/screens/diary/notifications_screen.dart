@@ -10,6 +10,7 @@ import '../../widgets/page_state_views.dart';
 import '../../widgets/shimmer_loading.dart';
 import '../../widgets/user_avatar.dart';
 import 'post_detail_screen.dart';
+import '../profile/profile_screen.dart';
 
 class NotificationsScreen extends ConsumerStatefulWidget {
   const NotificationsScreen({super.key});
@@ -32,7 +33,21 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
     await ref.read(diaryNotificationsControllerProvider.notifier).refresh();
   }
 
-  void _openPost(DiaryNotification notification) {
+  void _openNotification(DiaryNotification notification) {
+    // フォロー通知の場合はプロフィールページに遷移
+    if (notification.type == 'FOLLOW') {
+      Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (_) => ProfileScreen(
+            userId: notification.actor.id,
+            onOpenSettings: () {},
+          ),
+        ),
+      );
+      return;
+    }
+
+    // その他の通知は投稿詳細ページに遷移
     final post = notification.post;
     if (post == null) return;
     Navigator.of(context).push(
@@ -145,7 +160,7 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
                         return _NotificationTile(
                           notification: notification,
                           onTap: () {
-                            _openPost(notification);
+                            _openNotification(notification);
                             if (!notification.isRead) {
                               ref
                                   .read(

@@ -13,6 +13,7 @@ class TypingKeyboard extends StatefulWidget {
     required this.onEnter,
     this.highlightedKeys = const {},
     this.highlightShift = false,
+    this.highlightSymbol = false,
     this.nextKeyLabel,
     this.enableSound = false,
     this.enableHaptics = true,
@@ -29,6 +30,7 @@ class TypingKeyboard extends StatefulWidget {
   final VoidCallback onEnter;
   final Set<String> highlightedKeys;
   final bool highlightShift;
+  final bool highlightSymbol;
   final String? nextKeyLabel;
   final bool enableSound;
   final bool enableHaptics;
@@ -213,6 +215,7 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
                           isShiftActive: _shiftActive,
                           currentMode: _currentMode,
                           highlightShift: widget.highlightShift,
+                          highlightSymbol: widget.highlightSymbol,
                           highlightedKeys: widget.highlightedKeys,
                           onKeyTap: _handleKeyTap,
                         ),
@@ -293,6 +296,7 @@ class _KeyboardRow extends StatelessWidget {
     required this.isShiftActive,
     required this.currentMode,
     required this.highlightShift,
+    required this.highlightSymbol,
   });
 
   final List<String> keys;
@@ -301,6 +305,7 @@ class _KeyboardRow extends StatelessWidget {
   final bool isShiftActive;
   final _KeyboardMode currentMode;
   final bool highlightShift;
+  final bool highlightSymbol;
 
   // シフトキー押下時の変換マップ（濃音子音 + 母音）
   static const _shiftMappings = {
@@ -360,9 +365,28 @@ class _KeyboardRow extends StatelessWidget {
   }
 
   bool _isHighlighted(String key) {
+    // シフトキーの処理
     if (key == '⇧') {
-      return highlightShift || isShiftActive;
+      // シフトが必要で、まだシフトが押されていない場合のみハイライト
+      return highlightShift && !isShiftActive;
     }
+
+    // 123キーの処理
+    if (key == '123') {
+      // ハングルモードでシンボルキーボードの文字を入力する場合のみハイライト
+      return highlightSymbol && currentMode == _KeyboardMode.hangul;
+    }
+
+    // シフトが必要だがまだ押されていない場合、他のキーはハイライトしない
+    if (highlightShift && !isShiftActive) {
+      return false;
+    }
+
+    // シンボル文字が必要だがハングルモードの場合、他のキーはハイライトしない
+    if (highlightSymbol && currentMode == _KeyboardMode.hangul) {
+      return false;
+    }
+
     if (key == 'space') {
       return highlightedKeys.contains(' ');
     }

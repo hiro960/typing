@@ -10,11 +10,13 @@ import '../models/diary_notification.dart';
 import '../models/diary_post.dart';
 import '../models/diary_search.dart';
 
-enum DiaryFeedType { recommended, following }
+enum DiaryFeedType { latest, recommended, following }
 
 extension DiaryFeedTypeQuery on DiaryFeedType {
   String get query {
     switch (this) {
+      case DiaryFeedType.latest:
+        return 'latest';
       case DiaryFeedType.recommended:
         return 'recommended';
       case DiaryFeedType.following:
