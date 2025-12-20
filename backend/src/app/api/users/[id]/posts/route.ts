@@ -44,12 +44,15 @@ export async function GET(
       ...(visibility ? { visibility } : {}),
     };
 
+    // 可視性フィルタリングで除外される投稿を考慮し、多めに取得
+    const fetchLimit = Math.min(limit * 3 + 10, 150);
+
     // DBレベルでページネーション（全件取得を回避）
     const posts = await prisma.post.findMany({
       where: postWhere,
       orderBy: { createdAt: "desc" },
       include: { user: true, quotedPost: { include: { user: true } } },
-      take: limit + 1,
+      take: fetchLimit,
       ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
     });
 
@@ -62,10 +65,14 @@ export async function GET(
         ])
       : [new Set<string>(), new Set<string>()];
 
+    // limit + 1件に達したら終了し、正確なhasNextPage判定を保証
     const visiblePosts = [];
     for (const post of posts) {
       if (canAccessPostSync(post, viewerId, blockedSet, followingSet)) {
         visiblePosts.push(post);
+        if (visiblePosts.length >= limit + 1) {
+          break;
+        }
       }
     }
 

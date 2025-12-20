@@ -13,6 +13,9 @@ export async function GET(request: NextRequest) {
     const cursor = searchParams.get("cursor");
     const limit = parseLimit(searchParams.get("limit"), 20, 1, 100);
 
+    // 可視性フィルタリングで除外される投稿を考慮し、多めに取得
+    const fetchLimit = Math.min(limit * 3 + 10, 150);
+
     const bookmarks =
       (await prisma.bookmark.findMany({
         where: { userId: user.id },
@@ -25,7 +28,7 @@ export async function GET(request: NextRequest) {
           },
         },
         orderBy: { createdAt: "desc" },
-        take: limit + 1,
+        take: fetchLimit,
         ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
       })) ?? [];
 
@@ -36,6 +39,7 @@ export async function GET(request: NextRequest) {
       batchCheckFollowing(user.id, authorIds),
     ]);
 
+    // limit + 1件に達したら終了し、正確なhasNextPage判定を保証
     const visible = [];
     for (const bookmark of bookmarks) {
       if (!bookmark.post) {
@@ -45,6 +49,9 @@ export async function GET(request: NextRequest) {
         continue;
       }
       visible.push(bookmark);
+      if (visible.length >= limit + 1) {
+        break;
+      }
     }
 
     const hasNextPage = visible.length > limit;

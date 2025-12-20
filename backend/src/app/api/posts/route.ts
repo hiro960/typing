@@ -113,12 +113,15 @@ export async function GET(request: NextRequest) {
       ];
     }
 
+    // 可視性フィルタリングで除外される投稿を考慮し、多めに取得
+    const fetchLimit = Math.min(limit * 3 + 10, 150);
+
     const posts =
       (await prisma.post.findMany({
         where,
         include: { user: true, quotedPost: { include: { user: true } } },
         orderBy,
-        take: limit + 1,
+        take: fetchLimit,
         ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
       })) ?? [];
 
@@ -133,10 +136,14 @@ export async function GET(request: NextRequest) {
       : [new Set<string>(), new Set<string>()];
 
     // 可視性判定（ループ内クエリなし）
+    // limit + 1件に達したら終了し、正確なhasNextPage判定を保証
     const visible: typeof posts = [];
     for (const post of posts) {
       if (canAccessPostSync(post, viewerId, blockedSet, followingSet)) {
         visible.push(post);
+        if (visible.length >= limit + 1) {
+          break;
+        }
       }
     }
 
@@ -211,6 +218,20 @@ export async function POST(request: NextRequest) {
       if (!success) {
         throw ERROR.TOO_MANY_REQUESTS("Rate limit exceeded");
       }
+    }
+
+    // 1分以内の連続投稿制限（荒らし行為防止）
+    const oneMinuteAgo = new Date(Date.now() - 60 * 1000);
+    const recentPostCount = await prisma.post.count({
+      where: {
+        userId: user.id,
+        createdAt: { gte: oneMinuteAgo },
+      },
+    });
+    if (recentPostCount >= 4) {
+      throw ERROR.TOO_MANY_REQUESTS(
+        "荒らし行為防止のため、1分で4件以上の投稿はできません。"
+      );
     }
 
     const body = await request.json();
