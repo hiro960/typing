@@ -39,7 +39,7 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
         manifestPlaceholders += mapOf(
-            "auth0Domain" to "dev-pg00ixxndhbgt68s.us.auth0.com",
+            "auth0Domain" to "login.chaletta.app",
             // Use a custom scheme for Auth0 redirect on Android (must match Auth0 dashboard)
             "auth0Scheme" to "app.koreantyping.chaletta"
         )

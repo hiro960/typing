@@ -55,7 +55,7 @@ export async function GET(request: NextRequest) {
     }
 
     const where: Prisma.PostWhereInput = {};
-    let orderBy: Prisma.PostOrderByWithRelationInput[] = [{ createdAt: "desc" }];
+    let orderBy: Prisma.PostOrderByWithRelationInput[] = [{ createdAt: "desc" }, { id: "desc" }];
 
     if (userId) {
       const user = await prisma.user.findUnique({ where: { id: userId } });
@@ -104,11 +104,12 @@ export async function GET(request: NextRequest) {
     }
 
     if (feed === "latest") {
-      orderBy = [{ createdAt: "desc" }];
+      orderBy = [{ createdAt: "desc" }, { id: "desc" }];
     } else if (feed === "recommended") {
       orderBy = [
         { likesCount: "desc" },
         { createdAt: "desc" },
+        { id: "desc" },
       ];
     }
 

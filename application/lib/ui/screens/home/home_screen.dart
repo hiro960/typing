@@ -415,6 +415,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   void _showWritingOptions(BuildContext context) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
+    final bottomPadding = MediaQuery.of(context).viewPadding.bottom;
 
     showFSheet<void>(
       context: context,
@@ -485,7 +486,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 _openWriting(WritingLane.topik);
               },
             ),
-            const SizedBox(height: AppSpacing.xl),
+            SizedBox(height: AppSpacing.xl + bottomPadding + 24),
           ],
         ),
       ),
@@ -548,6 +549,7 @@ class _GameDetailSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
+    final bottomPadding = MediaQuery.of(context).viewPadding.bottom;
 
     return Container(
       constraints: BoxConstraints(
@@ -590,7 +592,12 @@ class _GameDetailSheet extends StatelessWidget {
           const Divider(height: 1),
           Flexible(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.all(AppSpacing.lg),
+              padding: EdgeInsets.only(
+                left: AppSpacing.lg,
+                right: AppSpacing.lg,
+                top: AppSpacing.lg,
+                bottom: AppSpacing.lg + bottomPadding + 24,
+              ),
               child: child,
             ),
           ),

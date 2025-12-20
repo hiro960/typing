@@ -49,6 +49,10 @@ class _PronunciationGameScreenState
         // 初期化に失敗した場合はダイアログを表示
         _showInitializationErrorDialog();
       }
+    } catch (e) {
+      if (mounted) {
+        _showInitializationErrorDialog();
+      }
     } finally {
       _isStarting = false;
     }

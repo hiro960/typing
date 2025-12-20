@@ -42,7 +42,7 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
   static const _feedLabels = {
     DiaryFeedType.latest: '最新',
     DiaryFeedType.recommended: 'おすすめ',
-    DiaryFeedType.following: 'フォロー中',
+    DiaryFeedType.following: 'フォロー',
   };
 
   @override
@@ -53,22 +53,12 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
           .read(diaryTimelineControllerProvider.notifier)
           .ensureLoaded(_selectedFeed);
     });
-    _scrollController.addListener(_maybeLoadMore);
   }
 
   @override
   void dispose() {
     _scrollController.dispose();
     super.dispose();
-  }
-
-  void _maybeLoadMore() {
-    if (_scrollController.position.pixels >=
-        _scrollController.position.maxScrollExtent - 200) {
-      ref
-          .read(diaryTimelineControllerProvider.notifier)
-          .loadMore(_selectedFeed);
-    }
   }
 
   Future<void> _refresh() async {
@@ -252,8 +242,8 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
                           icon = Iconsax.people;
                       }
                       return FTabEntry(
-                        label: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                        label: FittedBox(
+                          fit: BoxFit.scaleDown,
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
@@ -316,38 +306,54 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
                         description: '下に引っ張って再読み込み',
                       );
                     }
-                    return ListView.builder(
-                      controller: _scrollController,
-                      physics: const AlwaysScrollableScrollPhysics(),
-                      padding: const EdgeInsets.only(
-                        top: 12,
-                        bottom: 120,
-                      ),
-                      itemCount: feedState.posts.length +
-                          (feedState.isLoadingMore ? 1 : 0),
-                      itemBuilder: (context, index) {
-                        if (index >= feedState.posts.length) {
-                          return const Padding(
-                            padding: EdgeInsets.symmetric(vertical: 16),
-                            child: Center(
-                              child: CircularProgressIndicator(),
-                            ),
-                          );
+                    return NotificationListener<ScrollNotification>(
+                      onNotification: (notification) {
+                        if (notification is ScrollEndNotification ||
+                            notification is ScrollUpdateNotification) {
+                          final metrics = notification.metrics;
+                          if (metrics.pixels >=
+                              metrics.maxScrollExtent - 200) {
+                            ref
+                                .read(diaryTimelineControllerProvider.notifier)
+                                .loadMore(_selectedFeed);
+                          }
                         }
-                        final post = feedState.posts[index];
-                        return DiaryPostCard(
-                          post: post,
-                          onTap: () => _openDetail(post),
-                          onToggleLike: () => _toggleLike(post),
-                          onToggleBookmark: () => _toggleBookmark(post),
-                          onComment: () => _openDetail(post),
-                          onQuote: () => _quotePost(post),
-                          onBlock: () => _blockUser(post),
-                          onReport: () => _reportPost(post),
-                          onEdit: () => _editPost(post),
-                          currentUserId: currentUser?.id,
-                        );
+                        return false;
                       },
+                      child: ListView.builder(
+                        key: ValueKey(_selectedFeed),
+                        controller: _scrollController,
+                        physics: const AlwaysScrollableScrollPhysics(),
+                        padding: const EdgeInsets.only(
+                          top: 12,
+                          bottom: 120,
+                        ),
+                        itemCount: feedState.posts.length +
+                            (feedState.isLoadingMore ? 1 : 0),
+                        itemBuilder: (context, index) {
+                          if (index >= feedState.posts.length) {
+                            return const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 16),
+                              child: Center(
+                                child: CircularProgressIndicator(),
+                              ),
+                            );
+                          }
+                          final post = feedState.posts[index];
+                          return DiaryPostCard(
+                            post: post,
+                            onTap: () => _openDetail(post),
+                            onToggleLike: () => _toggleLike(post),
+                            onToggleBookmark: () => _toggleBookmark(post),
+                            onComment: () => _openDetail(post),
+                            onQuote: () => _quotePost(post),
+                            onBlock: () => _blockUser(post),
+                            onReport: () => _reportPost(post),
+                            onEdit: () => _editPost(post),
+                            currentUserId: currentUser?.id,
+                          );
+                        },
+                      ),
                     );
                   },
                 ),

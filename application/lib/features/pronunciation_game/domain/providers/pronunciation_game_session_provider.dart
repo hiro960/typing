@@ -314,27 +314,37 @@ class PronunciationGameSession extends _$PronunciationGameSession {
         },
       );
 
-      // 韓国語ロケールを検索
+      // 韓国語ロケールを検索（タイムアウト付き）
       if (_speechInitialized) {
-        final locales = await _speechToText!.locales();
-        AppLogger.info(
-          'Available locales: ${locales.map((l) => l.localeId).toList()}',
-          tag: 'PronunciationGameSession',
-        );
-        // ko_KR, ko, korean などを探す
-        for (final locale in locales) {
-          if (locale.localeId.toLowerCase().startsWith('ko')) {
-            _koreanLocaleId = locale.localeId;
-            AppLogger.info(
-              'Found Korean locale: $_koreanLocaleId',
-              tag: 'PronunciationGameSession',
-            );
-            break;
+        try {
+          final locales = await _speechToText!.locales().timeout(
+            const Duration(seconds: 1),
+            onTimeout: () => [], // タイムアウト時は空リストを返す
+          );
+          AppLogger.info(
+            'Available locales: ${locales.map((l) => l.localeId).toList()}',
+            tag: 'PronunciationGameSession',
+          );
+          // ko_KR, ko, korean などを探す
+          for (final locale in locales) {
+            if (locale.localeId.toLowerCase().startsWith('ko')) {
+              _koreanLocaleId = locale.localeId;
+              AppLogger.info(
+                'Found Korean locale: $_koreanLocaleId',
+                tag: 'PronunciationGameSession',
+              );
+              break;
+            }
           }
+        } catch (e) {
+          // ロケール取得失敗時はデフォルトを使用
         }
+
         if (_koreanLocaleId == null) {
+          // デフォルトで ko_KR を使用
+          _koreanLocaleId = 'ko_KR';
           AppLogger.warning(
-            'Korean locale not found, using default',
+            'Korean locale not found, using default ko_KR',
             tag: 'PronunciationGameSession',
           );
         }

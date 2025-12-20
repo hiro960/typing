@@ -147,9 +147,10 @@ class DiaryTimelineController extends _$DiaryTimelineController {
         cursor: refresh ? null : current.nextCursor,
       );
       final posts = refresh ? page.posts : [...current.posts, ...page.posts];
+      // copyWithではnullを明示的に設定できないため、新しいインスタンスを作成
       state = state.setFeed(
         feed,
-        current.copyWith(
+        DiaryFeedData(
           posts: posts,
           nextCursor: page.nextCursor,
           hasMore: page.hasNextPage,
@@ -338,11 +339,14 @@ class PostCommentsController extends _$PostCommentsController {
     state = state.copyWith(isLoading: true, errorMessage: null);
     try {
       final page = await _repository.fetchComments(_postId);
-      state = state.copyWith(
+      // copyWithではnullを明示的に設定できないため、新しいインスタンスを作成
+      state = DiaryCommentsState(
         comments: page.comments,
         nextCursor: page.nextCursor,
         hasMore: page.hasNextPage,
         isLoading: false,
+        isLoadingMore: false,
+        errorMessage: null,
       );
     } catch (error) {
       state = state.copyWith(isLoading: false, errorMessage: error.toString());
@@ -358,11 +362,14 @@ class PostCommentsController extends _$PostCommentsController {
         _postId,
         cursor: state.nextCursor,
       );
-      state = state.copyWith(
+      // copyWithではnullを明示的に設定できないため、新しいインスタンスを作成
+      state = DiaryCommentsState(
         comments: [...state.comments, ...page.comments],
         nextCursor: page.nextCursor,
         hasMore: page.hasNextPage,
+        isLoading: false,
         isLoadingMore: false,
+        errorMessage: null,
       );
     } catch (error) {
       state = state.copyWith(
@@ -495,11 +502,14 @@ class DiaryBookmarksController extends _$DiaryBookmarksController {
     state = state.copyWith(isLoading: true, errorMessage: null);
     try {
       final page = await _repository.fetchBookmarks();
-      state = state.copyWith(
+      // copyWithではnullを明示的に設定できないため、新しいインスタンスを作成
+      state = DiaryBookmarksState(
         posts: page.posts,
         nextCursor: page.nextCursor,
         hasMore: page.hasNextPage,
         isLoading: false,
+        isLoadingMore: false,
+        errorMessage: null,
       );
     } catch (error) {
       state = state.copyWith(
@@ -515,11 +525,14 @@ class DiaryBookmarksController extends _$DiaryBookmarksController {
     state = state.copyWith(isLoadingMore: true, errorMessage: null);
     try {
       final page = await _repository.fetchBookmarks(cursor: state.nextCursor);
-      state = state.copyWith(
+      // copyWithではnullを明示的に設定できないため、新しいインスタンスを作成
+      state = DiaryBookmarksState(
         posts: [...state.posts, ...page.posts],
         nextCursor: page.nextCursor,
         hasMore: page.hasNextPage,
+        isLoading: false,
         isLoadingMore: false,
+        errorMessage: null,
       );
     } catch (error) {
       state = state.copyWith(
@@ -606,11 +619,15 @@ class DiaryNotificationsController extends _$DiaryNotificationsController {
         unreadOnly: state.unreadOnly,
       );
       if (_disposed) return;
-      state = state.copyWith(
+      // copyWithではnullを明示的に設定できないため、新しいインスタンスを作成
+      state = DiaryNotificationsState(
         notifications: page.notifications,
         nextCursor: page.nextCursor,
         hasMore: page.hasNextPage,
         isLoading: false,
+        isLoadingMore: false,
+        unreadOnly: state.unreadOnly,
+        errorMessage: null,
       );
     } catch (error) {
       if (_disposed) return;
@@ -631,11 +648,15 @@ class DiaryNotificationsController extends _$DiaryNotificationsController {
         unreadOnly: state.unreadOnly,
       );
       if (_disposed) return;
-      state = state.copyWith(
+      // copyWithではnullを明示的に設定できないため、新しいインスタンスを作成
+      state = DiaryNotificationsState(
         notifications: [...state.notifications, ...page.notifications],
         nextCursor: page.nextCursor,
         hasMore: page.hasNextPage,
+        isLoading: false,
         isLoadingMore: false,
+        unreadOnly: state.unreadOnly,
+        errorMessage: null,
       );
     } catch (error) {
       if (_disposed) return;
