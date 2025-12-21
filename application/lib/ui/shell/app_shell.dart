@@ -5,6 +5,9 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../core/services/push_notification_service.dart';
 import '../../features/auth/domain/providers/auth_providers.dart';
+import '../../features/app_version/data/models/app_version_info.dart';
+import '../../features/app_version/domain/providers/app_version_providers.dart';
+import '../widgets/force_update_dialog.dart';
 import '../../features/typing/domain/providers/typing_providers.dart';
 import '../../features/wordbook/domain/providers/wordbook_providers.dart';
 import '../screens/diary/bookmarks_screen.dart';
@@ -26,6 +29,18 @@ class AppShell extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final authState = ref.watch(authStateProvider);
+
+    // バージョンチェック状態を監視してダイアログ表示
+    ref.listen<VersionCheckState>(
+      versionCheckProvider,
+      (previous, next) {
+        if (next.needsForceUpdate) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            ForceUpdateDialogHelper.show(context);
+          });
+        }
+      },
+    );
 
     // 認証状態に応じて画面を切り替え
     switch (authState.status) {

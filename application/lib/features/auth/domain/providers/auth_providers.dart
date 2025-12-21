@@ -7,6 +7,7 @@ import '../../data/models/user_model.dart';
 import '../../data/models/user_status_response.dart';
 import '../../../../core/utils/logger.dart';
 import '../../../diary/domain/providers/diary_providers.dart';
+import '../../../app_version/domain/providers/app_version_providers.dart';
 
 part 'auth_providers.g.dart';
 
@@ -133,6 +134,15 @@ class AuthStateNotifier extends _$AuthStateNotifier {
   Future<void> _tryAutoLogin() async {
     try {
       AppLogger.auth('Trying auto login...');
+
+      // バージョンチェックを最初に実行
+      await ref.read(versionCheckProvider.notifier).checkVersion();
+
+      // 強制アップデートが必要な場合は認証処理を中断
+      if (ref.read(versionCheckProvider).needsForceUpdate) {
+        AppLogger.auth('Force update required, stopping auto login');
+        return;
+      }
 
       final authRepository = ref.read(authRepositoryProvider);
       final status = await authRepository.tryAutoLogin();

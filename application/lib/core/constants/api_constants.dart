@@ -191,4 +191,11 @@ class ApiConstants {
   /// 為替レート取得
   /// GET /api/exchange-rate
   static const String exchangeRate = '/api/exchange-rate';
+
+  // ==================== App Version関連 ====================
+
+  /// アプリバージョン情報取得
+  /// GET /api/app-version
+  /// 認証不要
+  static const String appVersion = '/api/app-version';
 }

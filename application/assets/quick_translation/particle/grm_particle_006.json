@@ -58,7 +58,11 @@
       "order": 6,
       "japanese": "冬の夜は長いです。",
       "korean": "겨울의 밤이 길어요.",
-      "alternativeAnswers": ["겨울의 밤이 깁니다."],
+      "alternativeAnswers": [
+        "겨울의 밤이 깁니다.",
+        "겨울밤은 길어요.",
+        "겨울밤은 깁니다."
+      ],
       "hint": "겨울의...",
       "explanation": "季節と名詞を所有格で結び性質を述べます。"
     },
