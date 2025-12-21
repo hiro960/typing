@@ -13,7 +13,7 @@
         { "id": "procon_tech_001", "level": "template", "jpText": "に賛成する", "koText": "에 찬성한다." },
         { "id": "procon_tech_002", "level": "template", "jpText": "という意見もあるが", "koText": "라는 의견도 있지만" },
         { "id": "procon_tech_003", "level": "template", "jpText": "それにもかかわらず", "koText": "그럼에도 불구하고" },
-        { "id": "procon_tech_004", "level": "template", "jpText": "私は...に反対する", "koText": "나는 ...에 반대한다." },
+        { "id": "procon_tech_004", "level": "template", "jpText": "私はAI規制緩和に反対する", "koText": "나는 AI 규제 완화에 반대한다." },
         { "id": "procon_tech_005", "level": "template", "jpText": "利点もあるが欠点が大きい", "koText": "장점도 있지만 단점이 크다." },
         { "id": "procon_tech_009", "level": "template", "jpText": "根拠を挙げると", "koText": "근거를 들면" },
         { "id": "procon_tech_010", "level": "template", "jpText": "長期的影響を考慮する", "koText": "장기적 영향을 고려하다" },

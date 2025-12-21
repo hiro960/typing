@@ -10,7 +10,7 @@
       "description": "中小企業支援策",
       "patternId": "proposal",
       "entries": [
-        { "id": "proposal_econ_001", "level": "template", "jpText": "を提案する", "koText": "을/를 제안한다." },
+        { "id": "proposal_econ_001", "level": "template", "jpText": "中小企業支援強化を提案する", "koText": "중소기업 지원 강화를 제안한다." },
         { "id": "proposal_econ_002", "level": "template", "jpText": "という方法もある", "koText": "라는 방법도 있다." },
         { "id": "proposal_econ_003", "level": "template", "jpText": "このような措置が必要だ", "koText": "이러한 조치가 필요하다." },
         { "id": "proposal_econ_004", "level": "template", "jpText": "まず補助金を拡大する", "koText": "먼저 보조금을 확대한다." },

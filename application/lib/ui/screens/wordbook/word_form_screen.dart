@@ -16,11 +16,13 @@ class WordFormScreen extends ConsumerStatefulWidget {
     this.word,
     this.initialWord,
     this.initialMeaning,
+    this.initialCategory,
   });
 
   final Word? word;
   final String? initialWord;
   final String? initialMeaning;
+  final WordCategory? initialCategory;
 
   bool get isEditing => word != null;
 
@@ -57,7 +59,7 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
     _tagsController =
         TextEditingController(text: initial?.tags.join(' ') ?? '');
     _activeComposerController = _wordController;
-    _category = initial?.category ?? WordCategory.WORDS;
+    _category = initial?.category ?? widget.initialCategory ?? WordCategory.WORDS;
     _status = initial?.status ?? WordStatus.REVIEWING;
     _wordFocusNode = FocusNode();
     _meaningFocusNode = FocusNode();

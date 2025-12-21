@@ -10,7 +10,7 @@
       "description": "伝統文化の保存",
       "patternId": "intro_body_conclusion",
       "entries": [
-        { "id": "intro_culture_001", "level": "template", "jpText": "最近...について関心が高まっている", "koText": "최근 ...에 대한 관심이 높아지고 있다." },
+        { "id": "intro_culture_001", "level": "template", "jpText": "最近伝統文化の保存について関心が高まっている", "koText": "최근 전통문화 보존에 대한 관심이 높아지고 있다." },
         { "id": "intro_culture_002", "level": "template", "jpText": "まず", "koText": "먼저" },
         { "id": "intro_culture_003", "level": "template", "jpText": "本論では二点述べる", "koText": "본론에서는 두 가지를 말하겠다." },
         { "id": "intro_culture_004", "level": "template", "jpText": "続いて", "koText": "이어" },

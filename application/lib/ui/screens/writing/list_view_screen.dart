@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
+import '../../../features/wordbook/data/models/word_model.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
 import '../../../features/writing/data/models/writing_models.dart';
 import '../../../features/writing/domain/providers/writing_providers.dart';
@@ -86,7 +87,7 @@ class ListViewScreen extends ConsumerWidget {
   }
 }
 
-/// コンパクトなエントリ行
+/// エントリ行（文字・ボタンを大きく）
 class _EntryCard extends ConsumerWidget {
   const _EntryCard({required this.entry});
 
@@ -107,66 +108,58 @@ class _EntryCard extends ConsumerWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(
-          vertical: AppSpacing.sm,
+          vertical: AppSpacing.md,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // 1行目: バッジ + 日本語 + アクション
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _buildLevelBadge(context, entry.level),
                 const SizedBox(width: AppSpacing.sm),
                 Expanded(
                   child: Text(
                     entry.jpText,
-                    style: theme.textTheme.bodyMedium?.copyWith(
+                    style: theme.textTheme.bodyLarge?.copyWith(
                       color: isSentence
                           ? theme.colorScheme.onSurfaceVariant
                           : theme.colorScheme.onSurface,
+                      height: 1.4,
                     ),
                   ),
                 ),
                 const SizedBox(width: AppSpacing.xs),
+                // 単語帳追加ボタン
+                _ActionButton(
+                  icon: Iconsax.bookmark_2,
+                  color: theme.colorScheme.secondary,
+                  onTap: () => _openWordForm(context),
+                ),
+                const SizedBox(width: AppSpacing.xs),
                 // 再生ボタン
-                GestureDetector(
+                _ActionButton(
+                  icon: Iconsax.volume_high,
+                  color: theme.colorScheme.primary,
                   onTap: () {
                     ref.read(wordAudioServiceProvider.notifier).speak(entry.koText);
                   },
-                  child: Padding(
-                    padding: const EdgeInsets.all(AppSpacing.xs),
-                    child: Icon(
-                      Iconsax.volume_high,
-                      size: 20,
-                      color: theme.colorScheme.primary,
-                    ),
-                  ),
-                ),
-                // 単語帳追加ボタン
-                GestureDetector(
-                  onTap: () => _openWordForm(context),
-                  child: Padding(
-                    padding: const EdgeInsets.all(AppSpacing.xs),
-                    child: Icon(
-                      Iconsax.bookmark_2,
-                      size: 20,
-                      color: theme.colorScheme.secondary,
-                    ),
-                  ),
                 ),
               ],
             ),
             // 2行目: 韓国語（インデント付き）
             Padding(
               padding: const EdgeInsets.only(
-                left: 52, // バッジ幅 + 余白に合わせる
-                top: AppSpacing.xs,
+                left: 44, // バッジ幅 + 余白に合わせる
+                top: AppSpacing.sm,
               ),
               child: Text(
                 entry.koText,
-                style: theme.textTheme.bodyMedium?.copyWith(
+                style: theme.textTheme.titleMedium?.copyWith(
                   color: theme.colorScheme.primary,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w600,
+                  height: 1.4,
                 ),
               ),
             ),
@@ -185,18 +178,18 @@ class _EntryCard extends ConsumerWidget {
     };
 
     return Container(
-      width: 28,
-      height: 28,
+      width: 32,
+      height: 32,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: color.withOpacity(0.15),
-        borderRadius: BorderRadius.circular(6),
+        borderRadius: BorderRadius.circular(8),
       ),
       child: Text(
         label,
         style: TextStyle(
           color: color,
-          fontSize: 12,
+          fontSize: 14,
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -209,6 +202,40 @@ class _EntryCard extends ConsumerWidget {
         builder: (_) => WordFormScreen(
           initialWord: entry.koText,
           initialMeaning: entry.jpText,
+          initialCategory: WordCategory.WORDS,
+        ),
+      ),
+    );
+  }
+}
+
+/// 押しやすいアクションボタン
+class _ActionButton extends StatelessWidget {
+  const _ActionButton({
+    required this.icon,
+    required this.color,
+    required this.onTap,
+  });
+
+  final IconData icon;
+  final Color color;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: color.withOpacity(0.1),
+      borderRadius: BorderRadius.circular(10),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(10),
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Icon(
+            icon,
+            size: 24,
+            color: color,
+          ),
         ),
       ),
     );

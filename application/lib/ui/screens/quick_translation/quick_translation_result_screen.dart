@@ -5,8 +5,10 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/quick_translation/data/models/quick_translation_models.dart';
 import '../../../features/quick_translation/domain/providers/quick_translation_providers.dart';
+import '../../../features/wordbook/data/models/word_model.dart';
 import '../../app_theme.dart';
 import '../../app_spacing.dart';
+import '../wordbook/word_form_screen.dart';
 import 'quick_translation_practice_screen.dart';
 
 /// 結果画面
@@ -283,6 +285,17 @@ class _QuickTranslationResultScreenState
                   ),
                 ),
 
+                // 単語帳追加ボタン
+                IconButton(
+                  icon: const Icon(Iconsax.bookmark_2),
+                  iconSize: 20,
+                  onPressed: () => _openWordForm(
+                    context,
+                    question.korean,
+                    question.japanese,
+                  ),
+                  color: theme.colorScheme.secondary,
+                ),
                 // 音声再生ボタン
                 IconButton(
                   icon: const Icon(Iconsax.volume_high),
@@ -430,6 +443,22 @@ class _QuickTranslationResultScreenState
 
   Future<void> _speakKorean(String text) async {
     await _tts.speak(text);
+  }
+
+  Future<void> _openWordForm(
+    BuildContext context,
+    String korean,
+    String japanese,
+  ) async {
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => WordFormScreen(
+          initialWord: korean,
+          initialMeaning: japanese,
+          initialCategory: WordCategory.SENTENCES,
+        ),
+      ),
+    );
   }
 
   Future<void> _retryAll(BuildContext context) async {
