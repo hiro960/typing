@@ -22,6 +22,9 @@ class DiaryPostCard extends StatelessWidget {
     this.onReport,
     this.onEdit,
     this.currentUserId,
+    this.onTranslate,
+    this.translatedText,
+    this.isTranslating = false,
   });
 
   final DiaryPost post;
@@ -35,6 +38,9 @@ class DiaryPostCard extends StatelessWidget {
   final VoidCallback? onReport;
   final VoidCallback? onEdit;
   final String? currentUserId;
+  final VoidCallback? onTranslate;
+  final String? translatedText;
+  final bool isTranslating;
 
   @override
   Widget build(BuildContext context) {
@@ -134,6 +140,50 @@ class DiaryPostCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 12),
                     Text(post.content, style: theme.textTheme.bodyLarge),
+                    if (translatedText != null) ...[
+                      const SizedBox(height: 8),
+                      Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: AppColors.primary.withValues(alpha: 0.08),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: AppColors.primary.withValues(alpha: 0.2),
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Icon(
+                                  Iconsax.translate,
+                                  size: 14,
+                                  color: AppColors.primary,
+                                ),
+                                const SizedBox(width: 6),
+                                Text(
+                                  '日本語訳',
+                                  style: theme.textTheme.labelSmall?.copyWith(
+                                    color: AppColors.primary,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 6),
+                            Text(
+                              translatedText!,
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                color: theme.colorScheme.onSurface
+                                    .withValues(alpha: 0.85),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                     if (post.imageUrls.isNotEmpty) ...[
                       const SizedBox(height: 12),
                       _ImageCarousel(imageUrls: post.imageUrls),
@@ -187,6 +237,25 @@ class DiaryPostCard extends StatelessWidget {
                             count: post.quotesCount,
                           ),
                           const Spacer(),
+                          if (onTranslate != null)
+                            IconButton(
+                              icon: isTranslating
+                                  ? SizedBox(
+                                      width: 20,
+                                      height: 20,
+                                      child: CircularProgressIndicator(
+                                        strokeWidth: 2,
+                                        color: theme.colorScheme.onSurfaceVariant,
+                                      ),
+                                    )
+                                  : Icon(
+                                      Iconsax.translate,
+                                      color: translatedText != null
+                                          ? AppColors.primary
+                                          : theme.colorScheme.onSurfaceVariant,
+                                    ),
+                              onPressed: isTranslating ? null : onTranslate,
+                            ),
                           IconButton(
                             icon: Icon(
                               post.bookmarked

@@ -4,11 +4,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
+import '../../../features/auth/data/models/user_model.dart';
 import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/typing/domain/providers/typing_settings_provider.dart';
 import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/data/repositories/diary_repository.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
+import '../../../features/translation/domain/providers/translation_providers.dart';
 import '../../app_theme.dart';
 import '../../utils/dialog_helper.dart';
 import '../../utils/snackbar_helper.dart';
@@ -18,6 +20,7 @@ import '../../widgets/app_page_scaffold.dart';
 import '../../widgets/page_state_views.dart';
 import '../../widgets/sheet_content.dart';
 import '../../widgets/shimmer_loading.dart';
+import '../../widgets/premium_feature_gate.dart';
 import '../../app_spacing.dart';
 import 'drafts_screen.dart';
 import 'post_create_screen.dart';
@@ -188,12 +191,70 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
     }
   }
 
+  /// 翻訳ボタンが押された時の処理
+  Future<void> _translatePost(DiaryPost post) async {
+    final currentUser = ref.read(currentUserProvider);
+    final isPremiumUser = currentUser?.isPremiumUser ?? false;
+
+    // 無料会員の場合は有料会員限定のダイアログを表示
+    if (!isPremiumUser) {
+      _showPremiumOnlyDialog();
+      return;
+    }
+
+    final controller = ref.read(diaryTranslationControllerProvider.notifier);
+
+    try {
+      await controller.translatePost(post.id, post.content);
+    } catch (error) {
+      if (!mounted) return;
+      ToastHelper.showError(context, '翻訳に失敗しました');
+    }
+  }
+
+  /// 有料会員限定機能のダイアログを表示
+  void _showPremiumOnlyDialog() {
+    showDialog(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Row(
+          children: [
+            Icon(Iconsax.crown, color: AppColors.primary),
+            const SizedBox(width: 12),
+            const Text('有料会員限定'),
+          ],
+        ),
+        content: const Text(
+          'この機能は有料会員またはオフィシャル会員限定です。\n\nアップグレードすると、日記の翻訳機能をご利用いただけます。',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(dialogContext).pop();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) =>
+                      const PremiumFeatureGateScreen(focusFeature: '日記の翻訳'),
+                ),
+              );
+            },
+            child: const Text('プロプランを見る'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(),
+            child: const Text('閉じる'),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     final timelineState = ref.watch(diaryTimelineControllerProvider);
     final feedState = timelineState.feed(_selectedFeed);
     final currentUser = ref.watch(currentUserProvider);
+    final translationState = ref.watch(diaryTranslationControllerProvider);
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
 
@@ -357,6 +418,11 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
                             onReport: () => _reportPost(post),
                             onEdit: () => _editPost(post),
                             currentUserId: currentUser?.id,
+                            onTranslate: () => _translatePost(post),
+                            translatedText:
+                                translationState.translations[post.id],
+                            isTranslating:
+                                translationState.loadingPostIds.contains(post.id),
                           );
                         },
                       ),

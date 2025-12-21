@@ -150,6 +150,12 @@ class PremiumFeatureGate extends StatelessWidget {
             title: '日記に認証マーク',
             description: 'プロユーザーの日記には認証マークが表示され、信頼性が高まります。',
           ),
+          const SizedBox(height: AppSpacing.md),
+          _BenefitCard(
+            icon: Iconsax.translate,
+            title: '日記の翻訳機能',
+            description: '韓国語の日記を日本語に翻訳。他のユーザーの投稿内容を簡単に理解できます。',
+          ),
           const SizedBox(height: AppSpacing.xxl),
           SizedBox(
             width: double.infinity,

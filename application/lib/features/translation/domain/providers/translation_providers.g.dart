@@ -61,6 +61,69 @@ final class DeeplTranslationServiceProvider
 String _$deeplTranslationServiceHash() =>
     r'184c21693bf2bd2a1c042cb8f7a34cd926abd91a';
 
+/// 日記投稿翻訳コントローラー（DeepL使用）
+
+@ProviderFor(DiaryTranslationController)
+const diaryTranslationControllerProvider =
+    DiaryTranslationControllerProvider._();
+
+/// 日記投稿翻訳コントローラー（DeepL使用）
+final class DiaryTranslationControllerProvider
+    extends
+        $NotifierProvider<DiaryTranslationController, DiaryTranslationState> {
+  /// 日記投稿翻訳コントローラー（DeepL使用）
+  const DiaryTranslationControllerProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'diaryTranslationControllerProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$diaryTranslationControllerHash();
+
+  @$internal
+  @override
+  DiaryTranslationController create() => DiaryTranslationController();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(DiaryTranslationState value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<DiaryTranslationState>(value),
+    );
+  }
+}
+
+String _$diaryTranslationControllerHash() =>
+    r'33a50838127ed4c1a9429f4f7073388b5d11af8b';
+
+/// 日記投稿翻訳コントローラー（DeepL使用）
+
+abstract class _$DiaryTranslationController
+    extends $Notifier<DiaryTranslationState> {
+  DiaryTranslationState build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref = this.ref as $Ref<DiaryTranslationState, DiaryTranslationState>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<DiaryTranslationState, DiaryTranslationState>,
+              DiaryTranslationState,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
+}
+
 /// 翻訳機能のNotifierプロバイダー
 
 @ProviderFor(TranslationController)
