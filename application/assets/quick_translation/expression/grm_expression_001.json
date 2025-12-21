@@ -35,9 +35,12 @@
       "id": "qt_expression_001_04",
       "order": 4,
       "japanese": "友達に会いたいです。",
-      "korean": "친구를 만나고 싶어요.",
-      "alternativeAnswers": ["친구를 만나고 싶습니다."],
-      "hint": "친구를...",
+      "korean": "친구 만나고 싶어요.",
+      "alternativeAnswers": [
+        "친구를 만나고 싶어요.",
+        "친구를 만나고 싶습니다.",
+        "친구 만나고 싶습니다."],
+      "hint": "친구...",
       "explanation": "会いたいときも「만나다 + -고 싶다」を使います。"
     },
     {
@@ -54,7 +57,12 @@
       "order": 6,
       "japanese": "旅行に行きたいです。",
       "korean": "여행을 가고 싶어요.",
-      "alternativeAnswers": ["여행을 가고 싶습니다."],
+      "alternativeAnswers": [
+        "여행을 가고 싶습니다.",
+        "여행 가고 싶어요.",
+        "여행 가고 싶습니다.",
+        "여행하고 싶어요."
+      ],
       "hint": "여행을...",
       "explanation": "動作の前に目的語を置き「-고 싶다」で願望を示します。"
     },

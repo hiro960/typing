@@ -44,9 +44,12 @@
       "id": "qt_particle_004_05",
       "order": 5,
       "japanese": "午後三時に会います。",
-      "korean": "세 시에 만나요.",
-      "alternativeAnswers": ["세 시에 만납니다."],
-      "hint": "세 시에...",
+      "korean": "오후 세 시에 만나요.",
+      "alternativeAnswers": [
+        "오후 세 시에 만납니다.",
+        "세 시에 만나요.",
+        "세 시에 만납니다."],
+      "hint": "오후 세...",
       "explanation": "具体的な時刻にも「에」を付けて約束の時間を示します。"
     },
     {

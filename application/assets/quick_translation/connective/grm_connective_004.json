@@ -9,7 +9,11 @@
       "order": 1,
       "japanese": "雨が降ったら家にいます。",
       "korean": "비가 오면 집에 있어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "비가 오면 집에 있습니다.",
+        "비 오면 집에 있어요.",
+        "비 오면 집에 있습니다."
+      ],
       "hint": "비가...",
       "explanation": "条件を示すとき語幹に -(으)면 を付け「〜なら」を表します。"
     },
@@ -25,9 +29,13 @@
     {
       "id": "qt_connective_004_03",
       "order": 3,
-      "japanese": "早く寝れば元気になります。",
+      "japanese": "早く寝ればコンディションが良くなります。",
       "korean": "일찍 자면 건강해져요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "일찍 자면 건강해집니다.",
+        "일찍 자면 컨디션이 좋아져요.",
+        "일찍 자면 컨디션이 좋아집니다."
+      ],
       "hint": "일찍...",
       "explanation": "仮定の条件で結果を述べるとき -(으)면 を使います。"
     },
@@ -36,7 +44,11 @@
       "order": 4,
       "japanese": "暇なら一緒に行きましょう。",
       "korean": "한가하면 같이 가요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "한가하면 같이 갑시다.",
+        "한가하면 함께 가요.",
+        "한가하면 함께 갑시다."
+      ],
       "hint": "한가...",
       "explanation": "条件が満たされれば勧誘する場面の接続表現です。"
     },
@@ -44,8 +56,9 @@
       "id": "qt_connective_004_05",
       "order": 5,
       "japanese": "家に着いたら連絡しますね。",
-      "korean": "집에 가면 연락할게요.",
-      "alternativeAnswers": [],
+      "korean": "집에 도착하면 연락할게요." ,
+      "alternativeAnswers": [
+        "집에 가면 연락할게요."],
       "hint": "집에...",
       "explanation": "条件成立後の予定を伝えるとき -(으)면 を用います。"
     },
@@ -90,7 +103,9 @@
       "order": 10,
       "japanese": "たくさん食べると太ります。",
       "korean": "많이 먹으면 살쪄요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "많이 먹으면 살찝니다."
+      ],
       "hint": "많이...",
       "explanation": "条件が結果を招く一般的な因果を述べるときの形です。"
     }

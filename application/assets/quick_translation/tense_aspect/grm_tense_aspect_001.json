@@ -89,8 +89,10 @@
       "id": "qt_tense_aspect_001_10",
       "order": 10,
       "japanese": "週末に旅行に行きました。",
-      "korean": "주말에 여행을 갔어요.",
-      "alternativeAnswers": ["주말에 여행을 갔습니다."],
+      "korean": "주말에 여행 갔어요.",
+      "alternativeAnswers": [
+        "주말에 여행을 갔어요.",
+        "주말에 여행을 갔습니다."],
       "hint": "주말에...",
       "explanation": "済んだ出来事を述べるので-았어요を付けます。"
     }

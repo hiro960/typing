@@ -36,7 +36,8 @@
       "order": 4,
       "japanese": "料理している人を手伝います。",
       "korean": "요리하는 사람을 도와요.",
-      "alternativeAnswers": ["요리하는 사람을 돕습니다."],
+      "alternativeAnswers": [
+        "요리하는 사람을 돕습니다."],
       "hint": "요리하...",
       "explanation": "動作主が現在している行為を示します。"
     },
@@ -62,9 +63,9 @@
       "id": "qt_adnominal_002_07",
       "order": 7,
       "japanese": "いつも遅れるバスです。",
-      "korean": "자주 늦는 버스예요.",
-      "alternativeAnswers": ["자주 늦는 버스입니다."],
-      "hint": "자주...",
+      "korean": "항상 늦는 버스예요.",
+      "alternativeAnswers": ["항상 늦는 버스입니다."],
+      "hint": "항상...",
       "explanation": "習慣的に起こる現在の性質も -는 を使います。"
     },
     {

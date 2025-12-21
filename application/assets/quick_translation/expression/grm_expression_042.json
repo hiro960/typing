@@ -20,7 +20,9 @@
       "order": 2,
       "japanese": "見たら言ってください。",
       "korean": "보는 대로 말해 주세요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "보는 대로 말하세요."
+      ],
       "hint": "보는...",
       "explanation": "見たままをすぐ伝えるよう依頼する表現です。"
     },
@@ -29,7 +31,9 @@
       "order": 3,
       "japanese": "考えたらすぐ書きましょう。",
       "korean": "생각나는 대로 적어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "생각나는 대로 적습니다."
+      ],
       "hint": "생각나는...",
       "explanation": "思いつくと同時に書くことを「-는 대로」で指示します。"
     },
@@ -60,7 +64,9 @@
       "order": 6,
       "japanese": "学んだとおりにやってみてください。",
       "korean": "배운 대로 해 보세요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "배운 대로 해 보십시오."
+      ],
       "hint": "배운...",
       "explanation": "教わった内容の再現を指示する際「-은 대로」を用います。"
     },
@@ -68,8 +74,11 @@
       "id": "qt_expression_042_07",
       "order": 7,
       "japanese": "感じたとおり話してください。",
-      "korean": "느끼는 대로 말하세요.",
-      "alternativeAnswers": [],
+      "korean": " 느낀 대로 말하세요.",
+      "alternativeAnswers": [
+        "느낀 대로 말해 주세요.",
+        "느낀 대로 말하세요."
+      ],
       "hint": "느끼는...",
       "explanation": "感情の即時表出を促す表現として「-는 대로」を使います。"
     },
@@ -89,7 +98,9 @@
       "order": 9,
       "japanese": "座ったらすぐ始めます。",
       "korean": "앉는 대로 시작해요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "앉는 대로 시작합니다."
+      ],
       "hint": "앉는...",
       "explanation": "ある動作の直後に開始することを「-는 대로」で表します。"
     },
@@ -98,7 +109,9 @@
       "order": 10,
       "japanese": "見たとおりこの道は近いです。",
       "korean": "본 대로 이 길이 가까워요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "본 대로 이 길이 가깝습니다."
+      ],
       "hint": "본...",
       "explanation": "確認した内容に基づき説明するため「-은 대로」を使います。"
     }

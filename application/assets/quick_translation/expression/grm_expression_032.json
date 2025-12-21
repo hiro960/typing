@@ -20,7 +20,10 @@
       "order": 2,
       "japanese": "食べた分だけお腹がいっぱいです。",
       "korean": "먹은 만큼 배불러요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "먹은 만큼 배불렀어요.",
+        "먹은 만큼 배불립니다."
+      ],
       "hint": "먹은...",
       "explanation": "量に応じた状態を表すため「먹은 만큼」を使います。"
     },
@@ -29,7 +32,9 @@
       "order": 3,
       "japanese": "待った分だけうれしいです。",
       "korean": "기다린 만큼 기뻐요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "기다린 만큼 기쁩니다."
+      ],
       "hint": "기다린...",
       "explanation": "努力に比例した感情を「-ㄴ 만큼」で表現します。"
     },
@@ -38,7 +43,9 @@
       "order": 4,
       "japanese": "欲しいだけ持っていってください。",
       "korean": "원하는 만큼 가져가세요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "가지고 가세요."
+      ],
       "hint": "원하는...",
       "explanation": "希望量に合わせるとき現在連体形「-는 만큼」を使います。"
     },
@@ -46,8 +53,10 @@
       "id": "qt_expression_032_05",
       "order": 5,
       "japanese": "好きなだけ話してください。",
-      "korean": "좋아하는 만큼 말하세요.",
+      "korean": "원하는 만큼 말하세요.",
       "alternativeAnswers": [
+        "좋아하는 만큼 말하세요.",
+        "마음껏 말하세요.",
         "좋아하는 만큼 말씀하세요."
       ],
       "hint": "좋아하는...",
@@ -69,7 +78,9 @@
       "order": 7,
       "japanese": "時間がない分、急いでください。",
       "korean": "시간이 없는 만큼 빨리 하세요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "시간이 없으니까 빨리 하세요."
+      ],
       "hint": "시간이...",
       "explanation": "不足量を理由にする際「없는 만큼」で急ぐことを促します。"
     },
@@ -78,7 +89,9 @@
       "order": 8,
       "japanese": "友達だから率直に話します。",
       "korean": "친구인 만큼 솔직히 말해요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "친구니까 솔직히 말해요."
+      ],
       "hint": "친구인...",
       "explanation": "関係性を理由にして「인 만큼」で率直さを示します。"
     },
@@ -87,7 +100,9 @@
       "order": 9,
       "japanese": "暑くないだけ快適です。",
       "korean": "덥지 않은 만큼 괜찮아요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "덥지 않으니까 괜찮아요."
+      ],
       "hint": "덥지...",
       "explanation": "否定形連体形「-지 않은 만큼」で条件に応じた快適さを表します。"
     },
@@ -96,7 +111,9 @@
       "order": 10,
       "japanese": "助けた分だけ感謝しています。",
       "korean": "도와준 만큼 고마워요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "도와준 만큼 고맙습니다."
+      ],
       "hint": "도와준...",
       "explanation": "与えた助けに応じた感謝を「-ㄴ 만큼」で述べます。"
     }

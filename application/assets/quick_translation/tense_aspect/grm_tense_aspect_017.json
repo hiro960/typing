@@ -27,7 +27,7 @@
       "order": 3,
       "japanese": "もう一度お伝えします。",
       "korean": "다시 말해 드릴게요.",
-      "alternativeAnswers": ["다시 말씀드릴게요."],
+      "alternativeAnswers": ["다시 말씀드릴게요.", "다시 말씀드릴게요."],
       "hint": "다시...",
       "explanation": "丁寧にしてあげる意味で말하다+어 드리다を用います。"
     },

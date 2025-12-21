@@ -8,7 +8,7 @@
       "id": "qt_adnominal_009_01",
       "order": 1,
       "japanese": "走ることが好きです。",
-      "korean": "달리기가 좋아요.",
+      "korean": "달리기를 좋아해요.",
       "alternativeAnswers": ["달리기를 좋아합니다."],
       "hint": "달리기...",
       "explanation": "動詞語幹＋기で「〜すること」を表します。"
@@ -71,8 +71,8 @@
       "id": "qt_adnominal_009_08",
       "order": 8,
       "japanese": "旅行することが好きです。",
-      "korean": "여행하기가 좋아요.",
-      "alternativeAnswers": ["여행하기가 좋습니다."],
+      "korean": "여행하기를 좋아해요.",
+      "alternativeAnswers": ["여행하기를 좋아합니다."],
       "hint": "여행하...",
       "explanation": "行為そのものへの好みを名詞化して述べます。"
     },

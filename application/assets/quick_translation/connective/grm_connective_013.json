@@ -9,7 +9,9 @@
       "order": 1,
       "japanese": "寝る前に歯を磨きます。",
       "korean": "자기 전에 이를 닦아요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "자기 전에 이를 닦습니다."
+      ],
       "hint": "자기...",
       "explanation": "動作の名詞形に 전에 を付け「〜する前に」を表します。"
     },
@@ -18,7 +20,9 @@
       "order": 2,
       "japanese": "学校に行く前に朝ご飯を食べます。",
       "korean": "학교 가기 전에 아침을 먹어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "학교 가기 전에 아침을 먹습니다."
+      ],
       "hint": "학교...",
       "explanation": "行動の順序で前にすることを示す接続表現です。"
     },
@@ -27,7 +31,10 @@
       "order": 3,
       "japanese": "出かける前に電話してください。",
       "korean": "나가기 전에 전화하세요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "나가기 전에 꼭 전화하세요.",
+        "나가기 전에 전화해요."
+      ],
       "hint": "나가기...",
       "explanation": "先に行う行動を指定するとき -기 전에 を使います。"
     },
@@ -36,7 +43,9 @@
       "order": 4,
       "japanese": "仕事をする前にコーヒーを飲みます。",
       "korean": "일하기 전에 커피를 마셔요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "일하기 전에 커피를 마십니다."
+      ],
       "hint": "일하...",
       "explanation": "後の行為の前段階を示す接続表現です。"
     },
@@ -72,7 +81,10 @@
       "order": 8,
       "japanese": "電話する前に時間を確認してください。",
       "korean": "전화하기 전에 시간을 확인하세요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "전화하기 전에 꼭 시간을 확인하세요.",
+        "전화하기 전에 시간을 확인해요."
+      ],
       "hint": "전화...",
       "explanation": "行動前の確認を促す場面で使う接続表現です。"
     },
@@ -81,7 +93,9 @@
       "order": 9,
       "japanese": "雨が降る前に家に帰ります。",
       "korean": "비 오기 전에 집에 가요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "비 오기 전에 집에 갑니다."
+      ],
       "hint": "비 오...",
       "explanation": "ある事態が起こる前に行動することを示します。"
     },
@@ -90,7 +104,9 @@
       "order": 10,
       "japanese": "食べる前に手を洗います。",
       "korean": "먹기 전에 손을 씻어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "먹기 전에 손을 씻습니다."
+      ],
       "hint": "먹기...",
       "explanation": "次の行動の前に行う準備を表す接続形です。"
     }

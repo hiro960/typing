@@ -26,8 +26,8 @@
       "id": "qt_expression_011_03",
       "order": 3,
       "japanese": "このカフェは広いほうです。",
-      "korean": "이 카페는 넓을 편이에요.",
-      "alternativeAnswers": ["이 카페는 넓을 편입니다."],
+      "korean": "이 카페는 넓은 편이에요.",
+      "alternativeAnswers": ["이 카페는 넓은 편입니다."],
       "hint": "이 카페...",
       "explanation": "程度をやや控えめに言うとき使う表現です。"
     },

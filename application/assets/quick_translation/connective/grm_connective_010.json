@@ -9,7 +9,9 @@
       "order": 1,
       "japanese": "雨が降っても行きます。",
       "korean": "비가 와도 갈게요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "비가 와도 갑니다."
+      ],
       "hint": "비가...",
       "explanation": "逆条件を出しても後件が変わらないとき -아/어도 を使います。"
     },
@@ -18,7 +20,9 @@
       "order": 2,
       "japanese": "疲れても勉強します。",
       "korean": "피곤해도 공부해요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "피곤해도 공부합니다."
+      ],
       "hint": "피곤...",
       "explanation": "譲歩しつつ意思を示す場面の接続表現です。"
     },
@@ -27,7 +31,9 @@
       "order": 3,
       "japanese": "遅くなっても電話してください。",
       "korean": "늦어도 전화하세요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "늦어도 전화해 주세요."
+      ],
       "hint": "늦어...",
       "explanation": "条件を許容し依頼を続けるときに用います。"
     },
@@ -36,7 +42,9 @@
       "order": 4,
       "japanese": "高くても買います。",
       "korean": "비싸도 살게요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "비싸도 삽니다."
+      ],
       "hint": "비싸...",
       "explanation": "不利な条件でも結果が変わらないことを表します。"
     },
@@ -45,7 +53,9 @@
       "order": 5,
       "japanese": "寒くても散歩します。",
       "korean": "추워도 산책해요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "추워도 산책합니다."
+      ],
       "hint": "추워...",
       "explanation": "譲歩の意味で「〜しても」を表す接続形です。"
     },
@@ -63,7 +73,9 @@
       "order": 7,
       "japanese": "小さくても便利です。",
       "korean": "작아도 편해요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "작아도 편합니다."
+      ],
       "hint": "작아...",
       "explanation": "欠点があっても利点を述べる譲歩表現です。"
     },
@@ -72,7 +84,9 @@
       "order": 8,
       "japanese": "時間がなくても少し休んでください。",
       "korean": "시간이 없어도 조금 쉬세요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "시간이 없더라도 조금 쉬십시오."
+      ],
       "hint": "시간이...",
       "explanation": "不足を認めつつ必要な行動を促すとき -아/어도 を使います。"
     },

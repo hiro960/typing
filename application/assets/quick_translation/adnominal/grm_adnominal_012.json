@@ -71,8 +71,8 @@
       "id": "qt_adnominal_012_08",
       "order": 8,
       "japanese": "ご飯を食べる場所はあそこです。",
-      "korean": "밥 먹는 곳이 저기예요.",
-      "alternativeAnswers": ["밥 먹는 곳이 저기입니다."],
+      "korean": "밥 먹는 곳은 저기예요.",
+      "alternativeAnswers": ["밥 먹는 곳은 저기입니다."],
       "hint": "밥 먹...",
       "explanation": "進行する行為の場所を示す連体形です。"
     },

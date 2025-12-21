@@ -26,8 +26,10 @@
       "id": "qt_expression_003_03",
       "order": 3,
       "japanese": "この映画は面白そうです。",
-      "korean": "이 영화가 재미있는 것 같아요.",
-      "alternativeAnswers": ["이 영화가 재미있는 것 같습니다."],
+      "korean":"이 영화가 재미있을 것 같아요.",
+      "alternativeAnswers": [
+        "이 영화가 재미있는 것 같아요.",
+        "이 영화가 재미있는 것 같습니다."],
       "hint": "이 영화...",
       "explanation": "現在の性質の推測にも「-는 것 같다」を使います。"
     },
@@ -62,8 +64,11 @@
       "id": "qt_expression_003_07",
       "order": 7,
       "japanese": "財布を忘れたみたいです。",
-      "korean": "지갑을 잊은 것 같아요.",
-      "alternativeAnswers": ["지갑을 잊은 것 같습니다."],
+      "korean": "지갑을 두고 온 것 같아요.",
+      "alternativeAnswers": [
+        "지갑을 두고 온 것 같습니다.",
+        "지갑을 잊은 것 같습니다."
+      ],
       "hint": "지갑을...",
       "explanation": "過去の動作の推測も「-은 것 같다」で表現します。"
     },

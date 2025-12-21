@@ -20,7 +20,7 @@
       "korean": "물을 마셔요.",
       "alternativeAnswers": ["물을 마십니다."],
       "hint": "물을...",
-      "explanation": "パッチムなしの「물」なので「을→를」が付き「물을」になります。"
+      "explanation": "「물」はㄹパッチムがあるため「을」が付く"
     },
     {
       "id": "qt_particle_003_03",

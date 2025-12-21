@@ -71,8 +71,8 @@
       "id": "qt_conjugation_004_08",
       "order": 8,
       "japanese": "まだ治っていません。",
-      "korean": "아직 다 낫지 않았어요.",
-      "alternativeAnswers": ["아직 다 낫지 않았습니다."],
+      "korean": "아직 낫지 않았어요.",
+      "alternativeAnswers": ["아직 낫지 않았습니다."],
       "hint": "아직...",
       "explanation": "「-지」は子音始まりなのでㅅを維持し「낫지」になります。"
     },

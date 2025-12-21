@@ -25,9 +25,11 @@
     {
       "id": "qt_conjugation_006_03",
       "order": 3,
-      "japanese": "知らなくて行けませんでした。",
+      "japanese": "わからなくて行けませんでした。",
       "korean": "몰라서 못 갔어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "몰라서 못 갔습니다."
+      ],
       "hint": "몰라서...",
       "explanation": "母音語尾「-아서」でㄹを足し「몰라서」になります。"
     },

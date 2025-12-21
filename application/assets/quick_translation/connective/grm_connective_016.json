@@ -27,7 +27,9 @@
       "order": 3,
       "japanese": "見れば見るほどきれいです。",
       "korean": "볼수록 예뻐요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "볼수록 예쁩니다."
+      ],
       "hint": "볼수록...",
       "explanation": "同じ動詞を反復し「見るほどもっと〜」を示します。"
     },

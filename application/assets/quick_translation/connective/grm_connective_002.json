@@ -27,7 +27,9 @@
       "order": 3,
       "japanese": "今日は日曜日だから学校に行きません。",
       "korean": "오늘은 일요일이니까 학교에 안 가요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "오늘은 일요일이니까 학교에 안 갑니다."
+      ],
       "hint": "오늘은...",
       "explanation": "事実を理由に続く結果を述べるとき使います。"
     },
@@ -36,7 +38,10 @@
       "order": 4,
       "japanese": "お腹が空いたからご飯を食べましょう。",
       "korean": "배고프니까 밥 먹어요.",
-      "alternativeAnswers": ["배고프니까 밥 먹읍시다."],
+      "alternativeAnswers": [
+        "배고프니까 밥 먹읍시다.",
+        "배가 고프니까 밥 먹어요.",
+        "배가 고프니까 밥 먹읍시다."],
       "hint": "배고...",
       "explanation": "理由を挙げて提案する場面の「〜だから」に相当します。"
     },

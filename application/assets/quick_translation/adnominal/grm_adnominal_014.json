@@ -25,9 +25,9 @@
     {
       "id": "qt_adnominal_014_03",
       "order": 3,
-      "japanese": "今日は休みだと思いました。",
-      "korean": "오늘 쉬는 줄 알았어요.",
-      "alternativeAnswers": ["오늘 쉬는 줄 알았습니다."],
+      "japanese": "今日は休みの日だと思いました。",
+      "korean": "오늘 쉬는 날인 줄 알았어요.",
+      "alternativeAnswers": ["오늘 쉬는 날인 줄 알았습니다."],
       "hint": "오늘...",
       "explanation": "状態を誤って推測したときに使います。"
     },

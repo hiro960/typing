@@ -71,8 +71,8 @@
       "id": "qt_expression_010_08",
       "order": 8,
       "japanese": "熱いスープは飲みにくいです。",
-      "korean": "뜨거운 국은 마시기 어려워요.",
-      "alternativeAnswers": ["뜨거운 국은 마시기 어렵습니다."],
+      "korean": "뜨거운 국은 먹기 어려워요.",
+      "alternativeAnswers": ["뜨거운 국은 먹기 어렵습니다."],
       "hint": "뜨거운...",
       "explanation": "しづらさを「-기 어렵다」で自然に言います。"
     },

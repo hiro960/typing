@@ -9,7 +9,11 @@
       "order": 1,
       "japanese": "友達とご飯を食べます。",
       "korean": "친구랑 밥 먹어요.",
-      "alternativeAnswers": ["친구랑 밥 먹습니다."],
+      "alternativeAnswers": [
+        "친구랑 밥를 먹어요.",
+        "친구랑 밥 먹습니다.",
+        "친구랑 를밥 먹습니다."
+      ],
       "hint": "친구랑...",
       "explanation": "カジュアルな並列でパッチムなしは「랑」を使います。"
     },

@@ -9,7 +9,9 @@
       "order": 1,
       "japanese": "本を読んでいて寝てしまいました。",
       "korean": "책을 읽다가 잠들었어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "책을 읽다가 잠이 들었어요."
+      ],
       "hint": "책을...",
       "explanation": "進行中の動作が中断され別のことが起きるとき -다가 を使います。"
     },
@@ -18,7 +20,9 @@
       "order": 2,
       "japanese": "料理していて電話を受けました。",
       "korean": "요리하다가 전화를 받았어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "요리하다가 전화를 받았습니다."
+      ],
       "hint": "요리...",
       "explanation": "途中の動作から別の出来事に転換したことを表します。"
     },
@@ -27,7 +31,9 @@
       "order": 3,
       "japanese": "バスを待っていて雨が降りました。",
       "korean": "버스를 기다리다가 비가 왔어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "버스를 기다리다가 비가 왔습니다."
+      ],
       "hint": "버스를...",
       "explanation": "先行動作中に新しい事態が生じたことを示す接続形です。"
     },
@@ -36,7 +42,9 @@
       "order": 4,
       "japanese": "走っていて転びました。",
       "korean": "뛰다가 넘어졌어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "뛰다가 넘어졌습니다."
+      ],
       "hint": "뛰다가...",
       "explanation": "進行中の動作が原因で別の結果が起きるときに用います。"
     },
@@ -45,7 +53,10 @@
       "order": 5,
       "japanese": "仕事中に友達が来ました。",
       "korean": "일하다가 친구가 왔어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": 
+      [
+        "일하다가 친구가 왔습니다."
+      ],
       "hint": "일하...",
       "explanation": "途中の行為から別の出来事に変わる状況を表現します。"
     },
@@ -54,7 +65,9 @@
       "order": 6,
       "japanese": "掃除していてカップを落としました。",
       "korean": "청소하다가 컵을 떨어뜨렸어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "청소하다가 컵을 떨어뜨렸습니다."
+      ],
       "hint": "청소...",
       "explanation": "前の動作の途中で予期せぬ結果が出た場面です。"
     },
@@ -63,7 +76,9 @@
       "order": 7,
       "japanese": "勉強していて時間を忘れました。",
       "korean": "공부하다가 시간을 잊었어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "공부하다가 시간을 잊었습니다."
+      ],
       "hint": "공부...",
       "explanation": "進行中の状態が続く中で別の結果が起きたことを表します。"
     },
@@ -72,7 +87,9 @@
       "order": 8,
       "japanese": "ご飯を食べていて電話を受けました。",
       "korean": "밥 먹다가 전화를 받았어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "밥 먹다가 전화를 받았습니다."
+      ],
       "hint": "밥 먹...",
       "explanation": "行為の途中で別の動作に切り替わるとき -다가 を使います。"
     },
@@ -81,7 +98,9 @@
       "order": 9,
       "japanese": "映画を見ていて泣きました。",
       "korean": "영화 보다가 울었어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "영화 보다가 울었습니다."
+      ],
       "hint": "영화...",
       "explanation": "感情が途中で変化したことを表す接続表現です。"
     },
@@ -90,7 +109,9 @@
       "order": 10,
       "japanese": "寝ていて起きました。",
       "korean": "자다가 일어났어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "자다가 일어났습니다."
+      ],
       "hint": "자다가...",
       "explanation": "進行中の状態が終わり別の行為に移ることを示します。"
     }

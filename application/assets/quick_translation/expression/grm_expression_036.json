@@ -53,8 +53,8 @@
       "id": "qt_expression_036_06",
       "order": 6,
       "japanese": "コーヒーでも一杯しましょう。",
-      "korean": "커피라도 한잔 하죠.",
-      "alternativeAnswers": [],
+      "korean": "커피라도 한잔 할까요?",
+      "alternativeAnswers": ["커피라도 한잔 하죠"],
       "hint": "커피라도...",
       "explanation": "軽い提案を「-라도」で表し、何でもいい感じを出します。"
     },

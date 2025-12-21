@@ -9,7 +9,9 @@
       "order": 1,
       "japanese": "音楽を聴きながら勉強します。",
       "korean": "음악 들으면서 공부해요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "음악 들으면서 공부합니다."
+      ],
       "hint": "음악...",
       "explanation": "二つの行動を同時に行うとき動詞に -(으)면서 を付けます。"
     },
@@ -18,7 +20,9 @@
       "order": 2,
       "japanese": "歩きながら電話します。",
       "korean": "걸으면서 통화해요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "걸으면서 전화해요."
+      ],
       "hint": "걸으...",
       "explanation": "同時動作を並べる接続形で「〜しながら」を表します。"
     },
@@ -45,7 +49,9 @@
       "order": 5,
       "japanese": "バスを待ちながら本を読みます。",
       "korean": "버스를 기다리면서 책을 읽어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "버스 기다리면서 책을 읽어요."
+      ],
       "hint": "버스를...",
       "explanation": "待つ動作と読む動作を同時にする場面で使います。"
     },
@@ -63,7 +69,10 @@
       "order": 7,
       "japanese": "笑いながら話します。",
       "korean": "웃으면서 말해요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "웃으면서 이야기해요.",
+        "웃으면서 얘기해요."
+      ],
       "hint": "웃으...",
       "explanation": "先行動作と並行する別の動作を示す接続形です。"
     },
@@ -72,7 +81,9 @@
       "order": 8,
       "japanese": "音楽を聴きながら走ります。",
       "korean": "음악 들으면서 뛰어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "음악 들으면서 달려요."
+      ],
       "hint": "음악...",
       "explanation": "二つの行動を同時進行で行うことを示します。"
     },
@@ -81,7 +92,9 @@
       "order": 9,
       "japanese": "仕事をしながら韓国語を勉強します。",
       "korean": "일을 하면서 한국어를 공부해요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "일을 하면서 한국어를 공부합니다."
+      ],
       "hint": "일을...",
       "explanation": "並行して進める二つの行動を接続する表現です。"
     },
@@ -89,8 +102,12 @@
       "id": "qt_connective_008_10",
       "order": 10,
       "japanese": "掃除しながら歌を歌います。",
-      "korean": "청소하면서 노래해요.",
-      "alternativeAnswers": ["청소하면서 노래를 해요."],
+      "korean": "청소하면서 노래를 불러요.",
+      "alternativeAnswers": [
+        "청소하면서 노래해요.",
+        "청소하면서 노래합니다.",
+        "청소하면서 노래를 불릅니다.",
+        "청소하면서 노래를 해요."],
       "hint": "청소...",
       "explanation": "同時進行の動作を表現する「〜しながら」の形です。"
     }

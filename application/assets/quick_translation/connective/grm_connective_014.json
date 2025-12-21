@@ -9,7 +9,9 @@
       "order": 1,
       "japanese": "ご飯を食べた後で散歩します。",
       "korean": "밥을 먹은 후에 산책해요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "밥을 먹은 후에 산책합니다."
+      ],
       "hint": "밥을...",
       "explanation": "動作の過去連体形に 후에 を付けて「〜した後に」を表します。"
     },
@@ -18,7 +20,9 @@
       "order": 2,
       "japanese": "仕事が終わった後、家に帰ります。",
       "korean": "일을 끝낸 후에 집에 가요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "일을 끝낸 후에 집에 갑니다."
+      ],
       "hint": "일을...",
       "explanation": "先に完了した行為の後に続く動作を示す接続表現です。"
     },
@@ -27,7 +31,9 @@
       "order": 3,
       "japanese": "授業の後に友達に会います。",
       "korean": "수업이 끝난 후에 친구를 만나요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "수업이 끝난 후에 친구를 만납니다."
+      ],
       "hint": "수업...",
       "explanation": "完了した出来事の後続動作を述べるとき -(으)ㄴ 후에 を使います。"
     },
@@ -36,7 +42,9 @@
       "order": 4,
       "japanese": "シャワーをした後に寝ます。",
       "korean": "샤워한 후에 자요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "샤워한 후에 잡니다."
+      ],
       "hint": "샤워...",
       "explanation": "先行する行為が終わったあとを示す接続形です。"
     },
@@ -44,8 +52,12 @@
       "id": "qt_connective_014_05",
       "order": 5,
       "japanese": "映画を見た後に感想を話します。",
-      "korean": "영화 본 후에 이야기해요.",
-      "alternativeAnswers": ["영화 본 후에 얘기해요."],
+      "korean": "영화 본 후에 감상을 이야기해요.",
+      "alternativeAnswers": [
+        "영화 본 후에 감상을 이야기합니다.",
+        "영화 본 후에 얘기해요.",
+        "영화 본 후에 얘기합니다."
+      ],
       "hint": "영화...",
       "explanation": "完了後の行動を続ける表現で「〜した後に」の意味です。"
     },
@@ -54,7 +66,9 @@
       "order": 6,
       "japanese": "手を洗った後に料理します。",
       "korean": "손을 씻은 후에 요리해요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "손을 씻은 후에 요리합니다."
+      ],
       "hint": "손을...",
       "explanation": "順序を守るために行う前後関係を示す接続表現です。"
     },
@@ -63,7 +77,9 @@
       "order": 7,
       "japanese": "宿題をした後にゲームをします。",
       "korean": "숙제를 한 후에 게임해요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "숙제를 한 후에 게임합니다."
+      ],
       "hint": "숙제를...",
       "explanation": "先に終わらせてから次の行動をすることを示します。"
     },
@@ -72,7 +88,9 @@
       "order": 8,
       "japanese": "バスを降りた後に歩きます。",
       "korean": "버스에서 내린 후에 걸어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "버스에서 내린 후에 걷습니다."
+      ],
       "hint": "버스...",
       "explanation": "移動の段階が終わったあとに続く行動を表します。"
     },
@@ -81,7 +99,9 @@
       "order": 9,
       "japanese": "仕事の後でご飯を食べます。",
       "korean": "일한 후에 밥을 먹어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "일한 후에 밥을 먹습니다."
+      ],
       "hint": "일한...",
       "explanation": "前の行為が完了してから次の行為をすることを示します。"
     },
@@ -90,7 +110,9 @@
       "order": 10,
       "japanese": "起きた後に水を飲みます。",
       "korean": "일어난 후에 물을 마셔요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "일어난 후에 물을 마십니다."
+      ],
       "hint": "일어난...",
       "explanation": "起床後の行動を続けるとき -(으)ㄴ 후에 を使います。"
     }

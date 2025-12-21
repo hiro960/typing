@@ -89,8 +89,12 @@
       "id": "qt_adnominal_003_10",
       "order": 10,
       "japanese": "作る料理は簡単です。",
-      "korean": "만들 음식이 쉬워요.",
-      "alternativeAnswers": ["만들 음식이 쉽습니다."],
+      "korean": "만들 요리가 쉬워요.",
+      "alternativeAnswers": [
+        "만들 요리가 쉽습니다.",
+        "만들 음식이 쉽습니다.",
+        "만들 음식이 쉬워요."
+      ],
       "hint": "만들...",
       "explanation": "これから作る対象を未来連体形で表します。"
     }

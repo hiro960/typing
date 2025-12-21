@@ -89,8 +89,12 @@
       "id": "qt_particle_002_10",
       "order": 10,
       "japanese": "私はあまり食べません。",
-      "korean": "저는 많이 안 먹어요.",
-      "alternativeAnswers": ["저는 많이 안 먹습니다."],
+      "korean": "저는 별로 안 먹어요.",
+      "alternativeAnswers": [
+        "저는 별로 안 먹습니다",
+        "저는 많이 안 먹어요.",
+        "저는 많이 안 먹습니다."
+      ],
       "hint": "저는...",
       "explanation": "自分の習慣を述べるので「저+는」で話題を提示します。"
     }

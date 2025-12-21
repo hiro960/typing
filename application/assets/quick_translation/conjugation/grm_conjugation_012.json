@@ -80,8 +80,8 @@
       "id": "qt_conjugation_012_09",
       "order": 9,
       "japanese": "早く起きましょう。",
-      "korean": "우리 빨리 일어나요.",
-      "alternativeAnswers": ["빨리 일어납시다."],
+      "korean": "빨리 일어납시다.",
+      "alternativeAnswers": ["우리 빨리 일어나요.", "빨리 일어나자."],
       "hint": "빨리...",
       "explanation": "勧誘は 해요体なら「우리 일어나요」、より格式的には終結語尾「-ㅂ시다」を使います。"
     },

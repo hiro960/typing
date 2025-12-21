@@ -9,7 +9,9 @@
       "order": 1,
       "japanese": "忙しいですが行きます。",
       "korean": "바쁘지만 갈게요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "바쁘지만 갑니다."
+      ],
       "hint": "바쁘...",
       "explanation": "前後で対立する内容をつなぐ逆接の接続語尾です。"
     },
@@ -18,7 +20,9 @@
       "order": 2,
       "japanese": "疲れていますが楽しいです。",
       "korean": "피곤하지만 재미있어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "피곤하지만 재미있습니다."
+      ],
       "hint": "피곤...",
       "explanation": "予想と違う結果を述べるとき -지만 を用います。"
     },
@@ -27,7 +31,9 @@
       "order": 3,
       "japanese": "雨ですが出かけます。",
       "korean": "비가 오지만 나가요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "비가 오지만 나갑니다."
+      ],
       "hint": "비가...",
       "explanation": "逆の状況を示しながら後件を続ける表現です。"
     },
@@ -36,7 +42,9 @@
       "order": 4,
       "japanese": "値段は高いですがおいしいです。",
       "korean": "비싸지만 맛있어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "비싸지만 맛있습니다."
+      ],
       "hint": "비싸...",
       "explanation": "否定的要素と肯定的結果を対比させるとき使います。"
     },
@@ -45,7 +53,9 @@
       "order": 5,
       "japanese": "寒いですが散歩します。",
       "korean": "춥지만 산책해요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "춥지만 산책합니다."
+      ],
       "hint": "춥지...",
       "explanation": "不利な条件でも行動するニュアンスを示します。"
     },
@@ -54,7 +64,9 @@
       "order": 6,
       "japanese": "少し遠いですが歩いて行きます。",
       "korean": "조금 멀지만 걸어갈게요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "조금 멀지만 걸어갑니다."
+      ],
       "hint": "조금...",
       "explanation": "逆接で譲歩しつつ後件を続ける形です。"
     },
@@ -63,7 +75,9 @@
       "order": 7,
       "japanese": "時間がないですがやります。",
       "korean": "시간이 없지만 할게요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "시간이 없지만 합니다."
+      ],
       "hint": "시간이...",
       "explanation": "不足を認めつつ意志を示すとき -지만 を使います。"
     },
@@ -72,7 +86,9 @@
       "order": 8,
       "japanese": "小さいですが便利です。",
       "korean": "작지만 편해요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "작지만 편합니다."
+      ],
       "hint": "작지...",
       "explanation": "短所と長所を対比して述べる逆接表現です。"
     },

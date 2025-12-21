@@ -54,7 +54,11 @@
       "order": 6,
       "japanese": "友達と写真を撮ります。",
       "korean": "친구하고 사진 찍어요.",
-      "alternativeAnswers": ["친구하고 사진 찍습니다."],
+      "alternativeAnswers": [
+        "친구하고 사진을 찍어요.",
+        "친구하고 사진을 찍습니다.",
+        "친구하고 사진 찍습니다."
+      ],
       "hint": "친구하고...",
       "explanation": "同行する相手を示す口語的表現です。"
     },
@@ -63,7 +67,9 @@
       "order": 7,
       "japanese": "家族と旅行に行きます。",
       "korean": "가족하고 여행 가요.",
-      "alternativeAnswers": ["가족하고 여행 갑니다."],
+      "alternativeAnswers": [
+        "가족하고 여행을 가요.",
+        "가족하고 여행 갑니다."],
       "hint": "가족하고...",
       "explanation": "並列助詞「하고」で同行者と行き先をつなぎます。"
     },
@@ -72,7 +78,11 @@
       "order": 8,
       "japanese": "友達とコーヒーを飲みます。",
       "korean": "친구하고 커피 마셔요.",
-      "alternativeAnswers": ["친구하고 커피 마십니다."],
+      "alternativeAnswers": [
+        "친구하고 커피 마십니다.",
+        "친구하고 커피를 마십니다.",
+        "친구하고 커피를 마셔요."
+      ],
       "hint": "친구하고...",
       "explanation": "飲む対象と相手を「하고」でカジュアルに繋げます。"
     },

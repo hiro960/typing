@@ -45,7 +45,11 @@
       "order": 5,
       "japanese": "長い道を歩きます。",
       "korean": "긴 길을 걸어요.",
-      "alternativeAnswers": ["긴 길을 걷습니다."],
+      "alternativeAnswers": [
+        "긴 길을 걷습니다.",
+        "먼 거리를 걸어요.",
+        "먼 거리를 걷습니다."
+      ],
       "hint": "긴 길을...",
       "explanation": "「길다」は連体形でㄹが落ち「긴」を作り名詞を修飾します。"
     },

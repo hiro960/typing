@@ -18,7 +18,12 @@
       "order": 2,
       "japanese": "本を読んで寝ます。",
       "korean": "책을 읽고 자요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "책을 읽고 잡니다.",
+        "책을 읽고 잘게요.",
+        "책을 읽고 잘겠습니다",
+        "책 읽고 자요."
+      ],
       "hint": "책을...",
       "explanation": "連続した行為をつなぐ基本の並列接続です。"
     },
@@ -45,7 +50,9 @@
       "order": 5,
       "japanese": "勉強して宿題をしました。",
       "korean": "공부하고 숙제했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "공부하고 숙제했습니다."
+      ],
       "hint": "공부...",
       "explanation": "複数の行動を連続して表すときの接続形です。"
     },
@@ -54,7 +61,9 @@
       "order": 6,
       "japanese": "部屋を掃除して休みます。",
       "korean": "방을 청소하고 쉬어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "방을 청소하고 쉽니다."
+      ],
       "hint": "방을...",
       "explanation": "先に掃除し次の行動を続ける並列接続を示します。"
     },
@@ -63,18 +72,24 @@
       "order": 7,
       "japanese": "バスに乗って会社に行きます。",
       "korean": "버스를 타고 회사에 가요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "버스를 타고 회사에 갑니다."
+      ],
       "hint": "버스를...",
       "explanation": "移動手段を示し次に目的地を続けるときに用います。"
     },
     {
       "id": "qt_connective_003_08",
       "order": 8,
-      "japanese": "音楽を聴いて歩きます。",
-      "korean": "음악 듣고 걸어요.",
-      "alternativeAnswers": ["음악을 듣고 걸어요."],
+      "japanese": "ご飯を食べて寝ます。",
+      "korean": "밥 먹고 자요.",
+      "alternativeAnswers": [
+        "밥 먹고 잡니다.",
+        "밥 먹고 잘게요.",
+        "밥 먹고 잘겠습니다"
+      ],
       "hint": "음악...",
-      "explanation": "同時または連続の動作を並べる基本形です。"
+      "explanation": "連続の動作を並べる基本形です。"
     },
     {
       "id": "qt_connective_003_09",
@@ -90,7 +105,9 @@
       "order": 10,
       "japanese": "ご飯を作って家族と食べました。",
       "korean": "밥을 만들고 가족과 먹었어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "밥을 만들고 가족과 먹었습니다."
+      ],
       "hint": "밥을...",
       "explanation": "連続する二つの行動を対等に並べる接続表現です。"
     }

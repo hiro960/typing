@@ -8,9 +8,9 @@
       "id": "qt_connective_017_01",
       "order": 1,
       "japanese": "歩いていると友達に会います。",
-      "korean": "길을 걷다 보면 친구를 만나요.",
-      "alternativeAnswers": ["길을 걷다 보면 친구를 만납니다."],
-      "hint": "길을...",
+      "korean": "걷다 보면 친구를 만나요.",
+      "alternativeAnswers": ["걷다 보면 친구를 만납니다."],
+      "hint": "걷다...",
       "explanation": "動作を続けると自然な結果が起きる形です。"
     },
     {

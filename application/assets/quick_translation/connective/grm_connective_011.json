@@ -9,7 +9,9 @@
       "order": 1,
       "japanese": "勉強しようと本を買いました。",
       "korean": "공부하려고 책을 샀어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "공부하러고 책을 샀어요."
+      ],
       "hint": "공부...",
       "explanation": "目的を示す接続で「〜しようとして」の意味を表します。"
     },
@@ -18,7 +20,9 @@
       "order": 2,
       "japanese": "早く行こうとタクシーに乗りました。",
       "korean": "빨리 가려고 택시를 탔어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "빨리 가러고 택시를 탔어요."
+      ],
       "hint": "빨리...",
       "explanation": "意図を先に出し後件の行動を続けるとき -(으)려고 を使います。"
     },
@@ -27,7 +31,12 @@
       "order": 3,
       "japanese": "友達に会おうと電話しました。",
       "korean": "친구 만나려고 전화했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "친구 만나려고 전화했습니다.",
+        "친구 만나러고 전화했어요.",
+        "친구를 만나려고 전화했어요.",
+        "친구를 만나려고 전화했습니다."
+      ],
       "hint": "친구...",
       "explanation": "目的を持って前の行動をしたことを示す接続形です。"
     },
@@ -35,8 +44,11 @@
       "id": "qt_connective_011_04",
       "order": 4,
       "japanese": "健康になろうとして運動します。",
-      "korean": "건강하려고 운동해요.",
-      "alternativeAnswers": [],
+      "korean": "건강해지려고 운동해요.",
+      "alternativeAnswers": [
+        "건강해지려고 운동합니다.",
+        "건강하려고 운동해요.",
+        "건강하려고 운동합니다."],
       "hint": "건강...",
       "explanation": "意図や目的を表し後件の行動とつなぎます。"
     },
@@ -45,7 +57,9 @@
       "order": 5,
       "japanese": "旅行に行こうとお金を貯めています。",
       "korean": "여행 가려고 돈을 모아요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "여행 가려고 돈을 모습니다."
+      ],
       "hint": "여행...",
       "explanation": "目的を達成するための準備行動を示すとき使います。"
     },
@@ -54,7 +68,9 @@
       "order": 6,
       "japanese": "韓国語を学ぼうとして学院に通います。",
       "korean": "한국어 배우려고 학원에 다녀요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "한국어 배우려고 학원에 다닙니다."
+      ],
       "hint": "한국어...",
       "explanation": "学ぶ目的を示して行動を続ける接続表現です。"
     },
@@ -63,7 +79,9 @@
       "order": 7,
       "japanese": "晩ご飯を作ろうとして市場に行きます。",
       "korean": "저녁을 만들려고 시장에 가요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "저녁을 만들려고 시장에 갑니다."
+      ],
       "hint": "저녁...",
       "explanation": "意図を示し行動の理由を説明する形です。"
     },
@@ -72,7 +90,9 @@
       "order": 8,
       "japanese": "仕事を手伝おうとして早く行きました。",
       "korean": "일을 도우려고 일찍 갔어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "일을 도우려고 일찍 갔습니다."
+      ],
       "hint": "일을...",
       "explanation": "目的を持って行動したことを述べるとき -(으)려고 を用います。"
     },
@@ -81,7 +101,9 @@
       "order": 9,
       "japanese": "写真を撮ろうとしてカメラを持ってきました。",
       "korean": "사진 찍으려고 카메라 가져왔어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "사진 찍으려고 카메라 가져왔습니다."
+      ],
       "hint": "사진...",
       "explanation": "意図を先に示し準備した行動を続ける接続形です。"
     },

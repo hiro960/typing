@@ -61,7 +61,7 @@
     {
       "id": "qt_conjugation_003_07",
       "order": 7,
-      "japanese": "暗くてよく見えません。",
+      "japanese": "黒くてよく見えません。",
       "korean": "까매서 잘 안 보여요.",
       "alternativeAnswers": [],
       "hint": "까매서...",
@@ -79,9 +79,13 @@
     {
       "id": "qt_conjugation_003_09",
       "order": 9,
-      "japanese": "赤くなって恥ずかしいです。",
+      "japanese": "赤くて恥ずかしいです。",
       "korean": "빨개서 부끄러워요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "빨개져서 부끄러워요.",
+        "빨개서 부끄러웁니다.",
+        "빨개져서 부끄러웁니다."
+      ],
       "hint": "빨개서...",
       "explanation": "「빨갛다」は母音語尾前でㅎが脱落し「빨개서」になります。"
     },

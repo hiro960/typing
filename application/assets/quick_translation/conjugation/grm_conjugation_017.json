@@ -90,7 +90,7 @@
       "order": 10,
       "japanese": "見ても分かりません。",
       "korean": "봐도 몰라요.",
-      "alternativeAnswers": ["봐도 모릅니다."],
+      "alternativeAnswers": ["봐도 모릅니다.","봐도 모르겠어요."],
       "hint": "봐도...",
       "explanation": "規則用言の語幹に連結語尾「-도」を付け、後続の規則活用と結んでいます。"
     }

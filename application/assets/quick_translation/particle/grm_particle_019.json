@@ -7,27 +7,33 @@
     {
       "id": "qt_particle_019_01",
       "order": 1,
-      "japanese": "朝ごとに運動します。",
+      "japanese": "毎朝（朝ごとに）運動します。",
       "korean": "아침마다 운동해요.",
-      "alternativeAnswers": ["아침마다 운동합니다."],
+      "alternativeAnswers": [
+        "매일 아침 운동해요.",
+        "아침마다 운동합니다."],
       "hint": "아침마다...",
       "explanation": "反復する時点に「마다」を付けて『〜ごと』を表します。"
     },
     {
       "id": "qt_particle_019_02",
       "order": 2,
-      "japanese": "週末ごとに友達に会います。",
+      "japanese": "毎週末（週末ごとに）友達に会います。",
       "korean": "주말마다 친구를 만나요.",
-      "alternativeAnswers": ["주말마다 친구를 만납니다."],
+      "alternativeAnswers": [
+        "매주 말 친구를 만나요.",
+        "주말마다 친구를 만납니다."],
       "hint": "주말마다...",
       "explanation": "繰り返す期間名詞に「마다」を付けます。"
     },
     {
       "id": "qt_particle_019_03",
       "order": 3,
-      "japanese": "月ごとに本を買います。",
+      "japanese": "毎月（月ごとに）本を買います。",
       "korean": "달마다 책을 사요.",
-      "alternativeAnswers": ["달마다 책을 삽니다."],
+      "alternativeAnswers": [
+        "매월 책을 사요.",
+        "달마다 책을 삽니다."],
       "hint": "달마다...",
       "explanation": "規則的な回数を示すとき「마다」で頻度を表します。"
     },
@@ -52,9 +58,11 @@
     {
       "id": "qt_particle_019_06",
       "order": 6,
-      "japanese": "時間ごとに休みます。",
+      "japanese": "毎時間（時間ごとに）休みます。",
       "korean": "시간마다 쉬어요.",
-      "alternativeAnswers": ["시간마다 쉽니다."],
+      "alternativeAnswers": [
+        "매시간 쉬어요.",
+        "시간마다 쉽니다."],
       "hint": "시간마다...",
       "explanation": "一定間隔での行動を表すとき「마다」を用います。"
     },
@@ -79,9 +87,12 @@
     {
       "id": "qt_particle_019_09",
       "order": 9,
-      "japanese": "日ごとに手紙を書きます。",
+      "japanese": "毎日（日ごとに）手紙を書きます。",
       "korean": "날마다 편지를 써요.",
-      "alternativeAnswers": ["날마다 편지를 씁니다."],
+      "alternativeAnswers": [
+        "매일  편지를 써요.",
+        "날마다 편지를 씁니다."
+      ],
       "hint": "날마다...",
       "explanation": "ほぼ毎日を表すとき「날마다」もよく使います。"
     },

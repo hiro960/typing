@@ -9,7 +9,9 @@
       "order": 1,
       "japanese": "雨が降っているのに傘がありません。",
       "korean": "비가 오는데 우산이 없어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "비가 오는데 우산이 없습니다."
+      ],
       "hint": "비가...",
       "explanation": "状況を述べて対比や後続の内容を続けるとき -(으)ㄴ/는데 を使います。"
     },
@@ -27,7 +29,9 @@
       "order": 3,
       "japanese": "ご飯を作っているので後で電話します。",
       "korean": "밥 만드는 중인데 나중에 전화할게요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "밥 만드는 중인데 나중에 전화합니다."
+      ],
       "hint": "밥 만...",
       "explanation": "進行中の状況を先に出し次の内容を続けます。"
     },
@@ -36,7 +40,9 @@
       "order": 4,
       "japanese": "道が混んでいて少し遅れそうです。",
       "korean": "길이 막히는데 조금 늦을 것 같아요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "길이 막히는데 조금 늦을 것 같습니다."
+      ],
       "hint": "길이...",
       "explanation": "背景を説明し後件の結果や推測を述べるときの形です。"
     },
@@ -45,7 +51,9 @@
       "order": 5,
       "japanese": "天気はいいのに少し寒いです。",
       "korean": "날씨는 좋은데 조금 추워요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "날씨는 좋은데 조금 춥습니다."
+      ],
       "hint": "날씨...",
       "explanation": "対比を示して想定外の状態を続けるときに使います。"
     },
@@ -54,7 +62,9 @@
       "order": 6,
       "japanese": "コーヒーが好きですが今日は水を飲みます。",
       "korean": "커피를 좋아하는데 오늘은 물 마셔요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "커피를 좋아하는데 오늘은 물 마십니다."
+      ],
       "hint": "커피를...",
       "explanation": "好みと違う行動を対比させる接続表現です。"
     },
@@ -72,7 +82,9 @@
       "order": 8,
       "japanese": "友達が来るんですけどどこにいますか。",
       "korean": "친구가 오는데 어디에 있어요?",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "친구가 오는데 어디에 있습니까?"
+      ],
       "hint": "친구가...",
       "explanation": "前置きで状況を述べ相手の反応を促すときに使います。"
     },
@@ -81,7 +93,9 @@
       "order": 9,
       "japanese": "今日は誕生日ですが仕事があります。",
       "korean": "오늘 생일인데 일이 있어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "오늘 생일인데 일이 있습니다."
+      ],
       "hint": "오늘...",
       "explanation": "背景と異なる後件を並べる対比の接続形です。"
     },
@@ -90,7 +104,9 @@
       "order": 10,
       "japanese": "お金がないんですがどうしますか。",
       "korean": "돈이 없는데 어떻게 해요?",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "돈이 없는데 어떻게 합니까?"
+      ],
       "hint": "돈이...",
       "explanation": "事情を説明して質問や提案を続けるとき -(으)ㄴ/는데 を使います。"
     }

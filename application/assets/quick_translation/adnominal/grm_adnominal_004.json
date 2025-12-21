@@ -17,8 +17,12 @@
       "id": "qt_adnominal_004_02",
       "order": 2,
       "japanese": "昨日していた話を続けましょう。",
-      "korean": "어제 하던 이야기를 이어요.",
-      "alternativeAnswers": ["어제 하던 이야기를 잇습니다."],
+      "korean": "어제 하던 이야기를 계속해요.",
+      "alternativeAnswers": [
+        "어제 하던 이야기를 이어 가요",
+        "어제 하던 이야기를 이어요.",
+        "어제 하던 이야기를 잇습니다."
+      ],
       "hint": "어제...",
       "explanation": "途中だった行動を思い出して示す形です。"
     },
@@ -53,8 +57,12 @@
       "id": "qt_adnominal_004_06",
       "order": 6,
       "japanese": "聞いていた歌が思い出せません。",
-      "korean": "듣던 노래가 생각 안 나요.",
-      "alternativeAnswers": ["듣던 노래가 생각 안 납니다."],
+      "korean": "듣던 노래가 생각이 안 나요.",
+      "alternativeAnswers": [
+        "듣던 노래가 생각 안 나요.",
+        "듣던 노래가 생각 안 납니다.",
+        "듣던 노래가 생각이 안 납니다."
+      ],
       "hint": "듣던...",
       "explanation": "過去に聞いた途中だった歌を回想します。"
     },

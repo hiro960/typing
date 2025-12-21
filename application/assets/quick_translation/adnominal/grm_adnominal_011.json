@@ -70,7 +70,7 @@
     {
       "id": "qt_adnominal_011_08",
       "order": 8,
-      "japanese": "疲れたとき休みます。",
+      "japanese": "疲れているとき休みます。",
       "korean": "피곤할 때 쉬어요.",
       "alternativeAnswers": ["피곤할 때 쉽니다."],
       "hint": "피곤할...",

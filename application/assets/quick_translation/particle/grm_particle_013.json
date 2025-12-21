@@ -70,7 +70,7 @@
     {
       "id": "qt_particle_013_08",
       "order": 8,
-      "japanese": "休みまで待ちます。",
+      "japanese": "休み（長期休暇・夏休み）まで待ちます。",
       "korean": "방학까지 기다려요.",
       "alternativeAnswers": ["방학까지 기다립니다."],
       "hint": "방학까지...",

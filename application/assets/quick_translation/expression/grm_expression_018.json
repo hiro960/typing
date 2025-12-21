@@ -89,8 +89,9 @@
       "id": "qt_expression_018_10",
       "order": 10,
       "japanese": "携帯を忘れたせいで連絡できません。",
-      "korean": "휴대폰을 잊은 탓에 연락을 못 해요.",
-      "alternativeAnswers": ["휴대폰을 잊은 탓에 연락을 못 합니다."],
+      "korean": "휴대폰을 두고 온 탓에 연락을 못 해요.",
+      "alternativeAnswers": [
+        "휴대폰을 두고 온 탓에 연락을 못 합니다."],
       "hint": "휴대폰...",
       "explanation": "自分のミスを理由にして結果を伝える表現です。"
     }

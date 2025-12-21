@@ -20,7 +20,10 @@
       "order": 2,
       "japanese": "早く寝てこそ健康です。",
       "korean": "일찍 자야 건강해요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": 
+      [
+        "일찍 자야 건강합니다."
+      ],
       "hint": "일찍...",
       "explanation": "条件を満たしたときの結果を「-아/어야」で表現します。"
     },
@@ -40,7 +43,9 @@
       "order": 4,
       "japanese": "準備してこそ上手にできます。",
       "korean": "준비해야 잘해요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "준비해야 잘합니다."
+      ],
       "hint": "준비해야...",
       "explanation": "準備が条件であることを「-아/어야」で表します。"
     },
@@ -49,7 +54,9 @@
       "order": 5,
       "japanese": "待ってこそ乗れます。",
       "korean": "기다려야 탈 수 있어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "기다려야 탈 수 있습니다."
+      ],
       "hint": "기다려야...",
       "explanation": "待つことが必要条件であるため「기다려야」を使います。"
     },
@@ -58,7 +65,9 @@
       "order": 6,
       "japanese": "登録してこそ聞けます。",
       "korean": "등록해야 들을 수 있어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "등록해야 들을 수 있습니다."
+      ],
       "hint": "등록해야...",
       "explanation": "登録を必須条件として「-아/어야」を用います。"
     },
@@ -66,9 +75,11 @@
       "id": "qt_expression_035_07",
       "order": 7,
       "japanese": "連絡してこそ楽です。",
-      "korean": "미리 연락해야 편해요.",
-      "alternativeAnswers": [],
-      "hint": "미리...",
+      "korean": "연락해야 편해요.",
+      "alternativeAnswers": [
+        "연락해야 편합니다."
+      ],
+      "hint": "연락해야...",
       "explanation": "事前連絡が必要であることを「-아/어야」で表します。"
     },
     {
@@ -76,7 +87,9 @@
       "order": 8,
       "japanese": "練習してこそ覚えます。",
       "korean": "연습해야 기억해요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "연습해야 기억합니다."
+      ],
       "hint": "연습해야...",
       "explanation": "練習が条件であることを「-아/어야」を使って示します。"
     },
@@ -85,7 +98,9 @@
       "order": 9,
       "japanese": "食べてこそ力が出ます。",
       "korean": "먹어야 힘이 나요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "먹어야 힘이 납니다."
+      ],
       "hint": "먹어야...",
       "explanation": "食べることが必要条件であるため「먹어야」を使用します。"
     },
@@ -94,7 +109,9 @@
       "order": 10,
       "japanese": "出かけてこそ気分がよくなります。",
       "korean": "나가야 기분이 좋아져요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "나가야 기분이 좋아집니다."
+      ],
       "hint": "나가야...",
       "explanation": "行動を条件として気分変化を述べるとき「-아/어야」を用います。"
     }
