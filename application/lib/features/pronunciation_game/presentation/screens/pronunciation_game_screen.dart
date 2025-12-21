@@ -712,6 +712,7 @@ class _PronunciationGameScreenState
           accuracy: state.accuracy,
           isPracticeMode: widget.config.isPracticeMode,
           targetQuestionCount: widget.config.targetQuestionCount,
+          completedWords: state.completedWords,
         ),
       ),
     );

@@ -463,6 +463,7 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
           timeSpent: state.totalPlayTimeMs,
           accuracy: state.accuracy,
           mistakeCharacters: state.mistakeCharacters,
+          completedWords: state.completedWords,
         ),
       ),
     );

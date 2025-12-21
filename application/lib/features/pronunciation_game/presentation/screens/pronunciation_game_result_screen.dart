@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:forui/forui.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
@@ -10,8 +11,10 @@ import 'package:chaletta/features/pronunciation_game/presentation/screens/pronun
 import 'package:chaletta/features/pronunciation_game/presentation/screens/pronunciation_ranking_screen.dart';
 import 'package:chaletta/features/ranking_game/presentation/widgets/pixel_character_widget.dart';
 import 'package:chaletta/features/stats/domain/providers/integrated_stats_providers.dart';
+import 'package:chaletta/features/wordbook/data/models/word_model.dart';
 import 'package:chaletta/ui/app_theme.dart';
 import 'package:chaletta/ui/widgets/app_page_scaffold.dart';
+import 'package:chaletta/ui/screens/wordbook/word_form_screen.dart';
 
 /// 発音ゲーム結果画面
 class PronunciationGameResultScreen extends ConsumerStatefulWidget {
@@ -27,6 +30,7 @@ class PronunciationGameResultScreen extends ConsumerStatefulWidget {
     this.accuracy,
     this.isPracticeMode = false,
     this.targetQuestionCount,
+    this.completedWords = const [],
   });
 
   final String difficulty;
@@ -39,6 +43,7 @@ class PronunciationGameResultScreen extends ConsumerStatefulWidget {
   final double? accuracy;
   final bool isPracticeMode;
   final int? targetQuestionCount;
+  final List<PronunciationGameWord> completedWords;
 
   @override
   ConsumerState<PronunciationGameResultScreen> createState() =>
@@ -50,13 +55,42 @@ class _PronunciationGameResultScreenState
   bool _isSubmitting = false;
   String? _errorMessage;
   PronunciationGameResultResponse? _resultResponse;
+  final FlutterTts _tts = FlutterTts();
 
   @override
   void initState() {
     super.initState();
+    _initTts();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _submitResult();
     });
+  }
+
+  Future<void> _initTts() async {
+    await _tts.setLanguage('ko-KR');
+    await _tts.setSpeechRate(0.5);
+  }
+
+  @override
+  void dispose() {
+    _tts.stop();
+    super.dispose();
+  }
+
+  Future<void> _speakKorean(String text) async {
+    await _tts.speak(text);
+  }
+
+  Future<void> _openWordForm(String korean, String japanese) async {
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => WordFormScreen(
+          initialWord: korean,
+          initialMeaning: japanese,
+          initialCategory: WordCategory.WORDS,
+        ),
+      ),
+    );
   }
 
   Future<void> _submitResult() async {
@@ -203,6 +237,13 @@ $newBestText
             const SizedBox(height: 16),
             _buildCompactStatsRow(),
             const SizedBox(height: 24),
+
+            // 学習した単語一覧
+            if (widget.completedWords.isNotEmpty) ...[
+              _buildCompletedWordsList(),
+              const SizedBox(height: 24),
+            ],
+
             _buildActionButtons(),
           ],
         ),
@@ -527,6 +568,111 @@ $newBestText
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildCompletedWordsList() {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // ヘッダー
+        Row(
+          children: [
+            Icon(
+              Iconsax.book_1,
+              color: AppColors.primary,
+              size: 18,
+            ),
+            const SizedBox(width: 8),
+            Text(
+              '学習した単語',
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: theme.colorScheme.onSurface,
+              ),
+            ),
+            const Spacer(),
+            Text(
+              '${widget.completedWords.length}語',
+              style: TextStyle(
+                fontSize: 12,
+                color: theme.colorScheme.onSurface.withOpacity(0.6),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 12),
+
+        // 単語リスト（Card形式）
+        ...widget.completedWords.map((word) {
+          return Card(
+            margin: const EdgeInsets.only(bottom: 8),
+            color: Colors.transparent,
+            elevation: 0,
+            child: Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: isDark ? AppColors.surface : AppColors.lightSurface,
+                borderRadius: BorderRadius.circular(14),
+                border: Border.all(
+                  color: AppColors.primary.withOpacity(0.35),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.primary.withOpacity(0.16),
+                    blurRadius: 12,
+                    offset: const Offset(0, 6),
+                  ),
+                ],
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  // 単語情報
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          word.meaning,
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            color: theme.colorScheme.onSurface.withOpacity(0.7),
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          word.word,
+                          style: theme.textTheme.titleSmall?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // 単語帳追加ボタン
+                  IconButton(
+                    icon: const Icon(Iconsax.bookmark_2),
+                    iconSize: 20,
+                    onPressed: () => _openWordForm(word.word, word.meaning),
+                    color: theme.colorScheme.secondary,
+                  ),
+                  // 音声再生ボタン
+                  IconButton(
+                    icon: const Icon(Iconsax.volume_high),
+                    iconSize: 20,
+                    onPressed: () => _speakKorean(word.word),
+                    color: AppColors.primary,
+                  ),
+                ],
+              ),
+            ),
+          );
+        }),
+      ],
     );
   }
 

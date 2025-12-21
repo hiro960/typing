@@ -221,7 +221,10 @@ class _MainAppShellState extends ConsumerState<_MainAppShell> {
             icon: Icon(FIcons.bookmark),
             label: Text('単語帳'),
           ),
-          FBottomNavigationBarItem(icon: Icon(FIcons.bell), label: Text('通知')),
+          FBottomNavigationBarItem(
+            icon: Icon(FIcons.bell),
+            label: Text('通知'),
+          ),
           FBottomNavigationBarItem(
             icon: Icon(FIcons.userRound),
             label: Text('プロフィール'),

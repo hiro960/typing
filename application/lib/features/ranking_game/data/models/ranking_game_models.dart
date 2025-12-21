@@ -301,6 +301,7 @@ abstract class RankingGameSessionState with _$RankingGameSessionState {
     @Default(false) bool isPlaying,
     @Default(false) bool isFinished,
     @Default(<RankingGameWord>[]) List<RankingGameWord> wordQueue,
+    @Default(<RankingGameWord>[]) List<RankingGameWord> completedWords, // 完了した単語リスト
     @Default(0) int totalBonusTime,
     @Default(0) int wordIndex,
     DateTime? startTime,

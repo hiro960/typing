@@ -151,6 +151,9 @@ class RankingGameSession extends _$RankingGameSession {
     // コンポーザーをリセット
     _composer.reset();
 
+    // 完了した単語をリストに追加
+    final newCompletedWords = [...state.completedWords, word];
+
     state = state.copyWith(
       score: newScore,
       correctCount: state.correctCount + 1,
@@ -161,6 +164,7 @@ class RankingGameSession extends _$RankingGameSession {
       inputBuffer: '',
       currentPosition: 0,
       wordIndex: nextWordIndex,
+      completedWords: newCompletedWords,
     );
   }
 

@@ -930,6 +930,9 @@ class PronunciationGameSession extends _$PronunciationGameSession {
         bonusTime = 2; // 5コンボごとに2秒追加
       }
 
+      // 完了した単語をリストに追加
+      final newCompletedWords = [...state.completedWords, word];
+
       // Step 1: まず正解フィードバックを表示（現在の単語を維持、スコアを更新）
       state = state.copyWith(
         score: newScore,
@@ -941,6 +944,7 @@ class PronunciationGameSession extends _$PronunciationGameSession {
         remainingTimeMs: state.remainingTimeMs + (bonusTime * 1000),
         lastInputResult: PronunciationInputResultType.correct,
         lastInputTime: DateTime.now(),
+        completedWords: newCompletedWords,
         // currentWord, wordIndex, recognizedText は維持（フィードバック表示のため）
       );
 

@@ -4000,7 +4000,8 @@ as int,
 mixin _$RankingGameSessionState {
 
  String get difficulty; int get remainingTimeMs; int get score; int get correctCount; int get currentCombo; int get maxCombo; ComboMeterState get comboMeter; int get characterLevel; RankingGameWord? get currentWord; String get inputBuffer; int get currentPosition;// 字母レベルの現在位置
- bool get isPlaying; bool get isFinished; List<RankingGameWord> get wordQueue; int get totalBonusTime; int get wordIndex; DateTime? get startTime; InputResultType get lastInputResult; DateTime? get lastInputTime;// アニメーション用のタイムスタンプ
+ bool get isPlaying; bool get isFinished; List<RankingGameWord> get wordQueue; List<RankingGameWord> get completedWords;// 完了した単語リスト
+ int get totalBonusTime; int get wordIndex; DateTime? get startTime; InputResultType get lastInputResult; DateTime? get lastInputTime;// アニメーション用のタイムスタンプ
  int get totalTypedJamos;// 正解した字母数（統計用）
  int get totalMistakes;// ミス数（正解率計算用）
  Map<String, int> get mistakeCharacters;
@@ -4014,16 +4015,16 @@ $RankingGameSessionStateCopyWith<RankingGameSessionState> get copyWith => _$Rank
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is RankingGameSessionState&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.remainingTimeMs, remainingTimeMs) || other.remainingTimeMs == remainingTimeMs)&&(identical(other.score, score) || other.score == score)&&(identical(other.correctCount, correctCount) || other.correctCount == correctCount)&&(identical(other.currentCombo, currentCombo) || other.currentCombo == currentCombo)&&(identical(other.maxCombo, maxCombo) || other.maxCombo == maxCombo)&&(identical(other.comboMeter, comboMeter) || other.comboMeter == comboMeter)&&(identical(other.characterLevel, characterLevel) || other.characterLevel == characterLevel)&&(identical(other.currentWord, currentWord) || other.currentWord == currentWord)&&(identical(other.inputBuffer, inputBuffer) || other.inputBuffer == inputBuffer)&&(identical(other.currentPosition, currentPosition) || other.currentPosition == currentPosition)&&(identical(other.isPlaying, isPlaying) || other.isPlaying == isPlaying)&&(identical(other.isFinished, isFinished) || other.isFinished == isFinished)&&const DeepCollectionEquality().equals(other.wordQueue, wordQueue)&&(identical(other.totalBonusTime, totalBonusTime) || other.totalBonusTime == totalBonusTime)&&(identical(other.wordIndex, wordIndex) || other.wordIndex == wordIndex)&&(identical(other.startTime, startTime) || other.startTime == startTime)&&(identical(other.lastInputResult, lastInputResult) || other.lastInputResult == lastInputResult)&&(identical(other.lastInputTime, lastInputTime) || other.lastInputTime == lastInputTime)&&(identical(other.totalTypedJamos, totalTypedJamos) || other.totalTypedJamos == totalTypedJamos)&&(identical(other.totalMistakes, totalMistakes) || other.totalMistakes == totalMistakes)&&const DeepCollectionEquality().equals(other.mistakeCharacters, mistakeCharacters));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RankingGameSessionState&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.remainingTimeMs, remainingTimeMs) || other.remainingTimeMs == remainingTimeMs)&&(identical(other.score, score) || other.score == score)&&(identical(other.correctCount, correctCount) || other.correctCount == correctCount)&&(identical(other.currentCombo, currentCombo) || other.currentCombo == currentCombo)&&(identical(other.maxCombo, maxCombo) || other.maxCombo == maxCombo)&&(identical(other.comboMeter, comboMeter) || other.comboMeter == comboMeter)&&(identical(other.characterLevel, characterLevel) || other.characterLevel == characterLevel)&&(identical(other.currentWord, currentWord) || other.currentWord == currentWord)&&(identical(other.inputBuffer, inputBuffer) || other.inputBuffer == inputBuffer)&&(identical(other.currentPosition, currentPosition) || other.currentPosition == currentPosition)&&(identical(other.isPlaying, isPlaying) || other.isPlaying == isPlaying)&&(identical(other.isFinished, isFinished) || other.isFinished == isFinished)&&const DeepCollectionEquality().equals(other.wordQueue, wordQueue)&&const DeepCollectionEquality().equals(other.completedWords, completedWords)&&(identical(other.totalBonusTime, totalBonusTime) || other.totalBonusTime == totalBonusTime)&&(identical(other.wordIndex, wordIndex) || other.wordIndex == wordIndex)&&(identical(other.startTime, startTime) || other.startTime == startTime)&&(identical(other.lastInputResult, lastInputResult) || other.lastInputResult == lastInputResult)&&(identical(other.lastInputTime, lastInputTime) || other.lastInputTime == lastInputTime)&&(identical(other.totalTypedJamos, totalTypedJamos) || other.totalTypedJamos == totalTypedJamos)&&(identical(other.totalMistakes, totalMistakes) || other.totalMistakes == totalMistakes)&&const DeepCollectionEquality().equals(other.mistakeCharacters, mistakeCharacters));
 }
 
 
 @override
-int get hashCode => Object.hashAll([runtimeType,difficulty,remainingTimeMs,score,correctCount,currentCombo,maxCombo,comboMeter,characterLevel,currentWord,inputBuffer,currentPosition,isPlaying,isFinished,const DeepCollectionEquality().hash(wordQueue),totalBonusTime,wordIndex,startTime,lastInputResult,lastInputTime,totalTypedJamos,totalMistakes,const DeepCollectionEquality().hash(mistakeCharacters)]);
+int get hashCode => Object.hashAll([runtimeType,difficulty,remainingTimeMs,score,correctCount,currentCombo,maxCombo,comboMeter,characterLevel,currentWord,inputBuffer,currentPosition,isPlaying,isFinished,const DeepCollectionEquality().hash(wordQueue),const DeepCollectionEquality().hash(completedWords),totalBonusTime,wordIndex,startTime,lastInputResult,lastInputTime,totalTypedJamos,totalMistakes,const DeepCollectionEquality().hash(mistakeCharacters)]);
 
 @override
 String toString() {
-  return 'RankingGameSessionState(difficulty: $difficulty, remainingTimeMs: $remainingTimeMs, score: $score, correctCount: $correctCount, currentCombo: $currentCombo, maxCombo: $maxCombo, comboMeter: $comboMeter, characterLevel: $characterLevel, currentWord: $currentWord, inputBuffer: $inputBuffer, currentPosition: $currentPosition, isPlaying: $isPlaying, isFinished: $isFinished, wordQueue: $wordQueue, totalBonusTime: $totalBonusTime, wordIndex: $wordIndex, startTime: $startTime, lastInputResult: $lastInputResult, lastInputTime: $lastInputTime, totalTypedJamos: $totalTypedJamos, totalMistakes: $totalMistakes, mistakeCharacters: $mistakeCharacters)';
+  return 'RankingGameSessionState(difficulty: $difficulty, remainingTimeMs: $remainingTimeMs, score: $score, correctCount: $correctCount, currentCombo: $currentCombo, maxCombo: $maxCombo, comboMeter: $comboMeter, characterLevel: $characterLevel, currentWord: $currentWord, inputBuffer: $inputBuffer, currentPosition: $currentPosition, isPlaying: $isPlaying, isFinished: $isFinished, wordQueue: $wordQueue, completedWords: $completedWords, totalBonusTime: $totalBonusTime, wordIndex: $wordIndex, startTime: $startTime, lastInputResult: $lastInputResult, lastInputTime: $lastInputTime, totalTypedJamos: $totalTypedJamos, totalMistakes: $totalMistakes, mistakeCharacters: $mistakeCharacters)';
 }
 
 
@@ -4034,7 +4035,7 @@ abstract mixin class $RankingGameSessionStateCopyWith<$Res>  {
   factory $RankingGameSessionStateCopyWith(RankingGameSessionState value, $Res Function(RankingGameSessionState) _then) = _$RankingGameSessionStateCopyWithImpl;
 @useResult
 $Res call({
- String difficulty, int remainingTimeMs, int score, int correctCount, int currentCombo, int maxCombo, ComboMeterState comboMeter, int characterLevel, RankingGameWord? currentWord, String inputBuffer, int currentPosition, bool isPlaying, bool isFinished, List<RankingGameWord> wordQueue, int totalBonusTime, int wordIndex, DateTime? startTime, InputResultType lastInputResult, DateTime? lastInputTime, int totalTypedJamos, int totalMistakes, Map<String, int> mistakeCharacters
+ String difficulty, int remainingTimeMs, int score, int correctCount, int currentCombo, int maxCombo, ComboMeterState comboMeter, int characterLevel, RankingGameWord? currentWord, String inputBuffer, int currentPosition, bool isPlaying, bool isFinished, List<RankingGameWord> wordQueue, List<RankingGameWord> completedWords, int totalBonusTime, int wordIndex, DateTime? startTime, InputResultType lastInputResult, DateTime? lastInputTime, int totalTypedJamos, int totalMistakes, Map<String, int> mistakeCharacters
 });
 
 
@@ -4051,7 +4052,7 @@ class _$RankingGameSessionStateCopyWithImpl<$Res>
 
 /// Create a copy of RankingGameSessionState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? difficulty = null,Object? remainingTimeMs = null,Object? score = null,Object? correctCount = null,Object? currentCombo = null,Object? maxCombo = null,Object? comboMeter = null,Object? characterLevel = null,Object? currentWord = freezed,Object? inputBuffer = null,Object? currentPosition = null,Object? isPlaying = null,Object? isFinished = null,Object? wordQueue = null,Object? totalBonusTime = null,Object? wordIndex = null,Object? startTime = freezed,Object? lastInputResult = null,Object? lastInputTime = freezed,Object? totalTypedJamos = null,Object? totalMistakes = null,Object? mistakeCharacters = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? difficulty = null,Object? remainingTimeMs = null,Object? score = null,Object? correctCount = null,Object? currentCombo = null,Object? maxCombo = null,Object? comboMeter = null,Object? characterLevel = null,Object? currentWord = freezed,Object? inputBuffer = null,Object? currentPosition = null,Object? isPlaying = null,Object? isFinished = null,Object? wordQueue = null,Object? completedWords = null,Object? totalBonusTime = null,Object? wordIndex = null,Object? startTime = freezed,Object? lastInputResult = null,Object? lastInputTime = freezed,Object? totalTypedJamos = null,Object? totalMistakes = null,Object? mistakeCharacters = null,}) {
   return _then(_self.copyWith(
 difficulty: null == difficulty ? _self.difficulty : difficulty // ignore: cast_nullable_to_non_nullable
 as String,remainingTimeMs: null == remainingTimeMs ? _self.remainingTimeMs : remainingTimeMs // ignore: cast_nullable_to_non_nullable
@@ -4067,6 +4068,7 @@ as String,currentPosition: null == currentPosition ? _self.currentPosition : cur
 as int,isPlaying: null == isPlaying ? _self.isPlaying : isPlaying // ignore: cast_nullable_to_non_nullable
 as bool,isFinished: null == isFinished ? _self.isFinished : isFinished // ignore: cast_nullable_to_non_nullable
 as bool,wordQueue: null == wordQueue ? _self.wordQueue : wordQueue // ignore: cast_nullable_to_non_nullable
+as List<RankingGameWord>,completedWords: null == completedWords ? _self.completedWords : completedWords // ignore: cast_nullable_to_non_nullable
 as List<RankingGameWord>,totalBonusTime: null == totalBonusTime ? _self.totalBonusTime : totalBonusTime // ignore: cast_nullable_to_non_nullable
 as int,wordIndex: null == wordIndex ? _self.wordIndex : wordIndex // ignore: cast_nullable_to_non_nullable
 as int,startTime: freezed == startTime ? _self.startTime : startTime // ignore: cast_nullable_to_non_nullable
@@ -4181,10 +4183,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String difficulty,  int remainingTimeMs,  int score,  int correctCount,  int currentCombo,  int maxCombo,  ComboMeterState comboMeter,  int characterLevel,  RankingGameWord? currentWord,  String inputBuffer,  int currentPosition,  bool isPlaying,  bool isFinished,  List<RankingGameWord> wordQueue,  int totalBonusTime,  int wordIndex,  DateTime? startTime,  InputResultType lastInputResult,  DateTime? lastInputTime,  int totalTypedJamos,  int totalMistakes,  Map<String, int> mistakeCharacters)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String difficulty,  int remainingTimeMs,  int score,  int correctCount,  int currentCombo,  int maxCombo,  ComboMeterState comboMeter,  int characterLevel,  RankingGameWord? currentWord,  String inputBuffer,  int currentPosition,  bool isPlaying,  bool isFinished,  List<RankingGameWord> wordQueue,  List<RankingGameWord> completedWords,  int totalBonusTime,  int wordIndex,  DateTime? startTime,  InputResultType lastInputResult,  DateTime? lastInputTime,  int totalTypedJamos,  int totalMistakes,  Map<String, int> mistakeCharacters)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RankingGameSessionState() when $default != null:
-return $default(_that.difficulty,_that.remainingTimeMs,_that.score,_that.correctCount,_that.currentCombo,_that.maxCombo,_that.comboMeter,_that.characterLevel,_that.currentWord,_that.inputBuffer,_that.currentPosition,_that.isPlaying,_that.isFinished,_that.wordQueue,_that.totalBonusTime,_that.wordIndex,_that.startTime,_that.lastInputResult,_that.lastInputTime,_that.totalTypedJamos,_that.totalMistakes,_that.mistakeCharacters);case _:
+return $default(_that.difficulty,_that.remainingTimeMs,_that.score,_that.correctCount,_that.currentCombo,_that.maxCombo,_that.comboMeter,_that.characterLevel,_that.currentWord,_that.inputBuffer,_that.currentPosition,_that.isPlaying,_that.isFinished,_that.wordQueue,_that.completedWords,_that.totalBonusTime,_that.wordIndex,_that.startTime,_that.lastInputResult,_that.lastInputTime,_that.totalTypedJamos,_that.totalMistakes,_that.mistakeCharacters);case _:
   return orElse();
 
 }
@@ -4202,10 +4204,10 @@ return $default(_that.difficulty,_that.remainingTimeMs,_that.score,_that.correct
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String difficulty,  int remainingTimeMs,  int score,  int correctCount,  int currentCombo,  int maxCombo,  ComboMeterState comboMeter,  int characterLevel,  RankingGameWord? currentWord,  String inputBuffer,  int currentPosition,  bool isPlaying,  bool isFinished,  List<RankingGameWord> wordQueue,  int totalBonusTime,  int wordIndex,  DateTime? startTime,  InputResultType lastInputResult,  DateTime? lastInputTime,  int totalTypedJamos,  int totalMistakes,  Map<String, int> mistakeCharacters)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String difficulty,  int remainingTimeMs,  int score,  int correctCount,  int currentCombo,  int maxCombo,  ComboMeterState comboMeter,  int characterLevel,  RankingGameWord? currentWord,  String inputBuffer,  int currentPosition,  bool isPlaying,  bool isFinished,  List<RankingGameWord> wordQueue,  List<RankingGameWord> completedWords,  int totalBonusTime,  int wordIndex,  DateTime? startTime,  InputResultType lastInputResult,  DateTime? lastInputTime,  int totalTypedJamos,  int totalMistakes,  Map<String, int> mistakeCharacters)  $default,) {final _that = this;
 switch (_that) {
 case _RankingGameSessionState():
-return $default(_that.difficulty,_that.remainingTimeMs,_that.score,_that.correctCount,_that.currentCombo,_that.maxCombo,_that.comboMeter,_that.characterLevel,_that.currentWord,_that.inputBuffer,_that.currentPosition,_that.isPlaying,_that.isFinished,_that.wordQueue,_that.totalBonusTime,_that.wordIndex,_that.startTime,_that.lastInputResult,_that.lastInputTime,_that.totalTypedJamos,_that.totalMistakes,_that.mistakeCharacters);case _:
+return $default(_that.difficulty,_that.remainingTimeMs,_that.score,_that.correctCount,_that.currentCombo,_that.maxCombo,_that.comboMeter,_that.characterLevel,_that.currentWord,_that.inputBuffer,_that.currentPosition,_that.isPlaying,_that.isFinished,_that.wordQueue,_that.completedWords,_that.totalBonusTime,_that.wordIndex,_that.startTime,_that.lastInputResult,_that.lastInputTime,_that.totalTypedJamos,_that.totalMistakes,_that.mistakeCharacters);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -4222,10 +4224,10 @@ return $default(_that.difficulty,_that.remainingTimeMs,_that.score,_that.correct
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String difficulty,  int remainingTimeMs,  int score,  int correctCount,  int currentCombo,  int maxCombo,  ComboMeterState comboMeter,  int characterLevel,  RankingGameWord? currentWord,  String inputBuffer,  int currentPosition,  bool isPlaying,  bool isFinished,  List<RankingGameWord> wordQueue,  int totalBonusTime,  int wordIndex,  DateTime? startTime,  InputResultType lastInputResult,  DateTime? lastInputTime,  int totalTypedJamos,  int totalMistakes,  Map<String, int> mistakeCharacters)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String difficulty,  int remainingTimeMs,  int score,  int correctCount,  int currentCombo,  int maxCombo,  ComboMeterState comboMeter,  int characterLevel,  RankingGameWord? currentWord,  String inputBuffer,  int currentPosition,  bool isPlaying,  bool isFinished,  List<RankingGameWord> wordQueue,  List<RankingGameWord> completedWords,  int totalBonusTime,  int wordIndex,  DateTime? startTime,  InputResultType lastInputResult,  DateTime? lastInputTime,  int totalTypedJamos,  int totalMistakes,  Map<String, int> mistakeCharacters)?  $default,) {final _that = this;
 switch (_that) {
 case _RankingGameSessionState() when $default != null:
-return $default(_that.difficulty,_that.remainingTimeMs,_that.score,_that.correctCount,_that.currentCombo,_that.maxCombo,_that.comboMeter,_that.characterLevel,_that.currentWord,_that.inputBuffer,_that.currentPosition,_that.isPlaying,_that.isFinished,_that.wordQueue,_that.totalBonusTime,_that.wordIndex,_that.startTime,_that.lastInputResult,_that.lastInputTime,_that.totalTypedJamos,_that.totalMistakes,_that.mistakeCharacters);case _:
+return $default(_that.difficulty,_that.remainingTimeMs,_that.score,_that.correctCount,_that.currentCombo,_that.maxCombo,_that.comboMeter,_that.characterLevel,_that.currentWord,_that.inputBuffer,_that.currentPosition,_that.isPlaying,_that.isFinished,_that.wordQueue,_that.completedWords,_that.totalBonusTime,_that.wordIndex,_that.startTime,_that.lastInputResult,_that.lastInputTime,_that.totalTypedJamos,_that.totalMistakes,_that.mistakeCharacters);case _:
   return null;
 
 }
@@ -4237,7 +4239,7 @@ return $default(_that.difficulty,_that.remainingTimeMs,_that.score,_that.correct
 
 
 class _RankingGameSessionState extends RankingGameSessionState {
-  const _RankingGameSessionState({required this.difficulty, required this.remainingTimeMs, this.score = 0, this.correctCount = 0, this.currentCombo = 0, this.maxCombo = 0, this.comboMeter = const ComboMeterState(), this.characterLevel = 0, this.currentWord, this.inputBuffer = '', this.currentPosition = 0, this.isPlaying = false, this.isFinished = false, final  List<RankingGameWord> wordQueue = const <RankingGameWord>[], this.totalBonusTime = 0, this.wordIndex = 0, this.startTime, this.lastInputResult = InputResultType.none, this.lastInputTime, this.totalTypedJamos = 0, this.totalMistakes = 0, final  Map<String, int> mistakeCharacters = const <String, int>{}}): _wordQueue = wordQueue,_mistakeCharacters = mistakeCharacters,super._();
+  const _RankingGameSessionState({required this.difficulty, required this.remainingTimeMs, this.score = 0, this.correctCount = 0, this.currentCombo = 0, this.maxCombo = 0, this.comboMeter = const ComboMeterState(), this.characterLevel = 0, this.currentWord, this.inputBuffer = '', this.currentPosition = 0, this.isPlaying = false, this.isFinished = false, final  List<RankingGameWord> wordQueue = const <RankingGameWord>[], final  List<RankingGameWord> completedWords = const <RankingGameWord>[], this.totalBonusTime = 0, this.wordIndex = 0, this.startTime, this.lastInputResult = InputResultType.none, this.lastInputTime, this.totalTypedJamos = 0, this.totalMistakes = 0, final  Map<String, int> mistakeCharacters = const <String, int>{}}): _wordQueue = wordQueue,_completedWords = completedWords,_mistakeCharacters = mistakeCharacters,super._();
   
 
 @override final  String difficulty;
@@ -4261,6 +4263,14 @@ class _RankingGameSessionState extends RankingGameSessionState {
   return EqualUnmodifiableListView(_wordQueue);
 }
 
+ final  List<RankingGameWord> _completedWords;
+@override@JsonKey() List<RankingGameWord> get completedWords {
+  if (_completedWords is EqualUnmodifiableListView) return _completedWords;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_completedWords);
+}
+
+// 完了した単語リスト
 @override@JsonKey() final  int totalBonusTime;
 @override@JsonKey() final  int wordIndex;
 @override final  DateTime? startTime;
@@ -4290,16 +4300,16 @@ _$RankingGameSessionStateCopyWith<_RankingGameSessionState> get copyWith => __$R
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RankingGameSessionState&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.remainingTimeMs, remainingTimeMs) || other.remainingTimeMs == remainingTimeMs)&&(identical(other.score, score) || other.score == score)&&(identical(other.correctCount, correctCount) || other.correctCount == correctCount)&&(identical(other.currentCombo, currentCombo) || other.currentCombo == currentCombo)&&(identical(other.maxCombo, maxCombo) || other.maxCombo == maxCombo)&&(identical(other.comboMeter, comboMeter) || other.comboMeter == comboMeter)&&(identical(other.characterLevel, characterLevel) || other.characterLevel == characterLevel)&&(identical(other.currentWord, currentWord) || other.currentWord == currentWord)&&(identical(other.inputBuffer, inputBuffer) || other.inputBuffer == inputBuffer)&&(identical(other.currentPosition, currentPosition) || other.currentPosition == currentPosition)&&(identical(other.isPlaying, isPlaying) || other.isPlaying == isPlaying)&&(identical(other.isFinished, isFinished) || other.isFinished == isFinished)&&const DeepCollectionEquality().equals(other._wordQueue, _wordQueue)&&(identical(other.totalBonusTime, totalBonusTime) || other.totalBonusTime == totalBonusTime)&&(identical(other.wordIndex, wordIndex) || other.wordIndex == wordIndex)&&(identical(other.startTime, startTime) || other.startTime == startTime)&&(identical(other.lastInputResult, lastInputResult) || other.lastInputResult == lastInputResult)&&(identical(other.lastInputTime, lastInputTime) || other.lastInputTime == lastInputTime)&&(identical(other.totalTypedJamos, totalTypedJamos) || other.totalTypedJamos == totalTypedJamos)&&(identical(other.totalMistakes, totalMistakes) || other.totalMistakes == totalMistakes)&&const DeepCollectionEquality().equals(other._mistakeCharacters, _mistakeCharacters));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RankingGameSessionState&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.remainingTimeMs, remainingTimeMs) || other.remainingTimeMs == remainingTimeMs)&&(identical(other.score, score) || other.score == score)&&(identical(other.correctCount, correctCount) || other.correctCount == correctCount)&&(identical(other.currentCombo, currentCombo) || other.currentCombo == currentCombo)&&(identical(other.maxCombo, maxCombo) || other.maxCombo == maxCombo)&&(identical(other.comboMeter, comboMeter) || other.comboMeter == comboMeter)&&(identical(other.characterLevel, characterLevel) || other.characterLevel == characterLevel)&&(identical(other.currentWord, currentWord) || other.currentWord == currentWord)&&(identical(other.inputBuffer, inputBuffer) || other.inputBuffer == inputBuffer)&&(identical(other.currentPosition, currentPosition) || other.currentPosition == currentPosition)&&(identical(other.isPlaying, isPlaying) || other.isPlaying == isPlaying)&&(identical(other.isFinished, isFinished) || other.isFinished == isFinished)&&const DeepCollectionEquality().equals(other._wordQueue, _wordQueue)&&const DeepCollectionEquality().equals(other._completedWords, _completedWords)&&(identical(other.totalBonusTime, totalBonusTime) || other.totalBonusTime == totalBonusTime)&&(identical(other.wordIndex, wordIndex) || other.wordIndex == wordIndex)&&(identical(other.startTime, startTime) || other.startTime == startTime)&&(identical(other.lastInputResult, lastInputResult) || other.lastInputResult == lastInputResult)&&(identical(other.lastInputTime, lastInputTime) || other.lastInputTime == lastInputTime)&&(identical(other.totalTypedJamos, totalTypedJamos) || other.totalTypedJamos == totalTypedJamos)&&(identical(other.totalMistakes, totalMistakes) || other.totalMistakes == totalMistakes)&&const DeepCollectionEquality().equals(other._mistakeCharacters, _mistakeCharacters));
 }
 
 
 @override
-int get hashCode => Object.hashAll([runtimeType,difficulty,remainingTimeMs,score,correctCount,currentCombo,maxCombo,comboMeter,characterLevel,currentWord,inputBuffer,currentPosition,isPlaying,isFinished,const DeepCollectionEquality().hash(_wordQueue),totalBonusTime,wordIndex,startTime,lastInputResult,lastInputTime,totalTypedJamos,totalMistakes,const DeepCollectionEquality().hash(_mistakeCharacters)]);
+int get hashCode => Object.hashAll([runtimeType,difficulty,remainingTimeMs,score,correctCount,currentCombo,maxCombo,comboMeter,characterLevel,currentWord,inputBuffer,currentPosition,isPlaying,isFinished,const DeepCollectionEquality().hash(_wordQueue),const DeepCollectionEquality().hash(_completedWords),totalBonusTime,wordIndex,startTime,lastInputResult,lastInputTime,totalTypedJamos,totalMistakes,const DeepCollectionEquality().hash(_mistakeCharacters)]);
 
 @override
 String toString() {
-  return 'RankingGameSessionState(difficulty: $difficulty, remainingTimeMs: $remainingTimeMs, score: $score, correctCount: $correctCount, currentCombo: $currentCombo, maxCombo: $maxCombo, comboMeter: $comboMeter, characterLevel: $characterLevel, currentWord: $currentWord, inputBuffer: $inputBuffer, currentPosition: $currentPosition, isPlaying: $isPlaying, isFinished: $isFinished, wordQueue: $wordQueue, totalBonusTime: $totalBonusTime, wordIndex: $wordIndex, startTime: $startTime, lastInputResult: $lastInputResult, lastInputTime: $lastInputTime, totalTypedJamos: $totalTypedJamos, totalMistakes: $totalMistakes, mistakeCharacters: $mistakeCharacters)';
+  return 'RankingGameSessionState(difficulty: $difficulty, remainingTimeMs: $remainingTimeMs, score: $score, correctCount: $correctCount, currentCombo: $currentCombo, maxCombo: $maxCombo, comboMeter: $comboMeter, characterLevel: $characterLevel, currentWord: $currentWord, inputBuffer: $inputBuffer, currentPosition: $currentPosition, isPlaying: $isPlaying, isFinished: $isFinished, wordQueue: $wordQueue, completedWords: $completedWords, totalBonusTime: $totalBonusTime, wordIndex: $wordIndex, startTime: $startTime, lastInputResult: $lastInputResult, lastInputTime: $lastInputTime, totalTypedJamos: $totalTypedJamos, totalMistakes: $totalMistakes, mistakeCharacters: $mistakeCharacters)';
 }
 
 
@@ -4310,7 +4320,7 @@ abstract mixin class _$RankingGameSessionStateCopyWith<$Res> implements $Ranking
   factory _$RankingGameSessionStateCopyWith(_RankingGameSessionState value, $Res Function(_RankingGameSessionState) _then) = __$RankingGameSessionStateCopyWithImpl;
 @override @useResult
 $Res call({
- String difficulty, int remainingTimeMs, int score, int correctCount, int currentCombo, int maxCombo, ComboMeterState comboMeter, int characterLevel, RankingGameWord? currentWord, String inputBuffer, int currentPosition, bool isPlaying, bool isFinished, List<RankingGameWord> wordQueue, int totalBonusTime, int wordIndex, DateTime? startTime, InputResultType lastInputResult, DateTime? lastInputTime, int totalTypedJamos, int totalMistakes, Map<String, int> mistakeCharacters
+ String difficulty, int remainingTimeMs, int score, int correctCount, int currentCombo, int maxCombo, ComboMeterState comboMeter, int characterLevel, RankingGameWord? currentWord, String inputBuffer, int currentPosition, bool isPlaying, bool isFinished, List<RankingGameWord> wordQueue, List<RankingGameWord> completedWords, int totalBonusTime, int wordIndex, DateTime? startTime, InputResultType lastInputResult, DateTime? lastInputTime, int totalTypedJamos, int totalMistakes, Map<String, int> mistakeCharacters
 });
 
 
@@ -4327,7 +4337,7 @@ class __$RankingGameSessionStateCopyWithImpl<$Res>
 
 /// Create a copy of RankingGameSessionState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? difficulty = null,Object? remainingTimeMs = null,Object? score = null,Object? correctCount = null,Object? currentCombo = null,Object? maxCombo = null,Object? comboMeter = null,Object? characterLevel = null,Object? currentWord = freezed,Object? inputBuffer = null,Object? currentPosition = null,Object? isPlaying = null,Object? isFinished = null,Object? wordQueue = null,Object? totalBonusTime = null,Object? wordIndex = null,Object? startTime = freezed,Object? lastInputResult = null,Object? lastInputTime = freezed,Object? totalTypedJamos = null,Object? totalMistakes = null,Object? mistakeCharacters = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? difficulty = null,Object? remainingTimeMs = null,Object? score = null,Object? correctCount = null,Object? currentCombo = null,Object? maxCombo = null,Object? comboMeter = null,Object? characterLevel = null,Object? currentWord = freezed,Object? inputBuffer = null,Object? currentPosition = null,Object? isPlaying = null,Object? isFinished = null,Object? wordQueue = null,Object? completedWords = null,Object? totalBonusTime = null,Object? wordIndex = null,Object? startTime = freezed,Object? lastInputResult = null,Object? lastInputTime = freezed,Object? totalTypedJamos = null,Object? totalMistakes = null,Object? mistakeCharacters = null,}) {
   return _then(_RankingGameSessionState(
 difficulty: null == difficulty ? _self.difficulty : difficulty // ignore: cast_nullable_to_non_nullable
 as String,remainingTimeMs: null == remainingTimeMs ? _self.remainingTimeMs : remainingTimeMs // ignore: cast_nullable_to_non_nullable
@@ -4343,6 +4353,7 @@ as String,currentPosition: null == currentPosition ? _self.currentPosition : cur
 as int,isPlaying: null == isPlaying ? _self.isPlaying : isPlaying // ignore: cast_nullable_to_non_nullable
 as bool,isFinished: null == isFinished ? _self.isFinished : isFinished // ignore: cast_nullable_to_non_nullable
 as bool,wordQueue: null == wordQueue ? _self._wordQueue : wordQueue // ignore: cast_nullable_to_non_nullable
+as List<RankingGameWord>,completedWords: null == completedWords ? _self._completedWords : completedWords // ignore: cast_nullable_to_non_nullable
 as List<RankingGameWord>,totalBonusTime: null == totalBonusTime ? _self.totalBonusTime : totalBonusTime // ignore: cast_nullable_to_non_nullable
 as int,wordIndex: null == wordIndex ? _self.wordIndex : wordIndex // ignore: cast_nullable_to_non_nullable
 as int,startTime: freezed == startTime ? _self.startTime : startTime // ignore: cast_nullable_to_non_nullable
