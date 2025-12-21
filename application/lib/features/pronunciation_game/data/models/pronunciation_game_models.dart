@@ -11,6 +11,16 @@ enum PronunciationGameDifficulty {
   advanced,
 }
 
+/// 発音ゲームセッション設定（プロバイダー引数用）
+@freezed
+abstract class PronunciationGameConfig with _$PronunciationGameConfig {
+  const factory PronunciationGameConfig({
+    required String difficulty,
+    @Default(false) bool isPracticeMode,
+    int? targetQuestionCount,
+  }) = _PronunciationGameConfig;
+}
+
 /// 発音ゲームの出題単語
 @freezed
 abstract class PronunciationGameWord with _$PronunciationGameWord {
@@ -229,13 +239,18 @@ abstract class PronunciationGameSessionState with _$PronunciationGameSessionStat
     @Default(PronunciationInputResultType.none) PronunciationInputResultType lastInputResult,
     DateTime? lastInputTime,
     @Default(0) int totalMistakes,
+    // 練習モード用フィールド
+    @Default(false) bool isPracticeMode,
+    int? targetQuestionCount,
   }) = _PronunciationGameSessionState;
 
   /// 初期状態を作成
-  factory PronunciationGameSessionState.initial(String difficulty) {
+  factory PronunciationGameSessionState.initial(PronunciationGameConfig config) {
     return PronunciationGameSessionState(
-      difficulty: difficulty,
-      remainingTimeMs: _getInitialTime(difficulty),
+      difficulty: config.difficulty,
+      remainingTimeMs: config.isPracticeMode ? 999999999 : _getInitialTime(config.difficulty),
+      isPracticeMode: config.isPracticeMode,
+      targetQuestionCount: config.targetQuestionCount,
     );
   }
 

@@ -5,6 +5,8 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/wordbook/data/models/word_model.dart';
 import '../../../features/wordbook/domain/providers/listening_player_controller.dart';
+import '../../../features/settings/domain/providers/display_settings_provider.dart';
+import '../../../features/settings/data/models/display_settings.dart';
 import 'listening_settings_sheet.dart';
 
 class ListeningScreen extends ConsumerStatefulWidget {
@@ -60,6 +62,8 @@ class _ListeningScreenState extends ConsumerState<ListeningScreen> {
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(listeningPlayerControllerProvider);
+    final displaySettings =
+        ref.watch(displaySettingsProvider).value ?? const DisplaySettings();
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
 
@@ -110,6 +114,7 @@ class _ListeningScreenState extends ConsumerState<ListeningScreen> {
                     ? _WordCard(
                         word: state.currentWord!,
                         currentlyPlaying: state.currentlyPlaying,
+                        fontScale: displaySettings.promptFontScale,
                       )
                     : const _EmptyState(),
               ),
@@ -151,10 +156,12 @@ class _WordCard extends StatelessWidget {
   const _WordCard({
     required this.word,
     required this.currentlyPlaying,
+    required this.fontScale,
   });
 
   final Word word;
   final CurrentlyPlaying currentlyPlaying;
+  final double fontScale;
 
   @override
   Widget build(BuildContext context) {
@@ -184,6 +191,8 @@ class _WordCard extends StatelessWidget {
                     word.word,
                     style: theme.textTheme.headlineLarge?.copyWith(
                       fontWeight: FontWeight.bold,
+                      fontSize: (theme.textTheme.headlineLarge?.fontSize ?? 32) *
+                          fontScale,
                       color: currentlyPlaying == CurrentlyPlaying.korean
                           ? colorScheme.onPrimaryContainer
                           : colorScheme.onSurface,
@@ -205,6 +214,8 @@ class _WordCard extends StatelessWidget {
                   child: Text(
                     word.meaning,
                     style: theme.textTheme.titleLarge?.copyWith(
+                      fontSize: (theme.textTheme.titleLarge?.fontSize ?? 22) *
+                          fontScale,
                       color: currentlyPlaying == CurrentlyPlaying.japanese
                           ? colorScheme.onSecondaryContainer
                           : colorScheme.onSurfaceVariant,

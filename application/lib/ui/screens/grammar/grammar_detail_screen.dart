@@ -7,6 +7,8 @@ import '../../../features/grammar/data/models/grammar_detail.dart';
 import '../../../features/grammar/data/models/grammar_index.dart';
 import '../../../features/grammar/data/models/grammar_models.dart';
 import '../../../features/grammar/domain/providers/grammar_providers.dart';
+import '../../../features/settings/domain/providers/display_settings_provider.dart';
+import '../../../features/settings/data/models/display_settings.dart';
 import '../../app_spacing.dart';
 import '../../app_theme.dart';
 import '../../widgets/app_page_scaffold.dart';
@@ -71,6 +73,9 @@ class _GrammarDetailScreenState extends ConsumerState<GrammarDetailScreen> {
   Widget build(BuildContext context) {
     final detailAsync = ref.watch(grammarDetailProvider(widget.grammarId));
     final isFavoriteAsync = ref.watch(isGrammarFavoriteProvider(widget.grammarId));
+    final displaySettings =
+        ref.watch(displaySettingsProvider).value ?? const DisplaySettings();
+    final fontScale = displaySettings.dictionaryFontScale;
 
     return detailAsync.when(
       data: (grammar) => AppPageScaffold(
@@ -92,9 +97,13 @@ class _GrammarDetailScreenState extends ConsumerState<GrammarDetailScreen> {
             error: (_, __) => const SizedBox.shrink(),
           ),
         ],
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(AppSpacing.lg),
-          child: Column(
+        child: MediaQuery(
+          data: MediaQuery.of(context).copyWith(
+            textScaler: TextScaler.linear(fontScale),
+          ),
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(AppSpacing.lg),
+            child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // 概要カード
@@ -161,6 +170,7 @@ class _GrammarDetailScreenState extends ConsumerState<GrammarDetailScreen> {
               const SizedBox(height: AppSpacing.xl),
             ],
           ),
+        ),
         ),
       ),
       loading: () => AppPageScaffold(

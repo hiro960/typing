@@ -25,6 +25,8 @@ class PronunciationGameResultScreen extends ConsumerStatefulWidget {
     required this.characterLevel,
     this.timeSpent,
     this.accuracy,
+    this.isPracticeMode = false,
+    this.targetQuestionCount,
   });
 
   final String difficulty;
@@ -35,6 +37,8 @@ class PronunciationGameResultScreen extends ConsumerStatefulWidget {
   final int characterLevel;
   final int? timeSpent;
   final double? accuracy;
+  final bool isPracticeMode;
+  final int? targetQuestionCount;
 
   @override
   ConsumerState<PronunciationGameResultScreen> createState() =>
@@ -57,6 +61,14 @@ class _PronunciationGameResultScreenState
 
   Future<void> _submitResult() async {
     if (!mounted) return;
+
+    // 練習モードの場合はランキング送信しない
+    if (widget.isPracticeMode) {
+      setState(() {
+        _isSubmitting = false;
+      });
+      return;
+    }
 
     setState(() {
       _isSubmitting = true;
@@ -174,7 +186,9 @@ $newBestText
           children: [
             _buildHeroSection(),
             const SizedBox(height: 16),
-            if (_isSubmitting)
+            if (widget.isPracticeMode)
+              _buildPracticeModeInfo()
+            else if (_isSubmitting)
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 child: CircularProgressIndicator(
@@ -545,6 +559,57 @@ $newBestText
     );
   }
 
+  Widget _buildPracticeModeInfo() {
+    final theme = Theme.of(context);
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      decoration: BoxDecoration(
+        color: AppColors.secondary.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: AppColors.secondary.withOpacity(0.3),
+        ),
+      ),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: AppColors.secondary.withOpacity(0.2),
+              shape: BoxShape.circle,
+            ),
+            child: const Icon(
+              Iconsax.book_1,
+              color: AppColors.secondary,
+              size: 20,
+            ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  '練習モード',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  'このスコアはランキングに反映されません',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: theme.colorScheme.onSurface.withOpacity(0.6),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   Color _getDifficultyColor() {
     switch (widget.difficulty) {
       case 'beginner':
@@ -569,7 +634,11 @@ $newBestText
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute<void>(
                   builder: (_) => PronunciationGameScreen(
-                    difficulty: widget.difficulty,
+                    config: PronunciationGameConfig(
+                      difficulty: widget.difficulty,
+                      isPracticeMode: widget.isPracticeMode,
+                      targetQuestionCount: widget.targetQuestionCount,
+                    ),
                   ),
                 ),
               );
@@ -584,30 +653,33 @@ $newBestText
             ),
           ),
         ),
-        const SizedBox(height: 10),
-        SizedBox(
-          width: double.infinity,
-          child: FButton(
-            style: FButtonStyle.outline(),
-            onPress: () {
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute<void>(
-                  builder: (_) => PronunciationRankingScreen(
-                    initialDifficulty: widget.difficulty,
+        // 練習モードでない場合のみランキングボタンを表示
+        if (!widget.isPracticeMode) ...[
+          const SizedBox(height: 10),
+          SizedBox(
+            width: double.infinity,
+            child: FButton(
+              style: FButtonStyle.outline(),
+              onPress: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute<void>(
+                    builder: (_) => PronunciationRankingScreen(
+                      initialDifficulty: widget.difficulty,
+                    ),
                   ),
-                ),
-              );
-            },
-            child: const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Iconsax.ranking, size: 18),
-                SizedBox(width: 8),
-                Text('ランキングを見る'),
-              ],
+                );
+              },
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Iconsax.ranking, size: 18),
+                  SizedBox(width: 8),
+                  Text('ランキングを見る'),
+                ],
+              ),
             ),
           ),
-        ),
+        ],
         const SizedBox(height: 8),
         TextButton(
           onPressed: () {

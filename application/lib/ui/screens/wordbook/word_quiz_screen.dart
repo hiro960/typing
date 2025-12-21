@@ -7,6 +7,8 @@ import '../../../features/wordbook/data/models/word_model.dart';
 import '../../app_theme.dart';
 import '../../../features/wordbook/domain/providers/word_quiz_controller.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
+import '../../../features/settings/domain/providers/display_settings_provider.dart';
+import '../../../features/settings/data/models/display_settings.dart';
 import 'word_quiz_result_screen.dart';
 
 class WordQuizScreen extends ConsumerStatefulWidget {
@@ -33,6 +35,8 @@ class _WordQuizScreenState extends ConsumerState<WordQuizScreen> {
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(wordQuizControllerProvider);
+    final displaySettings =
+        ref.watch(displaySettingsProvider).value ?? const DisplaySettings();
     ref.listen<WordQuizState>(
       wordQuizControllerProvider,
       (previous, next) {
@@ -82,6 +86,7 @@ class _WordQuizScreenState extends ConsumerState<WordQuizScreen> {
                               .read(wordAudioServiceProvider.notifier)
                               .speak(state.currentWord!.word),
                           onSwiped: _handleSwipe,
+                          fontScale: displaySettings.promptFontScale,
                         )
                       : const _QuizEmptyState(),
                 ),
@@ -175,12 +180,14 @@ class _QuizCard extends StatelessWidget {
     required this.meaningVisible,
     required this.onSpeak,
     required this.onSwiped,
+    required this.fontScale,
   });
 
   final Word word;
   final bool meaningVisible;
   final VoidCallback onSpeak;
   final ValueChanged<DismissDirection> onSwiped;
+  final double fontScale;
 
   @override
   Widget build(BuildContext context) {
@@ -228,7 +235,7 @@ class _QuizCard extends StatelessWidget {
                       word.word,
                       style: theme.textTheme.displaySmall?.copyWith(
                         fontWeight: FontWeight.bold,
-                        fontSize: 30,
+                        fontSize: 30 * fontScale,
                       ),
                       textAlign: TextAlign.center,
                     ),

@@ -5,6 +5,8 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 import '../../../features/hanja/data/models/hanja_models.dart';
 import '../../../features/hanja/data/models/hanja_word.dart';
 import '../../../features/hanja/domain/providers/hanja_providers.dart';
+import '../../../features/settings/domain/providers/display_settings_provider.dart';
+import '../../../features/settings/data/models/display_settings.dart';
 import '../../app_spacing.dart';
 import '../../app_theme.dart';
 import '../../widgets/app_page_scaffold.dart';
@@ -23,6 +25,9 @@ class HanjaWordDetailScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final wordAsync = ref.watch(hanjaWordDetailProvider(wordId));
+    final displaySettings =
+        ref.watch(displaySettingsProvider).value ?? const DisplaySettings();
+    final fontScale = displaySettings.dictionaryFontScale;
 
     return AppPageScaffold(
       title: '漢字語',
@@ -35,7 +40,12 @@ class HanjaWordDetailScreen extends ConsumerWidget {
               message: '漢字語が見つかりませんでした',
             );
           }
-          return _WordDetailContent(word: word);
+          return MediaQuery(
+            data: MediaQuery.of(context).copyWith(
+              textScaler: TextScaler.linear(fontScale),
+            ),
+            child: _WordDetailContent(word: word),
+          );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (error, _) => PageErrorView(

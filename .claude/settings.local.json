@@ -8,7 +8,8 @@
       "Bash(npm run prisma:seed:*)",
       "Bash(npm run build:*)",
       "Bash(dart run build_runner build:*)",
-      "Bash(dart run:*)"
+      "Bash(dart run:*)",
+      "Bash(flutter analyze:*)"
     ],
     "deny": [],
     "ask": []

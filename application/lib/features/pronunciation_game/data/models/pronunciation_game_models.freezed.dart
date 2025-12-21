@@ -11,6 +11,269 @@ part of 'pronunciation_game_models.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
+/// @nodoc
+mixin _$PronunciationGameConfig {
+
+ String get difficulty; bool get isPracticeMode; int? get targetQuestionCount;
+/// Create a copy of PronunciationGameConfig
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PronunciationGameConfigCopyWith<PronunciationGameConfig> get copyWith => _$PronunciationGameConfigCopyWithImpl<PronunciationGameConfig>(this as PronunciationGameConfig, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PronunciationGameConfig&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.isPracticeMode, isPracticeMode) || other.isPracticeMode == isPracticeMode)&&(identical(other.targetQuestionCount, targetQuestionCount) || other.targetQuestionCount == targetQuestionCount));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,difficulty,isPracticeMode,targetQuestionCount);
+
+@override
+String toString() {
+  return 'PronunciationGameConfig(difficulty: $difficulty, isPracticeMode: $isPracticeMode, targetQuestionCount: $targetQuestionCount)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $PronunciationGameConfigCopyWith<$Res>  {
+  factory $PronunciationGameConfigCopyWith(PronunciationGameConfig value, $Res Function(PronunciationGameConfig) _then) = _$PronunciationGameConfigCopyWithImpl;
+@useResult
+$Res call({
+ String difficulty, bool isPracticeMode, int? targetQuestionCount
+});
+
+
+
+
+}
+/// @nodoc
+class _$PronunciationGameConfigCopyWithImpl<$Res>
+    implements $PronunciationGameConfigCopyWith<$Res> {
+  _$PronunciationGameConfigCopyWithImpl(this._self, this._then);
+
+  final PronunciationGameConfig _self;
+  final $Res Function(PronunciationGameConfig) _then;
+
+/// Create a copy of PronunciationGameConfig
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? difficulty = null,Object? isPracticeMode = null,Object? targetQuestionCount = freezed,}) {
+  return _then(_self.copyWith(
+difficulty: null == difficulty ? _self.difficulty : difficulty // ignore: cast_nullable_to_non_nullable
+as String,isPracticeMode: null == isPracticeMode ? _self.isPracticeMode : isPracticeMode // ignore: cast_nullable_to_non_nullable
+as bool,targetQuestionCount: freezed == targetQuestionCount ? _self.targetQuestionCount : targetQuestionCount // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [PronunciationGameConfig].
+extension PronunciationGameConfigPatterns on PronunciationGameConfig {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _PronunciationGameConfig value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _PronunciationGameConfig() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _PronunciationGameConfig value)  $default,){
+final _that = this;
+switch (_that) {
+case _PronunciationGameConfig():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _PronunciationGameConfig value)?  $default,){
+final _that = this;
+switch (_that) {
+case _PronunciationGameConfig() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String difficulty,  bool isPracticeMode,  int? targetQuestionCount)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _PronunciationGameConfig() when $default != null:
+return $default(_that.difficulty,_that.isPracticeMode,_that.targetQuestionCount);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String difficulty,  bool isPracticeMode,  int? targetQuestionCount)  $default,) {final _that = this;
+switch (_that) {
+case _PronunciationGameConfig():
+return $default(_that.difficulty,_that.isPracticeMode,_that.targetQuestionCount);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String difficulty,  bool isPracticeMode,  int? targetQuestionCount)?  $default,) {final _that = this;
+switch (_that) {
+case _PronunciationGameConfig() when $default != null:
+return $default(_that.difficulty,_that.isPracticeMode,_that.targetQuestionCount);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+
+
+class _PronunciationGameConfig implements PronunciationGameConfig {
+  const _PronunciationGameConfig({required this.difficulty, this.isPracticeMode = false, this.targetQuestionCount});
+  
+
+@override final  String difficulty;
+@override@JsonKey() final  bool isPracticeMode;
+@override final  int? targetQuestionCount;
+
+/// Create a copy of PronunciationGameConfig
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$PronunciationGameConfigCopyWith<_PronunciationGameConfig> get copyWith => __$PronunciationGameConfigCopyWithImpl<_PronunciationGameConfig>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PronunciationGameConfig&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.isPracticeMode, isPracticeMode) || other.isPracticeMode == isPracticeMode)&&(identical(other.targetQuestionCount, targetQuestionCount) || other.targetQuestionCount == targetQuestionCount));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,difficulty,isPracticeMode,targetQuestionCount);
+
+@override
+String toString() {
+  return 'PronunciationGameConfig(difficulty: $difficulty, isPracticeMode: $isPracticeMode, targetQuestionCount: $targetQuestionCount)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$PronunciationGameConfigCopyWith<$Res> implements $PronunciationGameConfigCopyWith<$Res> {
+  factory _$PronunciationGameConfigCopyWith(_PronunciationGameConfig value, $Res Function(_PronunciationGameConfig) _then) = __$PronunciationGameConfigCopyWithImpl;
+@override @useResult
+$Res call({
+ String difficulty, bool isPracticeMode, int? targetQuestionCount
+});
+
+
+
+
+}
+/// @nodoc
+class __$PronunciationGameConfigCopyWithImpl<$Res>
+    implements _$PronunciationGameConfigCopyWith<$Res> {
+  __$PronunciationGameConfigCopyWithImpl(this._self, this._then);
+
+  final _PronunciationGameConfig _self;
+  final $Res Function(_PronunciationGameConfig) _then;
+
+/// Create a copy of PronunciationGameConfig
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? difficulty = null,Object? isPracticeMode = null,Object? targetQuestionCount = freezed,}) {
+  return _then(_PronunciationGameConfig(
+difficulty: null == difficulty ? _self.difficulty : difficulty // ignore: cast_nullable_to_non_nullable
+as String,isPracticeMode: null == isPracticeMode ? _self.isPracticeMode : isPracticeMode // ignore: cast_nullable_to_non_nullable
+as bool,targetQuestionCount: freezed == targetQuestionCount ? _self.targetQuestionCount : targetQuestionCount // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$PronunciationGameWord {
@@ -3730,7 +3993,8 @@ $PronunciationBestScoreByDifficultyCopyWith<$Res> get bestScore {
 /// @nodoc
 mixin _$PronunciationGameSessionState {
 
- String get difficulty; int get remainingTimeMs; int get score; int get correctCount; int get currentCombo; int get maxCombo; int get characterLevel; PronunciationGameWord? get currentWord; String get recognizedText; bool get isListening; bool get isPlaying; bool get isFinished; List<PronunciationGameWord> get wordQueue; int get totalBonusTime; int get wordIndex; DateTime? get startTime; PronunciationInputResultType get lastInputResult; DateTime? get lastInputTime; int get totalMistakes;
+ String get difficulty; int get remainingTimeMs; int get score; int get correctCount; int get currentCombo; int get maxCombo; int get characterLevel; PronunciationGameWord? get currentWord; String get recognizedText; bool get isListening; bool get isPlaying; bool get isFinished; List<PronunciationGameWord> get wordQueue; int get totalBonusTime; int get wordIndex; DateTime? get startTime; PronunciationInputResultType get lastInputResult; DateTime? get lastInputTime; int get totalMistakes;// 練習モード用フィールド
+ bool get isPracticeMode; int? get targetQuestionCount;
 /// Create a copy of PronunciationGameSessionState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -3741,16 +4005,16 @@ $PronunciationGameSessionStateCopyWith<PronunciationGameSessionState> get copyWi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PronunciationGameSessionState&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.remainingTimeMs, remainingTimeMs) || other.remainingTimeMs == remainingTimeMs)&&(identical(other.score, score) || other.score == score)&&(identical(other.correctCount, correctCount) || other.correctCount == correctCount)&&(identical(other.currentCombo, currentCombo) || other.currentCombo == currentCombo)&&(identical(other.maxCombo, maxCombo) || other.maxCombo == maxCombo)&&(identical(other.characterLevel, characterLevel) || other.characterLevel == characterLevel)&&(identical(other.currentWord, currentWord) || other.currentWord == currentWord)&&(identical(other.recognizedText, recognizedText) || other.recognizedText == recognizedText)&&(identical(other.isListening, isListening) || other.isListening == isListening)&&(identical(other.isPlaying, isPlaying) || other.isPlaying == isPlaying)&&(identical(other.isFinished, isFinished) || other.isFinished == isFinished)&&const DeepCollectionEquality().equals(other.wordQueue, wordQueue)&&(identical(other.totalBonusTime, totalBonusTime) || other.totalBonusTime == totalBonusTime)&&(identical(other.wordIndex, wordIndex) || other.wordIndex == wordIndex)&&(identical(other.startTime, startTime) || other.startTime == startTime)&&(identical(other.lastInputResult, lastInputResult) || other.lastInputResult == lastInputResult)&&(identical(other.lastInputTime, lastInputTime) || other.lastInputTime == lastInputTime)&&(identical(other.totalMistakes, totalMistakes) || other.totalMistakes == totalMistakes));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PronunciationGameSessionState&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.remainingTimeMs, remainingTimeMs) || other.remainingTimeMs == remainingTimeMs)&&(identical(other.score, score) || other.score == score)&&(identical(other.correctCount, correctCount) || other.correctCount == correctCount)&&(identical(other.currentCombo, currentCombo) || other.currentCombo == currentCombo)&&(identical(other.maxCombo, maxCombo) || other.maxCombo == maxCombo)&&(identical(other.characterLevel, characterLevel) || other.characterLevel == characterLevel)&&(identical(other.currentWord, currentWord) || other.currentWord == currentWord)&&(identical(other.recognizedText, recognizedText) || other.recognizedText == recognizedText)&&(identical(other.isListening, isListening) || other.isListening == isListening)&&(identical(other.isPlaying, isPlaying) || other.isPlaying == isPlaying)&&(identical(other.isFinished, isFinished) || other.isFinished == isFinished)&&const DeepCollectionEquality().equals(other.wordQueue, wordQueue)&&(identical(other.totalBonusTime, totalBonusTime) || other.totalBonusTime == totalBonusTime)&&(identical(other.wordIndex, wordIndex) || other.wordIndex == wordIndex)&&(identical(other.startTime, startTime) || other.startTime == startTime)&&(identical(other.lastInputResult, lastInputResult) || other.lastInputResult == lastInputResult)&&(identical(other.lastInputTime, lastInputTime) || other.lastInputTime == lastInputTime)&&(identical(other.totalMistakes, totalMistakes) || other.totalMistakes == totalMistakes)&&(identical(other.isPracticeMode, isPracticeMode) || other.isPracticeMode == isPracticeMode)&&(identical(other.targetQuestionCount, targetQuestionCount) || other.targetQuestionCount == targetQuestionCount));
 }
 
 
 @override
-int get hashCode => Object.hashAll([runtimeType,difficulty,remainingTimeMs,score,correctCount,currentCombo,maxCombo,characterLevel,currentWord,recognizedText,isListening,isPlaying,isFinished,const DeepCollectionEquality().hash(wordQueue),totalBonusTime,wordIndex,startTime,lastInputResult,lastInputTime,totalMistakes]);
+int get hashCode => Object.hashAll([runtimeType,difficulty,remainingTimeMs,score,correctCount,currentCombo,maxCombo,characterLevel,currentWord,recognizedText,isListening,isPlaying,isFinished,const DeepCollectionEquality().hash(wordQueue),totalBonusTime,wordIndex,startTime,lastInputResult,lastInputTime,totalMistakes,isPracticeMode,targetQuestionCount]);
 
 @override
 String toString() {
-  return 'PronunciationGameSessionState(difficulty: $difficulty, remainingTimeMs: $remainingTimeMs, score: $score, correctCount: $correctCount, currentCombo: $currentCombo, maxCombo: $maxCombo, characterLevel: $characterLevel, currentWord: $currentWord, recognizedText: $recognizedText, isListening: $isListening, isPlaying: $isPlaying, isFinished: $isFinished, wordQueue: $wordQueue, totalBonusTime: $totalBonusTime, wordIndex: $wordIndex, startTime: $startTime, lastInputResult: $lastInputResult, lastInputTime: $lastInputTime, totalMistakes: $totalMistakes)';
+  return 'PronunciationGameSessionState(difficulty: $difficulty, remainingTimeMs: $remainingTimeMs, score: $score, correctCount: $correctCount, currentCombo: $currentCombo, maxCombo: $maxCombo, characterLevel: $characterLevel, currentWord: $currentWord, recognizedText: $recognizedText, isListening: $isListening, isPlaying: $isPlaying, isFinished: $isFinished, wordQueue: $wordQueue, totalBonusTime: $totalBonusTime, wordIndex: $wordIndex, startTime: $startTime, lastInputResult: $lastInputResult, lastInputTime: $lastInputTime, totalMistakes: $totalMistakes, isPracticeMode: $isPracticeMode, targetQuestionCount: $targetQuestionCount)';
 }
 
 
@@ -3761,7 +4025,7 @@ abstract mixin class $PronunciationGameSessionStateCopyWith<$Res>  {
   factory $PronunciationGameSessionStateCopyWith(PronunciationGameSessionState value, $Res Function(PronunciationGameSessionState) _then) = _$PronunciationGameSessionStateCopyWithImpl;
 @useResult
 $Res call({
- String difficulty, int remainingTimeMs, int score, int correctCount, int currentCombo, int maxCombo, int characterLevel, PronunciationGameWord? currentWord, String recognizedText, bool isListening, bool isPlaying, bool isFinished, List<PronunciationGameWord> wordQueue, int totalBonusTime, int wordIndex, DateTime? startTime, PronunciationInputResultType lastInputResult, DateTime? lastInputTime, int totalMistakes
+ String difficulty, int remainingTimeMs, int score, int correctCount, int currentCombo, int maxCombo, int characterLevel, PronunciationGameWord? currentWord, String recognizedText, bool isListening, bool isPlaying, bool isFinished, List<PronunciationGameWord> wordQueue, int totalBonusTime, int wordIndex, DateTime? startTime, PronunciationInputResultType lastInputResult, DateTime? lastInputTime, int totalMistakes, bool isPracticeMode, int? targetQuestionCount
 });
 
 
@@ -3778,7 +4042,7 @@ class _$PronunciationGameSessionStateCopyWithImpl<$Res>
 
 /// Create a copy of PronunciationGameSessionState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? difficulty = null,Object? remainingTimeMs = null,Object? score = null,Object? correctCount = null,Object? currentCombo = null,Object? maxCombo = null,Object? characterLevel = null,Object? currentWord = freezed,Object? recognizedText = null,Object? isListening = null,Object? isPlaying = null,Object? isFinished = null,Object? wordQueue = null,Object? totalBonusTime = null,Object? wordIndex = null,Object? startTime = freezed,Object? lastInputResult = null,Object? lastInputTime = freezed,Object? totalMistakes = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? difficulty = null,Object? remainingTimeMs = null,Object? score = null,Object? correctCount = null,Object? currentCombo = null,Object? maxCombo = null,Object? characterLevel = null,Object? currentWord = freezed,Object? recognizedText = null,Object? isListening = null,Object? isPlaying = null,Object? isFinished = null,Object? wordQueue = null,Object? totalBonusTime = null,Object? wordIndex = null,Object? startTime = freezed,Object? lastInputResult = null,Object? lastInputTime = freezed,Object? totalMistakes = null,Object? isPracticeMode = null,Object? targetQuestionCount = freezed,}) {
   return _then(_self.copyWith(
 difficulty: null == difficulty ? _self.difficulty : difficulty // ignore: cast_nullable_to_non_nullable
 as String,remainingTimeMs: null == remainingTimeMs ? _self.remainingTimeMs : remainingTimeMs // ignore: cast_nullable_to_non_nullable
@@ -3799,7 +4063,9 @@ as int,startTime: freezed == startTime ? _self.startTime : startTime // ignore: 
 as DateTime?,lastInputResult: null == lastInputResult ? _self.lastInputResult : lastInputResult // ignore: cast_nullable_to_non_nullable
 as PronunciationInputResultType,lastInputTime: freezed == lastInputTime ? _self.lastInputTime : lastInputTime // ignore: cast_nullable_to_non_nullable
 as DateTime?,totalMistakes: null == totalMistakes ? _self.totalMistakes : totalMistakes // ignore: cast_nullable_to_non_nullable
-as int,
+as int,isPracticeMode: null == isPracticeMode ? _self.isPracticeMode : isPracticeMode // ignore: cast_nullable_to_non_nullable
+as bool,targetQuestionCount: freezed == targetQuestionCount ? _self.targetQuestionCount : targetQuestionCount // ignore: cast_nullable_to_non_nullable
+as int?,
   ));
 }
 /// Create a copy of PronunciationGameSessionState
@@ -3896,10 +4162,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String difficulty,  int remainingTimeMs,  int score,  int correctCount,  int currentCombo,  int maxCombo,  int characterLevel,  PronunciationGameWord? currentWord,  String recognizedText,  bool isListening,  bool isPlaying,  bool isFinished,  List<PronunciationGameWord> wordQueue,  int totalBonusTime,  int wordIndex,  DateTime? startTime,  PronunciationInputResultType lastInputResult,  DateTime? lastInputTime,  int totalMistakes)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String difficulty,  int remainingTimeMs,  int score,  int correctCount,  int currentCombo,  int maxCombo,  int characterLevel,  PronunciationGameWord? currentWord,  String recognizedText,  bool isListening,  bool isPlaying,  bool isFinished,  List<PronunciationGameWord> wordQueue,  int totalBonusTime,  int wordIndex,  DateTime? startTime,  PronunciationInputResultType lastInputResult,  DateTime? lastInputTime,  int totalMistakes,  bool isPracticeMode,  int? targetQuestionCount)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _PronunciationGameSessionState() when $default != null:
-return $default(_that.difficulty,_that.remainingTimeMs,_that.score,_that.correctCount,_that.currentCombo,_that.maxCombo,_that.characterLevel,_that.currentWord,_that.recognizedText,_that.isListening,_that.isPlaying,_that.isFinished,_that.wordQueue,_that.totalBonusTime,_that.wordIndex,_that.startTime,_that.lastInputResult,_that.lastInputTime,_that.totalMistakes);case _:
+return $default(_that.difficulty,_that.remainingTimeMs,_that.score,_that.correctCount,_that.currentCombo,_that.maxCombo,_that.characterLevel,_that.currentWord,_that.recognizedText,_that.isListening,_that.isPlaying,_that.isFinished,_that.wordQueue,_that.totalBonusTime,_that.wordIndex,_that.startTime,_that.lastInputResult,_that.lastInputTime,_that.totalMistakes,_that.isPracticeMode,_that.targetQuestionCount);case _:
   return orElse();
 
 }
@@ -3917,10 +4183,10 @@ return $default(_that.difficulty,_that.remainingTimeMs,_that.score,_that.correct
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String difficulty,  int remainingTimeMs,  int score,  int correctCount,  int currentCombo,  int maxCombo,  int characterLevel,  PronunciationGameWord? currentWord,  String recognizedText,  bool isListening,  bool isPlaying,  bool isFinished,  List<PronunciationGameWord> wordQueue,  int totalBonusTime,  int wordIndex,  DateTime? startTime,  PronunciationInputResultType lastInputResult,  DateTime? lastInputTime,  int totalMistakes)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String difficulty,  int remainingTimeMs,  int score,  int correctCount,  int currentCombo,  int maxCombo,  int characterLevel,  PronunciationGameWord? currentWord,  String recognizedText,  bool isListening,  bool isPlaying,  bool isFinished,  List<PronunciationGameWord> wordQueue,  int totalBonusTime,  int wordIndex,  DateTime? startTime,  PronunciationInputResultType lastInputResult,  DateTime? lastInputTime,  int totalMistakes,  bool isPracticeMode,  int? targetQuestionCount)  $default,) {final _that = this;
 switch (_that) {
 case _PronunciationGameSessionState():
-return $default(_that.difficulty,_that.remainingTimeMs,_that.score,_that.correctCount,_that.currentCombo,_that.maxCombo,_that.characterLevel,_that.currentWord,_that.recognizedText,_that.isListening,_that.isPlaying,_that.isFinished,_that.wordQueue,_that.totalBonusTime,_that.wordIndex,_that.startTime,_that.lastInputResult,_that.lastInputTime,_that.totalMistakes);case _:
+return $default(_that.difficulty,_that.remainingTimeMs,_that.score,_that.correctCount,_that.currentCombo,_that.maxCombo,_that.characterLevel,_that.currentWord,_that.recognizedText,_that.isListening,_that.isPlaying,_that.isFinished,_that.wordQueue,_that.totalBonusTime,_that.wordIndex,_that.startTime,_that.lastInputResult,_that.lastInputTime,_that.totalMistakes,_that.isPracticeMode,_that.targetQuestionCount);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -3937,10 +4203,10 @@ return $default(_that.difficulty,_that.remainingTimeMs,_that.score,_that.correct
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String difficulty,  int remainingTimeMs,  int score,  int correctCount,  int currentCombo,  int maxCombo,  int characterLevel,  PronunciationGameWord? currentWord,  String recognizedText,  bool isListening,  bool isPlaying,  bool isFinished,  List<PronunciationGameWord> wordQueue,  int totalBonusTime,  int wordIndex,  DateTime? startTime,  PronunciationInputResultType lastInputResult,  DateTime? lastInputTime,  int totalMistakes)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String difficulty,  int remainingTimeMs,  int score,  int correctCount,  int currentCombo,  int maxCombo,  int characterLevel,  PronunciationGameWord? currentWord,  String recognizedText,  bool isListening,  bool isPlaying,  bool isFinished,  List<PronunciationGameWord> wordQueue,  int totalBonusTime,  int wordIndex,  DateTime? startTime,  PronunciationInputResultType lastInputResult,  DateTime? lastInputTime,  int totalMistakes,  bool isPracticeMode,  int? targetQuestionCount)?  $default,) {final _that = this;
 switch (_that) {
 case _PronunciationGameSessionState() when $default != null:
-return $default(_that.difficulty,_that.remainingTimeMs,_that.score,_that.correctCount,_that.currentCombo,_that.maxCombo,_that.characterLevel,_that.currentWord,_that.recognizedText,_that.isListening,_that.isPlaying,_that.isFinished,_that.wordQueue,_that.totalBonusTime,_that.wordIndex,_that.startTime,_that.lastInputResult,_that.lastInputTime,_that.totalMistakes);case _:
+return $default(_that.difficulty,_that.remainingTimeMs,_that.score,_that.correctCount,_that.currentCombo,_that.maxCombo,_that.characterLevel,_that.currentWord,_that.recognizedText,_that.isListening,_that.isPlaying,_that.isFinished,_that.wordQueue,_that.totalBonusTime,_that.wordIndex,_that.startTime,_that.lastInputResult,_that.lastInputTime,_that.totalMistakes,_that.isPracticeMode,_that.targetQuestionCount);case _:
   return null;
 
 }
@@ -3952,7 +4218,7 @@ return $default(_that.difficulty,_that.remainingTimeMs,_that.score,_that.correct
 
 
 class _PronunciationGameSessionState extends PronunciationGameSessionState {
-  const _PronunciationGameSessionState({required this.difficulty, required this.remainingTimeMs, this.score = 0, this.correctCount = 0, this.currentCombo = 0, this.maxCombo = 0, this.characterLevel = 0, this.currentWord, this.recognizedText = '', this.isListening = false, this.isPlaying = false, this.isFinished = false, final  List<PronunciationGameWord> wordQueue = const <PronunciationGameWord>[], this.totalBonusTime = 0, this.wordIndex = 0, this.startTime, this.lastInputResult = PronunciationInputResultType.none, this.lastInputTime, this.totalMistakes = 0}): _wordQueue = wordQueue,super._();
+  const _PronunciationGameSessionState({required this.difficulty, required this.remainingTimeMs, this.score = 0, this.correctCount = 0, this.currentCombo = 0, this.maxCombo = 0, this.characterLevel = 0, this.currentWord, this.recognizedText = '', this.isListening = false, this.isPlaying = false, this.isFinished = false, final  List<PronunciationGameWord> wordQueue = const <PronunciationGameWord>[], this.totalBonusTime = 0, this.wordIndex = 0, this.startTime, this.lastInputResult = PronunciationInputResultType.none, this.lastInputTime, this.totalMistakes = 0, this.isPracticeMode = false, this.targetQuestionCount}): _wordQueue = wordQueue,super._();
   
 
 @override final  String difficulty;
@@ -3980,6 +4246,9 @@ class _PronunciationGameSessionState extends PronunciationGameSessionState {
 @override@JsonKey() final  PronunciationInputResultType lastInputResult;
 @override final  DateTime? lastInputTime;
 @override@JsonKey() final  int totalMistakes;
+// 練習モード用フィールド
+@override@JsonKey() final  bool isPracticeMode;
+@override final  int? targetQuestionCount;
 
 /// Create a copy of PronunciationGameSessionState
 /// with the given fields replaced by the non-null parameter values.
@@ -3991,16 +4260,16 @@ _$PronunciationGameSessionStateCopyWith<_PronunciationGameSessionState> get copy
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PronunciationGameSessionState&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.remainingTimeMs, remainingTimeMs) || other.remainingTimeMs == remainingTimeMs)&&(identical(other.score, score) || other.score == score)&&(identical(other.correctCount, correctCount) || other.correctCount == correctCount)&&(identical(other.currentCombo, currentCombo) || other.currentCombo == currentCombo)&&(identical(other.maxCombo, maxCombo) || other.maxCombo == maxCombo)&&(identical(other.characterLevel, characterLevel) || other.characterLevel == characterLevel)&&(identical(other.currentWord, currentWord) || other.currentWord == currentWord)&&(identical(other.recognizedText, recognizedText) || other.recognizedText == recognizedText)&&(identical(other.isListening, isListening) || other.isListening == isListening)&&(identical(other.isPlaying, isPlaying) || other.isPlaying == isPlaying)&&(identical(other.isFinished, isFinished) || other.isFinished == isFinished)&&const DeepCollectionEquality().equals(other._wordQueue, _wordQueue)&&(identical(other.totalBonusTime, totalBonusTime) || other.totalBonusTime == totalBonusTime)&&(identical(other.wordIndex, wordIndex) || other.wordIndex == wordIndex)&&(identical(other.startTime, startTime) || other.startTime == startTime)&&(identical(other.lastInputResult, lastInputResult) || other.lastInputResult == lastInputResult)&&(identical(other.lastInputTime, lastInputTime) || other.lastInputTime == lastInputTime)&&(identical(other.totalMistakes, totalMistakes) || other.totalMistakes == totalMistakes));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PronunciationGameSessionState&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.remainingTimeMs, remainingTimeMs) || other.remainingTimeMs == remainingTimeMs)&&(identical(other.score, score) || other.score == score)&&(identical(other.correctCount, correctCount) || other.correctCount == correctCount)&&(identical(other.currentCombo, currentCombo) || other.currentCombo == currentCombo)&&(identical(other.maxCombo, maxCombo) || other.maxCombo == maxCombo)&&(identical(other.characterLevel, characterLevel) || other.characterLevel == characterLevel)&&(identical(other.currentWord, currentWord) || other.currentWord == currentWord)&&(identical(other.recognizedText, recognizedText) || other.recognizedText == recognizedText)&&(identical(other.isListening, isListening) || other.isListening == isListening)&&(identical(other.isPlaying, isPlaying) || other.isPlaying == isPlaying)&&(identical(other.isFinished, isFinished) || other.isFinished == isFinished)&&const DeepCollectionEquality().equals(other._wordQueue, _wordQueue)&&(identical(other.totalBonusTime, totalBonusTime) || other.totalBonusTime == totalBonusTime)&&(identical(other.wordIndex, wordIndex) || other.wordIndex == wordIndex)&&(identical(other.startTime, startTime) || other.startTime == startTime)&&(identical(other.lastInputResult, lastInputResult) || other.lastInputResult == lastInputResult)&&(identical(other.lastInputTime, lastInputTime) || other.lastInputTime == lastInputTime)&&(identical(other.totalMistakes, totalMistakes) || other.totalMistakes == totalMistakes)&&(identical(other.isPracticeMode, isPracticeMode) || other.isPracticeMode == isPracticeMode)&&(identical(other.targetQuestionCount, targetQuestionCount) || other.targetQuestionCount == targetQuestionCount));
 }
 
 
 @override
-int get hashCode => Object.hashAll([runtimeType,difficulty,remainingTimeMs,score,correctCount,currentCombo,maxCombo,characterLevel,currentWord,recognizedText,isListening,isPlaying,isFinished,const DeepCollectionEquality().hash(_wordQueue),totalBonusTime,wordIndex,startTime,lastInputResult,lastInputTime,totalMistakes]);
+int get hashCode => Object.hashAll([runtimeType,difficulty,remainingTimeMs,score,correctCount,currentCombo,maxCombo,characterLevel,currentWord,recognizedText,isListening,isPlaying,isFinished,const DeepCollectionEquality().hash(_wordQueue),totalBonusTime,wordIndex,startTime,lastInputResult,lastInputTime,totalMistakes,isPracticeMode,targetQuestionCount]);
 
 @override
 String toString() {
-  return 'PronunciationGameSessionState(difficulty: $difficulty, remainingTimeMs: $remainingTimeMs, score: $score, correctCount: $correctCount, currentCombo: $currentCombo, maxCombo: $maxCombo, characterLevel: $characterLevel, currentWord: $currentWord, recognizedText: $recognizedText, isListening: $isListening, isPlaying: $isPlaying, isFinished: $isFinished, wordQueue: $wordQueue, totalBonusTime: $totalBonusTime, wordIndex: $wordIndex, startTime: $startTime, lastInputResult: $lastInputResult, lastInputTime: $lastInputTime, totalMistakes: $totalMistakes)';
+  return 'PronunciationGameSessionState(difficulty: $difficulty, remainingTimeMs: $remainingTimeMs, score: $score, correctCount: $correctCount, currentCombo: $currentCombo, maxCombo: $maxCombo, characterLevel: $characterLevel, currentWord: $currentWord, recognizedText: $recognizedText, isListening: $isListening, isPlaying: $isPlaying, isFinished: $isFinished, wordQueue: $wordQueue, totalBonusTime: $totalBonusTime, wordIndex: $wordIndex, startTime: $startTime, lastInputResult: $lastInputResult, lastInputTime: $lastInputTime, totalMistakes: $totalMistakes, isPracticeMode: $isPracticeMode, targetQuestionCount: $targetQuestionCount)';
 }
 
 
@@ -4011,7 +4280,7 @@ abstract mixin class _$PronunciationGameSessionStateCopyWith<$Res> implements $P
   factory _$PronunciationGameSessionStateCopyWith(_PronunciationGameSessionState value, $Res Function(_PronunciationGameSessionState) _then) = __$PronunciationGameSessionStateCopyWithImpl;
 @override @useResult
 $Res call({
- String difficulty, int remainingTimeMs, int score, int correctCount, int currentCombo, int maxCombo, int characterLevel, PronunciationGameWord? currentWord, String recognizedText, bool isListening, bool isPlaying, bool isFinished, List<PronunciationGameWord> wordQueue, int totalBonusTime, int wordIndex, DateTime? startTime, PronunciationInputResultType lastInputResult, DateTime? lastInputTime, int totalMistakes
+ String difficulty, int remainingTimeMs, int score, int correctCount, int currentCombo, int maxCombo, int characterLevel, PronunciationGameWord? currentWord, String recognizedText, bool isListening, bool isPlaying, bool isFinished, List<PronunciationGameWord> wordQueue, int totalBonusTime, int wordIndex, DateTime? startTime, PronunciationInputResultType lastInputResult, DateTime? lastInputTime, int totalMistakes, bool isPracticeMode, int? targetQuestionCount
 });
 
 
@@ -4028,7 +4297,7 @@ class __$PronunciationGameSessionStateCopyWithImpl<$Res>
 
 /// Create a copy of PronunciationGameSessionState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? difficulty = null,Object? remainingTimeMs = null,Object? score = null,Object? correctCount = null,Object? currentCombo = null,Object? maxCombo = null,Object? characterLevel = null,Object? currentWord = freezed,Object? recognizedText = null,Object? isListening = null,Object? isPlaying = null,Object? isFinished = null,Object? wordQueue = null,Object? totalBonusTime = null,Object? wordIndex = null,Object? startTime = freezed,Object? lastInputResult = null,Object? lastInputTime = freezed,Object? totalMistakes = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? difficulty = null,Object? remainingTimeMs = null,Object? score = null,Object? correctCount = null,Object? currentCombo = null,Object? maxCombo = null,Object? characterLevel = null,Object? currentWord = freezed,Object? recognizedText = null,Object? isListening = null,Object? isPlaying = null,Object? isFinished = null,Object? wordQueue = null,Object? totalBonusTime = null,Object? wordIndex = null,Object? startTime = freezed,Object? lastInputResult = null,Object? lastInputTime = freezed,Object? totalMistakes = null,Object? isPracticeMode = null,Object? targetQuestionCount = freezed,}) {
   return _then(_PronunciationGameSessionState(
 difficulty: null == difficulty ? _self.difficulty : difficulty // ignore: cast_nullable_to_non_nullable
 as String,remainingTimeMs: null == remainingTimeMs ? _self.remainingTimeMs : remainingTimeMs // ignore: cast_nullable_to_non_nullable
@@ -4049,7 +4318,9 @@ as int,startTime: freezed == startTime ? _self.startTime : startTime // ignore: 
 as DateTime?,lastInputResult: null == lastInputResult ? _self.lastInputResult : lastInputResult // ignore: cast_nullable_to_non_nullable
 as PronunciationInputResultType,lastInputTime: freezed == lastInputTime ? _self.lastInputTime : lastInputTime // ignore: cast_nullable_to_non_nullable
 as DateTime?,totalMistakes: null == totalMistakes ? _self.totalMistakes : totalMistakes // ignore: cast_nullable_to_non_nullable
-as int,
+as int,isPracticeMode: null == isPracticeMode ? _self.isPracticeMode : isPracticeMode // ignore: cast_nullable_to_non_nullable
+as bool,targetQuestionCount: freezed == targetQuestionCount ? _self.targetQuestionCount : targetQuestionCount // ignore: cast_nullable_to_non_nullable
+as int?,
   ));
 }
 

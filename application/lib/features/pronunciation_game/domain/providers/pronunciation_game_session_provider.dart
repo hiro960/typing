@@ -83,9 +83,9 @@ class PronunciationGameSession extends _$PronunciationGameSession {
   int _noSpeechErrorCount = 0; // "No speech detected" エラーの連続回数
 
   @override
-  PronunciationGameSessionState build(String difficulty) {
+  PronunciationGameSessionState build(PronunciationGameConfig config) {
     AppLogger.info(
-      'build() called for difficulty=$difficulty, previous sessionId=$_sessionId',
+      'build() called for config=$config, previous sessionId=$_sessionId',
       tag: 'PronunciationGameSession',
     );
 
@@ -118,7 +118,7 @@ class PronunciationGameSession extends _$PronunciationGameSession {
 
     ref.onDispose(() {
       AppLogger.info(
-        'onDispose called for difficulty=$difficulty',
+        'onDispose called for config=$config',
         tag: 'PronunciationGameSession',
       );
       _isDisposed = true; // 破棄フラグを設定
@@ -126,7 +126,7 @@ class PronunciationGameSession extends _$PronunciationGameSession {
       // onDispose内ではstateを変更できないため、直接停止処理のみ行う
       _disposeListening();
     });
-    return PronunciationGameSessionState.initial(difficulty);
+    return PronunciationGameSessionState.initial(config);
   }
 
   /// onDispose用のクリーンアップ（stateを変更しない）
@@ -180,8 +180,14 @@ class PronunciationGameSession extends _$PronunciationGameSession {
     _isProcessingResult = false;
     _koreanLocaleId = null;
 
-    // 状態をリセット
-    state = PronunciationGameSessionState.initial(state.difficulty);
+    // 状態をリセット（現在の設定を維持）
+    state = PronunciationGameSessionState.initial(
+      PronunciationGameConfig(
+        difficulty: state.difficulty,
+        isPracticeMode: state.isPracticeMode,
+        targetQuestionCount: state.targetQuestionCount,
+      ),
+    );
 
     AppLogger.info(
       'Previous session cleaned up successfully',
@@ -693,6 +699,98 @@ class PronunciationGameSession extends _$PronunciationGameSession {
         .replaceAll(RegExp(r'[.,!?。、！？·\-]'), '');
   }
 
+  /// 韓国語数字（漢数詞）のマッピング
+  static const Map<String, String> _koreanSinoNumbers = {
+    '0': '영',
+    '1': '일',
+    '2': '이',
+    '3': '삼',
+    '4': '사',
+    '5': '오',
+    '6': '육',
+    '7': '칠',
+    '8': '팔',
+    '9': '구',
+  };
+
+  /// 韓国語数字（固有数詞）のマッピング（1-10）
+  static const Map<String, String> _koreanNativeNumbers = {
+    '1': '하나',
+    '2': '둘',
+    '3': '셋',
+    '4': '넷',
+    '5': '다섯',
+    '6': '여섯',
+    '7': '일곱',
+    '8': '여덟',
+    '9': '아홉',
+    '10': '열',
+  };
+
+  /// 逆マッピング（ハングル→数字）
+  static final Map<String, String> _hangulToDigit = {
+    // 漢数詞
+    '영': '0', '공': '0',
+    '일': '1',
+    '이': '2',
+    '삼': '3',
+    '사': '4',
+    '오': '5',
+    '육': '6', '륙': '6',
+    '칠': '7',
+    '팔': '8',
+    '구': '9',
+    '십': '10',
+    '백': '100',
+    '천': '1000',
+    '만': '10000',
+    // 固有数詞
+    '하나': '1',
+    '둘': '2',
+    '셋': '3',
+    '넷': '4',
+    '다섯': '5',
+    '여섯': '6',
+    '일곱': '7',
+    '여덟': '8',
+    '아홉': '9',
+    '열': '10',
+  };
+
+  /// 数字をハングル（漢数詞）に変換
+  String _convertDigitsToKorean(String text) {
+    var result = text;
+    for (final entry in _koreanSinoNumbers.entries) {
+      result = result.replaceAll(entry.key, entry.value);
+    }
+    return result;
+  }
+
+  /// ハングル数字を数字に変換
+  String _convertKoreanToDigits(String text) {
+    var result = text;
+    // 長い文字列から先に置換（「하나」を「하」と「나」に分けないように）
+    final sortedEntries = _hangulToDigit.entries.toList()
+      ..sort((a, b) => b.key.length.compareTo(a.key.length));
+    for (final entry in sortedEntries) {
+      result = result.replaceAll(entry.key, entry.value);
+    }
+    return result;
+  }
+
+  /// テキストに数字が含まれているか確認
+  bool _containsDigits(String text) {
+    return RegExp(r'\d').hasMatch(text);
+  }
+
+  /// テキストにハングル数字が含まれているか確認
+  bool _containsKoreanNumbers(String text) {
+    for (final key in _hangulToDigit.keys) {
+      if (text.contains(key)) return true;
+    }
+    return false;
+  }
+
   /// 認識結果をチェック
   void _checkRecognition(String recognizedText, bool isFinal) {
     if (state.currentWord == null) return;
@@ -709,7 +807,7 @@ class PronunciationGameSession extends _$PronunciationGameSession {
     final target = state.currentWord!.word.toLowerCase().trim();
     final recognized = recognizedText.toLowerCase().trim();
 
-    // 正規化したバージョン（스페이스、句読点を除去）
+    // 正規化したバージョン（スペース、句読点を除去）
     final targetNormalized = _normalizeText(state.currentWord!.word);
     final recognizedNormalized = _normalizeText(recognizedText);
 
@@ -723,7 +821,47 @@ class PronunciationGameSession extends _$PronunciationGameSession {
     if (recognized.isEmpty) return;
 
     // 正規化後の比較（メイン判定）
-    final normalizedMatch = recognizedNormalized == targetNormalized;
+    bool normalizedMatch = recognizedNormalized == targetNormalized;
+
+    // 数字とハングルの変換を使った比較
+    if (!normalizedMatch) {
+      // 認識結果に数字が含まれている場合、ハングルに変換して比較
+      if (_containsDigits(recognizedNormalized)) {
+        final recognizedAsKorean = _convertDigitsToKorean(recognizedNormalized);
+        if (recognizedAsKorean == targetNormalized) {
+          normalizedMatch = true;
+          AppLogger.info(
+            'Number to Korean match: "$recognizedAsKorean" == "$targetNormalized"',
+            tag: 'PronunciationGameSession',
+          );
+        }
+      }
+
+      // ターゲットに数字が含まれている場合、認識結果をハングルに変換して比較
+      if (!normalizedMatch && _containsDigits(targetNormalized)) {
+        final targetAsKorean = _convertDigitsToKorean(targetNormalized);
+        if (recognizedNormalized == targetAsKorean) {
+          normalizedMatch = true;
+          AppLogger.info(
+            'Target number to Korean match: "$recognizedNormalized" == "$targetAsKorean"',
+            tag: 'PronunciationGameSession',
+          );
+        }
+      }
+
+      // 両方を数字に変換して比較
+      if (!normalizedMatch && (_containsKoreanNumbers(recognizedNormalized) || _containsKoreanNumbers(targetNormalized))) {
+        final recognizedAsDigits = _convertKoreanToDigits(recognizedNormalized);
+        final targetAsDigits = _convertKoreanToDigits(targetNormalized);
+        if (recognizedAsDigits == targetAsDigits) {
+          normalizedMatch = true;
+          AppLogger.info(
+            'Korean to digits match: "$recognizedAsDigits" == "$targetAsDigits"',
+            tag: 'PronunciationGameSession',
+          );
+        }
+      }
+    }
 
     AppLogger.info(
       'Normalized comparison: "$recognizedNormalized" == "$targetNormalized" => $normalizedMatch',
@@ -810,6 +948,14 @@ class PronunciationGameSession extends _$PronunciationGameSession {
       await Future.delayed(const Duration(milliseconds: 800));
 
       if (!state.isPlaying || state.isFinished) return;
+
+      // 練習モードで目標問題数に達したらゲーム終了
+      if (state.isPracticeMode &&
+          state.targetQuestionCount != null &&
+          state.correctCount >= state.targetQuestionCount!) {
+        _endGame();
+        return;
+      }
 
       // Step 2: 次の単語に移行
       final nextWordIndex = state.wordIndex + 1;
@@ -982,6 +1128,9 @@ class PronunciationGameSession extends _$PronunciationGameSession {
   void _tick() {
     if (!state.isPlaying) return;
 
+    // 練習モードでは時間カウントダウンしない
+    if (state.isPracticeMode) return;
+
     final newRemainingTime = state.remainingTimeMs - 100;
 
     if (newRemainingTime <= 0) {
@@ -1051,6 +1200,13 @@ class PronunciationGameSession extends _$PronunciationGameSession {
     _koreanLocaleId = null;
     // sessionIdはリセットしない - 次のstartGame()でインクリメントされる
 
-    state = PronunciationGameSessionState.initial(state.difficulty);
+    // 現在の設定を維持してリセット
+    state = PronunciationGameSessionState.initial(
+      PronunciationGameConfig(
+        difficulty: state.difficulty,
+        isPracticeMode: state.isPracticeMode,
+        targetQuestionCount: state.targetQuestionCount,
+      ),
+    );
   }
 }

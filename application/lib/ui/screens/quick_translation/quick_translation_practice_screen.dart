@@ -7,6 +7,8 @@ import 'package:speech_to_text/speech_to_text.dart';
 import '../../../core/services/sound_service.dart';
 import '../../../features/quick_translation/data/models/quick_translation_models.dart';
 import '../../../features/quick_translation/domain/providers/quick_translation_providers.dart';
+import '../../../features/settings/domain/providers/display_settings_provider.dart';
+import '../../../features/settings/data/models/display_settings.dart';
 import '../../app_theme.dart';
 import '../../app_spacing.dart';
 import 'quick_translation_result_screen.dart';
@@ -211,6 +213,8 @@ class _QuickTranslationPracticeScreenState
     PracticeSessionState session,
   ) {
     final theme = Theme.of(context);
+    final displaySettings =
+        ref.watch(displaySettingsProvider).value ?? const DisplaySettings();
     final isDark = theme.brightness == Brightness.dark;
     final question = session.currentQuestion;
 
@@ -260,6 +264,8 @@ class _QuickTranslationPracticeScreenState
                     question.japanese,
                     style: theme.textTheme.headlineSmall?.copyWith(
                       fontWeight: FontWeight.bold,
+                      fontSize: (theme.textTheme.headlineSmall?.fontSize ?? 24) *
+                          displaySettings.promptFontScale,
                     ),
                     textAlign: TextAlign.center,
                   ),

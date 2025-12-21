@@ -21,6 +21,7 @@ class ProfileHero extends StatelessWidget {
     required this.startText,
     required this.isUpdatingAvatar,
     this.onEditBio,
+    this.bioFontScale = 1.0,
   });
 
   final UserModel profile;
@@ -31,6 +32,7 @@ class ProfileHero extends StatelessWidget {
   final String startText;
   final bool isUpdatingAvatar;
   final VoidCallback? onEditBio;
+  final double bioFontScale;
 
   @override
   Widget build(BuildContext context) {
@@ -141,6 +143,7 @@ class ProfileHero extends StatelessWidget {
                                   style: theme.textTheme.bodyMedium?.copyWith(
                                     color: foreground.withValues(alpha: 0.95),
                                     height: 1.5,
+                                    fontSize: (theme.textTheme.bodyMedium?.fontSize ?? 14) * bioFontScale,
                                   ),
                                 )
                               : Text(
@@ -148,6 +151,7 @@ class ProfileHero extends StatelessWidget {
                                   style: theme.textTheme.bodyMedium?.copyWith(
                                     color: foreground.withValues(alpha: 0.6),
                                     fontStyle: FontStyle.italic,
+                                    fontSize: (theme.textTheme.bodyMedium?.fontSize ?? 14) * bioFontScale,
                                   ),
                                 ),
                         ),
@@ -166,6 +170,7 @@ class ProfileHero extends StatelessWidget {
                     style: theme.textTheme.bodyMedium?.copyWith(
                       color: foreground.withValues(alpha: 0.95),
                       height: 1.5,
+                      fontSize: (theme.textTheme.bodyMedium?.fontSize ?? 14) * bioFontScale,
                     ),
                   ),
               ],

@@ -12,6 +12,8 @@ import '../settings/blocked_accounts_screen.dart';
 import '../../../features/profile/domain/providers/profile_providers.dart';
 import '../../../features/typing/domain/providers/typing_settings_provider.dart';
 import '../../../features/typing/data/models/typing_settings.dart';
+import '../../../features/settings/domain/providers/display_settings_provider.dart';
+import '../../../features/settings/data/models/display_settings.dart';
 import '../../../features/theme/theme_mode_provider.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../utils/dialog_helper.dart';
@@ -290,6 +292,44 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                         if (isTypingLoading) return;
                         typingController.toggleHints(value);
                       },
+                    ),
+                  ],
+                );
+              }),
+            ],
+          ),
+          const SizedBox(height: AppSpacing.lg),
+          _SettingsSection(
+            title: '表示設定',
+            children: [
+              Builder(builder: (context) {
+                final displaySettingsAsync = ref.watch(displaySettingsProvider);
+                final displaySettings =
+                    displaySettingsAsync.value ?? const DisplaySettings();
+                final controller = ref.read(displaySettingsProvider.notifier);
+                final isLoading = displaySettingsAsync.isLoading;
+
+                return Column(
+                  children: [
+                    _FontSizeSliderTile(
+                      icon: Iconsax.text,
+                      title: '問題文の文字サイズ',
+                      subtitle: 'タイピング練習、クイズなどの問題文',
+                      previewText: '안녕하세요',
+                      value: displaySettings.promptFontScale,
+                      isBusy: isLoading,
+                      onChanged: (value) => controller.setPromptFontScale(value),
+                    ),
+                    Divider(color: theme.colors.border),
+                    _FontSizeSliderTile(
+                      icon: Iconsax.book,
+                      title: '辞典・単語帳の文字サイズ',
+                      subtitle: '文法辞典、漢字語辞典、単語帳',
+                      previewText: '단어 - 単語',
+                      value: displaySettings.dictionaryFontScale,
+                      isBusy: isLoading,
+                      onChanged: (value) =>
+                          controller.setDictionaryFontScale(value),
                     ),
                   ],
                 );
@@ -851,6 +891,149 @@ class _ProfileHeader extends StatelessWidget {
                       child: CircularProgressIndicator(strokeWidth: 2),
                     )
                   : const Text('編集'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _FontSizeSliderTile extends StatelessWidget {
+  const _FontSizeSliderTile({
+    required this.title,
+    required this.subtitle,
+    required this.previewText,
+    required this.value,
+    required this.onChanged,
+    this.icon,
+    this.isBusy = false,
+  });
+
+  final String title;
+  final String subtitle;
+  final String previewText;
+  final double value;
+  final ValueChanged<double> onChanged;
+  final IconData? icon;
+  final bool isBusy;
+
+  String _getScaleLabel(double scale) {
+    final percentage = (scale * 100).round();
+    return '$percentage%';
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = FTheme.of(context);
+    final baseFontSize = 18.0;
+    final scaledFontSize = baseFontSize * value;
+
+    return Opacity(
+      opacity: isBusy ? 0.85 : 1,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                if (icon != null) ...[
+                  Icon(icon, size: 20),
+                  const SizedBox(width: 12),
+                ],
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: theme.typography.base.copyWith(
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        subtitle,
+                        style: theme.typography.sm.copyWith(
+                          color: theme.colors.mutedForeground,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                if (isBusy)
+                  const SizedBox(
+                    width: 16,
+                    height: 16,
+                    child: CircularProgressIndicator(strokeWidth: 2),
+                  ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: theme.colors.secondary.withValues(alpha: 0.3),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Center(
+                child: Text(
+                  previewText,
+                  style: TextStyle(
+                    fontSize: scaledFontSize,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
+            Row(
+              children: [
+                Text(
+                  '小',
+                  style: theme.typography.xs.copyWith(
+                    color: theme.colors.mutedForeground,
+                  ),
+                ),
+                Expanded(
+                  child: SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      activeTrackColor: theme.colors.primary,
+                      inactiveTrackColor:
+                          theme.colors.primary.withValues(alpha: 0.2),
+                      thumbColor: theme.colors.primary,
+                      overlayColor: theme.colors.primary.withValues(alpha: 0.1),
+                      trackHeight: 4,
+                      thumbShape:
+                          const RoundSliderThumbShape(enabledThumbRadius: 8),
+                    ),
+                    child: Slider(
+                      value: value,
+                      min: DisplaySettings.minScale,
+                      max: DisplaySettings.maxScale,
+                      divisions: 6,
+                      label: _getScaleLabel(value),
+                      onChanged: isBusy ? null : onChanged,
+                    ),
+                  ),
+                ),
+                Text(
+                  '大',
+                  style: theme.typography.xs.copyWith(
+                    color: theme.colors.mutedForeground,
+                  ),
+                ),
+              ],
+            ),
+            Center(
+              child: Text(
+                _getScaleLabel(value),
+                style: theme.typography.sm.copyWith(
+                  color: theme.colors.primary,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ),
           ],
         ),

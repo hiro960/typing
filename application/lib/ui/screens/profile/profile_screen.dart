@@ -15,6 +15,8 @@ import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../../features/profile/data/models/user_stats_model.dart';
 import '../../../features/profile/domain/providers/profile_providers.dart';
+import '../../../features/settings/domain/providers/display_settings_provider.dart';
+import '../../../features/settings/data/models/display_settings.dart';
 import '../../utils/snackbar_helper.dart';
 import '../../utils/toast_helper.dart';
 import '../../widgets/app_page_scaffold.dart';
@@ -197,6 +199,9 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   ) {
     final isOwner = currentUserId == profile.id;
     final isPremiumUser = profile.isPremiumUser;
+    final displaySettings =
+        ref.watch(displaySettingsProvider).value ?? const DisplaySettings();
+    final bioFontScale = displaySettings.dictionaryFontScale;
     return AppPageScaffold(
       title: 'プロフィール',
       titleIcon: Iconsax.user,
@@ -241,6 +246,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
             startText: _formatStartDate(profile.createdAt),
             isUpdatingAvatar: _isUpdatingAvatar,
             onEditBio: isOwner ? () => _showEditBioDialog(profile) : null,
+            bioFontScale: bioFontScale,
           ),
           const SizedBox(height: AppSpacing.xxl + AppSpacing.lg),
           SummaryChips(

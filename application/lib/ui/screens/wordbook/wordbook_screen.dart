@@ -5,7 +5,8 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/wordbook/data/models/word_model.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
-import '../../app_theme.dart';
+import '../../../features/settings/domain/providers/display_settings_provider.dart';
+import '../../../features/settings/data/models/display_settings.dart';
 import '../../widgets/app_page_scaffold.dart';
 import '../../widgets/page_state_views.dart';
 import '../../app_spacing.dart';
@@ -37,6 +38,9 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
     );
     final viewMode =
         ref.watch(wordbookViewModeProvider).value ?? WordbookViewMode.card;
+    final displaySettings =
+        ref.watch(displaySettingsProvider).value ?? const DisplaySettings();
+    final fontScale = displaySettings.dictionaryFontScale;
 
     final reviewableWords = (asyncWords.value ?? [])
         .where((word) => word.status != WordStatus.MASTERED)
@@ -169,50 +173,55 @@ class _WordbookScreenState extends ConsumerState<WordbookScreen> {
                       actionLabel: '単語/文章を追加',
                       onAction: _openForm,
                     )
-                  : viewMode == WordbookViewMode.card
-                      ? GridView.builder(
-                          padding: EdgeInsets.fromLTRB(
-                            AppPadding.homePage.left,
-                            0,
-                            AppPadding.homePage.right,
-                            AppSpacing.xl,
-                          ),
-                          physics: const AlwaysScrollableScrollPhysics(),
-                          itemCount: filteredWords.length,
-                          gridDelegate:
-                              const SliverGridDelegateWithMaxCrossAxisExtent(
-                            maxCrossAxisExtent: 260,
-                            mainAxisSpacing: 16,
-                            crossAxisSpacing: 16,
-                            childAspectRatio: 0.95,
-                          ),
-                          itemBuilder: (context, index) {
-                            final word = filteredWords[index];
-                            return _WordCard(
-                              word: word,
-                              onTap: () => _openDetail(word.id),
-                            );
-                          },
-                        )
-                      : ListView.separated(
-                          padding: EdgeInsets.fromLTRB(
-                            AppPadding.homePage.left,
-                            0,
-                            AppPadding.homePage.right,
-                            AppSpacing.xl,
-                          ),
-                          physics: const AlwaysScrollableScrollPhysics(),
-                          itemCount: filteredWords.length,
-                          separatorBuilder: (_, __) =>
-                              const SizedBox(height: 8),
-                          itemBuilder: (context, index) {
-                            final word = filteredWords[index];
-                            return _WordListTile(
-                              word: word,
-                              onTap: () => _openDetail(word.id),
-                            );
-                          },
-                        ),
+                  : MediaQuery(
+                      data: MediaQuery.of(context).copyWith(
+                        textScaler: TextScaler.linear(fontScale),
+                      ),
+                      child: viewMode == WordbookViewMode.card
+                          ? GridView.builder(
+                              padding: EdgeInsets.fromLTRB(
+                                AppPadding.homePage.left,
+                                0,
+                                AppPadding.homePage.right,
+                                AppSpacing.xl,
+                              ),
+                              physics: const AlwaysScrollableScrollPhysics(),
+                              itemCount: filteredWords.length,
+                              gridDelegate:
+                                  const SliverGridDelegateWithMaxCrossAxisExtent(
+                                maxCrossAxisExtent: 260,
+                                mainAxisSpacing: 16,
+                                crossAxisSpacing: 16,
+                                childAspectRatio: 0.95,
+                              ),
+                              itemBuilder: (context, index) {
+                                final word = filteredWords[index];
+                                return _WordCard(
+                                  word: word,
+                                  onTap: () => _openDetail(word.id),
+                                );
+                              },
+                            )
+                          : ListView.separated(
+                              padding: EdgeInsets.fromLTRB(
+                                AppPadding.homePage.left,
+                                0,
+                                AppPadding.homePage.right,
+                                AppSpacing.xl,
+                              ),
+                              physics: const AlwaysScrollableScrollPhysics(),
+                              itemCount: filteredWords.length,
+                              separatorBuilder: (_, __) =>
+                                  const SizedBox(height: 8),
+                              itemBuilder: (context, index) {
+                                final word = filteredWords[index];
+                                return _WordListTile(
+                                  word: word,
+                                  onTap: () => _openDetail(word.id),
+                                );
+                              },
+                            ),
+                    ),
             ),
           ),
         ],

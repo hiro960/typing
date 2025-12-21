@@ -9,12 +9,14 @@ import 'package:chaletta/features/pronunciation_game/presentation/screens/pronun
 import 'package:chaletta/features/ranking_game/presentation/widgets/pixel_character_widget.dart';
 import 'package:chaletta/ui/widgets/app_page_scaffold.dart';
 import 'package:chaletta/ui/app_theme.dart';
+import 'package:chaletta/features/settings/domain/providers/display_settings_provider.dart';
+import 'package:chaletta/features/settings/data/models/display_settings.dart';
 
 /// 発音ゲーム画面
 class PronunciationGameScreen extends ConsumerStatefulWidget {
-  const PronunciationGameScreen({super.key, required this.difficulty});
+  const PronunciationGameScreen({super.key, required this.config});
 
-  final String difficulty;
+  final PronunciationGameConfig config;
 
   @override
   ConsumerState<PronunciationGameScreen> createState() =>
@@ -38,7 +40,7 @@ class _PronunciationGameScreenState
 
     try {
       final success = await ref
-          .read(pronunciationGameSessionProvider(widget.difficulty).notifier)
+          .read(pronunciationGameSessionProvider(widget.config).notifier)
           .startGame();
 
       if (!mounted) return;
@@ -130,13 +132,13 @@ class _PronunciationGameScreenState
   @override
   Widget build(BuildContext context) {
     final sessionState = ref.watch(
-      pronunciationGameSessionProvider(widget.difficulty),
+      pronunciationGameSessionProvider(widget.config),
     );
     final theme = Theme.of(context);
 
     // ゲーム終了時に結果画面へ遷移
     ref.listen<PronunciationGameSessionState>(
-      pronunciationGameSessionProvider(widget.difficulty),
+      pronunciationGameSessionProvider(widget.config),
       (previous, next) {
         if (next.isFinished && previous?.isFinished != true) {
           _navigateToResult(next);
@@ -146,7 +148,7 @@ class _PronunciationGameScreenState
 
     // 正解/不正解音を再生
     ref.listen<PronunciationGameSessionState>(
-      pronunciationGameSessionProvider(widget.difficulty),
+      pronunciationGameSessionProvider(widget.config),
       (previous, next) {
         if (previous?.lastInputResult != next.lastInputResult) {
           final soundService = ref.read(soundServiceProvider);
@@ -160,47 +162,83 @@ class _PronunciationGameScreenState
     );
 
     return AppPageScaffold(
-      title: '発音ゲーム ${_getDifficultyLabel(widget.difficulty)}',
+      title: '発音ゲーム ${_getDifficultyLabel(widget.config.difficulty)}',
       showBackButton: true,
       actions: [
-        // タイマー
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          margin: const EdgeInsets.only(right: 8),
-          decoration: BoxDecoration(
-            color: sessionState.remainingTimeMs < 10000
-                ? AppColors.error.withOpacity(0.3)
-                : theme.colorScheme.onSurface.withOpacity(0.1),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(
-                Icons.timer,
-                color: sessionState.remainingTimeMs < 10000
-                    ? AppColors.error
-                    : theme.colorScheme.onSurface,
-                size: 20,
-              ),
-              const SizedBox(width: 4),
-              Text(
-                _formatTime(sessionState.remainingTimeMs),
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: sessionState.remainingTimeMs < 10000
-                      ? AppColors.error
-                      : theme.colorScheme.onSurface,
-                ),
-              ),
-            ],
-          ),
-        ),
+        // 練習モードの場合は進捗表示、通常モードはタイマー表示
+        widget.config.isPracticeMode
+            ? _buildPracticeProgressBadge(sessionState, theme)
+            : _buildTimerBadge(sessionState, theme),
       ],
       safeBottom: true,
       child:
           _isStarted ? _buildGameContent(sessionState) : _buildStartScreen(),
+    );
+  }
+
+  Widget _buildTimerBadge(PronunciationGameSessionState sessionState, ThemeData theme) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      margin: const EdgeInsets.only(right: 8),
+      decoration: BoxDecoration(
+        color: sessionState.remainingTimeMs < 10000
+            ? AppColors.error.withOpacity(0.3)
+            : theme.colorScheme.onSurface.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            Icons.timer,
+            color: sessionState.remainingTimeMs < 10000
+                ? AppColors.error
+                : theme.colorScheme.onSurface,
+            size: 20,
+          ),
+          const SizedBox(width: 4),
+          Text(
+            _formatTime(sessionState.remainingTimeMs),
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: sessionState.remainingTimeMs < 10000
+                  ? AppColors.error
+                  : theme.colorScheme.onSurface,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPracticeProgressBadge(PronunciationGameSessionState sessionState, ThemeData theme) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      margin: const EdgeInsets.only(right: 8),
+      decoration: BoxDecoration(
+        color: AppColors.secondary.withOpacity(0.2),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            Iconsax.book_1,
+            color: AppColors.secondary,
+            size: 18,
+          ),
+          const SizedBox(width: 8),
+          Text(
+            '${sessionState.correctCount}/${widget.config.targetQuestionCount}',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: theme.colorScheme.onSurface,
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -210,7 +248,7 @@ class _PronunciationGameScreenState
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ScoreBasedCharacterWidget(score: 0, difficulty: widget.difficulty),
+          ScoreBasedCharacterWidget(score: 0, difficulty: widget.config.difficulty),
           const SizedBox(height: 32),
           Text(
             '発音ゲーム',
@@ -221,12 +259,35 @@ class _PronunciationGameScreenState
             ),
           ),
           const SizedBox(height: 8),
-          Text(
-            '${_getDifficultyLabel(widget.difficulty)}モード',
-            style: TextStyle(
-              fontSize: 20,
-              color: theme.colorScheme.onSurface.withOpacity(0.7),
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                '${_getDifficultyLabel(widget.config.difficulty)}モード',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: theme.colorScheme.onSurface.withOpacity(0.7),
+                ),
+              ),
+              if (widget.config.isPracticeMode) ...[
+                const SizedBox(width: 8),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: AppColors.secondary.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Text(
+                    '練習',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.secondary,
+                    ),
+                  ),
+                ),
+              ],
+            ],
           ),
           const SizedBox(height: 16),
           Text(
@@ -269,7 +330,10 @@ class _PronunciationGameScreenState
   }
 
   String _getTimeLimit() {
-    switch (widget.difficulty) {
+    if (widget.config.isPracticeMode) {
+      return '${widget.config.targetQuestionCount}問 / 時間無制限';
+    }
+    switch (widget.config.difficulty) {
       case 'beginner':
         return '制限時間 30秒';
       case 'intermediate':
@@ -283,6 +347,8 @@ class _PronunciationGameScreenState
 
   Widget _buildGameContent(PronunciationGameSessionState state) {
     final theme = Theme.of(context);
+    final displaySettings =
+        ref.watch(displaySettingsProvider).value ?? const DisplaySettings();
     return Column(
       children: [
         Expanded(
@@ -317,7 +383,7 @@ class _PronunciationGameScreenState
                   child: Center(
                     child: ScoreBasedCharacterWidget(
                       score: state.score,
-                      difficulty: widget.difficulty,
+                      difficulty: widget.config.difficulty,
                       showName: false,
                     ),
                   ),
@@ -357,7 +423,7 @@ class _PronunciationGameScreenState
                           child: Text(
                             state.currentWord!.word,
                             style: TextStyle(
-                              fontSize: 32,
+                              fontSize: 32 * displaySettings.promptFontScale,
                               fontWeight: FontWeight.bold,
                               color: theme.colorScheme.onSurface,
                             ),
@@ -531,7 +597,7 @@ class _PronunciationGameScreenState
               style: FButtonStyle.secondary(),
               onPress: () {
                 ref
-                    .read(pronunciationGameSessionProvider(widget.difficulty)
+                    .read(pronunciationGameSessionProvider(widget.config)
                         .notifier)
                     .skipWord();
               },
@@ -549,7 +615,7 @@ class _PronunciationGameScreenState
             GestureDetector(
               onTap: () {
                 ref
-                    .read(pronunciationGameSessionProvider(widget.difficulty)
+                    .read(pronunciationGameSessionProvider(widget.config)
                         .notifier)
                     .restartSpeechRecognition();
               },
@@ -636,7 +702,7 @@ class _PronunciationGameScreenState
     Navigator.of(context).pushReplacement(
       MaterialPageRoute<void>(
         builder: (_) => PronunciationGameResultScreen(
-          difficulty: widget.difficulty,
+          difficulty: widget.config.difficulty,
           score: state.score,
           correctCount: state.correctCount,
           maxCombo: state.maxCombo,
@@ -644,6 +710,8 @@ class _PronunciationGameScreenState
           characterLevel: state.characterLevel,
           timeSpent: state.totalPlayTimeMs,
           accuracy: state.accuracy,
+          isPracticeMode: widget.config.isPracticeMode,
+          targetQuestionCount: widget.config.targetQuestionCount,
         ),
       ),
     );

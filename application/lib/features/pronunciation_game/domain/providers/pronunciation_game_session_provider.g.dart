@@ -23,7 +23,7 @@ final class PronunciationGameSessionProvider
   /// 発音ゲームセッションプロバイダー
   const PronunciationGameSessionProvider._({
     required PronunciationGameSessionFamily super.from,
-    required String super.argument,
+    required PronunciationGameConfig super.argument,
   }) : super(
          retry: null,
          name: r'pronunciationGameSessionProvider',
@@ -69,7 +69,7 @@ final class PronunciationGameSessionProvider
 }
 
 String _$pronunciationGameSessionHash() =>
-    r'93d95dbad3c21d3254e21023c381963367394912';
+    r'802c88548c6d3446bf4c869cc956bb1fd76bdac5';
 
 /// 発音ゲームセッションプロバイダー
 
@@ -80,7 +80,7 @@ final class PronunciationGameSessionFamily extends $Family
           PronunciationGameSessionState,
           PronunciationGameSessionState,
           PronunciationGameSessionState,
-          String
+          PronunciationGameConfig
         > {
   const PronunciationGameSessionFamily._()
     : super(
@@ -93,8 +93,8 @@ final class PronunciationGameSessionFamily extends $Family
 
   /// 発音ゲームセッションプロバイダー
 
-  PronunciationGameSessionProvider call(String difficulty) =>
-      PronunciationGameSessionProvider._(argument: difficulty, from: this);
+  PronunciationGameSessionProvider call(PronunciationGameConfig config) =>
+      PronunciationGameSessionProvider._(argument: config, from: this);
 
   @override
   String toString() => r'pronunciationGameSessionProvider';
@@ -104,10 +104,10 @@ final class PronunciationGameSessionFamily extends $Family
 
 abstract class _$PronunciationGameSession
     extends $Notifier<PronunciationGameSessionState> {
-  late final _$args = ref.$arg as String;
-  String get difficulty => _$args;
+  late final _$args = ref.$arg as PronunciationGameConfig;
+  PronunciationGameConfig get config => _$args;
 
-  PronunciationGameSessionState build(String difficulty);
+  PronunciationGameSessionState build(PronunciationGameConfig config);
   @$mustCallSuper
   @override
   void runBuild() {

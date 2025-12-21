@@ -15,6 +15,8 @@ import '../../../features/typing/domain/providers/typing_session_provider.dart';
 import '../../../features/typing/domain/providers/typing_stats_provider.dart';
 import '../../../features/typing/domain/providers/typing_settings_provider.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
+import '../../../features/settings/domain/providers/display_settings_provider.dart';
+import '../../../features/settings/data/models/display_settings.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
 import '../../widgets/app_page_scaffold.dart';
 import '../../widgets/page_state_views.dart';
@@ -65,6 +67,9 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen>
     final sessionAsync = ref.watch(typingSessionProvider(widget.lessonId));
     final settingsAsync = ref.watch(typingSettingsProvider);
     final settings = settingsAsync.value ?? const TypingSettings();
+    final displaySettingsAsync = ref.watch(displaySettingsProvider);
+    final displaySettings =
+        displaySettingsAsync.value ?? const DisplaySettings();
     ref.listen<AsyncValue<TypingSessionState>>(
       typingSessionProvider(widget.lessonId),
       (previous, next) {
@@ -107,6 +112,7 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen>
         onOpenSettings: _openSettings,
         onSpeak: _handleSpeak,
         settings: settings,
+        displaySettings: displaySettings,
       ),
       loading: () => const AppPageScaffold(
         title: 'レッスン',
@@ -269,6 +275,7 @@ class _LessonView extends StatelessWidget {
     required this.onOpenSettings,
     required this.onSpeak,
     required this.settings,
+    required this.displaySettings,
   });
 
   final TypingSessionState session;
@@ -279,6 +286,7 @@ class _LessonView extends StatelessWidget {
   final VoidCallback onOpenSettings;
   final void Function(String text) onSpeak;
   final TypingSettings settings;
+  final DisplaySettings displaySettings;
 
   // シフトキーが必要な文字（濃音 + シフト変換母音）
   static const _shiftRequiredKeys = {'ㄲ', 'ㄸ', 'ㅃ', 'ㅆ', 'ㅉ', 'ㅒ', 'ㅖ'};
@@ -357,7 +365,8 @@ class _LessonView extends StatelessWidget {
                           currentItem.text,
                           session.currentPosition,
                         ),
-                        fontSize: _getFontSize(currentSection.type),
+                        fontSize: _getFontSize(currentSection.type) *
+                            displaySettings.promptFontScale,
                         showCharacterProgress: true,
                         onSpeak: () => onSpeak(currentItem.text),
                       ),

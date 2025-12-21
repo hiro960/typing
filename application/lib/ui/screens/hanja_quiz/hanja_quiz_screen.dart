@@ -7,6 +7,8 @@ import '../../../core/services/sound_service.dart';
 import '../../../features/hanja_quiz/data/models/hanja_quiz_models.dart';
 import '../../../features/hanja_quiz/domain/providers/hanja_quiz_providers.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
+import '../../../features/settings/domain/providers/display_settings_provider.dart';
+import '../../../features/settings/data/models/display_settings.dart';
 import '../../app_spacing.dart';
 import '../../app_theme.dart';
 import '../../widgets/app_page_scaffold.dart';
@@ -49,6 +51,8 @@ class _HanjaQuizScreenState extends ConsumerState<HanjaQuizScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final quizState = ref.watch(hanjaQuizProvider);
+    final displaySettings =
+        ref.watch(displaySettingsProvider).value ?? const DisplaySettings();
 
     // ゲーム完了時に結果画面へ遷移
     ref.listen<HanjaQuizState?>(hanjaQuizProvider, (previous, next) {
@@ -123,6 +127,7 @@ class _HanjaQuizScreenState extends ConsumerState<HanjaQuizScreen> {
               _QuestionSection(
                 hanja: currentWord.hanja,
                 meaning: currentWord.meaning,
+                fontScale: displaySettings.promptFontScale,
                 onPlayAudio: () {
                   ref
                       .read(wordAudioServiceProvider.notifier)
@@ -138,6 +143,7 @@ class _HanjaQuizScreenState extends ConsumerState<HanjaQuizScreen> {
                 correctChars: quizState.correctChars,
                 isWordComplete: quizState.isWordComplete,
                 hasWrongAnswer: quizState.hasWrongAnswer,
+                fontScale: displaySettings.promptFontScale,
               ),
 
               const SizedBox(height: AppSpacing.xl),
@@ -154,6 +160,7 @@ class _HanjaQuizScreenState extends ConsumerState<HanjaQuizScreen> {
                 _ChoicesSection(
                   choices: quizState.choices,
                   onSelect: _handleSelect,
+                  fontScale: displaySettings.promptFontScale,
                 ),
 
               const Spacer(),
@@ -197,11 +204,13 @@ class _QuestionSection extends StatelessWidget {
     required this.hanja,
     required this.meaning,
     required this.onPlayAudio,
+    required this.fontScale,
   });
 
   final String hanja;
   final String meaning;
   final VoidCallback onPlayAudio;
+  final double fontScale;
 
   @override
   Widget build(BuildContext context) {
@@ -212,8 +221,8 @@ class _QuestionSection extends StatelessWidget {
         // 漢字
         Text(
           hanja,
-          style: const TextStyle(
-            fontSize: 48,
+          style: TextStyle(
+            fontSize: 48 * fontScale,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -222,7 +231,7 @@ class _QuestionSection extends StatelessWidget {
         Text(
           meaning,
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 20 * fontScale,
             fontWeight: FontWeight.bold,
             color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
           ),
@@ -246,12 +255,14 @@ class _AnswerSection extends StatelessWidget {
     required this.correctChars,
     required this.isWordComplete,
     required this.hasWrongAnswer,
+    required this.fontScale,
   });
 
   final List<String> answeredChars;
   final List<String> correctChars;
   final bool isWordComplete;
   final bool hasWrongAnswer;
+  final double fontScale;
 
   @override
   Widget build(BuildContext context) {
@@ -292,7 +303,7 @@ class _AnswerSection extends StatelessWidget {
                   ? answeredChars[index]
                   : (showCorrect ? correctChars[index] : '_'),
               style: TextStyle(
-                fontSize: 32,
+                fontSize: 32 * fontScale,
                 fontWeight: FontWeight.bold,
                 color: showCorrect && !isAnswered
                     ? AppColors.error
@@ -311,10 +322,12 @@ class _ChoicesSection extends StatelessWidget {
   const _ChoicesSection({
     required this.choices,
     required this.onSelect,
+    required this.fontScale,
   });
 
   final List<String> choices;
   final void Function(String) onSelect;
+  final double fontScale;
 
   @override
   Widget build(BuildContext context) {
@@ -333,6 +346,7 @@ class _ChoicesSection extends StatelessWidget {
               child: _ChoiceButton(
                 char: choice,
                 onTap: () => onSelect(choice),
+                fontScale: fontScale,
               ),
             );
           }).toList(),
@@ -348,6 +362,7 @@ class _ChoicesSection extends StatelessWidget {
                 child: _ChoiceButton(
                   char: choice,
                   onTap: () => onSelect(choice),
+                  fontScale: fontScale,
                 ),
               );
             }).toList(),
@@ -363,10 +378,12 @@ class _ChoiceButton extends StatelessWidget {
   const _ChoiceButton({
     required this.char,
     required this.onTap,
+    required this.fontScale,
   });
 
   final String char;
   final VoidCallback onTap;
+  final double fontScale;
 
   @override
   Widget build(BuildContext context) {
@@ -384,8 +401,8 @@ class _ChoiceButton extends StatelessWidget {
           alignment: Alignment.center,
           child: Text(
             char,
-            style: const TextStyle(
-              fontSize: 28,
+            style: TextStyle(
+              fontSize: 28 * fontScale,
               fontWeight: FontWeight.bold,
             ),
           ),

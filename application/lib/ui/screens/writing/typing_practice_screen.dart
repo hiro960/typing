@@ -11,6 +11,8 @@ import '../../../features/stats/domain/providers/integrated_stats_providers.dart
 import '../../../features/writing/data/models/writing_models.dart';
 import '../../../features/writing/domain/providers/writing_providers.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
+import '../../../features/settings/domain/providers/display_settings_provider.dart';
+import '../../../features/settings/data/models/display_settings.dart';
 import '../../app_spacing.dart';
 import '../../widgets/app_page_scaffold.dart';
 import '../../widgets/typing/input_feedback_widget.dart';
@@ -495,6 +497,9 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
       return const Center(child: CircularProgressIndicator());
     }
 
+    final displaySettings =
+        ref.watch(displaySettingsProvider).value ?? const DisplaySettings();
+
     return SingleChildScrollView(
       padding: const EdgeInsets.all(AppSpacing.lg),
       child: Column(
@@ -505,7 +510,7 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
           TypingPromptCard(
             targetText: currentEntry.jpText,
             subText: _state!.showAnswer ? currentEntry.koText : null,
-            fontSize: 22,
+            fontSize: 22 * displaySettings.promptFontScale,
           ),
           const SizedBox(height: AppSpacing.xl),
           TypingInputCard(inputText: _composer.text),
