@@ -35,8 +35,8 @@
       "id": "qt_sentence_ending_006_04",
       "order": 4,
       "japanese": "明日会いますよね？",
-      "korean": "내일 만나요, 그렇지요?",
-      "alternativeAnswers": ["내일 만나죠?"],
+      "korean": "내일 만나지요?",
+      "alternativeAnswers": ["내일 만나죠?", "내일 만나요, 그렇지요?"],
       "hint": "내일...",
       "explanation": "共有の予定を再確認するとき「-지요?/죠?」で柔らかく尋ねます。"
     },

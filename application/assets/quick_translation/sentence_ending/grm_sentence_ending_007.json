@@ -62,9 +62,9 @@
       "id": "qt_sentence_ending_007_07",
       "order": 7,
       "japanese": "いいにおいですね。",
-      "korean": "향기가 좋네요.",
-      "alternativeAnswers": [],
-      "hint": "향기가...",
+      "korean": "좋은 냄새네요.",
+      "alternativeAnswers": ["냄새가 좋네요.", "향기가 좋네요."],
+      "hint": "좋은...",
       "explanation": "感嘆・感想の丁寧表現として「-네요」を付けます。"
     },
     {

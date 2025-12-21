@@ -80,8 +80,8 @@
       "id": "qt_sentence_ending_010_09",
       "order": 9,
       "japanese": "昨日休みだったじゃないですか。",
-      "korean": "어제 쉬었잖아요.",
-      "alternativeAnswers": [],
+      "korean": "어제 쉬는 날이었잖아요.",
+      "alternativeAnswers": ["어제 휴일이었잖아요.", "어제 쉬었잖아요."],
       "hint": "어제...",
       "explanation": "過去の既知の予定を思い出させるとき -잖아요 を用います。"
     },

@@ -36,7 +36,7 @@
       "order": 4,
       "japanese": "どんな家に住みたいですか？",
       "korean": "어떤 집에 살고 싶어요?",
-      "alternativeAnswers": ["어떤 집에 살고 싶습니다."],
+      "alternativeAnswers": ["어떤 집에 살고 싶습니까?"],
       "hint": "어떤 집...",
       "explanation": "希望するタイプを聞くとき 어떤 + 名詞 를使います。"
     },

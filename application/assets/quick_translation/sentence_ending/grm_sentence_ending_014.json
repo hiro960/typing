@@ -45,7 +45,8 @@
       "order": 5,
       "japanese": "今日は家にいるんですが。",
       "korean": "오늘 집에 있는데요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+      ],
       "hint": "오늘...",
       "explanation": "前置きで状況を示し、返答を促すときに用います。"
     },
@@ -53,8 +54,9 @@
       "id": "qt_sentence_ending_014_06",
       "order": 6,
       "japanese": "少し寒いんですが。",
-      "korean": "조금 춥는데요.",
-      "alternativeAnswers": [],
+      "korean": "조금 추운데요.",
+      "alternativeAnswers": [
+      ],
       "hint": "조금...",
       "explanation": "感じた状態を伝え、間接的に提案を引き出す言い方です。"
     },

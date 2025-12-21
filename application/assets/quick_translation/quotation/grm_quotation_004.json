@@ -9,7 +9,9 @@
       "order": 1,
       "japanese": "友達が一緒に映画を見ようと言いました。",
       "korean": "친구가 같이 영화 보자고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "친구가 같이 영화 보자고 말했어요."
+      ],
       "hint": "친구가...",
       "explanation": "勧誘の提案を間接引用するとき「-자고 하다」を使います。"
     },
@@ -18,7 +20,9 @@
       "order": 2,
       "japanese": "明日会おうと言いました。",
       "korean": "내일 만나자고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "내일 만나자고 말했어요."
+      ],
       "hint": "내일...",
       "explanation": "共同行動の誘いを伝えるので「-자고 하다」を用います。"
     },
@@ -27,7 +31,9 @@
       "order": 3,
       "japanese": "早く家に帰ろうと言いました。",
       "korean": "빨리 집에 가자고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "빨리 집에 가자고 말했어요."
+      ],
       "hint": "빨리...",
       "explanation": "一緒に行こうという提案を間接引用しています。"
     },
@@ -36,7 +42,9 @@
       "order": 4,
       "japanese": "公園で散歩しようと言いました。",
       "korean": "공원에서 산책하자고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "공원에서 산책하자고 말했어요."
+      ],
       "hint": "공원에서...",
       "explanation": "共同の行動提案を「-자고 하다」で伝えます。"
     },
@@ -45,7 +53,9 @@
       "order": 5,
       "japanese": "一緒にご飯を食べようと言いました。",
       "korean": "같이 밥 먹자고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "같이 밥 먹자고 말했어요."
+      ],
       "hint": "같이...",
       "explanation": "誘いの発話を間接表現にする際「-자고 하다」を使用。"
     },
@@ -54,7 +64,9 @@
       "order": 6,
       "japanese": "週末に旅行に行こうと言いました。",
       "korean": "주말에 여행 가자고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "주말에 여행 가자고 말했어요."
+      ],
       "hint": "주말에...",
       "explanation": "共同行動の提案を伝えるとき「-자고 하다」を使います。"
     },
@@ -63,7 +75,9 @@
       "order": 7,
       "japanese": "今から勉強しようと言いました。",
       "korean": "지금부터 공부하자고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "지금부터 공부하자고 말했어요."
+      ],
       "hint": "지금부터...",
       "explanation": "誘いの内容を「-자고 하다」で間接引用します。"
     },
@@ -72,7 +86,9 @@
       "order": 8,
       "japanese": "運動しようと言いました。",
       "korean": "운동하자고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "운동하자고 말했어요."
+      ],
       "hint": "운동...",
       "explanation": "一緒に運動しようという勧誘を「-자고 하다」で表します。"
     },
@@ -81,7 +97,9 @@
       "order": 9,
       "japanese": "その話をしようと言いました。",
       "korean": "그 이야기를 하자고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "그 이야기를 하자고 말했어요."
+      ],
       "hint": "그 이야기를...",
       "explanation": "共同の話題提案を間接で伝えるときも「-자고 하다」を用います。"
     },
@@ -90,7 +108,9 @@
       "order": 10,
       "japanese": "先に行こうと言いました。",
       "korean": "먼저 가자고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "먼저 가자고 말했어요."
+      ],
       "hint": "먼저...",
       "explanation": "行こうという勧誘を間接引用するので「-자고 하다」を使います。"
     }

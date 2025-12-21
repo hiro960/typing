@@ -9,7 +9,9 @@
       "order": 1,
       "japanese": "母が早く寝ろと言いました。",
       "korean": "엄마가 빨리 자라고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "엄마가 빨리 자라고 말했어요."
+      ],
       "hint": "엄마가...",
       "explanation": "命令を間接に伝えるとき語幹に「-라고 하다」を付けます。"
     },
@@ -18,7 +20,9 @@
       "order": 2,
       "japanese": "先生が静かにしろと言いました。",
       "korean": "선생님이 조용히 하라고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "선생님이 조용히 하라고 말했어요."
+      ],
       "hint": "선생님이...",
       "explanation": "動詞「하다」は母音終わりなので「하라고 하다」を用います。"
     },
@@ -27,7 +31,9 @@
       "order": 3,
       "japanese": "友達が来いと言いました。",
       "korean": "친구가 오라고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "친구가 오라고 말했어요."
+      ],
       "hint": "친구가...",
       "explanation": "来るよう命じた内容を「오라고 하다」で伝えます。"
     },
@@ -36,7 +42,9 @@
       "order": 4,
       "japanese": "父がこの本を読めと言いました。",
       "korean": "아빠가 이 책을 읽으라고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "아빠가 이 책을 읽으라고 말했어요."
+      ],
       "hint": "아빠가...",
       "explanation": "パッチムのある「읽다」は「읽으라고 하다」で命令引用します。"
     },
@@ -44,9 +52,11 @@
       "id": "qt_quotation_003_05",
       "order": 5,
       "japanese": "姉が窓を閉めろと言いました。",
-      "korean": "누나가 창문 닫으라고 했어요.",
-      "alternativeAnswers": [],
-      "hint": "누나가...",
+      "korean": "누나가 창문을 닫으라고 했어요.",
+      "alternativeAnswers": [
+        "누나가 창문을 닫으라고 말했어요."
+      ],
+      "hint": "누나가 창문을...",
       "explanation": "命令内容を動詞語幹＋「으라고 하다」で伝えます。"
     },
     {
@@ -54,16 +64,20 @@
       "order": 6,
       "japanese": "お母さんがご飯を食べろと言いました。",
       "korean": "어머니가 밥 먹으라고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "어머니가 밥 먹으라고 말했어요."
+      ],
       "hint": "어머니가...",
-      "explanation": "パッチムのない「먹다」は「먹으라고 하다」で引用します。"
+      "explanation": "パッチムのある「먹다」は「먹으라고 하다」で引用します。"
     },
     {
       "id": "qt_quotation_003_07",
       "order": 7,
       "japanese": "先生が座れと言いました。",
       "korean": "선생님이 앉으라고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "선생님이 앉으라고 말했어요."
+      ],
       "hint": "선생님이...",
       "explanation": "パッチムありの動詞でも「-으라고 하다」で命令を伝えます。"
     },
@@ -71,8 +85,10 @@
       "id": "qt_quotation_003_08",
       "order": 8,
       "japanese": "兄が手伝えと言いました。",
-      "korean": "형이 도와 주라고 했어요.",
-      "alternativeAnswers": [],
+      "korean": "형이 도와주라고 했어요.",
+      "alternativeAnswers": [
+        "형이 도와주라고 말했어요."
+      ],
       "hint": "형이...",
       "explanation": "助けるよう指示する内容も「도와 주라고 하다」で間接引用します。"
     },
@@ -81,7 +97,9 @@
       "order": 9,
       "japanese": "母が先に行けと言いました。",
       "korean": "엄마가 먼저 가라고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "엄마가 먼저 가라고 말했어요."
+      ],
       "hint": "엄마가...",
       "explanation": "行く命令を間接で伝えるので「가라고 하다」を使います。"
     },
@@ -90,7 +108,9 @@
       "order": 10,
       "japanese": "友達が連絡しろと言いました。",
       "korean": "친구가 연락하라고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "친구가 연락하라고 말했어요."
+      ],
       "hint": "친구가...",
       "explanation": "連絡するよう求める命令を「-라고 하다」で引用します。"
     }

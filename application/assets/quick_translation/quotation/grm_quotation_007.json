@@ -9,7 +9,8 @@
       "order": 1,
       "japanese": "母が早く帰ってこいって。",
       "korean": "엄마가 빨리 오래요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+      ],
       "hint": "엄마가...",
       "explanation": "命令引用の口語形で「-라고 해요」が縮約して「-래요」になります。"
     },
@@ -47,7 +48,7 @@
       "korean": "아빠가 더 먹으래요.",
       "alternativeAnswers": [],
       "hint": "아빠가...",
-      "explanation": "パッチムのない動詞も命令引用「-으래요」で伝えます。"
+      "explanation": "パッチムのある動詞は「-으래요」で伝えます。"
     },
     {
       "id": "qt_quotation_007_06",

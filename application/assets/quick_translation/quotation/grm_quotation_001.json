@@ -31,7 +31,9 @@
       "order": 3,
       "japanese": "私は日本人だと言いました。",
       "korean": "저는 일본 사람이라고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "저는 일본 사람이라고 말했어요."
+      ],
       "hint": "저는...",
       "explanation": "名詞述語の引用で母音終わりでもパッチムありなので「이라고」を使用。"
     },
@@ -50,9 +52,11 @@
       "id": "qt_quotation_001_05",
       "order": 5,
       "japanese": "名前はミナだと言いました。",
-      "korean": "이름을 민아라고 했어요.",
-      "alternativeAnswers": [],
-      "hint": "이름을...",
+      "korean": "이름이 민아라고 했어요.",
+      "alternativeAnswers": [
+        "이름이 민아라고 말했어요."
+      ],
+      "hint": "이름이...",
       "explanation": "固有名詞も母音終わりなので「라고 하다」で伝えます。"
     },
     {
@@ -60,16 +64,20 @@
       "order": 6,
       "japanese": "その日は日曜日だと言いました。",
       "korean": "그날이 일요일이라고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "그날이 일요일이라고 말했어요."
+      ],
       "hint": "그날이...",
-      "explanation": "パッチムなし名詞「일요일」に「이라고 하다」を付けています。"
+      "explanation": "パッチムあり名詞「일요일」に「이라고 하다」を付けています。"
     },
     {
       "id": "qt_quotation_001_07",
       "order": 7,
       "japanese": "この部屋は教室だと言いました。",
       "korean": "이 방이 교실이라고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "이 방이 교실이라고 말했어요."
+      ],
       "hint": "이 방이...",
       "explanation": "名詞述語の引用で「교실이라고 했어요」を使っています。"
     },
@@ -78,7 +86,9 @@
       "order": 8,
       "japanese": "その方は社長だと言いました。",
       "korean": "그분이 사장이라고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "그분이 사장이라고 말했어요."
+      ],
       "hint": "그분이...",
       "explanation": "職業名詞も名詞引用「-라고 하다」で伝えます。"
     },
@@ -87,7 +97,9 @@
       "order": 9,
       "japanese": "これは新しい本だと言いました。",
       "korean": "이건 새 책이라고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "이건 새 책이라고 말했어요."
+      ],
       "hint": "이건...",
       "explanation": "名詞句「새 책」をそのまま「이라고 하다」で引用します。"
     },
@@ -96,7 +108,9 @@
       "order": 10,
       "japanese": "会議は明日だと言いました。",
       "korean": "회의는 내일이라고 했어요.",
-      "alternativeAnswers": [],
+      "alternativeAnswers": [
+        "회의는 내일이라고 말했어요."
+      ],
       "hint": "회의는...",
       "explanation": "日時名詞「내일」に「이라고 하다」を付けて明日だと引用します。"
     }

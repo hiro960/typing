@@ -62,7 +62,7 @@
       "id": "qt_sentence_ending_005_07",
       "order": 7,
       "japanese": "会社はどこですか？",
-      "korean": "회사 어디입니까?",
+      "korean": "회사가 어디입니까?",
       "alternativeAnswers": ["회사가 어디예요?"],
       "hint": "회사...",
       "explanation": "名詞述語の疑問も指定詞＋「-입니까?」を用います。"

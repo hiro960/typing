@@ -7,7 +7,7 @@
     {
       "id": "qt_word_formation_027_01",
       "order": 1,
-      "japanese": "笑顔が愛らしいです。",
+      "japanese": "笑いが愛らしいです。",
       "korean": "웃음이 사랑스러워요.",
       "alternativeAnswers": [],
       "hint": "웃음이...",
@@ -17,9 +17,9 @@
       "id": "qt_word_formation_027_02",
       "order": 2,
       "japanese": "言い方が自然です。",
-      "korean": "말이 자연스러워요.",
+      "korean": "말투가 자연스러워요.",
       "alternativeAnswers": [],
-      "hint": "말이...",
+      "hint": "말투가...",
       "explanation": "「자연스럽다」で自然な感じを示す-스럽다の用法です。"
     },
     {
@@ -34,7 +34,7 @@
     {
       "id": "qt_word_formation_027_04",
       "order": 4,
-      "japanese": "子どもらしく元気です。",
+      "japanese": "子どもらしくよく遊びます。",
       "korean": "아이답게 잘 놀아요.",
       "alternativeAnswers": [],
       "hint": "아이답게...",

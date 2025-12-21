@@ -18,13 +18,13 @@
     {
       "id": "qt_tense_aspect_035_02",
       "order": 2,
-      "japanese": "運動を始めました。",
-      "korean": "운동을 하기 시작했어요.",
+      "japanese": "料理を作り始めました。",
+      "korean": "요리를 만들기 시작했어요.",
       "alternativeAnswers": [
-        "운동을 하기 시작했습니다."
+        "요리를 만들기 시작했습니다."
       ],
-      "hint": "운동을...",
-      "explanation": "これから続ける行動の開始を示します。"
+      "hint": "요리를...",
+      "explanation": "新しく始めた行動の開始を示します。"
     },
     {
       "id": "qt_tense_aspect_035_03",
