@@ -1,3 +1,5 @@
+import 'dart:io' show Platform;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -81,7 +83,14 @@ class TypingApp extends ConsumerWidget {
           child: Scaffold(
             resizeToAvoidBottomInset: false,
             backgroundColor: Colors.transparent,
-            body: child ?? const SizedBox.shrink(),
+            body: SafeArea(
+              // AndroidのみSafeAreaのbottomを有効化（iPhoneは適用しない）
+              bottom: Platform.isAndroid,
+              top: false,
+              left: false,
+              right: false,
+              child: child ?? const SizedBox.shrink(),
+            ),
           ),
         ),
       ),

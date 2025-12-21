@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
-enum _KeyboardMode { hangul, symbols }
+enum _KeyboardMode { hangul, symbols1, symbols2 }
 
 class TypingKeyboard extends StatefulWidget {
   const TypingKeyboard({
@@ -65,11 +65,20 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
     ['123', 'space', '.', '⏎'],
   ];
 
-  static const _symbolRows = [
+  // iPhone韓国語キーボード 数字・記号ページ1
+  static const _symbols1Rows = [
     ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
-    ['!', '@', '#', '?', '.', ',', ';', ':'],
-    ['-', '/', '+', '=', '(', ')', '"', "'", '⌫'],
-    ['ABC', 'space', '!', '⏎'],
+    ['-', '/', ':', ';', '(', ')', '₩', '&', '@', '"'],
+    ['#+=', '.', ',', '?', '!', "'", '⌫'],
+    ['한글', 'space', '⏎'],
+  ];
+
+  // iPhone韓国語キーボード 記号ページ2
+  static const _symbols2Rows = [
+    ['[', ']', '{', '}', '#', '%', '^', '*', '+', '='],
+    ['_', '\\', '|', '~', '<', '>', '€', '\$', '¥', '•'],
+    ['123', '.', ',', '?', '!', "'", '⌫'],
+    ['한글', 'space', '⏎'],
   ];
 
   // シフトキー押下時の変換マップ（濃音子音 + 母音）
@@ -87,9 +96,11 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
-    final rows = _currentMode == _KeyboardMode.hangul
-        ? _hangulRows
-        : _symbolRows;
+    final rows = switch (_currentMode) {
+      _KeyboardMode.hangul => _hangulRows,
+      _KeyboardMode.symbols1 => _symbols1Rows,
+      _KeyboardMode.symbols2 => _symbols2Rows,
+    };
 
     // 親のpaddingを無視して画面幅いっぱいに広げる
     return LayoutBuilder(
@@ -219,7 +230,7 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
                           highlightedKeys: widget.highlightedKeys,
                           onKeyTap: _handleKeyTap,
                         ),
-                        const SizedBox(height: 10),
+                        const SizedBox(height: 8), // iPhoneキーボードに近い行間
                       ],
                     ],
                   ),
@@ -253,14 +264,22 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
         _notifyFeedback();
         return;
       case '123':
-        // 数字・記号キーボードに切り替え
+        // 数字・記号キーボード（ページ1）に切り替え
         setState(() {
-          _currentMode = _KeyboardMode.symbols;
+          _currentMode = _KeyboardMode.symbols1;
           _shiftActive = false;
         });
         _notifyFeedback();
         return;
-      case 'ABC':
+      case '#+=':
+        // 記号キーボード（ページ2）に切り替え
+        setState(() {
+          _currentMode = _KeyboardMode.symbols2;
+          _shiftActive = false;
+        });
+        _notifyFeedback();
+        return;
+      case '한글':
         // ハングルキーボードに切り替え
         setState(() {
           _currentMode = _KeyboardMode.hangul;
@@ -353,12 +372,15 @@ class _KeyboardRow extends StatelessWidget {
   int _flex(String key) {
     switch (key) {
       case 'space':
-        return 6;
+        return 5;
       case '123':
-      case 'ABC':
+      case '#+=':
+      case '한글':
+        return 2;
       case '⌫':
       case '⇧':
-        return 2;
+        // iPhoneデフォルトキーボードに近いサイズ（約1.3倍）
+        return 1;
       default:
         return 1;
     }
@@ -414,13 +436,21 @@ class _KeyboardKey extends StatelessWidget {
     final backgroundColor = isHighlighted
         ? highlightColor.withValues(alpha: 0.25)
         : theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3);
+    // 特殊キーかどうかを判定
+    final isSpecialKey = label == '⇧' ||
+        label == '⌫' ||
+        label == '123' ||
+        label == '#+=' ||
+        label == '한글' ||
+        label == '⏎';
+
     return GestureDetector(
       onTap: () => onTap(label),
       child: Container(
-        height: 40,
+        height: 44, // iPhoneデフォルトキーボードに近い高さ
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(displayLabel.length > 1 ? 8 : 6),
+          borderRadius: BorderRadius.circular(5), // iPhoneキーボードに近い角丸
           color: backgroundColor,
           border: Border.all(
             color: isHighlighted
@@ -431,11 +461,12 @@ class _KeyboardKey extends StatelessWidget {
         ),
         child: Text(
           displayLabel == 'space' ? 'space' : displayLabel,
-          style: theme.textTheme.titleMedium?.copyWith(
+          style: TextStyle(
+            fontSize: isSpecialKey ? 16 : 22, // 通常キーは大きめ、特殊キーは控えめ
+            fontWeight: FontWeight.w500,
             color: isHighlighted
                 ? const Color(0xFFFF8C00)
                 : theme.colorScheme.onSurface,
-            fontWeight: FontWeight.bold,
           ),
         ),
       ),
