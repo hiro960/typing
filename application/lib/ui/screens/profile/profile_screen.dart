@@ -58,6 +58,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   /// ネットワークエラーのトースト表示済みフラグ（重複表示防止）
   bool _hasShownNetworkError = false;
 
+  /// 投稿のローカルキャッシュ（オプティミスティック更新用）
+  List<DiaryPost>? _localPosts;
+  String? _localPostsUserId;
+
   @override
   void dispose() {
     _scrollController.dispose();
@@ -85,6 +89,65 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         builder: (_) => PostDetailScreen(initialPost: post),
       ),
     );
+  }
+
+  Future<void> _toggleLike(DiaryPost post) async {
+    if (_localPosts == null) return;
+    final index = _localPosts!.indexWhere((p) => p.id == post.id);
+    if (index == -1) return;
+
+    // オプティミスティック更新
+    final newLiked = !post.liked;
+    final newLikesCount = newLiked
+        ? post.likesCount + 1
+        : (post.likesCount - 1).clamp(0, 1 << 31);
+    final updatedPost = post.copyWith(liked: newLiked, likesCount: newLikesCount);
+
+    setState(() {
+      _localPosts![index] = updatedPost;
+    });
+
+    try {
+      await ref
+          .read(diaryTimelineControllerProvider.notifier)
+          .toggleLike(post.id, like: newLiked);
+    } catch (error) {
+      // エラー時はロールバック
+      if (mounted) {
+        setState(() {
+          _localPosts![index] = post;
+        });
+        ToastHelper.showError(context, error);
+      }
+    }
+  }
+
+  Future<void> _toggleBookmark(DiaryPost post) async {
+    if (_localPosts == null) return;
+    final index = _localPosts!.indexWhere((p) => p.id == post.id);
+    if (index == -1) return;
+
+    // オプティミスティック更新
+    final newBookmarked = !post.bookmarked;
+    final updatedPost = post.copyWith(bookmarked: newBookmarked);
+
+    setState(() {
+      _localPosts![index] = updatedPost;
+    });
+
+    try {
+      await ref
+          .read(diaryTimelineControllerProvider.notifier)
+          .toggleBookmark(post.id, bookmark: newBookmarked);
+    } catch (error) {
+      // エラー時はロールバック
+      if (mounted) {
+        setState(() {
+          _localPosts![index] = post;
+        });
+        ToastHelper.showError(context, error);
+      }
+    }
   }
 
   @override
@@ -218,6 +281,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
           ref.invalidate(userProfileProvider(profile.id));
           ref.invalidate(userStatsProvider(profile.id));
           if (_selectedTabIndex == 0) {
+            _localPosts = null; // ローカルキャッシュをリセット
             ref.invalidate(userPostsProvider(profile.id));
           } else if (_selectedTabIndex == 1) {
             ref.invalidate(userFollowersProvider(profile.id));
@@ -330,36 +394,31 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
           if (_selectedTabIndex == 0)
             postsAsync.when(
               data: (posts) {
-                if (posts.isEmpty) {
+                // ローカルキャッシュを初期化（ユーザーが変わった場合もリセット）
+                if (_localPosts == null || _localPostsUserId != profile.id) {
+                  _localPosts = posts.toList();
+                  _localPostsUserId = profile.id;
+                }
+                final displayPosts = _localPosts!;
+
+                if (displayPosts.isEmpty) {
                   return PostEmptyState(
                     isOwner: isOwner,
-                    onReload: () => ref.invalidate(
-                      userPostsProvider(profile.id),
-                    ),
+                    onReload: () {
+                      _localPosts = null;
+                      ref.invalidate(userPostsProvider(profile.id));
+                    },
                   );
                 }
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ...posts.take(20).map((post) {
+                    ...displayPosts.take(20).map((post) {
                       return DiaryPostCard(
                         post: post,
                         onTap: () => _openDetail(post),
-                        onToggleLike: () async {
-                          await ref
-                              .read(diaryRepositoryProvider)
-                              .toggleLike(post.id, like: !post.liked);
-                          ref.invalidate(userPostsProvider(profile.id));
-                        },
-                        onToggleBookmark: () async {
-                          await ref
-                              .read(diaryRepositoryProvider)
-                              .toggleBookmark(
-                                post.id,
-                                bookmark: !post.bookmarked,
-                              );
-                          ref.invalidate(userPostsProvider(profile.id));
-                        },
+                        onToggleLike: () => _toggleLike(post),
+                        onToggleBookmark: () => _toggleBookmark(post),
                         onComment: () => _openDetail(post),
                         onQuote: () {
                           Navigator.of(context).push(
@@ -378,7 +437,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               },
               loading: () => const PostSkeletonList(),
               error: (_, __) => PostErrorState(
-                onRetry: () => ref.invalidate(userPostsProvider(profile.id)),
+                onRetry: () {
+                  _localPosts = null;
+                  ref.invalidate(userPostsProvider(profile.id));
+                },
               ),
             )
           else if (_selectedTabIndex == 1)

@@ -170,6 +170,16 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
                                   .markAsRead(notification.id);
                             }
                           },
+                          onAvatarTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute<void>(
+                                builder: (_) => ProfileScreen(
+                                  userId: notification.actor.id,
+                                  onOpenSettings: () {},
+                                ),
+                              ),
+                            );
+                          },
                         );
                       },
                     ),
@@ -185,10 +195,15 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
 }
 
 class _NotificationTile extends StatelessWidget {
-  const _NotificationTile({required this.notification, required this.onTap});
+  const _NotificationTile({
+    required this.notification,
+    required this.onTap,
+    required this.onAvatarTap,
+  });
 
   final DiaryNotification notification;
   final VoidCallback onTap;
+  final VoidCallback onAvatarTap;
 
   @override
   Widget build(BuildContext context) {
@@ -207,12 +222,15 @@ class _NotificationTile extends StatelessWidget {
       ),
       child: FTile(
         onPress: onTap,
-        prefix: UserAvatar(
-          displayName: notification.actor.displayName,
-          imageUrl: notification.actor.profileImageUrl,
-          backgroundColor: _avatarColor(notification.type, theme),
-          foregroundColor: theme.colorScheme.onPrimary,
-          textStyle: const TextStyle(fontWeight: FontWeight.bold),
+        prefix: GestureDetector(
+          onTap: onAvatarTap,
+          child: UserAvatar(
+            displayName: notification.actor.displayName,
+            imageUrl: notification.actor.profileImageUrl,
+            backgroundColor: _avatarColor(notification.type, theme),
+            foregroundColor: theme.colorScheme.onPrimary,
+            textStyle: const TextStyle(fontWeight: FontWeight.bold),
+          ),
         ),
         title: Text(
           title,

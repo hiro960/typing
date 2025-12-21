@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../features/auth/domain/providers/auth_providers.dart';
+import '../../../features/typing/domain/providers/typing_settings_provider.dart';
 import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/data/repositories/diary_repository.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
@@ -76,6 +78,10 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
   }
 
   Future<void> _toggleLike(DiaryPost post) async {
+    final settings = ref.read(typingSettingsProvider).value;
+    if (settings?.hapticsEnabled ?? true) {
+      HapticFeedback.lightImpact();
+    }
     try {
       await ref
           .read(diaryTimelineControllerProvider.notifier)

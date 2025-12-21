@@ -6,6 +6,7 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../core/utils/logger.dart';
 import '../../../features/auth/domain/providers/auth_providers.dart';
+import '../../../features/typing/domain/providers/typing_settings_provider.dart';
 import '../../../features/diary/data/models/diary_comment.dart';
 import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
@@ -124,14 +125,31 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
   }
 
   Future<void> _togglePostLike() async {
+    final settings = ref.read(typingSettingsProvider).value;
+    if (settings?.hapticsEnabled ?? true) {
+      HapticFeedback.lightImpact();
+    }
+
+    // オプティミスティック更新: 即座にローカル状態を更新
+    final previousPost = _post;
+    final newLiked = !_post.liked;
+    final newLikesCount = newLiked
+        ? _post.likesCount + 1
+        : (_post.likesCount - 1).clamp(0, 1 << 31);
+    setState(() {
+      _post = _post.copyWith(liked: newLiked, likesCount: newLikesCount);
+    });
+
     try {
       await ref
           .read(diaryTimelineControllerProvider.notifier)
-          .toggleLike(_post.id, like: !_post.liked);
-      await _refreshPost();
+          .toggleLike(previousPost.id, like: newLiked);
     } catch (error) {
-      if (!mounted) return;
-      ToastHelper.showError(context, error);
+      // エラー時はロールバック
+      if (mounted) {
+        setState(() => _post = previousPost);
+        ToastHelper.showError(context, error);
+      }
     }
   }
 
@@ -586,6 +604,10 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
   }
 
   Future<void> _toggleCommentLike(DiaryComment comment) async {
+    final settings = ref.read(typingSettingsProvider).value;
+    if (settings?.hapticsEnabled ?? true) {
+      HapticFeedback.lightImpact();
+    }
     try {
       await ref
           .read(postCommentsControllerProvider(_post.id).notifier)
