@@ -50,9 +50,32 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   int _selectedTabIndex = 0;
   final _imagePicker = ImagePicker();
   bool _isUpdatingAvatar = false;
+  final _scrollController = ScrollController();
+  final _tabsKey = GlobalKey();
 
   /// ネットワークエラーのトースト表示済みフラグ（重複表示防止）
   bool _hasShownNetworkError = false;
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _selectTabAndScroll(int tabIndex) {
+    setState(() => _selectedTabIndex = tabIndex);
+    // タブの位置までスクロール
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final context = _tabsKey.currentContext;
+      if (context != null) {
+        Scrollable.ensureVisible(
+          context,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      }
+    });
+  }
 
   void _openDetail(DiaryPost post) {
     Navigator.of(context).push(
@@ -220,7 +243,11 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
             onEditBio: isOwner ? () => _showEditBioDialog(profile) : null,
           ),
           const SizedBox(height: AppSpacing.xxl + AppSpacing.lg),
-          SummaryChips(profile: profile),
+          SummaryChips(
+            profile: profile,
+            onFollowersTap: () => _selectTabAndScroll(1),
+            onFollowingTap: () => _selectTabAndScroll(2),
+          ),
           const SizedBox(height: AppSpacing.lg),
           if (_canViewStats(profile, currentUserId)) ...[
             statsAsync.when(
@@ -287,6 +314,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
             const SizedBox(height: AppSpacing.lg),
           ],
           ProfileTabs(
+            key: _tabsKey,
             selectedIndex: _selectedTabIndex,
             postsCount: profile.postsCount,
             followersCount: profile.followersCount,

@@ -279,9 +279,16 @@ class ProfileAvatar extends StatelessWidget {
 }
 
 class SummaryChips extends StatelessWidget {
-  const SummaryChips({super.key, required this.profile});
+  const SummaryChips({
+    super.key,
+    required this.profile,
+    this.onFollowersTap,
+    this.onFollowingTap,
+  });
 
   final UserModel profile;
+  final VoidCallback? onFollowersTap;
+  final VoidCallback? onFollowingTap;
 
   @override
   Widget build(BuildContext context) {
@@ -296,12 +303,14 @@ class SummaryChips extends StatelessWidget {
           label: 'フォロワー',
           value: '${profile.followersCount}',
           isDark: isDark,
+          onTap: onFollowersTap,
         ),
         InfoChip(
           icon: Iconsax.user_add,
           label: 'フォロー中',
           value: '${profile.followingCount}',
           isDark: isDark,
+          onTap: onFollowingTap,
         ),
       ],
     );
@@ -315,17 +324,19 @@ class InfoChip extends StatelessWidget {
     required this.label,
     required this.value,
     required this.isDark,
+    this.onTap,
   });
 
   final IconData icon;
   final String label;
   final String value;
   final bool isDark;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Container(
+    final chip = Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -367,6 +378,14 @@ class InfoChip extends StatelessWidget {
           ),
         ],
       ),
+    );
+
+    if (onTap == null) return chip;
+
+    return GestureDetector(
+      onTap: onTap,
+      behavior: HitTestBehavior.opaque,
+      child: chip,
     );
   }
 }
