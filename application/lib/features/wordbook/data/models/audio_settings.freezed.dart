@@ -211,7 +211,7 @@ return $default(_that.speechRate,_that.autoPlay,_that.voiceEngine);case _:
 @JsonSerializable()
 
 class _AudioSettings implements AudioSettings {
-  const _AudioSettings({this.speechRate = 0.5, this.autoPlay = false, this.voiceEngine});
+  const _AudioSettings({this.speechRate = 1.0, this.autoPlay = false, this.voiceEngine});
   factory _AudioSettings.fromJson(Map<String, dynamic> json) => _$AudioSettingsFromJson(json);
 
 @override@JsonKey() final  double speechRate;

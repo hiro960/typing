@@ -16,6 +16,8 @@ import '../../../features/settings/domain/providers/display_settings_provider.da
 import '../../../features/settings/data/models/display_settings.dart';
 import '../../../features/theme/theme_mode_provider.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
+import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
+import '../../../features/wordbook/data/models/audio_settings.dart';
 import '../../utils/dialog_helper.dart';
 import '../../utils/snackbar_helper.dart';
 import '../../utils/toast_helper.dart';
@@ -332,6 +334,28 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                           controller.setDictionaryFontScale(value),
                     ),
                   ],
+                );
+              }),
+            ],
+          ),
+          const SizedBox(height: AppSpacing.lg),
+          _SettingsSection(
+            title: '音声設定',
+            children: [
+              Builder(builder: (context) {
+                final audioSettingsAsync = ref.watch(audioSettingsProvider);
+                final audioSettings =
+                    audioSettingsAsync.value ?? const AudioSettings();
+                final controller = ref.read(audioSettingsProvider.notifier);
+                final isLoading = audioSettingsAsync.isLoading;
+
+                return _SpeechRateSliderTile(
+                  icon: Iconsax.volume_high,
+                  title: '発声スピード',
+                  subtitle: '基礎タイピング、単語帳、クイズの音声',
+                  value: audioSettings.speechRate,
+                  isBusy: isLoading,
+                  onChanged: (value) => controller.setSpeechRate(value),
                 );
               }),
             ],
@@ -1012,7 +1036,7 @@ class _FontSizeSliderTile extends StatelessWidget {
                       value: value,
                       min: DisplaySettings.minScale,
                       max: DisplaySettings.maxScale,
-                      divisions: 6,
+                      divisions: 10,
                       label: _getScaleLabel(value),
                       onChanged: isBusy ? null : onChanged,
                     ),
@@ -1029,6 +1053,127 @@ class _FontSizeSliderTile extends StatelessWidget {
             Center(
               child: Text(
                 _getScaleLabel(value),
+                style: theme.typography.sm.copyWith(
+                  color: theme.colors.primary,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _SpeechRateSliderTile extends StatelessWidget {
+  const _SpeechRateSliderTile({
+    required this.title,
+    required this.subtitle,
+    required this.value,
+    required this.onChanged,
+    this.icon,
+    this.isBusy = false,
+  });
+
+  final String title;
+  final String subtitle;
+  final double value;
+  final ValueChanged<double> onChanged;
+  final IconData? icon;
+  final bool isBusy;
+
+  String _getRateLabel(double rate) {
+    return '${rate.toStringAsFixed(1)}x';
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = FTheme.of(context);
+
+    return Opacity(
+      opacity: isBusy ? 0.85 : 1,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                if (icon != null) ...[
+                  Icon(icon, size: 20),
+                  const SizedBox(width: 12),
+                ],
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: theme.typography.base.copyWith(
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        subtitle,
+                        style: theme.typography.sm.copyWith(
+                          color: theme.colors.mutedForeground,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                if (isBusy)
+                  const SizedBox(
+                    width: 16,
+                    height: 16,
+                    child: CircularProgressIndicator(strokeWidth: 2),
+                  ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                Text(
+                  '遅い',
+                  style: theme.typography.xs.copyWith(
+                    color: theme.colors.mutedForeground,
+                  ),
+                ),
+                Expanded(
+                  child: SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      activeTrackColor: theme.colors.primary,
+                      inactiveTrackColor:
+                          theme.colors.primary.withValues(alpha: 0.2),
+                      thumbColor: theme.colors.primary,
+                      overlayColor: theme.colors.primary.withValues(alpha: 0.1),
+                      trackHeight: 4,
+                      thumbShape:
+                          const RoundSliderThumbShape(enabledThumbRadius: 8),
+                    ),
+                    child: Slider(
+                      value: value.clamp(AudioSettings.minRate, AudioSettings.maxRate),
+                      min: AudioSettings.minRate,
+                      max: AudioSettings.maxRate,
+                      divisions: 6,
+                      label: _getRateLabel(value),
+                      onChanged: isBusy ? null : onChanged,
+                    ),
+                  ),
+                ),
+                Text(
+                  '速い',
+                  style: theme.typography.xs.copyWith(
+                    color: theme.colors.mutedForeground,
+                  ),
+                ),
+              ],
+            ),
+            Center(
+              child: Text(
+                _getRateLabel(value),
                 style: theme.typography.sm.copyWith(
                   color: theme.colors.primary,
                   fontWeight: FontWeight.w600,

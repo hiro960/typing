@@ -8,7 +8,7 @@ part of 'audio_settings.dart';
 
 _AudioSettings _$AudioSettingsFromJson(Map<String, dynamic> json) =>
     _AudioSettings(
-      speechRate: (json['speechRate'] as num?)?.toDouble() ?? 0.5,
+      speechRate: (json['speechRate'] as num?)?.toDouble() ?? 1.0,
       autoPlay: json['autoPlay'] as bool? ?? false,
       voiceEngine: json['voiceEngine'] as String?,
     );

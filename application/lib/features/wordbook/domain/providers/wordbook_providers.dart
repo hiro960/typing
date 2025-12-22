@@ -617,13 +617,23 @@ class AudioSettingsNotifier extends _$AudioSettingsNotifier {
     final prefs = await SharedPreferences.getInstance();
     final json = prefs.getString(_cacheKey);
     if (json == null) {
-      // プラットフォームごとの標準速度を設定
-      // Android: 1.0が標準、iOS: 0.5が標準
-      final defaultRate = Platform.isAndroid ? 1.0 : 0.5;
-      return AudioSettings(speechRate: defaultRate);
+      // デフォルトは1.0（標準速度）
+      return const AudioSettings();
     }
     final data = jsonDecode(json) as Map<String, dynamic>;
     return AudioSettings.fromJson(data);
+  }
+
+  /// 倍速値をプラットフォームごとの実際のTTS値に変換
+  /// iOS: 0.5が標準速度、Android: 1.0が標準速度
+  static double toTtsRate(double normalizedRate) {
+    if (Platform.isIOS) {
+      // iOS: 1.0倍速 = 0.5, 0.5倍速 = 0.25, 2.0倍速 = 1.0
+      return normalizedRate * 0.5;
+    } else {
+      // Android: 1.0倍速 = 1.0, 0.5倍速 = 0.5, 2.0倍速 = 2.0
+      return normalizedRate;
+    }
   }
 
   Future<void> setSpeechRate(double rate) async {
@@ -631,7 +641,9 @@ class AudioSettingsNotifier extends _$AudioSettingsNotifier {
     final updated = current.copyWith(speechRate: rate);
     state = AsyncData(updated);
     await _save(updated);
-    await ref.read(wordAudioServiceProvider.notifier).setSpeechRate(rate);
+    // プラットフォームごとの実際のTTS値に変換して設定
+    final ttsRate = toTtsRate(rate);
+    await ref.read(wordAudioServiceProvider.notifier).setSpeechRate(ttsRate);
   }
 
   Future<void> setAutoPlay(bool autoPlay) async {
@@ -763,7 +775,9 @@ class WordAudioService extends _$WordAudioService {
     await tts.setPitch(1.0);
 
     final settings = await ref.read(audioSettingsProvider.future);
-    await tts.setSpeechRate(settings.speechRate);
+    // 倍速値をプラットフォームごとの実際のTTS値に変換
+    final ttsRate = AudioSettingsNotifier.toTtsRate(settings.speechRate);
+    await tts.setSpeechRate(ttsRate);
     final engine = settings.voiceEngine;
     if (engine != null) {
       await tts.setVoice({'name': engine});

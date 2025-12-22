@@ -291,7 +291,7 @@ final class AudioSettingsNotifierProvider
 }
 
 String _$audioSettingsNotifierHash() =>
-    r'f2f7751b8c6ce325eb166fb9a23b78b383561049';
+    r'2b729aac02b2a92fa3b0fd2d5e245ccf658c4bf6';
 
 abstract class _$AudioSettingsNotifier extends $AsyncNotifier<AudioSettings> {
   FutureOr<AudioSettings> build();
@@ -336,7 +336,7 @@ final class WordAudioServiceProvider
   WordAudioService create() => WordAudioService();
 }
 
-String _$wordAudioServiceHash() => r'cdd0260def664560e8d4a01ed7fd567a5648392a';
+String _$wordAudioServiceHash() => r'ce169ba47519fac73908ecfbd80e8c074d23ea88';
 
 abstract class _$WordAudioService extends $AsyncNotifier<void> {
   FutureOr<void> build();

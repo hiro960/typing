@@ -18,6 +18,7 @@ import '../../../features/typing/domain/services/hangul_composer.dart';
 import '../../../features/settings/domain/providers/display_settings_provider.dart';
 import '../../../features/settings/data/models/display_settings.dart';
 import '../../../features/wordbook/domain/providers/wordbook_providers.dart';
+import '../../../features/wordbook/data/models/audio_settings.dart';
 import '../../widgets/app_page_scaffold.dart';
 import '../../widgets/page_state_views.dart';
 import '../../widgets/typing/input_feedback_widget.dart';
@@ -502,6 +503,10 @@ class _InputFeedback extends StatelessWidget {
 class _TypingSettingsSheet extends ConsumerWidget {
   const _TypingSettingsSheet();
 
+  String _getRateLabel(double rate) {
+    return '${rate.toStringAsFixed(1)}x';
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final settingsAsync = ref.watch(typingSettingsProvider);
@@ -509,11 +514,18 @@ class _TypingSettingsSheet extends ConsumerWidget {
     final controller = ref.read(typingSettingsProvider.notifier);
     final isLoading = settingsAsync.isLoading;
 
+    final audioSettingsAsync = ref.watch(audioSettingsProvider);
+    final audioSettings = audioSettingsAsync.value;
+    final audioController = ref.read(audioSettingsProvider.notifier);
+    final isAudioLoading = audioSettingsAsync.isLoading;
+
+    final theme = context.theme;
+
     return Container(
       decoration: BoxDecoration(
-        color: context.theme.colors.background,
+        color: theme.colors.background,
         border: Border.symmetric(
-          horizontal: BorderSide(color: context.theme.colors.border),
+          horizontal: BorderSide(color: theme.colors.border),
         ),
       ),
       child: Padding(
@@ -524,9 +536,9 @@ class _TypingSettingsSheet extends ConsumerWidget {
           children: [
             Text(
               'クイック設定',
-              style: context.theme.typography.xl2.copyWith(
+              style: theme.typography.xl2.copyWith(
                 fontWeight: FontWeight.w600,
-                color: context.theme.colors.foreground,
+                color: theme.colors.foreground,
                 height: 1.5,
               ),
             ),
@@ -551,6 +563,90 @@ class _TypingSettingsSheet extends ConsumerWidget {
               onPress: isLoading
                   ? null
                   : () => controller.toggleHaptics(!settings.hapticsEnabled),
+            ),
+            Divider(color: theme.colors.border),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      const Icon(Iconsax.volume_high, size: 20),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Text(
+                          '発声スピード',
+                          style: theme.typography.base.copyWith(
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                      if (isAudioLoading)
+                        const SizedBox(
+                          width: 16,
+                          height: 16,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Text(
+                        '遅い',
+                        style: theme.typography.xs.copyWith(
+                          color: theme.colors.mutedForeground,
+                        ),
+                      ),
+                      Expanded(
+                        child: SliderTheme(
+                          data: SliderTheme.of(context).copyWith(
+                            activeTrackColor: theme.colors.primary,
+                            inactiveTrackColor:
+                                theme.colors.primary.withValues(alpha: 0.2),
+                            thumbColor: theme.colors.primary,
+                            overlayColor:
+                                theme.colors.primary.withValues(alpha: 0.1),
+                            trackHeight: 4,
+                            thumbShape: const RoundSliderThumbShape(
+                              enabledThumbRadius: 8,
+                            ),
+                          ),
+                          child: Slider(
+                            value: (audioSettings?.speechRate ?? 1.0)
+                                .clamp(AudioSettings.minRate, AudioSettings.maxRate),
+                            min: AudioSettings.minRate,
+                            max: AudioSettings.maxRate,
+                            divisions: 6,
+                            label: _getRateLabel(
+                              audioSettings?.speechRate ?? 1.0,
+                            ),
+                            onChanged: isAudioLoading
+                                ? null
+                                : (value) => audioController.setSpeechRate(value),
+                          ),
+                        ),
+                      ),
+                      Text(
+                        '速い',
+                        style: theme.typography.xs.copyWith(
+                          color: theme.colors.mutedForeground,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Center(
+                    child: Text(
+                      _getRateLabel(audioSettings?.speechRate ?? 1.0),
+                      style: theme.typography.sm.copyWith(
+                        color: theme.colors.primary,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
