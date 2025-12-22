@@ -182,20 +182,20 @@ class Auth0Service {
   }
 
   /// 保存されているクレデンシャルを取得
+  ///
+  /// auth0_flutter の CredentialsManager.credentials() は、
+  /// トークンが期限切れの場合、自動的にリフレッシュトークンを使って更新を試みます。
+  /// これにより、IDトークンが期限切れでもリフレッシュトークンが有効なら
+  /// 新しいトークンを取得できます。
   Future<AuthTokens?> getStoredCredentials() async {
     try {
       AppLogger.auth('Getting stored credentials from Auth0');
 
-      final hasValid = await _credentialsManager.hasValidCredentials();
-
-      if (!hasValid) {
-        AppLogger.auth('No valid credentials found');
-        return null;
-      }
-
+      // credentials() を直接呼び出す
+      // auth0_flutter は期限切れの場合、自動的にリフレッシュを試みる
       final credentials = await _credentialsManager.credentials();
 
-      AppLogger.auth('Retrieved stored credentials');
+      AppLogger.auth('Retrieved stored credentials (refreshed if needed)');
 
       return AuthTokens(
         accessToken: credentials.accessToken,
@@ -204,6 +204,13 @@ class Auth0Service {
         expiresIn: credentials.expiresAt.difference(DateTime.now()).inSeconds,
         tokenType: credentials.tokenType,
       );
+    } on CredentialsManagerException catch (e) {
+      // リフレッシュトークンも無効、またはトークンが保存されていない場合
+      AppLogger.auth(
+        'No valid credentials available',
+        detail: 'code: ${e.code}, message: ${e.message}',
+      );
+      return null;
     } catch (e) {
       AppLogger.error(
         'Failed to get stored credentials',

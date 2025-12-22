@@ -58,7 +58,7 @@
       "description": "技術と社会のバランス",
       "patternId": "intro_body_conclusion",
       "entries": [
-        { "id": "intro_ai_001", "level": "template", "jpText": "AIの倫理問題への関心が高まっている", "koText": "AI의 윤리 문제에 대한 관심이 높아지고 있다." },
+        { "id": "intro_ai_001", "level": "template", "jpText": "人工知能の倫理問題への関心が高まっている", "koText": "인공지능의 윤리 문제에 대한 관심이 높아지고 있다." },
         { "id": "intro_ai_002", "level": "template", "jpText": "まず課題を挙げる", "koText": "먼저 과제를 제시한다." },
         { "id": "intro_ai_003", "level": "template", "jpText": "次に規制の方向性を述べる", "koText": "다음으로 규제 방향을 말한다." },
         { "id": "intro_ai_004", "level": "template", "jpText": "最後に結論をまとめる", "koText": "마지막으로 결론을 정리한다." },
@@ -72,7 +72,7 @@
         { "id": "intro_ai_adv_002", "level": "advanced", "jpText": "アルゴリズムの偏り", "koText": "알고리즘의 편향" },
         { "id": "intro_ai_adv_003", "level": "advanced", "jpText": "説明責任を果たす", "koText": "설명 책임을 다하다" },
         { "id": "intro_ai_adv_004", "level": "advanced", "jpText": "技術発展と安全の均衡をとる", "koText": "기술 발전과 안전의 균형을 맞추다" },
-        { "id": "intro_ai_sentence_001", "level": "sentence", "jpText": "AIには透明性と説明責任を確保する規制が必要だ。", "koText": "AI에는 투명성과 설명 책임을 확보하는 규제가 필요하다." },
+        { "id": "intro_ai_sentence_001", "level": "sentence", "jpText": "人工知能には透明性と説明責任を確保する規制が必要だ。", "koText": "인공지능에는 투명성과 설명 책임을 확보하는 규제가 필요하다." },
         { "id": "intro_ai_sentence_002", "level": "sentence", "jpText": "利点とリスクを並べたうえで、透明性と説明責任を確保し技術発展との均衡をとる規制が求められる。", "koText": "장점과 리스크를 병렬로 제시한 뒤 투명성과 설명 책임을 확보하고 기술 발전과의 균형을 맞추는 규제가 요구된다." }
       ]
     }

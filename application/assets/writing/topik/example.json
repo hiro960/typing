@@ -24,7 +24,7 @@
         { "id": "example_society_007", "level": "advanced", "jpText": "普及する", "koText": "보급되다" },
         { "id": "example_society_008", "level": "advanced", "jpText": "拡散する", "koText": "확산하다" },
         { "id": "example_society_011", "level": "advanced", "jpText": "拡散速度", "koText": "확산 속도" },
-        { "id": "example_society_sentence_001", "level": "sentence", "jpText": "SNSが社会に大きな影響を与えている。", "koText": "SNS가 사회에 큰 영향을 미치고 있다." },
+        { "id": "example_society_sentence_001", "level": "sentence", "jpText": "インターネットが社会に大きな影響を与えている。", "koText": "인터넷이 사회에 큰 영향을 미치고 있다." },
         { "id": "example_society_sentence_002", "level": "sentence", "jpText": "統計を挙げると短い動画が急速に拡散しており、この例から情報の拡散速度を意識する必要があるとわかる。", "koText": "통계를 들면 짧은 영상이 급속히 확산하고 있으며, 이 예에서 정보의 확산 속도를 의식할 필요가 있음을 알 수 있다." }
       ]
     },

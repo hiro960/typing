@@ -33,6 +33,21 @@ class _PronunciationGameScreenState
   // 画面側からはreset()を呼ばない。次回startGame()時に_cleanupPreviousSession()で
   // 前回のセッションがクリーンアップされる。
 
+  @override
+  void initState() {
+    super.initState();
+    // サウンドを事前に初期化（Androidでの遅延対策）
+    _initializeSounds();
+  }
+
+  /// サウンドサービスを事前に初期化
+  Future<void> _initializeSounds() async {
+    final soundService = ref.read(soundServiceProvider);
+    if (!soundService.isInitialized) {
+      await soundService.initialize();
+    }
+  }
+
   Future<void> _startGame() async {
     // 重複起動を防止
     if (_isStarting) return;
@@ -454,6 +469,9 @@ class _PronunciationGameScreenState
     final isMistake =
         state.lastInputResult == PronunciationInputResultType.mistake;
 
+    // 赤い点の表示条件：isListeningの時のみ表示
+    final showRecIndicator = state.isListening;
+
     // ステータスラベルを決定
     // ゲームプレイ中は常に「発音してください」を表示（チカチカ防止）
     String statusLabel;
@@ -508,9 +526,9 @@ class _PronunciationGameScreenState
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // 録音中インジケーター（赤い点）- isListening の時のみ表示
+              // 録音中インジケーター（赤い点）- ゲームプレイ中は常に表示
               AnimatedOpacity(
-                opacity: state.isListening && !isCorrect && !isMistake ? 1.0 : 0.0,
+                opacity: showRecIndicator ? 1.0 : 0.0,
                 duration: const Duration(milliseconds: 200),
                 child: Container(
                   width: 8,
@@ -575,6 +593,7 @@ class _PronunciationGameScreenState
 
   Widget _buildMicrophoneArea(PronunciationGameSessionState state) {
     final theme = Theme.of(context);
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
       decoration: BoxDecoration(

@@ -73,36 +73,58 @@ class AuthRepository {
 
   /// 保存されているトークンから自動ログイン
   /// アプリ起動時に呼び出す
+  ///
+  /// CredentialsManager を中心に据えたアプローチ：
+  /// 1. CredentialsManager から有効なトークンを取得（期限切れなら自動リフレッシュ）
+  /// 2. TokenStorageService と同期
+  /// 3. API呼び出しでユーザー状態を確認
   Future<UserStatusResponse?> tryAutoLogin() async {
     try {
       AppLogger.auth('Attempting auto login');
 
-      // 保存されているトークンを確認
-      final hasTokens = await _tokenStorage.hasTokens();
+      // 1. CredentialsManager から有効なトークンを取得
+      // auth0_flutter は期限切れの場合、自動的にリフレッシュトークンで更新を試みる
+      final storedCredentials = await _auth0Service.getStoredCredentials();
 
-      if (!hasTokens) {
-        AppLogger.auth('No saved tokens found');
+      if (storedCredentials == null) {
+        AppLogger.auth('No valid credentials in CredentialsManager');
+        // TokenStorageService も念のためクリア（不整合防止）
+        await _tokenStorage.deleteTokens();
         return null;
       }
 
-      // ユーザー登録状況を確認 (トークンが有効かもチェック)
+      // 2. TokenStorageService と同期（APIリクエストで使用するため）
+      await _tokenStorage.saveTokens(storedCredentials);
+      AppLogger.auth('Credentials synced to TokenStorage');
+
+      // 3. ユーザー登録状況を確認
       try {
         final status = await checkUserStatus();
         AppLogger.auth('Auto login successful', detail: 'registered: ${status.registered}');
         return status;
-      } on ApiException catch (e) {
-        // トークンが無効な場合
-        if (e.statusCode == 401) {
-          AppLogger.auth('Saved token is invalid, clearing tokens');
-          await _tokenStorage.deleteTokens();
+      } on AppException catch (e) {
+        // トークンが無効な場合（ApiException または AuthException）
+        final isAuthError = (e is ApiException && e.statusCode == 401) ||
+            (e is AuthException);
+        if (isAuthError) {
+          AppLogger.auth('Token is invalid, clearing all credentials');
+          await _clearAllCredentials();
           return null;
         }
         rethrow;
       }
     } catch (e) {
       AppLogger.error('Auto login failed', tag: 'AuthRepository', error: e);
+      // 予期しないエラーの場合もクレデンシャルをクリア
+      await _clearAllCredentials();
       return null;
     }
+  }
+
+  /// すべてのクレデンシャルをクリア
+  Future<void> _clearAllCredentials() async {
+    await _tokenStorage.deleteTokens();
+    await _auth0Service.clearCredentials();
   }
 
   // ==================== ユーザー登録 ====================

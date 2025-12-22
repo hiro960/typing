@@ -3,17 +3,40 @@ import 'package:chaletta/ui/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:chaletta/core/services/sound_service.dart';
 import 'package:chaletta/features/pronunciation_game/data/models/pronunciation_game_models.dart';
 import 'package:chaletta/features/pronunciation_game/domain/providers/pronunciation_ranking_providers.dart';
 import 'package:chaletta/features/pronunciation_game/presentation/screens/pronunciation_game_screen.dart';
 import 'package:chaletta/features/pronunciation_game/presentation/screens/pronunciation_ranking_screen.dart';
 
 /// ホーム画面用発音ゲームセクション
-class PronunciationGameSection extends ConsumerWidget {
+class PronunciationGameSection extends ConsumerStatefulWidget {
   const PronunciationGameSection({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<PronunciationGameSection> createState() =>
+      _PronunciationGameSectionState();
+}
+
+class _PronunciationGameSectionState
+    extends ConsumerState<PronunciationGameSection> {
+  @override
+  void initState() {
+    super.initState();
+    // ホーム画面で発音ゲームセクションが表示されたら、サウンドを事前に初期化
+    // これにより、ゲーム開始時の音声遅延を軽減
+    _preloadSounds();
+  }
+
+  Future<void> _preloadSounds() async {
+    final soundService = ref.read(soundServiceProvider);
+    if (!soundService.isInitialized) {
+      await soundService.initialize();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final statsAsync = ref.watch(myPronunciationStatsSummaryProvider);
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;

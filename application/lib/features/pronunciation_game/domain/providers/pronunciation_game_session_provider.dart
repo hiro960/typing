@@ -263,8 +263,19 @@ class PronunciationGameSession extends _$PronunciationGameSession {
             return;
           }
 
-          // permanent=true のエラー（権限なしなど）は再起動しない
-          final shouldRestart = !error.permanent &&
+          // error_no_match や no_speech は permanent=true で来ることがあるが、
+          // これらは一時的なエラーなので再起動を試みる
+          // Androidでは多くのエラーがpermanent=trueで来るが、実際は回復可能
+          final isRecoverableError = isNoSpeechError ||
+              error.errorMsg.contains('error_busy') ||
+              error.errorMsg.contains('error_client') ||
+              error.errorMsg.contains('error_speech_timeout') ||
+              error.errorMsg.contains('error_network') ||
+              error.errorMsg.contains('error_audio') ||
+              error.errorMsg.contains('error_server');
+
+          // permanent=true でも回復可能なエラーなら再起動する
+          final shouldRestart = (isRecoverableError || !error.permanent) &&
               !_isDisposed &&
               state.isPlaying &&
               !state.isFinished &&
@@ -272,8 +283,8 @@ class PronunciationGameSession extends _$PronunciationGameSession {
 
           if (shouldRestart) {
             _scheduleListeningRestart();
-          } else if (error.permanent) {
-            // permanent エラーの場合はゲームを停止
+          } else if (error.permanent && !isRecoverableError) {
+            // 本当に永続的なエラー（権限なしなど）の場合のみゲームを停止
             AppLogger.error(
               'PERMANENT ERROR - stopping game: ${error.errorMsg}',
               tag: 'PronunciationGameSession',
@@ -301,19 +312,15 @@ class PronunciationGameSession extends _$PronunciationGameSession {
 
           // セッション終了を示すステータスでフラグを更新
           // 注意: 再起動はonErrorコールバックでのみ行う（競合防止のため）
-          // onStatusでは状態の更新のみを行う
+          // onStatusでは内部フラグのみ更新し、state.isListeningは更新しない
+          // （UI表示はisPlayingを基準にしているため、isListeningの頻繁な更新は不要）
           final isEndStatus = status == 'notListening' ||
               status == 'done' ||
               status == 'doneNoResult';
 
-          if (isEndStatus && (_isListeningActive || state.isListening)) {
+          if (isEndStatus && _isListeningActive) {
             _isListeningActive = false;
             _lastListeningStopTime = now;
-            // state.isListeningはonErrorで既に更新されている可能性があるため、
-            // 必要な場合のみ更新
-            if (state.isListening) {
-              state = state.copyWith(isListening: false);
-            }
             // 注意: ここでは_scheduleListeningRestart()を呼ばない
             // 再起動はonErrorコールバックで処理される
           }
@@ -476,7 +483,7 @@ class PronunciationGameSession extends _$PronunciationGameSession {
         tag: 'PronunciationGameSession',
       );
 
-      final started = await _speechToText!.listen(
+      await _speechToText!.listen(
         onResult: (result) {
           // セッションIDが一致する場合のみ処理
           if (_sessionId == currentSessionId) {
@@ -492,10 +499,14 @@ class PronunciationGameSession extends _$PronunciationGameSession {
         pauseFor: _SpeechTimingConstants.pauseForDuration,
       );
 
-      // listen() の戻り値を確認
-      if (!started) {
+      // speech_to_text v7.0.0以降はlisten()がFuture<void>を返すため、
+      // isListeningプロパティで開始成功を確認する
+      // 少し待ってからチェック（非同期で状態が更新されるため）
+      await Future.delayed(const Duration(milliseconds: 50));
+
+      if (!_speechToText!.isListening) {
         AppLogger.warning(
-          'listen() returned false - scheduling retry',
+          'listen() did not start listening - scheduling retry',
           tag: 'PronunciationGameSession',
         );
 

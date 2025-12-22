@@ -26,7 +26,7 @@
         { "id": "graph_env_011", "level": "advanced", "jpText": "緩やかに増える", "koText": "완만하게 늘다" },
         { "id": "graph_env_012", "level": "advanced", "jpText": "緩やかな減少に転じる", "koText": "완만한 감소로 돌아서다" },
         { "id": "graph_env_sentence_001", "level": "sentence", "jpText": "最近プラスチック使用量が急増している。", "koText": "최근 플라스틱 사용량이 급증하고 있다." },
-        { "id": "graph_env_sentence_002", "level": "sentence", "jpText": "2015年以降リサイクル率は毎年2%pずつ上がり、2020年には初めて50%を超えた。", "koText": "2015년 이후 재활용률은 매년 2%p씩 올라 2020년에 처음으로 50%를 넘었다." }
+        { "id": "graph_env_sentence_002", "level": "sentence", "jpText": "2015年以降リサイクル率は毎年2パーセントポイントずつ上がり、2020年には初めて50%を超えた。", "koText": "2015년 이후 재활용률은 매년 2퍼센트포인트씩 올라 2020년에 처음으로 50%를 넘었다." }
       ]
     },
     {

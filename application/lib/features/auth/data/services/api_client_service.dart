@@ -69,7 +69,9 @@ class ApiClientService {
       // トークンを取得してAuthorizationヘッダーに設定
       final accessToken = await _tokenStorage.getAccessToken();
 
-      options.headers['Authorization'] = 'Bearer $accessToken';
+      if (accessToken != null && accessToken.isNotEmpty) {
+        options.headers['Authorization'] = 'Bearer $accessToken';
+      }
 
       handler.next(options);
     } catch (e) {
@@ -146,7 +148,19 @@ class ApiClientService {
           tag: 'ApiClient',
           error: e,
         );
-        // リフレッシュに失敗したら、ログインページへ遷移させるため例外をスロー
+        // リフレッシュに失敗したら、すべてのクレデンシャルをクリア
+        try {
+          await _tokenStorage.deleteTokens();
+          await _auth0Service.clearCredentials();
+          AppLogger.auth('Cleared all credentials after refresh failure');
+        } catch (clearError) {
+          AppLogger.error(
+            'Failed to clear credentials',
+            tag: 'ApiClient',
+            error: clearError,
+          );
+        }
+        // ログインページへ遷移させるため例外をスロー
         return handler.reject(
           DioException(
             requestOptions: error.requestOptions,
