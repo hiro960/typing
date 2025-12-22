@@ -264,7 +264,7 @@ export interface WordbookStatsResponse {
 
 // ランキングゲーム関連の型定義
 export type RankingGameDifficulty = "beginner" | "intermediate" | "advanced";
-export type RankingPeriod = "weekly" | "monthly";
+export type RankingPeriod = "daily" | "weekly" | "monthly";
 
 export interface RankingGameResultRecord {
   id: string;

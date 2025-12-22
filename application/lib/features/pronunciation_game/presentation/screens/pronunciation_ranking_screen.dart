@@ -39,12 +39,24 @@ class _PronunciationRankingScreenState
   void initState() {
     super.initState();
     _selectedDifficulty = widget.initialDifficulty;
-    _tabController = TabController(length: 2, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
     _tabController.addListener(() {
       setState(() {
-        _selectedPeriod = _tabController.index == 0 ? 'monthly' : 'weekly';
+        switch (_tabController.index) {
+          case 0:
+            _selectedPeriod = 'daily';
+            break;
+          case 1:
+            _selectedPeriod = 'weekly';
+            break;
+          case 2:
+            _selectedPeriod = 'monthly';
+            break;
+        }
       });
     });
+    // 初期値を daily に設定
+    _selectedPeriod = 'daily';
   }
 
   @override
@@ -78,8 +90,9 @@ class _PronunciationRankingScreenState
             labelColor: colorScheme.onSurface,
             unselectedLabelColor: colorScheme.onSurface.withValues(alpha: 0.5),
             tabs: const [
-              Tab(text: '月間'),
+              Tab(text: '本日'),
               Tab(text: '週間'),
+              Tab(text: '月間'),
             ],
           ),
           _buildFilterArea(),

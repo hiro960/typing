@@ -1904,7 +1904,17 @@ function getPeriodRange(period: RankingPeriod): { start: Date; end: Date } {
   let start: Date;
   let end: Date;
 
-  if (period === "monthly") {
+  if (period === "daily") {
+    // JST本日 00:00 から 23:59:59.999
+    const jstYear = nowJST.getUTCFullYear();
+    const jstMonth = nowJST.getUTCMonth();
+    const jstDate = nowJST.getUTCDate();
+
+    // JST本日00:00をUTCに変換
+    start = new Date(Date.UTC(jstYear, jstMonth, jstDate, 0, 0, 0, 0) - JST_OFFSET);
+    // JST本日23:59:59.999をUTCに変換
+    end = new Date(Date.UTC(jstYear, jstMonth, jstDate, 23, 59, 59, 999) - JST_OFFSET);
+  } else if (period === "monthly") {
     // JST月初 00:00 から月末 23:59:59.999
     const jstYear = nowJST.getUTCFullYear();
     const jstMonth = nowJST.getUTCMonth();

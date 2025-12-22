@@ -7,7 +7,7 @@ import { RankingGameDifficulty, RankingPeriod } from "@/lib/types";
 import { parseLimit } from "@/lib/pagination";
 
 const VALID_DIFFICULTIES = ["all", "beginner", "intermediate", "advanced"];
-const VALID_PERIODS: RankingPeriod[] = ["monthly", "weekly"];
+const VALID_PERIODS: RankingPeriod[] = ["daily", "monthly", "weekly"];
 
 /**
  * GET /api/ranking-game/ranking

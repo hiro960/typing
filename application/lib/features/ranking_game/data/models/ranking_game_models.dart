@@ -13,6 +13,7 @@ enum RankingGameDifficulty {
 
 /// ランキング期間
 enum RankingPeriod {
+  daily,
   weekly,
   monthly,
 }
