@@ -255,6 +255,12 @@ class DiaryPostCard extends StatelessWidget {
                                           : theme.colorScheme.onSurfaceVariant,
                                     ),
                               onPressed: isTranslating ? null : onTranslate,
+                              visualDensity: VisualDensity.compact,
+                              padding: EdgeInsets.zero,
+                              constraints: const BoxConstraints(
+                                minWidth: 36,
+                                minHeight: 36,
+                              ),
                             ),
                           IconButton(
                             icon: Icon(
@@ -266,6 +272,12 @@ class DiaryPostCard extends StatelessWidget {
                                   : theme.colorScheme.onSurfaceVariant,
                             ),
                             onPressed: onToggleBookmark,
+                            visualDensity: VisualDensity.compact,
+                            padding: EdgeInsets.zero,
+                            constraints: const BoxConstraints(
+                              minWidth: 36,
+                              minHeight: 36,
+                            ),
                           ),
                         ],
                       ),
@@ -422,6 +434,11 @@ class _ActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton.icon(
       onPressed: onPressed,
+      style: TextButton.styleFrom(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        minimumSize: const Size(0, 32),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      ),
       icon: Icon(icon, size: 18, color: color),
       label: Text(
         '$count',

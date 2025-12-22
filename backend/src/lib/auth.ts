@@ -79,14 +79,17 @@ async function verifyAuth0Token(request: NextRequest): Promise<JWTPayload> {
     console.error("[AUTH ERROR] JWT verification failed:", error);
 
     if (error instanceof Error) {
-      console.error(`[AUTH ERROR] Error name: ${error.name}`);
+      // joseライブラリのエラーコードを取得（minify後もcodeプロパティは保持される）
+      const errorCode = (error as { code?: string }).code;
+      console.error(`[AUTH ERROR] Error name: ${error.name}, code: ${errorCode}`);
       console.error(`[AUTH ERROR] Error message: ${error.message}`);
 
       // JWTのエラータイプに応じて詳細なメッセージを返す
-      if (error.name === "JWTExpired") {
+      // 注意: 本番環境ではクラス名がminifyされるため、codeプロパティで判定する
+      if (errorCode === "ERR_JWT_EXPIRED") {
         throw ERROR.UNAUTHORIZED("Token has expired");
       }
-      if (error.name === "JWTClaimValidationFailed") {
+      if (errorCode === "ERR_JWT_CLAIM_VALIDATION_FAILED") {
         console.error(`[AUTH ERROR] Token claims validation failed. Check if:
         - AUTH0_ISSUER_BASE_URL matches the token issuer (current: ${AUTH0_ISSUER})
         - AUTH0_AUDIENCE matches the token audience (current: ${process.env.AUTH0_AUDIENCE || 'not set'})`);

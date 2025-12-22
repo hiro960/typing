@@ -225,7 +225,7 @@ class _DiaryScreenState extends ConsumerState<DiaryScreen> {
           ],
         ),
         content: const Text(
-          'この機能は有料会員またはオフィシャル会員限定です。\n\nアップグレードすると、日記の翻訳機能をご利用いただけます。',
+          'この機能は有料会員限定です。\n\nアップグレードすると、日記の翻訳機能をご利用いただけます。',
         ),
         actions: [
           TextButton(
