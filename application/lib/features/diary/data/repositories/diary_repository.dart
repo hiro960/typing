@@ -486,13 +486,34 @@ class DiaryRepository {
       final pageInfo = DiaryPageInfo.fromJson(
         payload['pageInfo'] as Map<String, dynamic>? ?? const {},
       );
+      final unreadCount = payload['unreadCount'] as int? ?? 0;
       return DiaryNotificationsPage(
         notifications: notifications,
         pageInfo: pageInfo,
+        unreadCount: unreadCount,
       );
     } on DioException catch (error, stackTrace) {
       AppLogger.error(
         'Failed to fetch notifications',
+        tag: 'DiaryRepository',
+        error: error,
+        stackTrace: stackTrace,
+      );
+      throw ApiClientService.handleDioException(error);
+    }
+  }
+
+  Future<int> fetchUnreadNotificationCount() async {
+    try {
+      final response = await _apiClient.dio.get(
+        '/api/notifications',
+        queryParameters: {'limit': 1},
+      );
+      final payload = response.data as Map<String, dynamic>;
+      return payload['unreadCount'] as int? ?? 0;
+    } on DioException catch (error, stackTrace) {
+      AppLogger.error(
+        'Failed to fetch unread notification count',
         tag: 'DiaryRepository',
         error: error,
         stackTrace: stackTrace,

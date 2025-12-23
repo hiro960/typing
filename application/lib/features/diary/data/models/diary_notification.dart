@@ -56,10 +56,12 @@ class DiaryNotificationsPage {
   DiaryNotificationsPage({
     required this.notifications,
     required this.pageInfo,
+    this.unreadCount = 0,
   });
 
   final List<DiaryNotification> notifications;
   final DiaryPageInfo pageInfo;
+  final int unreadCount;
 
   bool get hasNextPage => pageInfo.hasNextPage;
   String? get nextCursor => pageInfo.nextCursor;

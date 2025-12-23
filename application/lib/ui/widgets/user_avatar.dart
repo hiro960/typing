@@ -172,6 +172,7 @@ class UserAvatar extends StatelessWidget {
     // タップ可能な場合はGestureDetectorでラップ
     if (onTap != null) {
       avatarWidget = GestureDetector(
+        behavior: HitTestBehavior.opaque,
         onTap: onTap,
         child: avatarWidget,
       );

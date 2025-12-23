@@ -1305,6 +1305,12 @@ export async function markAllNotificationsRead(userId: string) {
   return result.count;
 }
 
+export async function getUnreadNotificationCount(userId: string): Promise<number> {
+  return prisma.notification.count({
+    where: { userId, isRead: false },
+  });
+}
+
 export function addFollow(followerId: string, followingId: string) {
   if (followerId === followingId) {
     throw ERROR.INVALID_INPUT("Cannot follow yourself");

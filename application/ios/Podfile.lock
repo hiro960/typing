@@ -1,4 +1,6 @@
 PODS:
+  - app_badge_plus (1.2.6):
+    - Flutter
   - audioplayers_darwin (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -114,6 +116,7 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+  - app_badge_plus (from `.symlinks/plugins/app_badge_plus/ios`)
   - audioplayers_darwin (from `.symlinks/plugins/audioplayers_darwin/darwin`)
   - auth0_flutter (from `.symlinks/plugins/auth0_flutter/darwin`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
@@ -150,6 +153,8 @@ SPEC REPOS:
     - SimpleKeychain
 
 EXTERNAL SOURCES:
+  app_badge_plus:
+    :path: ".symlinks/plugins/app_badge_plus/ios"
   audioplayers_darwin:
     :path: ".symlinks/plugins/audioplayers_darwin/darwin"
   auth0_flutter:
@@ -186,6 +191,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
+  app_badge_plus: 32b6022e2a8585454d6c2a99aa65f8f31f06752a
   audioplayers_darwin: 4f9ca89d92d3d21cec7ec580e78ca888e5fb68bd
   Auth0: 2876d0c36857422eda9cb580a6cc896c7d14cb36
   auth0_flutter: 031042ca6cf84f1b21611062b33ea7ec4bf3bc52

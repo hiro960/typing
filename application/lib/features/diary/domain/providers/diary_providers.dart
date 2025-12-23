@@ -629,6 +629,8 @@ class DiaryNotificationsController extends _$DiaryNotificationsController {
         unreadOnly: state.unreadOnly,
         errorMessage: null,
       );
+      // 未読数をグローバル状態に同期
+      ref.read(unreadNotificationCountProvider.notifier).setCount(page.unreadCount);
     } catch (error) {
       if (_disposed) return;
       state = state.copyWith(
@@ -710,6 +712,8 @@ class DiaryNotificationsController extends _$DiaryNotificationsController {
             )
             .toList(),
       );
+      // 未読数を1減らす
+      ref.read(unreadNotificationCountProvider.notifier).decrement();
     } catch (error) {
       rethrow;
     }
@@ -736,8 +740,41 @@ class DiaryNotificationsController extends _$DiaryNotificationsController {
             )
             .toList(),
       );
+      // 未読数を0にする
+      ref.read(unreadNotificationCountProvider.notifier).clear();
     } catch (error) {
       rethrow;
     }
+  }
+}
+
+@Riverpod(keepAlive: true)
+class UnreadNotificationCount extends _$UnreadNotificationCount {
+  DiaryRepository get _repository => ref.watch(diaryRepositoryProvider);
+
+  @override
+  int build() => 0;
+
+  Future<void> refresh() async {
+    try {
+      final count = await _repository.fetchUnreadNotificationCount();
+      state = count;
+    } catch (_) {
+      // エラーの場合は現在の状態を維持
+    }
+  }
+
+  void setCount(int count) {
+    state = count;
+  }
+
+  void decrement() {
+    if (state > 0) {
+      state = state - 1;
+    }
+  }
+
+  void clear() {
+    state = 0;
   }
 }

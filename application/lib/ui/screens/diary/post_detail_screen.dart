@@ -18,6 +18,7 @@ import '../../widgets/user_avatar.dart';
 import '../../widgets/typing_keyboard.dart';
 import '../../widgets/sheet_content.dart';
 import 'post_create_screen.dart';
+import '../profile/profile_screen.dart';
 import '../../app_spacing.dart';
 import '../../widgets/modern_text_input.dart';
 
@@ -676,6 +677,17 @@ class _CommentTile extends StatelessWidget {
     }
   }
 
+  void _navigateToProfile(BuildContext context, String userId) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => ProfileScreen(
+          userId: userId,
+          onOpenSettings: () {},
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -686,15 +698,19 @@ class _CommentTile extends StatelessWidget {
 
     return FCard(
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
-                UserAvatar(
-                  displayName: comment.user.displayName,
-                  imageUrl: comment.user.profileImageUrl,
+                GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () => _navigateToProfile(context, comment.user.id),
+                  child: UserAvatar(
+                    displayName: comment.user.displayName,
+                    imageUrl: comment.user.profileImageUrl,
+                  ),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
@@ -724,9 +740,9 @@ class _CommentTile extends StatelessWidget {
                   ),
               ],
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 8),
             Text(comment.content),
-            const SizedBox(height: 12),
+            const SizedBox(height: 8),
             Row(
               children: [
                 FButton.icon(

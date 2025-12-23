@@ -7,7 +7,7 @@ export async function PATCH(request: NextRequest) {
   try {
     const user = await requireAuthUser(request);
     const updatedCount = await markAllNotificationsRead(user.id);
-    return NextResponse.json({ updatedCount });
+    return NextResponse.json({ updatedCount, unreadCount: 0 });
   } catch (error) {
     return handleRouteError(error);
   }

@@ -3,8 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
+import '../../core/services/app_badge_service.dart';
 import '../../core/services/push_notification_service.dart';
 import '../../features/auth/domain/providers/auth_providers.dart';
+import '../../features/diary/domain/providers/diary_providers.dart';
 import '../../features/app_version/data/models/app_version_info.dart';
 import '../../features/app_version/domain/providers/app_version_providers.dart';
 import '../widgets/force_update_dialog.dart';
@@ -150,20 +152,44 @@ class _MainAppShell extends ConsumerStatefulWidget {
   ConsumerState<_MainAppShell> createState() => _MainAppShellState();
 }
 
-class _MainAppShellState extends ConsumerState<_MainAppShell> {
+class _MainAppShellState extends ConsumerState<_MainAppShell>
+    with WidgetsBindingObserver {
   int _selectedIndex = 0;
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     // アプリ起動時にオフラインキューを処理
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
         ref.read(offlineQueueProvider.notifier).processQueue();
         ref.read(wordbookOfflineQueueProvider.notifier).processQueue();
         PushNotificationService(ref).initialize();
+        // 未読通知数を取得してバッジを更新
+        _refreshUnreadCountAndBadge();
       }
     });
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      // フォアグラウンドに戻った時に未読数を更新
+      _refreshUnreadCountAndBadge();
+    }
+  }
+
+  Future<void> _refreshUnreadCountAndBadge() async {
+    await ref.read(unreadNotificationCountProvider.notifier).refresh();
+    final count = ref.read(unreadNotificationCountProvider);
+    await AppBadgeService.updateBadge(count);
   }
 
   void _openPostComposer() {
@@ -203,6 +229,11 @@ class _MainAppShellState extends ConsumerState<_MainAppShell> {
 
   @override
   Widget build(BuildContext context) {
+    // 未読通知数の変更を監視してバッジを更新
+    ref.listen<int>(unreadNotificationCountProvider, (previous, next) {
+      AppBadgeService.updateBadge(next);
+    });
+
     final screens = <Widget>[
       HomeScreen(
         onOpenSettings: _openSettings,

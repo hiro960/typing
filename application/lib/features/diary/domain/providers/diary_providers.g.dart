@@ -346,7 +346,7 @@ final class DiaryNotificationsControllerProvider
 }
 
 String _$diaryNotificationsControllerHash() =>
-    r'7e27df6d0a867c163136e923af5c129f917b0ee8';
+    r'89dee4463e5099b537d5da62ee92e9ec058d0b0b';
 
 abstract class _$DiaryNotificationsController
     extends $Notifier<DiaryNotificationsState> {
@@ -362,6 +362,60 @@ abstract class _$DiaryNotificationsController
             as $ClassProviderElement<
               AnyNotifier<DiaryNotificationsState, DiaryNotificationsState>,
               DiaryNotificationsState,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
+}
+
+@ProviderFor(UnreadNotificationCount)
+const unreadNotificationCountProvider = UnreadNotificationCountProvider._();
+
+final class UnreadNotificationCountProvider
+    extends $NotifierProvider<UnreadNotificationCount, int> {
+  const UnreadNotificationCountProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'unreadNotificationCountProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$unreadNotificationCountHash();
+
+  @$internal
+  @override
+  UnreadNotificationCount create() => UnreadNotificationCount();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(int value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<int>(value),
+    );
+  }
+}
+
+String _$unreadNotificationCountHash() =>
+    r'1312fbe96626e39fac233495e640fcc2b01e77bf';
+
+abstract class _$UnreadNotificationCount extends $Notifier<int> {
+  int build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref = this.ref as $Ref<int, int>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<int, int>,
+              int,
               Object?,
               Object?
             >;

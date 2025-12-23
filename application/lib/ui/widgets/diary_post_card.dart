@@ -469,33 +469,20 @@ class _ImageCarousel extends StatefulWidget {
 class _ImageCarouselState extends State<_ImageCarousel> {
   int _currentIndex = 0;
 
-  void _showFullScreenImage(BuildContext context, String imageUrl) {
-    showDialog(
-      context: context,
-      builder: (context) => Dialog.fullscreen(
-        backgroundColor: Colors.black,
-        child: Stack(
-          children: [
-            Center(
-              child: InteractiveViewer(
-                minScale: 0.5,
-                maxScale: 4.0,
-                child: CachedNetworkImage(
-                  imageUrl: imageUrl,
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
-            Positioned(
-              top: MediaQuery.of(context).padding.top + 16,
-              left: 16,
-              child: IconButton(
-                icon: const Icon(Iconsax.close_circle, color: Colors.white, size: 30),
-                onPressed: () => Navigator.of(context).pop(),
-              ),
-            ),
-          ],
-        ),
+  void _showFullScreenImage(BuildContext context, int initialIndex) {
+    Navigator.of(context).push(
+      PageRouteBuilder(
+        opaque: false,
+        barrierColor: Colors.black,
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return _FullScreenImageViewer(
+            imageUrls: widget.imageUrls,
+            initialIndex: initialIndex,
+          );
+        },
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return FadeTransition(opacity: animation, child: child);
+        },
       ),
     );
   }
@@ -517,7 +504,7 @@ class _ImageCarouselState extends State<_ImageCarousel> {
             },
             itemBuilder: (context, index) {
               return GestureDetector(
-                onTap: () => _showFullScreenImage(context, widget.imageUrls[index]),
+                onTap: () => _showFullScreenImage(context, index),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 4),
                   child: ClipRRect(
@@ -553,6 +540,172 @@ class _ImageCarouselState extends State<_ImageCarousel> {
           ),
         ],
       ],
+    );
+  }
+}
+
+class _FullScreenImageViewer extends StatefulWidget {
+  const _FullScreenImageViewer({
+    required this.imageUrls,
+    required this.initialIndex,
+  });
+
+  final List<String> imageUrls;
+  final int initialIndex;
+
+  @override
+  State<_FullScreenImageViewer> createState() => _FullScreenImageViewerState();
+}
+
+class _FullScreenImageViewerState extends State<_FullScreenImageViewer> {
+  late PageController _pageController;
+  late int _currentIndex;
+  double _dragOffset = 0;
+  double _dragOpacity = 1.0;
+  bool _isDragging = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentIndex = widget.initialIndex;
+    _pageController = PageController(initialPage: widget.initialIndex);
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  void _onVerticalDragStart(DragStartDetails details) {
+    setState(() {
+      _isDragging = true;
+    });
+  }
+
+  void _onVerticalDragUpdate(DragUpdateDetails details) {
+    setState(() {
+      _dragOffset += details.delta.dy;
+      // 下方向のドラッグのみ反応
+      if (_dragOffset < 0) _dragOffset = 0;
+      // 透明度を計算（200pxで完全に透明）
+      _dragOpacity = (1 - (_dragOffset / 200)).clamp(0.3, 1.0);
+    });
+  }
+
+  void _onVerticalDragEnd(DragEndDetails details) {
+    // 100px以上ドラッグしたら閉じる
+    if (_dragOffset > 100) {
+      Navigator.of(context).pop();
+    } else {
+      // 元に戻す
+      setState(() {
+        _dragOffset = 0;
+        _dragOpacity = 1.0;
+        _isDragging = false;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black.withValues(alpha: _dragOpacity),
+      body: GestureDetector(
+        onVerticalDragStart: _onVerticalDragStart,
+        onVerticalDragUpdate: _onVerticalDragUpdate,
+        onVerticalDragEnd: _onVerticalDragEnd,
+        child: Stack(
+          children: [
+            // 画像ページビュー
+            Transform.translate(
+              offset: Offset(0, _dragOffset),
+              child: Opacity(
+                opacity: _dragOpacity,
+                child: PageView.builder(
+                  controller: _pageController,
+                  itemCount: widget.imageUrls.length,
+                  onPageChanged: (index) {
+                    setState(() {
+                      _currentIndex = index;
+                    });
+                  },
+                  itemBuilder: (context, index) {
+                    return Center(
+                      child: InteractiveViewer(
+                        minScale: 0.5,
+                        maxScale: 4.0,
+                        child: CachedNetworkImage(
+                          imageUrl: widget.imageUrls[index],
+                          fit: BoxFit.contain,
+                          placeholder: (context, url) => const Center(
+                            child: CircularProgressIndicator(
+                              color: Colors.white,
+                            ),
+                          ),
+                          errorWidget: (context, url, error) => const Icon(
+                            Icons.error,
+                            color: Colors.white,
+                            size: 48,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+            // 閉じるボタン
+            Positioned(
+              top: MediaQuery.of(context).padding.top + 16,
+              left: 16,
+              child: Opacity(
+                opacity: _dragOpacity,
+                child: IconButton(
+                  icon: const Icon(
+                    Iconsax.close_circle,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ),
+            ),
+            // ページインジケーター（複数画像の場合のみ）
+            if (widget.imageUrls.length > 1)
+              Positioned(
+                bottom: MediaQuery.of(context).padding.bottom + 32,
+                left: 0,
+                right: 0,
+                child: Opacity(
+                  opacity: _dragOpacity,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 6,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.black54,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Text(
+                          '${_currentIndex + 1} / ${widget.imageUrls.length}',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ),
     );
   }
 }

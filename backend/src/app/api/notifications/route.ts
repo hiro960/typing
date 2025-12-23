@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { requireAuthUser } from "@/lib/auth";
-import { listNotificationsForUser } from "@/lib/store";
+import { listNotificationsForUser, getUnreadNotificationCount } from "@/lib/store";
 import { handleRouteError } from "@/lib/errors";
 import { parseLimit } from "@/lib/pagination";
 import { jsonResponse, CACHE_STRATEGIES } from "@/lib/response";
@@ -12,12 +12,15 @@ export async function GET(request: NextRequest) {
     const cursor = searchParams.get("cursor");
     const unreadOnly = searchParams.get("unreadOnly") === "true";
     const limit = parseLimit(searchParams.get("limit"), 20, 1, 100);
-    const result = await listNotificationsForUser(user.id, {
-      cursor,
-      unreadOnly,
-      limit,
-    });
-    return jsonResponse(result, { cache: CACHE_STRATEGIES.notifications });
+    const [result, unreadCount] = await Promise.all([
+      listNotificationsForUser(user.id, {
+        cursor,
+        unreadOnly,
+        limit,
+      }),
+      getUnreadNotificationCount(user.id),
+    ]);
+    return jsonResponse({ ...result, unreadCount }, { cache: CACHE_STRATEGIES.notifications });
   } catch (error) {
     return handleRouteError(error);
   }
