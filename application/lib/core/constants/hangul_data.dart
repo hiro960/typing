@@ -47,6 +47,38 @@ class HangulConsonant {
 
   /// 子音の種類
   final ConsonantType type;
+
+  /// TTS用の発音可能な音節を取得（子音 + ㅡ）
+  /// 例: ㄱ → 크, ㄴ → 느
+  String get pronounceable {
+    const choseongIndex = {
+      'ㄱ': 0,
+      'ㄲ': 1,
+      'ㄴ': 2,
+      'ㄷ': 3,
+      'ㄸ': 4,
+      'ㄹ': 5,
+      'ㅁ': 6,
+      'ㅂ': 7,
+      'ㅃ': 8,
+      'ㅅ': 9,
+      'ㅆ': 10,
+      'ㅇ': 11,
+      'ㅈ': 12,
+      'ㅉ': 13,
+      'ㅊ': 14,
+      'ㅋ': 15,
+      'ㅌ': 16,
+      'ㅍ': 17,
+      'ㅎ': 18,
+    };
+    const euIndex = 18; // ㅡのインデックス
+    final cho = choseongIndex[character];
+    if (cho == null) return character;
+    // (初声 * 21 + 中声) * 28 + 終声 + 0xAC00
+    final code = (cho * 21 + euIndex) * 28 + 0xAC00;
+    return String.fromCharCode(code);
+  }
 }
 
 /// 母音データ
@@ -73,6 +105,40 @@ class HangulVowel {
 
   /// 母音の種類
   final VowelType type;
+
+  /// TTS用の発音可能な音節を取得（ㅇ + 母音）
+  /// 例: ㅏ → 아, ㅓ → 어
+  String get pronounceable {
+    const jungseongIndex = {
+      'ㅏ': 0,
+      'ㅐ': 1,
+      'ㅑ': 2,
+      'ㅒ': 3,
+      'ㅓ': 4,
+      'ㅔ': 5,
+      'ㅕ': 6,
+      'ㅖ': 7,
+      'ㅗ': 8,
+      'ㅘ': 9,
+      'ㅙ': 10,
+      'ㅚ': 11,
+      'ㅛ': 12,
+      'ㅜ': 13,
+      'ㅝ': 14,
+      'ㅞ': 15,
+      'ㅟ': 16,
+      'ㅠ': 17,
+      'ㅡ': 18,
+      'ㅢ': 19,
+      'ㅣ': 20,
+    };
+    const ieungIndex = 11; // ㅇのインデックス
+    final jung = jungseongIndex[character];
+    if (jung == null) return character;
+    // (初声 * 21 + 中声) * 28 + 終声 + 0xAC00
+    final code = (ieungIndex * 21 + jung) * 28 + 0xAC00;
+    return String.fromCharCode(code);
+  }
 }
 
 /// ハングルデータセット

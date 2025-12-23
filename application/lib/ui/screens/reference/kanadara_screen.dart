@@ -1,8 +1,10 @@
 import 'package:chaletta/core/constants/hangul_data.dart';
+import 'package:chaletta/features/wordbook/domain/providers/wordbook_providers.dart';
 import 'package:chaletta/ui/app_spacing.dart';
 import 'package:chaletta/ui/app_theme.dart';
 import 'package:chaletta/ui/widgets/app_page_scaffold.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 /// カナダラ表画面
@@ -255,7 +257,7 @@ class _ConsonantTabContent extends StatelessWidget {
 }
 
 /// 子音セル
-class _ConsonantCell extends StatelessWidget {
+class _ConsonantCell extends ConsumerWidget {
   const _ConsonantCell({
     required this.item,
     required this.accentColor,
@@ -265,13 +267,13 @@ class _ConsonantCell extends StatelessWidget {
   final Color accentColor;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
 
     return SizedBox(
       width: 64,
       child: InkWell(
-        onTap: () => _showDetail(context),
+        onTap: () => _showDetail(context, ref),
         borderRadius: BorderRadius.circular(12),
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 8),
@@ -312,7 +314,7 @@ class _ConsonantCell extends StatelessWidget {
     );
   }
 
-  void _showDetail(BuildContext context) {
+  void _showDetail(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
 
     showModalBottomSheet<void>(
@@ -339,11 +341,30 @@ class _ConsonantCell extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Center(
-              child: Text(
-                item.character,
-                style: theme.textTheme.displayLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    item.character,
+                    style: theme.textTheme.displayLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  IconButton(
+                    icon: const Icon(Iconsax.volume_high, size: 32),
+                    onPressed: () {
+                      ref
+                          .read(wordAudioServiceProvider.notifier)
+                          .speakKorean(item.pronounceable);
+                    },
+                    style: IconButton.styleFrom(
+                      backgroundColor: accentColor.withValues(alpha: 0.2),
+                      foregroundColor: accentColor,
+                      padding: const EdgeInsets.all(12),
+                    ),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 16),
@@ -517,7 +538,7 @@ class _VowelTabContent extends StatelessWidget {
 }
 
 /// 母音セル
-class _VowelCell extends StatelessWidget {
+class _VowelCell extends ConsumerWidget {
   const _VowelCell({
     required this.item,
     required this.accentColor,
@@ -527,13 +548,13 @@ class _VowelCell extends StatelessWidget {
   final Color accentColor;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
 
     return SizedBox(
       width: 64,
       child: InkWell(
-        onTap: () => _showDetail(context),
+        onTap: () => _showDetail(context, ref),
         borderRadius: BorderRadius.circular(12),
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 8),
@@ -574,7 +595,7 @@ class _VowelCell extends StatelessWidget {
     );
   }
 
-  void _showDetail(BuildContext context) {
+  void _showDetail(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
 
     showModalBottomSheet<void>(
@@ -601,11 +622,30 @@ class _VowelCell extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Center(
-              child: Text(
-                item.character,
-                style: theme.textTheme.displayLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    item.character,
+                    style: theme.textTheme.displayLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  IconButton(
+                    icon: const Icon(Iconsax.volume_high, size: 32),
+                    onPressed: () {
+                      ref
+                          .read(wordAudioServiceProvider.notifier)
+                          .speakKorean(item.pronounceable);
+                    },
+                    style: IconButton.styleFrom(
+                      backgroundColor: accentColor.withValues(alpha: 0.2),
+                      foregroundColor: accentColor,
+                      padding: const EdgeInsets.all(12),
+                    ),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 16),
@@ -691,7 +731,7 @@ class _VowelCell extends StatelessWidget {
 /// 反切表タブのコンテンツ
 ///
 /// 子音と母音の組み合わせをテーブル形式で表示します。
-class _PanjeolTabContent extends StatelessWidget {
+class _PanjeolTabContent extends ConsumerWidget {
   const _PanjeolTabContent();
 
   // 初声（子音）のインデックス（Unicode計算用）
@@ -780,7 +820,7 @@ class _PanjeolTabContent extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
 
     return SingleChildScrollView(
@@ -818,7 +858,7 @@ class _PanjeolTabContent extends StatelessWidget {
           // テーブル
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: _buildTable(context),
+            child: _buildTable(context, ref),
           ),
           const SizedBox(height: AppSpacing.xl),
         ],
@@ -826,7 +866,7 @@ class _PanjeolTabContent extends StatelessWidget {
     );
   }
 
-  Widget _buildTable(BuildContext context) {
+  Widget _buildTable(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     const cellWidth = 56.0;
     const cellHeight = 64.0;
@@ -938,7 +978,7 @@ class _PanjeolTabContent extends StatelessWidget {
                 final syllable = _combineHangul(consonant, vowel);
                 final katakana = _getKatakana(consonant, vowel);
                 return InkWell(
-                  onTap: () => _showSyllableDetail(context, consonant, vowel, syllable),
+                  onTap: () => _showSyllableDetail(context, ref, consonant, vowel, syllable),
                   child: SizedBox(
                     width: cellWidth,
                     height: cellHeight,
@@ -973,6 +1013,7 @@ class _PanjeolTabContent extends StatelessWidget {
 
   void _showSyllableDetail(
     BuildContext context,
+    WidgetRef ref,
     String consonant,
     String vowel,
     String syllable,
@@ -1002,12 +1043,33 @@ class _PanjeolTabContent extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            Text(
-              syllable,
-              style: theme.textTheme.displayLarge?.copyWith(
-                fontWeight: FontWeight.bold,
-                fontSize: 72,
-              ),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  syllable,
+                  style: theme.textTheme.displayLarge?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 72,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                IconButton(
+                  icon: const Icon(Iconsax.volume_high, size: 32),
+                  onPressed: () {
+                    ref
+                        .read(wordAudioServiceProvider.notifier)
+                        .speakKorean(syllable);
+                  },
+                  style: IconButton.styleFrom(
+                    backgroundColor:
+                        AppColors.primaryBright.withValues(alpha: 0.2),
+                    foregroundColor: AppColors.primaryBright,
+                    padding: const EdgeInsets.all(12),
+                  ),
+                ),
+              ],
             ),
             Text(
               katakana,

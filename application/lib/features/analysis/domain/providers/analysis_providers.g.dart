@@ -72,7 +72,7 @@ final class AnalysisDashboardProvider
         $FutureProvider<AnalysisDashboard> {
   const AnalysisDashboardProvider._({
     required AnalysisDashboardFamily super.from,
-    required String super.argument,
+    required ({String period, String? calendarMonth}) super.argument,
   }) : super(
          retry: null,
          name: r'analysisDashboardProvider',
@@ -88,7 +88,7 @@ final class AnalysisDashboardProvider
   String toString() {
     return r'analysisDashboardProvider'
         ''
-        '($argument)';
+        '$argument';
   }
 
   @$internal
@@ -99,8 +99,12 @@ final class AnalysisDashboardProvider
 
   @override
   FutureOr<AnalysisDashboard> create(Ref ref) {
-    final argument = this.argument as String;
-    return analysisDashboard(ref, period: argument);
+    final argument = this.argument as ({String period, String? calendarMonth});
+    return analysisDashboard(
+      ref,
+      period: argument.period,
+      calendarMonth: argument.calendarMonth,
+    );
   }
 
   @override
@@ -114,10 +118,14 @@ final class AnalysisDashboardProvider
   }
 }
 
-String _$analysisDashboardHash() => r'a250a3cfbfe314525c43c94944358b574d124954';
+String _$analysisDashboardHash() => r'e854f82298dde9da480fdb79ac34a50b3096fe85';
 
 final class AnalysisDashboardFamily extends $Family
-    with $FunctionalFamilyOverride<FutureOr<AnalysisDashboard>, String> {
+    with
+        $FunctionalFamilyOverride<
+          FutureOr<AnalysisDashboard>,
+          ({String period, String? calendarMonth})
+        > {
   const AnalysisDashboardFamily._()
     : super(
         retry: null,
@@ -127,8 +135,13 @@ final class AnalysisDashboardFamily extends $Family
         isAutoDispose: true,
       );
 
-  AnalysisDashboardProvider call({String period = 'month'}) =>
-      AnalysisDashboardProvider._(argument: period, from: this);
+  AnalysisDashboardProvider call({
+    String period = 'month',
+    String? calendarMonth,
+  }) => AnalysisDashboardProvider._(
+    argument: (period: period, calendarMonth: calendarMonth),
+    from: this,
+  );
 
   @override
   String toString() => r'analysisDashboardProvider';

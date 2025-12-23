@@ -62,6 +62,7 @@ class AnalysisDashboard {
     required this.vocabularyGrowth,
     required this.activityBreakdown,
     required this.dailyActivityBreakdown,
+    required this.diaryCalendar,
   });
 
   final List<WeakKey> weakKeys;
@@ -72,6 +73,7 @@ class AnalysisDashboard {
   final List<VocabularyGrowthPoint> vocabularyGrowth;
   final ActivityBreakdown activityBreakdown;
   final List<DailyActivityBreakdown> dailyActivityBreakdown;
+  final DiaryCalendar diaryCalendar;
 
   factory AnalysisDashboard.fromJson(Map<String, dynamic> json) {
     return AnalysisDashboard(
@@ -103,6 +105,9 @@ class AnalysisDashboard {
               ?.map((e) => DailyActivityBreakdown.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
+      diaryCalendar: DiaryCalendar.fromJson(
+        json['diaryCalendar'] as Map<String, dynamic>? ?? {},
+      ),
     );
   }
 }
@@ -276,6 +281,40 @@ class ActivityBreakdown {
       quickTranslation.timeSpentMs +
       writing.timeSpentMs +
       hanjaQuiz.timeSpentMs;
+}
+
+/// 日記カレンダー
+class DiaryCalendar {
+  const DiaryCalendar({
+    required this.year,
+    required this.month,
+    required this.postDates,
+    this.totalPosts = 0,
+  });
+
+  final int year;
+  final int month;
+  final List<String> postDates; // ['2025-01-01', '2025-01-03', ...]
+  final int totalPosts;
+
+  factory DiaryCalendar.fromJson(Map<String, dynamic> json) {
+    return DiaryCalendar(
+      year: json['year'] as int? ?? DateTime.now().year,
+      month: json['month'] as int? ?? DateTime.now().month,
+      postDates: (json['postDates'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      totalPosts: json['totalPosts'] as int? ?? 0,
+    );
+  }
+
+  /// Check if diary was posted on a specific date
+  bool hasPostOn(DateTime date) {
+    final dateKey =
+        '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
+    return postDates.contains(dateKey);
+  }
 }
 
 /// 日別アクティビティ内訳

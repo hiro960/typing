@@ -261,6 +261,52 @@ export async function GET(request: NextRequest) {
             }))
             .sort((a, b) => a.month.localeCompare(b.month));
 
+        // 7. Diary Calendar - get posting dates for current month
+        const calendarMonth = searchParams.get("calendarMonth");
+        let calendarYear: number;
+        let calendarMonthNum: number;
+
+        if (calendarMonth) {
+            const [y, m] = calendarMonth.split("-").map(Number);
+            calendarYear = y;
+            calendarMonthNum = m;
+        } else {
+            const today = new Date();
+            calendarYear = today.getFullYear();
+            calendarMonthNum = today.getMonth() + 1;
+        }
+
+        const calendarStart = new Date(calendarYear, calendarMonthNum - 1, 1);
+        const calendarEnd = new Date(calendarYear, calendarMonthNum, 0, 23, 59, 59, 999);
+
+        const diaryPosts = await prisma.post.findMany({
+            where: {
+                userId: user.id,
+                createdAt: {
+                    gte: calendarStart,
+                    lte: calendarEnd,
+                },
+            },
+            select: {
+                createdAt: true,
+            },
+            orderBy: { createdAt: "asc" },
+        });
+
+        // Extract unique dates
+        const postDatesSet = new Set<string>();
+        diaryPosts.forEach((post) => {
+            const dateKey = post.createdAt.toISOString().split("T")[0];
+            postDatesSet.add(dateKey);
+        });
+
+        const diaryCalendar = {
+            year: calendarYear,
+            month: calendarMonthNum,
+            postDates: Array.from(postDatesSet).sort(),
+            totalPosts: diaryPosts.length,
+        };
+
         return NextResponse.json({
             weakKeys,
             trends,
@@ -273,6 +319,7 @@ export async function GET(request: NextRequest) {
             vocabularyGrowth,
             activityBreakdown,
             dailyActivityBreakdown,
+            diaryCalendar,
         });
     } catch (error) {
         return handleRouteError(error);

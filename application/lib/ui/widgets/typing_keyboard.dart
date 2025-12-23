@@ -22,6 +22,7 @@ class TypingKeyboard extends StatefulWidget {
     this.onClose,
     this.onSwitchToDefaultKeyboard,
     this.onSwitchToCustomKeyboard,
+    this.onPaste,
   });
 
   final void Function(String value) onTextInput;
@@ -49,6 +50,9 @@ class TypingKeyboard extends StatefulWidget {
 
   /// カスタムキーボードへの切り替えボタンが押された時のコールバック
   final VoidCallback? onSwitchToCustomKeyboard;
+
+  /// ペーストボタンが押された時のコールバック
+  final VoidCallback? onPaste;
 
   @override
   State<TypingKeyboard> createState() => _TypingKeyboardState();
@@ -169,6 +173,22 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
                             ),
                           ),
                         ),
+                      // ペーストボタン
+                      if (widget.onPaste != null && widget.showKeys)
+                        GestureDetector(
+                          onTap: widget.onPaste,
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 10,
+                            ),
+                            child: Icon(
+                              Iconsax.clipboard_text,
+                              size: 22,
+                              color: colors.onSurface.withValues(alpha: 0.7),
+                            ),
+                          ),
+                        ),
                       const Spacer(),
                       // 閉じるボタン
                       if (widget.onClose != null)
@@ -220,15 +240,16 @@ class _TypingKeyboardState extends State<TypingKeyboard> {
                         const SizedBox(height: 8)
                       else
                         const SizedBox(height: 4),
-                      for (final row in rows) ...[
+                      for (int rowIndex = 0; rowIndex < rows.length; rowIndex++) ...[
                         _KeyboardRow(
-                          keys: row,
+                          keys: rows[rowIndex],
                           isShiftActive: _shiftActive,
                           currentMode: _currentMode,
                           highlightShift: widget.highlightShift,
                           highlightSymbol: widget.highlightSymbol,
                           highlightedKeys: widget.highlightedKeys,
                           onKeyTap: _handleKeyTap,
+                          rowIndex: rowIndex,
                         ),
                         const SizedBox(height: 8), // iPhoneキーボードに近い行間
                       ],
@@ -316,6 +337,7 @@ class _KeyboardRow extends StatelessWidget {
     required this.currentMode,
     required this.highlightShift,
     required this.highlightSymbol,
+    required this.rowIndex,
   });
 
   final List<String> keys;
@@ -325,6 +347,7 @@ class _KeyboardRow extends StatelessWidget {
   final _KeyboardMode currentMode;
   final bool highlightShift;
   final bool highlightSymbol;
+  final int rowIndex;
 
   // シフトキー押下時の変換マップ（濃音子音 + 母音）
   static const _shiftMappings = {
@@ -339,8 +362,14 @@ class _KeyboardRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ハングルモードの2行目（index 1）には左右にキー半分のスペーサーを追加
+    final needsSidePadding =
+        currentMode == _KeyboardMode.hangul && rowIndex == 1;
+
     return Row(
       children: [
+        // 左側スペーサー（キー半分の幅）
+        if (needsSidePadding) const Spacer(flex: 1),
         for (int i = 0; i < keys.length; i++) ...[
           Expanded(
             flex: _flex(keys[i]),
@@ -355,6 +384,8 @@ class _KeyboardRow extends StatelessWidget {
             ),
           ),
         ],
+        // 右側スペーサー（キー半分の幅）
+        if (needsSidePadding) const Spacer(flex: 1),
       ],
     );
   }
@@ -370,6 +401,9 @@ class _KeyboardRow extends StatelessWidget {
   }
 
   int _flex(String key) {
+    // ハングルモードの3行目（index 2）でシフトとバックスペースを1.5倍幅に
+    final isHangulRow2 = currentMode == _KeyboardMode.hangul && rowIndex == 2;
+
     switch (key) {
       case 'space':
         return 5;
@@ -379,10 +413,13 @@ class _KeyboardRow extends StatelessWidget {
         return 2;
       case '⌫':
       case '⇧':
-        // iPhoneデフォルトキーボードに近いサイズ（約1.3倍）
-        return 1;
+        // ハングルモードの3行目では1.5倍幅（flex: 3、通常キーはflex: 2）
+        return isHangulRow2 ? 3 : 1;
       default:
-        return 1;
+        // ハングルモードの2行目と3行目では通常キーもflex: 2で統一
+        final needsDoubleFlex = currentMode == _KeyboardMode.hangul &&
+            (rowIndex == 1 || rowIndex == 2);
+        return needsDoubleFlex ? 2 : 1;
     }
   }
 
@@ -436,18 +473,22 @@ class _KeyboardKey extends StatelessWidget {
     final backgroundColor = isHighlighted
         ? highlightColor.withValues(alpha: 0.25)
         : theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3);
-    // 特殊キーかどうかを判定
-    final isSpecialKey = label == '⇧' ||
-        label == '⌫' ||
-        label == '123' ||
-        label == '#+=' ||
-        label == '한글' ||
-        label == '⏎';
+    // フォントサイズを決定
+    final double fontSize;
+    if (label == '⇧' || label == '⌫') {
+      fontSize = 20; // シフトとバックスペースは大きめ
+    } else if (label == 'space') {
+      fontSize = 14; // スペースキーは小さめ
+    } else if (label == '123' || label == '#+=' || label == '한글' || label == '⏎') {
+      fontSize = 16; // その他の特殊キーは控えめ
+    } else {
+      fontSize = 22; // 通常キーは大きめ
+    }
 
     return GestureDetector(
       onTap: () => onTap(label),
       child: Container(
-        height: 44, // iPhoneデフォルトキーボードに近い高さ
+        height: 48, // iPhoneデフォルトキーボードに近い高さ
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5), // iPhoneキーボードに近い角丸
@@ -460,9 +501,9 @@ class _KeyboardKey extends StatelessWidget {
           ),
         ),
         child: Text(
-          displayLabel == 'space' ? 'space' : displayLabel,
+          displayLabel == 'space' ? '스페이스' : displayLabel,
           style: TextStyle(
-            fontSize: isSpecialKey ? 16 : 22, // 通常キーは大きめ、特殊キーは控えめ
+            fontSize: fontSize,
             fontWeight: FontWeight.w500,
             color: isHighlighted
                 ? const Color(0xFFFF8C00)

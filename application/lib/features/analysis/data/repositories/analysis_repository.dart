@@ -9,11 +9,17 @@ class AnalysisRepository {
 
   final ApiClientService _apiClient;
 
-  Future<AnalysisDashboard> fetchDashboard({String period = 'month'}) async {
+  Future<AnalysisDashboard> fetchDashboard({
+    String period = 'month',
+    String? calendarMonth,
+  }) async {
     try {
       final response = await _apiClient.dio.get(
         ApiConstants.analysisDashboard,
-        queryParameters: {'period': period},
+        queryParameters: {
+          'period': period,
+          if (calendarMonth != null) 'calendarMonth': calendarMonth,
+        },
       );
 
       return AnalysisDashboard.fromJson(response.data);

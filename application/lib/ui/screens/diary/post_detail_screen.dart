@@ -167,23 +167,180 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
   }
 
   void _onKeyboardTextInput(String text) {
-    _composer.input(text);
-    _applyComposerText();
+    final selection = _commentController.selection;
+    final currentText = _commentController.text;
+
+    if (selection.isValid) {
+      final afterCursor = currentText.substring(selection.end);
+
+      // Composerに入力（Composerはカーソル前のテキストを管理）
+      _composer.input(text);
+      final composedText = _composer.text;
+
+      final newText = composedText + afterCursor;
+      _commentController.value = TextEditingValue(
+        text: newText,
+        selection: TextSelection.collapsed(
+          offset: composedText.characters.length,
+        ),
+      );
+    } else {
+      _composer.input(text);
+      _applyComposerText();
+    }
   }
 
   void _onKeyboardBackspace() {
-    _composer.backspace();
-    _applyComposerText();
+    final selection = _commentController.selection;
+    final currentText = _commentController.text;
+
+    // 合成中の文字がある場合はComposerで処理
+    if (_composer.jamoState.initial != null ||
+        _composer.jamoState.medial != null ||
+        _composer.jamoState.finalConsonant != null) {
+      _composer.backspace();
+      final composedText = _composer.text;
+
+      if (selection.isValid) {
+        final afterCursor = currentText.substring(selection.end);
+        final newText = composedText + afterCursor;
+
+        _commentController.value = TextEditingValue(
+          text: newText,
+          selection: TextSelection.collapsed(
+            offset: composedText.characters.length,
+          ),
+        );
+      } else {
+        _applyComposerText();
+      }
+      return;
+    }
+
+    // 合成中の文字がない場合はカーソル位置の前の文字を削除
+    if (selection.isValid && selection.isCollapsed && selection.start > 0) {
+      final cursorPos = selection.start;
+      final beforeCursor = currentText.substring(0, cursorPos);
+      final afterCursor = currentText.substring(cursorPos);
+
+      // grapheme cluster単位で最後の文字を削除
+      final beforeChars = beforeCursor.characters.toList();
+      if (beforeChars.isNotEmpty) {
+        beforeChars.removeLast();
+        final newBeforeCursor = beforeChars.join();
+        final newText = newBeforeCursor + afterCursor;
+
+        _commentController.value = TextEditingValue(
+          text: newText,
+          selection: TextSelection.collapsed(offset: newBeforeCursor.length),
+        );
+        _composer.loadFromText(newBeforeCursor);
+      }
+    } else if (selection.isValid && !selection.isCollapsed) {
+      // 選択範囲がある場合は選択範囲を削除
+      final beforeSelection = currentText.substring(0, selection.start);
+      final afterSelection = currentText.substring(selection.end);
+      final newText = beforeSelection + afterSelection;
+
+      _commentController.value = TextEditingValue(
+        text: newText,
+        selection: TextSelection.collapsed(offset: selection.start),
+      );
+      _composer.loadFromText(beforeSelection);
+    }
   }
 
   void _onKeyboardSpace() {
+    final selection = _commentController.selection;
+    final currentText = _commentController.text;
+
+    // 合成中の文字を確定してスペースを追加
     _composer.addSpace();
-    _applyComposerText();
+
+    if (selection.isValid) {
+      final afterCursor = currentText.substring(selection.end);
+      final composerText = _composer.text;
+      final newText = composerText + afterCursor;
+
+      _commentController.value = TextEditingValue(
+        text: newText,
+        selection: TextSelection.collapsed(
+          offset: composerText.characters.length,
+        ),
+      );
+    } else {
+      _applyComposerText();
+    }
   }
 
   void _onKeyboardEnter() {
+    final selection = _commentController.selection;
+    final currentText = _commentController.text;
+
+    // 合成中の文字を確定して改行を追加
     _composer.addNewLine();
-    _applyComposerText();
+
+    if (selection.isValid) {
+      final afterCursor = currentText.substring(selection.end);
+      final composerText = _composer.text;
+      final newText = composerText + afterCursor;
+
+      _commentController.value = TextEditingValue(
+        text: newText,
+        selection: TextSelection.collapsed(
+          offset: composerText.characters.length,
+        ),
+      );
+    } else {
+      _applyComposerText();
+    }
+  }
+
+  Future<void> _onPaste() async {
+    final clipboardData = await Clipboard.getData('text/plain');
+    if (clipboardData?.text == null || clipboardData!.text!.isEmpty) {
+      if (!mounted) return;
+      ToastHelper.show(context, 'クリップボードにテキストがありません');
+      return;
+    }
+
+    final pasteText = clipboardData.text!;
+    final selection = _commentController.selection;
+    final currentText = _commentController.text;
+
+    // 合成中の文字を確定
+    _composer.consumeText();
+
+    if (selection.isValid) {
+      final beforeCursor = currentText.substring(0, selection.start);
+      final afterCursor = currentText.substring(selection.end);
+      final newText = beforeCursor + pasteText + afterCursor;
+      final newCursorPos = beforeCursor.length + pasteText.length;
+
+      _commentController.value = TextEditingValue(
+        text: newText,
+        selection: TextSelection.collapsed(offset: newCursorPos),
+      );
+
+      // Composerを新しいカーソル位置までのテキストで更新
+      _composer.loadFromText(newText.substring(0, newCursorPos));
+    } else {
+      final newText = currentText + pasteText;
+      _commentController.value = TextEditingValue(
+        text: newText,
+        selection: TextSelection.collapsed(offset: newText.length),
+      );
+      _composer.loadFromText(newText);
+    }
+  }
+
+  /// カーソル位置が変更された時にComposerを同期
+  void _syncComposerWithCursor() {
+    final selection = _commentController.selection;
+    if (selection.isValid && selection.isCollapsed) {
+      final beforeCursor = _commentController.text.substring(0, selection.start);
+      _composer.loadFromText(beforeCursor);
+    }
   }
 
   Future<void> _closeKeyboard() async {
@@ -214,8 +371,16 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
   Future<void> _switchToCustomKeyboard() async {
     await SystemChannels.textInput.invokeMethod('TextInput.hide');
     _commentFocusNode.requestFocus();
-    _composer.loadFromText(_commentController.text);
-    _applyComposerText();
+
+    // カーソル位置を保持してComposerを同期
+    final selection = _commentController.selection;
+    if (selection.isValid && selection.isCollapsed) {
+      final beforeCursor = _commentController.text.substring(0, selection.start);
+      _composer.loadFromText(beforeCursor);
+    } else {
+      _composer.loadFromText(_commentController.text);
+    }
+
     setState(() {
       _useCustomKeyboard = true;
       _showCustomKeyboard = true;
@@ -551,11 +716,7 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
                                           ? TextInputType.none
                                           : TextInputType.multiline,
                                       onTap: _useCustomKeyboard
-                                          ? () {
-                                              _composer.loadFromText(
-                                                  _commentController.text);
-                                              _applyComposerText();
-                                            }
+                                          ? _syncComposerWithCursor
                                           : null,
                                     ),
                                   ),
@@ -589,6 +750,7 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
                                 onClose: _closeKeyboard,
                                 onSwitchToDefaultKeyboard: _switchToDefaultKeyboard,
                                 onSwitchToCustomKeyboard: _switchToCustomKeyboard,
+                                onPaste: _onPaste,
                               ),
                           ],
                         ),

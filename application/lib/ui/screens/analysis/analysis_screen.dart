@@ -11,6 +11,7 @@ import 'package:chaletta/ui/widgets/app_page_scaffold.dart';
 import 'package:chaletta/ui/widgets/premium_feature_gate.dart';
 
 import 'widgets/activity_time_breakdown_chart.dart';
+import 'widgets/diary_calendar_chart.dart';
 import 'widgets/growth_trend_chart.dart';
 import 'widgets/learning_habit_chart.dart';
 import 'widgets/practice_time_chart.dart';
@@ -27,6 +28,7 @@ class AnalysisScreen extends ConsumerStatefulWidget {
 
 class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
   String _period = 'month'; // 'week', 'month', 'half_year'
+  String? _calendarMonth; // 'YYYY-MM' format, null = current month
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,9 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
       return const PremiumFeatureGateScreen(focusFeature: '詳細分析');
     }
 
-    final dashboardAsync = ref.watch(analysisDashboardProvider(period: _period));
+    final dashboardAsync = ref.watch(
+      analysisDashboardProvider(period: _period, calendarMonth: _calendarMonth),
+    );
 
     return AppPageScaffold(
       title: '詳細分析',
@@ -133,6 +137,24 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
                   ),
                   const SizedBox(height: AppSpacing.md),
                   VocabularyGrowthChart(growth: dashboard.vocabularyGrowth),
+                  const SizedBox(height: AppSpacing.xxl),
+
+                  // Diary Calendar Section
+                  _SectionHeader(
+                    title: '日記カレンダー',
+                    subtitle: '日記の継続状況',
+                    icon: Iconsax.calendar_1,
+                  ),
+                  const SizedBox(height: AppSpacing.md),
+                  DiaryCalendarChart(
+                    calendar: dashboard.diaryCalendar,
+                    onMonthChanged: (year, month) {
+                      setState(() {
+                        _calendarMonth =
+                            '$year-${month.toString().padLeft(2, '0')}';
+                      });
+                    },
+                  ),
                 ],
               ),
               loading: () => const Center(
@@ -151,7 +173,12 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
                       Text('エラーが発生しました: $error'),
                       const SizedBox(height: 16),
                       FButton(
-                        onPress: () => ref.refresh(analysisDashboardProvider(period: _period)),
+                        onPress: () => ref.refresh(
+                          analysisDashboardProvider(
+                            period: _period,
+                            calendarMonth: _calendarMonth,
+                          ),
+                        ),
                         child: const Text('再読み込み'),
                       ),
                     ],

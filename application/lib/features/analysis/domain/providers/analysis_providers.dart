@@ -15,7 +15,11 @@ AnalysisRepository analysisRepository(Ref ref) {
 Future<AnalysisDashboard> analysisDashboard(
   Ref ref, {
   String period = 'month',
+  String? calendarMonth,
 }) async {
   final repository = ref.watch(analysisRepositoryProvider);
-  return repository.fetchDashboard(period: period);
+  return repository.fetchDashboard(
+    period: period,
+    calendarMonth: calendarMonth,
+  );
 }

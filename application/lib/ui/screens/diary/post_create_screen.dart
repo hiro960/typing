@@ -14,6 +14,7 @@ import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/data/repositories/diary_repository.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
+import '../../../features/quick_translation/data/services/speech_recognition_service.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
 import '../../widgets/diary_post_card.dart';
 import '../../widgets/typing_keyboard.dart';
@@ -42,9 +43,12 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
   final _picker = ImagePicker();
   final List<_ComposerImage> _images = [];
   late final HangulComposer _composer;
+  late final SpeechRecognitionService _speechService;
 
   bool _isSubmitting = false;
   bool _isCorrecting = false;
+  bool _isListening = false;
+  String _textBeforeSpeech = ''; // 音声入力開始時のテキストを保持
   String? _aiResult;
   String? _aiError;
 
@@ -116,6 +120,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
 
     _composer = HangulComposer();
     _composer.loadFromText(_contentController.text);
+    _speechService = SpeechRecognitionService();
 
     _contentController.addListener(() => setState(() {}));
     _focusNode.addListener(_onFocusChange);
@@ -129,23 +134,179 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
   }
 
   void _onKeyboardTextInput(String text) {
-    _composer.input(text);
-    _applyComposerText();
+    final selection = _contentController.selection;
+    final currentText = _contentController.text;
+
+    if (selection.isValid) {
+      final afterCursor = currentText.substring(selection.end);
+
+      // Composerに入力（Composerはカーソル前のテキストを管理）
+      _composer.input(text);
+      final composedText = _composer.text;
+
+      final newText = composedText + afterCursor;
+      _contentController.value = TextEditingValue(
+        text: newText,
+        selection: TextSelection.collapsed(
+          offset: composedText.characters.length,
+        ),
+      );
+    } else {
+      _composer.input(text);
+      _applyComposerText();
+    }
   }
 
   void _onKeyboardBackspace() {
-    _composer.backspace();
-    _applyComposerText();
+    final selection = _contentController.selection;
+    final currentText = _contentController.text;
+
+    // 合成中の文字がある場合はComposerで処理
+    if (_composer.jamoState.initial != null ||
+        _composer.jamoState.medial != null ||
+        _composer.jamoState.finalConsonant != null) {
+      _composer.backspace();
+      final composedText = _composer.text;
+
+      if (selection.isValid) {
+        final afterCursor = currentText.substring(selection.end);
+        final newText = composedText + afterCursor;
+
+        _contentController.value = TextEditingValue(
+          text: newText,
+          selection: TextSelection.collapsed(
+            offset: composedText.characters.length,
+          ),
+        );
+      } else {
+        _applyComposerText();
+      }
+      return;
+    }
+
+    // 合成中の文字がない場合はカーソル位置の前の文字を削除
+    if (selection.isValid && selection.isCollapsed && selection.start > 0) {
+      final cursorPos = selection.start;
+      final beforeCursor = currentText.substring(0, cursorPos);
+      final afterCursor = currentText.substring(cursorPos);
+
+      // grapheme cluster単位で最後の文字を削除
+      final beforeChars = beforeCursor.characters.toList();
+      if (beforeChars.isNotEmpty) {
+        beforeChars.removeLast();
+        final newBeforeCursor = beforeChars.join();
+        final newText = newBeforeCursor + afterCursor;
+
+        _contentController.value = TextEditingValue(
+          text: newText,
+          selection: TextSelection.collapsed(offset: newBeforeCursor.length),
+        );
+        _composer.loadFromText(newBeforeCursor);
+      }
+    } else if (selection.isValid && !selection.isCollapsed) {
+      // 選択範囲がある場合は選択範囲を削除
+      final beforeSelection = currentText.substring(0, selection.start);
+      final afterSelection = currentText.substring(selection.end);
+      final newText = beforeSelection + afterSelection;
+
+      _contentController.value = TextEditingValue(
+        text: newText,
+        selection: TextSelection.collapsed(offset: selection.start),
+      );
+      _composer.loadFromText(beforeSelection);
+    }
   }
 
   void _onKeyboardSpace() {
+    final selection = _contentController.selection;
+    final currentText = _contentController.text;
+
+    // 合成中の文字を確定してスペースを追加
     _composer.addSpace();
-    _applyComposerText();
+
+    if (selection.isValid) {
+      final afterCursor = currentText.substring(selection.end);
+      final composerText = _composer.text;
+      final newText = composerText + afterCursor;
+
+      _contentController.value = TextEditingValue(
+        text: newText,
+        selection: TextSelection.collapsed(
+          offset: composerText.characters.length,
+        ),
+      );
+    } else {
+      _applyComposerText();
+    }
   }
 
   void _onKeyboardEnter() {
+    final selection = _contentController.selection;
+    final currentText = _contentController.text;
+
+    // 合成中の文字を確定して改行を追加
     _composer.addNewLine();
-    _applyComposerText();
+
+    if (selection.isValid) {
+      final afterCursor = currentText.substring(selection.end);
+      final composerText = _composer.text;
+      final newText = composerText + afterCursor;
+
+      _contentController.value = TextEditingValue(
+        text: newText,
+        selection: TextSelection.collapsed(
+          offset: composerText.characters.length,
+        ),
+      );
+    } else {
+      _applyComposerText();
+    }
+  }
+
+  Future<void> _onPaste() async {
+    final clipboardData = await Clipboard.getData('text/plain');
+    if (clipboardData?.text == null || clipboardData!.text!.isEmpty) {
+      _showMessage('クリップボードにテキストがありません');
+      return;
+    }
+
+    final pasteText = clipboardData.text!;
+    final selection = _contentController.selection;
+    final currentText = _contentController.text;
+
+    // 合成中の文字を確定
+    _composer.consumeText();
+
+    if (selection.isValid) {
+      final beforeCursor = currentText.substring(0, selection.start);
+      final afterCursor = currentText.substring(selection.end);
+      final newText = beforeCursor + pasteText + afterCursor;
+      final newCursorPos = beforeCursor.length + pasteText.length;
+
+      _contentController.value = TextEditingValue(
+        text: newText,
+        selection: TextSelection.collapsed(offset: newCursorPos),
+      );
+
+      // Composerを新しいカーソル位置までのテキストで更新
+      _composer.loadFromText(newText.substring(0, newCursorPos));
+    } else {
+      final newText = currentText + pasteText;
+      _contentController.value = TextEditingValue(
+        text: newText,
+        selection: TextSelection.collapsed(offset: newText.length),
+      );
+      _composer.loadFromText(newText);
+    }
+  }
+
+  /// カーソル位置が変更された時にComposerを同期
+  void _syncComposerWithCursor() {
+    final selection = _contentController.selection;
+    if (selection.isValid && selection.isCollapsed) {
+      final beforeCursor = _contentController.text.substring(0, selection.start);
+      _composer.loadFromText(beforeCursor);
+    }
   }
 
   Future<void> _closeKeyboard() async {
@@ -176,12 +337,73 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
   Future<void> _switchToCustomKeyboard() async {
     await SystemChannels.textInput.invokeMethod('TextInput.hide');
     _focusNode.requestFocus();
-    _composer.loadFromText(_contentController.text);
-    _applyComposerText();
+
+    // カーソル位置を保持してComposerを同期
+    final selection = _contentController.selection;
+    if (selection.isValid && selection.isCollapsed) {
+      final beforeCursor = _contentController.text.substring(0, selection.start);
+      _composer.loadFromText(beforeCursor);
+    } else {
+      _composer.loadFromText(_contentController.text);
+    }
+
     setState(() {
       _useCustomKeyboard = true;
       _showCustomKeyboard = true;
     });
+  }
+
+  Future<void> _toggleSpeechInput() async {
+    if (_isListening) {
+      await _stopSpeechInput();
+    } else {
+      await _startSpeechInput();
+    }
+  }
+
+  Future<void> _startSpeechInput() async {
+    // 音声入力開始時のテキストを保存
+    _textBeforeSpeech = _contentController.text;
+    setState(() => _isListening = true);
+
+    await _speechService.startListening(
+      onResult: (text, isFinal) {
+        if (!mounted) return;
+        if (text.isNotEmpty) {
+          // 開始時のテキスト + 認識テキストで更新（重複防止）
+          final newText = _textBeforeSpeech.isEmpty
+              ? text
+              : '$_textBeforeSpeech $text';
+          _contentController.value = TextEditingValue(
+            text: newText,
+            selection: TextSelection.collapsed(offset: newText.length),
+          );
+
+          if (isFinal) {
+            // 確定時：Composerを更新し、次の入力に備えて基準テキストを更新
+            _composer.loadFromText(newText);
+            _textBeforeSpeech = newText;
+            setState(() => _isListening = false);
+          }
+        }
+      },
+    );
+
+    if (_speechService.status == SpeechRecognitionStatus.error) {
+      if (mounted) {
+        setState(() => _isListening = false);
+        _showMessage('音声入力を開始できませんでした: ${_speechService.errorMessage}');
+      }
+    }
+  }
+
+  Future<void> _stopSpeechInput() async {
+    await _speechService.stopListening();
+    if (mounted) {
+      // 停止時、現在のテキストで確定
+      _composer.loadFromText(_contentController.text);
+      setState(() => _isListening = false);
+    }
   }
 
   @override
@@ -457,6 +679,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                           _useCustomKeyboard ? TextInputType.none : TextInputType.multiline,
                       showCharacterCount: false,
                       onChanged: (_) => setState(() {}),
+                      onTap: _useCustomKeyboard ? _syncComposerWithCursor : null,
                     ),
                     if (_hashtags.isNotEmpty) ...[
                       const SizedBox(height: AppSpacing.md),
@@ -479,27 +702,35 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                       DiaryQuotedPostCard(quotedPost: _quotedPost!),
                     ],
                     const SizedBox(height: AppSpacing.lg),
-                    Wrap(
-                      spacing: AppSpacing.md,
-                      runSpacing: AppSpacing.md,
+                    Row(
                       children: [
                         _ComposerActionButton(
                           icon: Iconsax.image,
                           label: '画像を追加',
                           onTap: _pickImages,
                         ),
-                        if (_quotedPostId != null && !_isEditing)
+                        const SizedBox(width: AppSpacing.md),
+                        if (_quotedPostId != null && !_isEditing) ...[
                           _ComposerActionButton(
                             icon: Iconsax.close_circle,
                             label: '引用を削除',
                             onTap: _removeQuote,
                           ),
+                          const SizedBox(width: AppSpacing.md),
+                        ],
                         // 公開範囲設定ボタン
                         _ComposerActionButton(
                           icon: _visibilityIcon(_visibility),
                           label: _visibilityLabel(_visibility),
                           onTap: _showVisibilitySheet,
                         ),
+                        const Spacer(),
+                        // 音声入力ボタン（右寄せ、テキストフィールド選択時のみ表示）
+                        if (_focusNode.hasFocus || _showCustomKeyboard || _isListening)
+                          _SpeechInputButton(
+                            isListening: _isListening,
+                            onTap: _toggleSpeechInput,
+                          ),
                       ],
                     ),
                   ],
@@ -625,6 +856,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                 onClose: _closeKeyboard,
                 onSwitchToDefaultKeyboard: _switchToDefaultKeyboard,
                 onSwitchToCustomKeyboard: _switchToCustomKeyboard,
+                onPaste: _onPaste,
               ),
             ),
         ],
@@ -781,5 +1013,49 @@ class _HashtagEditingController extends TextEditingController {
     }
 
     return TextSpan(style: style, children: children);
+  }
+}
+
+class _SpeechInputButton extends StatelessWidget {
+  const _SpeechInputButton({
+    required this.isListening,
+    required this.onTap,
+  });
+
+  final bool isListening;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    if (isListening) {
+      return FButton(
+        onPress: onTap,
+        style: FButtonStyle.destructive(),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Icon(Iconsax.stop, color: Colors.white),
+            const SizedBox(width: 8),
+            Text(
+              'もう一度押して停止',
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    return FButton.icon(
+      onPress: onTap,
+      style: FButtonStyle.secondary(),
+      child: Icon(
+        Iconsax.microphone,
+        color: theme.colorScheme.onSurface,
+      ),
+    );
   }
 }
