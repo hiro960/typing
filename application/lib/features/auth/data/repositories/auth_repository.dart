@@ -3,7 +3,6 @@ import '../models/user_model.dart';
 import '../models/user_status_response.dart';
 import '../models/auth_tokens.dart';
 import '../services/auth0_service.dart';
-import '../services/token_storage_service.dart';
 import '../services/api_client_service.dart';
 import '../../../../core/constants/api_constants.dart';
 import '../../../../core/utils/logger.dart';
@@ -12,34 +11,27 @@ import '../../../../core/exceptions/app_exception.dart';
 /// 認証関連のビジネスロジックを管理するリポジトリ
 class AuthRepository {
   final Auth0Service _auth0Service;
-  final TokenStorageService _tokenStorage;
   final ApiClientService _apiClient;
 
   AuthRepository({
     required Auth0Service auth0Service,
-    required TokenStorageService tokenStorage,
     required ApiClientService apiClient,
   })  : _auth0Service = auth0Service,
-        _tokenStorage = tokenStorage,
         _apiClient = apiClient;
 
   // ==================== 認証フロー ====================
 
   /// ログイン処理
   /// 1. Auth0でログイン
-  /// 2. トークンを保存
-  /// 3. ユーザー登録状況を確認
+  /// 2. ユーザー登録状況を確認
   Future<UserStatusResponse> login() async {
     try {
       AppLogger.auth('Starting login flow');
 
       // 1. Auth0でログイン
-      final tokens = await _auth0Service.login();
+      await _auth0Service.login();
 
-      // 2. トークンを保存
-      await _tokenStorage.saveTokens(tokens);
-
-      // 3. ユーザー登録状況を確認
+      // 2. ユーザー登録状況を確認
       final status = await checkUserStatus();
 
       AppLogger.auth('Login flow completed', detail: 'registered: ${status.registered}');
@@ -58,10 +50,8 @@ class AuthRepository {
     try {
       AppLogger.auth('Starting logout flow (local only)');
 
-      // 1. ローカルトークンを削除
-      await _tokenStorage.deleteTokens();
-
-      // 2. Auth0のクレデンシャルもクリア
+      await _auth0Service.logout();
+      // Auth0のクレデンシャルをクリア
       await _auth0Service.clearCredentials();
 
       AppLogger.auth('Logout flow completed');
@@ -76,28 +66,22 @@ class AuthRepository {
   ///
   /// CredentialsManager を中心に据えたアプローチ：
   /// 1. CredentialsManager から有効なトークンを取得（期限切れなら自動リフレッシュ）
-  /// 2. TokenStorageService と同期
-  /// 3. API呼び出しでユーザー状態を確認
+  /// 2. API呼び出しでユーザー状態を確認
   Future<UserStatusResponse?> tryAutoLogin() async {
     try {
       AppLogger.auth('Attempting auto login');
 
       // 1. CredentialsManager から有効なトークンを取得
       // auth0_flutter は期限切れの場合、自動的にリフレッシュトークンで更新を試みる
-      final storedCredentials = await _auth0Service.getStoredCredentials();
+      final hasCredentials =
+          await _auth0Service.getStoredCredentials() != null;
 
-      if (storedCredentials == null) {
+      if (!hasCredentials) {
         AppLogger.auth('No valid credentials in CredentialsManager');
-        // TokenStorageService も念のためクリア（不整合防止）
-        await _tokenStorage.deleteTokens();
         return null;
       }
 
-      // 2. TokenStorageService と同期（APIリクエストで使用するため）
-      await _tokenStorage.saveTokens(storedCredentials);
-      AppLogger.auth('Credentials synced to TokenStorage');
-
-      // 3. ユーザー登録状況を確認
+      // 2. ユーザー登録状況を確認
       try {
         final status = await checkUserStatus();
         AppLogger.auth('Auto login successful', detail: 'registered: ${status.registered}');
@@ -123,7 +107,6 @@ class AuthRepository {
 
   /// すべてのクレデンシャルをクリア
   Future<void> _clearAllCredentials() async {
-    await _tokenStorage.deleteTokens();
     await _auth0Service.clearCredentials();
   }
 
@@ -225,7 +208,7 @@ class AuthRepository {
 
   /// 現在のトークンを取得
   Future<AuthTokens?> getCurrentTokens() async {
-    return await _tokenStorage.getTokens();
+    return await _auth0Service.getStoredCredentials();
   }
 
   /// トークンをリフレッシュ
@@ -233,8 +216,7 @@ class AuthRepository {
     try {
       AppLogger.auth('Refreshing tokens');
 
-      final newTokens = await _auth0Service.refreshTokens();
-      await _tokenStorage.saveTokens(newTokens);
+      await _auth0Service.refreshTokens();
 
       AppLogger.auth('Tokens refreshed');
     } catch (e) {

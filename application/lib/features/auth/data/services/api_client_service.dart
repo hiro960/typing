@@ -2,21 +2,17 @@ import 'package:dio/dio.dart';
 import '../../../../core/config/env_config.dart';
 import '../../../../core/utils/logger.dart';
 import '../../../../core/exceptions/app_exception.dart';
-import 'token_storage_service.dart';
 import 'auth0_service.dart';
 
 /// APIクライアントを管理するサービス
 /// Dioのインスタンスを提供し、インターセプターを設定
 class ApiClientService {
   late final Dio _dio;
-  final TokenStorageService _tokenStorage;
   final Auth0Service _auth0Service;
 
   ApiClientService({
-    required TokenStorageService tokenStorage,
     required Auth0Service auth0Service,
-  })  : _tokenStorage = tokenStorage,
-        _auth0Service = auth0Service {
+  }) : _auth0Service = auth0Service {
     _dio = Dio(
       BaseOptions(
         baseUrl: EnvConfig.apiBaseUrl,
@@ -67,7 +63,7 @@ class ApiClientService {
   ) async {
     try {
       // トークンを取得してAuthorizationヘッダーに設定
-      final accessToken = await _tokenStorage.getAccessToken();
+      final accessToken = await _auth0Service.getAccessToken(minTtlSeconds: 60);
 
       if (accessToken != null && accessToken.isNotEmpty) {
         options.headers['Authorization'] = 'Bearer $accessToken';
@@ -131,7 +127,6 @@ class ApiClientService {
 
         // トークンをリフレッシュ
         final newTokens = await _auth0Service.refreshTokens();
-        await _tokenStorage.saveTokens(newTokens);
 
         AppLogger.auth('Token refreshed, retrying request');
 
@@ -150,7 +145,6 @@ class ApiClientService {
         );
         // リフレッシュに失敗したら、すべてのクレデンシャルをクリア
         try {
-          await _tokenStorage.deleteTokens();
           await _auth0Service.clearCredentials();
           AppLogger.auth('Cleared all credentials after refresh failure');
         } catch (clearError) {

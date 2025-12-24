@@ -11,6 +11,8 @@ import '../../../../core/exceptions/app_exception.dart';
 class Auth0Service {
   late final Auth0 _auth0;
   late final CredentialsManager _credentialsManager;
+  Future<Credentials>? _credentialsFuture;
+  Future<AuthTokens>? _refreshingTokens;
 
   Auth0Service() {
     _initialize();
@@ -70,6 +72,14 @@ class Auth0Service {
           'ui_locales': 'ja', // OpenID Connect仕様: 日本語UIを要求
         },
       );
+
+      final stored = await _credentialsManager.storeCredentials(credentials);
+      if (!stored) {
+        AppLogger.error(
+          'Failed to store Auth0 credentials after login',
+          tag: 'Auth0Service',
+        );
+      }
 
       return AuthTokens(
         accessToken: credentials.accessToken,
@@ -145,15 +155,38 @@ class Auth0Service {
   /// トークンのリフレッシュ
   /// リフレッシュトークンを使用して新しいアクセストークンを取得
   Future<AuthTokens> refreshTokens() async {
-    try {
+    if (_refreshingTokens != null) {
+      return _refreshingTokens!;
+    }
 
-      final credentials = await _credentialsManager.credentials();
+    final refreshFuture = _refreshTokensInternal();
+    _refreshingTokens = refreshFuture;
+
+    try {
+      return await refreshFuture;
+    } finally {
+      _refreshingTokens = null;
+    }
+  }
+
+  Future<AuthTokens> _refreshTokensInternal() async {
+    try {
+      AppLogger.auth('refreshTokens() called - forcing credential renewal');
+
+      final credentials = await _credentialsManager.renewCredentials();
+
+      final expiresAt = credentials.expiresAt;
+      final remainingSeconds = expiresAt.difference(DateTime.now()).inSeconds;
+      AppLogger.auth(
+        'refreshTokens() success',
+        detail: 'expiresAt: $expiresAt, remaining: ${remainingSeconds}s, hasRefreshToken: ${credentials.refreshToken != null}',
+      );
 
       return AuthTokens(
         accessToken: credentials.accessToken,
         refreshToken: credentials.refreshToken,
         idToken: credentials.idToken,
-        expiresIn: credentials.expiresAt.difference(DateTime.now()).inSeconds,
+        expiresIn: remainingSeconds,
         tokenType: credentials.tokenType,
       );
     } on CredentialsManagerException catch (e) {
@@ -163,7 +196,6 @@ class Auth0Service {
         error: e,
       );
 
-      // リフレッシュトークンも期限切れの場合
       if (e.code == 'INVALID_REFRESH_TOKEN' ||
           e.message.contains('expired')) {
         throw AuthException.tokenExpired();
@@ -181,6 +213,57 @@ class Auth0Service {
     }
   }
 
+  Future<Credentials> _getCredentials({int minTtlSeconds = 60}) async {
+    if (_credentialsFuture != null) {
+      return _credentialsFuture!;
+    }
+
+    final future = _credentialsManager.credentials(minTtl: minTtlSeconds);
+    _credentialsFuture = future;
+
+    try {
+      return await future;
+    } finally {
+      _credentialsFuture = null;
+    }
+  }
+
+  /// 有効なアクセストークンを取得（必要なら自動リフレッシュ）
+  Future<String?> getAccessToken({int minTtlSeconds = 60}) async {
+    try {
+      if (_refreshingTokens != null) {
+        final refreshing = await _refreshingTokens!;
+        return refreshing.accessToken;
+      }
+
+      final hasValid = await _credentialsManager.hasValidCredentials(
+        minTtl: minTtlSeconds,
+      );
+      if (!hasValid) {
+        final refreshed = await refreshTokens();
+        return refreshed.accessToken;
+      }
+
+      final credentials = await _getCredentials(minTtlSeconds: minTtlSeconds);
+      return credentials.accessToken;
+    } on CredentialsManagerException catch (e) {
+      AppLogger.error(
+        'CredentialsManagerException in getAccessToken',
+        tag: 'Auth0Service',
+        error: 'code: ${e.code}, message: ${e.message}',
+      );
+      return null;
+    } catch (e, stackTrace) {
+      AppLogger.error(
+        'Failed to get access token',
+        tag: 'Auth0Service',
+        error: e,
+        stackTrace: stackTrace,
+      );
+      return null;
+    }
+  }
+
   /// 保存されているクレデンシャルを取得
   ///
   /// auth0_flutter の CredentialsManager.credentials() は、
@@ -193,7 +276,7 @@ class Auth0Service {
 
       // credentials() を直接呼び出す
       // auth0_flutter は期限切れの場合、自動的にリフレッシュを試みる
-      final credentials = await _credentialsManager.credentials();
+      final credentials = await _getCredentials(minTtlSeconds: 0);
 
       AppLogger.auth('Retrieved stored credentials (refreshed if needed)');
 

@@ -23,15 +23,12 @@ Future<void> main() async {
   try {
     // 環境変数を読み込み
     await dotenv.load(fileName: '.env');
-    AppLogger.info('Environment variables loaded');
 
     // 環境変数の検証
     EnvConfig.validate();
-    AppLogger.info('Environment variables validated');
 
     // SharedPreferencesを1回だけ初期化
     prefs = await SharedPreferences.getInstance();
-    AppLogger.info('SharedPreferences initialized');
   } catch (e, stackTrace) {
     AppLogger.error(
       'Failed to load environment variables',

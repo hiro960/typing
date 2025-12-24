@@ -1,6 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../data/services/auth0_service.dart';
-import '../../data/services/token_storage_service.dart';
 import '../../data/services/api_client_service.dart';
 import '../../data/repositories/auth_repository.dart';
 import '../../data/models/user_model.dart';
@@ -19,17 +18,10 @@ Auth0Service auth0Service(Ref ref) {
   return Auth0Service();
 }
 
-/// TokenStorageService のプロバイダー
-@riverpod
-TokenStorageService tokenStorageService(Ref ref) {
-  return TokenStorageService();
-}
-
 /// ApiClientService のプロバイダー
 @riverpod
 ApiClientService apiClientService(Ref ref) {
   return ApiClientService(
-    tokenStorage: ref.watch(tokenStorageServiceProvider),
     auth0Service: ref.watch(auth0ServiceProvider),
   );
 }
@@ -39,7 +31,6 @@ ApiClientService apiClientService(Ref ref) {
 AuthRepository authRepository(Ref ref) {
   return AuthRepository(
     auth0Service: ref.watch(auth0ServiceProvider),
-    tokenStorage: ref.watch(tokenStorageServiceProvider),
     apiClient: ref.watch(apiClientServiceProvider),
   );
 }

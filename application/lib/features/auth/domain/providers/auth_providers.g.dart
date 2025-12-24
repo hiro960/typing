@@ -54,59 +54,6 @@ final class Auth0ServiceProvider
 
 String _$auth0ServiceHash() => r'87e49d8ca340b79d4c7762e3c26511f26787cf07';
 
-/// TokenStorageService のプロバイダー
-
-@ProviderFor(tokenStorageService)
-const tokenStorageServiceProvider = TokenStorageServiceProvider._();
-
-/// TokenStorageService のプロバイダー
-
-final class TokenStorageServiceProvider
-    extends
-        $FunctionalProvider<
-          TokenStorageService,
-          TokenStorageService,
-          TokenStorageService
-        >
-    with $Provider<TokenStorageService> {
-  /// TokenStorageService のプロバイダー
-  const TokenStorageServiceProvider._()
-    : super(
-        from: null,
-        argument: null,
-        retry: null,
-        name: r'tokenStorageServiceProvider',
-        isAutoDispose: true,
-        dependencies: null,
-        $allTransitiveDependencies: null,
-      );
-
-  @override
-  String debugGetCreateSourceHash() => _$tokenStorageServiceHash();
-
-  @$internal
-  @override
-  $ProviderElement<TokenStorageService> $createElement(
-    $ProviderPointer pointer,
-  ) => $ProviderElement(pointer);
-
-  @override
-  TokenStorageService create(Ref ref) {
-    return tokenStorageService(ref);
-  }
-
-  /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(TokenStorageService value) {
-    return $ProviderOverride(
-      origin: this,
-      providerOverride: $SyncValueProvider<TokenStorageService>(value),
-    );
-  }
-}
-
-String _$tokenStorageServiceHash() =>
-    r'c7bb122057a9ce5622cd69cdb6c76f5eb37ac7f0';
-
 /// ApiClientService のプロバイダー
 
 @ProviderFor(apiClientService)
@@ -156,7 +103,7 @@ final class ApiClientServiceProvider
   }
 }
 
-String _$apiClientServiceHash() => r'de6d580c2672794abed837e440fb14ca05eaf43c';
+String _$apiClientServiceHash() => r'b777f6be48907e24d3b798325bbaa64e4f4c2fd9';
 
 /// AuthRepository のプロバイダー
 
@@ -202,7 +149,7 @@ final class AuthRepositoryProvider
   }
 }
 
-String _$authRepositoryHash() => r'9b21a2f7ebae3fa64431674b6447dfd9d3a4efd6';
+String _$authRepositoryHash() => r'531cf134e38cf2435261a56a0c5c0ce3ae92c3da';
 
 /// 認証状態を管理する Notifier
 
