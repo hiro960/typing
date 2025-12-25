@@ -5,14 +5,18 @@ import 'package:forui/forui.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../core/utils/logger.dart';
+import '../../../features/auth/data/models/user_model.dart';
 import '../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../features/typing/domain/providers/typing_settings_provider.dart';
 import '../../../features/diary/data/models/diary_comment.dart';
 import '../../../features/diary/data/models/diary_post.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
+import '../../../features/translation/domain/providers/translation_providers.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
+import '../../app_theme.dart';
 import '../../utils/toast_helper.dart';
 import '../../widgets/app_page_scaffold.dart';
+import '../../widgets/premium_feature_gate.dart';
 import '../../widgets/diary_post_card.dart';
 import '../../widgets/user_avatar.dart';
 import '../../widgets/typing_keyboard.dart';
@@ -588,10 +592,69 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
     }
   }
 
+  /// 翻訳ボタンが押された時の処理
+  Future<void> _translatePost() async {
+    final currentUser = ref.read(currentUserProvider);
+    final isPremiumUser = currentUser?.isPremiumUser ?? false;
+
+    // 無料会員の場合は有料会員限定のダイアログを表示
+    if (!isPremiumUser) {
+      _showPremiumOnlyDialog();
+      return;
+    }
+
+    final controller = ref.read(diaryTranslationControllerProvider.notifier);
+
+    try {
+      await controller.translatePost(_post.id, _post.content);
+    } catch (error) {
+      if (!mounted) return;
+      ToastHelper.showError(context, '翻訳に失敗しました');
+    }
+  }
+
+  /// 有料会員限定機能のダイアログを表示
+  void _showPremiumOnlyDialog() {
+    showDialog(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Row(
+          children: [
+            Icon(Iconsax.crown, color: AppColors.primary),
+            const SizedBox(width: 12),
+            const Text('有料会員限定'),
+          ],
+        ),
+        content: const Text(
+          'この機能は有料会員限定です。\n\nアップグレードすると、日記の翻訳機能をご利用いただけます。',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(dialogContext).pop();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) =>
+                      const PremiumFeatureGateScreen(focusFeature: '日記の翻訳'),
+                ),
+              );
+            },
+            child: const Text('プロプランを見る'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(),
+            child: const Text('閉じる'),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final commentsState = ref.watch(postCommentsControllerProvider(_post.id));
     final currentUser = ref.watch(currentUserProvider);
+    final translationState = ref.watch(diaryTranslationControllerProvider);
 
     return AppPageScaffold(
       title: '投稿',
@@ -641,6 +704,11 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
                       onReport: _reportPost,
                       onEdit: _editPost,
                       currentUserId: currentUser?.id,
+                      onTranslate: _translatePost,
+                      translatedText:
+                          translationState.translations[_post.id],
+                      isTranslating:
+                          translationState.loadingPostIds.contains(_post.id),
                     );
                   }
                   if (_showInitialLoader(commentsState) &&

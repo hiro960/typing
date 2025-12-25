@@ -5,6 +5,7 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 import '../../features/diary/data/models/diary_post.dart';
 import '../app_theme.dart';
 import '../screens/profile/profile_screen.dart';
+import 'linkable_text.dart';
 import 'user_avatar.dart';
 import 'verified_badge.dart';
 
@@ -139,7 +140,10 @@ class DiaryPostCard extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 12),
-                    Text(post.content, style: theme.textTheme.bodyLarge),
+                    LinkableText(
+                      text: post.content,
+                      style: theme.textTheme.bodyLarge,
+                    ),
                     if (translatedText != null) ...[
                       const SizedBox(height: 8),
                       Container(
@@ -789,8 +793,8 @@ class DiaryQuotedPostCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 12),
-          Text(
-            quotedPost.content,
+          LinkableText(
+            text: quotedPost.content,
             style: theme.textTheme.bodyMedium,
           ),
           if (quotedPost.imageUrls.isNotEmpty) ...[

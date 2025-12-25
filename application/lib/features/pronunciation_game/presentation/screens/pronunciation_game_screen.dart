@@ -31,6 +31,7 @@ class _PronunciationGameScreenState
     extends ConsumerState<PronunciationGameScreen> {
   bool _isStarted = false;
   bool _isStarting = false;
+  bool _isTtsLoading = false;
   bool _isTtsSpeaking = false;
 
   // Note: dispose時のリソースクリーンアップはプロバイダー側のref.onDisposeで行われる
@@ -130,7 +131,7 @@ class _PronunciationGameScreenState
 
   /// Google Cloud TTSで発音を再生（有料会員限定）
   Future<void> _playPronunciation(String text) async {
-    if (_isTtsSpeaking) return;
+    if (_isTtsLoading || _isTtsSpeaking) return;
 
     // 有料会員チェック
     final user = ref.read(currentUserProvider);
@@ -139,7 +140,7 @@ class _PronunciationGameScreenState
       return;
     }
 
-    setState(() => _isTtsSpeaking = true);
+    setState(() => _isTtsLoading = true);
 
     try {
       final ttsService = ref.read(googleTtsServiceProvider);
@@ -147,9 +148,18 @@ class _PronunciationGameScreenState
 
       if (!mounted) return;
 
+      setState(() {
+        _isTtsLoading = false;
+        _isTtsSpeaking = result == TtsResult.success;
+      });
+
       switch (result) {
         case TtsResult.success:
-          // 再生成功
+          // 再生成功 - 再生完了を待つ
+          await Future.delayed(const Duration(seconds: 2));
+          if (mounted) {
+            setState(() => _isTtsSpeaking = false);
+          }
           break;
         case TtsResult.premiumRequired:
           _showPremiumOnlyDialog();
@@ -165,9 +175,12 @@ class _PronunciationGameScreenState
           );
           break;
       }
-    } finally {
+    } catch (e) {
       if (mounted) {
-        setState(() => _isTtsSpeaking = false);
+        setState(() {
+          _isTtsLoading = false;
+          _isTtsSpeaking = false;
+        });
       }
     }
   }
@@ -681,7 +694,7 @@ class _PronunciationGameScreenState
     final theme = Theme.of(context);
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
       decoration: BoxDecoration(
         color: theme.colorScheme.surface,
         boxShadow: [
@@ -715,7 +728,7 @@ class _PronunciationGameScreenState
                 ],
               ),
             ),
-            const SizedBox(width: 24),
+            const SizedBox(width: 16),
             // マイクインジケーター（タップで音声認識を再起動）
             GestureDetector(
               onTap: () {
@@ -760,64 +773,94 @@ class _PronunciationGameScreenState
             ),
             // 練習モード時のみスピーカーボタンを表示
             if (widget.config.isPracticeMode && state.currentWord != null) ...[
-              const SizedBox(width: 24),
+              const SizedBox(width: 16),
               // スピーカーボタン（ネイティブ発音再生）
-              GestureDetector(
-                onTap: _isTtsSpeaking
-                    ? null
-                    : () => _playPronunciation(state.currentWord!.word),
-                child: AnimatedContainer(
-                  duration: const Duration(milliseconds: 300),
-                  width: 56,
-                  height: 56,
-                  decoration: BoxDecoration(
-                    color: _isTtsSpeaking
-                        ? AppColors.primary.withOpacity(0.3)
-                        : AppColors.primary.withOpacity(0.1),
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: AppColors.primary,
-                      width: 2,
-                    ),
-                    boxShadow: _isTtsSpeaking
-                        ? [
-                            BoxShadow(
-                              color: AppColors.primary.withOpacity(0.3),
-                              blurRadius: 12,
-                              spreadRadius: 2,
-                            ),
-                          ]
-                        : null,
-                  ),
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Icon(
-                        Iconsax.volume_high,
-                        size: 28,
-                        color: AppColors.primary,
-                      ),
-                      // 有料会員でない場合は王冠マークを表示
-                      if (!(ref.watch(currentUserProvider)?.isPremiumUser ?? false))
-                        Positioned(
-                          right: 2,
-                          top: 2,
-                          child: Container(
-                            padding: const EdgeInsets.all(2),
-                            decoration: BoxDecoration(
-                              color: AppColors.warning,
-                              shape: BoxShape.circle,
-                            ),
-                            child: const Icon(
-                              Iconsax.crown,
-                              size: 12,
-                              color: Colors.white,
-                            ),
-                          ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  GestureDetector(
+                    onTap: (_isTtsLoading || _isTtsSpeaking)
+                        ? null
+                        : () => _playPronunciation(state.currentWord!.word),
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 300),
+                      width: 56,
+                      height: 56,
+                      decoration: BoxDecoration(
+                        color: (_isTtsLoading || _isTtsSpeaking)
+                            ? AppColors.primary.withOpacity(0.3)
+                            : AppColors.primary.withOpacity(0.1),
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: AppColors.primary,
+                          width: 2,
                         ),
-                    ],
+                        boxShadow: _isTtsSpeaking
+                            ? [
+                                BoxShadow(
+                                  color: AppColors.primary.withOpacity(0.3),
+                                  blurRadius: 12,
+                                  spreadRadius: 2,
+                                ),
+                              ]
+                            : null,
+                      ),
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          // ローディング中はスピナーを表示
+                          if (_isTtsLoading)
+                            SizedBox(
+                              width: 24,
+                              height: 24,
+                              child: CircularProgressIndicator(
+                                strokeWidth: 2,
+                                color: AppColors.primary,
+                              ),
+                            )
+                          else
+                            Icon(
+                              Iconsax.volume_high,
+                              size: 28,
+                              color: AppColors.primary,
+                            ),
+                          // 有料会員でない場合は王冠マークを表示
+                          if (!_isTtsLoading && !(ref.watch(currentUserProvider)?.isPremiumUser ?? false))
+                            Positioned(
+                              right: 2,
+                              top: 2,
+                              child: Container(
+                                padding: const EdgeInsets.all(2),
+                                decoration: BoxDecoration(
+                                  color: AppColors.warning,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: const Icon(
+                                  Iconsax.crown,
+                                  size: 12,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
                   ),
-                ),
+                  // ローディング中のメッセージ
+                  if (_isTtsLoading)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8),
+                      child: Text(
+                        '高品質な音声を\n取得中...',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 10,
+                          color: AppColors.primary,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                ],
               ),
             ],
           ],

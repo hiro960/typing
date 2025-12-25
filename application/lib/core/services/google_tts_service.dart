@@ -1,9 +1,11 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:path_provider/path_provider.dart';
 
 import 'package:chaletta/core/utils/logger.dart';
 import 'package:chaletta/features/auth/domain/providers/auth_providers.dart';
@@ -31,12 +33,31 @@ class GoogleTtsService {
   AudioPlayer? _player;
   bool _isPlaying = false;
 
-  // 音声キャッシュ（同じテキストの再リクエストを防ぐ）
-  final Map<String, Uint8List> _audioCache = {};
+  // 音声ファイルキャッシュ（テキスト → ファイルパス）
+  final Map<String, String> _audioFileCache = {};
   static const int _maxCacheSize = 50;
+  Directory? _cacheDir;
 
   /// 現在再生中かどうか
   bool get isPlaying => _isPlaying;
+
+  /// キャッシュディレクトリを取得
+  Future<Directory> _getCacheDir() async {
+    if (_cacheDir != null) return _cacheDir!;
+    final tempDir = await getTemporaryDirectory();
+    _cacheDir = Directory('${tempDir.path}/tts_cache');
+    if (!await _cacheDir!.exists()) {
+      await _cacheDir!.create(recursive: true);
+    }
+    return _cacheDir!;
+  }
+
+  /// テキストからファイル名を生成
+  String _getFileName(String text) {
+    // テキストのハッシュ値をファイル名として使用
+    final hash = text.hashCode.toUnsigned(32).toRadixString(16);
+    return 'tts_$hash.mp3';
+  }
 
   /// テキストを音声で読み上げる
   ///
@@ -50,10 +71,16 @@ class GoogleTtsService {
     try {
       _isPlaying = true;
 
-      // キャッシュをチェック
-      Uint8List? audioBytes = _audioCache[text];
+      // キャッシュディレクトリを取得
+      final cacheDir = await _getCacheDir();
+      final fileName = _getFileName(text);
+      final filePath = '${cacheDir.path}/$fileName';
 
-      if (audioBytes == null) {
+      // キャッシュファイルをチェック
+      String? cachedPath = _audioFileCache[text];
+      final file = File(cachedPath ?? filePath);
+
+      if (cachedPath == null || !await file.exists()) {
         // APIを呼び出して音声データを取得
         final response = await _dio.post<Map<String, dynamic>>(
           '/api/tts',
@@ -66,18 +93,25 @@ class GoogleTtsService {
           return TtsResult.error;
         }
 
-        // Base64デコード
-        audioBytes = base64Decode(audioContent);
+        // Base64デコードしてファイルに保存
+        final audioBytes = base64Decode(audioContent);
+        await File(filePath).writeAsBytes(audioBytes);
 
         // キャッシュに保存（サイズ制限あり）
-        if (_audioCache.length >= _maxCacheSize) {
-          // 最初のエントリを削除
-          _audioCache.remove(_audioCache.keys.first);
+        if (_audioFileCache.length >= _maxCacheSize) {
+          // 最初のエントリを削除（ファイルも削除）
+          final oldPath = _audioFileCache.remove(_audioFileCache.keys.first);
+          if (oldPath != null) {
+            try {
+              await File(oldPath).delete();
+            } catch (_) {}
+          }
         }
-        _audioCache[text] = audioBytes;
+        _audioFileCache[text] = filePath;
+        cachedPath = filePath;
       }
 
-      // AudioPlayerで再生
+      // AudioPlayerで再生（ファイルパスを使用）
       _player ??= AudioPlayer();
 
       // 再生中の場合は停止
@@ -85,7 +119,7 @@ class GoogleTtsService {
         await _player!.stop();
       }
 
-      await _player!.play(BytesSource(audioBytes));
+      await _player!.play(DeviceFileSource(cachedPath!));
 
       AppLogger.info('TTS playback started: $text', tag: 'GoogleTts');
       return TtsResult.success;
@@ -121,15 +155,23 @@ class GoogleTtsService {
   }
 
   /// キャッシュをクリアする
-  void clearCache() {
-    _audioCache.clear();
+  Future<void> clearCache() async {
+    // キャッシュファイルを削除
+    for (final path in _audioFileCache.values) {
+      try {
+        await File(path).delete();
+      } catch (_) {}
+    }
+    _audioFileCache.clear();
   }
 
   /// リソースを解放する
   void dispose() {
     _player?.dispose();
     _player = null;
-    _audioCache.clear();
+    // ファイルキャッシュはアプリ終了時に自動クリーンアップされるため、
+    // ここでは削除しない（次回起動時に再利用可能）
+    _audioFileCache.clear();
     _isPlaying = false;
   }
 }

@@ -156,6 +156,12 @@ class PremiumFeatureGate extends StatelessWidget {
             title: '日記の翻訳機能',
             description: '韓国語の日記を日本語に翻訳。他のユーザーの投稿内容を簡単に理解できます。',
           ),
+          const SizedBox(height: AppSpacing.md),
+          _BenefitCard(
+            icon: Iconsax.volume_high,
+            title: '高品質なネイティブ発音',
+            description: '発音練習で、AIが生成した高品質な韓国語ネイティブ発音を聴くことができます。',
+          ),
           const SizedBox(height: AppSpacing.xxl),
           SizedBox(
             width: double.infinity,
