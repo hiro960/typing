@@ -295,6 +295,20 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                         typingController.toggleHints(value);
                       },
                     ),
+                    Divider(
+                      color: theme.colors.border,
+                    ),
+                    _SwitchTile(
+                      icon: Iconsax.keyboard,
+                      title: 'カスタムキーボード',
+                      subtitle: 'ハングル入力専用のキーボードを使用',
+                      value: typingSettings.useCustomKeyboard,
+                      isBusy: isTypingLoading,
+                      onChanged: (value) {
+                        if (isTypingLoading) return;
+                        typingController.toggleCustomKeyboard(value);
+                      },
+                    ),
                   ],
                 );
               }),

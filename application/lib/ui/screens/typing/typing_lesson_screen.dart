@@ -266,7 +266,7 @@ class _TypingLessonScreenState extends ConsumerState<TypingLessonScreen>
 
 }
 
-class _LessonView extends StatelessWidget {
+class _LessonView extends StatefulWidget {
   const _LessonView({
     required this.session,
     required this.onTextInput,
@@ -289,6 +289,17 @@ class _LessonView extends StatelessWidget {
   final TypingSettings settings;
   final DisplaySettings displaySettings;
 
+  @override
+  State<_LessonView> createState() => _LessonViewState();
+}
+
+class _LessonViewState extends State<_LessonView> {
+  late final TextEditingController _textController;
+  late final FocusNode _focusNode;
+  String _previousText = '';
+  /// 前回分解した字母リスト（内蔵キーボード用）
+  List<String> _previousJamos = [];
+
   // シフトキーが必要な文字（濃音 + シフト変換母音）
   static const _shiftRequiredKeys = {'ㄲ', 'ㄸ', 'ㅃ', 'ㅆ', 'ㅉ', 'ㅒ', 'ㅖ'};
 
@@ -300,18 +311,91 @@ class _LessonView extends StatelessWidget {
   };
 
   @override
+  void initState() {
+    super.initState();
+    _textController = TextEditingController();
+    _focusNode = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    _textController.dispose();
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  @override
+  void didUpdateWidget(_LessonView oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // 問題が切り替わったらテキストフィールドと字母リストをクリア
+    if (oldWidget.session.currentItemIndex != widget.session.currentItemIndex ||
+        oldWidget.session.currentSectionIndex != widget.session.currentSectionIndex) {
+      _textController.clear();
+      _previousText = '';
+      _previousJamos = [];
+    }
+  }
+
+  void _handleTextChanged(String newText) {
+    // 新しいテキスト全体を字母に分解
+    final newJamos = <String>[];
+    for (final char in newText.characters) {
+      if (char == ' ') {
+        newJamos.add(' ');
+      } else if (char == '\n') {
+        newJamos.add('\n');
+      } else {
+        newJamos.addAll(HangulComposer.decomposeText(char));
+      }
+    }
+
+    // バックスペースが押された場合（テキストが短くなった、または字母数が減った）
+    // 何も送信せず、状態のみ更新して終了
+    if (newJamos.length < _previousJamos.length) {
+      _previousText = newText;
+      _previousJamos = newJamos;
+      return;
+    }
+
+    // TypingSessionの現在位置を取得（既に処理済みの字母数）
+    final currentPosition = widget.session.currentPosition;
+
+    // iOS IMEは合成中にテキストをクリアすることがあるため、
+    // TypingSessionのcurrentPositionを基準にして送信する字母を決定
+    // currentPosition以降の字母だけを送信する
+    final startIndex = currentPosition;
+
+    // 新しく追加された字母を処理（currentPosition以降の部分）
+    for (int i = startIndex; i < newJamos.length; i++) {
+      final jamo = newJamos[i];
+      if (jamo == ' ') {
+        widget.onSpace();
+      } else if (jamo == '\n') {
+        widget.onEnter();
+      } else {
+        widget.onTextInput(jamo);
+      }
+    }
+
+    // 状態を更新
+    _previousText = newText;
+    _previousJamos = newJamos;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final currentSection = session
+    final currentSection = widget.session
         .lesson
         .content
-        .sections[session.currentSectionIndex];
-    final currentItem = currentSection.items[session.currentItemIndex];
-    final totalItems = _totalItems(session.lesson);
-    final completedItems = _completedItems(session);
-    final timerLabel = _formatTimer(session.elapsedMs);
-    final nextKey = _nextKey(session, currentItem);
-    final showHints = settings.hintsEnabled;
-    final shouldHighlight = showHints && nextKey != null;
+        .sections[widget.session.currentSectionIndex];
+    final currentItem = currentSection.items[widget.session.currentItemIndex];
+    final totalItems = _totalItems(widget.session.lesson);
+    final completedItems = _completedItems(widget.session);
+    final timerLabel = _formatTimer(widget.session.elapsedMs);
+    final nextKey = _nextKey(widget.session, currentItem);
+    final showHints = widget.settings.hintsEnabled;
+    final useCustomKeyboard = widget.settings.useCustomKeyboard;
+    final shouldHighlight = showHints && nextKey != null && useCustomKeyboard;
     final highlightShift =
         shouldHighlight && _shiftRequiredKeys.contains(nextKey);
     final highlightSymbol =
@@ -319,15 +403,15 @@ class _LessonView extends StatelessWidget {
     final highlightedKeys = shouldHighlight
         ? {_normalizeKey(nextKey)}
         : const <String>{};
-    final lastRecord = session.records.isEmpty ? null : session.records.last;
+    final lastRecord = widget.session.records.isEmpty ? null : widget.session.records.last;
 
     return AppPageScaffold(
-      title: session.lesson.title,
+      title: widget.session.lesson.title,
       showBackButton: true,
       actions: [
         FHeaderAction(
           icon: const Icon(Iconsax.setting_2),
-          onPress: onOpenSettings,
+          onPress: widget.onOpenSettings,
         ),
       ],
       childPad: false,
@@ -364,36 +448,76 @@ class _LessonView extends StatelessWidget {
                         subText: currentItem.meaning,
                         completedCharCount: TypingPromptCard.calculateCompletedCharCount(
                           currentItem.text,
-                          session.currentPosition,
+                          widget.session.currentPosition,
                         ),
                         fontSize: _getFontSize(currentSection.type) *
-                            displaySettings.promptFontScale,
+                            widget.displaySettings.promptFontScale,
                         showCharacterProgress: true,
-                        onSpeak: () => onSpeak(currentItem.text),
+                        onSpeak: () => widget.onSpeak(currentItem.text),
                       ),
                     ),
+                    // システムキーボード用の入力フィールド
+                    if (!useCustomKeyboard)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                        child: _buildSystemKeyboardInput(context),
+                      ),
                   ],
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(
-                bottom: 16 + MediaQuery.of(context).padding.bottom,
+            if (useCustomKeyboard)
+              Padding(
+                padding: EdgeInsets.only(
+                  bottom: 16 + MediaQuery.of(context).padding.bottom,
+                ),
+                child: TypingKeyboard(
+                  onTextInput: widget.onTextInput,
+                  onBackspace: widget.onBackspace,
+                  onSpace: widget.onSpace,
+                  onEnter: widget.onEnter,
+                  highlightedKeys: highlightedKeys,
+                  highlightShift: highlightShift,
+                  highlightSymbol: highlightSymbol,
+                  nextKeyLabel: showHints ? _nextKeyLabel(nextKey) : null,
+                  enableHaptics: widget.settings.hapticsEnabled,
+                ),
               ),
-              child: TypingKeyboard(
-                onTextInput: onTextInput,
-                onBackspace: onBackspace,
-                onSpace: onSpace,
-                onEnter: onEnter,
-                highlightedKeys: highlightedKeys,
-                highlightShift: highlightShift,
-                highlightSymbol: highlightSymbol,
-                nextKeyLabel: showHints ? _nextKeyLabel(nextKey) : null,
-                enableHaptics: settings.hapticsEnabled,
-              ),
-            ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildSystemKeyboardInput(BuildContext context) {
+    final theme = Theme.of(context);
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surface,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: theme.colorScheme.outline.withOpacity(0.3),
+        ),
+      ),
+      child: TextField(
+        controller: _textController,
+        focusNode: _focusNode,
+        autofocus: true,
+        textAlign: TextAlign.center,
+        autocorrect: false,
+        enableSuggestions: false,
+        enableIMEPersonalizedLearning: false,
+        style: const TextStyle(fontSize: 24),
+        decoration: InputDecoration(
+          hintText: '韓国語を入力してください',
+          hintStyle: TextStyle(
+            color: theme.colorScheme.onSurface.withOpacity(0.4),
+            fontSize: 18,
+          ),
+          border: InputBorder.none,
+        ),
+        onChanged: _handleTextChanged,
       ),
     );
   }

@@ -14,6 +14,8 @@ import 'package:chaletta/ui/widgets/typing/input_feedback_widget.dart';
 import 'package:chaletta/ui/widgets/typing_keyboard.dart';
 import 'package:chaletta/ui/app_theme.dart';
 import 'package:chaletta/features/typing/domain/providers/typing_settings_provider.dart';
+import 'package:chaletta/features/typing/data/models/typing_settings.dart';
+import 'package:chaletta/features/typing/domain/services/hangul_composer.dart';
 
 /// タイピングゲーム画面
 class RankingGameScreen extends ConsumerStatefulWidget {
@@ -27,7 +29,10 @@ class RankingGameScreen extends ConsumerStatefulWidget {
 
 class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
   final FocusNode _focusNode = FocusNode();
+  final FocusNode _textFieldFocusNode = FocusNode();
+  final TextEditingController _textController = TextEditingController();
   bool _isStarted = false;
+  String _previousGameInput = ''; // システムキーボード入力の前回値を追跡
 
   @override
   void initState() {
@@ -40,6 +45,8 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
   @override
   void dispose() {
     _focusNode.dispose();
+    _textFieldFocusNode.dispose();
+    _textController.dispose();
     super.dispose();
   }
 
@@ -48,6 +55,14 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
     ref
         .read(rankingGameSessionProvider(widget.difficulty).notifier)
         .startGame();
+
+    // 内蔵キーボード使用時は入力欄にフォーカスを当てる
+    final settings = ref.read(typingSettingsProvider).value;
+    if (settings != null && !settings.useCustomKeyboard) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _textFieldFocusNode.requestFocus();
+      });
+    }
   }
 
   void _onKeyEvent(KeyEvent event) {
@@ -174,7 +189,10 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
         ],
         safeBottom: true,
         child: _isStarted
-            ? _buildGameContent(sessionState, settings?.hapticsEnabled ?? true)
+            ? _buildGameContent(
+                sessionState,
+                settings ?? const TypingSettings(),
+              )
             : _buildStartScreen(),
       ),
     );
@@ -227,8 +245,10 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
     }
   }
 
-  Widget _buildGameContent(RankingGameSessionState state, bool hapticsEnabled) {
+  Widget _buildGameContent(RankingGameSessionState state, TypingSettings settings) {
     final theme = Theme.of(context);
+    final useCustomKeyboard = settings.useCustomKeyboard;
+
     return Column(
       children: [
         // キーボード以外のコンテンツ（パディング付き）
@@ -300,41 +320,45 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
                           ),
                         ),
                         const SizedBox(height: 18),
-                        // 入力中の文字（ミス時は横揺れ）
-                        ShakeContainer(
-                          key: state.lastInputResult == InputResultType.mistake &&
-                                  state.lastInputTime != null
-                              ? ValueKey(state.lastInputTime)
-                              : null,
-                          shouldShake:
-                              state.lastInputResult == InputResultType.mistake,
-                          child: Container(
-                            width: double.infinity,
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 24,
-                              vertical: 16,
-                            ),
-                            margin: const EdgeInsets.symmetric(horizontal: 32),
-                            decoration: BoxDecoration(
-                              color: theme.brightness == Brightness.light
-                                  ? theme.colorScheme.onSurface.withOpacity(0.08)
-                                  : theme.colorScheme.onSurface.withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(12),
-                              border: Border.all(
-                                color: _getInputBorderColor(state),
-                                width: 2,
+                        // 入力中の文字（ミス時は横揺れ）- カスタムキーボード用
+                        if (useCustomKeyboard)
+                          ShakeContainer(
+                            key: state.lastInputResult == InputResultType.mistake &&
+                                    state.lastInputTime != null
+                                ? ValueKey(state.lastInputTime)
+                                : null,
+                            shouldShake:
+                                state.lastInputResult == InputResultType.mistake,
+                            child: Container(
+                              width: double.infinity,
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 24,
+                                vertical: 16,
+                              ),
+                              margin: const EdgeInsets.symmetric(horizontal: 32),
+                              decoration: BoxDecoration(
+                                color: theme.brightness == Brightness.light
+                                    ? theme.colorScheme.onSurface.withOpacity(0.08)
+                                    : theme.colorScheme.onSurface.withOpacity(0.1),
+                                borderRadius: BorderRadius.circular(12),
+                                border: Border.all(
+                                  color: _getInputBorderColor(state),
+                                  width: 2,
+                                ),
+                              ),
+                              child: Text(
+                                state.inputBuffer.isEmpty ? '　' : state.inputBuffer,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 28,
+                                  color: _getInputTextColor(state),
+                                ),
                               ),
                             ),
-                            child: Text(
-                              state.inputBuffer.isEmpty ? '　' : state.inputBuffer,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 28,
-                                color: _getInputTextColor(state),
-                              ),
-                            ),
-                          ),
-                        ),
+                          )
+                        // システムキーボード用の入力フィールド
+                        else if (state.isPlaying)
+                          _buildSystemKeyboardInputForGame(state),
                       ],
                     ],
                   ),
@@ -345,7 +369,7 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
         ),
 
         // オンスクリーン韓国語キーボード（画面横幅いっぱい、SafeArea無視）
-        if (state.isPlaying)
+        if (state.isPlaying && useCustomKeyboard)
           Padding(
             padding: const EdgeInsets.only(bottom: 8),
             child: TypingKeyboard(
@@ -373,11 +397,102 @@ class _RankingGameScreenState extends ConsumerState<RankingGameScreen> {
               onEnter: () {
                 // Enterも特に処理不要
               },
-              enableHaptics: hapticsEnabled,
+              enableHaptics: settings.hapticsEnabled,
             ),
           ),
       ],
     );
+  }
+
+  Widget _buildSystemKeyboardInputForGame(RankingGameSessionState state) {
+    final theme = Theme.of(context);
+    final targetWord = state.currentWord?.word ?? '';
+
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.symmetric(horizontal: 32),
+      decoration: BoxDecoration(
+        color: theme.brightness == Brightness.light
+            ? theme.colorScheme.onSurface.withOpacity(0.08)
+            : theme.colorScheme.onSurface.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: theme.colorScheme.outline.withOpacity(0.3),
+          width: 2,
+        ),
+      ),
+      child: TextField(
+        controller: _textController,
+        focusNode: _textFieldFocusNode,
+        autofocus: true,
+        textAlign: TextAlign.center,
+        autocorrect: false,
+        enableSuggestions: false,
+        enableIMEPersonalizedLearning: false,
+        style: TextStyle(
+          fontSize: 28,
+          color: theme.colorScheme.onSurface,
+        ),
+        decoration: const InputDecoration(
+          border: InputBorder.none,
+          contentPadding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+        ),
+        onChanged: (value) {
+          // 単語単位で判定（文字ごとではなく）
+          if (value.isEmpty || targetWord.isEmpty) return;
+
+          // 入力が正解と完全一致した場合
+          if (value == targetWord) {
+            _handleCorrectAnswer(targetWord);
+          }
+          // 入力文字数がターゲットを超えた場合は不正解
+          else if (value.length > targetWord.length) {
+            _handleIncorrectAnswer();
+          }
+        },
+        onSubmitted: (value) {
+          // Enterキーで判定
+          if (value.isEmpty || targetWord.isEmpty) return;
+
+          if (value == targetWord) {
+            _handleCorrectAnswer(targetWord);
+          } else {
+            _handleIncorrectAnswer();
+          }
+        },
+      ),
+    );
+  }
+
+  void _handleCorrectAnswer(String targetWord) {
+    final sessionNotifier = ref.read(
+      rankingGameSessionProvider(widget.difficulty).notifier,
+    );
+
+    // 正解の字母を全て入力して単語を完了（これにより正解音が再生される）
+    final decomposed = HangulComposer.decomposeText(targetWord);
+    for (final jamo in decomposed) {
+      sessionNotifier.processInput(jamo);
+    }
+
+    // TextFieldをクリア（次の単語用）
+    _textController.clear();
+    _previousGameInput = '';
+
+    // 次の単語のためにフォーカスを維持
+    _textFieldFocusNode.requestFocus();
+  }
+
+  void _handleIncorrectAnswer() {
+    // 不正解音を再生
+    ref.read(soundServiceProvider).playIncorrect();
+
+    // TextFieldをクリアして再入力を促す
+    _textController.clear();
+    _previousGameInput = '';
+
+    // 再入力のためにフォーカスを維持
+    _textFieldFocusNode.requestFocus();
   }
 
   Widget _buildStatChip({

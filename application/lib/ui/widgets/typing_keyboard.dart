@@ -488,7 +488,7 @@ class _KeyboardKey extends StatelessWidget {
     return GestureDetector(
       onTap: () => onTap(label),
       child: Container(
-        height: 48, // iPhoneデフォルトキーボードに近い高さ
+        height: 44, // iPhoneデフォルトキーボードに近い高さ
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5), // iPhoneキーボードに近い角丸

@@ -389,7 +389,8 @@ class HangulComposer {
   static List<String> decomposeText(String text) {
     final result = <String>[];
     for (final char in text.characters) {
-      result.addAll(decomposeSyllable(char));
+      final decomposed = decomposeSyllable(char);
+      result.addAll(decomposed);
     }
     return result;
   }
@@ -417,6 +418,7 @@ class HangulComposer {
     }
 
     final code = char.codeUnitAt(0);
+
     if (code < 0xAC00 || code > 0xD7A3) {
       return [char];
     }

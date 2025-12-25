@@ -11,6 +11,8 @@ import '../../../features/stats/domain/providers/integrated_stats_providers.dart
 import '../../../features/writing/data/models/writing_models.dart';
 import '../../../features/writing/domain/providers/writing_providers.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
+import '../../../features/typing/domain/providers/typing_settings_provider.dart';
+import '../../../features/typing/data/models/typing_settings.dart';
 import '../../../features/settings/domain/providers/display_settings_provider.dart';
 import '../../../features/settings/data/models/display_settings.dart';
 import '../../app_spacing.dart';
@@ -93,6 +95,8 @@ class TypingPracticeScreen extends ConsumerStatefulWidget {
 
 class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
   late final HangulComposer _composer;
+  late final TextEditingController _textController;
+  late final FocusNode _focusNode;
   _PracticeState? _state;
   Timer? _feedbackTimer;
   Timer? _timer;
@@ -103,6 +107,8 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
   void initState() {
     super.initState();
     _composer = HangulComposer();
+    _textController = TextEditingController();
+    _focusNode = FocusNode();
     _initializePractice();
   }
 
@@ -110,6 +116,8 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
   void dispose() {
     _feedbackTimer?.cancel();
     _timer?.cancel();
+    _textController.dispose();
+    _focusNode.dispose();
     super.dispose();
   }
 
@@ -204,12 +212,18 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
     }
   }
 
+  /// 現在のユーザー入力を取得（カスタムキーボード or システムキーボード）
+  String _getCurrentUserInput() {
+    final settings = ref.read(typingSettingsProvider).value ?? const TypingSettings();
+    return settings.useCustomKeyboard ? _composer.text : _textController.text;
+  }
+
   void _checkAnswer() {
     final currentState = _state;
     if (currentState == null || currentState.currentEntry == null) return;
 
     final currentEntry = currentState.currentEntry!;
-    final userInput = _composer.text.trim();
+    final userInput = _getCurrentUserInput().trim();
     final isCorrect = _isAnswerCorrect(userInput, currentEntry.koText);
 
     // 正解/不正解音を再生
@@ -248,14 +262,23 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
   }
 
   /// 이/가, 와/과 のような可変パーティクルは両形/片方どちらでも正解にする
+  /// 文末の「.」はあってもなくても正解にする
   bool _isAnswerCorrect(String input, String correct) {
-    final trimmedInput = input.trim();
-    final trimmedCorrect = correct.trim();
+    final trimmedInput = _normalizePeriod(input.trim());
+    final trimmedCorrect = _normalizePeriod(correct.trim());
 
     if (trimmedInput == trimmedCorrect) return true;
 
     final pattern = _buildFlexibleAnswerPattern(trimmedCorrect);
     return RegExp('^$pattern\$').hasMatch(trimmedInput);
+  }
+
+  /// 文末の「.」を削除して正規化する
+  String _normalizePeriod(String text) {
+    if (text.endsWith('.')) {
+      return text.substring(0, text.length - 1);
+    }
+    return text;
   }
 
   String _buildFlexibleAnswerPattern(String correct) {
@@ -288,6 +311,7 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
     } else {
       final nextIndex = currentState.currentIndex + 1;
       _composer.reset();
+      _textController.clear();
       _canProceedToNext = true; // 次の問題用にリセット
       setState(() {
         _state = currentState.copyWith(
@@ -296,6 +320,14 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
           clearLastResult: true,
         );
       });
+
+      // 内蔵キーボード使用時は入力欄にフォーカスを当てる
+      final settings = ref.read(typingSettingsProvider).value;
+      if (settings != null && !settings.useCustomKeyboard) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _focusNode.requestFocus();
+        });
+      }
     }
   }
 
@@ -433,6 +465,9 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
   }
 
   Widget _buildContent(BuildContext context, WritingTopic topic) {
+    final typingSettings = ref.watch(typingSettingsProvider).value ?? const TypingSettings();
+    final useCustomKeyboard = typingSettings.useCustomKeyboard;
+
     return AppPageScaffold(
       title: topic.name,
       showBackButton: true,
@@ -452,22 +487,23 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
       child: Column(
         children: [
           _buildProgressBar(),
-          Expanded(child: _buildPracticeArea()),
-          Padding(
-            padding: EdgeInsets.only(
-              bottom: 16 + MediaQuery.of(context).padding.bottom,
+          Expanded(child: _buildPracticeArea(useCustomKeyboard: useCustomKeyboard)),
+          if (useCustomKeyboard)
+            Padding(
+              padding: EdgeInsets.only(
+                bottom: 16 + MediaQuery.of(context).padding.bottom,
+              ),
+              child: TypingKeyboard(
+                onTextInput: _onKeyboardTextInput,
+                onBackspace: _onKeyboardBackspace,
+                onSpace: _onKeyboardSpace,
+                onEnter: _onKeyboardEnter,
+                highlightedKeys: const {},
+                highlightShift: false,
+                nextKeyLabel: null,
+                enableHaptics: typingSettings.hapticsEnabled,
+              ),
             ),
-            child: TypingKeyboard(
-              onTextInput: _onKeyboardTextInput,
-              onBackspace: _onKeyboardBackspace,
-              onSpace: _onKeyboardSpace,
-              onEnter: _onKeyboardEnter,
-              highlightedKeys: const {},
-              highlightShift: false,
-              nextKeyLabel: null,
-              enableHaptics: true,
-            ),
-          ),
         ],
       ),
     );
@@ -491,7 +527,7 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
     return '$minutes:$secs';
   }
 
-  Widget _buildPracticeArea() {
+  Widget _buildPracticeArea({required bool useCustomKeyboard}) {
     final currentEntry = _state!.currentEntry;
     if (currentEntry == null) {
       return const Center(child: CircularProgressIndicator());
@@ -505,20 +541,59 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          LevelBadge.fromEntryLevel(currentEntry.level),
-          const SizedBox(height: AppSpacing.md),
+          // LevelBadge.fromEntryLevel(currentEntry.level),
+          // const SizedBox(height: AppSpacing.md),
           TypingPromptCard(
             targetText: currentEntry.jpText,
             subText: _state!.showAnswer ? currentEntry.koText : null,
             fontSize: 22 * displaySettings.promptFontScale,
           ),
           const SizedBox(height: AppSpacing.xl),
-          TypingInputCard(inputText: _composer.text),
-          const SizedBox(height: AppSpacing.md),
+          if (useCustomKeyboard)
+            TypingInputCard(inputText: _composer.text)
+          else
+            _buildSystemKeyboardInput(),
           _buildShowAnswerButton(),
-          const SizedBox(height: AppSpacing.md),
-          if (_state!.lastResult != null) _buildFeedback(),
+          const SizedBox(height: AppSpacing.sm),
+          if (_state!.lastResult != null) _buildFeedback(useCustomKeyboard: useCustomKeyboard),
         ],
+      ),
+    );
+  }
+
+  Widget _buildSystemKeyboardInput() {
+    final theme = Theme.of(context);
+    final isAnswered = _state!.lastResult != null;
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surface,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: theme.colorScheme.outline.withOpacity(0.3),
+        ),
+      ),
+      child: TextField(
+        controller: _textController,
+        focusNode: _focusNode,
+        autofocus: true,
+        enabled: !isAnswered,
+        textAlign: TextAlign.center,
+        autocorrect: false,
+        enableSuggestions: false,
+        enableIMEPersonalizedLearning: false,
+        style: const TextStyle(fontSize: 24),
+        decoration: InputDecoration(
+          hintText: '韓国語を入力してください',
+          hintStyle: TextStyle(
+            color: theme.colorScheme.onSurface.withOpacity(0.4),
+            fontSize: 18,
+          ),
+          border: InputBorder.none,
+        ),
+        onSubmitted: (_) => _onKeyboardEnter(),
+        onChanged: (_) => setState(() {}),
       ),
     );
   }
@@ -544,18 +619,72 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
     );
   }
 
-  Widget _buildFeedback() {
+  /// 一文字ずつ比較して色分けしたウィジェットを生成
+  Widget _buildCharacterComparison(String userInput, String correctAnswer) {
+    final input = userInput.trim();
+    final correct = correctAnswer.trim();
+    final spans = <TextSpan>[];
+
+    final maxLength =
+        input.length > correct.length ? input.length : correct.length;
+
+    for (var i = 0; i < maxLength; i++) {
+      if (i < input.length && i < correct.length) {
+        // 両方に文字がある場合
+        final inputChar = input[i];
+        final correctChar = correct[i];
+        final isMatch = inputChar == correctChar;
+        spans.add(TextSpan(
+          text: inputChar,
+          style: TextStyle(
+            color: isMatch ? Colors.green : Colors.red,
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
+        ));
+      } else if (i < input.length) {
+        // 入力が長い場合（余分な文字）
+        spans.add(TextSpan(
+          text: input[i],
+          style: const TextStyle(
+            color: Colors.red,
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
+        ));
+      } else {
+        // 入力が足りない場合（不足文字を薄く表示）
+        spans.add(TextSpan(
+          text: correct[i],
+          style: TextStyle(
+            color: Colors.grey.shade400,
+            fontWeight: FontWeight.normal,
+            fontSize: 18,
+            decoration: TextDecoration.underline,
+            decorationColor: Colors.grey.shade400,
+          ),
+        ));
+      }
+    }
+
+    return RichText(
+      text: TextSpan(children: spans),
+    );
+  }
+
+  Widget _buildFeedback({required bool useCustomKeyboard}) {
     final isCorrect = _state!.lastResult!;
     final color = isCorrect ? Colors.green : Colors.red;
     final icon = isCorrect ? Iconsax.tick_circle : Iconsax.close_circle;
     final text = isCorrect ? '正解!' : '不正解';
     final isLast = _state!.currentIndex >= _state!.entries.length - 1;
     final buttonLabel = isLast ? '完了' : '次へ';
+    final userInputText = useCustomKeyboard ? _composer.text : _textController.text;
 
     final feedbackContainer = Container(
       padding: const EdgeInsets.all(AppSpacing.md),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: color),
       ),
@@ -576,17 +705,22 @@ class _TypingPracticeScreenState extends ConsumerState<TypingPracticeScreen> {
                   ),
                 ),
                 if (!isCorrect) ...[
+                  const SizedBox(height: AppSpacing.sm),
+                  Text(
+                    'あなたの回答:',
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        ),
+                  ),
                   const SizedBox(height: AppSpacing.xs),
+                  _buildCharacterComparison(
+                    userInputText,
+                    _state!.currentEntry!.koText,
+                  ),
+                  const SizedBox(height: AppSpacing.sm),
                   Text(
                     '正解: ${_state!.currentEntry!.koText}',
                     style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                  const SizedBox(height: AppSpacing.xs),
-                  Text(
-                    'あなたの回答: ${_composer.text.trim()}',
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    ),
                   ),
                 ],
               ],

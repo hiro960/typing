@@ -41,6 +41,11 @@ class TypingSettingsController extends AsyncNotifier<TypingSettings> {
     await _save(current.copyWith(hapticsEnabled: value));
   }
 
+  Future<void> toggleCustomKeyboard(bool value) async {
+    final current = state.valueOrNull ?? const TypingSettings();
+    await _save(current.copyWith(useCustomKeyboard: value));
+  }
+
   Future<void> _save(TypingSettings settings) async {
     state = AsyncData(settings);
     final prefs = await _preferences;

@@ -104,7 +104,9 @@ class TypingSession extends _$TypingSession {
         ? targetJamos[current.currentPosition]
         : null;
 
-    if (expectedJamoNullable == null) return;
+    if (expectedJamoNullable == null) {
+      return;
+    }
 
     // null checkの後、String型の変数に代入
     final expectedJamo = expectedJamoNullable;

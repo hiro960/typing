@@ -4,18 +4,22 @@ class TypingSettings {
   const TypingSettings({
     this.hintsEnabled = true,
     this.hapticsEnabled = true,
+    this.useCustomKeyboard = true,
   });
 
   final bool hintsEnabled;
   final bool hapticsEnabled;
+  final bool useCustomKeyboard;
 
   TypingSettings copyWith({
     bool? hintsEnabled,
     bool? hapticsEnabled,
+    bool? useCustomKeyboard,
   }) {
     return TypingSettings(
       hintsEnabled: hintsEnabled ?? this.hintsEnabled,
       hapticsEnabled: hapticsEnabled ?? this.hapticsEnabled,
+      useCustomKeyboard: useCustomKeyboard ?? this.useCustomKeyboard,
     );
   }
 
@@ -23,6 +27,7 @@ class TypingSettings {
     return {
       'hintsEnabled': hintsEnabled,
       'hapticsEnabled': hapticsEnabled,
+      'useCustomKeyboard': useCustomKeyboard,
     };
   }
 
@@ -30,6 +35,7 @@ class TypingSettings {
     return TypingSettings(
       hintsEnabled: json['hintsEnabled'] as bool? ?? true,
       hapticsEnabled: json['hapticsEnabled'] as bool? ?? true,
+      useCustomKeyboard: json['useCustomKeyboard'] as bool? ?? true,
     );
   }
 

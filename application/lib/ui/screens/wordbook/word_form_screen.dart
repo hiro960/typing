@@ -124,7 +124,6 @@ class _WordFormScreenState extends ConsumerState<WordFormScreen> {
                       showCursor: true,
                       decoration: const InputDecoration(
                         labelText: '単語/文章 *',
-                        helperText: 'カスタムキーボードで入力します',
                       ),
                       maxLength: 100,
                       onTap: () {

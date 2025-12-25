@@ -16,6 +16,8 @@ import '../../../features/diary/data/repositories/diary_repository.dart';
 import '../../../features/diary/domain/providers/diary_providers.dart';
 import '../../../features/quick_translation/data/services/speech_recognition_service.dart';
 import '../../../features/typing/domain/services/hangul_composer.dart';
+import '../../../features/typing/domain/providers/typing_settings_provider.dart';
+import '../../../features/typing/data/models/typing_settings.dart';
 import '../../widgets/diary_post_card.dart';
 import '../../widgets/typing_keyboard.dart';
 import '../../widgets/ai_gradient_button.dart';
@@ -619,6 +621,13 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
     final isPremiumUser = ref.watch(currentUserProvider)?.isPremiumUser ?? false;
     final remaining = _maxLength - _contentController.text.characters.length;
 
+    // グローバル設定を取得
+    final typingSettingsAsync = ref.watch(typingSettingsProvider);
+    final globalUseCustomKeyboard = typingSettingsAsync.value?.useCustomKeyboard ?? true;
+
+    // グローバル設定がOFFの場合はカスタムキーボードを無効化
+    final effectiveUseCustomKeyboard = globalUseCustomKeyboard && _useCustomKeyboard;
+
     final isOverLimit = remaining < 0;
     final remainingLabel = isOverLimit
         ? '${remaining.abs()}文字オーバー'
@@ -673,13 +682,13 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                       maxLines: null,
                       placeholder: 'いまどうしてる？',
                       enabled: !_isSubmitting,
-                      readOnly: _useCustomKeyboard,
+                      readOnly: effectiveUseCustomKeyboard,
                       showCursor: true,
                       keyboardType:
-                          _useCustomKeyboard ? TextInputType.none : TextInputType.multiline,
+                          effectiveUseCustomKeyboard ? TextInputType.none : TextInputType.multiline,
                       showCharacterCount: false,
                       onChanged: (_) => setState(() {}),
-                      onTap: _useCustomKeyboard ? _syncComposerWithCursor : null,
+                      onTap: effectiveUseCustomKeyboard ? _syncComposerWithCursor : null,
                     ),
                     if (_hashtags.isNotEmpty) ...[
                       const SizedBox(height: AppSpacing.md),
@@ -839,7 +848,8 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
               ],
             ),
           ),
-          if (_showCustomKeyboard || _focusNode.hasFocus)
+          // グローバル設定がONの場合のみカスタムキーボードを表示
+          if (globalUseCustomKeyboard && (_showCustomKeyboard || _focusNode.hasFocus))
             SafeArea(
               top: false,
               left: false,
@@ -852,7 +862,7 @@ class _PostCreateScreenState extends ConsumerState<PostCreateScreen> {
                 enableHaptics: true,
                 enableSound: false,
                 showToolbar: true,
-                showKeys: _useCustomKeyboard && _showCustomKeyboard,
+                showKeys: effectiveUseCustomKeyboard && _showCustomKeyboard,
                 onClose: _closeKeyboard,
                 onSwitchToDefaultKeyboard: _switchToDefaultKeyboard,
                 onSwitchToCustomKeyboard: _switchToCustomKeyboard,
