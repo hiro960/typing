@@ -30,4 +30,5 @@ export const ratelimit = {
     comment: createRatelimiter(Ratelimit.slidingWindow(10, "1 m")),
     like: createRatelimiter(Ratelimit.slidingWindow(30, "1 m")),
     follow: createRatelimiter(Ratelimit.slidingWindow(5, "1 m")),
+    tts: createRatelimiter(Ratelimit.slidingWindow(30, "1 m")),
 };

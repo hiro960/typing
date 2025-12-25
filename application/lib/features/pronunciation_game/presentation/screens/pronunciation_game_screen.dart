@@ -3,11 +3,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:chaletta/core/services/sound_service.dart';
+import 'package:chaletta/core/services/google_tts_service.dart';
 import 'package:chaletta/features/pronunciation_game/data/models/pronunciation_game_models.dart';
 import 'package:chaletta/features/pronunciation_game/domain/providers/pronunciation_game_session_provider.dart';
 import 'package:chaletta/features/pronunciation_game/presentation/screens/pronunciation_game_result_screen.dart';
 import 'package:chaletta/features/ranking_game/presentation/widgets/pixel_character_widget.dart';
+import 'package:chaletta/features/auth/domain/providers/auth_providers.dart';
+import 'package:chaletta/features/auth/data/models/user_model.dart';
 import 'package:chaletta/ui/widgets/app_page_scaffold.dart';
+import 'package:chaletta/ui/widgets/premium_feature_gate.dart';
 import 'package:chaletta/ui/app_theme.dart';
 import 'package:chaletta/features/settings/domain/providers/display_settings_provider.dart';
 import 'package:chaletta/features/settings/data/models/display_settings.dart';
@@ -27,6 +31,7 @@ class _PronunciationGameScreenState
     extends ConsumerState<PronunciationGameScreen> {
   bool _isStarted = false;
   bool _isStarting = false;
+  bool _isTtsSpeaking = false;
 
   // Note: dispose時のリソースクリーンアップはプロバイダー側のref.onDisposeで行われる
   // ウィジェットのdispose内でプロバイダーのstateを変更するとRiverpodの制約でエラーになるため、
@@ -117,6 +122,87 @@ class _PronunciationGameScreenState
               _startGame(); // 再試行
             },
             child: const Text('再試行'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// Google Cloud TTSで発音を再生（有料会員限定）
+  Future<void> _playPronunciation(String text) async {
+    if (_isTtsSpeaking) return;
+
+    // 有料会員チェック
+    final user = ref.read(currentUserProvider);
+    if (user == null || !user.isPremiumUser) {
+      _showPremiumOnlyDialog();
+      return;
+    }
+
+    setState(() => _isTtsSpeaking = true);
+
+    try {
+      final ttsService = ref.read(googleTtsServiceProvider);
+      final result = await ttsService.speak(text);
+
+      if (!mounted) return;
+
+      switch (result) {
+        case TtsResult.success:
+          // 再生成功
+          break;
+        case TtsResult.premiumRequired:
+          _showPremiumOnlyDialog();
+          break;
+        case TtsResult.networkError:
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('ネットワークエラーが発生しました')),
+          );
+          break;
+        case TtsResult.error:
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('音声の再生に失敗しました')),
+          );
+          break;
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _isTtsSpeaking = false);
+      }
+    }
+  }
+
+  /// 有料会員限定機能のダイアログを表示
+  void _showPremiumOnlyDialog() {
+    showDialog(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Row(
+          children: [
+            Icon(Iconsax.crown, color: AppColors.primary),
+            const SizedBox(width: 12),
+            const Text('有料会員限定'),
+          ],
+        ),
+        content: const Text(
+          'この機能は有料会員限定です。\n\nアップグレードすると、高品質なネイティブ発音をご利用いただけます。',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(dialogContext).pop();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) =>
+                      const PremiumFeatureGateScreen(focusFeature: 'ネイティブ発音'),
+                ),
+              );
+            },
+            child: const Text('プロプランを見る'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(),
+            child: const Text('閉じる'),
           ),
         ],
       ),
@@ -672,6 +758,68 @@ class _PronunciationGameScreenState
                 ),
               ),
             ),
+            // 練習モード時のみスピーカーボタンを表示
+            if (widget.config.isPracticeMode && state.currentWord != null) ...[
+              const SizedBox(width: 24),
+              // スピーカーボタン（ネイティブ発音再生）
+              GestureDetector(
+                onTap: _isTtsSpeaking
+                    ? null
+                    : () => _playPronunciation(state.currentWord!.word),
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  width: 56,
+                  height: 56,
+                  decoration: BoxDecoration(
+                    color: _isTtsSpeaking
+                        ? AppColors.primary.withOpacity(0.3)
+                        : AppColors.primary.withOpacity(0.1),
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: AppColors.primary,
+                      width: 2,
+                    ),
+                    boxShadow: _isTtsSpeaking
+                        ? [
+                            BoxShadow(
+                              color: AppColors.primary.withOpacity(0.3),
+                              blurRadius: 12,
+                              spreadRadius: 2,
+                            ),
+                          ]
+                        : null,
+                  ),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Icon(
+                        Iconsax.volume_high,
+                        size: 28,
+                        color: AppColors.primary,
+                      ),
+                      // 有料会員でない場合は王冠マークを表示
+                      if (!(ref.watch(currentUserProvider)?.isPremiumUser ?? false))
+                        Positioned(
+                          right: 2,
+                          top: 2,
+                          child: Container(
+                            padding: const EdgeInsets.all(2),
+                            decoration: BoxDecoration(
+                              color: AppColors.warning,
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Icon(
+                              Iconsax.crown,
+                              size: 12,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ],
         ),
       ),
