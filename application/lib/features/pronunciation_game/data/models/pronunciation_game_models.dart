@@ -233,7 +233,8 @@ abstract class PronunciationGameSessionState with _$PronunciationGameSessionStat
     @Default(false) bool isPlaying,
     @Default(false) bool isFinished,
     @Default(<PronunciationGameWord>[]) List<PronunciationGameWord> wordQueue,
-    @Default(<PronunciationGameWord>[]) List<PronunciationGameWord> completedWords, // 完了した単語リスト
+    @Default(<PronunciationGameWord>[]) List<PronunciationGameWord> completedWords, // 完了した単語リスト（正解）
+    @Default(<PronunciationGameWord>[]) List<PronunciationGameWord> skippedWords, // スキップした単語リスト
     @Default(0) int totalBonusTime,
     @Default(0) int wordIndex,
     DateTime? startTime,

@@ -61,6 +61,8 @@ class FeatureGradients {
   static const diary = [Color(0xFF2DBFBF), Color(0xFF5DD3D3)];
   // 11. 単語帳 - ミントティール
   static const wordbook = [Color(0xFF36B7C7), Color(0xFF6DD5E0)];
+  // 12. 音読・シャドーイング - パープルティール
+  static const shadowing = [Color(0xFF6366F1), Color(0xFF8B5CF6)];
 }
 
 class AppTheme {

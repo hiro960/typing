@@ -158,6 +158,10 @@ flutter:
     - assets/quick_translation/substantive/
     - assets/quick_translation/quotation/
     - assets/quick_translation/word_formation/
+    - assets/shadowing/
+    - assets/audio/shadowing/beginner/
+    - assets/audio/shadowing/intermediate/
+    - assets/audio/shadowing/advanced/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

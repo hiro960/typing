@@ -1,0 +1,25 @@
+{
+  "name": "shadowing-audio-generator",
+  "version": "1.0.0",
+  "description": "Google Cloud TTS を使用してシャドーイング用の音声ファイルを生成するスクリプト",
+  "main": "generate-audio.js",
+  "scripts": {
+    "generate": "node generate-audio.js",
+    "generate:beginner": "node generate-audio.js --level beginner",
+    "generate:intermediate": "node generate-audio.js --level intermediate",
+    "generate:advanced": "node generate-audio.js --level advanced",
+    "generate:single": "node generate-audio.js --id"
+  },
+  "keywords": [
+    "korean",
+    "tts",
+    "shadowing",
+    "audio"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/text-to-speech": "^5.0.0",
+    "commander": "^11.0.0"
+  }
+}

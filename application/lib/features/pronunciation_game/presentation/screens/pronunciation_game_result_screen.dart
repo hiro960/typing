@@ -1,3 +1,4 @@
+import 'package:chaletta/features/auth/data/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -5,6 +6,8 @@ import 'package:forui/forui.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:chaletta/core/exceptions/app_exception.dart';
+import 'package:chaletta/core/services/google_tts_service.dart';
+import 'package:chaletta/features/auth/domain/providers/auth_providers.dart';
 import 'package:chaletta/features/pronunciation_game/data/models/pronunciation_game_models.dart';
 import 'package:chaletta/features/pronunciation_game/domain/providers/pronunciation_game_providers.dart';
 import 'package:chaletta/features/pronunciation_game/presentation/screens/pronunciation_game_screen.dart';
@@ -31,6 +34,7 @@ class PronunciationGameResultScreen extends ConsumerStatefulWidget {
     this.isPracticeMode = false,
     this.targetQuestionCount,
     this.completedWords = const [],
+    this.skippedWords = const [],
   });
 
   final String difficulty;
@@ -44,6 +48,7 @@ class PronunciationGameResultScreen extends ConsumerStatefulWidget {
   final bool isPracticeMode;
   final int? targetQuestionCount;
   final List<PronunciationGameWord> completedWords;
+  final List<PronunciationGameWord> skippedWords;
 
   @override
   ConsumerState<PronunciationGameResultScreen> createState() =>
@@ -56,6 +61,10 @@ class _PronunciationGameResultScreenState
   String? _errorMessage;
   PronunciationGameResultResponse? _resultResponse;
   final FlutterTts _tts = FlutterTts();
+
+  // 高品質TTS用の状態変数
+  bool _isTtsLoading = false;
+  String? _currentTtsWord;
 
   @override
   void initState() {
@@ -79,6 +88,45 @@ class _PronunciationGameResultScreenState
 
   Future<void> _speakKorean(String text) async {
     await _tts.speak(text);
+  }
+
+  /// 高品質な音声を再生（練習モード用）
+  Future<void> _playHighQualityPronunciation(String text) async {
+    if (_isTtsLoading) return;
+
+    setState(() {
+      _isTtsLoading = true;
+      _currentTtsWord = text;
+    });
+
+    try {
+      final googleTts = ref.read(googleTtsServiceProvider);
+      final result = await googleTts.speak(text);
+
+      if (!mounted) return;
+
+      switch (result) {
+        case TtsResult.success:
+          // 成功時は特に何もしない
+          break;
+        case TtsResult.premiumRequired:
+          // 有料会員でない場合は通常のTTSにフォールバック
+          await _speakKorean(text);
+          break;
+        case TtsResult.networkError:
+        case TtsResult.error:
+          // エラー時は通常のTTSにフォールバック
+          await _speakKorean(text);
+          break;
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isTtsLoading = false;
+          _currentTtsWord = null;
+        });
+      }
+    }
   }
 
   Future<void> _openWordForm(String korean, String japanese) async {
@@ -238,11 +286,32 @@ $newBestText
             _buildCompactStatsRow(),
             const SizedBox(height: 24),
 
-            // 学習した単語一覧
+            // 学習した単語一覧（正解した単語）
             if (widget.completedWords.isNotEmpty) ...[
-              _buildCompletedWordsList(),
+              _buildWordsList(
+                words: widget.completedWords,
+                title: '正解した単語',
+                icon: Iconsax.tick_circle,
+                iconColor: AppColors.success,
+                borderColor: AppColors.success,
+              ),
+              const SizedBox(height: 16),
+            ],
+
+            // スキップした単語
+            if (widget.skippedWords.isNotEmpty) ...[
+              _buildWordsList(
+                words: widget.skippedWords,
+                title: 'スキップした単語',
+                icon: Iconsax.forward,
+                iconColor: AppColors.warning,
+                borderColor: AppColors.warning,
+              ),
               const SizedBox(height: 24),
             ],
+
+            if (widget.completedWords.isEmpty && widget.skippedWords.isEmpty)
+              const SizedBox(height: 24),
 
             _buildActionButtons(),
           ],
@@ -571,9 +640,16 @@ $newBestText
     );
   }
 
-  Widget _buildCompletedWordsList() {
+  Widget _buildWordsList({
+    required List<PronunciationGameWord> words,
+    required String title,
+    required IconData icon,
+    required Color iconColor,
+    required Color borderColor,
+  }) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
+    final isPremiumUser = ref.watch(currentUserProvider)?.isPremiumUser ?? false;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -582,13 +658,13 @@ $newBestText
         Row(
           children: [
             Icon(
-              Iconsax.book_1,
-              color: AppColors.primary,
+              icon,
+              color: iconColor,
               size: 18,
             ),
             const SizedBox(width: 8),
             Text(
-              '学習した単語',
+              title,
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
@@ -597,7 +673,7 @@ $newBestText
             ),
             const Spacer(),
             Text(
-              '${widget.completedWords.length}語',
+              '${words.length}語',
               style: TextStyle(
                 fontSize: 12,
                 color: theme.colorScheme.onSurface.withOpacity(0.6),
@@ -608,7 +684,8 @@ $newBestText
         const SizedBox(height: 12),
 
         // 単語リスト（Card形式）
-        ...widget.completedWords.map((word) {
+        ...words.map((word) {
+          final isCurrentTtsWord = _currentTtsWord == word.word;
           return Card(
             margin: const EdgeInsets.only(bottom: 8),
             color: Colors.transparent,
@@ -619,11 +696,11 @@ $newBestText
                 color: isDark ? AppColors.surface : AppColors.lightSurface,
                 borderRadius: BorderRadius.circular(14),
                 border: Border.all(
-                  color: AppColors.primary.withOpacity(0.35),
+                  color: borderColor.withOpacity(0.35),
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.primary.withOpacity(0.16),
+                    color: borderColor.withOpacity(0.16),
                     blurRadius: 12,
                     offset: const Offset(0, 6),
                   ),
@@ -660,13 +737,54 @@ $newBestText
                     onPressed: () => _openWordForm(word.word, word.meaning),
                     color: theme.colorScheme.secondary,
                   ),
-                  // 音声再生ボタン
+                  // 音声再生ボタン（通常）
                   IconButton(
                     icon: const Icon(Iconsax.volume_high),
                     iconSize: 20,
                     onPressed: () => _speakKorean(word.word),
                     color: AppColors.primary,
                   ),
+                  // 高品質音声再生ボタン（練習モード時のみ表示）
+                  if (widget.isPracticeMode)
+                    Stack(
+                      children: [
+                        IconButton(
+                          icon: isCurrentTtsWord && _isTtsLoading
+                              ? SizedBox(
+                                  width: 20,
+                                  height: 20,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                    color: AppColors.accentEnd,
+                                  ),
+                                )
+                              : const Icon(Iconsax.voice_square),
+                          iconSize: 20,
+                          onPressed: _isTtsLoading
+                              ? null
+                              : () => _playHighQualityPronunciation(word.word),
+                          color: AppColors.accentEnd,
+                        ),
+                        // 有料会員でない場合は王冠マークを表示
+                        if (!isPremiumUser && !(isCurrentTtsWord && _isTtsLoading))
+                          Positioned(
+                            right: 4,
+                            top: 4,
+                            child: Container(
+                              padding: const EdgeInsets.all(2),
+                              decoration: BoxDecoration(
+                                color: AppColors.warning,
+                                shape: BoxShape.circle,
+                              ),
+                              child: const Icon(
+                                Iconsax.crown,
+                                size: 8,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
                 ],
               ),
             ),

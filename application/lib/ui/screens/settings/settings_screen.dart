@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/config/env_config.dart';
@@ -40,6 +41,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   bool _isUpdatingDisplayName = false;
   bool _isUpdatingPush = false;
   ProviderSubscription<UserModel?>? _userSub;
+  String _appVersion = '';
+  String _buildNumber = '';
 
   @override
   void initState() {
@@ -60,6 +63,18 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         }
       },
     );
+    // アプリバージョン情報を取得
+    _loadPackageInfo();
+  }
+
+  Future<void> _loadPackageInfo() async {
+    final info = await PackageInfo.fromPlatform();
+    if (mounted) {
+      setState(() {
+        _appVersion = info.version;
+        _buildNumber = info.buildNumber;
+      });
+    }
   }
 
   @override
@@ -445,6 +460,24 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 ),
                 onPress: _showFeedbackSheet,
                 suffix: const Icon(Iconsax.arrow_right_3),
+              ),
+            ],
+          ),
+          const SizedBox(height: AppSpacing.lg),
+          _SettingsSection(
+            title: 'アプリ情報',
+            children: [
+              FTile(
+                prefix: const Icon(Iconsax.info_circle),
+                title: const Text('バージョン'),
+                subtitle: Text(
+                  _appVersion.isEmpty
+                      ? '読み込み中...'
+                      : '$_appVersion ($_buildNumber)',
+                  style: theme.typography.sm.copyWith(
+                    color: theme.colors.mutedForeground,
+                  ),
+                ),
               ),
             ],
           ),

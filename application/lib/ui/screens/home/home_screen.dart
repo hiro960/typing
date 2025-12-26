@@ -42,6 +42,7 @@ import '../../../features/quick_translation/domain/providers/quick_translation_p
 import '../../../features/wordbook/domain/providers/bulk_add_words_provider.dart';
 import '../../utils/dialog_helper.dart';
 import '../../widgets/bulk_add_progress_dialog.dart';
+import '../../../features/shadowing/presentation/screens/shadowing_home_screen.dart';
 
 part 'home_progress_hero.dart';
 part 'home_stat_highlights.dart';
@@ -177,6 +178,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       builder: (context) => const _GameDetailSheet(
         title: '漢字語クイズ',
         child: HanjaQuizSection(),
+      ),
+    );
+  }
+
+  void _openShadowing() {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => const ShadowingHomeScreen(),
       ),
     );
   }
@@ -337,6 +346,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                           icon: Iconsax.book_saved,
                           gradientColors: FeatureGradients.wordbook,
                           onTap: _openWordbook,
+                        ),
+                        _FeatureItem(
+                          title: '音読',
+                          icon: Iconsax.voice_square,
+                          gradientColors: FeatureGradients.shadowing,
+                          onTap: _openShadowing,
                         ),
                       ],
                     ),

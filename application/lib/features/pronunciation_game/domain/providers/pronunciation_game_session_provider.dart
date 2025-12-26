@@ -1108,6 +1108,10 @@ class PronunciationGameSession extends _$PronunciationGameSession {
     // まず音声認識を停止
     await _stopListening();
 
+    // スキップした単語をリストに追加
+    final skippedWord = state.currentWord!;
+    final newSkippedWords = [...state.skippedWords, skippedWord];
+
     // 次の単語を取得
     final nextWordIndex = state.wordIndex + 1;
     final nextWord = nextWordIndex < state.wordQueue.length
@@ -1121,6 +1125,7 @@ class PronunciationGameSession extends _$PronunciationGameSession {
       recognizedText: '',
       wordIndex: nextWordIndex,
       totalMistakes: state.totalMistakes + 1,
+      skippedWords: newSkippedWords,
     );
 
     // リスニングを再開（再起動処理との競合を防ぐ）

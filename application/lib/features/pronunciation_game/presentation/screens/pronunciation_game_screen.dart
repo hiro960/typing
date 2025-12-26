@@ -923,6 +923,7 @@ class _PronunciationGameScreenState
           isPracticeMode: widget.config.isPracticeMode,
           targetQuestionCount: widget.config.targetQuestionCount,
           completedWords: state.completedWords,
+          skippedWords: state.skippedWords,
         ),
       ),
     );
