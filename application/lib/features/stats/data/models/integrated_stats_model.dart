@@ -34,6 +34,8 @@ abstract class StatsBreakdown with _$StatsBreakdown {
     ActivityBreakdown writing,
     @Default(ActivityBreakdown(count: 0, timeSpent: 0, avgAccuracy: 0))
     ActivityBreakdown hanjaQuiz,
+    @Default(ActivityBreakdown(count: 0, timeSpent: 0, avgAccuracy: 0))
+    ActivityBreakdown shadowing,
   }) = _StatsBreakdown;
 
   factory StatsBreakdown.fromJson(Map<String, dynamic> json) =>
@@ -63,6 +65,7 @@ abstract class DailyActivityTrend with _$DailyActivityTrend {
     @Default(0) int quickTranslationTime,
     @Default(0) int writingTime,
     @Default(0) int hanjaQuizTime,
+    @Default(0) int shadowingTime,
     double? wpm,
     double? accuracy,
   }) = _DailyActivityTrend;

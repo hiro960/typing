@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
+import '../../../../features/auth/data/models/user_model.dart';
+import '../../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../../ui/app_spacing.dart';
+import '../../../../ui/app_theme.dart';
+import '../../../../ui/widgets/premium_feature_gate.dart';
 import '../../data/models/shadowing_models.dart';
 import '../../domain/providers/shadowing_providers.dart';
 import 'shadowing_practice_screen.dart';
+
+/// 無料で利用できる初級コンテンツの数
+const _freeBeginnerContentCount = 3;
 
 /// シャドーイングコンテンツ一覧画面
 class ShadowingListScreen extends ConsumerWidget {
@@ -56,6 +63,7 @@ class ShadowingListScreen extends ConsumerWidget {
             content: content,
             progress: progress,
             level: level,
+            index: index,
           ),
         );
       },
@@ -75,24 +83,27 @@ class ShadowingListScreen extends ConsumerWidget {
 }
 
 /// コンテンツカード
-class _ContentCard extends StatelessWidget {
+class _ContentCard extends ConsumerWidget {
   const _ContentCard({
     required this.content,
     required this.progress,
     required this.level,
+    required this.index,
   });
 
   final ShadowingContent content;
   final ShadowingProgress? progress;
   final ShadowingLevel level;
+  final int index;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
     final isPracticed = progress?.isPracticed ?? false;
     final isMastered = progress?.isMastered ?? false;
     final practiceCount = progress?.practiceCount ?? 0;
+    final isPremiumRequired = _isPremiumRequired();
 
     return Card(
       elevation: 0,
@@ -106,7 +117,7 @@ class _ContentCard extends StatelessWidget {
         ),
       ),
       child: InkWell(
-        onTap: () => _navigateToPractice(context),
+        onTap: () => _navigateToPractice(context, ref),
         borderRadius: BorderRadius.circular(12),
         child: Container(
           padding: const EdgeInsets.all(AppSpacing.md),
@@ -149,12 +160,26 @@ class _ContentCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      content.title,
-                      style: theme.textTheme.titleSmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22,
-                      ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            content.title,
+                            style: theme.textTheme.titleSmall?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 22,
+                            ),
+                          ),
+                        ),
+                        if (isPremiumRequired) ...[
+                          const SizedBox(width: AppSpacing.xs),
+                          Icon(
+                            Iconsax.crown,
+                            color: AppColors.primary,
+                            size: 16,
+                          ),
+                        ],
+                      ],
                     ),
                     const SizedBox(height: 4),
                     Text(
@@ -162,7 +187,8 @@ class _ContentCard extends StatelessWidget {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: theme.textTheme.bodySmall?.copyWith(
-                        color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                        color:
+                            theme.colorScheme.onSurface.withValues(alpha: 0.6),
                       ),
                     ),
                     const SizedBox(height: AppSpacing.sm),
@@ -171,13 +197,15 @@ class _ContentCard extends StatelessWidget {
                         Icon(
                           Iconsax.clock,
                           size: 14,
-                          color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+                          color:
+                              theme.colorScheme.onSurface.withValues(alpha: 0.5),
                         ),
                         const SizedBox(width: 4),
                         Text(
                           _formatDuration(content.durationSeconds),
                           style: theme.textTheme.bodySmall?.copyWith(
-                            color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+                            color: theme.colorScheme.onSurface
+                                .withValues(alpha: 0.5),
                           ),
                         ),
                         if (practiceCount > 0) ...[
@@ -220,13 +248,70 @@ class _ContentCard extends StatelessWidget {
     );
   }
 
-  void _navigateToPractice(BuildContext context) {
+  /// このコンテンツが有料会員限定かどうか
+  bool _isPremiumRequired() {
+    // 初級の最初の3つは無料
+    if (level == ShadowingLevel.beginner && index < _freeBeginnerContentCount) {
+      return false;
+    }
+    // それ以外はすべて有料
+    return true;
+  }
+
+  void _navigateToPractice(BuildContext context, WidgetRef ref) {
+    // 有料会員限定コンテンツの場合はチェック
+    if (_isPremiumRequired()) {
+      final authState = ref.read(authStateProvider);
+      final isPremium = authState.user?.isPremiumUser ?? false;
+
+      if (!isPremium) {
+        _showPremiumOnlyDialog(context);
+        return;
+      }
+    }
+
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (_) => ShadowingPracticeScreen(
           contentId: content.id,
           level: level,
         ),
+      ),
+    );
+  }
+
+  void _showPremiumOnlyDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Row(
+          children: [
+            Icon(Iconsax.crown, color: AppColors.primary),
+            const SizedBox(width: 12),
+            const Text('有料会員限定'),
+          ],
+        ),
+        content: const Text(
+          'この機能は有料会員限定です。\n\nアップグレードすると、すべての音読・シャドーイングコンテンツをご利用いただけます。',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(dialogContext).pop();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) =>
+                      const PremiumFeatureGateScreen(focusFeature: 'ネイティブ発音'),
+                ),
+              );
+            },
+            child: const Text('プロプランを見る'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(),
+            child: const Text('閉じる'),
+          ),
+        ],
       ),
     );
   }

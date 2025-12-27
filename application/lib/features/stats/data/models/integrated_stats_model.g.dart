@@ -55,6 +55,9 @@ _StatsBreakdown _$StatsBreakdownFromJson(
   hanjaQuiz: json['hanjaQuiz'] == null
       ? const ActivityBreakdown(count: 0, timeSpent: 0, avgAccuracy: 0)
       : ActivityBreakdown.fromJson(json['hanjaQuiz'] as Map<String, dynamic>),
+  shadowing: json['shadowing'] == null
+      ? const ActivityBreakdown(count: 0, timeSpent: 0, avgAccuracy: 0)
+      : ActivityBreakdown.fromJson(json['shadowing'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$StatsBreakdownToJson(_StatsBreakdown instance) =>
@@ -64,6 +67,7 @@ Map<String, dynamic> _$StatsBreakdownToJson(_StatsBreakdown instance) =>
       'quickTranslation': instance.quickTranslation,
       'writing': instance.writing,
       'hanjaQuiz': instance.hanjaQuiz,
+      'shadowing': instance.shadowing,
     };
 
 _ActivityBreakdown _$ActivityBreakdownFromJson(Map<String, dynamic> json) =>
@@ -89,6 +93,7 @@ _DailyActivityTrend _$DailyActivityTrendFromJson(Map<String, dynamic> json) =>
           (json['quickTranslationTime'] as num?)?.toInt() ?? 0,
       writingTime: (json['writingTime'] as num?)?.toInt() ?? 0,
       hanjaQuizTime: (json['hanjaQuizTime'] as num?)?.toInt() ?? 0,
+      shadowingTime: (json['shadowingTime'] as num?)?.toInt() ?? 0,
       wpm: (json['wpm'] as num?)?.toDouble(),
       accuracy: (json['accuracy'] as num?)?.toDouble(),
     );
@@ -101,6 +106,7 @@ Map<String, dynamic> _$DailyActivityTrendToJson(_DailyActivityTrend instance) =>
       'quickTranslationTime': instance.quickTranslationTime,
       'writingTime': instance.writingTime,
       'hanjaQuizTime': instance.hanjaQuizTime,
+      'shadowingTime': instance.shadowingTime,
       'wpm': instance.wpm,
       'accuracy': instance.accuracy,
     };

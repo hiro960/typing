@@ -70,6 +70,20 @@ class ApiClientService {
       }
 
       handler.next(options);
+    } on AuthException catch (e) {
+      // トークン期限切れの場合、リクエストを送らずにエラーを返す
+      AppLogger.error(
+        'AuthException in request interceptor',
+        tag: 'ApiClient',
+        error: 'code: ${e.code}, message: ${e.message}',
+      );
+      handler.reject(
+        DioException(
+          requestOptions: options,
+          error: e,
+          type: DioExceptionType.unknown,
+        ),
+      );
     } catch (e) {
       AppLogger.error('Request interceptor error', tag: 'ApiClient', error: e);
       handler.next(options);

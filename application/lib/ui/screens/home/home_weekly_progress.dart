@@ -273,7 +273,8 @@ class _WeeklyProgressCard extends ConsumerWidget {
             stats.breakdown.rankingGame.count +
             stats.breakdown.quickTranslation.count +
             stats.breakdown.writing.count +
-            stats.breakdown.hanjaQuiz.count
+            stats.breakdown.hanjaQuiz.count +
+            stats.breakdown.shadowing.count
         : 0;
     final accuracy = stats?.avgAccuracy ?? 0.0;
 
@@ -428,7 +429,8 @@ class _WeeklyProgressCard extends ConsumerWidget {
           trend.rankingGameTime > 0 ||
           trend.quickTranslationTime > 0 ||
           trend.writingTime > 0 ||
-          trend.hanjaQuizTime > 0) {
+          trend.hanjaQuizTime > 0 ||
+          trend.shadowingTime > 0) {
         activeDates.add(trend.date);
       }
     }

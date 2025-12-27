@@ -1,9 +1,10 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../stats/domain/providers/integrated_stats_providers.dart';
 import '../../data/models/original_content.dart';
 import '../../data/models/shadowing_models.dart';
 import '../../data/services/shadowing_audio_service.dart';
@@ -11,146 +12,10 @@ import 'original_content_providers.dart';
 
 part 'original_content_session_provider.g.dart';
 
-/// オリジナル文章用の音声再生サービス（ローカルファイル対応）
-class OriginalAudioService {
-  OriginalAudioService() {
-    _player = AudioPlayer();
-    _initListeners();
-  }
-
-  late final AudioPlayer _player;
-  Source? _currentSource;
-  double _playbackRate = 1.0;
-
-  final _positionController = StreamController<Duration>.broadcast();
-  final _durationController = StreamController<Duration>.broadcast();
-  final _playerStateController = StreamController<PlayerState>.broadcast();
-
-  Stream<Duration> get positionStream => _positionController.stream;
-  Stream<Duration> get durationStream => _durationController.stream;
-  Stream<PlayerState> get playerStateStream => _playerStateController.stream;
-
-  PlayerState get currentState => _player.state;
-  Duration get currentPosition => _currentPosition;
-  Duration _currentPosition = Duration.zero;
-
-  Duration get totalDuration => _totalDuration;
-  Duration _totalDuration = Duration.zero;
-
-  void _initListeners() {
-    _player.onPositionChanged.listen((position) {
-      _currentPosition = position;
-      _positionController.add(position);
-    });
-
-    _player.onDurationChanged.listen((duration) {
-      _totalDuration = duration;
-      _durationController.add(duration);
-    });
-
-    _player.onPlayerStateChanged.listen((state) {
-      _playerStateController.add(state);
-    });
-  }
-
-  /// ローカル音声ファイルを読み込む
-  Future<void> loadAudio(String audioPath) async {
-    final file = File(audioPath);
-    if (!await file.exists()) {
-      throw Exception('音声ファイルが見つかりません: $audioPath');
-    }
-    _currentSource = DeviceFileSource(audioPath);
-    await _player.setSource(_currentSource!);
-  }
-
-  Future<void> play() async {
-    if (_currentSource == null) return;
-    if (_player.state == PlayerState.completed) {
-      await _playFromSource(Duration.zero);
-      return;
-    }
-    await _player.resume();
-  }
-
-  Future<void> pause() async {
-    await _player.pause();
-  }
-
-  Future<void> stop() async {
-    await _player.stop();
-  }
-
-  Future<void> seek(Duration position) async {
-    await _player.seek(position);
-  }
-
-  Future<void> setPlaybackSpeed(PlaybackSpeed speed) async {
-    _playbackRate = speed.value;
-    await _player.setPlaybackRate(speed.value);
-  }
-
-  Future<void> playSegment(TextSegment segment) async {
-    final startPosition = Duration(
-      milliseconds: (segment.startTime * 1000).round(),
-    );
-    await _playFrom(startPosition);
-  }
-
-  Future<void> playFrom(Duration position) async {
-    await _playFrom(position);
-  }
-
-  Future<void> _playFrom(Duration position) async {
-    if (_currentSource == null) return;
-
-    if (_player.state == PlayerState.completed) {
-      await _playFromSource(position);
-      return;
-    }
-
-    await seek(position);
-    await play();
-  }
-
-  Future<void> _playFromSource(Duration position) async {
-    if (_currentSource == null) return;
-    await _player.play(_currentSource!, position: position);
-    if (_playbackRate != 1.0) {
-      await _player.setPlaybackRate(_playbackRate);
-    }
-  }
-
-  int getCurrentSegmentIndex(List<TextSegment> segments) {
-    if (segments.isEmpty) return -1;
-
-    final currentSeconds = _currentPosition.inMilliseconds / 1000;
-    for (int i = 0; i < segments.length; i++) {
-      final segment = segments[i];
-      if (currentSeconds >= segment.startTime &&
-          currentSeconds < segment.endTime) {
-        return i;
-      }
-    }
-
-    if (currentSeconds >= segments.last.endTime) {
-      return segments.length - 1;
-    }
-
-    return -1;
-  }
-
-  Future<void> dispose() async {
-    await _player.dispose();
-    await _positionController.close();
-    await _durationController.close();
-    await _playerStateController.close();
-  }
-}
-
 /// オリジナル文章セッションプロバイダー
 @Riverpod(keepAlive: false)
 class OriginalContentSession extends _$OriginalContentSession {
-  OriginalAudioService? _audioService;
+  ShadowingAudioService? _audioService;
   StreamSubscription<Duration>? _positionSubscription;
   StreamSubscription<Duration>? _durationSubscription;
   StreamSubscription<PlayerState>? _playerStateSubscription;
@@ -166,8 +31,11 @@ class OriginalContentSession extends _$OriginalContentSession {
       throw Exception('音声が生成されていません');
     }
 
-    _audioService = OriginalAudioService();
-    await _audioService!.loadAudio(content.audioPath);
+    _audioService = ShadowingAudioService();
+    await _audioService!.loadAudio(
+      content.audioPath,
+      sourceType: AudioSourceType.localFile,
+    );
 
     _setupListeners();
 
@@ -181,6 +49,7 @@ class OriginalContentSession extends _$OriginalContentSession {
 
   void _setupListeners() {
     _positionSubscription = _audioService?.positionStream.listen((position) {
+      if (_audioService?.isDisposed ?? true) return;
       final current = _currentState;
       if (current == null) return;
 
@@ -206,6 +75,7 @@ class OriginalContentSession extends _$OriginalContentSession {
     });
 
     _durationSubscription = _audioService?.durationStream.listen((duration) {
+      if (_audioService?.isDisposed ?? true) return;
       final current = _currentState;
       if (current == null) return;
       if (duration == Duration.zero) return;
@@ -217,6 +87,7 @@ class OriginalContentSession extends _$OriginalContentSession {
 
     _playerStateSubscription =
         _audioService?.playerStateStream.listen((playerState) {
+      if (_audioService?.isDisposed ?? true) return;
       final current = _currentState;
       if (current == null) return;
 
@@ -231,6 +102,7 @@ class OriginalContentSession extends _$OriginalContentSession {
   }
 
   Future<void> _loopRepeatSegment(TextSegment segment) async {
+    if (_audioService?.isDisposed ?? true) return;
     final startPosition = Duration(
       milliseconds: (segment.startTime * 1000).round(),
     );
@@ -324,6 +196,22 @@ class OriginalContentSession extends _$OriginalContentSession {
     ref
         .read(originalContentPracticeProvider.notifier)
         .incrementPracticeCount(current.content.id);
+
+    // アクティビティを記録
+    _recordActivity(current);
+  }
+
+  /// アクティビティを記録（プライベートメソッド）
+  Future<void> _recordActivity(OriginalContentSessionState completedState) async {
+    try {
+      final statsRepo = ref.read(integratedStatsRepositoryProvider);
+      await statsRepo.recordActivity(
+        activityType: 'shadowing',
+        timeSpent: completedState.totalDuration.inMilliseconds,
+      );
+    } catch (e) {
+      debugPrint('Failed to record shadowing activity: $e');
+    }
   }
 
   void _disposeResources() {

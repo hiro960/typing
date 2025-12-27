@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../stats/domain/providers/integrated_stats_providers.dart';
 import '../../data/models/shadowing_models.dart';
 import '../../data/services/shadowing_audio_service.dart';
 import 'shadowing_providers.dart';
@@ -37,6 +39,7 @@ class ShadowingSession extends _$ShadowingSession {
 
   void _setupListeners() {
     _positionSubscription = _audioService?.positionStream.listen((position) {
+      if (_audioService?.isDisposed ?? true) return;
       final current = _currentState;
       if (current == null) return;
 
@@ -62,6 +65,7 @@ class ShadowingSession extends _$ShadowingSession {
     });
 
     _durationSubscription = _audioService?.durationStream.listen((duration) {
+      if (_audioService?.isDisposed ?? true) return;
       final current = _currentState;
       if (current == null) return;
       if (duration == Duration.zero) return;
@@ -72,6 +76,7 @@ class ShadowingSession extends _$ShadowingSession {
     });
 
     _playerStateSubscription = _audioService?.playerStateStream.listen((playerState) {
+      if (_audioService?.isDisposed ?? true) return;
       final current = _currentState;
       if (current == null) return;
 
@@ -87,6 +92,7 @@ class ShadowingSession extends _$ShadowingSession {
 
   /// リピートセグメントをループ再生
   Future<void> _loopRepeatSegment(TextSegment segment) async {
+    if (_audioService?.isDisposed ?? true) return;
     final startPosition = Duration(
       milliseconds: (segment.startTime * 1000).round(),
     );
@@ -232,6 +238,22 @@ class ShadowingSession extends _$ShadowingSession {
 
     // 進捗データを再読み込み
     ref.invalidate(shadowingAllProgressProvider);
+
+    // アクティビティを記録
+    _recordActivity(current);
+  }
+
+  /// アクティビティを記録（プライベートメソッド）
+  Future<void> _recordActivity(ShadowingSessionState completedState) async {
+    try {
+      final statsRepo = ref.read(integratedStatsRepositoryProvider);
+      await statsRepo.recordActivity(
+        activityType: 'shadowing',
+        timeSpent: completedState.totalDuration.inMilliseconds,
+      );
+    } catch (e) {
+      debugPrint('Failed to record shadowing activity: $e');
+    }
   }
 
   ShadowingLevel _getLevelFromContentId(String contentId) {

@@ -1,3 +1,4 @@
+import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
@@ -29,10 +30,21 @@ class _OriginalContentPracticeScreenState
   final Map<int, GlobalKey> _segmentKeys = {};
   int _lastScrolledSegmentIndex = -1;
   bool _showKorean = true;
+  late final ConfettiController _confettiController;
+  int _lastPracticeCount = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _confettiController = ConfettiController(
+      duration: const Duration(seconds: 3),
+    );
+  }
 
   @override
   void dispose() {
     _scrollController.dispose();
+    _confettiController.dispose();
     super.dispose();
   }
 
@@ -77,6 +89,21 @@ class _OriginalContentPracticeScreenState
           WidgetsBinding.instance.addPostFrameCallback((_) {
             _scrollToSegment(nextIndex);
           });
+        }
+      },
+    );
+
+    // マスター達成検出（20回以上でconfetti）
+    ref.listen(
+      originalContentProvider(widget.contentId),
+      (previous, next) {
+        final prevCount = previous?.asData?.value?.practiceCount ?? _lastPracticeCount;
+        final nextCount = next.asData?.value?.practiceCount ?? 0;
+        _lastPracticeCount = nextCount;
+
+        // 練習回数が増えて、20回以上の場合は毎回confetti
+        if (nextCount >= 20 && nextCount > prevCount) {
+          _confettiController.play();
         }
       },
     );
@@ -153,42 +180,62 @@ class _OriginalContentPracticeScreenState
               const SizedBox.shrink(),
         ],
       ),
-      body: sessionAsync.when(
-        data: (state) => _buildContent(context, ref, state, contentAsync),
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, _) => Center(
-          child: Padding(
-            padding: const EdgeInsets.all(AppSpacing.lg),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Iconsax.warning_2,
-                  size: 48,
-                  color: theme.colorScheme.error,
+      body: Stack(
+        children: [
+          sessionAsync.when(
+            data: (state) => _buildContent(context, ref, state, contentAsync),
+            loading: () => const Center(child: CircularProgressIndicator()),
+            error: (error, _) => Center(
+              child: Padding(
+                padding: const EdgeInsets.all(AppSpacing.lg),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Iconsax.warning_2,
+                      size: 48,
+                      color: theme.colorScheme.error,
+                    ),
+                    const SizedBox(height: AppSpacing.md),
+                    Text(
+                      'エラーが発生しました',
+                      style: theme.textTheme.titleMedium,
+                    ),
+                    const SizedBox(height: AppSpacing.sm),
+                    Text(
+                      '$error',
+                      textAlign: TextAlign.center,
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: theme.colorScheme.error,
+                      ),
+                    ),
+                    const SizedBox(height: AppSpacing.lg),
+                    FilledButton(
+                      onPressed: () => Navigator.of(context).pop(),
+                      child: const Text('戻る'),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: AppSpacing.md),
-                Text(
-                  'エラーが発生しました',
-                  style: theme.textTheme.titleMedium,
-                ),
-                const SizedBox(height: AppSpacing.sm),
-                Text(
-                  '$error',
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.error,
-                  ),
-                ),
-                const SizedBox(height: AppSpacing.lg),
-                FilledButton(
-                  onPressed: () => Navigator.of(context).pop(),
-                  child: const Text('戻る'),
-                ),
-              ],
+              ),
             ),
           ),
-        ),
+          // マスター達成時のconfetti
+          Align(
+            alignment: Alignment.topCenter,
+            child: IgnorePointer(
+              child: ConfettiWidget(
+                confettiController: _confettiController,
+                blastDirectionality: BlastDirectionality.explosive,
+                blastDirection: 1.5708, // π/2 ラジアン = 下向き
+                emissionFrequency: 0.04,
+                numberOfParticles: 28,
+                maxBlastForce: 12,
+                minBlastForce: 5,
+                gravity: 0.2,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

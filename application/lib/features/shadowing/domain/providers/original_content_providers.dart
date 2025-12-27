@@ -37,7 +37,7 @@ Future<OriginalContentStats> originalContentStats(Ref ref) async {
 }
 
 /// オリジナル文章の保存（新規作成・更新）Notifier
-@riverpod
+@Riverpod(keepAlive: true)
 class OriginalContentSaver extends _$OriginalContentSaver {
   @override
   FutureOr<void> build() {
@@ -93,7 +93,7 @@ class OriginalContentSaver extends _$OriginalContentSaver {
 }
 
 /// 練習回数更新Notifier
-@riverpod
+@Riverpod(keepAlive: true)
 class OriginalContentPractice extends _$OriginalContentPractice {
   @override
   FutureOr<void> build() {

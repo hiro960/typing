@@ -64,6 +64,7 @@ enum ActivityType {
   quick_translation
   writing
   hanja_quiz
+  shadowing
 }
 
 model User {

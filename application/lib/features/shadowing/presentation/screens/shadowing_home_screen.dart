@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
+import '../../../../features/auth/data/models/user_model.dart';
+import '../../../../features/auth/domain/providers/auth_providers.dart';
 import '../../../../ui/app_spacing.dart';
 import '../../../../ui/app_theme.dart';
+import '../../../../ui/widgets/premium_feature_gate.dart';
 import '../../data/models/shadowing_models.dart';
 import '../../data/repositories/original_content_repository.dart';
 import '../../domain/providers/original_content_providers.dart';
@@ -98,18 +101,19 @@ class ShadowingHomeScreen extends ConsumerWidget {
 }
 
 /// レベルカード
-class _LevelCard extends StatelessWidget {
+class _LevelCard extends ConsumerWidget {
   const _LevelCard({required this.stats});
 
   final ShadowingLevelStats stats;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
     final levelInfo = _getLevelInfo(stats.level);
+    final isPremiumRequired = _isPremiumRequired(stats.level);
 
-        return Card(
+    return Card(
       elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
@@ -119,7 +123,7 @@ class _LevelCard extends StatelessWidget {
         ),
       ),
       child: InkWell(
-        onTap: () => _navigateToList(context),
+        onTap: () => _navigateToList(context, ref),
         borderRadius: BorderRadius.circular(16),
         child: Container(
           padding: const EdgeInsets.all(AppSpacing.lg),
@@ -144,7 +148,8 @@ class _LevelCard extends StatelessWidget {
                     width: 48,
                     height: 48,
                     decoration: BoxDecoration(
-                      color: levelInfo.color.withValues(alpha: isDark ? 0.25 : 0.18),
+                      color:
+                          levelInfo.color.withValues(alpha: isDark ? 0.25 : 0.18),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Center(
@@ -161,17 +166,30 @@ class _LevelCard extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          levelInfo.title,
-                          style: theme.textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: theme.colorScheme.onSurface,
-                          ),
+                        Row(
+                          children: [
+                            Text(
+                              levelInfo.title,
+                              style: theme.textTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: theme.colorScheme.onSurface,
+                              ),
+                            ),
+                            if (isPremiumRequired) ...[
+                              const SizedBox(width: AppSpacing.xs),
+                              Icon(
+                                Iconsax.crown,
+                                color: AppColors.primary,
+                                size: 16,
+                              ),
+                            ],
+                          ],
                         ),
                         Text(
                           levelInfo.subtitle,
                           style: theme.textTheme.bodySmall?.copyWith(
-                            color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                            color: theme.colorScheme.onSurface
+                                .withValues(alpha: 0.6),
                           ),
                         ),
                       ],
@@ -225,10 +243,62 @@ class _LevelCard extends StatelessWidget {
     );
   }
 
-  void _navigateToList(BuildContext context) {
+  bool _isPremiumRequired(ShadowingLevel level) {
+    return level == ShadowingLevel.intermediate ||
+        level == ShadowingLevel.advanced;
+  }
+
+  void _navigateToList(BuildContext context, WidgetRef ref) {
+    // 中級・高級は有料会員限定
+    if (_isPremiumRequired(stats.level)) {
+      final authState = ref.read(authStateProvider);
+      final isPremium = authState.user?.isPremiumUser ?? false;
+
+      if (!isPremium) {
+        _showPremiumOnlyDialog(context);
+        return;
+      }
+    }
+
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (_) => ShadowingListScreen(level: stats.level),
+      ),
+    );
+  }
+
+  void _showPremiumOnlyDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Row(
+          children: [
+            Icon(Iconsax.crown, color: AppColors.primary),
+            const SizedBox(width: 12),
+            const Text('有料会員限定'),
+          ],
+        ),
+        content: const Text(
+          'この機能は有料会員限定です。\n\nアップグレードすると、中級・高級・オリジナル文章の音読・シャドーイングをご利用いただけます。',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(dialogContext).pop();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) =>
+                      const PremiumFeatureGateScreen(focusFeature: 'ネイティブ発音'),
+                ),
+              );
+            },
+            child: const Text('プロプランを見る'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(),
+            child: const Text('閉じる'),
+          ),
+        ],
       ),
     );
   }
@@ -279,16 +349,16 @@ class _LevelInfo {
 }
 
 /// オリジナル文章カード
-class _OriginalContentCard extends StatelessWidget {
+class _OriginalContentCard extends ConsumerWidget {
   const _OriginalContentCard({this.stats});
 
   final OriginalContentStats? stats;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
-    final cardColor = Colors.purple;
+    final cardColor = Colors.amber.shade700;
 
     final totalCount = stats?.totalCount ?? 0;
     final masteredCount = stats?.masteredCount ?? 0;
@@ -303,7 +373,7 @@ class _OriginalContentCard extends StatelessWidget {
         ),
       ),
       child: InkWell(
-        onTap: () => _navigateToList(context),
+        onTap: () => _navigateToList(context, ref),
         borderRadius: BorderRadius.circular(16),
         child: Container(
           padding: const EdgeInsets.all(AppSpacing.lg),
@@ -345,12 +415,22 @@ class _OriginalContentCard extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'オリジナル文章',
-                          style: theme.textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: theme.colorScheme.onSurface,
-                          ),
+                        Row(
+                          children: [
+                            Text(
+                              'オリジナル文章',
+                              style: theme.textTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: theme.colorScheme.onSurface,
+                              ),
+                            ),
+                            const SizedBox(width: AppSpacing.xs),
+                            Icon(
+                              Iconsax.crown,
+                              color: AppColors.primary,
+                              size: 16,
+                            ),
+                          ],
                         ),
                         Text(
                           '自分だけの練習コンテンツ',
@@ -404,15 +484,6 @@ class _OriginalContentCard extends StatelessWidget {
                     ),
                   ],
                 ),
-              ] else ...[
-                const SizedBox(height: AppSpacing.sm),
-                Text(
-                  'タップして自分だけの韓国語文章を追加しましょう',
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: cardColor.withValues(alpha: 0.8),
-                    fontStyle: FontStyle.italic,
-                  ),
-                ),
               ],
             ],
           ),
@@ -421,10 +492,55 @@ class _OriginalContentCard extends StatelessWidget {
     );
   }
 
-  void _navigateToList(BuildContext context) {
+  void _navigateToList(BuildContext context, WidgetRef ref) {
+    // オリジナル文章は有料会員限定
+    final authState = ref.read(authStateProvider);
+    final isPremium = authState.user?.isPremiumUser ?? false;
+
+    if (!isPremium) {
+      _showPremiumOnlyDialog(context);
+      return;
+    }
+
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (_) => const OriginalContentListScreen(),
+      ),
+    );
+  }
+
+  void _showPremiumOnlyDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Row(
+          children: [
+            Icon(Iconsax.crown, color: AppColors.primary),
+            const SizedBox(width: 12),
+            const Text('有料会員限定'),
+          ],
+        ),
+        content: const Text(
+          'この機能は有料会員限定です。\n\nアップグレードすると、中級・高級・オリジナル文章の音読・シャドーイングをご利用いただけます。',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(dialogContext).pop();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) =>
+                      const PremiumFeatureGateScreen(focusFeature: 'ネイティブ発音'),
+                ),
+              );
+            },
+            child: const Text('プロプランを見る'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(),
+            child: const Text('閉じる'),
+          ),
+        ],
       ),
     );
   }

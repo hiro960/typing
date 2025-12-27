@@ -53,7 +53,8 @@ class OriginalContentRepository {
       final dataFile = OriginalContentDataFile.fromJson(
         json.decode(jsonString) as Map<String, dynamic>,
       );
-      return dataFile.contents;
+      // freezedの不変リストを変更可能なリストにコピー
+      return List<OriginalContent>.from(dataFile.contents);
     } catch (e) {
       return [];
     }
@@ -92,12 +93,19 @@ class OriginalContentRepository {
     } else {
       // 新規作成
       final newId = _uuid.v4();
+
+      // 一時IDで作成された音声ファイルを正式なIDにリネーム
+      String? finalAudioPath = audioPath;
+      if (audioPath != null && audioPath.isNotEmpty) {
+        finalAudioPath = await _renameAudioFileIfNeeded(audioPath, newId);
+      }
+
       content = OriginalContent(
         id: newId,
         title: title,
         text: text,
         segments: segments ?? [],
-        audioPath: audioPath ?? '',
+        audioPath: finalAudioPath ?? '',
         durationSeconds: durationSeconds,
         practiceCount: 0,
         createdAt: now,
@@ -108,6 +116,34 @@ class OriginalContentRepository {
 
     await _saveContents(contents);
     return content;
+  }
+
+  /// 一時IDの音声ファイルを正式なIDにリネーム
+  Future<String> _renameAudioFileIfNeeded(String currentPath, String newId) async {
+    final currentFile = File(currentPath);
+    if (!await currentFile.exists()) {
+      // ファイルが存在しない場合はそのまま返す
+      return currentPath;
+    }
+
+    // ファイル名がtemp_で始まる場合のみリネーム
+    final fileName = currentPath.split('/').last;
+    if (!fileName.startsWith('temp_')) {
+      return currentPath;
+    }
+
+    // 新しいパスを生成
+    final newPath = await generateAudioFilePath(newId);
+
+    // ファイルをリネーム（コピー＆削除）
+    try {
+      await currentFile.copy(newPath);
+      await currentFile.delete();
+      return newPath;
+    } catch (e) {
+      // リネームに失敗した場合は元のパスを返す
+      return currentPath;
+    }
   }
 
   /// 練習回数を更新

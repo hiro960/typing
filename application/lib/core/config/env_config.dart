@@ -54,6 +54,10 @@ class EnvConfig {
   static String get googleCloudTtsApiKey =>
       dotenv.env['GOOGLE_CLOUD_TTS_API_KEY'] ?? '';
 
+  /// Google Service Account JSON (for TTS authentication)
+  static String get googleServiceAccountJson =>
+      dotenv.env['GOOGLE_SERVICE_ACCOUNT_JSON'] ?? '';
+
   /// 環境変数の検証
   /// 必要な環境変数が設定されているかチェック
   static void validate() {

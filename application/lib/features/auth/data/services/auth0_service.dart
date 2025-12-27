@@ -190,14 +190,25 @@ class Auth0Service {
         tokenType: credentials.tokenType,
       );
     } on CredentialsManagerException catch (e) {
+      // 詳細なエラーログを出力
       AppLogger.error(
         'Failed to refresh tokens',
         tag: 'Auth0Service',
-        error: e,
+        error: 'code: ${e.code}, message: ${e.message}, details: ${e.details}',
       );
 
-      if (e.code == 'INVALID_REFRESH_TOKEN' ||
-          e.message.contains('expired')) {
+      // リフレッシュトークンが無効または期限切れの場合
+      // Auth0 SDK の実際のエラーコード: invalid_grant, token_failed
+      // エラーメッセージ: "Unknown or invalid refresh token"
+      final isTokenExpired = e.code == 'invalid_grant' ||
+          e.code == 'token_failed' ||
+          e.code == 'INVALID_REFRESH_TOKEN' || // 互換性のため残す
+          e.message.contains('expired') ||
+          e.message.contains('invalid refresh token') ||
+          e.message.contains('Unknown or invalid');
+
+      if (isTokenExpired) {
+        AppLogger.auth('Refresh token is expired or invalid, user needs to re-login');
         throw AuthException.tokenExpired();
       }
 
@@ -250,9 +261,17 @@ class Auth0Service {
       AppLogger.error(
         'CredentialsManagerException in getAccessToken',
         tag: 'Auth0Service',
-        error: 'code: ${e.code}, message: ${e.message}',
+        error: 'code: ${e.code}, message: ${e.message}, details: ${e.details}',
       );
       return null;
+    } on AuthException catch (e) {
+      // refreshTokens() が AuthException をスローした場合
+      AppLogger.error(
+        'AuthException in getAccessToken',
+        tag: 'Auth0Service',
+        error: 'code: ${e.code}, message: ${e.message}',
+      );
+      rethrow; // 呼び出し元で処理させる
     } catch (e, stackTrace) {
       AppLogger.error(
         'Failed to get access token',
@@ -276,7 +295,8 @@ class Auth0Service {
 
       // credentials() を直接呼び出す
       // auth0_flutter は期限切れの場合、自動的にリフレッシュを試みる
-      final credentials = await _getCredentials(minTtlSeconds: 0);
+      // minTtlSeconds: 60 で、期限切れ直前のトークンを避ける
+      final credentials = await _getCredentials(minTtlSeconds: 60);
 
       AppLogger.auth('Retrieved stored credentials (refreshed if needed)');
 
@@ -291,14 +311,15 @@ class Auth0Service {
       // リフレッシュトークンも無効、またはトークンが保存されていない場合
       AppLogger.auth(
         'No valid credentials available',
-        detail: 'code: ${e.code}, message: ${e.message}',
+        detail: 'code: ${e.code}, message: ${e.message}, details: ${e.details}',
       );
       return null;
-    } catch (e) {
+    } catch (e, stackTrace) {
       AppLogger.error(
         'Failed to get stored credentials',
         tag: 'Auth0Service',
         error: e,
+        stackTrace: stackTrace,
       );
       return null;
     }

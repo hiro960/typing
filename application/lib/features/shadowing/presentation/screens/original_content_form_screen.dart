@@ -59,9 +59,9 @@ class _OriginalContentFormScreenState
 
   /// テキストを「.」や「。」で分割してセグメントを作成
   List<String> _splitTextToSegments(String text) {
-    // 「.」と「。」で分割し、空のセグメントを除外
+    // 「.」と「。」の後で分割し、区切り文字を保持する（後読みを使用）
     final segments = text
-        .split(RegExp(r'[.。]'))
+        .split(RegExp(r'(?<=[.。])'))
         .map((s) => s.trim())
         .where((s) => s.isNotEmpty)
         .toList();
@@ -130,8 +130,9 @@ class _OriginalContentFormScreenState
                       )
                     : null,
               ),
-              maxLines: 8,
-              minLines: 4,
+              maxLines: 18,
+              minLines: 14,
+              maxLength: 700,
               validator: (value) {
                 if (value == null || value.trim().isEmpty) {
                   return '韓国語テキストを入力してください';
@@ -163,7 +164,7 @@ class _OriginalContentFormScreenState
                   const SizedBox(width: AppSpacing.sm),
                   Expanded(
                     child: Text(
-                      '「.」や「。」で文が区切られ、セグメントとして登録されます。\n日本語訳はDeepLで自動翻訳されます。',
+                      '「.」で文が区切られ、セグメントとして登録されます。\n日本語訳はDeepLで自動翻訳されます。',
                       style: theme.textTheme.bodySmall?.copyWith(
                         color: Colors.blue.shade700,
                       ),
@@ -239,7 +240,7 @@ class _OriginalContentFormScreenState
                   ),
                   const SizedBox(height: AppSpacing.sm),
                   Text(
-                    '韓国語テキストからネイティブ音声を生成します。\nセグメントごとのタイムスタンプも自動取得されます。',
+                    '韓国語テキストからネイティブ音声を生成します。',
                     style: theme.textTheme.bodySmall?.copyWith(
                       color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                     ),

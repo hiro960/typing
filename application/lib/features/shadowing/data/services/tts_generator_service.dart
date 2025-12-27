@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:googleapis_auth/auth_io.dart';
 import 'package:http/http.dart' as http;
 
 import '../../../../core/config/env_config.dart';
@@ -10,6 +11,9 @@ import '../models/shadowing_models.dart';
 class TtsGeneratorService {
   static const _baseUrl =
       'https://texttospeech.googleapis.com/v1beta1/text:synthesize';
+
+  /// TTS API のスコープ
+  static const _scopes = ['https://www.googleapis.com/auth/cloud-platform'];
 
   /// TTS音声設定
   static const _voiceConfig = {
@@ -25,16 +29,50 @@ class TtsGeneratorService {
     'sampleRateHertz': 44100,
   };
 
+  /// キャッシュされたアクセストークン
+  AccessCredentials? _cachedCredentials;
+
+  /// サービスアカウント認証でアクセストークンを取得
+  Future<String> _getAccessToken() async {
+    // キャッシュされたトークンがまだ有効な場合は再利用
+    if (_cachedCredentials != null) {
+      final expiry = _cachedCredentials!.accessToken.expiry;
+      // 有効期限の5分前までは再利用
+      if (expiry.isAfter(DateTime.now().add(const Duration(minutes: 5)))) {
+        return _cachedCredentials!.accessToken.data;
+      }
+    }
+
+    final serviceAccountJson = EnvConfig.googleServiceAccountJson;
+    if (serviceAccountJson.isEmpty) {
+      throw Exception('Google Service Account JSON が設定されていません');
+    }
+
+    // JSONをパースしてServiceAccountCredentialsを作成
+    final accountCredentials =
+        ServiceAccountCredentials.fromJson(jsonDecode(serviceAccountJson));
+
+    // アクセストークンを取得
+    final httpClient = http.Client();
+    try {
+      _cachedCredentials = await obtainAccessCredentialsViaServiceAccount(
+        accountCredentials,
+        _scopes,
+        httpClient,
+      );
+      return _cachedCredentials!.accessToken.data;
+    } finally {
+      httpClient.close();
+    }
+  }
+
   /// 韓国語テキストから音声を生成してファイルに保存
   /// 戻り値: 音声の長さ（秒）
   Future<int> generateAudio({
     required String text,
     required String outputPath,
   }) async {
-    final apiKey = EnvConfig.googleCloudTtsApiKey;
-    if (apiKey.isEmpty) {
-      throw Exception('Google Cloud TTS API Key が設定されていません');
-    }
+    final accessToken = await _getAccessToken();
 
     // SSMLを生成（自然な読み上げのため）
     final ssml = _generateSSML(text);
@@ -46,8 +84,11 @@ class TtsGeneratorService {
     };
 
     final response = await http.post(
-      Uri.parse('$_baseUrl?key=$apiKey'),
-      headers: {'Content-Type': 'application/json'},
+      Uri.parse(_baseUrl),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer $accessToken',
+      },
       body: jsonEncode(requestBody),
     );
 
@@ -80,10 +121,7 @@ class TtsGeneratorService {
     required List<TextSegment> segments,
     required String outputPath,
   }) async {
-    final apiKey = EnvConfig.googleCloudTtsApiKey;
-    if (apiKey.isEmpty) {
-      throw Exception('Google Cloud TTS API Key が設定されていません');
-    }
+    final accessToken = await _getAccessToken();
 
     // セグメントごとにmarkタグを挿入したSSMLを生成
     final ssml = _generateSSMLWithMarks(segments);
@@ -96,8 +134,11 @@ class TtsGeneratorService {
     };
 
     final response = await http.post(
-      Uri.parse('$_baseUrl?key=$apiKey'),
-      headers: {'Content-Type': 'application/json'},
+      Uri.parse(_baseUrl),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer $accessToken',
+      },
       body: jsonEncode(requestBody),
     );
 

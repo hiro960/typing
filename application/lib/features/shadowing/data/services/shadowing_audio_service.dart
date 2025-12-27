@@ -1,8 +1,17 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:audioplayers/audioplayers.dart';
 
 import '../models/shadowing_models.dart';
+
+/// 音声ソースの種類
+enum AudioSourceType {
+  /// アプリ内アセット
+  asset,
+  /// ローカルファイル
+  localFile,
+}
 
 /// シャドーイング音声再生サービス
 class ShadowingAudioService {
@@ -14,6 +23,7 @@ class ShadowingAudioService {
   late final AudioPlayer _player;
   Source? _currentSource;
   double _playbackRate = 1.0;
+  bool _isDisposed = false;
 
   final _positionController = StreamController<Duration>.broadcast();
   final _durationController = StreamController<Duration>.broadcast();
@@ -39,6 +49,9 @@ class ShadowingAudioService {
   Duration get totalDuration => _totalDuration;
   Duration _totalDuration = Duration.zero;
 
+  /// 破棄済みかどうか
+  bool get isDisposed => _isDisposed;
+
   void _initListeners() {
     _player.onPositionChanged.listen((position) {
       _currentPosition = position;
@@ -56,18 +69,35 @@ class ShadowingAudioService {
   }
 
   /// 音声ファイルを読み込む
-  Future<void> loadAudio(String audioPath) async {
-    // assets/ プレフィックスを除去（audioPath が 'assets/...' 形式の場合）
-    final path = audioPath.startsWith('assets/')
-        ? audioPath.substring(7) // 'assets/' を除去
-        : audioPath;
-    _currentSource = AssetSource(path);
+  /// [audioPath] 音声ファイルのパス
+  /// [sourceType] 音声ソースの種類（デフォルトはアセット）
+  Future<void> loadAudio(
+    String audioPath, {
+    AudioSourceType sourceType = AudioSourceType.asset,
+  }) async {
+    if (_isDisposed) return;
+
+    switch (sourceType) {
+      case AudioSourceType.asset:
+        // assets/ プレフィックスを除去（audioPath が 'assets/...' 形式の場合）
+        final path = audioPath.startsWith('assets/')
+            ? audioPath.substring(7) // 'assets/' を除去
+            : audioPath;
+        _currentSource = AssetSource(path);
+      case AudioSourceType.localFile:
+        final file = File(audioPath);
+        if (!await file.exists()) {
+          throw Exception('音声ファイルが見つかりません: $audioPath');
+        }
+        _currentSource = DeviceFileSource(audioPath);
+    }
+
     await _player.setSource(_currentSource!);
   }
 
   /// 再生
   Future<void> play() async {
-    if (_currentSource == null) return;
+    if (_isDisposed || _currentSource == null) return;
     if (_player.state == PlayerState.completed) {
       await _playFromSource(Duration.zero);
       return;
@@ -77,27 +107,32 @@ class ShadowingAudioService {
 
   /// 一時停止
   Future<void> pause() async {
+    if (_isDisposed) return;
     await _player.pause();
   }
 
   /// 停止
   Future<void> stop() async {
+    if (_isDisposed) return;
     await _player.stop();
   }
 
   /// シーク
   Future<void> seek(Duration position) async {
+    if (_isDisposed) return;
     await _player.seek(position);
   }
 
   /// 再生速度を設定
   Future<void> setPlaybackSpeed(PlaybackSpeed speed) async {
+    if (_isDisposed) return;
     _playbackRate = speed.value;
     await _player.setPlaybackRate(speed.value);
   }
 
   /// 特定のセグメントを再生
   Future<void> playSegment(TextSegment segment) async {
+    if (_isDisposed) return;
     final startPosition = Duration(
       milliseconds: (segment.startTime * 1000).round(),
     );
@@ -106,11 +141,12 @@ class ShadowingAudioService {
 
   /// 指定位置から再生
   Future<void> playFrom(Duration position) async {
+    if (_isDisposed) return;
     await _playFrom(position);
   }
 
   Future<void> _playFrom(Duration position) async {
-    if (_currentSource == null) return;
+    if (_isDisposed || _currentSource == null) return;
 
     // Avoid seek on completed state (can hang on some Android devices).
     if (_player.state == PlayerState.completed) {
@@ -123,7 +159,7 @@ class ShadowingAudioService {
   }
 
   Future<void> _playFromSource(Duration position) async {
-    if (_currentSource == null) return;
+    if (_isDisposed || _currentSource == null) return;
     await _player.play(_currentSource!, position: position);
     if (_playbackRate != 1.0) {
       await _player.setPlaybackRate(_playbackRate);
@@ -152,6 +188,8 @@ class ShadowingAudioService {
 
   /// リソースを解放
   Future<void> dispose() async {
+    _isDisposed = true;
+    await _player.stop();
     await _player.dispose();
     await _positionController.close();
     await _durationController.close();

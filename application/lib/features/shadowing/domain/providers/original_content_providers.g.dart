@@ -253,7 +253,7 @@ final class OriginalContentSaverProvider
         argument: null,
         retry: null,
         name: r'originalContentSaverProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -267,7 +267,7 @@ final class OriginalContentSaverProvider
 }
 
 String _$originalContentSaverHash() =>
-    r'8843b6ba54dee4d1e9ab1a017420b73be0409d4d';
+    r'3f90349d6429991c70711b835fc93486fb4625e2';
 
 /// オリジナル文章の保存（新規作成・更新）Notifier
 
@@ -305,7 +305,7 @@ final class OriginalContentPracticeProvider
         argument: null,
         retry: null,
         name: r'originalContentPracticeProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -319,7 +319,7 @@ final class OriginalContentPracticeProvider
 }
 
 String _$originalContentPracticeHash() =>
-    r'4d348c11b74a3ed7531bfa29390c469de2d24704';
+    r'f8bd15709efba4e36321573e7b7fde884f1bab82';
 
 /// 練習回数更新Notifier
 

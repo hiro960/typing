@@ -2526,6 +2526,7 @@ export async function getIntegratedStats(
         quickTranslation: { count: 0, timeSpent: 0, avgAccuracy: 0 },
         writing: { count: 0, timeSpent: 0, avgAccuracy: 0 },
         hanjaQuiz: { count: 0, timeSpent: 0, avgAccuracy: 0 },
+        shadowing: { count: 0, timeSpent: 0, avgAccuracy: 0 },
       },
       dailyTrend: [],
     };
@@ -2567,6 +2568,7 @@ export async function getIntegratedStats(
   const quickTranslationActivities = activities.filter(a => a.activityType === "quick_translation");
   const writingActivities = activities.filter(a => a.activityType === "writing");
   const hanjaQuizActivities = activities.filter(a => a.activityType === "hanja_quiz");
+  const shadowingActivities = activities.filter(a => a.activityType === "shadowing");
 
   // ヘルパー関数: breakdownの計算
   const calculateBreakdown = (acts: typeof activities) => {
@@ -2586,6 +2588,7 @@ export async function getIntegratedStats(
     quickTranslation: calculateBreakdown(quickTranslationActivities),
     writing: calculateBreakdown(writingActivities),
     hanjaQuiz: calculateBreakdown(hanjaQuizActivities),
+    shadowing: calculateBreakdown(shadowingActivities),
   };
 
   // 日別トレンド
@@ -2596,6 +2599,7 @@ export async function getIntegratedStats(
       quickTranslationTime: number;
       writingTime: number;
       hanjaQuizTime: number;
+      shadowingTime: number;
       wpms: number[];
       accuracies: number[];
     }>
@@ -2608,6 +2612,7 @@ export async function getIntegratedStats(
         quickTranslationTime: 0,
         writingTime: 0,
         hanjaQuizTime: 0,
+        shadowingTime: 0,
         wpms: [],
         accuracies: [],
       };
@@ -2628,6 +2633,9 @@ export async function getIntegratedStats(
       case "hanja_quiz":
         acc[date].hanjaQuizTime += activity.timeSpent;
         break;
+      case "shadowing":
+        acc[date].shadowingTime += activity.timeSpent;
+        break;
     }
     if (activity.wpm !== null) {
       acc[date].wpms.push(activity.wpm);
@@ -2647,6 +2655,7 @@ export async function getIntegratedStats(
       quickTranslationTime: data.quickTranslationTime,
       writingTime: data.writingTime,
       hanjaQuizTime: data.hanjaQuizTime,
+      shadowingTime: data.shadowingTime,
       wpm: data.wpms.length > 0
         ? data.wpms.reduce((sum, w) => sum + w, 0) / data.wpms.length
         : null,

@@ -11,6 +11,7 @@ const VALID_ACTIVITY_TYPES: ActivityType[] = [
   "quick_translation",
   "writing",
   "hanja_quiz",
+  "shadowing",
 ];
 
 /**

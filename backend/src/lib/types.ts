@@ -409,7 +409,8 @@ export type ActivityType =
   | "pronunciation_game"
   | "quick_translation"
   | "writing"
-  | "hanja_quiz";
+  | "hanja_quiz"
+  | "shadowing";
 
 export interface ActivityLogRecord {
   id: string;
@@ -456,6 +457,11 @@ export interface IntegratedStats {
       timeSpent: number;
       avgAccuracy: number;
     };
+    shadowing: {
+      count: number;
+      timeSpent: number;
+      avgAccuracy: number;
+    };
   };
   dailyTrend: Array<{
     date: string;
@@ -464,6 +470,7 @@ export interface IntegratedStats {
     quickTranslationTime: number;
     writingTime: number;
     hanjaQuizTime: number;
+    shadowingTime: number;
     wpm: number | null;
     accuracy: number | null;
   }>;
