@@ -153,6 +153,7 @@ class _ContentCard extends StatelessWidget {
                       content.title,
                       style: theme.textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.bold,
+                        fontSize: 22,
                       ),
                     ),
                     const SizedBox(height: 4),

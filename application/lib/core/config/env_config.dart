@@ -50,6 +50,10 @@ class EnvConfig {
   /// DeepL API Key
   static String get deeplApiKey => dotenv.env['DEEPL_API'] ?? '';
 
+  /// Google Cloud TTS API Key
+  static String get googleCloudTtsApiKey =>
+      dotenv.env['GOOGLE_CLOUD_TTS_API_KEY'] ?? '';
+
   /// 環境変数の検証
   /// 必要な環境変数が設定されているかチェック
   static void validate() {

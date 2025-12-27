@@ -4,28 +4,27 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../../ui/app_spacing.dart';
 import '../../../../ui/app_theme.dart';
+import '../../data/models/original_content.dart';
 import '../../data/models/shadowing_models.dart';
-import '../../domain/providers/shadowing_providers.dart';
-import '../../domain/providers/shadowing_session_provider.dart';
+import '../../domain/providers/original_content_providers.dart';
+import '../../domain/providers/original_content_session_provider.dart';
 
-/// シャドーイング練習画面
-class ShadowingPracticeScreen extends ConsumerStatefulWidget {
-  const ShadowingPracticeScreen({
+/// オリジナル文章練習画面
+class OriginalContentPracticeScreen extends ConsumerStatefulWidget {
+  const OriginalContentPracticeScreen({
     super.key,
     required this.contentId,
-    required this.level,
   });
 
   final String contentId;
-  final ShadowingLevel level;
 
   @override
-  ConsumerState<ShadowingPracticeScreen> createState() =>
-      _ShadowingPracticeScreenState();
+  ConsumerState<OriginalContentPracticeScreen> createState() =>
+      _OriginalContentPracticeScreenState();
 }
 
-class _ShadowingPracticeScreenState
-    extends ConsumerState<ShadowingPracticeScreen> {
+class _OriginalContentPracticeScreenState
+    extends ConsumerState<OriginalContentPracticeScreen> {
   final ScrollController _scrollController = ScrollController();
   final Map<int, GlobalKey> _segmentKeys = {};
   int _lastScrolledSegmentIndex = -1;
@@ -47,10 +46,9 @@ class _ShadowingPracticeScreenState
         final position = renderBox.localToGlobal(Offset.zero);
         final screenHeight = MediaQuery.of(context).size.height;
 
-        // セグメントが画面の中央付近に来るようにスクロール
         final targetOffset = _scrollController.offset +
             position.dy -
-            (screenHeight * 0.3); // 画面の30%位置に表示
+            (screenHeight * 0.3);
 
         _scrollController.animateTo(
           targetOffset.clamp(0, _scrollController.position.maxScrollExtent),
@@ -66,12 +64,12 @@ class _ShadowingPracticeScreenState
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final sessionAsync =
-        ref.watch(shadowingSessionProvider(widget.contentId, widget.level));
-    final progressAsync = ref.watch(shadowingProgressProvider(widget.contentId));
+        ref.watch(originalContentSessionProvider(widget.contentId));
+    final contentAsync = ref.watch(originalContentProvider(widget.contentId));
 
     // 自動スクロール追従
     ref.listen(
-      shadowingSessionProvider(widget.contentId, widget.level),
+      originalContentSessionProvider(widget.contentId),
       (previous, next) {
         final prevIndex = previous?.asData?.value.currentSegmentIndex ?? -1;
         final nextIndex = next.asData?.value.currentSegmentIndex ?? -1;
@@ -94,19 +92,22 @@ class _ShadowingPracticeScreenState
         actions: [
           // リピートモード解除ボタン
           sessionAsync.whenOrNull(
-            data: (state) => state.isRepeatMode
-                ? IconButton(
-                    icon: const Icon(Iconsax.refresh_circle, color: Colors.orange),
-                    onPressed: () {
-                      ref
-                          .read(shadowingSessionProvider(widget.contentId, widget.level)
-                              .notifier)
-                          .clearRepeatMode();
-                    },
-                    tooltip: 'リピートモード解除',
-                  )
-                : const SizedBox.shrink(),
-          ) ?? const SizedBox.shrink(),
+                data: (state) => state.isRepeatMode
+                    ? IconButton(
+                        icon: const Icon(Iconsax.refresh_circle,
+                            color: Colors.orange),
+                        onPressed: () {
+                          ref
+                              .read(originalContentSessionProvider(
+                                      widget.contentId)
+                                  .notifier)
+                              .clearRepeatMode();
+                        },
+                        tooltip: 'リピートモード解除',
+                      )
+                    : const SizedBox.shrink(),
+              ) ??
+              const SizedBox.shrink(),
           TextButton.icon(
             icon: Icon(
               _showKorean ? Iconsax.eye : Iconsax.eye_slash,
@@ -128,34 +129,65 @@ class _ShadowingPracticeScreenState
           ),
           // 日本語訳表示切替
           sessionAsync.whenOrNull(
-            data: (state) => TextButton.icon(
-              icon: Icon(
-                state.showMeaning ? Iconsax.eye : Iconsax.eye_slash,
-                size: 18,
-              ),
-              label: const Text('日'),
-              onPressed: () {
-                ref
-                    .read(shadowingSessionProvider(widget.contentId, widget.level)
-                        .notifier)
-                    .toggleMeaning();
-              },
-              style: TextButton.styleFrom(
-                foregroundColor: theme.colorScheme.onSurface,
-                padding: const EdgeInsets.symmetric(horizontal: 6),
-                minimumSize: Size.zero,
-                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                visualDensity: VisualDensity.compact,
-              ),
-            ),
-          ) ?? const SizedBox.shrink(),
+                data: (state) => TextButton.icon(
+                  icon: Icon(
+                    state.showMeaning ? Iconsax.eye : Iconsax.eye_slash,
+                    size: 18,
+                  ),
+                  label: const Text('日'),
+                  onPressed: () {
+                    ref
+                        .read(originalContentSessionProvider(widget.contentId)
+                            .notifier)
+                        .toggleMeaning();
+                  },
+                  style: TextButton.styleFrom(
+                    foregroundColor: theme.colorScheme.onSurface,
+                    padding: const EdgeInsets.symmetric(horizontal: 6),
+                    minimumSize: Size.zero,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    visualDensity: VisualDensity.compact,
+                  ),
+                ),
+              ) ??
+              const SizedBox.shrink(),
         ],
       ),
       body: sessionAsync.when(
-        data: (state) => _buildContent(context, ref, state, progressAsync),
+        data: (state) => _buildContent(context, ref, state, contentAsync),
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (error, _) => Center(
-          child: Text('エラーが発生しました: $error'),
+          child: Padding(
+            padding: const EdgeInsets.all(AppSpacing.lg),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Iconsax.warning_2,
+                  size: 48,
+                  color: theme.colorScheme.error,
+                ),
+                const SizedBox(height: AppSpacing.md),
+                Text(
+                  'エラーが発生しました',
+                  style: theme.textTheme.titleMedium,
+                ),
+                const SizedBox(height: AppSpacing.sm),
+                Text(
+                  '$error',
+                  textAlign: TextAlign.center,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.error,
+                  ),
+                ),
+                const SizedBox(height: AppSpacing.lg),
+                FilledButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: const Text('戻る'),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -164,11 +196,10 @@ class _ShadowingPracticeScreenState
   Widget _buildContent(
     BuildContext context,
     WidgetRef ref,
-    ShadowingSessionState state,
-    AsyncValue<ShadowingProgress?> progressAsync,
+    OriginalContentSessionState state,
+    AsyncValue<OriginalContent?> contentAsync,
   ) {
-    final progress = progressAsync.asData?.value;
-    final practiceCount = progress?.practiceCount ?? 0;
+    final practiceCount = state.content.practiceCount;
     final remainingToMaster = 20 - practiceCount;
 
     return Column(
@@ -179,8 +210,8 @@ class _ShadowingPracticeScreenState
             segmentIndex: state.repeatSegmentIndex,
             onClear: () {
               ref
-                  .read(shadowingSessionProvider(widget.contentId, widget.level)
-                      .notifier)
+                  .read(
+                      originalContentSessionProvider(widget.contentId).notifier)
                   .clearRepeatMode();
             },
           ),
@@ -203,24 +234,18 @@ class _ShadowingPracticeScreenState
                   segmentKeys: _segmentKeys,
                   onSegmentTap: (index) {
                     ref
-                        .read(shadowingSessionProvider(widget.contentId, widget.level)
+                        .read(originalContentSessionProvider(widget.contentId)
                             .notifier)
                         .playSegment(index);
                   },
                   onSegmentLongPress: (index) {
                     ref
-                        .read(shadowingSessionProvider(widget.contentId, widget.level)
+                        .read(originalContentSessionProvider(widget.contentId)
                             .notifier)
                         .setRepeatSegment(index);
                   },
                 ),
                 const SizedBox(height: AppSpacing.xl),
-
-                // 発音ポイント
-                if (state.content.tip != null) ...[
-                  _TipCard(tip: state.content.tip!),
-                  const SizedBox(height: AppSpacing.lg),
-                ],
 
                 // 練習回数
                 _PracticeCountCard(
@@ -237,17 +262,20 @@ class _ShadowingPracticeScreenState
           state: state,
           onTogglePlayPause: () {
             ref
-                .read(shadowingSessionProvider(widget.contentId, widget.level).notifier)
+                .read(
+                    originalContentSessionProvider(widget.contentId).notifier)
                 .togglePlayPause();
           },
           onSeek: (position) {
             ref
-                .read(shadowingSessionProvider(widget.contentId, widget.level).notifier)
+                .read(
+                    originalContentSessionProvider(widget.contentId).notifier)
                 .seek(position);
           },
           onSpeedChange: (speed) {
             ref
-                .read(shadowingSessionProvider(widget.contentId, widget.level).notifier)
+                .read(
+                    originalContentSessionProvider(widget.contentId).notifier)
                 .setPlaybackSpeed(speed);
           },
         ),
@@ -295,7 +323,6 @@ class _SegmentedText extends StatelessWidget {
         final isActive = index == currentSegmentIndex;
         final isRepeat = index == repeatSegmentIndex;
 
-        // GlobalKeyを取得または作成
         segmentKeys[index] ??= GlobalKey();
         final segmentKey = segmentKeys[index]!;
 
@@ -357,8 +384,8 @@ class _SegmentedText extends StatelessWidget {
                           segment.meaning,
                           style: theme.textTheme.bodySmall?.copyWith(
                             fontSize: 16,
-                            color:
-                                theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                            color: theme.colorScheme.onSurface
+                                .withValues(alpha: 0.6),
                             height: 1.4,
                           ),
                         ),
@@ -444,62 +471,6 @@ class _RepeatModeBanner extends StatelessWidget {
   }
 }
 
-/// 発音ポイントカード
-class _TipCard extends StatelessWidget {
-  const _TipCard({required this.tip});
-
-  final String tip;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
-
-    return Container(
-      padding: const EdgeInsets.all(AppSpacing.md),
-      decoration: BoxDecoration(
-        color: Colors.amber.withValues(alpha: isDark ? 0.15 : 0.1),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: Colors.amber.withValues(alpha: 0.3),
-        ),
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Icon(
-            Iconsax.lamp_charge,
-            color: Colors.amber,
-            size: 20,
-          ),
-          const SizedBox(width: AppSpacing.sm),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  '発音ポイント',
-                  style: theme.textTheme.labelMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.amber.shade700,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  tip,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.onSurface.withValues(alpha: 0.8),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 /// 練習回数カード
 class _PracticeCountCard extends StatelessWidget {
   const _PracticeCountCard({
@@ -543,9 +514,7 @@ class _PracticeCountCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  isMastered
-                      ? 'マスター達成！'
-                      : 'あと$remainingToMaster回でマスター',
+                  isMastered ? 'マスター達成！' : 'あと$remainingToMaster回でマスター',
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: isMastered
                         ? Colors.green
@@ -564,7 +533,8 @@ class _PracticeCountCard extends StatelessWidget {
                 CircularProgressIndicator(
                   value: (practiceCount / 20).clamp(0.0, 1.0),
                   strokeWidth: 4,
-                  backgroundColor: theme.colorScheme.outline.withValues(alpha: 0.2),
+                  backgroundColor:
+                      theme.colorScheme.outline.withValues(alpha: 0.2),
                   valueColor: AlwaysStoppedAnimation(
                     isMastered ? Colors.green : AppColors.primary,
                   ),
@@ -596,7 +566,7 @@ class _PlaybackControls extends StatelessWidget {
     required this.onSpeedChange,
   });
 
-  final ShadowingSessionState state;
+  final OriginalContentSessionState state;
   final VoidCallback onTogglePlayPause;
   final void Function(Duration) onSeek;
   final void Function(PlaybackSpeed) onSpeedChange;
@@ -673,7 +643,8 @@ class _PlaybackControls extends StatelessWidget {
                     speed.label,
                     style: TextStyle(
                       fontSize: 12,
-                      fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                      fontWeight:
+                          isSelected ? FontWeight.bold : FontWeight.normal,
                     ),
                   ),
                   selected: isSelected,
@@ -691,13 +662,7 @@ class _PlaybackControls extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // 前へボタン（将来用）
-              IconButton(
-                icon: const Icon(Iconsax.previous),
-                onPressed: null, // TODO: 実装
-                iconSize: 32,
-              ),
-              const SizedBox(width: AppSpacing.lg),
+              const SizedBox(width: 64), // スペーサー
               // 再生/一時停止
               Container(
                 decoration: BoxDecoration(
@@ -723,13 +688,7 @@ class _PlaybackControls extends StatelessWidget {
                   padding: const EdgeInsets.all(16),
                 ),
               ),
-              const SizedBox(width: AppSpacing.lg),
-              // 次へボタン（将来用）
-              IconButton(
-                icon: const Icon(Iconsax.next),
-                onPressed: null, // TODO: 実装
-                iconSize: 32,
-              ),
+              const SizedBox(width: 64), // スペーサー
             ],
           ),
         ],

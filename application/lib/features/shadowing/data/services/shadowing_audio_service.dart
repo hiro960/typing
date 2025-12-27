@@ -12,6 +12,8 @@ class ShadowingAudioService {
   }
 
   late final AudioPlayer _player;
+  Source? _currentSource;
+  double _playbackRate = 1.0;
 
   final _positionController = StreamController<Duration>.broadcast();
   final _durationController = StreamController<Duration>.broadcast();
@@ -59,11 +61,17 @@ class ShadowingAudioService {
     final path = audioPath.startsWith('assets/')
         ? audioPath.substring(7) // 'assets/' を除去
         : audioPath;
-    await _player.setSource(AssetSource(path));
+    _currentSource = AssetSource(path);
+    await _player.setSource(_currentSource!);
   }
 
   /// 再生
   Future<void> play() async {
+    if (_currentSource == null) return;
+    if (_player.state == PlayerState.completed) {
+      await _playFromSource(Duration.zero);
+      return;
+    }
     await _player.resume();
   }
 
@@ -84,6 +92,7 @@ class ShadowingAudioService {
 
   /// 再生速度を設定
   Future<void> setPlaybackSpeed(PlaybackSpeed speed) async {
+    _playbackRate = speed.value;
     await _player.setPlaybackRate(speed.value);
   }
 
@@ -92,14 +101,33 @@ class ShadowingAudioService {
     final startPosition = Duration(
       milliseconds: (segment.startTime * 1000).round(),
     );
-    await seek(startPosition);
-    await play();
+    await _playFrom(startPosition);
   }
 
   /// 指定位置から再生
   Future<void> playFrom(Duration position) async {
+    await _playFrom(position);
+  }
+
+  Future<void> _playFrom(Duration position) async {
+    if (_currentSource == null) return;
+
+    // Avoid seek on completed state (can hang on some Android devices).
+    if (_player.state == PlayerState.completed) {
+      await _playFromSource(position);
+      return;
+    }
+
     await seek(position);
     await play();
+  }
+
+  Future<void> _playFromSource(Duration position) async {
+    if (_currentSource == null) return;
+    await _player.play(_currentSource!, position: position);
+    if (_playbackRate != 1.0) {
+      await _player.setPlaybackRate(_playbackRate);
+    }
   }
 
   /// 現在位置に対応するセグメントインデックスを取得

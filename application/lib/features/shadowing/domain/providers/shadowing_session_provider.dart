@@ -14,6 +14,7 @@ part 'shadowing_session_provider.g.dart';
 class ShadowingSession extends _$ShadowingSession {
   ShadowingAudioService? _audioService;
   StreamSubscription<Duration>? _positionSubscription;
+  StreamSubscription<Duration>? _durationSubscription;
   StreamSubscription<PlayerState>? _playerStateSubscription;
 
   @override
@@ -58,6 +59,16 @@ class ShadowingSession extends _$ShadowingSession {
         currentPosition: position,
         currentSegmentIndex: segmentIndex,
       ));
+    });
+
+    _durationSubscription = _audioService?.durationStream.listen((duration) {
+      final current = _currentState;
+      if (current == null) return;
+      if (duration == Duration.zero) return;
+
+      if (duration != current.totalDuration) {
+        _setState(current.copyWith(totalDuration: duration));
+      }
     });
 
     _playerStateSubscription = _audioService?.playerStateStream.listen((playerState) {
@@ -235,6 +246,7 @@ class ShadowingSession extends _$ShadowingSession {
 
   void _disposeResources() {
     _positionSubscription?.cancel();
+    _durationSubscription?.cancel();
     _playerStateSubscription?.cancel();
     _audioService?.dispose();
   }
